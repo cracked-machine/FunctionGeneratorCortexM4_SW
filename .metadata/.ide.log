@@ -1,0 +1,1158 @@
+2020-03-12 11:18:58,240 [INFO] Activator:176 - 
+
+
+2020-03-12 11:18:58,243 [INFO] Activator:177 - !SESSION log4j initialized
+2020-03-12 11:19:43,537 [INFO] ApplicationProperties:181 - Using Application install path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639
+2020-03-12 11:19:43,549 [INFO] DbMcusXml:72 - Set database path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//mcu/
+2020-03-12 11:19:43,553 [INFO] DbBoardsPdsc:54 - Set plugin database path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/boardmanager/
+2020-03-12 11:19:43,554 [INFO] DbMcus:235 - Set plugin images path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/
+2020-03-12 11:19:43,554 [INFO] DbBoards:232 - Set plugin images path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/
+2020-03-12 11:19:43,557 [INFO] DbMcusAds:85 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,558 [INFO] DbMcusDocs:108 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,560 [INFO] DbMcusJson:61 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,561 [INFO] DbBoardsDocs:97 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,564 [INFO] DbBoardsJson:51 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,694 [INFO] CrossReferenceDbSqlite:197 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/cs/
+2020-03-12 11:19:43,797 [INFO] RulesReader:52 - Compatibility file has been processed (208 Rules)
+2020-03-12 11:19:43,860 [INFO] MicroXplorer:570 - Detected Java Version = 1.8.0_202
+2020-03-12 11:19:43,860 [INFO] DbMcusXml:72 - Set database path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//mcu/
+2020-03-12 11:19:43,860 [INFO] DbBoardsPdsc:54 - Set plugin database path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/boardmanager/
+2020-03-12 11:19:43,861 [INFO] DbMcus:235 - Set plugin images path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/
+2020-03-12 11:19:43,862 [INFO] DbBoards:232 - Set plugin images path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/
+2020-03-12 11:19:43,862 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,862 [INFO] DbMcusAds:85 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,862 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,862 [INFO] DbMcusDocs:108 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,863 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,863 [INFO] DbMcusJson:61 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,863 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,863 [INFO] DbBoardsDocs:97 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,863 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,863 [INFO] DbBoardsJson:51 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,863 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,864 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,864 [INFO] CrossReferenceDbSqlite:197 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/cs/
+2020-03-12 11:19:43,922 [INFO] MainPanel:181 - HeapMemory: 304087040
+2020-03-12 11:19:43,985 [INFO] DbMcusXml:72 - Set database path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//mcu/
+2020-03-12 11:19:43,985 [INFO] DbBoardsPdsc:54 - Set plugin database path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/boardmanager/
+2020-03-12 11:19:43,986 [INFO] DbMcus:235 - Set plugin images path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/
+2020-03-12 11:19:43,986 [INFO] DbBoards:232 - Set plugin images path to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/
+2020-03-12 11:19:43,986 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,986 [INFO] DbMcusAds:85 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,987 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,987 [INFO] DbMcusDocs:108 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,987 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,987 [INFO] DbMcusJson:61 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,987 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,987 [INFO] DbBoardsDocs:97 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,987 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,988 [INFO] DbBoardsJson:51 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/
+2020-03-12 11:19:43,988 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,988 [WARN] DbFile:36 - Overriding database path with different value: /home/chris/.stmcufinder/plugins/mcufinder/ => /home/chris/.stmcufinder/plugins/mcufinder
+2020-03-12 11:19:43,988 [INFO] CrossReferenceDbSqlite:197 - Set database path to: /home/chris/.stmcufinder/plugins/mcufinder//mcu/cs/
+2020-03-12 11:19:44,004 [INFO] ApplicationProperties:181 - Using Application install path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639
+2020-03-12 11:19:44,005 [INFO] PluginManage:178 - Search for loadable plugins [exclusion list=, tutovideos]
+2020-03-12 11:19:44,006 [INFO] PluginManage:292 - Check plugin analytics
+2020-03-12 11:19:44,010 [INFO] PluginManage:342 - Loaded plugin analytics (category:tool,tabindex:-1)
+2020-03-12 11:19:44,011 [INFO] PluginManage:292 - Check plugin clock
+2020-03-12 11:19:44,019 [INFO] PluginManage:342 - Loaded plugin clock (category:base,tabindex:2)
+2020-03-12 11:19:44,020 [INFO] PluginManage:292 - Check plugin ddr
+2020-03-12 11:19:44,021 [INFO] PluginManage:342 - Loaded plugin ddr (category:tool,tabindex:6)
+2020-03-12 11:19:44,022 [INFO] PluginManage:292 - Check plugin filemanager
+2020-03-12 11:19:44,132 [INFO] PluginManage:342 - Loaded plugin filemanager (category:base,tabindex:10)
+2020-03-12 11:19:44,132 [INFO] PluginManage:292 - Check plugin ipmanager
+2020-03-12 11:19:44,139 [INFO] PluginManage:342 - Loaded plugin ipmanager (category:base,tabindex:5)
+2020-03-12 11:19:44,139 [INFO] PluginManage:292 - Check plugin pinoutandconfiguration
+2020-03-12 11:19:44,148 [INFO] PluginManage:342 - Loaded plugin pinoutandconfiguration (category:base,tabindex:1)
+2020-03-12 11:19:44,148 [INFO] PluginManage:292 - Check plugin pinoutconfig
+2020-03-12 11:19:44,173 [INFO] PluginManage:342 - Loaded plugin pinoutconfig (category:base,tabindex:0)
+2020-03-12 11:19:44,173 [INFO] PluginManage:292 - Check plugin power
+2020-03-12 11:19:44,184 [INFO] PluginManage:342 - Loaded plugin power (category:power,tabindex:4)
+2020-03-12 11:19:44,184 [INFO] PluginManage:292 - Check plugin projectmanager
+2020-03-12 11:19:44,201 [INFO] PluginManage:342 - Loaded plugin projectmanager (category:projectmanager,tabindex:3)
+2020-03-12 11:19:44,201 [INFO] PluginManage:292 - Check plugin thirdparty
+2020-03-12 11:19:44,255 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (/home/chris/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 29 ms. number of Sw pack : 16
+2020-03-12 11:19:44,273 [INFO] PluginManage:342 - Loaded plugin thirdparty (category:base,tabindex:-1)
+2020-03-12 11:19:44,274 [INFO] PluginManage:292 - Check plugin tools
+2020-03-12 11:19:44,275 [INFO] PluginManage:342 - Loaded plugin tools (category:base,tabindex:7)
+2020-03-12 11:19:44,276 [INFO] PluginManage:292 - Check plugin tutovideos
+2020-03-12 11:19:44,276 [INFO] PluginManage:347 - Ignore plugin tutovideos (category:base)
+2020-03-12 11:19:44,276 [INFO] PluginManage:292 - Check plugin updater
+2020-03-12 11:19:44,288 [INFO] PluginManage:342 - Loaded plugin updater (category:base,tabindex:12)
+2020-03-12 11:19:44,288 [INFO] PluginManage:265 - PluginManage : Loaded plugins [12]
+2020-03-12 11:19:44,437 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-12 11:19:44,501 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,501 [INFO] PluginManager:200 - loadIPPluginJar : add ucpd
+2020-03-12 11:19:44,505 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,506 [INFO] PluginManager:200 - loadIPPluginJar : add gfxmmu
+2020-03-12 11:19:44,507 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,508 [INFO] PluginManager:200 - loadIPPluginJar : add tsc
+2020-03-12 11:19:44,510 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,510 [INFO] PluginManager:200 - loadIPPluginJar : add i2c
+2020-03-12 11:19:44,512 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,512 [INFO] PluginManager:200 - loadIPPluginJar : add can
+2020-03-12 11:19:44,514 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,515 [INFO] PluginManager:200 - loadIPPluginJar : add spi
+2020-03-12 11:19:44,517 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,517 [INFO] PluginManager:200 - loadIPPluginJar : add dfsdm
+2020-03-12 11:19:44,518 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,518 [INFO] PluginManager:200 - loadIPPluginJar : add comp
+2020-03-12 11:19:44,524 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,524 [INFO] PluginManager:200 - loadIPPluginJar : add freertos
+2020-03-12 11:19:44,527 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,528 [INFO] PluginManager:200 - loadIPPluginJar : add mdma
+2020-03-12 11:19:44,530 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,531 [INFO] PluginManager:200 - loadIPPluginJar : add sai
+2020-03-12 11:19:44,535 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,536 [INFO] PluginManager:200 - loadIPPluginJar : add dma
+2020-03-12 11:19:44,537 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,537 [INFO] PluginManager:200 - loadIPPluginJar : add quadspi
+2020-03-12 11:19:44,539 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,540 [INFO] PluginManager:200 - loadIPPluginJar : add touchsensing
+2020-03-12 11:19:44,541 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,541 [INFO] PluginManager:200 - loadIPPluginJar : add tracer_emb
+2020-03-12 11:19:44,543 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,544 [INFO] PluginManager:200 - loadIPPluginJar : add usart
+2020-03-12 11:19:44,547 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,548 [INFO] PluginManager:200 - loadIPPluginJar : add stm32_wpan
+2020-03-12 11:19:44,550 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,551 [INFO] PluginManager:200 - loadIPPluginJar : add nvic
+2020-03-12 11:19:44,556 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,556 [INFO] PluginManager:200 - loadIPPluginJar : add gic
+2020-03-12 11:19:44,560 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,560 [INFO] PluginManager:200 - loadIPPluginJar : add gpio
+2020-03-12 11:19:44,561 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,562 [INFO] PluginManager:200 - loadIPPluginJar : add ltdc
+2020-03-12 11:19:44,563 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,563 [INFO] PluginManager:200 - loadIPPluginJar : add fatfs
+2020-03-12 11:19:44,567 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,567 [INFO] PluginManager:200 - loadIPPluginJar : add fmc
+2020-03-12 11:19:44,569 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,569 [INFO] PluginManager:200 - loadIPPluginJar : add hash
+2020-03-12 11:19:44,575 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,579 [INFO] PluginManager:200 - loadIPPluginJar : add plateformsettings
+2020-03-12 11:19:44,582 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,582 [INFO] PluginManager:200 - loadIPPluginJar : add cryp
+2020-03-12 11:19:44,585 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,585 [INFO] PluginManager:200 - loadIPPluginJar : add ipddr
+2020-03-12 11:19:44,588 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,588 [INFO] PluginManager:200 - loadIPPluginJar : add resmgrutility
+2020-03-12 11:19:44,590 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,590 [INFO] PluginManager:200 - loadIPPluginJar : add genericplugin
+2020-03-12 11:19:44,592 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,593 [INFO] PluginManager:200 - loadIPPluginJar : add aes
+2020-03-12 11:19:44,595 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,595 [INFO] PluginManager:200 - loadIPPluginJar : add i2s
+2020-03-12 11:19:44,597 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,597 [INFO] PluginManager:200 - loadIPPluginJar : add ts
+2020-03-12 11:19:44,599 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,599 [INFO] PluginManager:200 - loadIPPluginJar : add opamp
+2020-03-12 11:19:44,603 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,604 [INFO] PluginManager:200 - loadIPPluginJar : add adc
+2020-03-12 11:19:44,605 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,606 [INFO] PluginManager:200 - loadIPPluginJar : add tim
+2020-03-12 11:19:44,608 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,608 [INFO] PluginManager:200 - loadIPPluginJar : add gtzc
+2020-03-12 11:19:44,610 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:19:44,611 [INFO] PluginManager:200 - loadIPPluginJar : add pdm2pcm
+2020-03-12 11:19:44,789 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
+2020-03-12 11:19:44,790 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: null
+2020-03-12 11:19:44,944 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-03-12 11:19:45,077 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-03-12 11:19:45,080 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-12 11:19:45,081 [FATAL] Updater:277 - Updater called before beeing initialized
+2020-03-12 11:19:45,085 [INFO] BoardConnectionPanel:3472 - [DDR PANEL] STM32CubeIDE environment
+2020-03-12 11:19:45,086 [INFO] MainDdrPanel:103 - [DDR PANEL] GETTER - cubeProgrammerPath is: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_1.3.0.202002181050/tools/bin
+2020-03-12 11:19:45,096 [INFO] ProgrammerExecThread:148 - [ProgrammerAPI] CubeProgrammer command construction: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_1.3.0.202002181050/tools/bin/STM32_Programmer_CLI -l
+2020-03-12 11:19:45,196 [INFO] MainDdrPanel:93 - [DDR PANEL] SETTER - Set cubeProgrammerPath to: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.linux64_1.3.0.202002181050/tools/bin
+2020-03-12 11:19:45,202 [INFO] Updater:886 - Updater Version found : 5.6.0
+2020-03-12 11:19:45,218 [INFO] ApplicationProperties:181 - Using Application install path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639
+2020-03-12 11:19:45,382 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-12 11:19:45,383 [INFO] MainUpdater:236 - Updater Check For Update Now.
+2020-03-12 11:19:45,383 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-12 11:19:45,421 [INFO] CheckServerUpdateThread:92 - End of CheckServer Thread
+2020-03-12 11:19:45,586 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-12 11:19:45,587 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Successfull proxy connection.
+2020-03-12 11:19:45,715 [INFO] McuFinderGlobals:40 - Set McuFinder mode to 2 (CubeIDE integrated)
+2020-03-12 11:19:45,727 [INFO] FinderPluginLoader:86 - Searching for filters in installed packs
+2020-03-12 11:19:45,735 [INFO] DbMcusXml:110 - Load MCU database from /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//mcu/families.xml
+2020-03-12 11:19:46,604 [INFO] DbMcusJson:90 - JSON generation date=Wed Feb 26 08:53:47 GMT 2020 (1582707227)
+2020-03-12 11:19:47,281 [ERROR] Engine:1314 - Problem during Copy of File ARM.CMSIS.5.6.0_Modes.xml
+2020-03-12 11:19:47,281 [ERROR] Engine:162 - cannot copy files for sw pack name : ARM.CMSIS.5.6.0
+2020-03-12 11:19:47,282 [ERROR] Engine:1314 - Problem during Copy of File ARM.CMSIS.5.6.0_Configs.xml
+2020-03-12 11:19:47,282 [ERROR] Engine:170 - cannot copy files for sw pack name : ARM.CMSIS.5.6.0
+2020-03-12 11:19:47,286 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (/home/chris/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
+2020-03-12 11:19:47,427 [ERROR] ThirdParty:759 - Integrity check failed: pack='[ARM.CMSIS.5.6.0]' / reason: 
+2020-03-12 11:19:47,451 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (/home/chris/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 13 ms. number of Sw pack : 16
+2020-03-12 11:19:47,605 [INFO] DbMcus:171 - Found 1670 MCUs (1625 are supported by CubeMX, 1625 are visible in CubeMX)
+2020-03-12 11:19:47,605 [INFO] ApiDb:158 - Load user favorites file /home/chris/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-03-12 11:19:47,606 [INFO] ApiDb:163 - User favorites MCUs=[]
+2020-03-12 11:19:47,606 [INFO] DbMcus:183 - Set 0 / 0 favorites MCUs
+2020-03-12 11:19:47,737 [INFO] ThirdPartyDb:261 - Close Third Party DataBase File (/home/chris/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml)
+2020-03-12 11:19:47,756 [INFO] IntegrityCheckThread:98 - End integrity checks thread
+2020-03-12 11:19:48,527 [INFO] DbMcusAds:143 - JSON generation date=Wed Feb 26 09:53:47 GMT 2020 (1582710827)
+2020-03-12 11:19:48,530 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-03-12 11:19:48,565 [INFO] McuDetailPanel:181 - Set advertising image to /home/chris/STM32Cube/Repository//ST13661_PRSTM32MP10219-01.jpg
+2020-03-12 11:19:49,356 [INFO] ServerAccessManage:348 - Download File mcusAds.json._tmp_
+2020-03-12 11:19:49,364 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-03-12 11:19:49,699 [INFO] ServerAccessManage:348 - Download File mcusDocs.json._tmp_
+2020-03-12 11:19:49,736 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-03-12 11:19:50,045 [INFO] ServerAccessManage:348 - Download File mcusFeaturesAndDescription.json._tmp_
+2020-03-12 11:19:50,941 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-03-12 11:19:51,018 [INFO] ServerAccessManage:348 - Download File boardsDocs.json._tmp_
+2020-03-12 11:19:51,059 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-03-12 11:19:51,145 [INFO] ServerAccessManage:348 - Download File boards.json._tmp_
+2020-03-12 11:19:51,202 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-03-12 11:19:51,305 [INFO] ServerAccessManage:348 - Download File crdb.zip
+2020-03-12 11:19:51,413 [INFO] FileExtend:225 - Unzip File : crdb.zip
+2020-03-12 11:19:51,418 [INFO] FileExtend:240 - Standard Zip Deflate
+2020-03-12 11:19:51,457 [INFO] LoadUrlFilesThread:134 - End of LoadUrlFiles Thread
+2020-03-12 11:19:51,458 [INFO] DbMcusAds:143 - JSON generation date=Wed Feb 26 09:53:47 GMT 2020 (1582710827)
+2020-03-12 11:19:51,463 [INFO] DbMcusDocs:142 - JSON generation date=Wed Feb 26 08:53:47 GMT 2020 (1582707227)
+2020-03-12 11:19:51,644 [INFO] DbMcusDocs:77 - Found 571 MCUs documents
+2020-03-12 11:19:51,645 [INFO] ApiDb:186 - Save user favorites file /home/chris/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-03-12 11:19:51,646 [INFO] ApiDb:191 - User favorites MCUs=[]
+2020-03-12 11:19:51,646 [INFO] DbMcusXml:110 - Load MCU database from /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//mcu/families.xml
+2020-03-12 11:19:52,070 [INFO] DbMcusJson:90 - JSON generation date=Wed Feb 26 08:53:47 GMT 2020 (1582707227)
+2020-03-12 11:19:52,708 [INFO] DbMcus:171 - Found 1670 MCUs (1625 are supported by CubeMX, 1625 are visible in CubeMX)
+2020-03-12 11:19:52,708 [INFO] ApiDb:158 - Load user favorites file /home/chris/.stm32cubeide/favorites.mcus.txt: 0 item(s)
+2020-03-12 11:19:52,708 [INFO] ApiDb:163 - User favorites MCUs=[]
+2020-03-12 11:19:52,708 [INFO] DbMcus:183 - Set 0 / 0 favorites MCUs
+2020-03-12 11:19:52,790 [INFO] McuFilterPanel:249 - Update 0 favorites MCUs
+2020-03-12 11:19:53,065 [INFO] DbBoardsDocs:131 - JSON generation date=Wed Feb 26 08:53:47 GMT 2020 (1582707227)
+2020-03-12 11:19:53,076 [INFO] DbBoardsPdsc:92 - Found 1 items
+2020-03-12 11:19:53,078 [INFO] DbBoardsPdsc:92 - Found 2 items
+2020-03-12 11:19:53,082 [INFO] DbBoardsPdsc:92 - Found 9 items
+2020-03-12 11:19:53,085 [INFO] DbBoardsPdsc:92 - Found 4 items
+2020-03-12 11:19:53,089 [INFO] DbBoardsPdsc:92 - Found 22 items
+2020-03-12 11:19:53,094 [INFO] DbBoardsPdsc:92 - Found 40 items
+2020-03-12 11:19:53,098 [INFO] DbBoardsPdsc:92 - Found 28 items
+2020-03-12 11:19:53,108 [INFO] DbBoardsPdsc:92 - Found 39 items
+2020-03-12 11:19:53,113 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
+2020-03-12 11:19:53,113 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
+2020-03-12 11:19:53,116 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
+2020-03-12 11:19:53,116 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
+2020-03-12 11:19:53,117 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
+2020-03-12 11:19:53,117 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
+2020-03-12 11:19:53,147 [INFO] DbBoardsJson:80 - JSON generation date=Tue Feb 11 13:53:55 GMT 2020 (1581429235)
+2020-03-12 11:19:53,155 [INFO] DbBoards:120 - Found 145 boards (142 are supported by CubeMX)
+2020-03-12 11:19:53,160 [INFO] DbBoardsDocs:131 - JSON generation date=Wed Feb 26 08:53:47 GMT 2020 (1582707227)
+2020-03-12 11:19:53,178 [INFO] DbBoardsDocs:70 - Found 173 boards documents
+2020-03-12 11:19:53,178 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
+2020-03-12 11:19:53,179 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
+2020-03-12 11:19:53,180 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
+2020-03-12 11:19:53,180 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
+2020-03-12 11:19:53,180 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
+2020-03-12 11:19:53,180 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
+2020-03-12 11:19:53,181 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
+2020-03-12 11:19:53,181 [WARN] DbBoards:130 - board NUCLEO-L4P5ZG has no document id list !
+2020-03-12 11:19:53,181 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
+2020-03-12 11:19:53,182 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
+2020-03-12 11:19:53,186 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
+2020-03-12 11:19:53,190 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
+2020-03-12 11:19:53,191 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
+2020-03-12 11:19:53,191 [WARN] DbBoards:130 - board STM32L4P5G-DK has no document id list !
+2020-03-12 11:19:53,192 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
+2020-03-12 11:19:53,192 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
+2020-03-12 11:19:53,192 [WARN] DbBoards:130 - board NUCLEO-WB35CE has no document id list !
+2020-03-12 11:19:53,192 [WARN] DbBoards:130 - board STM32100E-EVAL has no document id list !
+2020-03-12 11:19:53,192 [WARN] DbBoards:130 - board STM32303C-EVAL has no document id list !
+2020-03-12 11:19:53,192 [WARN] DbBoards:130 - board STM32L152D-EVAL has no document id list !
+2020-03-12 11:19:53,193 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
+2020-03-12 11:19:53,193 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
+2020-03-12 11:19:53,193 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
+2020-03-12 11:19:54,060 [ERROR] DbBoards:192 - Image file not found for board STM32H7B3I-DK: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/boards/stm32h7b3i-dk_small.jpg
+2020-03-12 11:19:54,581 [ERROR] DbBoards:192 - Image file not found for board STM32H747I-EVAL: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/boards/stm32h747ieval_small.jpg
+2020-03-12 11:19:54,581 [ERROR] DbBoards:192 - Image file not found for board STM32H757I-EVAL: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/boards/stm32h747ieval_small.jpg
+2020-03-12 11:19:54,651 [INFO] ApiDb:158 - Load user favorites file /home/chris/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2020-03-12 11:19:54,651 [INFO] ApiDb:163 - User favorites Boards=[]
+2020-03-12 11:19:54,651 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
+2020-03-12 11:19:54,659 [INFO] DbBoardsDocs:70 - Found 346 boards documents
+2020-03-12 11:19:54,660 [INFO] ApiDb:186 - Save user favorites file /home/chris/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2020-03-12 11:19:54,660 [INFO] ApiDb:191 - User favorites Boards=[]
+2020-03-12 11:19:54,662 [INFO] DbBoardsPdsc:92 - Found 1 items
+2020-03-12 11:19:54,664 [INFO] DbBoardsPdsc:92 - Found 2 items
+2020-03-12 11:19:54,666 [INFO] DbBoardsPdsc:92 - Found 9 items
+2020-03-12 11:19:54,668 [INFO] DbBoardsPdsc:92 - Found 4 items
+2020-03-12 11:19:54,670 [INFO] DbBoardsPdsc:92 - Found 22 items
+2020-03-12 11:19:54,675 [INFO] DbBoardsPdsc:92 - Found 40 items
+2020-03-12 11:19:54,678 [INFO] DbBoardsPdsc:92 - Found 28 items
+2020-03-12 11:19:54,684 [INFO] DbBoardsPdsc:92 - Found 39 items
+2020-03-12 11:19:54,687 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=Audio, name=, username=Audio stereo codec with Headphone Amp (CS42L51-CNZ), n=1
+2020-03-12 11:19:54,688 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-DK: unknown feature type=WIFI, name=, username=WIFI 802.11 b/g/n, n=1
+2020-03-12 11:19:54,692 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Audio, name=, username=Multi-Channel Audio Codec (CS42L51-CNZ), n=1
+2020-03-12 11:19:54,693 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Meter, name=, username=Power-metering and Temperature-monitoring with sigma-delta modulators, n=1
+2020-03-12 11:19:54,693 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=WIFI, name=, username=WIFI 802.11 a/b/g/n, n=1
+2020-03-12 11:19:54,693 [WARN] DbBoardsPdsc:256 - Board STM32H7B3I-EVAL: unknown feature type=Motor, name=, username=Motor Control, n=1
+2020-03-12 11:19:54,721 [INFO] DbBoardsJson:80 - JSON generation date=Tue Feb 11 13:53:55 GMT 2020 (1581429235)
+2020-03-12 11:19:54,728 [INFO] DbBoards:120 - Found 145 boards (142 are supported by CubeMX)
+2020-03-12 11:19:54,728 [WARN] DbBoards:130 - board STEVAL-BFA001V1B has no document id list !
+2020-03-12 11:19:54,728 [WARN] DbBoards:130 - board STEVAL-BFA001V2B has no document id list !
+2020-03-12 11:19:54,729 [WARN] DbBoards:130 - board STEVAL-MKSBOX1V1 has no document id list !
+2020-03-12 11:19:54,729 [WARN] DbBoards:130 - board STEVAL-STWINKT1 has no document id list !
+2020-03-12 11:19:54,729 [WARN] DbBoards:130 - board STEVAL-IDP005V1 has no document id list !
+2020-03-12 11:19:54,729 [WARN] DbBoards:130 - board STEVAL-IDP005V2 has no document id list !
+2020-03-12 11:19:54,730 [WARN] DbBoards:130 - board NUCLEO-H743ZI2 has no document id list !
+2020-03-12 11:19:54,730 [WARN] DbBoards:130 - board NUCLEO-L4P5ZG has no document id list !
+2020-03-12 11:19:54,731 [WARN] DbBoards:130 - board STM32F401C-DISCO has no document id list !
+2020-03-12 11:19:54,731 [WARN] DbBoards:130 - board STM32F769I-DISC1 has no document id list !
+2020-03-12 11:19:54,731 [WARN] DbBoards:130 - board STM32L-DISCOVERY has no document id list !
+2020-03-12 11:19:54,732 [WARN] DbBoards:130 - board STM32H747I-DISC1 has no document id list !
+2020-03-12 11:19:54,733 [WARN] DbBoards:130 - board STM32MP157A-DK1 has no document id list !
+2020-03-12 11:19:54,733 [WARN] DbBoards:130 - board STM32L4P5G-DK has no document id list !
+2020-03-12 11:19:54,734 [WARN] DbBoards:130 - board P-NUCLEO-WB55-Nucleo has no document id list !
+2020-03-12 11:19:54,734 [WARN] DbBoards:130 - board P-NUCLEO-WB55-USBDongle has no document id list !
+2020-03-12 11:19:54,734 [WARN] DbBoards:130 - board NUCLEO-WB35CE has no document id list !
+2020-03-12 11:19:54,734 [WARN] DbBoards:130 - board STM32100E-EVAL has no document id list !
+2020-03-12 11:19:54,734 [WARN] DbBoards:130 - board STM32303C-EVAL has no document id list !
+2020-03-12 11:19:54,734 [WARN] DbBoards:130 - board STM32L152D-EVAL has no document id list !
+2020-03-12 11:19:54,735 [WARN] DbBoards:130 - board STM32H743I-EVAL2 has no document id list !
+2020-03-12 11:19:54,735 [WARN] DbBoards:130 - board STM32H753I-EVAL2 has no document id list !
+2020-03-12 11:19:54,735 [WARN] DbBoards:130 - board STM32G474E-EVAL1 has no document id list !
+2020-03-12 11:19:55,111 [ERROR] DbBoards:192 - Image file not found for board STM32H7B3I-DK: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/boards/stm32h7b3i-dk_small.jpg
+2020-03-12 11:19:55,477 [ERROR] DbBoards:192 - Image file not found for board STM32H747I-EVAL: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/boards/stm32h747ieval_small.jpg
+2020-03-12 11:19:55,477 [ERROR] DbBoards:192 - Image file not found for board STM32H757I-EVAL: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db//plugins/mcufinder/images/boards/stm32h747ieval_small.jpg
+2020-03-12 11:19:55,518 [INFO] ApiDb:158 - Load user favorites file /home/chris/.stm32cubeide/favorites.boards.txt: 0 item(s)
+2020-03-12 11:19:55,518 [INFO] ApiDb:163 - User favorites Boards=[]
+2020-03-12 11:19:55,518 [INFO] DbBoards:209 - Set 0 / 0 favorites Boards
+2020-03-12 11:19:55,724 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-03-12 11:19:55,726 [INFO] MultiScanPanel:739 - Refresh data is succesful
+2020-03-12 11:19:55,727 [INFO] McuFilterPanel:249 - Update 0 favorites MCUs
+2020-03-12 11:19:55,916 [INFO] LoadUrlFilesThread:161 - End of LoadServerUrlFiles without Thread
+2020-03-12 11:19:55,917 [INFO] BoardDetailPanel:180 - Set advertising image to /home/chris/STM32Cube/Repository//ST13661_PRSTM32MP10219-01.jpg
+2020-03-12 11:19:55,942 [INFO] BoardFilterPanel:211 - Update 0 favorites Boards
+2020-03-12 11:19:56,009 [INFO] CrossSelectorPresenter:1319 - Cross Selector saved comparison directory: /home/chris/.stmcufinder/plugins/mcufinder/mcu/cs_comparisons_mx
+2020-03-12 11:20:33,953 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] withoutVersionV1.2.0
+2020-03-12 11:20:41,111 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] File copied successfully!!
+2020-03-12 11:20:44,100 [INFO] MainUpdater:2230 - connection check result : 10
+2020-03-12 11:20:44,159 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-12 11:20:44,159 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-12 11:20:44,160 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-12 11:20:44,161 [INFO] UtilMem:74 - Begin LoadConfig() Used Memory: 443663488 Bytes (876609536)
+2020-03-12 11:20:44,161 [INFO] MicroXplorer:390 - Change Database Path : 
+2020-03-12 11:20:44,162 [INFO] MicroXplorer:420 - Change Database Version : DB.5.0.60
+2020-03-12 11:20:44,162 [INFO] OpenFileManager:274 - Change cursor
+2020-03-12 11:20:51,821 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) Unable to find key (Mcu.ThirdPartyNb) in loaded IOC file
+2020-03-12 11:20:51,821 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) Unable to find key (Mcu.PinsNb) in loaded IOC file
+2020-03-12 11:20:51,821 [INFO] ImportTextPane:162 - (OptionalMessage_ERROR) Unable to find key (Mcu.IPNb) in loaded IOC file
+2020-03-12 11:20:52,282 [INFO] UtilMem:74 - End LoadConfig() Used Memory: 519850104 Bytes (876609536)
+2020-03-12 11:20:52,301 [INFO] ThirdPartyDb:295 - Open Third Party DataBase File (/home/chris/.stm32cubemx/plugins/thirdparty/db/thirdparties_db.xml) : 6 ms. number of Sw pack : 16
+2020-03-12 11:20:52,317 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1580776214022]
+2020-03-12 11:20:52,318 [INFO] ThirdPartyModel:521 - Component with status : MCU_INCOMPATIBLE for condition : OS Tick GTIM id : 1580776213349
+2020-03-12 11:20:52,321 [INFO] DependencyParser:785 - This component is not compatible with the current MCU : [1580776216598, 1580776214105]
+2020-03-12 11:20:52,438 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 5.0.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.1.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.1.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-SUBG2 1.0.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :ARM CMSIS 5.6.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-GNSS1 4.0.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.1
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics FreeRTOS 0.0.1
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-ALGOBUILD 1.0.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE1 4.4.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.0.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-TOUCHGFX 4.13.0
+2020-03-12 11:20:52,439 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-NFC4 1.5.2
+2020-03-12 11:20:52,440 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-MEMS1 7.1.0
+2020-03-12 11:20:52,440 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-AI 5.0.0
+2020-03-12 11:20:52,440 [INFO] ThirdParty:899 - CMSIS Pack Vendor :STMicroelectronics X-CUBE-BLE2 1.0.0
+2020-03-12 11:20:52,869 [INFO] PinOutPanel:1420 - setPackage(No Configuration,No Configuration)
+2020-03-12 11:20:52,872 [INFO] PinOutPanel:1420 - setPackage(STM32G474RETx,LQFP64)
+2020-03-12 11:20:53,250 [INFO] UtilMem:74 - Before build in PCC Used Memory: 734548800 Bytes (876609536)
+2020-03-12 11:20:53,826 [INFO] SharedServices:71 - Folder for power plug-in: /home/chris/.stm32cubemx/plugins/power
+2020-03-12 11:20:53,898 [INFO] SharedServices:71 - Folder for power plug-in: /home/chris/.stm32cubemx/plugins/power
+2020-03-12 11:20:53,993 [INFO] SharedServices:71 - Folder for power plug-in: /home/chris/.stm32cubemx/plugins/power
+2020-03-12 11:20:54,003 [INFO] SharedServices:71 - Folder for power plug-in: /home/chris/.stm32cubemx/plugins/power
+2020-03-12 11:20:54,185 [INFO] UtilMem:74 - After build in PCC Used Memory: 469971776 Bytes (876609536)
+2020-03-12 11:20:54,215 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,215 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,215 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,216 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,216 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,216 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,216 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,216 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,216 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,216 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,217 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,217 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,217 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,217 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,217 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,218 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,218 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,218 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,218 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,218 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,218 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,219 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,219 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,219 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,220 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,220 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,220 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,220 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,220 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,221 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,221 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,221 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,221 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,221 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,222 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,222 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,222 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,223 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,223 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,223 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,223 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,223 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,223 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,224 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,224 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,224 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,224 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,224 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,224 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,225 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,225 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,225 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,225 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,225 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,225 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,225 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,226 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,226 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,226 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,226 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,226 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,226 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,227 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,227 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,227 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,227 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,227 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,227 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,228 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,228 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,228 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,228 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,228 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,228 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,228 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,229 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,229 [INFO] IPUIPlugin:65 - create IPUIPlugin
+2020-03-12 11:20:54,260 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
+2020-03-12 11:20:54,336 [INFO] OpenFileManager:294 - Restore cursor
+2020-03-12 11:20:54,638 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 526594880 Bytes (876609536)
+2020-03-12 11:20:54,710 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 536032064 Bytes (876609536)
+2020-03-12 11:20:55,139 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 11:20:55,139 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 11:20:55,140 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 11:20:55,452 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 11:20:55,744 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 11:20:55,826 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 11:20:55,827 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 11:20:55,831 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 11:20:56,001 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 11:20:56,005 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 11:20:56,103 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 11:20:56,110 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 11:20:56,271 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 11:20:56,274 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 11:20:56,356 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 11:20:56,359 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 11:20:56,545 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 11:20:56,604 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 11:20:56,730 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 11:20:56,733 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 11:20:56,843 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 11:20:57,457 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 16mS.
+2020-03-12 11:20:57,460 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 11:20:57,882 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 11:21:09,625 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 12165mS.
+2020-03-12 11:21:09,627 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-03-12 11:21:09,628 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 11:21:43,076 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://download.eclipse.org:443: The target server failed to respond
+2020-03-12 11:21:43,078 [INFO] RetryExec:113 - Retrying request to {s}->https://download.eclipse.org:443
+2020-03-12 11:22:02,658 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 637124552 Bytes (878706688)
+2020-03-12 11:22:04,383 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 651282368 Bytes (878706688)
+2020-03-12 11:22:04,571 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 668059584 Bytes (878706688)
+2020-03-12 11:22:04,770 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 11:22:04,770 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 11:22:04,770 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 11:22:04,771 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 11:22:04,995 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 11:22:05,065 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 11:22:05,076 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/gpio.tmp_save
+2020-03-12 11:22:05,151 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/gpio.tmp
+2020-03-12 11:22:05,159 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 11:22:05,160 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 11:22:05,163 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 11:22:05,270 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 11:22:05,273 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 11:22:05,343 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 11:22:05,348 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 11:22:05,454 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 11:22:05,457 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 11:22:05,525 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 11:22:05,528 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 11:22:05,602 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 11:22:05,615 [WARN] IPConfigManager:2701 - IP not found : gpio
+2020-03-12 11:22:05,616 [WARN] CodeGenerator:2649 - IP not found : gpio
+2020-03-12 11:22:05,618 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 11:22:05,690 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 11:22:05,693 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 11:22:05,796 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 11:22:06,270 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 17mS.
+2020-03-12 11:22:06,271 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 11:22:06,762 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 11:22:08,327 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2056mS.
+2020-03-12 11:22:08,327 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 11:22:08,328 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 11:24:34,342 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 534307784 Bytes (919601152)
+2020-03-12 11:24:37,605 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 549517224 Bytes (919601152)
+2020-03-12 11:24:37,782 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 606659528 Bytes (919601152)
+2020-03-12 11:24:37,971 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 11:24:37,971 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 11:24:37,971 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 11:24:37,971 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 11:24:38,159 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 11:24:38,225 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 11:24:38,233 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 11:24:38,301 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 11:24:38,391 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 11:24:38,465 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 11:24:38,471 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 11:24:38,472 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 11:24:38,475 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 11:24:38,556 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 11:24:38,558 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 11:24:38,642 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 11:24:38,647 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 11:24:38,742 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 11:24:38,744 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 11:24:38,806 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 11:24:38,808 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 11:24:38,874 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 11:24:38,888 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 11:24:38,954 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 11:24:38,956 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 11:24:39,041 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 11:24:39,480 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 15mS.
+2020-03-12 11:24:39,481 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 11:24:40,002 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 11:24:41,526 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2045mS.
+2020-03-12 11:24:41,527 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-03-12 11:24:41,527 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 13:44:47,277 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,510x419,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-03-12 13:45:35,136 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 533457360 Bytes (919601152)
+2020-03-12 13:45:35,267 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 543420872 Bytes (919601152)
+2020-03-12 13:45:35,375 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 552331728 Bytes (919601152)
+2020-03-12 13:45:35,567 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 13:45:35,567 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 13:45:35,567 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 13:45:35,567 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 13:45:35,567 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 13:45:35,723 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 13:45:35,782 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 13:45:35,805 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 13:45:35,868 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 13:45:35,870 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 13:45:35,931 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 13:45:35,961 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 13:45:35,962 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 13:45:35,962 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 13:45:35,967 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 13:45:36,079 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 13:45:36,082 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 13:45:36,163 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 13:45:36,164 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 13:45:36,169 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 13:45:36,175 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 13:45:36,253 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 13:45:36,255 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 13:45:36,322 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 13:45:36,326 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 13:45:36,495 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 13:45:36,497 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 13:45:36,556 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 13:45:36,559 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 13:45:36,624 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 13:45:36,637 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 13:45:36,703 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 13:45:36,706 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 13:45:36,789 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 13:45:37,488 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 17mS.
+2020-03-12 13:45:37,489 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 13:45:37,779 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 13:45:39,284 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1795mS.
+2020-03-12 13:45:39,284 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 13:45:39,285 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 13:47:27,853 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 322540568 Bytes (919601152)
+2020-03-12 13:47:27,972 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 333026328 Bytes (919601152)
+2020-03-12 13:47:28,102 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 387552280 Bytes (919601152)
+2020-03-12 13:47:28,303 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 13:47:28,303 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 13:47:28,303 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 13:47:28,303 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 13:47:28,304 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 13:47:28,304 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 13:47:28,481 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 13:47:28,541 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 13:47:28,552 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 13:47:28,616 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 13:47:28,618 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 13:47:28,677 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 13:47:28,757 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 13:47:28,758 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 13:47:28,758 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 13:47:28,762 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 13:47:28,863 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 13:47:28,865 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 13:47:28,933 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 13:47:28,933 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 13:47:28,934 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 13:47:28,934 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 13:47:28,937 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 13:47:29,034 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 13:47:29,036 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 13:47:29,111 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 13:47:29,112 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 13:47:29,112 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 13:47:29,115 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 13:47:29,212 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 13:47:29,214 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 13:47:29,276 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 13:47:29,280 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 13:47:29,369 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 13:47:29,371 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 13:47:29,430 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 13:47:29,432 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 13:47:29,497 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 13:47:29,510 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 13:47:29,575 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 13:47:29,578 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 13:47:29,724 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 13:47:30,129 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 17mS.
+2020-03-12 13:47:30,130 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 13:47:30,356 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 13:47:31,873 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1743mS.
+2020-03-12 13:47:31,874 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 13:47:31,874 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 13:52:06,234 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 400342560 Bytes (1040187392)
+2020-03-12 13:52:06,334 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 410828320 Bytes (1040187392)
+2020-03-12 13:52:06,444 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 420265504 Bytes (1040187392)
+2020-03-12 13:52:06,616 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 13:52:06,617 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 13:52:06,617 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 13:52:06,617 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 13:52:06,617 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 13:52:06,617 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 13:52:06,786 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 13:52:06,843 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 13:52:06,852 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 13:52:06,913 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 13:52:06,915 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 13:52:06,974 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 13:52:07,036 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 13:52:07,037 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 13:52:07,037 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 13:52:07,040 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 13:52:07,135 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 13:52:07,137 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 13:52:07,208 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 13:52:07,208 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 13:52:07,209 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 13:52:07,209 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 13:52:07,212 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 13:52:07,307 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 13:52:07,309 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 13:52:07,368 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 13:52:07,369 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 13:52:07,369 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 13:52:07,372 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 13:52:07,442 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 13:52:07,443 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 13:52:07,503 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 13:52:07,506 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 13:52:07,595 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 13:52:07,596 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 13:52:07,655 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 13:52:07,657 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 13:52:07,721 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 13:52:07,731 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 13:52:07,793 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 13:52:07,795 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 13:52:07,875 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 13:52:08,379 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 14mS.
+2020-03-12 13:52:08,380 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 13:52:08,606 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 13:52:09,926 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1546mS.
+2020-03-12 13:52:09,927 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-03-12 13:52:09,927 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 14:00:52,282 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 772173456 Bytes (1073741824)
+2020-03-12 14:00:52,391 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 783181464 Bytes (1073741824)
+2020-03-12 14:00:52,508 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 793144976 Bytes (1073741824)
+2020-03-12 14:00:52,706 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 14:00:52,707 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 14:00:52,707 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 14:00:52,707 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 14:00:52,707 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 14:00:52,707 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 14:00:52,935 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 14:00:52,995 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 14:00:53,004 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 14:00:53,070 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 14:00:53,072 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 14:00:53,135 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 14:00:53,200 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 14:00:53,201 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 14:00:53,201 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 14:00:53,205 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 14:00:53,306 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 14:00:53,308 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 14:00:53,384 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 14:00:53,385 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 14:00:53,386 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 14:00:53,387 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 14:00:53,391 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 14:00:53,484 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 14:00:53,486 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 14:00:53,547 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 14:00:53,548 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 14:00:53,548 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 14:00:53,551 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 14:00:53,622 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 14:00:53,624 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 14:00:53,683 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 14:00:53,687 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 14:00:53,774 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 14:00:53,776 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 14:00:53,832 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 14:00:53,834 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 14:00:53,898 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 14:00:53,908 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 14:00:53,970 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 14:00:53,972 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 14:00:54,051 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 14:00:54,447 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 13mS.
+2020-03-12 14:00:54,449 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 14:00:54,673 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 14:00:56,482 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2033mS.
+2020-03-12 14:00:56,482 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 14:00:56,482 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 14:05:23,560 [INFO] Gpio:248 - dependency for GPIO [DAC1, SYS]
+2020-03-12 14:06:10,337 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 554018896 Bytes (1073741824)
+2020-03-12 14:06:10,459 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 565030984 Bytes (1073741824)
+2020-03-12 14:06:10,554 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 574990416 Bytes (1073741824)
+2020-03-12 14:06:10,711 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 14:06:10,711 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 14:06:10,711 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 14:06:10,712 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 14:06:10,712 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 14:06:10,712 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 14:06:10,875 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 14:06:10,931 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 14:06:10,944 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 14:06:11,006 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 14:06:11,008 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 14:06:11,065 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 14:06:11,136 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 14:06:11,137 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 14:06:11,137 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 14:06:11,140 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 14:06:11,232 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 14:06:11,234 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 14:06:11,294 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 14:06:11,295 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 14:06:11,295 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 14:06:11,296 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 14:06:11,299 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 14:06:11,389 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 14:06:11,390 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 14:06:11,449 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 14:06:11,450 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 14:06:11,450 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 14:06:11,453 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 14:06:11,521 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 14:06:11,523 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 14:06:11,582 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 14:06:11,586 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 14:06:11,673 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 14:06:11,675 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 14:06:11,733 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 14:06:11,735 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 14:06:11,799 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 14:06:11,810 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 14:06:11,874 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 14:06:11,876 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 14:06:11,955 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 14:06:12,425 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 14mS.
+2020-03-12 14:06:12,427 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 14:06:12,654 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 14:06:14,541 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2114mS.
+2020-03-12 14:06:14,541 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 14:06:14,542 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 15:54:51,253 [INFO] Gpio:248 - dependency for GPIO [DAC1, SYS]
+2020-03-12 15:54:59,093 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 558155568 Bytes (1073741824)
+2020-03-12 15:54:59,237 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 564972776 Bytes (1073741824)
+2020-03-12 15:54:59,330 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 574009000 Bytes (1073741824)
+2020-03-12 15:54:59,502 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 15:54:59,503 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 15:54:59,503 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 15:54:59,503 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 15:54:59,503 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 15:54:59,503 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 15:54:59,674 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 15:54:59,734 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 15:54:59,747 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 15:54:59,811 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 15:54:59,813 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 15:54:59,874 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 15:54:59,941 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 15:54:59,941 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 15:54:59,942 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 15:54:59,945 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 15:55:00,039 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 15:55:00,041 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 15:55:00,099 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 15:55:00,100 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 15:55:00,100 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 15:55:00,101 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 15:55:00,104 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 15:55:00,195 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 15:55:00,196 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 15:55:00,257 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 15:55:00,257 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 15:55:00,257 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 15:55:00,260 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 15:55:00,331 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 15:55:00,333 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 15:55:00,393 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 15:55:00,396 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 15:55:00,485 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 15:55:00,486 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 15:55:00,544 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 15:55:00,546 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 15:55:00,610 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 15:55:00,620 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 15:55:00,683 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 15:55:00,685 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 15:55:00,764 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 15:55:01,228 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 14mS.
+2020-03-12 15:55:01,229 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 15:55:01,453 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 15:55:03,272 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2043mS.
+2020-03-12 15:55:03,273 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 15:55:03,273 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 15:59:18,370 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 551864336 Bytes (1073741824)
+2020-03-12 15:59:18,513 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 562350096 Bytes (1073741824)
+2020-03-12 15:59:18,619 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 572309528 Bytes (1073741824)
+2020-03-12 15:59:18,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 15:59:18,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 15:59:18,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 15:59:18,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 15:59:18,781 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 15:59:18,781 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 15:59:18,940 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 15:59:18,998 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 15:59:19,009 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 15:59:19,071 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 15:59:19,073 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 15:59:19,131 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 15:59:19,194 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 15:59:19,195 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 15:59:19,195 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 15:59:19,198 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 15:59:19,289 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 15:59:19,291 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 15:59:19,350 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 15:59:19,351 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 15:59:19,351 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 15:59:19,351 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 15:59:19,354 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 15:59:19,443 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 15:59:19,444 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 15:59:19,503 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 15:59:19,503 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 15:59:19,503 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 15:59:19,510 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 15:59:19,580 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 15:59:19,582 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 15:59:19,641 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 15:59:19,644 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 15:59:19,733 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 15:59:19,734 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 15:59:19,793 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 15:59:19,795 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 15:59:19,858 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 15:59:19,868 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 15:59:19,930 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 15:59:19,932 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 15:59:20,076 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 15:59:20,482 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 15mS.
+2020-03-12 15:59:20,484 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 15:59:20,711 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 15:59:22,448 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1964mS.
+2020-03-12 15:59:22,465 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 17mS.
+2020-03-12 15:59:22,466 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 16:11:15,233 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 628393408 Bytes (1073741824)
+2020-03-12 16:11:15,360 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 639273000 Bytes (1073741824)
+2020-03-12 16:11:15,438 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 648710184 Bytes (1073741824)
+2020-03-12 16:11:15,611 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 16:11:15,611 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 16:11:15,611 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 16:11:15,611 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 16:11:15,611 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 16:11:15,612 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 16:11:15,773 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 16:11:15,830 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 16:11:15,842 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 16:11:15,905 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 16:11:15,907 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 16:11:15,966 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 16:11:16,030 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 16:11:16,031 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 16:11:16,031 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:11:16,034 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 16:11:16,125 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 16:11:16,127 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 16:11:16,188 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 16:11:16,188 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 16:11:16,190 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 16:11:16,190 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:11:16,193 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 16:11:16,285 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 16:11:16,287 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 16:11:16,348 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 16:11:16,349 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 16:11:16,349 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:11:16,352 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 16:11:16,419 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 16:11:16,421 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 16:11:16,558 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 16:11:16,561 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 16:11:16,648 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 16:11:16,649 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 16:11:16,707 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 16:11:16,709 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 16:11:16,777 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 16:11:16,786 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 16:11:16,849 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 16:11:16,851 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 16:11:16,929 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 16:11:17,326 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 14mS.
+2020-03-12 16:11:17,328 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 16:11:17,556 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 16:11:19,272 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1944mS.
+2020-03-12 16:11:19,273 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.
+2020-03-12 16:11:19,273 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 16:12:08,301 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 578404912 Bytes (1073741824)
+2020-03-12 16:12:08,400 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 588890672 Bytes (1073741824)
+2020-03-12 16:12:08,507 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 598850104 Bytes (1073741824)
+2020-03-12 16:12:08,670 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 16:12:08,671 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 16:12:08,671 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 16:12:08,671 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 16:12:08,671 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 16:12:08,671 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 16:12:08,838 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 16:12:08,898 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 16:12:08,910 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 16:12:08,974 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 16:12:08,976 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 16:12:09,036 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 16:12:09,100 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 16:12:09,101 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 16:12:09,101 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:12:09,104 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 16:12:09,198 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 16:12:09,200 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 16:12:09,260 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 16:12:09,261 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 16:12:09,261 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 16:12:09,262 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:12:09,264 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 16:12:09,355 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 16:12:09,356 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 16:12:09,418 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 16:12:09,418 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 16:12:09,419 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:12:09,421 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 16:12:09,493 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 16:12:09,495 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 16:12:09,555 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 16:12:09,558 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 16:12:09,650 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 16:12:09,652 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 16:12:09,784 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 16:12:09,786 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 16:12:09,849 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 16:12:09,858 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 16:12:09,921 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 16:12:09,923 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 16:12:10,001 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 16:12:10,402 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 14mS.
+2020-03-12 16:12:10,403 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 16:12:10,633 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 16:12:12,443 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2040mS.
+2020-03-12 16:12:12,444 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 16:12:12,444 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 16:13:42,781 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 470401080 Bytes (1073741824)
+2020-03-12 16:13:42,936 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 481409088 Bytes (1073741824)
+2020-03-12 16:13:43,027 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 537316792 Bytes (1073741824)
+2020-03-12 16:13:43,216 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 16:13:43,216 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 16:13:43,216 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 16:13:43,216 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 16:13:43,216 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 16:13:43,216 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 16:13:43,377 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 16:13:43,433 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 16:13:43,445 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 16:13:43,507 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 16:13:43,509 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 16:13:43,570 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 16:13:43,632 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 16:13:43,633 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 16:13:43,633 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:13:43,636 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 16:13:43,727 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 16:13:43,729 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 16:13:43,788 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 16:13:43,789 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 16:13:43,789 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 16:13:43,789 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:13:43,792 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 16:13:43,880 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 16:13:43,882 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 16:13:43,940 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 16:13:43,940 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 16:13:43,941 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 16:13:43,943 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 16:13:44,011 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 16:13:44,013 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 16:13:44,071 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 16:13:44,075 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 16:13:44,161 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 16:13:44,162 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 16:13:44,219 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 16:13:44,221 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 16:13:44,287 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 16:13:44,353 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 16:13:44,421 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 16:13:44,423 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 16:13:44,502 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 16:13:44,899 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 14mS.
+2020-03-12 16:13:44,900 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 16:13:45,123 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 16:13:46,806 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1906mS.
+2020-03-12 16:13:46,807 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 16:13:46,807 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 17:23:11,759 [INFO] Gpio:248 - dependency for GPIO [DAC1, SYS]
+2020-03-12 17:24:40,426 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 926447672 Bytes (1073741824)
+2020-03-12 17:24:40,566 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 380464192 Bytes (1073741824)
+2020-03-12 17:24:40,656 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 390949952 Bytes (1073741824)
+2020-03-12 17:24:40,811 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 17:24:40,811 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 17:24:40,812 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 17:24:40,812 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 17:24:40,812 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 17:24:40,812 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 17:24:40,971 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 17:24:41,026 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 17:24:41,050 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 17:24:41,111 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 17:24:41,112 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 17:24:41,170 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 17:24:41,268 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 17:24:41,268 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 17:24:41,268 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 17:24:41,271 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 17:24:41,360 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 17:24:41,362 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 17:24:41,422 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 17:24:41,423 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 17:24:41,424 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 17:24:41,424 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 17:24:41,427 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 17:24:41,513 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 17:24:41,515 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 17:24:41,573 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 17:24:41,573 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 17:24:41,574 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 17:24:41,576 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 17:24:41,644 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 17:24:41,645 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 17:24:41,703 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 17:24:41,706 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 17:24:41,792 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 17:24:41,793 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 17:24:41,850 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 17:24:41,852 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 17:24:41,913 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 17:24:41,923 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 17:24:41,984 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 17:24:41,986 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 17:24:42,063 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 17:24:42,457 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 14mS.
+2020-03-12 17:24:42,458 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 17:24:43,323 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 17:24:44,474 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 2016mS.
+2020-03-12 17:24:44,474 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 17:24:44,475 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 18:17:16,425 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 661318416 Bytes (1073741824)
+2020-03-12 18:17:16,542 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 671976296 Bytes (1073741824)
+2020-03-12 18:17:16,628 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 681774760 Bytes (1073741824)
+2020-03-12 18:17:16,787 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-03-12 18:17:16,787 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM6_7G4
+2020-03-12 18:17:16,787 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-03-12 18:17:16,787 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-03-12 18:17:16,787 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-03-12 18:17:16,787 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-03-12 18:17:16,951 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-03-12 18:17:17,009 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-03-12 18:17:17,033 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-03-12 18:17:17,095 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-03-12 18:17:17,097 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-03-12 18:17:17,155 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-03-12 18:17:17,254 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 18:17:17,254 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-03-12 18:17:17,255 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 18:17:17,257 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-03-12 18:17:17,350 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-03-12 18:17:17,352 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-03-12 18:17:17,494 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-03-12 18:17:17,494 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-03-12 18:17:17,495 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-03-12 18:17:17,495 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 18:17:17,499 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-03-12 18:17:17,587 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-03-12 18:17:17,589 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-03-12 18:17:17,646 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-03-12 18:17:17,647 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-03-12 18:17:17,647 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-03-12 18:17:17,649 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-03-12 18:17:17,718 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-03-12 18:17:17,719 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-03-12 18:17:17,777 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-03-12 18:17:17,780 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-03-12 18:17:17,866 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-03-12 18:17:17,867 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-03-12 18:17:17,923 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-03-12 18:17:17,925 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-03-12 18:17:17,987 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-03-12 18:17:17,996 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-03-12 18:17:18,058 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-03-12 18:17:18,060 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-03-12 18:17:18,138 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-03-12 18:17:18,536 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 13mS.
+2020-03-12 18:17:18,537 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-03-12 18:17:18,759 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-03-12 18:17:20,299 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1762mS.
+2020-03-12 18:17:20,299 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-12 18:17:20,300 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-03-13 17:10:55,924 [INFO] Activator:176 - 
+
+
+2020-03-13 17:10:55,928 [INFO] Activator:177 - !SESSION log4j initialized
