@@ -25,6 +25,8 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "funcgen.h"
+
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,11 +61,12 @@
 
 /* External variables --------------------------------------------------------*/
 extern DMA_HandleTypeDef hdma_adc1;
-extern DMA_HandleTypeDef hdma_dac2_ch1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim17;
 /* USER CODE BEGIN EV */
+
+
 
 /* USER CODE END EV */
 
@@ -204,13 +207,27 @@ void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
+  * @brief This function handles EXTI line2 interrupt.
+  */
+void EXTI2_IRQHandler(void)
+{
+  /* USER CODE BEGIN EXTI2_IRQn 0 */
+	printf("SW\n");
+  /* USER CODE END EXTI2_IRQn 0 */
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
+  /* USER CODE BEGIN EXTI2_IRQn 1 */
+
+  /* USER CODE END EXTI2_IRQn 1 */
+}
+
+/**
   * @brief This function handles DMA1 channel1 global interrupt.
   */
 void DMA1_Channel1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
-	printf("Test\n");
-	printf("%lu\n", trigger_input[0]);
+	//printf("Test\n");
+	//printf("%lu\n", trigger_input[0]);
   /* USER CODE END DMA1_Channel1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_adc1);
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
@@ -219,17 +236,17 @@ void DMA1_Channel1_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles DMA1 channel2 global interrupt.
+  * @brief This function handles TIM1 update interrupt and TIM16 global interrupt.
   */
-void DMA1_Channel2_IRQHandler(void)
+void TIM1_UP_TIM16_IRQHandler(void)
 {
-  /* USER CODE BEGIN DMA1_Channel2_IRQn 0 */
+  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
 
-  /* USER CODE END DMA1_Channel2_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_dac2_ch1);
-  /* USER CODE BEGIN DMA1_Channel2_IRQn 1 */
+  /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
 
-  /* USER CODE END DMA1_Channel2_IRQn 1 */
+  /* USER CODE END TIM1_UP_TIM16_IRQn 1 */
 }
 
 /**
@@ -239,6 +256,7 @@ void TIM1_TRG_COM_TIM17_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_TRG_COM_TIM17_IRQn 0 */
 	update_dc_bias_sweep();
+	//printf("%lu\n", TIM1->CNT);
   /* USER CODE END TIM1_TRG_COM_TIM17_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim17);

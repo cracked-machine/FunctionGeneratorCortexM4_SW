@@ -77,9 +77,32 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+void update_tft()
 {
-	  printf("%lu\n", trigger_input[0]);
+	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
+
+
+				uint32_t random_num = 0;
+	  			uint16_t xr = 0;
+	  			uint16_t yr = 0;
+	  			uint16_t radiusr = 0;
+	  			uint16_t colourr = 0;
+	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
+	  			xr = random_num;
+	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
+	  			yr = random_num;
+	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
+	  			radiusr = random_num;
+	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
+	  			colourr = random_num;
+
+	  			xr &= 0x01FF;
+	  			yr &= 0x01FF;
+	  			radiusr &= 0x001F;
+	  			//ili9341_drawpixel(xr, yr, WHITE);
+	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
+
+	  		//HAL_Delay(1);
 }
 /* USER CODE END 0 */
 
@@ -172,48 +195,29 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
 #endif
 
+  // encoder input
+  HAL_TIM_Base_Start(&htim1);
 
+  // TFT lib enable
   ILI9341_Init();
 
 
+	ILI9341_Fill_Screen(WHITE);
+	ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
+	ILI9341_Draw_Text("Randomly placed and sized", 10, 10, BLACK, 1, WHITE);
+	ILI9341_Draw_Text("Filled Circles", 10, 20, BLACK, 1, WHITE);
+	HAL_Delay(2000);
+	ILI9341_Fill_Screen(WHITE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //printf("Test\n");
-	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
-	  		ILI9341_Fill_Screen(WHITE);
-	  		ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-	  		ILI9341_Draw_Text("Randomly placed and sized", 10, 10, BLACK, 1, WHITE);
-	  		ILI9341_Draw_Text("Filled Circles", 10, 20, BLACK, 1, WHITE);
-	  		HAL_Delay(2000);
-	  		ILI9341_Fill_Screen(WHITE);
 
-	  		for(uint32_t i = 0; i < 1000; i++)
-	  		{
-	  			uint32_t random_num = 0;
-	  			uint16_t xr = 0;
-	  			uint16_t yr = 0;
-	  			uint16_t radiusr = 0;
-	  			uint16_t colourr = 0;
-	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
-	  			xr = random_num;
-	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
-	  			yr = random_num;
-	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
-	  			radiusr = random_num;
-	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
-	  			colourr = random_num;
+	//printf("TFT\n");
+	update_tft();
 
-	  			xr &= 0x01FF;
-	  			yr &= 0x01FF;
-	  			radiusr &= 0x001F;
-	  			//ili9341_drawpixel(xr, yr, WHITE);
-	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
-	  		}
-	  		HAL_Delay(1000);
 
 	  //HAL_GPIO_TogglePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin);
 	  //HAL_Delay(1);
@@ -247,9 +251,9 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
-  RCC_OscInitStruct.PLL.PLLN = 8;
+  RCC_OscInitStruct.PLL.PLLN = 12;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV8;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -264,7 +268,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }

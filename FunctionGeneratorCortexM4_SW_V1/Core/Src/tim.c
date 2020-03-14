@@ -39,7 +39,7 @@ void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 64;
+  htim1.Init.Period = 255;
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -138,7 +138,7 @@ void MX_TIM17_Init(void)
   htim17.Instance = TIM17;
   htim17.Init.Prescaler = 2047;
   htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim17.Init.Period = 8;
+  htim17.Init.Period = 64;
   htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim17.Init.RepetitionCounter = 0;
   htim17.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -174,7 +174,9 @@ void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef* tim_encoderHandle)
     HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
     /* TIM1 interrupt Init */
-    HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(TIM1_UP_TIM16_IRQn, 0, 0);
+    HAL_NVIC_EnableIRQ(TIM1_UP_TIM16_IRQn);
+    HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, 1, 0);
     HAL_NVIC_EnableIRQ(TIM1_TRG_COM_TIM17_IRQn);
   /* USER CODE BEGIN TIM1_MspInit 1 */
 
@@ -206,7 +208,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /* TIM2 interrupt Init */
-    HAL_NVIC_SetPriority(TIM2_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(TIM2_IRQn, 1, 0);
     HAL_NVIC_EnableIRQ(TIM2_IRQn);
   /* USER CODE BEGIN TIM2_MspInit 1 */
 
@@ -232,7 +234,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
     __HAL_RCC_TIM17_CLK_ENABLE();
 
     /* TIM17 interrupt Init */
-    HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, 1, 0);
     HAL_NVIC_EnableIRQ(TIM1_TRG_COM_TIM17_IRQn);
   /* USER CODE BEGIN TIM17_MspInit 1 */
 
@@ -258,6 +260,7 @@ void HAL_TIM_Encoder_MspDeInit(TIM_HandleTypeDef* tim_encoderHandle)
     HAL_GPIO_DeInit(GPIOC, GPIO_PIN_0|GPIO_PIN_1);
 
     /* TIM1 interrupt Deinit */
+    HAL_NVIC_DisableIRQ(TIM1_UP_TIM16_IRQn);
   /* USER CODE BEGIN TIM1:TIM1_TRG_COM_TIM17_IRQn disable */
     /**
     * Uncomment the line below to disable the "TIM1_TRG_COM_TIM17_IRQn" interrupt

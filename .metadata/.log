@@ -1840,3 +1840,134 @@ java.lang.RuntimeException
 !MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #2 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@2a489160): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #2
 !SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2020-03-14 12:48:08.921
 !MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$4@7ba2060f): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #2 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@2a489160): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #2 null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:08:45.564
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3cd42ecc): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:09:19.329
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@156a6822): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:19:58.220
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@5c19f9): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:20:28.155
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2c11557d): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:23:44.383
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6c222bbb): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.core.jobs 4 2 2020-03-14 14:29:29.847
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:236)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1501)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:493)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:252)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:699)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:684)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:62)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:30:00.692
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@b2bc8e7): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status null children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #2 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@29497008): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #2 null Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$4@69003cff): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #2 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@29497008): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #2 null' resulted in a rejected execution exception. null]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2020-03-14 14:30:00.692
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #2 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@29497008): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #2
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2020-03-14 14:30:00.692
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$4@69003cff): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #2 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@29497008): Status OK: unknown code=0 OK null' resulted in a rejected execution exception. null, step #2 null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:41:44.656
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@38accca9): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:41:44.656
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@16f9a24c): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:46:20.082
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7600172d): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:46:20.083
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@7230a9cd): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.stlink 4 4 2020-03-14 14:49:48.850
+!MESSAGE ST-LINK GDB server failed to start (exit code = 1)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2020-03-14 14:49:48.867
+!MESSAGE Error in final launch sequence:
+
+Failed to start GDB server
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to start GDB server
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:285)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:860)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:719)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1017)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1220)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.eclipse.core.runtime.CoreException: Error in initializing ST-LINK device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+	at com.st.stm32cube.ide.mcu.debug.stlink.StLinkDebugHardware.verifyServer(StLinkDebugHardware.java:1635)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:159)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:79)
+	at com.st.stm32cube.ide.mcu.debug.launch.LaunchSequenceUtil.stepStartGDBServer(LaunchSequenceUtil.java:236)
+	at com.st.stm32cube.ide.mcu.debug.launch.GDBExtendedJtagDSFFinalLaunchSequence_7_12.stepStartGDBServer(GDBExtendedJtagDSFFinalLaunchSequence_7_12.java:96)
+	at sun.reflect.GeneratedMethodAccessor377.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.access$2(Sequence.java:390)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+!SUBENTRY 1 com.st.stm32cube.ide.mcu.debug.launch 4 0 2020-03-14 14:49:48.868
+!MESSAGE Failed to start GDB server
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error in initializing ST-LINK device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+	at com.st.stm32cube.ide.mcu.debug.stlink.StLinkDebugHardware.verifyServer(StLinkDebugHardware.java:1635)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:159)
+	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.startServer(HardwareDebugUtil.java:79)
+	at com.st.stm32cube.ide.mcu.debug.launch.LaunchSequenceUtil.stepStartGDBServer(LaunchSequenceUtil.java:236)
+	at com.st.stm32cube.ide.mcu.debug.launch.GDBExtendedJtagDSFFinalLaunchSequence_7_12.stepStartGDBServer(GDBExtendedJtagDSFFinalLaunchSequence_7_12.java:96)
+	at sun.reflect.GeneratedMethodAccessor377.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.cdt.dsf.concurrent.ReflectionSequence$ReflectionStep.execute(ReflectionSequence.java:160)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.executeStep(Sequence.java:475)
+	at org.eclipse.cdt.dsf.concurrent.Sequence.access$2(Sequence.java:390)
+	at org.eclipse.cdt.dsf.concurrent.Sequence$2.handleSuccess(Sequence.java:437)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor.handleCompleted(RequestMonitor.java:391)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+!SUBENTRY 2 com.st.stm32cube.ide.mcu.debug.stlink 4 0 2020-03-14 14:49:48.868
+!MESSAGE Error in initializing ST-LINK device.
+Reason: (1) Failed to connect to device. Please check power and cabling to target.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:51:40.852
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@255c85bc): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:51:40.852
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@77d8631c): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:54:29.656
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3c4e478b): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-03-14 14:54:29.657
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@50159f82): Status OK: unknown code=0 OK null' resulted in a rejected execution exception.

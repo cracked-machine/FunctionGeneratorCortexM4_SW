@@ -63,6 +63,9 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define LED_TEST_Pin GPIO_PIN_14
 #define LED_TEST_GPIO_Port GPIOC
+#define ENC_SW_Pin GPIO_PIN_2
+#define ENC_SW_GPIO_Port GPIOC
+#define ENC_SW_EXTI_IRQn EXTI2_IRQn
 #define TRIGMODE_Pin GPIO_PIN_3
 #define TRIGMODE_GPIO_Port GPIOC
 #define DCBIAS_INVERT_Pin GPIO_PIN_3
