@@ -200,7 +200,7 @@ ILI9341_Reset();
 
 //SOFTWARE RESET
 ILI9341_Write_Command(0x01);
-HAL_Delay(1000);
+HAL_Delay(2000);
 	
 //POWER CONTROL A
 ILI9341_Write_Command(0xCB);
@@ -320,7 +320,7 @@ ILI9341_Write_Data(0x0F);
 
 //EXIT SLEEP
 ILI9341_Write_Command(0x11);
-HAL_Delay(120);
+HAL_Delay(240);
 
 //TURN ON DISPLAY
 ILI9341_Write_Command(0x29);

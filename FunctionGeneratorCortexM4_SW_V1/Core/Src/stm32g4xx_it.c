@@ -256,7 +256,7 @@ void TIM1_TRG_COM_TIM17_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_TRG_COM_TIM17_IRQn 0 */
 	update_dc_bias_sweep();
-	//printf("%lu\n", TIM1->CNT);
+//	printf("%lu\n", TIM1->CNT);
   /* USER CODE END TIM1_TRG_COM_TIM17_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim17);

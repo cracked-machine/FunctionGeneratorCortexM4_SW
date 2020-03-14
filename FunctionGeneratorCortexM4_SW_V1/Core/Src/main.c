@@ -44,6 +44,7 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+//#define DISABLE_ALL_TIMERS  // for debug use only!
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -136,7 +137,6 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_DAC1_Init();
-  MX_TIM6_Init();
   MX_DAC2_Init();
   MX_ADC1_Init();
   MX_COMP1_Init();
@@ -145,6 +145,7 @@ int main(void)
   MX_SPI3_Init();
   MX_RNG_Init();
   MX_TIM1_Init();
+  MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
 
   // main signal function output (external)
@@ -154,8 +155,10 @@ int main(void)
   // auxilliary signal sync output (external)
   HAL_DAC_Start(&hdac2, DAC2_CHANNEL_1);
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
+#ifndef DISABLE_ALL_TIMERS
   // single clock to run all DAC channels. TODO add independent clocks
-  HAL_TIM_Base_Start(&htim6);
+  HAL_TIM_Base_Start(&htim8);
+#endif //DISABLE_ALL_TIMERS
 
   // DC bias inversion
   HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
@@ -165,9 +168,10 @@ int main(void)
   HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
 
-
+#ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())
   HAL_TIM_Base_Start_IT(&htim17);
+#endif	//DISABLE_ALL_TIMERS
 
 //#define ANALOG_TRIGGER_MODE
 #ifdef ANALOG_TRIGGER_MODE
@@ -192,11 +196,15 @@ int main(void)
   TIM2->SMCR |= TIM_SMCR_SMS_0 | TIM_SMCR_SMS_2;	// SLAVE MODE: GATED
   //TIM2->SMCR |= TIM_SMCR_SMS_1 | TIM_SMCR_SMS_2;	// SLAVE MODE: TRIGGER
 
+#ifndef DISABLE_ALL_TIMERS
   HAL_TIM_Base_Start_IT(&htim2);
-#endif
+#endif	//DISABLE_ALL_TIMERS
+#endif	//ANALOG_TRIGGER_MODE
 
+#ifndef DISABLE_ALL_TIMERS
   // encoder input
   HAL_TIM_Base_Start(&htim1);
+#endif	//DISABLE_ALL_TIMERS
 
   // TFT lib enable
   ILI9341_Init();
@@ -218,7 +226,7 @@ int main(void)
 	//printf("TFT\n");
 	update_tft();
 
-
+	//ILI9341_Draw_Text("Randomly placed and sized", 10, 10, BLACK, 1, WHITE);
 	  //HAL_GPIO_TogglePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin);
 	  //HAL_Delay(1);
 
@@ -242,18 +250,19 @@ void SystemClock_Config(void)
 
   /** Configure the main internal regulator output voltage 
   */
-  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1);
+  HAL_PWREx_ControlVoltageScaling(PWR_REGULATOR_VOLTAGE_SCALE1_BOOST);
   /** Initializes the CPU, AHB and APB busses clocks 
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSI48;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
-  RCC_OscInitStruct.PLL.PLLN = 12;
+  RCC_OscInitStruct.PLL.PLLN = 42;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
-  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV8;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV4;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -265,17 +274,17 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_8) != HAL_OK)
   {
     Error_Handler();
   }
   /** Initializes the peripherals clocks 
   */
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RNG|RCC_PERIPHCLK_ADC12;
-  PeriphClkInit.RngClockSelection = RCC_RNGCLKSOURCE_PLL;
+  PeriphClkInit.RngClockSelection = RCC_RNGCLKSOURCE_HSI48;
   PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
