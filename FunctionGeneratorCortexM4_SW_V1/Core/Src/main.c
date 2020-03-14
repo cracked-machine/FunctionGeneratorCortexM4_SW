@@ -24,6 +24,8 @@
 #include "comp.h"
 #include "dac.h"
 #include "dma.h"
+#include "rng.h"
+#include "spi.h"
 #include "tim.h"
 #include "gpio.h"
 
@@ -31,6 +33,8 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "funcgen.h"
+#include "ILI9341_STM32_Driver.h"
+#include "ILI9341_GFX.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,6 +119,9 @@ int main(void)
   MX_COMP1_Init();
   MX_TIM2_Init();
   MX_TIM17_Init();
+  MX_SPI3_Init();
+  MX_RNG_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
   // main signal function output (external)
@@ -166,7 +173,7 @@ int main(void)
 #endif
 
 
-
+  ILI9341_Init();
 
 
   /* USER CODE END 2 */
@@ -176,7 +183,37 @@ int main(void)
   while (1)
   {
 	  //printf("Test\n");
+	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
+	  		ILI9341_Fill_Screen(WHITE);
+	  		ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
+	  		ILI9341_Draw_Text("Randomly placed and sized", 10, 10, BLACK, 1, WHITE);
+	  		ILI9341_Draw_Text("Filled Circles", 10, 20, BLACK, 1, WHITE);
+	  		HAL_Delay(2000);
+	  		ILI9341_Fill_Screen(WHITE);
 
+	  		for(uint32_t i = 0; i < 1000; i++)
+	  		{
+	  			uint32_t random_num = 0;
+	  			uint16_t xr = 0;
+	  			uint16_t yr = 0;
+	  			uint16_t radiusr = 0;
+	  			uint16_t colourr = 0;
+	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
+	  			xr = random_num;
+	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
+	  			yr = random_num;
+	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
+	  			radiusr = random_num;
+	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
+	  			colourr = random_num;
+
+	  			xr &= 0x01FF;
+	  			yr &= 0x01FF;
+	  			radiusr &= 0x001F;
+	  			//ili9341_drawpixel(xr, yr, WHITE);
+	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
+	  		}
+	  		HAL_Delay(1000);
 
 	  //HAL_GPIO_TogglePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin);
 	  //HAL_Delay(1);
@@ -233,7 +270,8 @@ void SystemClock_Config(void)
   }
   /** Initializes the peripherals clocks 
   */
-  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RNG|RCC_PERIPHCLK_ADC12;
+  PeriphClkInit.RngClockSelection = RCC_RNGCLKSOURCE_PLL;
   PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {

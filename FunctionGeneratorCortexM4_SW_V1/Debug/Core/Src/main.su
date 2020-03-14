@@ -1,6 +1,6 @@
 core_cm4.h:2064:26:ITM_SendChar	16	static,ignoring_inline_asm
-main.c:67:5:_write	32	static
-main.c:76:6:HAL_ADC_ConvCpltCallback	16	static
-main.c:86:5:main	8	static
-main.c:196:6:SystemClock_Config	168	static
-main.c:252:6:Error_Handler	4	static
+main.c:71:5:_write	32	static
+main.c:80:6:HAL_ADC_ConvCpltCallback	16	static
+main.c:90:5:main	32	static
+main.c:233:6:SystemClock_Config	168	static
+main.c:290:6:Error_Handler	4	static

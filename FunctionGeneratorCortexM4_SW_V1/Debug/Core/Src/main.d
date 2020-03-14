@@ -31,12 +31,17 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rng.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h ../Core/Inc/adc.h \
  ../Core/Inc/main.h ../Core/Inc/comp.h ../Core/Inc/dac.h \
- ../Core/Inc/dma.h ../Core/Inc/tim.h ../Core/Inc/gpio.h \
- ../Core/Inc/funcgen.h
+ ../Core/Inc/dma.h ../Core/Inc/rng.h ../Core/Inc/spi.h ../Core/Inc/tim.h \
+ ../Core/Inc/gpio.h ../Core/Inc/funcgen.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h
 
 ../Core/Inc/main.h:
 
@@ -104,6 +109,12 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_pwr_ex.h:
 
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rng.h:
+
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:
+
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi_ex.h:
+
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h:
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
@@ -120,8 +131,16 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Core/Inc/dma.h:
 
+../Core/Inc/rng.h:
+
+../Core/Inc/spi.h:
+
 ../Core/Inc/tim.h:
 
 ../Core/Inc/gpio.h:
 
 ../Core/Inc/funcgen.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h:
