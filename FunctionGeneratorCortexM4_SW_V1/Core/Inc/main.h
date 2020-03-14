@@ -43,6 +43,8 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
+#define TRIGGER_DATA_SIZE 1
+extern uint32_t trigger_input[TRIGGER_DATA_SIZE];
 
 /* USER CODE END EC */
 
@@ -59,6 +61,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LED_TEST_Pin GPIO_PIN_14
+#define LED_TEST_GPIO_Port GPIOC
+#define TRIGMODE_Pin GPIO_PIN_3
+#define TRIGMODE_GPIO_Port GPIOC
 #define DCBIAS_INVERT_Pin GPIO_PIN_3
 #define DCBIAS_INVERT_GPIO_Port GPIOA
 #define SG2_Pin GPIO_PIN_4

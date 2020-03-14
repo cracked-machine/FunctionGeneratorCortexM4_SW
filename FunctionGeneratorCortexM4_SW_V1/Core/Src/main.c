@@ -20,13 +20,17 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
+#include "comp.h"
 #include "dac.h"
+#include "dma.h"
 #include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+#include "funcgen.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,9 +50,10 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint16_t dcbias = 0;
-int dcbias_dir = 1;
-int dcinverted = 0;
+
+
+uint32_t trigger_input[TRIGGER_DATA_SIZE];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -66,6 +71,11 @@ int _write(int file, char *ptr, int len)
   for(i=0 ; i<len ; i++)
     ITM_SendChar((*ptr++));
   return len;
+}
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+	  printf("%lu\n", trigger_input[0]);
 }
 /* USER CODE END 0 */
 
@@ -97,47 +107,81 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_DAC1_Init();
   MX_TIM6_Init();
+  MX_DAC2_Init();
+  MX_ADC1_Init();
+  MX_COMP1_Init();
+  MX_TIM2_Init();
+  MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
 
+  // main signal function output (external)
   HAL_DAC_Start(&hdac1, DAC1_CHANNEL_1);
+  // DC bias output (internal)
   HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
+  // auxilliary signal sync output (external)
+  HAL_DAC_Start(&hdac2, DAC2_CHANNEL_1);
+  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
+  // single clock to run all DAC channels. TODO add independent clocks
   HAL_TIM_Base_Start(&htim6);
 
-
+  // DC bias inversion
   HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
 
+  // PGA gain
   HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
   HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+
+
+  // start test routine (update_dc_bias_sweep())
+  HAL_TIM_Base_Start_IT(&htim17);
+
+//#define ANALOG_TRIGGER_MODE
+#ifdef ANALOG_TRIGGER_MODE
+  // start trigger input capture on in ADC
+
+  // set HW switch to direct ext. trigger input to ADC pin
+  HAL_GPIO_WritePin(TRIGMODE_GPIO_Port, TRIGMODE_Pin, GPIO_PIN_RESET);
+
+  // start writing data to buffer
+  HAL_ADC_Start_DMA(&hadc1, trigger_input, TRIGGER_DATA_SIZE);
+#else
+  // input capture on in TIM2 slave-mode TF1FP1
+
+  // set HW switch to direct ext. trigger input to TIM pin
+  HAL_GPIO_WritePin(TRIGMODE_GPIO_Port, TRIGMODE_Pin, GPIO_PIN_SET);
+
+  // clear slave mode select reg
+  TIM2->SMCR &= ~(TIM_SMCR_SMS_0 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_2);
+
+  // slave mode
+  //TIM2->SMCR |= TIM_SMCR_SMS_2;						// SLAVE MODE: RESET
+  TIM2->SMCR |= TIM_SMCR_SMS_0 | TIM_SMCR_SMS_2;	// SLAVE MODE: GATED
+  //TIM2->SMCR |= TIM_SMCR_SMS_1 | TIM_SMCR_SMS_2;	// SLAVE MODE: TRIGGER
+
+  HAL_TIM_Base_Start_IT(&htim2);
+#endif
+
+
+
+
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  printf("Test\n");
-
-	  // up=1, down=0
-	  if(dcbias_dir) 	{ dcbias++; }
-	  else 				{ dcbias--; }
-
-	  // invert the bias signal at zero crossing
-	  if(dcbias < 1) {
-		if(dcinverted)	{ dcinverted=0; }
-		else 		  	{ dcinverted=1; }
-	  }
-
-	  // change direction if dac limits are reached
-	  if(dcbias < 1) 	{ dcbias_dir = 1; }
-	  if(dcbias > 4095) { dcbias_dir = 0; }
+	  //printf("Test\n");
 
 
-	  HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, dcinverted);
-	  HAL_DAC_SetValue(&hdac1, DAC1_CHANNEL_2, DAC_ALIGN_12B_R, dcbias);
 	  //HAL_GPIO_TogglePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin);
-	  HAL_Delay(1);
+	  //HAL_Delay(1);
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -153,6 +197,7 @@ void SystemClock_Config(void)
 {
   RCC_OscInitTypeDef RCC_OscInitStruct = {0};
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+  RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
   /** Configure the main internal regulator output voltage 
   */
@@ -162,7 +207,13 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
+  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
+  RCC_OscInitStruct.PLL.PLLN = 8;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV2;
+  RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -171,12 +222,20 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /** Initializes the peripherals clocks 
+  */
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC12;
+  PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
   }

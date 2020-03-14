@@ -1,0 +1,33 @@
+/*
+ * funcgen.c
+ *
+ *  Created on: Mar 13, 2020
+ *      Author: chris
+ */
+
+#include "funcgen.h"
+#include "gpio.h"
+#include "dac.h"
+
+void test_dc_bias(uint8_t pDir, uint8_t pInverted, uint16_t pBias)
+{
+
+
+	  // up=1, down=0
+	  (pDir) ? (pBias++) : (pBias--);
+
+	  // invert the bias signal at zero crossing
+	  if(pBias < 1) {
+		(pInverted) ? (pInverted=0) : (pInverted=1);
+	  }
+
+	  // change direction if dac limits are reached
+	  if(pBias < 1) 	{ pDir = 1; }
+	  if(pBias > 4095) { pDir = 0; }
+
+
+	  HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, pInverted);
+	  HAL_DAC_SetValue(&hdac1, DAC1_CHANNEL_2, DAC_ALIGN_12B_R, pBias);
+}
+
+
