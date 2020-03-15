@@ -76,6 +76,10 @@ void Error_Handler(void);
 #define SG1_GPIO_Port GPIOC
 #define SG0_Pin GPIO_PIN_0
 #define SG0_GPIO_Port GPIOB
+#define TRIGMUX1_Pin GPIO_PIN_8
+#define TRIGMUX1_GPIO_Port GPIOC
+#define TRIGMUX2_Pin GPIO_PIN_9
+#define TRIGMUX2_GPIO_Port GPIOC
 #define DC_Pin GPIO_PIN_6
 #define DC_GPIO_Port GPIOB
 #define CS_Pin GPIO_PIN_7
