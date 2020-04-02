@@ -103,6 +103,11 @@ void update_tft()
 	  			//ili9341_drawpixel(xr, yr, WHITE);
 	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
 
+	  			char enc_buff[13] = "";
+	  			snprintf(enc_buff, sizeof(enc_buff), "%d\n", new_enc_value);
+	  			ILI9341_Draw_Text(enc_buff, 10, 20, BLACK, 5, WHITE);
+
+	  			ILI9341_Draw_Text(control_pressed, 10, 60, BLACK, 5, WHITE);
 	  		//HAL_Delay(1);
 }
 /* USER CODE END 0 */
@@ -146,6 +151,7 @@ int main(void)
   MX_RNG_Init();
   MX_TIM1_Init();
   MX_TIM8_Init();
+  MX_TIM16_Init();
   /* USER CODE BEGIN 2 */
 
   // main signal function output (external)
@@ -230,6 +236,7 @@ int main(void)
 #ifndef DISABLE_ALL_TIMERS
   // encoder input
   HAL_TIM_Base_Start(&htim1);
+  //HAL_TIM_Base_Start_IT(&htim16);
 #endif	//DISABLE_ALL_TIMERS
 
   // TFT lib enable

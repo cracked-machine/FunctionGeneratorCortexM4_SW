@@ -45,7 +45,9 @@ extern "C" {
 /* USER CODE BEGIN EC */
 #define TRIGGER_DATA_SIZE 1
 extern uint32_t trigger_input[TRIGGER_DATA_SIZE];
-
+extern uint16_t last_enc_value;
+extern uint16_t new_enc_value;
+char control_pressed[10];
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
@@ -61,11 +63,21 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define LED_TEST_Pin GPIO_PIN_14
-#define LED_TEST_GPIO_Port GPIOC
-#define ENC_SW_Pin GPIO_PIN_2
-#define ENC_SW_GPIO_Port GPIOC
-#define ENC_SW_EXTI_IRQn EXTI2_IRQn
+#define BTN1_EXTI14_Pin GPIO_PIN_14
+#define BTN1_EXTI14_GPIO_Port GPIOC
+#define BTN1_EXTI14_EXTI_IRQn EXTI15_10_IRQn
+#define BTN2_EXTI15_Pin GPIO_PIN_15
+#define BTN2_EXTI15_GPIO_Port GPIOC
+#define BTN2_EXTI15_EXTI_IRQn EXTI15_10_IRQn
+#define BTN3_EXTI0_Pin GPIO_PIN_0
+#define BTN3_EXTI0_GPIO_Port GPIOF
+#define BTN3_EXTI0_EXTI_IRQn EXTI0_IRQn
+#define BTN4_EXTI1_Pin GPIO_PIN_1
+#define BTN4_EXTI1_GPIO_Port GPIOF
+#define BTN4_EXTI1_EXTI_IRQn EXTI1_IRQn
+#define ENC_EXTI2_Pin GPIO_PIN_2
+#define ENC_EXTI2_GPIO_Port GPIOC
+#define ENC_EXTI2_EXTI_IRQn EXTI2_IRQn
 #define TRIGMODE_Pin GPIO_PIN_3
 #define TRIGMODE_GPIO_Port GPIOC
 #define DCBIAS_INVERT_Pin GPIO_PIN_3
