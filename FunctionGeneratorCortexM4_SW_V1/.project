@@ -36,5 +36,10 @@
 			<type>2</type>
 			<location>/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341</location>
 		</link>
+		<link>
+			<name>WaveTableGeneration</name>
+			<type>2</type>
+			<location>/home/chris/Projects/Python/WaveTableGeneration</location>
+		</link>
 	</linkedResources>
 </projectDescription>

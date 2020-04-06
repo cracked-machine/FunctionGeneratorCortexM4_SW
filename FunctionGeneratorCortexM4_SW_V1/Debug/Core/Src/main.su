@@ -1,6 +1,6 @@
 core_cm4.h:2064:26:ITM_SendChar	16	static,ignoring_inline_asm
-main.c:72:5:_write	32	static
-main.c:81:6:update_tft	48	static
-main.c:119:5:main	16	static
-main.c:278:6:SystemClock_Config	168	static
-main.c:336:6:Error_Handler	4	static
+main.c:79:5:_write	32	static
+main.c:88:6:update_tft	48	static
+main.c:126:5:main	16	static
+main.c:294:6:SystemClock_Config	168	static
+main.c:352:6:Error_Handler	4	static

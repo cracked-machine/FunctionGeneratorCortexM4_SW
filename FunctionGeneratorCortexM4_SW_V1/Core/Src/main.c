@@ -35,6 +35,13 @@
 #include "funcgen.h"
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
+// python-generated wave lut
+#include "pysine.h"
+#include "pysquare.h"
+#include "pyunitimpulse.h"
+#include "pysaw.h"
+#include "pysaw_rev.h"
+#include "pytriangle.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -56,7 +63,7 @@
 
 /* USER CODE BEGIN PV */
 
-
+uint8_t sin1_max_arr = 64;
 uint32_t trigger_input[TRIGGER_DATA_SIZE];
 
 /* USER CODE END PV */
@@ -155,11 +162,20 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // main signal function output (external)
-  HAL_DAC_Start(&hdac1, DAC1_CHANNEL_1);
+  HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+  //TIM8->ARR = sin1_max_arr;
+
   // DC bias output (internal)
   HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
+
   // auxilliary signal sync output (external)
-  HAL_DAC_Start(&hdac2, DAC2_CHANNEL_1);
+  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, square_data_table, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
+  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, unitimpulse_data_table, UNITIMPULSE_DATA_SIZE, DAC_ALIGN_12B_R);
+  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, saw_data_table, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
+  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, saw_rev_data_table, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
+  HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, triangle_data_table, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
+
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
 #ifndef DISABLE_ALL_TIMERS
   // single clock to run all DAC channels. TODO add independent clocks
@@ -171,8 +187,8 @@ int main(void)
 
   // PGA gain
   HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
 
 #ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())
