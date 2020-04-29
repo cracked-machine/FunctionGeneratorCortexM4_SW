@@ -1,0 +1,5 @@
+stm32g4xx_ll_bus.h:583:22:LL_AHB2_GRP1_ForceReset	16	static
+stm32g4xx_ll_bus.h:625:22:LL_AHB2_GRP1_ReleaseReset	16	static
+stm32g4xx_ll_rng.c:72:13:LL_RNG_DeInit	16	static
+stm32g4xx_ll_rng.c:93:13:LL_RNG_Init	16	static
+stm32g4xx_ll_rng.c:111:6:LL_RNG_StructInit	16	static

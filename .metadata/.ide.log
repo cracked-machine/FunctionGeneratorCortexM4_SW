@@ -16399,3 +16399,309 @@
 2020-04-29 23:40:41,763 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1900mS.
 2020-04-29 23:40:41,764 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
 2020-04-29 23:40:41,764 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-04-29 23:53:04,790 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 807058808 Bytes (954204160)
+2020-04-29 23:53:05,033 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 422316712 Bytes (954204160)
+2020-04-29 23:53:05,207 [INFO] UtilMem:74 - End SaveConfig() Used Memory: 435328040 Bytes (954204160)
+2020-04-29 23:53:05,450 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SPI
+2020-04-29 23:53:05,450 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: RNG
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DAC
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8G4
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8G4
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: SYS
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: ADC
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: NVIC
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: COMP
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: DMA
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8G4
+2020-04-29 23:53:05,451 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8G4
+2020-04-29 23:53:05,452 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: TIM1_8G4
+2020-04-29 23:53:05,452 [INFO] BlockDiagram:2671 - set Specific Code input for plugin: GPIO
+2020-04-29 23:53:05,452 [INFO] CodeGenerator:603 - code generatio: config db path: /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.common.mx_5.6.0.202002181639//db/
+2020-04-29 23:53:05,464 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-04-29 23:53:05,464 [INFO] Argument:280 - 	 sub Args: 
+2020-04-29 23:53:05,464 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Channel1
+2020-04-29 23:53:05,464 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Channel1
+2020-04-29 23:53:05,464 [INFO] Argument:278 - Argument : Initvalue: null
+2020-04-29 23:53:05,464 [INFO] Argument:280 - 	 sub Args: 
+2020-04-29 23:53:05,464 [INFO] Argument:278 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2020-04-29 23:53:05,465 [INFO] Argument:288 - Argument : Requestvalue: DMA_REQUEST_ADC1
+2020-04-29 23:53:05,465 [INFO] Argument:278 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-04-29 23:53:05,465 [INFO] Argument:288 - Argument : Directionvalue: DMA_PERIPH_TO_MEMORY
+2020-04-29 23:53:05,465 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-04-29 23:53:05,465 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-04-29 23:53:05,465 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-04-29 23:53:05,465 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-04-29 23:53:05,465 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2020-04-29 23:53:05,465 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2020-04-29 23:53:05,465 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2020-04-29 23:53:05,465 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2020-04-29 23:53:05,465 [INFO] Argument:278 - Argument : Modevalue: DMA_CIRCULAR
+2020-04-29 23:53:05,466 [INFO] Argument:288 - Argument : Modevalue: DMA_CIRCULAR
+2020-04-29 23:53:05,466 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-04-29 23:53:05,466 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-04-29 23:53:05,466 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:278 - Argument : Statevalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:288 - Argument : Statevalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-04-29 23:53:05,466 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:278 - Argument : XferAbortCallbackvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:288 - Argument : XferAbortCallbackvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:278 - Argument : ChannelIndexvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:288 - Argument : ChannelIndexvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:278 - Argument : DMAmuxChannelvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:288 - Argument : DMAmuxChannelvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:278 - Argument : DMAmuxChannelStatusvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:288 - Argument : DMAmuxChannelStatusvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:278 - Argument : DMAmuxChannelStatusMaskvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:288 - Argument : DMAmuxChannelStatusMaskvalue: null
+2020-04-29 23:53:05,467 [INFO] Argument:278 - Argument : DMAmuxRequestGenvalue: null
+2020-04-29 23:53:05,468 [INFO] Argument:288 - Argument : DMAmuxRequestGenvalue: null
+2020-04-29 23:53:05,468 [INFO] Argument:278 - Argument : DMAmuxRequestGenStatusvalue: null
+2020-04-29 23:53:05,468 [INFO] Argument:288 - Argument : DMAmuxRequestGenStatusvalue: null
+2020-04-29 23:53:05,468 [INFO] Argument:278 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2020-04-29 23:53:05,468 [INFO] Argument:288 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2020-04-29 23:53:05,473 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-04-29 23:53:05,473 [INFO] Argument:280 - 	 sub Args: 
+2020-04-29 23:53:05,473 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Channel2
+2020-04-29 23:53:05,473 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Channel2
+2020-04-29 23:53:05,473 [INFO] Argument:278 - Argument : Initvalue: null
+2020-04-29 23:53:05,473 [INFO] Argument:280 - 	 sub Args: 
+2020-04-29 23:53:05,473 [INFO] Argument:278 - Argument : Requestvalue: DMA_REQUEST_DAC1_CHANNEL1
+2020-04-29 23:53:05,474 [INFO] Argument:288 - Argument : Requestvalue: DMA_REQUEST_DAC1_CHANNEL1
+2020-04-29 23:53:05,474 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-04-29 23:53:05,474 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-04-29 23:53:05,474 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-04-29 23:53:05,474 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-04-29 23:53:05,474 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-04-29 23:53:05,474 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-04-29 23:53:05,474 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2020-04-29 23:53:05,474 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2020-04-29 23:53:05,474 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2020-04-29 23:53:05,474 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2020-04-29 23:53:05,474 [INFO] Argument:278 - Argument : Modevalue: DMA_CIRCULAR
+2020-04-29 23:53:05,474 [INFO] Argument:288 - Argument : Modevalue: DMA_CIRCULAR
+2020-04-29 23:53:05,475 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-04-29 23:53:05,475 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-04-29 23:53:05,475 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-04-29 23:53:05,475 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-04-29 23:53:05,475 [INFO] Argument:278 - Argument : Statevalue: null
+2020-04-29 23:53:05,475 [INFO] Argument:288 - Argument : Statevalue: null
+2020-04-29 23:53:05,475 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-04-29 23:53:05,475 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-04-29 23:53:05,475 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-04-29 23:53:05,475 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-04-29 23:53:05,476 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-04-29 23:53:05,476 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-04-29 23:53:05,476 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-04-29 23:53:05,476 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:278 - Argument : XferAbortCallbackvalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:288 - Argument : XferAbortCallbackvalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:278 - Argument : ChannelIndexvalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:288 - Argument : ChannelIndexvalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:278 - Argument : DMAmuxChannelvalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:288 - Argument : DMAmuxChannelvalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:278 - Argument : DMAmuxChannelStatusvalue: null
+2020-04-29 23:53:05,479 [INFO] Argument:288 - Argument : DMAmuxChannelStatusvalue: null
+2020-04-29 23:53:05,480 [INFO] Argument:278 - Argument : DMAmuxChannelStatusMaskvalue: null
+2020-04-29 23:53:05,480 [INFO] Argument:288 - Argument : DMAmuxChannelStatusMaskvalue: null
+2020-04-29 23:53:05,480 [INFO] Argument:278 - Argument : DMAmuxRequestGenvalue: null
+2020-04-29 23:53:05,480 [INFO] Argument:288 - Argument : DMAmuxRequestGenvalue: null
+2020-04-29 23:53:05,480 [INFO] Argument:278 - Argument : DMAmuxRequestGenStatusvalue: null
+2020-04-29 23:53:05,480 [INFO] Argument:288 - Argument : DMAmuxRequestGenStatusvalue: null
+2020-04-29 23:53:05,480 [INFO] Argument:278 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2020-04-29 23:53:05,480 [INFO] Argument:288 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2020-04-29 23:53:05,483 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-04-29 23:53:05,484 [INFO] Argument:280 - 	 sub Args: 
+2020-04-29 23:53:05,484 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Channel3
+2020-04-29 23:53:05,484 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Channel3
+2020-04-29 23:53:05,484 [INFO] Argument:278 - Argument : Initvalue: null
+2020-04-29 23:53:05,484 [INFO] Argument:280 - 	 sub Args: 
+2020-04-29 23:53:05,484 [INFO] Argument:278 - Argument : Requestvalue: DMA_REQUEST_DAC2_CHANNEL1
+2020-04-29 23:53:05,484 [INFO] Argument:288 - Argument : Requestvalue: DMA_REQUEST_DAC2_CHANNEL1
+2020-04-29 23:53:05,484 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-04-29 23:53:05,484 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-04-29 23:53:05,484 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-04-29 23:53:05,485 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-04-29 23:53:05,485 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-04-29 23:53:05,485 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-04-29 23:53:05,485 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2020-04-29 23:53:05,485 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_WORD
+2020-04-29 23:53:05,485 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2020-04-29 23:53:05,485 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_WORD
+2020-04-29 23:53:05,485 [INFO] Argument:278 - Argument : Modevalue: DMA_CIRCULAR
+2020-04-29 23:53:05,485 [INFO] Argument:288 - Argument : Modevalue: DMA_CIRCULAR
+2020-04-29 23:53:05,485 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-04-29 23:53:05,485 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-04-29 23:53:05,485 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-04-29 23:53:05,485 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-04-29 23:53:05,485 [INFO] Argument:278 - Argument : Statevalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:288 - Argument : Statevalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:278 - Argument : XferAbortCallbackvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:288 - Argument : XferAbortCallbackvalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-04-29 23:53:05,486 [INFO] Argument:278 - Argument : ChannelIndexvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:288 - Argument : ChannelIndexvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:278 - Argument : DMAmuxChannelvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:288 - Argument : DMAmuxChannelvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:278 - Argument : DMAmuxChannelStatusvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:288 - Argument : DMAmuxChannelStatusvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:278 - Argument : DMAmuxChannelStatusMaskvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:288 - Argument : DMAmuxChannelStatusMaskvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:278 - Argument : DMAmuxRequestGenvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:288 - Argument : DMAmuxRequestGenvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:278 - Argument : DMAmuxRequestGenStatusvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:288 - Argument : DMAmuxRequestGenStatusvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:278 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2020-04-29 23:53:05,487 [INFO] Argument:288 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2020-04-29 23:53:05,500 [INFO] Argument:278 - Argument : hdmavalue: null
+2020-04-29 23:53:05,500 [INFO] Argument:280 - 	 sub Args: 
+2020-04-29 23:53:05,500 [INFO] Argument:278 - Argument : Instancevalue: DMA1_Channel4
+2020-04-29 23:53:05,501 [INFO] Argument:288 - Argument : Instancevalue: DMA1_Channel4
+2020-04-29 23:53:05,501 [INFO] Argument:278 - Argument : Initvalue: null
+2020-04-29 23:53:05,501 [INFO] Argument:280 - 	 sub Args: 
+2020-04-29 23:53:05,501 [INFO] Argument:278 - Argument : Requestvalue: DMA_REQUEST_SPI3_TX
+2020-04-29 23:53:05,501 [INFO] Argument:288 - Argument : Requestvalue: DMA_REQUEST_SPI3_TX
+2020-04-29 23:53:05,501 [INFO] Argument:278 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-04-29 23:53:05,501 [INFO] Argument:288 - Argument : Directionvalue: DMA_MEMORY_TO_PERIPH
+2020-04-29 23:53:05,501 [INFO] Argument:278 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-04-29 23:53:05,501 [INFO] Argument:288 - Argument : PeriphIncvalue: DMA_PINC_DISABLE
+2020-04-29 23:53:05,501 [INFO] Argument:278 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-04-29 23:53:05,501 [INFO] Argument:288 - Argument : MemIncvalue: DMA_MINC_ENABLE
+2020-04-29 23:53:05,501 [INFO] Argument:278 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-04-29 23:53:05,501 [INFO] Argument:288 - Argument : PeriphDataAlignmentvalue: DMA_PDATAALIGN_BYTE
+2020-04-29 23:53:05,502 [INFO] Argument:278 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-04-29 23:53:05,502 [INFO] Argument:288 - Argument : MemDataAlignmentvalue: DMA_MDATAALIGN_BYTE
+2020-04-29 23:53:05,502 [INFO] Argument:278 - Argument : Modevalue: DMA_NORMAL
+2020-04-29 23:53:05,502 [INFO] Argument:288 - Argument : Modevalue: DMA_NORMAL
+2020-04-29 23:53:05,502 [INFO] Argument:278 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-04-29 23:53:05,502 [INFO] Argument:288 - Argument : Priorityvalue: DMA_PRIORITY_LOW
+2020-04-29 23:53:05,502 [INFO] Argument:278 - Argument : Lockvalue: null
+2020-04-29 23:53:05,502 [INFO] Argument:288 - Argument : Lockvalue: null
+2020-04-29 23:53:05,502 [INFO] Argument:278 - Argument : Statevalue: null
+2020-04-29 23:53:05,502 [INFO] Argument:288 - Argument : Statevalue: null
+2020-04-29 23:53:05,502 [INFO] Argument:278 - Argument : Parentvalue: null
+2020-04-29 23:53:05,502 [INFO] Argument:288 - Argument : Parentvalue: null
+2020-04-29 23:53:05,502 [INFO] Argument:278 - Argument : XferCpltCallbackvalue: null
+2020-04-29 23:53:05,502 [INFO] Argument:288 - Argument : XferCpltCallbackvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:278 - Argument : XferHalfCpltCallbackvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:288 - Argument : XferHalfCpltCallbackvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:278 - Argument : XferErrorCallbackvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:288 - Argument : XferErrorCallbackvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:278 - Argument : XferAbortCallbackvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:288 - Argument : XferAbortCallbackvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:278 - Argument : ErrorCodevalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:288 - Argument : ErrorCodevalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:278 - Argument : ChannelIndexvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:288 - Argument : ChannelIndexvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:278 - Argument : DMAmuxChannelvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:288 - Argument : DMAmuxChannelvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:278 - Argument : DMAmuxChannelStatusvalue: null
+2020-04-29 23:53:05,503 [INFO] Argument:288 - Argument : DMAmuxChannelStatusvalue: null
+2020-04-29 23:53:05,504 [INFO] Argument:278 - Argument : DMAmuxChannelStatusMaskvalue: null
+2020-04-29 23:53:05,504 [INFO] Argument:288 - Argument : DMAmuxChannelStatusMaskvalue: null
+2020-04-29 23:53:05,504 [INFO] Argument:278 - Argument : DMAmuxRequestGenvalue: null
+2020-04-29 23:53:05,504 [INFO] Argument:288 - Argument : DMAmuxRequestGenvalue: null
+2020-04-29 23:53:05,504 [INFO] Argument:278 - Argument : DMAmuxRequestGenStatusvalue: null
+2020-04-29 23:53:05,504 [INFO] Argument:288 - Argument : DMAmuxRequestGenStatusvalue: null
+2020-04-29 23:53:05,504 [INFO] Argument:278 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2020-04-29 23:53:05,504 [INFO] Argument:288 - Argument : DMAmuxRequestGenStatusMaskvalue: null
+2020-04-29 23:53:05,761 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp_save
+2020-04-29 23:53:05,825 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/license.tmp
+2020-04-29 23:53:05,911 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c_save
+2020-04-29 23:53:05,982 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/gpio.c
+2020-04-29 23:53:05,984 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h_save
+2020-04-29 23:53:06,047 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/gpio.h
+2020-04-29 23:53:09,384 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-29 23:53:09,385 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for ADC
+2020-04-29 23:53:09,386 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-29 23:53:09,389 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/adc.c_save
+2020-04-29 23:53:09,498 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/adc.c
+2020-04-29 23:53:09,500 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/adc.h_save
+2020-04-29 23:53:09,565 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/adc.h
+2020-04-29 23:53:09,566 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-29 23:53:09,566 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for COMP
+2020-04-29 23:53:09,567 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-29 23:53:09,570 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/comp.c_save
+2020-04-29 23:53:09,662 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/comp.c
+2020-04-29 23:53:09,664 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/comp.h_save
+2020-04-29 23:53:09,725 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/comp.h
+2020-04-29 23:53:09,725 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-29 23:53:09,726 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DAC
+2020-04-29 23:53:09,726 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-29 23:53:09,730 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c_save
+2020-04-29 23:53:09,831 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dac.c
+2020-04-29 23:53:09,833 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h_save
+2020-04-29 23:53:09,894 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dac.h
+2020-04-29 23:53:09,895 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-29 23:53:09,895 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for DMA
+2020-04-29 23:53:09,895 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-29 23:53:10,071 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dma.c_save
+2020-04-29 23:53:10,135 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/dma.c
+2020-04-29 23:53:10,137 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dma.h_save
+2020-04-29 23:53:10,199 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/dma.h
+2020-04-29 23:53:10,199 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-29 23:53:10,200 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for RNG
+2020-04-29 23:53:10,200 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-29 23:53:10,203 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/rng.c_save
+2020-04-29 23:53:10,293 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/rng.c
+2020-04-29 23:53:10,295 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/rng.h_save
+2020-04-29 23:53:10,357 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/rng.h
+2020-04-29 23:53:10,357 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-29 23:53:10,358 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for SPI
+2020-04-29 23:53:10,359 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-29 23:53:10,362 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/spi.c_save
+2020-04-29 23:53:10,456 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/spi.c
+2020-04-29 23:53:10,458 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/spi.h_save
+2020-04-29 23:53:10,519 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/spi.h
+2020-04-29 23:53:10,519 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line
+2020-04-29 23:53:10,520 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for TIM
+2020-04-29 23:53:10,521 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-29 23:53:10,525 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c_save
+2020-04-29 23:53:10,645 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/tim.c
+2020-04-29 23:53:10,647 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h_save
+2020-04-29 23:53:10,707 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/tim.h
+2020-04-29 23:53:10,708 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Debug : prepare data for NVIC
+2020-04-29 23:53:10,708 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] Command line test
+2020-04-29 23:53:10,717 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c_save
+2020-04-29 23:53:10,839 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_it.c
+2020-04-29 23:53:10,840 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h_save
+2020-04-29 23:53:10,901 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_it.h
+2020-04-29 23:53:10,905 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c_save
+2020-04-29 23:53:10,994 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/stm32g4xx_hal_msp.c
+2020-04-29 23:53:10,996 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp_save
+2020-04-29 23:53:11,055 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/MXTmpFiles/system.tmp
+2020-04-29 23:53:11,058 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32_assert.h_save
+2020-04-29 23:53:11,117 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32_assert.h
+2020-04-29 23:53:11,119 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h_save
+2020-04-29 23:53:11,184 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/stm32g4xx_hal_conf.h
+2020-04-29 23:53:11,206 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h_save
+2020-04-29 23:53:11,272 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Inc/main.h
+2020-04-29 23:53:11,275 [INFO] CodeEngine:188 - oldGeneratedFile, /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c_save
+2020-04-29 23:53:11,361 [INFO] CodeEngine:206 - Generated code: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/main.c
+2020-04-29 23:53:11,792 [INFO] ProjectBuilder:2002 - Time for Copy HAL[1] : 40mS.
+2020-04-29 23:53:11,794 [INFO] ProjectBuilder:2727 - Project Generator version: 3.7.1
+2020-04-29 23:53:12,018 [INFO] ConfigFileManager:1066 - The Die is : DIE469
+2020-04-29 23:53:13,547 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1753mS.
+2020-04-29 23:53:13,549 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-04-29 23:53:13,552 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 1mS.

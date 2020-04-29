@@ -89,25 +89,19 @@ void update_tft()
 {
 	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
 
-
-				uint32_t random_num = 0;
 	  			uint16_t xr = 0;
 	  			uint16_t yr = 0;
 	  			uint16_t radiusr = 0;
 	  			uint16_t colourr = 0;
-	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
-	  			xr = random_num;
-	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
-	  			yr = random_num;
-	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
-	  			radiusr = random_num;
-	  			HAL_RNG_GenerateRandomNumber(&hrng, &random_num);
-	  			colourr = random_num;
+	  			xr = LL_RNG_ReadRandData32(RNG);
+	  			yr = LL_RNG_ReadRandData32(RNG);
+	  			radiusr = LL_RNG_ReadRandData32(RNG);
+	  			colourr = LL_RNG_ReadRandData32(RNG);
 
 	  			xr &= 0x01FF;
 	  			yr &= 0x01FF;
 	  			radiusr &= 0x001F;
-	  			//ili9341_drawpixel(xr, yr, WHITE);
+
 	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
 
 	  			char enc_buff[13] = "";
