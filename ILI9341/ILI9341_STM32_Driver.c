@@ -91,14 +91,28 @@ volatile uint16_t LCD_WIDTH	 = ILI9341_SCREEN_WIDTH;
 
 /* Initialize SPI */
 void ILI9341_SPI_Init(void)
-{																							//GPIO INIT
+{
+
+	//GPIO INIT
 	HAL_GPIO_WritePin(LCD_CS_PORT, LCD_CS_PIN, GPIO_PIN_RESET);	//CS OFF
 }
 
 /*Send data (char) to LCD*/
 void ILI9341_SPI_Send(unsigned char SPI_Data)
 {
-HAL_SPI_Transmit(HSPI_INSTANCE, &SPI_Data, 1, 1);
+	HAL_StatusTypeDef res;
+	#ifdef USE_ILI9341_SPIDMA
+		if( ((res = HAL_SPI_Transmit_DMA(HSPI_INSTANCE, &SPI_Data, 1)) != HAL_OK) )
+		{
+			//printf("HAL_SPI_Transmit_DMA Error #%u, ", res);
+		}
+	#else
+		if( ((res = HAL_SPI_Transmit(HSPI_INSTANCE, &SPI_Data, 1, 1)) != HAL_OK) )
+		{
+			//printf("HAL_SPI_Transmit Error #%u, ", res);
+		}
+	#endif
+
 }
 
 /* Send command (char) to LCD */
