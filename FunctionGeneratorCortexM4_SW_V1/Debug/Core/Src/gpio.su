@@ -1,1 +1,10 @@
+core_cm4.h:1676:26:__NVIC_GetPriorityGrouping	4	static
+core_cm4.h:1688:22:__NVIC_EnableIRQ	16	static
+core_cm4.h:1816:22:__NVIC_SetPriority	16	static
+core_cm4.h:1863:26:NVIC_EncodePriority	40	static
+stm32g4xx_ll_system.h:713:22:LL_SYSCFG_SetEXTISource	24	static,ignoring_inline_asm
+stm32g4xx_ll_gpio.h:286:22:LL_GPIO_SetPinMode	40	static,ignoring_inline_asm
+stm32g4xx_ll_gpio.h:497:22:LL_GPIO_SetPinPull	40	static,ignoring_inline_asm
+stm32g4xx_ll_gpio.h:924:22:LL_GPIO_ResetOutputPin	16	static
+stm32g4xx_ll_bus.h:453:22:LL_AHB2_GRP1_EnableClock	24	static
 gpio.c:40:6:MX_GPIO_Init	48	static

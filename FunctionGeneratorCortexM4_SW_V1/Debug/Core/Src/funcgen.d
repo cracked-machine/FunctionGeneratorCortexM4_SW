@@ -37,16 +37,16 @@ Core/Src/funcgen.o: ../Core/Src/funcgen.c ../Core/Inc/funcgen.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rng.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h \
  ../Core/Inc/dac.h
 
 ../Core/Inc/funcgen.h:
@@ -129,24 +129,24 @@ Core/Src/funcgen.o: ../Core/Src/funcgen.c ../Core/Inc/funcgen.h \
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rng.h:
 
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h:
+
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h:
+
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h:
+
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_bus.h:
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_cortex.h:
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rcc.h:
 
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h:
-
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h:
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h:
 
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_gpio.h:
-
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h:
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h:
-
-../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_exti.h:
 
 ../Core/Inc/dac.h:
