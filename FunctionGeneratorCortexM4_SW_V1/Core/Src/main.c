@@ -85,32 +85,7 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 
-void update_tft()
-{
-	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
 
-	  			uint16_t xr = 0;
-	  			uint16_t yr = 0;
-	  			uint16_t radiusr = 0;
-	  			uint16_t colourr = 0;
-	  			xr = LL_RNG_ReadRandData32(RNG);
-	  			yr = LL_RNG_ReadRandData32(RNG);
-	  			radiusr = LL_RNG_ReadRandData32(RNG);
-	  			colourr = LL_RNG_ReadRandData32(RNG);
-
-	  			xr &= 0x01FF;
-	  			yr &= 0x01FF;
-	  			radiusr &= 0x001F;
-
-	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
-
-	  			char enc_buff[13] = "";
-	  			snprintf(enc_buff, sizeof(enc_buff), "%d\n", new_enc_value);
-	  			ILI9341_Draw_Text(enc_buff, 10, 20, BLACK, 5, WHITE);
-
-	  			ILI9341_Draw_Text(control_pressed, 10, 60, BLACK, 5, WHITE);
-	  		//HAL_Delay(1);
-}
 /* USER CODE END 0 */
 
 /**
@@ -153,6 +128,7 @@ int main(void)
   MX_TIM1_Init();
   MX_TIM8_Init();
   MX_TIM16_Init();
+  MX_TIM15_Init();
   /* USER CODE BEGIN 2 */
 
   // main signal function output (external)
@@ -259,6 +235,7 @@ int main(void)
 	ILI9341_Draw_Text("Filled Circles", 10, 20, BLACK, 1, WHITE);
 	HAL_Delay(2000);
 	ILI9341_Fill_Screen(WHITE);
+	HAL_TIM_Base_Start_IT(&htim15);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -267,7 +244,7 @@ int main(void)
   {
 
 	//printf("TFT\n");
-	update_tft();
+
 
 	//ILI9341_Draw_Text("Randomly placed and sized", 10, 10, BLACK, 1, WHITE);
 	  //HAL_GPIO_TogglePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin);

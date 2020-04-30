@@ -25,8 +25,9 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "funcgen.h"
-
-
+#include "ILI9341_STM32_Driver.h"
+#include "ILI9341_GFX.h"
+#include "rng.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -59,7 +60,32 @@ extern char control_pressed[10];
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void update_tft()
+{
+	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
 
+	  			uint16_t xr = 0;
+	  			uint16_t yr = 0;
+	  			uint16_t radiusr = 0;
+	  			uint16_t colourr = 0;
+	  			xr = LL_RNG_ReadRandData32(RNG);
+	  			yr = LL_RNG_ReadRandData32(RNG);
+	  			radiusr = LL_RNG_ReadRandData32(RNG);
+	  			colourr = LL_RNG_ReadRandData32(RNG);
+
+	  			xr &= 0x01FF;
+	  			yr &= 0x01FF;
+	  			radiusr &= 0x001F;
+
+	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
+
+	  			char enc_buff[13] = "";
+	  			snprintf(enc_buff, sizeof(enc_buff), "%d\n", new_enc_value);
+	  			ILI9341_Draw_Text(enc_buff, 10, 20, BLACK, 5, WHITE);
+
+	  			ILI9341_Draw_Text(control_pressed, 10, 60, BLACK, 5, WHITE);
+	  		//HAL_Delay(1);
+}
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -69,6 +95,7 @@ extern DMA_HandleTypeDef hdma_dac2_ch1;
 extern DMA_HandleTypeDef hdma_spi3_tx;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
+extern TIM_HandleTypeDef htim15;
 extern TIM_HandleTypeDef htim16;
 extern TIM_HandleTypeDef htim17;
 /* USER CODE BEGIN EV */
@@ -348,6 +375,21 @@ void DMA1_Channel4_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles TIM1 break interrupt and TIM15 global interrupt.
+  */
+void TIM1_BRK_TIM15_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 0 */
+	update_tft();
+  /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim1);
+  HAL_TIM_IRQHandler(&htim15);
+  /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 1 */
+
+  /* USER CODE END TIM1_BRK_TIM15_IRQn 1 */
+}
+
+/**
   * @brief This function handles TIM1 update interrupt and TIM16 global interrupt.
   */
 void TIM1_UP_TIM16_IRQHandler(void)
@@ -377,6 +419,8 @@ void TIM1_TRG_COM_TIM17_IRQHandler(void)
 
 
 	last_enc_value = TIM1->CNT;
+
+
   /* USER CODE END TIM1_TRG_COM_TIM17_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim17);
