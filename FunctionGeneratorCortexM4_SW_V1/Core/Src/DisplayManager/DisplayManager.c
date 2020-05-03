@@ -14,95 +14,55 @@
 #include "rng.h"
 
 
-#define BUTTON_WIDTH (ILI9341_SCREEN_WIDTH)/4
-//#define BUTTON_Y_POSITION ILI9341_SCREEN_HEIGHT-50
+#define BUTTON_WIDTH 				(ILI9341_SCREEN_WIDTH)/4
+#define BUTTON_Y_POSITION 			(ILI9341_SCREEN_HEIGHT)-50
+#define BORDER_SIZE 				10
+#define BUTTON_TEXT_X_POS 			(ILI9341_SCREEN_WIDTH)/8
+#define BUTTON_TEXT_Y_POS 			(ILI9341_SCREEN_HEIGHT)-25
 
-#define BORDER_SIZE 10
-
-//uint16_t button_x_positions[4] = { BORDER_SIZE-1, (BUTTON_WIDTH)+1, (BUTTON_WIDTH*2)+1, (BUTTON_WIDTH*3)+1 };
-#define BUTTON_Y_POSITION 50
-uint16_t button_x_positions[1] = { (BUTTON_WIDTH) };
+uint16_t button_x_positions[4] = { 0, (BUTTON_WIDTH)+1, (BUTTON_WIDTH*2)+1, (BUTTON_WIDTH*3)+1 };
+//#define BUTTON_Y_POSITION 50
+//uint16_t button_x_positions[1] = { (BUTTON_WIDTH) };
 
 
 void dm_update_display()
 {
 
+	ILI9341_Draw_Text("TEST", BUTTON_TEXT_X_POS, 100, BLACK, 2, DARKCYAN);
 
-	// BLUE BUTTON GFX
-/*	ILI9341_Draw_Filled_Rectangle_Coord(	button_x_positions[0] + (BORDER_SIZE),
-											BUTTON_Y_POSITION + (BORDER_SIZE),
-											(button_x_positions[0] + BUTTON_WIDTH) - (BORDER_SIZE),
-											BUTTON_Y_POSITION*2 - (BORDER_SIZE),
-											DARKCYAN);
-
-*/
-
-	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	10,
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[0],
+													BUTTON_Y_POSITION,
+													BUTTON_WIDTH,
 													50,
-													90,
+													DARKCYAN,
+													3,
+													BLACK);
+
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[1],
+													BUTTON_Y_POSITION,
+													BUTTON_WIDTH,
 													50,
-													BLACK,
-													20);
+													DARKGREEN,
+													3,
+													BLACK);
+
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[2],
+													BUTTON_Y_POSITION,
+													BUTTON_WIDTH,
+													50,
+													YELLOW,
+													3,
+													BLACK);
+
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[3],
+													BUTTON_Y_POSITION,
+													BUTTON_WIDTH,
+													50,
+													RED,
+													3,
+													BLACK);
 
 
-	ILI9341_Draw_Rectangle(100, 100, 100, 100, RED);
-/*
-		// BLUE BUTTON GFX
-		ILI9341_Draw_Filled_Rectangle_Coord(	button_x_positions[0] + (BORDER_SIZE),
-												BUTTON_Y_POSITION + (BORDER_SIZE),
-												(button_x_positions[0] + BUTTON_WIDTH) - (BORDER_SIZE),
-												ILI9341_SCREEN_HEIGHT - (BORDER_SIZE),
-												DARKCYAN);
-
-		ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[0],
-														BUTTON_Y_POSITION,
-														button_x_positions[0] + BUTTON_WIDTH,
-														ILI9341_SCREEN_HEIGHT,
-														BLACK,
-														BORDER_SIZE);
-
-		// GREEN BUTTON GFX
-		ILI9341_Draw_Filled_Rectangle_Coord(	button_x_positions[1] + (BORDER_SIZE),
-												BUTTON_Y_POSITION + (BORDER_SIZE),
-												(button_x_positions[1] + BUTTON_WIDTH) - (BORDER_SIZE),
-												ILI9341_SCREEN_HEIGHT - (BORDER_SIZE),
-												DARKGREEN);
-
-		ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[1],
-														BUTTON_Y_POSITION,
-														button_x_positions[1] + BUTTON_WIDTH,
-														ILI9341_SCREEN_HEIGHT,
-														BLACK,
-														BORDER_SIZE);
-
-		// YELLOW BUTTON GFX
-		ILI9341_Draw_Filled_Rectangle_Coord(	button_x_positions[2] + (BORDER_SIZE),
-												BUTTON_Y_POSITION + (BORDER_SIZE),
-												(button_x_positions[2] + BUTTON_WIDTH) - (BORDER_SIZE),
-												ILI9341_SCREEN_HEIGHT - (BORDER_SIZE),
-												YELLOW);
-
-		ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[2],
-														BUTTON_Y_POSITION,
-														button_x_positions[2] + BUTTON_WIDTH,
-														ILI9341_SCREEN_HEIGHT,
-														BLACK,
-														BORDER_SIZE);
-
-		// RED BUTTON GFX
-		ILI9341_Draw_Filled_Rectangle_Coord(	button_x_positions[3] + (BORDER_SIZE),
-												BUTTON_Y_POSITION + (BORDER_SIZE),
-												(button_x_positions[3] + BUTTON_WIDTH) - (BORDER_SIZE),
-												ILI9341_SCREEN_HEIGHT,
-												RED);
-
-		ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[3],
-														BUTTON_Y_POSITION,
-														button_x_positions[3] + BUTTON_WIDTH,
-														ILI9341_SCREEN_HEIGHT,
-														BLACK,
-														BORDER_SIZE);
-*/
 
 	//dm_test_screen();
 }

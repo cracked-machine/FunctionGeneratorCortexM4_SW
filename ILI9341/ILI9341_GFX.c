@@ -170,36 +170,58 @@ void ILI9341_Draw_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uin
  *
  */
 
-void ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t Colour, uint8_t Border)
+void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t inner_colour, uint8_t border_weight, uint8_t border_colour)
 {
 
-	// Draw inwards (and shorter) for each level of border thickness
-	for(uint8_t b = 0; b < Border; b++)
+	// Draw inwards (and shorter) for each level of border weight
+	for(uint8_t b = 0; ; b++)
 	{
+
+
+		if(b > border_weight)
+		{
+
+			// stop before the inner space reaches zero! (hard fault)
+			if( ((y + b) == ((y + h) - b)) || ((x + b) == ((x + w) - b)) )
+			{
+				// add final line?
+				goto finish;
+			}
+			else
+			{
+				ILI9341_Draw_Rectangle(x + b, y + b, (w - (2*b)) + 1, (h - (2*b)) + 1, inner_colour);
+				goto finish;
+			}
+		}
+
 		// Horizontal lines
 		ILI9341_Draw_Horizontal_Line(	x + b,
 										y + b,
 										w - (2*b),
-										Colour);
+										border_colour);
 
 		ILI9341_Draw_Horizontal_Line(	x + b,
 										(y + h) - b,
 										w - (b),
-										Colour);
+										border_colour);
 
 
 		// Vertical lines
 		ILI9341_Draw_Vertical_Line(		x + b,
 										y + b,
 										h - (2*b),
-										Colour);
+										border_colour);
 
 		ILI9341_Draw_Vertical_Line(		(x + w) - b,
 										y + b,
 										h - (2*b),
-										Colour);
+										border_colour);
 
 	}
+
+	finish:
+	// done
+	return;
 }
 
 
