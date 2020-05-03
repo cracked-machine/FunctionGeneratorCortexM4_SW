@@ -49,6 +49,7 @@
 #include "ILI9341_GFX.h"
 #include "5x5_font.h"
 #include "spi.h"
+#include <assert.h>
 
 /*Draw hollow circle at X,Y location with specified radius and colour. X and Y represent circles center */
 void ILI9341_Draw_Hollow_Circle(uint16_t X, uint16_t Y, uint16_t Radius, uint16_t Colour)
@@ -122,55 +123,86 @@ void ILI9341_Draw_Filled_Circle(uint16_t X, uint16_t Y, uint16_t Radius, uint16_
 		//TODO:	https://stackoverflow.com/questions/1201200/fast-algorithm-for-drawing-filled-circles	
 }
 
-/*Draw a hollow rectangle between positions X0,Y0 and X1,Y1 with specified colour*/
-void ILI9341_Draw_Hollow_Rectangle_Coord(uint16_t X0, uint16_t Y0, uint16_t X1, uint16_t Y1, uint16_t Colour)
+/*
+ *
+ *
+ *
+ *
+ *
+ */
+
+void ILI9341_Draw_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t Colour)
 {
-	uint16_t 	X_length = 0;
-	uint16_t 	Y_length = 0;
-	uint8_t		Negative_X = 0;
-	uint8_t 	Negative_Y = 0;
-	float 		Calc_Negative = 0;
+
 	
-	Calc_Negative = X1 - X0;
-	if(Calc_Negative < 0) Negative_X = 1;
-	Calc_Negative = 0;
+	// Horizontal lines
+	ILI9341_Draw_Horizontal_Line(	x,
+									y,
+									w,
+									Colour);
+
+	ILI9341_Draw_Horizontal_Line(	x,
+									y + h,
+									w,
+									Colour);
 	
-	Calc_Negative = Y1 - Y0;
-	if(Calc_Negative < 0) Negative_Y = 1;
-	
-	
-	//DRAW HORIZONTAL!
-	if(!Negative_X)
-	{
-		X_length = X1 - X0;		
-	}
-	else
-	{
-		X_length = X0 - X1;		
-	}
-	ILI9341_Draw_Horizontal_Line(X0, Y0, X_length, Colour);
-	ILI9341_Draw_Horizontal_Line(X0, Y1, X_length, Colour);
-	
-	
-	
-	//DRAW VERTICAL!
-	if(!Negative_Y)
-	{
-		Y_length = Y1 - Y0;		
-	}
-	else
-	{
-		Y_length = Y0 - Y1;		
-	}
-	ILI9341_Draw_Vertical_Line(X0, Y0, Y_length, Colour);
-	ILI9341_Draw_Vertical_Line(X1, Y0, Y_length, Colour);
-	
-	if((X_length > 0)||(Y_length > 0)) 
-	{
-		ILI9341_Draw_Pixel(X1, Y1, Colour);
-	}
+
+	// Vertical lines
+	ILI9341_Draw_Vertical_Line(		x,
+									y,
+									h,
+									Colour);
+
+	ILI9341_Draw_Vertical_Line(		x + w,
+									y,
+									h,
+									Colour);
+
 	
 }
+
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+void ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t Colour, uint8_t Border)
+{
+
+	// Draw inwards (and shorter) for each level of border thickness
+	for(uint8_t b = 0; b < Border; b++)
+	{
+		// Horizontal lines
+		ILI9341_Draw_Horizontal_Line(	x + b,
+										y + b,
+										w - (2*b),
+										Colour);
+
+		ILI9341_Draw_Horizontal_Line(	x + b,
+										(y + h) - b,
+										w - (b),
+										Colour);
+
+
+		// Vertical lines
+		ILI9341_Draw_Vertical_Line(		x + b,
+										y + b,
+										h - (2*b),
+										Colour);
+
+		ILI9341_Draw_Vertical_Line(		(x + w) - b,
+										y + b,
+										h - (2*b),
+										Colour);
+
+	}
+}
+
+
 
 /*Draw a filled rectangle between positions X0,Y0 and X1,Y1 with specified colour*/
 void ILI9341_Draw_Filled_Rectangle_Coord(uint16_t X0, uint16_t Y0, uint16_t X1, uint16_t Y1, uint16_t Colour)

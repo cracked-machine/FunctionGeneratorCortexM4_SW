@@ -229,12 +229,13 @@ int main(void)
   ILI9341_Init();
 
 
+/*	ILI9341_Fill_Screen(WHITE);
+
+	ILI9341_Draw_Text("Initialising", 10, 10, BLACK, 1, WHITE);
+	HAL_Delay(2000);
+*/
 	ILI9341_Fill_Screen(WHITE);
 	ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-	ILI9341_Draw_Text("Randomly placed and sized", 10, 10, BLACK, 1, WHITE);
-	ILI9341_Draw_Text("Filled Circles", 10, 20, BLACK, 1, WHITE);
-	HAL_Delay(2000);
-	ILI9341_Fill_Screen(WHITE);
 	HAL_TIM_Base_Start_IT(&htim15);
   /* USER CODE END 2 */
 

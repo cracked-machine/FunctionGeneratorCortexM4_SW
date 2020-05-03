@@ -16,6 +16,16 @@
   *
   ******************************************************************************
   */
+
+
+// 	TIM1_BRK_TIM15_IRQHandler 			- 	Display
+// 	TIM1_TRG_COM_TIM17_IRQHandler		- 	DC Bias
+//	TIM2_IRQHandler						- 	INPUT TRIGGER (IF ENABLED)
+//	EXTI15_10_IRQHandler				- 	BTN1/BTN2
+//	EXTI0_IRQHandler					- 	BTN3
+//  EXTI1_IRQHandler					- 	BTN4
+//	EXTI2_IRQHandler					- 	ENCODER BTN
+
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -24,10 +34,15 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
+
 #include "funcgen.h"
+#include "DisplayManager.h"
+
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
+
 #include "rng.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -60,32 +75,7 @@ extern char control_pressed[10];
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void update_tft()
-{
-	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
 
-	  			uint16_t xr = 0;
-	  			uint16_t yr = 0;
-	  			uint16_t radiusr = 0;
-	  			uint16_t colourr = 0;
-	  			xr = LL_RNG_ReadRandData32(RNG);
-	  			yr = LL_RNG_ReadRandData32(RNG);
-	  			radiusr = LL_RNG_ReadRandData32(RNG);
-	  			colourr = LL_RNG_ReadRandData32(RNG);
-
-	  			xr &= 0x01FF;
-	  			yr &= 0x01FF;
-	  			radiusr &= 0x001F;
-
-	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
-
-	  			char enc_buff[13] = "";
-	  			snprintf(enc_buff, sizeof(enc_buff), "%d\n", new_enc_value);
-	  			ILI9341_Draw_Text(enc_buff, 10, 20, BLACK, 5, WHITE);
-
-	  			ILI9341_Draw_Text(control_pressed, 10, 60, BLACK, 5, WHITE);
-	  		//HAL_Delay(1);
-}
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -380,7 +370,7 @@ void DMA1_Channel4_IRQHandler(void)
 void TIM1_BRK_TIM15_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 0 */
-	update_tft();
+	dm_update_display();
   /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim15);

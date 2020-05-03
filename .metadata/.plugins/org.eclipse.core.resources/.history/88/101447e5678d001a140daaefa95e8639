@@ -1,0 +1,35 @@
+/*
+ * DisplayManager.c
+ *
+ *  Created on: 3 May 2020
+ *      Author: chris
+ */
+
+#include "DisplayManager.h"
+
+void dm_update_display()
+{
+	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
+
+	  			uint16_t xr = 0;
+	  			uint16_t yr = 0;
+	  			uint16_t radiusr = 0;
+	  			uint16_t colourr = 0;
+	  			xr = LL_RNG_ReadRandData32(RNG);
+	  			yr = LL_RNG_ReadRandData32(RNG);
+	  			radiusr = LL_RNG_ReadRandData32(RNG);
+	  			colourr = LL_RNG_ReadRandData32(RNG);
+
+	  			xr &= 0x01FF;
+	  			yr &= 0x01FF;
+	  			radiusr &= 0x001F;
+
+	  			ILI9341_Draw_Filled_Circle(xr, yr, radiusr/2, colourr);
+
+	  			char enc_buff[13] = "";
+	  			snprintf(enc_buff, sizeof(enc_buff), "%d\n", new_enc_value);
+	  			ILI9341_Draw_Text(enc_buff, 10, 20, BLACK, 5, WHITE);
+
+	  			ILI9341_Draw_Text(control_pressed, 10, 60, BLACK, 5, WHITE);
+	  		//HAL_Delay(1);
+}

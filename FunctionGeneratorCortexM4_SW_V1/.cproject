@@ -50,6 +50,8 @@
 									<listOptionValue builtIn="false" value="../Drivers/STM32G4xx_HAL_Driver/Inc"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/SineWaveTable}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/ILI9341}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/Basic_GUI}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1625654879" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -78,10 +80,10 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ILI9341"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="WaveTableGeneration"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Core"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Drivers"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="ILI9341"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="WaveTableGeneration"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
