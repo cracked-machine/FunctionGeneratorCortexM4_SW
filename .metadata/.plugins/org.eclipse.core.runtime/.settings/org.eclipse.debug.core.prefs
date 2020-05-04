@@ -4,4 +4,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.postmortemLaunchType=org.eclipse.cdt.dsf.gdb.launch.coreCLaunch,debug,;
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="dcbias_dir"/>\n<expression enabled\="true" text\="dcbias"/>\n<expression enabled\="true" text\="dcinverted"/>\n<expression enabled\="true" text\="trigger_input"/>\n<expression enabled\="true" text\="(y + b)"/>\n<expression enabled\="true" text\="((y + h) - b)"/>\n</watchExpressions>\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="(temp[j] &amp; (1&lt;&lt;i))"/>\n<expression enabled\="true" text\="y+(i*size)"/>\n</watchExpressions>\n

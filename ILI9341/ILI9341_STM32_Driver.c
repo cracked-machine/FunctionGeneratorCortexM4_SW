@@ -345,10 +345,10 @@ void ILI9341_Init(void)
 
 //INTERNAL FUNCTION OF LIBRARY, USAGE NOT RECOMENDED, USE Draw_Pixel INSTEAD
 /*Sends single pixel colour information to LCD*/
-void ILI9341_Draw_Colour(uint16_t Colour)
+void ILI9341_Draw_colour(uint16_t colour)
 {
 	//SENDS COLOUR
-	unsigned char TempBuffer[2] = {Colour>>8, Colour};
+	unsigned char TempBuffer[2] = {colour>>8, colour};
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 	HAL_SPI_Transmit(HSPI_INSTANCE, TempBuffer, 2, 1);
@@ -357,54 +357,66 @@ void ILI9341_Draw_Colour(uint16_t Colour)
 
 //INTERNAL FUNCTION OF LIBRARY
 /*Sends block colour information to LCD*/
-void ILI9341_Draw_Colour_Burst(uint16_t Colour, uint32_t Size)
+void ILI9341_Draw_colour_Burst(uint16_t colour, uint32_t size)
 {
+
 	//SENDS COLOUR
-	uint32_t Buffer_Size = 0;
-	if((Size*2) < BURST_MAX_SIZE)
+
+	uint32_t buffer_size = 0;
+	if((size*2) < BURST_MAX_SIZE)
 	{
-		Buffer_Size = Size;
+		buffer_size = size;
 	}
 	else
 	{
-		Buffer_Size = BURST_MAX_SIZE;
+		buffer_size = BURST_MAX_SIZE;
 	}
 
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 
-	unsigned char chifted = 	Colour>>8;;
-	unsigned char burst_buffer[Buffer_Size];
-	for(uint32_t j = 0; j < Buffer_Size; j+=2)
-		{
+	unsigned char chifted = 	colour>>8;;
+	unsigned char burst_buffer[buffer_size];
+	for(uint32_t j = 0; j < buffer_size; j+=2)
+	{
 			burst_buffer[j] = 	chifted;
-			burst_buffer[j+1] = Colour;
-		}
+			burst_buffer[j+1] = colour;
+	}
 	
-	uint32_t Sending_Size = Size*2;
-	uint32_t Sending_in_Block = Sending_Size/Buffer_Size;
-	uint32_t Remainder_from_block = Sending_Size%Buffer_Size;
+	uint32_t Sending_size = size*2;
+
+	// make sure we don't divide by size=0
+	uint32_t Sending_in_Block = 1;
+	uint32_t Remainder_from_block = 0;
+	if(size > 0)
+	{
+			Sending_in_Block 		= Sending_size/buffer_size;
+			Remainder_from_block 	= Sending_size%buffer_size;
+	}
+
 
 	if(Sending_in_Block != 0)
 	{
 		for(uint32_t j = 0; j < (Sending_in_Block); j++)
-			{
-			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, Buffer_Size, 10);
-			}
+		{
+			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, buffer_size, 10);
+		}
 	}
 
 	//REMAINDER!
 	HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, Remainder_from_block, 10);
 
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
+
+
 }
 
 //FILL THE ENTIRE SCREEN WITH SELECTED COLOUR (either #define-d ones or custom 16bit)
-/*Sets address (entire screen) and Sends Height*Width ammount of colour information to LCD*/
-void ILI9341_Fill_Screen(uint16_t Colour)
+/*Sets address (entire screen) and Sends height*width ammount of colour information to LCD*/
+void ILI9341_Fill_Screen(uint16_t colour)
 {
 	ILI9341_Set_Address(0,0,LCD_WIDTH,LCD_HEIGHT);
-	ILI9341_Draw_Colour_Burst(Colour, LCD_WIDTH*LCD_HEIGHT);
+	ILI9341_Draw_colour_Burst(colour, LCD_WIDTH*LCD_HEIGHT);
 }
 
 //DRAW PIXEL AT XY POSITION WITH SELECTED COLOUR
@@ -413,7 +425,7 @@ void ILI9341_Fill_Screen(uint16_t Colour)
 //Using pixels to draw big simple structures is not recommended as it is really slow
 //Try using either rectangles or lines if possible
 //
-void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t Colour) 
+void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t colour)
 {
 	if((X >=LCD_WIDTH) || (Y >=LCD_HEIGHT)) return;	//OUT OF BOUNDS!
 
@@ -454,55 +466,72 @@ void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t Colour)
 	
 	//COLOUR
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
-	unsigned char Temp_Buffer2[2] = {Colour>>8, Colour};
+	unsigned char Temp_Buffer2[2] = {colour>>8, colour};
 	HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer2, 2, 1);
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 
 	
 }
 
-//DRAW RECTANGLE OF SET SIZE AND HEIGTH AT X and Y POSITION WITH CUSTOM COLOUR
-//
-//Rectangle is hollow. X and Y positions mark the upper left corner of rectangle
-//As with all other draw calls x0 and y0 locations dependant on screen orientation
-//
+/*
+ *
+ *
+ *
+ */
 
-void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t Width, uint16_t Height, uint16_t Colour)
+void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t colour)
 {
 	if((X >=LCD_WIDTH) || (Y >=LCD_HEIGHT)) return;
-	if((X+Width-1)>=LCD_WIDTH)
+	if((X+width-1)>=LCD_WIDTH)
 		{
-			Width=LCD_WIDTH-X;
+			width=LCD_WIDTH-X;
 		}
-	if((Y+Height-1)>=LCD_HEIGHT)
+	if((Y+height-1)>=LCD_HEIGHT)
 		{
-			Height=LCD_HEIGHT-Y;
+			height=LCD_HEIGHT-Y;
 		}
-	ILI9341_Set_Address(X, Y, X+Width-1, Y+Height-1);
-	ILI9341_Draw_Colour_Burst(Colour, Height*Width);
+	ILI9341_Set_Address(X, Y, X+width-1, Y+height-1);
+
+	uint16_t size = height*width;
+	uint8_t truncated = 0;
+	if((size & 1) && (size > 1))
+	{
+		truncated = 1;
+	 	size = ((size >> 1) * 2);
+	}
+	ILI9341_Draw_colour_Burst(colour, size);
+	if(truncated)
+		ILI9341_Draw_Pixel(X+width-1, Y+height-1, colour);
+
 }
 
-//DRAW LINE FROM X,Y LOCATION to X+Width,Y LOCATION
-void ILI9341_Draw_Horizontal_Line(uint16_t X, uint16_t Y, uint16_t Width, uint16_t Colour)
+/*
+ *
+ *
+ *
+ *
+ */
+
+void ILI9341_Draw_Horizontal_Line(uint16_t X, uint16_t Y, uint16_t width, uint16_t colour)
 {
 	if((X >=LCD_WIDTH) || (Y >=LCD_HEIGHT)) return;
-	if((X+Width-1)>=LCD_WIDTH)
+	if((X+width-1)>=LCD_WIDTH)
 		{
-			Width=LCD_WIDTH-X;
+			width=LCD_WIDTH-X;
 		}
-	ILI9341_Set_Address(X, Y, X+Width-1, Y);
-	ILI9341_Draw_Colour_Burst(Colour, Width);
+	ILI9341_Set_Address(X, Y, X+width-1, Y);
+	ILI9341_Draw_colour_Burst(colour, width);
 }
 
-//DRAW LINE FROM X,Y LOCATION to X,Y+Height LOCATION
-void ILI9341_Draw_Vertical_Line(uint16_t X, uint16_t Y, uint16_t Height, uint16_t Colour)
+//DRAW LINE FROM X,Y LOCATION to X,Y+height LOCATION
+void ILI9341_Draw_Vertical_Line(uint16_t X, uint16_t Y, uint16_t height, uint16_t colour)
 {
 	if((X >=LCD_WIDTH) || (Y >=LCD_HEIGHT)) return;
-	if((Y+Height-1)>=LCD_HEIGHT)
+	if((Y+height-1)>=LCD_HEIGHT)
 		{
-			Height=LCD_HEIGHT-Y;
+			height=LCD_HEIGHT-Y;
 		}
-	ILI9341_Set_Address(X, Y, X, Y+Height-1);
-	ILI9341_Draw_Colour_Burst(Colour, Height);
+	ILI9341_Set_Address(X, Y, X, Y+height-1);
+	ILI9341_Draw_colour_Burst(colour, height);
 }
 
