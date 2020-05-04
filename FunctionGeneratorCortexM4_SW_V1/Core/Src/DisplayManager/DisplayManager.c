@@ -29,14 +29,15 @@ uint8_t size_test = 1;
 void dm_update_display()
 {
 
-	if(size_test > 21)
-		size_test = 1;
+	ILI9341_Draw_Text("TEST", 10, 2, BLACK, 3, DARKCYAN);
+
+	ILI9341_Draw_Text("TEST", 200, 200, BLACK, 3, DARKCYAN);
 
 
-	ILI9341_Draw_Rectangle(20+(1*size_test), 20+(1*size_test), size_test, size_test, DARKCYAN);
 
 	//ILI9341_Draw_Filled_Circle(50, 50, 50, BLUE);
-	ILI9341_Draw_Text("TEST", BUTTON_TEXT_X_POS, 100, BLACK, size_test, DARKCYAN);
+	ILI9341_Draw_Text("TEST", 10, 200, BLACK, 3, DARKCYAN);
+
 
 	size_test++;
 	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[0],

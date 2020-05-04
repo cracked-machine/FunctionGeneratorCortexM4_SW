@@ -101,17 +101,12 @@ void ILI9341_SPI_Init(void)
 void ILI9341_SPI_Send(unsigned char SPI_Data)
 {
 	HAL_StatusTypeDef res;
-	#ifdef USE_ILI9341_SPIDMA
-		if( ((res = HAL_SPI_Transmit_DMA(HSPI_INSTANCE, &SPI_Data, 1)) != HAL_OK) )
-		{
-			//printf("HAL_SPI_Transmit_DMA Error #%u, ", res);
-		}
-	#else
+
 		if( ((res = HAL_SPI_Transmit(HSPI_INSTANCE, &SPI_Data, 1, 1)) != HAL_OK) )
 		{
 			//printf("HAL_SPI_Transmit Error #%u, ", res);
 		}
-	#endif
+
 
 }
 
@@ -273,6 +268,7 @@ void ILI9341_Init(void)
 	ILI9341_Write_Command(0x36);
 	ILI9341_Write_Data(0x48);
 
+
 	//PIXEL FORMAT
 	ILI9341_Write_Command(0x3A);
 	ILI9341_Write_Data(0x55);
@@ -287,6 +283,7 @@ void ILI9341_Init(void)
 	ILI9341_Write_Data(0x08);
 	ILI9341_Write_Data(0x82);
 	ILI9341_Write_Data(0x27);
+
 
 	//3GAMMA FUNCTION DISABLE
 	ILI9341_Write_Command(0xF2);
@@ -492,14 +489,23 @@ void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t width, uint16_t hei
 		}
 	ILI9341_Set_Address(X, Y, X+width-1, Y+height-1);
 
+	// if odd numbered rect area is requested, we round down to nearest even number
+	// to keep ILI9341_Draw_colour_Burst() happy.
+
+	// Note, truncated pixel will be needed at function end.
+
 	uint16_t size = height*width;
 	uint8_t truncated = 0;
-	if((size & 1) && (size > 1))
+
+	if((size & 1) && (size > 1))		// don't round down to zero!
 	{
 		truncated = 1;
 	 	size = ((size >> 1) * 2);
 	}
+
 	ILI9341_Draw_colour_Burst(colour, size);
+
+	// add the truncated pixel now
 	if(truncated)
 		ILI9341_Draw_Pixel(X+width-1, Y+height-1, colour);
 
