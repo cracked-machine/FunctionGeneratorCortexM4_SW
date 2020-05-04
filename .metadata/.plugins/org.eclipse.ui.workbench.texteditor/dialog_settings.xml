@@ -1,43 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="FuncDriver"/>
+		<item key="selection" value="height"/>
 		<item key="wrap" value="true"/>
-		<item key="casesensitive" value="false"/>
+		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Height"/>
+			<item value="Width"/>
+			<item value="Colour"/>
+			<item value="Buffer_size"/>
+			<item value="Size"/>
+			<item value="BURST_MAx_SIZE"/>
+			<item value="X"/>
+			<item value="Character"/>
+			<item value="bdcolour"/>
+			<item value="Background_colour"/>
+			<item value="           &#x09;if(Size == 1)&#x0A;&#x09;&#x09;&#x09;&#x09;{&#x0A;            &#x09;&#x09;ILI9341_Draw_Pixel(X+j, Y+i, Colour);&#x0A;&#x09;&#x09;&#x09;&#x09;}&#x0A;&#x09;&#x09;&#x09;&#x09;else&#x0A;&#x09;&#x09;&#x09;&#x09;{&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;ILI9341_Draw_Rectangle(X+(j*Size), Y+(i*Size), Size, Size, Colour);&#x0A;&#x09;&#x09;&#x09;&#x09;}"/>
 			<item value="FuncDriver"/>
 			<item value="GUI_Drv_t"/>
 			<item value="border_size"/>
 			<item value="(border_size/2)"/>
-			<item value="(border_size-1)"/>
-			<item value="DAC_HighFrequency"/>
-			<item value="hspi5"/>
-			<item value="stm32f7xx_hal"/>
-			<item value="TIM"/>
-			<item value="trigger"/>
-			<item value="gate"/>
-			<item value="gated"/>
-			<item value="slave"/>
-			<item value="slavemode"/>
-			<item value="dcbias"/>
 		</list>
 		<list key="replacehistory">
+			<item value="height"/>
+			<item value="width"/>
+			<item value="colour"/>
+			<item value="buffer_size"/>
+			<item value="size"/>
+			<item value="BURST_MAX_SIZE"/>
+			<item value="x"/>
+			<item value="character"/>
+			<item value="bgcolour"/>
+			<item value="bdcolour"/>
 			<item value="BORDER_SIZE"/>
 			<item value="(border_size)"/>
 			<item value="(border_size/2)"/>
 			<item value="hspi3"/>
 			<item value="stm32g4xx_hal"/>
-			<item value="pBias"/>
-			<item value="pInverted"/>
-			<item value="pDir"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1249"/>
-		<item key="DIALOG_Y_ORIGIN" value="281"/>
+		<item key="DIALOG_X_ORIGIN" value="1458"/>
+		<item key="DIALOG_Y_ORIGIN" value="220"/>
 		<item key="DIALOG_WIDTH" value="348"/>
 		<item key="DIALOG_HEIGHT" value="440"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>

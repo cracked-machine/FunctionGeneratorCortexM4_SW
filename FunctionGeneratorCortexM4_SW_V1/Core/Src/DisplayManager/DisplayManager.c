@@ -20,55 +20,54 @@
 #define BUTTON_TEXT_X_POS 			(ILI9341_SCREEN_WIDTH)/8
 #define BUTTON_TEXT_Y_POS 			(ILI9341_SCREEN_HEIGHT)-25
 
-uint16_t button_x_positions[4] = { 0, (BUTTON_WIDTH)+1, (BUTTON_WIDTH*2)+1, (BUTTON_WIDTH*3)+1 };
+uint16_t button_x_positions[4] = { 0, (BUTTON_WIDTH)+1, (BUTTON_WIDTH*2)+2, (BUTTON_WIDTH*3)+2 };
 //#define BUTTON_Y_POSITION 50
 //uint16_t button_x_positions[1] = { (BUTTON_WIDTH) };
 
-uint8_t size_test = 1;
+
 
 void dm_update_display()
 {
 
-	ILI9341_Draw_Text("TEST", 10, 2, BLACK, 3, DARKCYAN);
 
-	ILI9341_Draw_Text("TEST", 200, 200, BLACK, 3, DARKCYAN);
 
 
 
 	//ILI9341_Draw_Filled_Circle(50, 50, 50, BLUE);
-	ILI9341_Draw_Text("TEST", 10, 200, BLACK, 3, DARKCYAN);
+	ILI9341_Draw_Text("ONE", 30, 210, BLACK, 2, DARKCYAN);
 
-
-	size_test++;
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[0],
+	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[0],
 													BUTTON_Y_POSITION,
 													BUTTON_WIDTH,
 													50,
-													DARKCYAN,
 													3,
 													BLACK);
 
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[1],
+
+	ILI9341_Draw_Text("TWO", 110, 210, BLACK, 2, DARKGREEN);
+
+	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[1],
 													BUTTON_Y_POSITION,
 													BUTTON_WIDTH,
 													50,
-													DARKGREEN,
 													3,
 													BLACK);
 
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[2],
+	ILI9341_Draw_Text("THREE", 170, 210, BLACK, 2, YELLOW);
+
+	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[2],
 													BUTTON_Y_POSITION,
 													BUTTON_WIDTH,
 													50,
-													YELLOW,
 													3,
 													BLACK);
 
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	button_x_positions[3],
+	ILI9341_Draw_Text("FOUR", 250, 210, BLACK, 2, RED);
+
+	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[3],
 													BUTTON_Y_POSITION,
 													BUTTON_WIDTH,
 													50,
-													RED,
 													3,
 													BLACK);
 

@@ -17493,3 +17493,616 @@ Finished building: FunctionGeneratorCortexM4_SW_V1.bin
  
 Finished building: FunctionGeneratorCortexM4_SW_V1.list
  
+23:48:04 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c: In function 'ILI9341_Draw_Bordered_Hollow_Rectangle_Coord':
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c:272:2: warning: label 'finish' defined but not used [-Wunused-label]
+  finish:
+  ^~~~~~
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37996	   1100	   2636	  41732	   a304	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+23:48:45 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38216	   1100	   2636	  41952	   a3e0	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+23:48:49 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38216	   1100	   2636	  41952	   a3e0	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+23:49:28 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37968	   1100	   2636	  41704	   a2e8	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+23:50:00 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38216	   1100	   2636	  41952	   a3e0	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+23:51:15 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  38232	   1100	   2636	  41968	   a3f0	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+23:53:47 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37864	   1096	   2640	  41600	   a280	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+23:54:03 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37864	   1096	   2640	  41600	   a280	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+23:56:58 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+   text	   data	    bss	    dec	    hex	filename
+  37888	   1096	   2640	  41624	   a298	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+23:58:06 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37888	   1096	   2640	  41624	   a298	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+23:59:25 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37888	   1096	   2640	  41624	   a298	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:02:19 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37888	   1096	   2640	  41624	   a298	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+00:06:34 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37888	   1096	   2640	  41624	   a298	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+00:07:13 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37888	   1096	   2640	  41624	   a298	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+00:11:30 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c:277:6: error: conflicting types for 'ILI9341_Draw_Char'
+ void ILI9341_Draw_Char(char character, uint8_t x, uint8_t y, uint16_t colour, uint16_t size, uint16_t bgcolour)
+      ^~~~~~~~~~~~~~~~~
+In file included from /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c:49:0:
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h:60:6: note: previous declaration of 'ILI9341_Draw_Char' was here
+ void ILI9341_Draw_Char(char character, uint16_t x, uint16_t y, uint16_t colour, uint16_t size, uint16_t bgcolour);
+      ^~~~~~~~~~~~~~~~~
+make: *** [ILI9341/subdir.mk:21: ILI9341/ILI9341_GFX.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+00:11:48 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37872	   1096	   2640	  41608	   a288	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:11:52 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37872	   1096	   2640	  41608	   a288	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+00:12:35 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37872	   1096	   2640	  41608	   a288	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:14:16 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/DisplayManager/DisplayManager.c:12:0:
+../Core/Src/DisplayManager/DisplayManager.c: In function 'dm_update_display':
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:44:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37880	   1096	   2640	  41616	   a290	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:14:33 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+In file included from ../Core/Src/DisplayManager/DisplayManager.c:12:0:
+../Core/Src/DisplayManager/DisplayManager.c: In function 'dm_update_display':
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:44:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:54:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:63:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:72:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37880	   1096	   2640	  41616	   a290	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+Finished building: default.size.stdout
+ 
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:15:47 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_STM32_Driver.d" -MT"ILI9341/ILI9341_STM32_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_STM32_Driver.o"
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/DisplayManager/DisplayManager.c:12:0:
+../Core/Src/DisplayManager/DisplayManager.c: In function 'dm_update_display':
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFE
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:44:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFE
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:54:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFE
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:63:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFE
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:72:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37880	   1096	   2640	  41616	   a290	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:15:52 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_STM32_Driver.d" -MT"ILI9341/ILI9341_STM32_Driver.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_STM32_Driver.o"
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+In file included from ../Core/Src/DisplayManager/DisplayManager.c:12:0:
+../Core/Src/DisplayManager/DisplayManager.c: In function 'dm_update_display':
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:44:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:54:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:63:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:127:21: warning: large integer implicitly truncated to unsigned type [-Woverflow]
+ #define WHITE       0xFFFF
+                     ^
+../Core/Src/DisplayManager/DisplayManager.c:72:14: note: in expansion of macro 'WHITE'
+              WHITE);
+              ^~~~~
+arm-none-eabi-gcc "../Core/Src/stm32g4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32g4xx_it.d" -MT"Core/Src/stm32g4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32g4xx_it.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37880	   1096	   2640	  41616	   a290	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:17:15 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37872	   1096	   2640	  41608	   a288	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:20:34 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c: In function 'ILI9341_Draw_Text':
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c:349:83: error: 'h' undeclared (first use in this function)
+     ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(x-5, y-5, x + (CHAR_WIDTH*size), h + (CHAR_HEIGHT*size), 5, bgcolour);
+                                                                                   ^
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c:349:83: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [ILI9341/subdir.mk:21: ILI9341/ILI9341_GFX.o] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+00:20:44 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37932	   1096	   2640	  41668	   a2c4	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:20:49 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37932	   1096	   2640	  41668	   a2c4	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+00:21:04 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37936	   1096	   2640	  41672	   a2c8	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:23:27 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37944	   1096	   2640	  41680	   a2d0	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:24:25 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37944	   1096	   2640	  41680	   a2d0	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:25:20 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37944	   1096	   2640	  41680	   a2d0	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:28:57 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37948	   1096	   2640	  41684	   a2d4	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:29:34 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37856	   1088	   2640	  41584	   a270	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:30:06 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37856	   1088	   2640	  41584	   a270	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+00:34:55 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"ILI9341/ILI9341_GFX.d" -MT"ILI9341/ILI9341_GFX.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "ILI9341/ILI9341_GFX.o"
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37872	   1096	   2640	  41608	   a288	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
+00:35:31 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/DisplayManager/DisplayManager.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Core/Inc -I"/home/chris/Projects/Python/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/DisplayManager/DisplayManager.d" -MT"Core/Src/DisplayManager/DisplayManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/DisplayManager/DisplayManager.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  37872	   1096	   2640	  41608	   a288	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 

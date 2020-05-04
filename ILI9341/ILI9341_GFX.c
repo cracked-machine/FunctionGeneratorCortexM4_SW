@@ -226,11 +226,55 @@ void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16
 	return;
 }
 
+/*
+ *
+ *
+ *
+ *
+ *
+ *
+ */
 
+void ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t border_weight, uint8_t border_colour)
+{
+
+	// Draw inwards (and shorter) for each level of border weight
+	for(uint8_t b = 0; b < border_weight; b++)
+	{
+
+
+
+		// Horizontal lines
+		ILI9341_Draw_Horizontal_Line(	x + b,
+										y + b,
+										w - (2*b),
+										border_colour);
+
+		ILI9341_Draw_Horizontal_Line(	x + b,
+										(y + h) - b,
+										w - (b),
+										border_colour);
+
+
+		// Vertical lines
+		ILI9341_Draw_Vertical_Line(		x + b,
+										y + b,
+										h - (2*b),
+										border_colour);
+
+		ILI9341_Draw_Vertical_Line(		(x + w) - b,
+										y + b,
+										h - (2*b),
+										border_colour);
+
+	}
+
+
+}
 
 /*Draws a character (fonts imported from fonts.h) at x,Y location with specified font colour, size and Background colour*/
 /*See fonts.h implementation of font on what is required for changing to a different font when switching fonts libraries*/
-void ILI9341_Draw_Char(char character, uint8_t x, uint8_t y, uint16_t colour, uint16_t size, uint16_t bgcolour)
+void ILI9341_Draw_Char(char character, uint16_t x, uint16_t y, uint16_t colour, uint16_t size, uint16_t bgcolour)
 {
 	uint8_t 	function_char;
     uint8_t 	i,j;
@@ -290,7 +334,7 @@ void ILI9341_Draw_Char(char character, uint8_t x, uint8_t y, uint16_t colour, ui
 
 /*Draws an array of characters (fonts imported from fonts.h) at x,Y location with specified font colour, size and Background colour*/
 /*See fonts.h implementation of font on what is required for changing to a different font when switching fonts libraries*/
-void ILI9341_Draw_Text(const char* Text, uint8_t x, uint8_t y, uint16_t colour, uint16_t size, uint16_t bgcolour)
+void ILI9341_Draw_Text(const char* Text, uint16_t x, uint16_t y, uint16_t colour, uint16_t size, uint16_t bgcolour)
 {
     /*if(size & 1)
     {
@@ -301,6 +345,8 @@ void ILI9341_Draw_Text(const char* Text, uint8_t x, uint8_t y, uint16_t colour, 
         ILI9341_Draw_Char(*Text++, x, y, colour, size, bgcolour);
         x += CHAR_WIDTH*size;
     }
+
+
 }
 
 /*Draws a full screen picture from flash. Image converted from RGB .jpeg/other to C array using online converter*/
