@@ -14,6 +14,8 @@
 #include "rng.h"
 
 
+#include "ili9341.h"
+
 #define BUTTON_WIDTH 				(ILI9341_SCREEN_WIDTH)/4
 #define BUTTON_Y_POSITION 			(ILI9341_SCREEN_HEIGHT)-50
 #define BORDER_size 				10
@@ -34,42 +36,38 @@ void dm_update_display()
 
 
 	//ILI9341_Draw_Filled_Circle(50, 50, 50, BLUE);
-	ILI9341_Draw_Text("ONE", 30, 210, BLACK, 2, DARKCYAN);
+	ILI9341_WriteString(30, 210, "ONE", Font_11x18, BLACK, DARKCYAN);
 
-	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[0],
-													BUTTON_Y_POSITION,
-													BUTTON_WIDTH,
-													50,
-													3,
-													BLACK);
+	ILI9341_FillRectangle(	button_x_positions[0],
+							BUTTON_Y_POSITION,
+							BUTTON_WIDTH,
+							50,
+							BLACK);
 
 
-	ILI9341_Draw_Text("TWO", 110, 210, BLACK, 2, DARKGREEN);
+	ILI9341_WriteString(110, 210, "TWO", Font_11x18, BLACK, DARKGREEN);
 
-	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[1],
-													BUTTON_Y_POSITION,
-													BUTTON_WIDTH,
-													50,
-													3,
-													BLACK);
+	ILI9341_FillRectangle(	button_x_positions[1],
+							BUTTON_Y_POSITION,
+							BUTTON_WIDTH,
+							50,
+							BLACK);
 
-	ILI9341_Draw_Text("THREE", 170, 210, BLACK, 2, YELLOW);
+	ILI9341_WriteString(170, 210, "THREE", Font_11x18, BLACK, YELLOW);
 
-	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[2],
-													BUTTON_Y_POSITION,
-													BUTTON_WIDTH,
-													50,
-													3,
-													BLACK);
+	ILI9341_FillRectangle(	button_x_positions[2],
+							BUTTON_Y_POSITION,
+							BUTTON_WIDTH,
+							50,
+							BLACK);
 
-	ILI9341_Draw_Text("FOUR", 250, 210, BLACK, 2, RED);
+	ILI9341_WriteString(250, 210, "FOUR", Font_11x18, BLACK, RED);
 
-	ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(	button_x_positions[3],
-													BUTTON_Y_POSITION,
-													BUTTON_WIDTH,
-													50,
-													3,
-													BLACK);
+	ILI9341_FillRectangle(	button_x_positions[3],
+							BUTTON_Y_POSITION,
+							BUTTON_WIDTH,
+							50,
+							BLACK);
 
 
 

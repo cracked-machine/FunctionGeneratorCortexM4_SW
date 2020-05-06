@@ -50,7 +50,9 @@ Core/Src/DisplayManager/DisplayManager.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/stm32-ili9341-master/Lib/ili9341_2/ili9341.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/stm32-ili9341-master/Lib/ili9341_2/fonts.h
 
 ../Core/Src/DisplayManager/DisplayManager.h:
 
@@ -155,3 +157,7 @@ Core/Src/DisplayManager/DisplayManager.o: \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h:
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/stm32-ili9341-master/Lib/ili9341_2/ili9341.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/stm32-ili9341-master/Lib/ili9341_2/fonts.h:

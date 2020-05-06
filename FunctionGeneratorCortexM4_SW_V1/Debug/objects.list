@@ -45,3 +45,6 @@
 "Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_utils.o"
 "ILI9341/ILI9341_GFX.o"
 "ILI9341/ILI9341_STM32_Driver.o"
+"ili9341_2/fonts.o"
+"ili9341_2/ili9341.o"
+"ili9341_2/ili9341_touch.o"

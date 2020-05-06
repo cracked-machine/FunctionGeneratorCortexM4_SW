@@ -51,6 +51,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/tim.h ../Core/Inc/gpio.h ../Core/Inc/funcgen.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/stm32-ili9341-master/Lib/ili9341_2/ili9341.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/stm32-ili9341-master/Lib/ili9341_2/fonts.h \
  /home/chris/Projects/Python/WaveTableGeneration/pysine.h \
  /home/chris/Projects/Python/WaveTableGeneration/pysquare.h \
  /home/chris/Projects/Python/WaveTableGeneration/pyunitimpulse.h \
@@ -177,6 +179,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/stm32-ili9341-master/Lib/ili9341_2/ili9341.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/stm32-ili9341-master/Lib/ili9341_2/fonts.h:
 
 /home/chris/Projects/Python/WaveTableGeneration/pysine.h:
 
