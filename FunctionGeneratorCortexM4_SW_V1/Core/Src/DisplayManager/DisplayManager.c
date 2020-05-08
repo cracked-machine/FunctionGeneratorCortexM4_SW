@@ -6,6 +6,7 @@
  */
 
 #include "DisplayManager.h"
+#include "EventManager.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -16,8 +17,11 @@
 #include <stdlib.h>
 
 eDisplay_Mode eCurrentMode = Func_Adjust_mode;
+eFuncMenu_Status eNextFuncMenuStatus = DISABLE_FUNCMENU;
 
  extern uint16_t BURST_MAX_SIZE;
+
+
 
 #define BTN_WIDTH 				(ILI9341_SCREEN_WIDTH)/4
 #define BTN_HEIGHT				50
@@ -29,6 +33,144 @@ eDisplay_Mode eCurrentMode = Func_Adjust_mode;
 uint16_t btn_x_pos[4] = { 0, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 //#define BUTTON_Y_POSITION 50
 //uint16_t button_x_positions[1] = { (BUTTON_WIDTH) };
+
+// public function prototypes
+void DM_RefreshBackgroundLayout();
+
+// private function prototypes
+void _DrawFuncSelectMenu();
+
+/*
+ *
+ *
+ *
+ */
+void DM_Init()
+{
+	  ILI9341_Init();
+	  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
+	  ILI9341_Fill_Screen(WHITE);
+
+}
+
+/*
+ *
+ *
+ *
+ */
+void DM_PostInit()
+{
+
+	  ILI9341_Draw_Text("Initialising", 10, 10, BLACK, 1, WHITE);
+	  HAL_Delay(500);
+
+	  DM_RefreshBackgroundLayout();
+	  printf("Init Completed\n");
+}
+
+
+/*
+ *
+ *
+ *
+ */
+
+void DM_UpdateDisplay()
+{
+
+	ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
+	ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
+	ILI9341_Draw_Text("AMPL", 175, 210, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("BIAS", 260, 210, BLACK, 2, RED);
+
+	if(eNextFuncMenuStatus)		//  == ENABLE_FUNCMENU
+		_DrawFuncSelectMenu();
+
+#ifdef ENCODER_DEBUG
+	char tim1tmp[11] = "";
+	snprintf(tim1tmp, sizeof(tim1tmp), "%lu", TIM1->CNT);
+	ILI9341_Draw_Text(tim1tmp, 260, 50, BLACK, 2, RED);
+#endif //ENCODER_DEBUG
+/*
+	if((TIM1->SR & TIM_SR_IDXF) == TIM_SR_IDXF)
+	{
+		TIM1->SR &= ~(TIM_SR_IDXF);
+	}*/
+}
+
+/*
+ *
+ *
+ *
+ */
+void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue)
+{
+	eNextFuncMenuStatus = pValue;
+}
+
+/*
+ *
+ *
+ *
+ */
+void _DrawFuncSelectMenu()
+{
+
+	switch(EM_GetOutputMode())
+	{
+		case Sine_Out_Mode:
+			ILI9341_Draw_Text("- SINE", 	10, 30, WHITE, 2, BLACK);
+			ILI9341_Draw_Text("- SQUARE", 	10, 50, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SAW", 		10, 70, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- REV SAW", 	10, 90, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- TRIANGLE",	10, 110, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- UNIT", 	10, 130, BLACK, 2, WHITE);
+			break;
+		case Square_Out_Mode:
+			ILI9341_Draw_Text("- SINE", 	10, 30, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SQUARE", 	10, 50, WHITE, 2, BLACK);
+			ILI9341_Draw_Text("- SAW", 		10, 70, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- REV SAW", 	10, 90, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- TRIANGLE",	10, 110, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- UNIT", 	10, 130, BLACK, 2, WHITE);
+			break;
+		case Saw_Out_Mode:
+			ILI9341_Draw_Text("- SINE", 	10, 30, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SQUARE", 	10, 50, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SAW", 		10, 70, WHITE, 2, BLACK);
+			ILI9341_Draw_Text("- REV SAW", 	10, 90, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- TRIANGLE",	10, 110, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- UNIT", 	10, 130, BLACK, 2, WHITE);
+			break;
+		case RevSaw_Out_Mode:
+			ILI9341_Draw_Text("- SINE", 	10, 30, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SQUARE", 	10, 50, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SAW", 		10, 70, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- REV SAW", 	10, 90, WHITE, 2, BLACK);
+			ILI9341_Draw_Text("- TRIANGLE",	10, 110, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- UNIT", 	10, 130, BLACK, 2, WHITE);
+			break;
+		case Triangle_Out_Mode:
+			ILI9341_Draw_Text("- SINE", 	10, 30, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SQUARE", 	10, 50, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SAW", 		10, 70, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- REV SAW", 	10, 90, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- TRIANGLE",	10, 110, WHITE, 2, BLACK);
+			ILI9341_Draw_Text("- UNIT", 	10, 130, BLACK, 2, WHITE);
+			break;
+		case Impulse_Out_Mode:
+			ILI9341_Draw_Text("- SINE", 	10, 30, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SQUARE", 	10, 50, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- SAW", 		10, 70, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- REV SAW", 	10, 90, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- TRIANGLE",	10, 110, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("- UNIT", 	10, 130, WHITE, 2, BLACK);
+			break;
+
+	}
+
+}
+
 
 /*
  *
@@ -59,6 +201,10 @@ int DM_DigitCount(int num)
  */
 void DM_RefreshBackgroundLayout()
 {
+
+
+	ILI9341_Fill_Screen(WHITE);
+
 	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[0],
 													BTN_Y_POS,
 													BTN_WIDTH,
@@ -93,20 +239,7 @@ void DM_RefreshBackgroundLayout()
 }
 
 
-/*
- *
- *
- *
- */
-void DM_Init()
-{
-	  ILI9341_Init();
-	  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-	  ILI9341_Fill_Screen(WHITE);
-	  ILI9341_Draw_Text("Initialising", 10, 10, BLACK, 1, WHITE);
-	  DM_RefreshBackgroundLayout();
-	  printf("Init Completed\n");
-}
+
 
 
 /*
@@ -188,45 +321,6 @@ void DM_SetDisplayMode(eDisplay_Mode pMode)
 
 }
 
-/*
- *
- *
- *
- */
-
-void DM_UpdateDisplay()
-{
-/*	int res;
-	if( (res = TM_FindStringRegister("ONE")) >= 0 )
-	{
-		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, RED);
-	}
-
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	50,
-													50,
-													100,
-													100,
-													RED,
-													BORDER_SIZE,
-													BLACK);
-													*/
-
-
-/*	char tmp[6] = "";
-	if(DM_AddDigitPadding(TIM5->CNT, tmp, sizeof(tmp)) == 0)
-	{
-		//ILI9341_Draw_Text(tmp, STRINGREG[0].x, STRINGREG[0].y, BLACK, STRINGREG[0].size, DARKCYAN);
-		ILI9341_Draw_Text(tmp, 10, 210, BLACK, 2, DARKCYAN);
-	}
-*/
-
-	ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
-	ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("AMPL", 175, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("BIAS", 260, 210, BLACK, 2, RED);
-
-
-}
 
 /*
  *

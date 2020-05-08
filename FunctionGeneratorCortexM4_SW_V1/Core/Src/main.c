@@ -37,6 +37,7 @@
 #include "ILI9341_GFX.h"
 
 #include "DisplayManager.h"
+#include "EventManager.h"
 
 
 // python-generated wave lut
@@ -89,6 +90,10 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 
+void HAL_DAC_ErrorCallbackCh1(DAC_HandleTypeDef *hdac)
+{
+	// do something
+}
 
 /* USER CODE END 0 */
 
@@ -167,7 +172,7 @@ int main(void)
 
 #ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())
-  HAL_TIM_Base_Start_IT(&htim17);
+  //HAL_TIM_Base_Start_IT(&htim17);
 #endif	//DISABLE_ALL_TIMERS
 
 
@@ -226,7 +231,8 @@ int main(void)
 
 #ifndef DISABLE_ALL_TIMERS
   // encoder input
-  HAL_TIM_Base_Start(&htim1);
+  HAL_TIM_Base_Start(&htim1);		// enable encoder timer
+  //TIM1->DIER |= TIM_DIER_IDXIE;		// enable index interrupts
 
 #endif	//DISABLE_ALL_TIMERS
 
@@ -237,6 +243,7 @@ int main(void)
 
   // TFT lib enable
   DM_Init();
+  DM_PostInit();
   //DM_RegisterStrings();
 
   HAL_TIM_Base_Start_IT(&htim15);
@@ -248,12 +255,9 @@ int main(void)
   while (1)
   {
 
-	//printf("TFT\n");
 
+	EM_ProcessEvent();
 
-	//ILI9341_Draw_Text("Randomly placed and sized", 10, 10, BLACK, 1, WHITE);
-	  //HAL_GPIO_TogglePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin);
-	  //HAL_Delay(1);
 
 
     /* USER CODE END WHILE */

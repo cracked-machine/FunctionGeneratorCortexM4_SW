@@ -1,0 +1,48 @@
+/*
+ * EventManager.h
+ *
+ *  Created on: May 8, 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_EVENTMANAGER_EVENTMANAGER_H_
+#define SRC_EVENTMANAGER_EVENTMANAGER_H_
+
+#define EM_SWV_DEBUG
+
+typedef enum
+{
+	Idle_State = 0x00U,		// main display
+
+
+} eSystemState;
+
+typedef enum
+{
+	Idle_Event,
+	Func_Select_Event,
+	Freq_Select_Event,
+	Ampl_Select_Event,
+	Bias_Select_Event,
+	Adjust_Confirmed_Event
+
+} eSystemEvent;
+
+typedef enum
+{
+	Sine_Out_Mode,
+	Square_Out_Mode,
+	Saw_Out_Mode,
+	RevSaw_Out_Mode,
+	Triangle_Out_Mode,
+	Impulse_Out_Mode
+
+} eOutput_mode;
+
+
+void EM_SetNewEvent(eSystemEvent pEvent);
+void EM_ProcessEvent();
+eOutput_mode EM_GetOutputMode();
+void EM_SetEncoderValue(uint32_t pValue);
+
+#endif /* SRC_EVENTMANAGER_EVENTMANAGER_H_ */

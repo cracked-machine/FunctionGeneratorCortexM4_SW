@@ -8,28 +8,50 @@
 #ifndef SRC_EVENTMANAGER_EVENTMANAGER_H_
 #define SRC_EVENTMANAGER_EVENTMANAGER_H_
 
+#include <stdint.h>
+
+#define EM_SWV_DEBUG
+
 typedef enum
 {
-	Idle_State = 0x00U,		// idle
-	Func_Select_State,		// select edit output function
-	Freq_Select_State,		// select edit output frequency
-	Ampl_Select_State,		// select edit output amplitude
-	Bias_Select_State		// select edit output DC bias
+	Idle_State = 0x00U,		// main display
+	Func_Menu_State
+
 
 } eSystemState;
 
 typedef enum
 {
-	Idle_Event,
-	Func_Select_Event,
-	Freq_Select_Event,
-	Ampl_Select_Event,
-	Bias_Select_Event,
-	Adjust_Confirmed_Event
+	evIdle,						// default
+
+	evFuncMenu,					// user presses blue "function" menu button
+	evFreqMenu,					// user presses green "freq" menu button
+	evAmplMenu,					// user presses yellow "Ampl" menu button
+	evBiasMenu,					// user presses red "bias" menu button
+
+	evEncoderSet,				// user turns rotary encoder
+	evEncoderPush,				// user presses button. return to main screen. All menus closed.
+
+	evAdjustConfirmed			// user presses rotary encoder confirmation button
 
 } eSystemEvent;
 
+typedef enum
+{
+	Sine_Out_Mode,
+	Square_Out_Mode,
+	Saw_Out_Mode,
+	RevSaw_Out_Mode,
+	Triangle_Out_Mode,
+	Impulse_Out_Mode
+
+} eOutput_mode;
+
+
 void EM_SetNewEvent(eSystemEvent pEvent);
 void EM_ProcessEvent();
+eOutput_mode EM_GetOutputMode();
+void EM_SetEncoderValue(uint32_t pValue);
+eSystemState EM_GetSystemState();
 
 #endif /* SRC_EVENTMANAGER_EVENTMANAGER_H_ */
