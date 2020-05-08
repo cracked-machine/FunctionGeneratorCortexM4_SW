@@ -115,7 +115,7 @@ typedef enum
 
 } CHUNK_Type;
 
-
+#define NONE
 #define BLACK       0x0000      
 #define NAVY        0x000F      
 #define DARKGREEN   0x03E0      

@@ -133,7 +133,7 @@ int main(void)
   MX_TIM8_Init();
   MX_TIM16_Init();
   MX_TIM15_Init();
-  MX_TIM6_Init();
+  MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
 
   // main signal function output (external)
@@ -237,10 +237,10 @@ int main(void)
 
   // TFT lib enable
   DM_Init();
-  DM_RegisterStrings();
-  HAL_Delay(2000);
+  //DM_RegisterStrings();
+
   HAL_TIM_Base_Start_IT(&htim15);
-  HAL_TIM_Base_Start(&htim6);
+  HAL_TIM_Base_Start(&htim5);
   /* USER CODE END 2 */
 
   /* Infinite loop */

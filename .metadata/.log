@@ -9303,3 +9303,839 @@ java.lang.Exception: Cannot execute this command while the target is running.\nU
 
 !ENTRY org.eclipse.core.jobs 2 2 2020-05-08 04:20:37.684
 !MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.debug.core.DebugPlugin$EventDispatchJob
+!SESSION 2020-05-08 11:19:15.158 -----------------------------------------------
+eclipse.buildId=Version 1.3.0
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-05-08 11:19:21.892
+!MESSAGE Log4j initialized with config file /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-05-08 11:19:27.256
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-05-08 11:19:27.562
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.254
+!MESSAGE Request for monitor: '49^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.254
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c00 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.257
+!MESSAGE Request for monitor: '50^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.257
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c04 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.258
+!MESSAGE Request for monitor: '51^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.258
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c08 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.258
+!MESSAGE Request for monitor: '52^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.258
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c0c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.259
+!MESSAGE Request for monitor: '53^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.259
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c10 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.263
+!MESSAGE Request for monitor: '54^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.263
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c18 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.264
+!MESSAGE Request for monitor: '55^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.264
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c18 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.265
+!MESSAGE Request for monitor: '56^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.265
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c1c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.265
+!MESSAGE Request for monitor: '57^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.265
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c1c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.266
+!MESSAGE Request for monitor: '58^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.266
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c20 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.266
+!MESSAGE Request for monitor: '59^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.266
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c24 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.267
+!MESSAGE Request for monitor: '60^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.267
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c28 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.267
+!MESSAGE Request for monitor: '61^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.267
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c2c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.268
+!MESSAGE Request for monitor: '62^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.268
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c30 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.268
+!MESSAGE Request for monitor: '63^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.268
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c34 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.269
+!MESSAGE Request for monitor: '64^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.269
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c38 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.270
+!MESSAGE Request for monitor: '65^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.270
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c3c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.270
+!MESSAGE Request for monitor: '66^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.270
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c40 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.270
+!MESSAGE Request for monitor: '67^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.270
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c44 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.271
+!MESSAGE Request for monitor: '68^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.271
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c48 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.272
+!MESSAGE Request for monitor: '69^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.272
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c4c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.272
+!MESSAGE Request for monitor: '70^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.272
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c50 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.272
+!MESSAGE Request for monitor: '71^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.272
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c54 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.273
+!MESSAGE Request for monitor: '72^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.273
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c58 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.273
+!MESSAGE Request for monitor: '73^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.273
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c5c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.273
+!MESSAGE Request for monitor: '74^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.273
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c60 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.273
+!MESSAGE Request for monitor: '75^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.273
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000c64 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.273
+!MESSAGE Request for monitor: '76^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.273
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000fdc x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-08 11:31:15.274
+!MESSAGE Request for monitor: '77^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 11:31:15.274
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000fe0 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 11:41:39.272
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 11:43:14.224
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:07:23.986
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:08:45.055
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:09:38.499
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.438
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 9 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.438
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.439
+!MESSAGE 10
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.440
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 9 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.440
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.440
+!MESSAGE 10
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.527
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 9 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.527
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:09:50.527
+!MESSAGE 10
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 5012 2020-05-08 12:09:55.513
+!MESSAGE Terminate failed
+!SUBENTRY 1 org.eclipse.debug.core 4 5010 2020-05-08 12:09:55.513
+!MESSAGE Terminate failed
+
+!ENTRY org.eclipse.cdt.dsf.gdb.ui 4 5012 2020-05-08 12:09:55.513
+!MESSAGE Terminate failed
+!SUBENTRY 1 org.eclipse.debug.core 4 5010 2020-05-08 12:09:55.513
+!MESSAGE Terminate failed
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2020-05-08 12:10:01.919
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+Bogus trace status reply from target: timeout
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+Bogus trace status reply from target: timeout
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:285)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:860)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:719)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1017)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1220)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: Bogus trace status reply from target: timeout
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 12:10:01.920
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+Bogus trace status reply from target: timeout
+!STACK 0
+java.lang.Exception: Bogus trace status reply from target: timeout
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:10:23.084
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:13:07.893
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:16:41.965
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:18:11.748
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:18:26.348
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 14 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:18:26.348
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:18:26.350
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 14 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:18:26.350
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:18:26.430
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 14 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2020-05-08 12:18:26.430
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2020-05-08 12:18:50.422
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:285)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:860)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:719)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1017)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1220)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 12:18:50.423
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 0
+java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:18:57.983
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:20:10.061
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:20:33.268
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:22:06.219
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:22:59.312
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:24:28.295
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:25:51.663
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:26:44.260
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2020-05-08 12:26:57.197
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+Bogus trace status reply from target: m<?xml version="1.0"?>
+<!-- Copyright (C) 2008 Free Software Foundation, Inc.
+
+     Copying and distribution of this file, with or without modification,
+     are permitted in any medium without royalty provided the copyright
+     notice and this notice are preserved.  -->
+
+<!DOCTYPE feature SYSTEM "gdb-target.dtd">
+<target version="1.0">
+  <architecture>arm</architecture>
+  <feature name="org.gnu.gdb.arm.m-profile">
+    <reg name="r0" bitsize="32" regnum="0" type="uint32" group="general"/>
+    <reg name="r1" bitsize="32" regnum="1" type="uint32" group="general"/>
+    <reg name="r2" bitsize="32" regnum="2" type="uint32" group="general"/>
+    <reg name="r3" bitsize="32" regnum="3" type="uint32" group="general"/>
+    <reg name="r4" bitsize="32" regnum="4" type="uint32" group="general"/>
+    <reg name="r5" bitsize="32" regnum="5" type="uint32" group="general"/>
+    <reg name="r6" bitsize="32" regnum="6" type="uint32" group="general"/>
+    <reg name="r7" bitsize="32" regnum="7" type="uint32" group="general"/>
+    <reg name="r8" bitsize="32" regnum="8" type="uint32" group="general"/>
+    <reg name="r9" bitsize="32" regnum="9" type="uint32" group="general"/>
+    <reg name="r10" bitsize="32" regnum="10" type="uint32" group="general"/>
+    <reg name="r11" bitsize="32" regnum="11" type="uint32" group="general"/>
+    <reg name="r12" bitsize="32" regnum="12" type="uint32" group="general"/>
+    <reg name="sp" bitsize="32" regnum="13" type="data_ptr" group="general"/>
+    <reg name="lr" bitsize="32" regnum="14" type="uint32" group="general"/>
+    <reg name="pc" bitsize="32" regnum="15" type="code_ptr" group="general"/>
+    <reg name="xpsr" bitsize="32" regnum="25" type="uint32" group="general"/>
+  </feature>
+  <feature name="org.gnu.gdb.arm.m-system">
+    <reg name="msp" bitsize="32" regnum="26" type="uint32" group="general"/>
+    <reg name="psp" bitsize="32" regnum="27" type="uint32" group="general"/>
+    <reg name="primask" bitsize="32" regnum="28" type="uint32" group="general"/>
+    <reg name="basepri" bitsize="32" regnum="29" type="uint32" group="general"/>
+    <reg name="faultmask" bitsize="32" regnum="30" type="uint32" group="general"/>
+    <reg name="control" bitsize="32" regnum="31" type="uint32" group="general"/>
+  </feature>
+  <feature name="org.gnu.gdb.arm.m-float">
+    <reg name="fpscr" bitsize="32" regnum="32" type="uint32" group="float"/>
+    <reg name="s0" bitsize="32" regnum="33" type="float" group="float"/>
+    <reg name="s1" bitsize="32" regnum="34" type="float" group="float"/>
+    <reg name="s2" bitsize="32" regnum="35" type="float" group="float"/>
+    <reg name="s3" bitsize="32" regnum="36" type="float" group="float"/>
+    <reg name="s4" bitsize="32" regnum="37" type="float" group="float"/>
+    <reg name="s5" bitsize="32" regnum="38" type="float" group="float"/>
+    <reg name="s6" bitsize="32" regnum="39" type="float" group="float"/>
+    <reg name="s7" bitsize="32" regnum="40" type="float" group="float"/>
+    <reg name="s8" bitsize="32" regnum="41" type="float" group="float"/>
+    <reg name="s9" bitsize="32" regnum="42" type="float" group="float"/>
+    <reg name="s10" bitsize="32" regnum="43" type="float" group="float"/>
+    <reg name="s11" bitsize="32" regnum="44" type="float" group="float"/>
+    <reg name="s12" bitsize="32" regnum="45" type="float" group="float"/>
+    <reg name="s13" bitsize="32" regnum="46" type="float" group="float"/>
+    <reg name="s14" bitsize="32" regnum="47" type="float" group="float"/>
+    <reg name="s15" bitsize="32" regnum="48" type="float" group="float"/>
+    <reg name="s16" bitsize="32" regnum="49" type="float" group="float"/>
+    <reg name="s17" bitsize="32" regnum="50" type="float" group="float"/>
+    <reg name="s18" bitsize="32" regnum="51" type="float" group="float"/>
+    <reg name="s19" bitsize="32" regnum="52" type="float" group="float"/>
+    <reg name="s20" bitsize="32" regnum="53" type="float" group="float"/>
+    <reg name="s21" bitsize="32" regnum="54" type="float" group="float"/>
+    <reg name="s22" bitsize="32" regnum="55" type="float" group="float"/>
+    <r
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+Bogus trace status reply from target: m<?xml version="1.0"?>
+<!-- Copyright (C) 2008 Free Software Foundation, Inc.
+
+     Copying and distribution of this file, with or without modification,
+     are permitted in any medium without royalty provided the copyright
+     notice and this notice are preserved.  -->
+
+<!DOCTYPE feature SYSTEM "gdb-target.dtd">
+<target version="1.0">
+  <architecture>arm</architecture>
+  <feature name="org.gnu.gdb.arm.m-profile">
+    <reg name="r0" bitsize="32" regnum="0" type="uint32" group="general"/>
+    <reg name="r1" bitsize="32" regnum="1" type="uint32" group="general"/>
+    <reg name="r2" bitsize="32" regnum="2" type="uint32" group="general"/>
+    <reg name="r3" bitsize="32" regnum="3" type="uint32" group="general"/>
+    <reg name="r4" bitsize="32" regnum="4" type="uint32" group="general"/>
+    <reg name="r5" bitsize="32" regnum="5" type="uint32" group="general"/>
+    <reg name="r6" bitsize="32" regnum="6" type="uint32" group="general"/>
+    <reg name="r7" bitsize="32" regnum="7" type="uint32" group="general"/>
+    <reg name="r8" bitsize="32" regnum="8" type="uint32" group="general"/>
+    <reg name="r9" bitsize="32" regnum="9" type="uint32" group="general"/>
+    <reg name="r10" bitsize="32" regnum="10" type="uint32" group="general"/>
+    <reg name="r11" bitsize="32" regnum="11" type="uint32" group="general"/>
+    <reg name="r12" bitsize="32" regnum="12" type="uint32" group="general"/>
+    <reg name="sp" bitsize="32" regnum="13" type="data_ptr" group="general"/>
+    <reg name="lr" bitsize="32" regnum="14" type="uint32" group="general"/>
+    <reg name="pc" bitsize="32" regnum="15" type="code_ptr" group="general"/>
+    <reg name="xpsr" bitsize="32" regnum="25" type="uint32" group="general"/>
+  </feature>
+  <feature name="org.gnu.gdb.arm.m-system">
+    <reg name="msp" bitsize="32" regnum="26" type="uint32" group="general"/>
+    <reg name="psp" bitsize="32" regnum="27" type="uint32" group="general"/>
+    <reg name="primask" bitsize="32" regnum="28" type="uint32" group="general"/>
+    <reg name="basepri" bitsize="32" regnum="29" type="uint32" group="general"/>
+    <reg name="faultmask" bitsize="32" regnum="30" type="uint32" group="general"/>
+    <reg name="control" bitsize="32" regnum="31" type="uint32" group="general"/>
+  </feature>
+  <feature name="org.gnu.gdb.arm.m-float">
+    <reg name="fpscr" bitsize="32" regnum="32" type="uint32" group="float"/>
+    <reg name="s0" bitsize="32" regnum="33" type="float" group="float"/>
+    <reg name="s1" bitsize="32" regnum="34" type="float" group="float"/>
+    <reg name="s2" bitsize="32" regnum="35" type="float" group="float"/>
+    <reg name="s3" bitsize="32" regnum="36" type="float" group="float"/>
+    <reg name="s4" bitsize="32" regnum="37" type="float" group="float"/>
+    <reg name="s5" bitsize="32" regnum="38" type="float" group="float"/>
+    <reg name="s6" bitsize="32" regnum="39" type="float" group="float"/>
+    <reg name="s7" bitsize="32" regnum="40" type="float" group="float"/>
+    <reg name="s8" bitsize="32" regnum="41" type="float" group="float"/>
+    <reg name="s9" bitsize="32" regnum="42" type="float" group="float"/>
+    <reg name="s10" bitsize="32" regnum="43" type="float" group="float"/>
+    <reg name="s11" bitsize="32" regnum="44" type="float" group="float"/>
+    <reg name="s12" bitsize="32" regnum="45" type="float" group="float"/>
+    <reg name="s13" bitsize="32" regnum="46" type="float" group="float"/>
+    <reg name="s14" bitsize="32" regnum="47" type="float" group="float"/>
+    <reg name="s15" bitsize="32" regnum="48" type="float" group="float"/>
+    <reg name="s16" bitsize="32" regnum="49" type="float" group="float"/>
+    <reg name="s17" bitsize="32" regnum="50" type="float" group="float"/>
+    <reg name="s18" bitsize="32" regnum="51" type="float" group="float"/>
+    <reg name="s19" bitsize="32" regnum="52" type="float" group="float"/>
+    <reg name="s20" bitsize="32" regnum="53" type="float" group="float"/>
+    <reg name="s21" bitsize="32" regnum="54" type="float" group="float"/>
+    <reg name="s22" bitsize="32" regnum="55" type="float" group="float"/>
+    <r
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:285)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:860)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:719)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1017)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1220)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: Bogus trace status reply from target: m<?xml version="1.0"?>\n<!-- Copyright (C) 2008 Free Software Foundation, Inc.\n\n     Copying and distribution of this file, with or without modification,\n     are permitted in any medium without royalty provided the copyright\n     notice and this notice are preserved.  -->\n\n<!DOCTYPE feature SYSTEM "gdb-target.dtd">\n<target version="1.0">\n  <architecture>arm</architecture>\n  <feature name="org.gnu.gdb.arm.m-profile">\n    <reg name="r0" bitsize="32" regnum="0" type="uint32" group="general"/>\n    <reg name="r1" bitsize="32" regnum="1" type="uint32" group="general"/>\n    <reg name="r2" bitsize="32" regnum="2" type="uint32" group="general"/>\n    <reg name="r3" bitsize="32" regnum="3" type="uint32" group="general"/>\n    <reg name="r4" bitsize="32" regnum="4" type="uint32" group="general"/>\n    <reg name="r5" bitsize="32" regnum="5" type="uint32" group="general"/>\n    <reg name="r6" bitsize="32" regnum="6" type="uint32" group="general"/>\n    <reg name="r7" bitsize="32" regnum="7" type="uint32" group="general"/>\n    <reg name="r8" bitsize="32" regnum="8" type="uint32" group="general"/>\n    <reg name="r9" bitsize="32" regnum="9" type="uint32" group="general"/>\n    <reg name="r10" bitsize="32" regnum="10" type="uint32" group="general"/>\n    <reg name="r11" bitsize="32" regnum="11" type="uint32" group="general"/>\n    <reg name="r12" bitsize="32" regnum="12" type="uint32" group="general"/>\n    <reg name="sp" bitsize="32" regnum="13" type="data_ptr" group="general"/>\n    <reg name="lr" bitsize="32" regnum="14" type="uint32" group="general"/>\n    <reg name="pc" bitsize="32" regnum="15" type="code_ptr" group="general"/>\n    <reg name="xpsr" bitsize="32" regnum="25" type="uint32" group="general"/>\n  </feature>\n  <feature name="org.gnu.gdb.arm.m-system">\n    <reg name="msp" bitsize="32" regnum="26" type="uint32" group="general"/>\n    <reg name="psp" bitsize="32" regnum="27" type="uint32" group="general"/>\n    <reg name="primask" bitsize="32" regnum="28" type="uint32" group="general"/>\n    <reg name="basepri" bitsize="32" regnum="29" type="uint32" group="general"/>\n    <reg name="faultmask" bitsize="32" regnum="30" type="uint32" group="general"/>\n    <reg name="control" bitsize="32" regnum="31" type="uint32" group="general"/>\n  </feature>\n  <feature name="org.gnu.gdb.arm.m-float">\n    <reg name="fpscr" bitsize="32" regnum="32" type="uint32" group="float"/>\n    <reg name="s0" bitsize="32" regnum="33" type="float" group="float"/>\n    <reg name="s1" bitsize="32" regnum="34" type="float" group="float"/>\n    <reg name="s2" bitsize="32" regnum="35" type="float" group="float"/>\n    <reg name="s3" bitsize="32" regnum="36" type="float" group="float"/>\n    <reg name="s4" bitsize="32" regnum="37" type="float" group="float"/>\n    <reg name="s5" bitsize="32" regnum="38" type="float" group="float"/>\n    <reg name="s6" bitsize="32" regnum="39" type="float" group="float"/>\n    <reg name="s7" bitsize="32" regnum="40" type="float" group="float"/>\n    <reg name="s8" bitsize="32" regnum="41" type="float" group="float"/>\n    <reg name="s9" bitsize="32" regnum="42" type="float" group="float"/>\n    <reg name="s10" bitsize="32" regnum="43" type="float" group="float"/>\n    <reg name="s11" bitsize="32" regnum="44" type="float" group="float"/>\n    <reg name="s12" bitsize="32" regnum="45" type="float" group="float"/>\n    <reg name="s13" bitsize="32" regnum="46" type="float" group="float"/>\n    <reg name="s14" bitsize="32" regnum="47" type="float" group="float"/>\n    <reg name="s15" bitsize="32" regnum="48" type="float" group="float"/>\n    <reg name="s16" bitsize="32" regnum="49" type="float" group="float"/>\n    <reg name="s17" bitsize="32" regnum="50" type="float" group="float"/>\n    <reg name="s18" bitsize="32" regnum="51" type="float" group="float"/>\n    <reg name="s19" bitsize="32" regnum="52" type="float" group="float"/>\n    <reg name="s20" bitsize="32" regnum="53" type="float" group="float"/>\n    <reg name="s21" bitsize="32" regnum="54" type="float" group="float"/>\n    <reg name="s22" bitsize="32" regnum="55" type="float" group="float"/>\n    <r
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-08 12:26:57.197
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+Bogus trace status reply from target: m<?xml version="1.0"?>
+<!-- Copyright (C) 2008 Free Software Foundation, Inc.
+
+     Copying and distribution of this file, with or without modification,
+     are permitted in any medium without royalty provided the copyright
+     notice and this notice are preserved.  -->
+
+<!DOCTYPE feature SYSTEM "gdb-target.dtd">
+<target version="1.0">
+  <architecture>arm</architecture>
+  <feature name="org.gnu.gdb.arm.m-profile">
+    <reg name="r0" bitsize="32" regnum="0" type="uint32" group="general"/>
+    <reg name="r1" bitsize="32" regnum="1" type="uint32" group="general"/>
+    <reg name="r2" bitsize="32" regnum="2" type="uint32" group="general"/>
+    <reg name="r3" bitsize="32" regnum="3" type="uint32" group="general"/>
+    <reg name="r4" bitsize="32" regnum="4" type="uint32" group="general"/>
+    <reg name="r5" bitsize="32" regnum="5" type="uint32" group="general"/>
+    <reg name="r6" bitsize="32" regnum="6" type="uint32" group="general"/>
+    <reg name="r7" bitsize="32" regnum="7" type="uint32" group="general"/>
+    <reg name="r8" bitsize="32" regnum="8" type="uint32" group="general"/>
+    <reg name="r9" bitsize="32" regnum="9" type="uint32" group="general"/>
+    <reg name="r10" bitsize="32" regnum="10" type="uint32" group="general"/>
+    <reg name="r11" bitsize="32" regnum="11" type="uint32" group="general"/>
+    <reg name="r12" bitsize="32" regnum="12" type="uint32" group="general"/>
+    <reg name="sp" bitsize="32" regnum="13" type="data_ptr" group="general"/>
+    <reg name="lr" bitsize="32" regnum="14" type="uint32" group="general"/>
+    <reg name="pc" bitsize="32" regnum="15" type="code_ptr" group="general"/>
+    <reg name="xpsr" bitsize="32" regnum="25" type="uint32" group="general"/>
+  </feature>
+  <feature name="org.gnu.gdb.arm.m-system">
+    <reg name="msp" bitsize="32" regnum="26" type="uint32" group="general"/>
+    <reg name="psp" bitsize="32" regnum="27" type="uint32" group="general"/>
+    <reg name="primask" bitsize="32" regnum="28" type="uint32" group="general"/>
+    <reg name="basepri" bitsize="32" regnum="29" type="uint32" group="general"/>
+    <reg name="faultmask" bitsize="32" regnum="30" type="uint32" group="general"/>
+    <reg name="control" bitsize="32" regnum="31" type="uint32" group="general"/>
+  </feature>
+  <feature name="org.gnu.gdb.arm.m-float">
+    <reg name="fpscr" bitsize="32" regnum="32" type="uint32" group="float"/>
+    <reg name="s0" bitsize="32" regnum="33" type="float" group="float"/>
+    <reg name="s1" bitsize="32" regnum="34" type="float" group="float"/>
+    <reg name="s2" bitsize="32" regnum="35" type="float" group="float"/>
+    <reg name="s3" bitsize="32" regnum="36" type="float" group="float"/>
+    <reg name="s4" bitsize="32" regnum="37" type="float" group="float"/>
+    <reg name="s5" bitsize="32" regnum="38" type="float" group="float"/>
+    <reg name="s6" bitsize="32" regnum="39" type="float" group="float"/>
+    <reg name="s7" bitsize="32" regnum="40" type="float" group="float"/>
+    <reg name="s8" bitsize="32" regnum="41" type="float" group="float"/>
+    <reg name="s9" bitsize="32" regnum="42" type="float" group="float"/>
+    <reg name="s10" bitsize="32" regnum="43" type="float" group="float"/>
+    <reg name="s11" bitsize="32" regnum="44" type="float" group="float"/>
+    <reg name="s12" bitsize="32" regnum="45" type="float" group="float"/>
+    <reg name="s13" bitsize="32" regnum="46" type="float" group="float"/>
+    <reg name="s14" bitsize="32" regnum="47" type="float" group="float"/>
+    <reg name="s15" bitsize="32" regnum="48" type="float" group="float"/>
+    <reg name="s16" bitsize="32" regnum="49" type="float" group="float"/>
+    <reg name="s17" bitsize="32" regnum="50" type="float" group="float"/>
+    <reg name="s18" bitsize="32" regnum="51" type="float" group="float"/>
+    <reg name="s19" bitsize="32" regnum="52" type="float" group="float"/>
+    <reg name="s20" bitsize="32" regnum="53" type="float" group="float"/>
+    <reg name="s21" bitsize="32" regnum="54" type="float" group="float"/>
+    <reg name="s22" bitsize="32" regnum="55" type="float" group="float"/>
+    <r
+!STACK 0
+java.lang.Exception: Bogus trace status reply from target: m<?xml version="1.0"?>\n<!-- Copyright (C) 2008 Free Software Foundation, Inc.\n\n     Copying and distribution of this file, with or without modification,\n     are permitted in any medium without royalty provided the copyright\n     notice and this notice are preserved.  -->\n\n<!DOCTYPE feature SYSTEM "gdb-target.dtd">\n<target version="1.0">\n  <architecture>arm</architecture>\n  <feature name="org.gnu.gdb.arm.m-profile">\n    <reg name="r0" bitsize="32" regnum="0" type="uint32" group="general"/>\n    <reg name="r1" bitsize="32" regnum="1" type="uint32" group="general"/>\n    <reg name="r2" bitsize="32" regnum="2" type="uint32" group="general"/>\n    <reg name="r3" bitsize="32" regnum="3" type="uint32" group="general"/>\n    <reg name="r4" bitsize="32" regnum="4" type="uint32" group="general"/>\n    <reg name="r5" bitsize="32" regnum="5" type="uint32" group="general"/>\n    <reg name="r6" bitsize="32" regnum="6" type="uint32" group="general"/>\n    <reg name="r7" bitsize="32" regnum="7" type="uint32" group="general"/>\n    <reg name="r8" bitsize="32" regnum="8" type="uint32" group="general"/>\n    <reg name="r9" bitsize="32" regnum="9" type="uint32" group="general"/>\n    <reg name="r10" bitsize="32" regnum="10" type="uint32" group="general"/>\n    <reg name="r11" bitsize="32" regnum="11" type="uint32" group="general"/>\n    <reg name="r12" bitsize="32" regnum="12" type="uint32" group="general"/>\n    <reg name="sp" bitsize="32" regnum="13" type="data_ptr" group="general"/>\n    <reg name="lr" bitsize="32" regnum="14" type="uint32" group="general"/>\n    <reg name="pc" bitsize="32" regnum="15" type="code_ptr" group="general"/>\n    <reg name="xpsr" bitsize="32" regnum="25" type="uint32" group="general"/>\n  </feature>\n  <feature name="org.gnu.gdb.arm.m-system">\n    <reg name="msp" bitsize="32" regnum="26" type="uint32" group="general"/>\n    <reg name="psp" bitsize="32" regnum="27" type="uint32" group="general"/>\n    <reg name="primask" bitsize="32" regnum="28" type="uint32" group="general"/>\n    <reg name="basepri" bitsize="32" regnum="29" type="uint32" group="general"/>\n    <reg name="faultmask" bitsize="32" regnum="30" type="uint32" group="general"/>\n    <reg name="control" bitsize="32" regnum="31" type="uint32" group="general"/>\n  </feature>\n  <feature name="org.gnu.gdb.arm.m-float">\n    <reg name="fpscr" bitsize="32" regnum="32" type="uint32" group="float"/>\n    <reg name="s0" bitsize="32" regnum="33" type="float" group="float"/>\n    <reg name="s1" bitsize="32" regnum="34" type="float" group="float"/>\n    <reg name="s2" bitsize="32" regnum="35" type="float" group="float"/>\n    <reg name="s3" bitsize="32" regnum="36" type="float" group="float"/>\n    <reg name="s4" bitsize="32" regnum="37" type="float" group="float"/>\n    <reg name="s5" bitsize="32" regnum="38" type="float" group="float"/>\n    <reg name="s6" bitsize="32" regnum="39" type="float" group="float"/>\n    <reg name="s7" bitsize="32" regnum="40" type="float" group="float"/>\n    <reg name="s8" bitsize="32" regnum="41" type="float" group="float"/>\n    <reg name="s9" bitsize="32" regnum="42" type="float" group="float"/>\n    <reg name="s10" bitsize="32" regnum="43" type="float" group="float"/>\n    <reg name="s11" bitsize="32" regnum="44" type="float" group="float"/>\n    <reg name="s12" bitsize="32" regnum="45" type="float" group="float"/>\n    <reg name="s13" bitsize="32" regnum="46" type="float" group="float"/>\n    <reg name="s14" bitsize="32" regnum="47" type="float" group="float"/>\n    <reg name="s15" bitsize="32" regnum="48" type="float" group="float"/>\n    <reg name="s16" bitsize="32" regnum="49" type="float" group="float"/>\n    <reg name="s17" bitsize="32" regnum="50" type="float" group="float"/>\n    <reg name="s18" bitsize="32" regnum="51" type="float" group="float"/>\n    <reg name="s19" bitsize="32" regnum="52" type="float" group="float"/>\n    <reg name="s20" bitsize="32" regnum="53" type="float" group="float"/>\n    <reg name="s21" bitsize="32" regnum="54" type="float" group="float"/>\n    <reg name="s22" bitsize="32" regnum="55" type="float" group="float"/>\n    <r
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:27:04.451
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:27:56.084
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-08 12:30:41.528
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6

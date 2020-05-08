@@ -105,7 +105,7 @@ void DM_Init()
 	  ILI9341_Fill_Screen(WHITE);
 	  ILI9341_Draw_Text("Initialising", 10, 10, BLACK, 1, WHITE);
 	  DM_RefreshBackgroundLayout();
-
+	  printf("Init Completed\n");
 }
 
 
@@ -200,33 +200,18 @@ void DM_UpdateDisplay()
 													BORDER_SIZE,
 													BLACK);
 													*/
-	int res;
-//	if( (res = TM_FindStringRegister("ONE")) >= 0 )
-//	{
-
-		char tmp[6] = "";
-		if(DM_AddDigitPadding(TIM6->CNT, tmp, sizeof(tmp)) == 0)
-			ILI9341_Draw_Text(tmp, STRINGREG[0].x, STRINGREG[0].y, BLACK, STRINGREG[0].size, DARKCYAN);
-//	}
 
 
-
-	if( (res = TM_FindStringRegister("TWO")) >= 0 )
+	char tmp[6] = "";
+	if(DM_AddDigitPadding(TIM5->CNT, tmp, sizeof(tmp)) == 0)
 	{
-		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, DARKGREEN);
+		//ILI9341_Draw_Text(tmp, STRINGREG[0].x, STRINGREG[0].y, BLACK, STRINGREG[0].size, DARKCYAN);
+		ILI9341_Draw_Text(tmp, 10, 210, BLACK, 2, DARKCYAN);
 	}
 
-
-	if( (res = TM_FindStringRegister("THREE")) >= 0 )
-	{
-		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, YELLOW);
-	}
-
-	if( (res = TM_FindStringRegister("FOUR")) >= 0 )
-	{
-		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, RED);
-	}
-
+	ILI9341_Draw_Text("TWO", 100, 210, BLACK, 2, DARKGREEN);
+	ILI9341_Draw_Text("THREE", 175, 210, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("FOUR", 260, 210, BLACK, 2, RED);
 
 }
 
