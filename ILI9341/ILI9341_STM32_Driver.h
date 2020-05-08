@@ -85,11 +85,11 @@
 #define ILI9341_STM32_DRIVER_H
 
 #include "stm32g4xx_hal.h"
+#include "ILI9341_TextManager.h"
 
 
-
-#define ILI9341_SCREEN_HEIGHT 240 
-#define ILI9341_SCREEN_WIDTH 	320
+#define ILI9341_SCREEN_HEIGHT 					240
+#define ILI9341_SCREEN_WIDTH 					320
 
 //SPI INSTANCE
 #define HSPI_INSTANCE							&hspi3
@@ -106,8 +106,15 @@
 #define	LCD_RST_PORT							RST_GPIO_Port
 #define	LCD_RST_PIN								RST_Pin
 
+typedef enum
+{
+	TEXT_CHUNK = 0x01U,
+	PIXEL_CHUNK,
+	LINE_CHUNK,
+	AREA_CHUNK,
 
-#define BURST_MAX_SIZE 	500
+} CHUNK_Type;
+
 
 #define BLACK       0x0000      
 #define NAVY        0x000F      
@@ -146,7 +153,7 @@ void ILI9341_Init(void);
 void ILI9341_Fill_Screen(uint16_t Colour);
 void ILI9341_Draw_Colour(uint16_t Colour);
 void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t Colour);
-void ILI9341_Draw_Colour_Burst(uint16_t Colour, uint32_t Size);
+void ILI9341_Draw_Colour_Burst(uint16_t xpos, uint16_t ypos, uint16_t Colour, uint32_t Size, CHUNK_Type block_type);
 
 
 void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t Width, uint16_t Height, uint16_t Colour);

@@ -36,7 +36,9 @@
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
 
-#include "ili9341.h"
+#include "DisplayManager.h"
+
+
 // python-generated wave lut
 #include "pysine.h"
 #include "pysquare.h"
@@ -228,18 +230,15 @@ int main(void)
 #endif	//DISABLE_ALL_TIMERS
 
   // TFT lib enable
-  //ILI9341_Init();
-  ILI9341_2_Init();
-  ILI9341_FillScreen(WHITE);
-  //ILI9341_WriteString(50, 50, "Test", Font_11x18, BLACK, RED);
-/*	ILI9341_Fill_Screen(WHITE);
 
-	ILI9341_Draw_Text("Initialising", 10, 10, BLACK, 1, WHITE);
-	HAL_Delay(2000);
-*/
-	//ILI9341_Fill_Screen(WHITE);
-	//ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-	HAL_TIM_Base_Start_IT(&htim15);
+  //ILI9341_2_Init();
+  //ILI9341_FillScreen(WHITE);
+  //ILI9341_WriteString(50, 50, "Test", Font_11x18, BLACK, RED);
+
+  DM_Init();
+  DM_RegisterStrings();
+  HAL_Delay(2000);
+  HAL_TIM_Base_Start_IT(&htim15);
   /* USER CODE END 2 */
 
   /* Infinite loop */

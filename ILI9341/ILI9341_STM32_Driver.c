@@ -89,6 +89,10 @@
 volatile uint16_t LCD_HEIGHT = ILI9341_SCREEN_HEIGHT;
 volatile uint16_t LCD_WIDTH	 = ILI9341_SCREEN_WIDTH;
 
+uint16_t BURST_MAX_SIZE = 500;
+
+
+
 /* Initialize SPI */
 void ILI9341_SPI_Init(void)
 {
@@ -354,10 +358,11 @@ void ILI9341_Draw_colour(uint16_t colour)
 
 //INTERNAL FUNCTION OF LIBRARY
 /*Sends block colour information to LCD*/
-void ILI9341_Draw_colour_Burst(uint16_t colour, uint32_t size)
+void ILI9341_Draw_colour_Burst(uint16_t xpos, uint16_t ypos, uint16_t colour, uint32_t size, CHUNK_Type block_type)
 {
 
-	//SENDS COLOUR
+
+
 
 	uint32_t buffer_size = 0;
 	if((size*2) < BURST_MAX_SIZE)
@@ -369,8 +374,11 @@ void ILI9341_Draw_colour_Burst(uint16_t colour, uint32_t size)
 		buffer_size = BURST_MAX_SIZE;
 	}
 
+	//HAL_GPIO_WritePin(LCD_DC_PORT, LCD_DC_PIN, GPIO_PIN_SET);
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
+	//HAL_GPIO_WritePin(LCD_CS_PORT, LCD_CS_PIN, GPIO_PIN_RESET);
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 
 	unsigned char chifted = 	colour>>8;;
 	unsigned char burst_buffer[buffer_size];
@@ -396,12 +404,12 @@ void ILI9341_Draw_colour_Burst(uint16_t colour, uint32_t size)
 	{
 		for(uint32_t j = 0; j < (Sending_in_Block); j++)
 		{
-			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, buffer_size, 10);
+			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, buffer_size, 2);
 		}
 	}
 
 	//REMAINDER!
-	HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, Remainder_from_block, 10);
+	HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, Remainder_from_block, 2);
 
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 
@@ -413,7 +421,7 @@ void ILI9341_Draw_colour_Burst(uint16_t colour, uint32_t size)
 void ILI9341_Fill_Screen(uint16_t colour)
 {
 	ILI9341_Set_Address(0,0,LCD_WIDTH,LCD_HEIGHT);
-	ILI9341_Draw_colour_Burst(colour, LCD_WIDTH*LCD_HEIGHT);
+	ILI9341_Draw_colour_Burst(0, 0, colour, LCD_WIDTH*LCD_HEIGHT, AREA_CHUNK);
 }
 
 //DRAW PIXEL AT XY POSITION WITH SELECTED COLOUR
@@ -476,18 +484,21 @@ void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t colour)
  *
  */
 
-void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t width, uint16_t height, uint16_t colour)
+void ILI9341_Draw_Rectangle(uint16_t xpos, uint16_t ypos, uint16_t width, uint16_t height, uint16_t colour)
 {
-	if((X >=LCD_WIDTH) || (Y >=LCD_HEIGHT)) return;
-	if((X+width-1)>=LCD_WIDTH)
+	if((xpos >=LCD_WIDTH) || (ypos >=LCD_HEIGHT)) return;
+	if((xpos+width-1)>=LCD_WIDTH)
 		{
-			width=LCD_WIDTH-X;
+			width=LCD_WIDTH-xpos;
 		}
-	if((Y+height-1)>=LCD_HEIGHT)
+	if((ypos+height-1)>=LCD_HEIGHT)
 		{
-			height=LCD_HEIGHT-Y;
+			height=LCD_HEIGHT-ypos;
 		}
-	ILI9341_Set_Address(X, Y, X+width-1, Y+height-1);
+	ILI9341_Set_Address(xpos,
+						ypos,
+						(xpos + width) - 1,
+						(ypos + height) - 1);
 
 	// if odd numbered rect area is requested, we round down to nearest even number
 	// to keep ILI9341_Draw_colour_Burst() happy.
@@ -503,12 +514,19 @@ void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t width, uint16_t hei
 	 	size = ((size >> 1) * 2);
 	}
 
-	ILI9341_Draw_colour_Burst(colour, size);
+	ILI9341_Draw_colour_Burst(	xpos,
+								ypos,
+								colour,
+								size,
+								AREA_CHUNK);
 
 	// add the truncated pixel now
 	if(truncated)
-		ILI9341_Draw_Pixel(X+width-1, Y+height-1, colour);
-
+	{
+		ILI9341_Draw_Pixel(	(xpos + width) - 1,
+							(ypos + height) - 1,
+							colour);
+	}
 }
 
 /*
@@ -518,26 +536,30 @@ void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t width, uint16_t hei
  *
  */
 
-void ILI9341_Draw_Horizontal_Line(uint16_t X, uint16_t Y, uint16_t width, uint16_t colour)
+void ILI9341_Draw_Horizontal_Line(uint16_t xpos, uint16_t ypos, uint16_t width, uint16_t colour)
 {
-	if((X >=LCD_WIDTH) || (Y >=LCD_HEIGHT)) return;
-	if((X+width-1)>=LCD_WIDTH)
+	if((xpos >=LCD_WIDTH) || (ypos >=LCD_HEIGHT)) return;
+	if(((xpos + width) - 1 ) >= LCD_WIDTH)
 		{
-			width=LCD_WIDTH-X;
+			width= LCD_WIDTH - xpos;
 		}
-	ILI9341_Set_Address(X, Y, X+width-1, Y);
-	ILI9341_Draw_colour_Burst(colour, width);
+	ILI9341_Set_Address(	xpos,
+							ypos,
+							(xpos + width) - 1,
+							ypos);
+
+	ILI9341_Draw_colour_Burst(xpos, ypos, colour, width, LINE_CHUNK);
 }
 
 //DRAW LINE FROM X,Y LOCATION to X,Y+height LOCATION
-void ILI9341_Draw_Vertical_Line(uint16_t X, uint16_t Y, uint16_t height, uint16_t colour)
+void ILI9341_Draw_Vertical_Line(uint16_t xpos, uint16_t ypos, uint16_t height, uint16_t colour)
 {
-	if((X >=LCD_WIDTH) || (Y >=LCD_HEIGHT)) return;
-	if((Y+height-1)>=LCD_HEIGHT)
+	if((xpos >= LCD_WIDTH) || (ypos >= LCD_HEIGHT)) return;
+	if(((ypos + height) - 1) >= LCD_HEIGHT)
 		{
-			height=LCD_HEIGHT-Y;
+			height= LCD_HEIGHT - ypos;
 		}
-	ILI9341_Set_Address(X, Y, X, Y+height-1);
-	ILI9341_Draw_colour_Burst(colour, height);
+	ILI9341_Set_Address(xpos, ypos, xpos, (ypos + height) - 1);
+	ILI9341_Draw_colour_Burst(xpos, ypos, colour, height, LINE_CHUNK);
 }
 

@@ -1,3 +1,5 @@
 stm32g4xx_ll_rng.h:359:26:LL_RNG_ReadRandData32	16	static
-DisplayManager.c:31:6:dm_update_display	24	static
-DisplayManager.c:77:6:dm_test_screen	40	static
+DisplayManager.c:37:6:DM_Init	16	static
+DisplayManager.c:50:6:DM_RegisterStrings	24	static
+DisplayManager.c:68:6:DM_UpdateDisplay	40	static
+DisplayManager.c:140:6:DM_TestScreen	40	static

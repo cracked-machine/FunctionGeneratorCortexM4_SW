@@ -51,6 +51,9 @@
 #include "spi.h"
 #include <assert.h>
 #include <math.h>
+#include "ILI9341_TextManager.h"
+
+ extern uint16_t BURST_MAX_SIZE;
 
 /*Draw hollow circle at X,Y location with specified radius and colour. X and Y represent circles center */
 void ILI9341_Draw_Hollow_Circle(uint16_t x, uint16_t y, uint16_t Radius, uint16_t Colour)

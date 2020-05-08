@@ -13,68 +13,131 @@
 #include "ILI9341_GFX.h"
 #include "rng.h"
 
+#include "ILI9341_TextManager.h"
 
-#include "ili9341.h"
+ extern uint16_t BURST_MAX_SIZE;
 
-#define BUTTON_WIDTH 				(ILI9341_SCREEN_WIDTH)/4
-#define BUTTON_Y_POSITION 			(ILI9341_SCREEN_HEIGHT)-50
-#define BORDER_size 				10
-#define BUTTON_TEXT_X_POS 			(ILI9341_SCREEN_WIDTH)/8
-#define BUTTON_TEXT_Y_POS 			(ILI9341_SCREEN_HEIGHT)-25
+#define BTN_WIDTH 				(ILI9341_SCREEN_WIDTH)/4
+#define BTN_HEIGHT				50
+#define BTN_Y_POS 				(ILI9341_SCREEN_HEIGHT)-40
+#define BORDER_SIZE				10
+#define BTN_TXT_X_POS 			(ILI9341_SCREEN_WIDTH)/8
+#define BTN_TXT_Y_POS 			(ILI9341_SCREEN_HEIGHT)-25
 
-uint16_t button_x_positions[4] = { 0, (BUTTON_WIDTH)+1, (BUTTON_WIDTH*2)+2, (BUTTON_WIDTH*3)+2 };
+uint16_t btn_x_pos[4] = { 0, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 //#define BUTTON_Y_POSITION 50
 //uint16_t button_x_positions[1] = { (BUTTON_WIDTH) };
 
 
-
-void dm_update_display()
+/*
+ *
+ *
+ *
+ */
+void DM_Init()
 {
-
-
-
-
-
-	//ILI9341_Draw_Filled_Circle(50, 50, 50, BLUE);
-	ILI9341_WriteString(30, 210, "ONE", Font_11x18, BLACK, DARKCYAN);
-
-	ILI9341_FillRectangle(	button_x_positions[0],
-							BUTTON_Y_POSITION,
-							BUTTON_WIDTH,
-							50,
-							BLACK);
-
-
-	ILI9341_WriteString(110, 210, "TWO", Font_11x18, BLACK, DARKGREEN);
-
-	ILI9341_FillRectangle(	button_x_positions[1],
-							BUTTON_Y_POSITION,
-							BUTTON_WIDTH,
-							50,
-							BLACK);
-
-	ILI9341_WriteString(170, 210, "THREE", Font_11x18, BLACK, YELLOW);
-
-	ILI9341_FillRectangle(	button_x_positions[2],
-							BUTTON_Y_POSITION,
-							BUTTON_WIDTH,
-							50,
-							BLACK);
-
-	ILI9341_WriteString(250, 210, "FOUR", Font_11x18, BLACK, RED);
-
-	ILI9341_FillRectangle(	button_x_positions[3],
-							BUTTON_Y_POSITION,
-							BUTTON_WIDTH,
-							50,
-							BLACK);
-
-
-
-	//dm_test_screen();
+	  ILI9341_Init();
+	  ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
+	  ILI9341_Fill_Screen(WHITE);
+	  ILI9341_Draw_Text("Initialising", 10, 10, BLACK, 1, WHITE);
 }
 
-void dm_test_screen()
+/*
+ *
+ *
+ *
+ */
+void DM_RegisterStrings()
+{
+	int res = 0;
+	res = TM_RegisterString("ONE", 100, 200, 2);
+	res = TM_RegisterString("TWO", 110, 210, 3);
+	res = TM_RegisterString("THREE", 170, 210, 3);
+	res = TM_RegisterString("FOUR", 250, 210, 3);
+	if(res < 0)
+	{
+		ILI9341_Draw_Text("Exceeded String Buffer Bounds!", 10, 20, BLACK, 1, WHITE);
+	}
+}
+
+/*
+ *
+ *
+ *
+ */
+void DM_UpdateDisplay()
+{
+	int res;
+	if( (res = TM_FindStringRegister("ONE")) >= 0 )
+	{
+		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, RED);
+	}
+
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	50,
+													50,
+													100,
+													100,
+													RED,
+													BORDER_SIZE,
+													BLACK);
+	/*
+	int res;
+	if( (res = TM_FindStringRegister("ONE")) >= 0 )
+	{
+		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, DARKCYAN);
+	}
+
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[0],
+													BTN_Y_POS,
+													BTN_WIDTH,
+													BTN_HEIGHT,
+													DARKCYAN,
+													BORDER_SIZE,
+													BLACK);
+
+	if( (res = TM_FindStringRegister("TWO")) >= 0 )
+	{
+		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, DARKGREEN);
+	}
+
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[1],
+													BTN_Y_POS,
+													BTN_WIDTH,
+													BTN_HEIGHT,
+													DARKGREEN,
+													BORDER_SIZE,
+													BLACK);
+	if( (res = TM_FindStringRegister("THREE")) >= 0 )
+	{
+		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, YELLOW);
+	}
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[2],
+													BTN_Y_POS,
+													BTN_WIDTH,
+													BTN_HEIGHT,
+													YELLOW,
+													BORDER_SIZE,
+													BLACK);
+	if( (res = TM_FindStringRegister("FOUR")) >= 0 )
+	{
+		ILI9341_Draw_Text(STRINGREG[res].text, STRINGREG[res].x, STRINGREG[res].y, BLACK, STRINGREG[res].size, RED);
+	}
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[3],
+													BTN_Y_POS,
+													BTN_WIDTH,
+													BTN_HEIGHT,
+													RED,
+													BORDER_SIZE,
+													BLACK);
+*/
+}
+
+/*
+ *
+ *
+ *
+ */
+void DM_TestScreen()
 {
 	  //----------------------------------------------------------FILLED CIRCLES EXAMPLE
 
