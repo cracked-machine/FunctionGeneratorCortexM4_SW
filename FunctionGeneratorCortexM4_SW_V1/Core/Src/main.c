@@ -133,6 +133,7 @@ int main(void)
   MX_TIM8_Init();
   MX_TIM16_Init();
   MX_TIM15_Init();
+  MX_TIM6_Init();
   /* USER CODE BEGIN 2 */
 
   // main signal function output (external)
@@ -226,19 +227,20 @@ int main(void)
 #ifndef DISABLE_ALL_TIMERS
   // encoder input
   HAL_TIM_Base_Start(&htim1);
-  //HAL_TIM_Base_Start_IT(&htim16);
+
 #endif	//DISABLE_ALL_TIMERS
 
+  TIM6->PSC = 65535;
+  TIM6->ARR = 65535;
+
+
+
   // TFT lib enable
-
-  //ILI9341_2_Init();
-  //ILI9341_FillScreen(WHITE);
-  //ILI9341_WriteString(50, 50, "Test", Font_11x18, BLACK, RED);
-
   DM_Init();
   DM_RegisterStrings();
   HAL_Delay(2000);
   HAL_TIM_Base_Start_IT(&htim15);
+  HAL_TIM_Base_Start(&htim6);
   /* USER CODE END 2 */
 
   /* Infinite loop */

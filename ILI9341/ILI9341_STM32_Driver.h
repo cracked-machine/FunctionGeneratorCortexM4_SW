@@ -153,10 +153,10 @@ void ILI9341_Init(void);
 void ILI9341_Fill_Screen(uint16_t Colour);
 void ILI9341_Draw_Colour(uint16_t Colour);
 void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t Colour);
-void ILI9341_Draw_Colour_Burst(uint16_t xpos, uint16_t ypos, uint16_t Colour, uint32_t Size, CHUNK_Type block_type);
+void ILI9341_Draw_Colour_Burst(uint16_t xpos, uint16_t ypos, uint16_t Colour, uint32_t Size, CHUNK_Type chunk_type);
 
 
-void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t Width, uint16_t Height, uint16_t Colour);
+void ILI9341_Draw_Rectangle(uint16_t X, uint16_t Y, uint16_t Width, uint16_t Height, uint16_t Colour, CHUNK_Type chunk_type);
 void ILI9341_Draw_Horizontal_Line(uint16_t X, uint16_t Y, uint16_t Width, uint16_t Colour);
 void ILI9341_Draw_Vertical_Line(uint16_t X, uint16_t Y, uint16_t Height, uint16_t Colour);
 	
