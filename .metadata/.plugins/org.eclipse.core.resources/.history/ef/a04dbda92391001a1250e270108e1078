@@ -1,0 +1,20 @@
+/*
+ * EventManager.h
+ *
+ *  Created on: May 8, 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_EVENTMANAGER_EVENTMANAGER_H_
+#define SRC_EVENTMANAGER_EVENTMANAGER_H_
+
+typedef enum
+{
+	Idle_state = 0x00U,		// idle
+	Func_state,				// edit output function
+	Freq_state,				// edit output frequency
+	Ampl_state,				// edit output amplitude
+	Bias_state				// edit output DC bias
+} eSystemState;
+
+#endif /* SRC_EVENTMANAGER_EVENTMANAGER_H_ */

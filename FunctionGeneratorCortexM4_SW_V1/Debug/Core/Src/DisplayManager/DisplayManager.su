@@ -4,5 +4,6 @@ DisplayManager.c:60:6:DM_RefreshBackgroundLayout	24	static
 DisplayManager.c:101:6:DM_Init	16	static
 DisplayManager.c:117:6:DM_RegisterStrings	24	static
 DisplayManager.c:144:5:DM_AddDigitPadding	24	static
-DisplayManager.c:187:6:DM_UpdateDisplay	24	static
-DisplayManager.c:223:6:DM_TestScreen	40	static
+DisplayManager.c:186:6:DM_SetDisplayMode	16	static
+DisplayManager.c:197:6:DM_UpdateDisplay	16	static
+DisplayManager.c:236:6:DM_TestScreen	40	static

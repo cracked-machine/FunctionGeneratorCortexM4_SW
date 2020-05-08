@@ -15,7 +15,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "ILI9341_TextManager.h"
+eDisplay_Mode eCurrentMode = Func_Adjust_mode;
 
  extern uint16_t BURST_MAX_SIZE;
 
@@ -183,6 +183,16 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen)
  *
  *
  */
+void DM_SetDisplayMode(eDisplay_Mode pMode)
+{
+
+}
+
+/*
+ *
+ *
+ *
+ */
 
 void DM_UpdateDisplay()
 {
@@ -202,16 +212,19 @@ void DM_UpdateDisplay()
 													*/
 
 
-	char tmp[6] = "";
+/*	char tmp[6] = "";
 	if(DM_AddDigitPadding(TIM5->CNT, tmp, sizeof(tmp)) == 0)
 	{
 		//ILI9341_Draw_Text(tmp, STRINGREG[0].x, STRINGREG[0].y, BLACK, STRINGREG[0].size, DARKCYAN);
 		ILI9341_Draw_Text(tmp, 10, 210, BLACK, 2, DARKCYAN);
 	}
+*/
 
-	ILI9341_Draw_Text("TWO", 100, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("THREE", 175, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("FOUR", 260, 210, BLACK, 2, RED);
+	ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
+	ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
+	ILI9341_Draw_Text("AMPL", 175, 210, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("BIAS", 260, 210, BLACK, 2, RED);
+
 
 }
 

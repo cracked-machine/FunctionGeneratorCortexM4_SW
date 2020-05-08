@@ -18,6 +18,7 @@ OBJCOPY_BIN :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 Core/Src/DisplayManager \
+Core/Src/EventManager \
 Core/Src \
 Core/Startup \
 Drivers/STM32G4xx_HAL_Driver/Src \

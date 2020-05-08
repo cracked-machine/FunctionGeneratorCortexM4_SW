@@ -1,0 +1,8 @@
+EventManager.c:19:6:EM_SetNewEvent	16	static
+EventManager.c:24:6:_ClearEvent	4	static
+EventManager.c:29:14:_FuncAdjustHandler	8	static
+EventManager.c:36:14:_FreqAdjustHandler	8	static
+EventManager.c:43:14:_AmplAdjustHandler	8	static
+EventManager.c:50:14:_BiasAdjustHandler	8	static
+EventManager.c:57:14:_AdjustConfirmedHandler	8	static
+EventManager.c:66:6:EM_ProcessEvent	8	static

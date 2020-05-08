@@ -1,0 +1,80 @@
+/*
+ * EventManager.c
+ *
+ *  Created on: May 8, 2020
+ *      Author: chris
+ */
+
+
+#include "EventManager.h"
+
+eSystemState eNextState = Idle_state;
+eSystemState eNewEvent;
+
+/*
+ *
+ * 		Set by NVIC interrupt handlers
+ */
+void EM_SetNewEvent(eSystemState pState)
+{
+	eNewEvent = pState;
+}
+
+
+eSystemState _FuncAdjustHandler(void)
+{
+	return Idle_state;
+}
+
+eSystemState _FreqAdjustHandler(void)
+{
+	return Idle_state;
+}
+
+eSystemState _AmplAdjustHandler(void)
+{
+	return Idle_state;
+}
+
+eSystemState _BiasAdjustHandler(void)
+{
+	return Idle_state;
+}
+
+eSystemState _AdjustConfirmedHandler(void)
+{
+	return Idle_state;
+}
+
+
+
+void EM_ProcessEvent()
+{
+
+	switch(eNextState)
+	{
+		case Idle_state:
+
+			break;
+
+		case Func_Select_state:
+
+			break;
+
+		case Freq_Select_state:
+
+			break;
+
+		case Ampl_Select_state:
+
+			break;
+
+		case Bias_Select_state:
+
+			break;
+
+		default:
+			break;
+	}
+
+}

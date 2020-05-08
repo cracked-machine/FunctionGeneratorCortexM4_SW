@@ -1,4 +1,5 @@
 "Core/Src/DisplayManager/DisplayManager.o"
+"Core/Src/EventManager/EventManager.o"
 "Core/Src/adc.o"
 "Core/Src/comp.o"
 "Core/Src/dac.o"

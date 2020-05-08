@@ -1,0 +1,17 @@
+/*
+ * EventManager.c
+ *
+ *  Created on: May 8, 2020
+ *      Author: chris
+ */
+
+
+#include "EventManager.h"
+
+eSystemState eNextState = Idle_state;
+eSystemState eNewEvent;
+
+void EM_SetNewEvent(eSystemState pState)
+{
+	eNewEvent = pState;
+}

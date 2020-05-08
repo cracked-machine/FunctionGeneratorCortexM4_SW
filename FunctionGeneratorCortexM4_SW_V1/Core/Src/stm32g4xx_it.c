@@ -43,6 +43,8 @@
 
 #include "rng.h"
 
+#include "EventManager.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -82,7 +84,6 @@ extern char control_pressed[10];
 extern DMA_HandleTypeDef hdma_adc1;
 extern DMA_HandleTypeDef hdma_dac1_ch1;
 extern DMA_HandleTypeDef hdma_dac2_ch1;
-extern DMA_HandleTypeDef hdma_spi3_tx;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim15;
@@ -239,8 +240,9 @@ void EXTI0_IRQHandler(void)
 
 //	if(HAL_GPIO_ReadPin(BTN3_EXTI0_GPIO_Port, BTN3_EXTI0_Pin))
 //	{
-		snprintf(control_pressed, sizeof(control_pressed), "BTN3");
- 		printf("BTN3_EXTI0_Pin\n");
+		//snprintf(control_pressed, sizeof(control_pressed), "BTN3");
+		EM_SetNewEvent(Bias_Select_Event);
+ 		//printf("BTN3_EXTI0_Pin\n");
 //	}
 
   /* USER CODE END EXTI0_IRQn 0 */
@@ -265,8 +267,9 @@ void EXTI1_IRQHandler(void)
 
 //	if(HAL_GPIO_ReadPin(BTN4_EXTI1_GPIO_Port, BTN4_EXTI1_Pin))
 //	{
-		snprintf(control_pressed, sizeof(control_pressed), "BTN4");
-		printf("BTN4_EXTI1_Pin\n");
+		//snprintf(control_pressed, sizeof(control_pressed), "BTN4");
+		//printf("BTN4_EXTI1_Pin\n");
+		EM_SetNewEvent(Freq_Select_Event);
 //	}
 
   /* USER CODE END EXTI1_IRQn 0 */
@@ -290,8 +293,9 @@ void EXTI2_IRQHandler(void)
   /* USER CODE BEGIN EXTI2_IRQn 0 */
 
 
-		snprintf(control_pressed, sizeof(control_pressed), "ENC_BTN");
-		printf("ENC_EXTI2_Pin\n");
+		//snprintf(control_pressed, sizeof(control_pressed), "ENC_BTN");
+		//printf("ENC_EXTI2_Pin\n");
+		EM_SetNewEvent(Adjust_Confirmed_Event);
 
 
   /* USER CODE END EXTI2_IRQn 0 */
@@ -351,26 +355,13 @@ void DMA1_Channel3_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles DMA1 channel4 global interrupt.
-  */
-void DMA1_Channel4_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA1_Channel4_IRQn 0 */
-
-  /* USER CODE END DMA1_Channel4_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_spi3_tx);
-  /* USER CODE BEGIN DMA1_Channel4_IRQn 1 */
-
-  /* USER CODE END DMA1_Channel4_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM1 break interrupt and TIM15 global interrupt.
   */
 void TIM1_BRK_TIM15_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 0 */
 	DM_UpdateDisplay();
+	EM_ProcessEvent();
   /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim15);
@@ -442,13 +433,15 @@ void EXTI15_10_IRQHandler(void)
 
 	if(HAL_GPIO_ReadPin(BTN1_EXTI14_GPIO_Port, BTN1_EXTI14_Pin))
 	{
-		snprintf(control_pressed, sizeof(control_pressed), "BTN1");
-		printf("BTN1_EXTI14_Pin\n");
+		EM_SetNewEvent(Ampl_Select_Event);
+		//snprintf(control_pressed, sizeof(control_pressed), "BTN1");
+		//printf("BTN1_EXTI14_Pin\n");
 	}
 	if(HAL_GPIO_ReadPin(BTN2_EXTI15_GPIO_Port, BTN2_EXTI15_Pin))
 	{
-		snprintf(control_pressed, sizeof(control_pressed), "BTN2");
-		printf("BTN2_EXTI15_Pin\n");
+		EM_SetNewEvent(Func_Select_Event);
+		//snprintf(control_pressed, sizeof(control_pressed), "BTN2");
+		//printf("BTN2_EXTI15_Pin\n");
 	}
 
   /* USER CODE END EXTI15_10_IRQn 0 */
