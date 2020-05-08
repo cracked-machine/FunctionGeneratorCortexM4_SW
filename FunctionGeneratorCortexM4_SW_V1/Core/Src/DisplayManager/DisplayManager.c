@@ -18,6 +18,7 @@
 
 eDisplay_Mode eCurrentMode = Func_Adjust_mode;
 eFuncMenu_Status eNextFuncMenuStatus = DISABLE_FUNCMENU;
+eGainMenu_Status eNextGainMenuStatus = DISABLE_GAINMENU;
 
  extern uint16_t BURST_MAX_SIZE;
 
@@ -39,6 +40,7 @@ void DM_RefreshBackgroundLayout();
 
 // private function prototypes
 void _DrawFuncSelectMenu();
+void _DrawGainSelectMenu();
 
 /*
  *
@@ -85,6 +87,9 @@ void DM_UpdateDisplay()
 
 	if(eNextFuncMenuStatus)		//  == ENABLE_FUNCMENU
 		_DrawFuncSelectMenu();
+
+	if(eNextGainMenuStatus)		//  == ENABLE_GAINMENU
+		_DrawGainSelectMenu();
 
 #ifdef ENCODER_DEBUG
 	char tim1tmp[11] = "";
@@ -171,6 +176,31 @@ void _DrawFuncSelectMenu()
 
 }
 
+/*
+ *
+ *
+ *
+ */
+void DM_ShowGainSelectMenu(eGainMenu_Status pValue)
+{
+	eNextGainMenuStatus = pValue;
+}
+
+/*
+ *
+ *
+ *
+ */
+void _DrawGainSelectMenu()
+{
+
+	ILI9341_Draw_Text("Output Signal Gain: ", 	10, 120, BLACK, 2, WHITE);
+
+	char gain[11] = "";
+	snprintf(gain, sizeof(gain), "%u", (uint8_t)EM_GetOutputGain());
+	ILI9341_Draw_Text(gain, 250, 120, WHITE, 2, BLACK);
+
+}
 
 /*
  *

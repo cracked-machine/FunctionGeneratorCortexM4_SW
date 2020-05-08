@@ -24,23 +24,34 @@
 // public function prototypes
 void EM_SetNewEvent(eSystemEvent pEvent);
 eOutput_mode EM_GetOutputMode();
+eOutput_gain EM_GetOutputGain();
 
 // private function prototypes
-void _ClearEvent();
 eSystemState _FuncMenuHandler();
 eSystemState _FuncSetHandler();
-eSystemState _FreqMenuHandler();
-eSystemState _AmplMenuHandler();
-eSystemState _BiasMenuHandler();
-eSystemState _AdjustConfirmedHandler();
 eSystemState _ExitFuncMenuHandler();
+
+eSystemState _GainMenuHandler();
+eSystemState _GainSetHandler();
+eSystemState _ExitGainMenuHandler();
+
+eSystemState _FreqMenuHandler();
+
+eSystemState _BiasMenuHandler();
+
+eSystemState _AdjustConfirmedHandler();
+
+
 
 // state machine
 eSystemState eNextState = Idle_State;
 eSystemEvent eNewEvent = evIdle;
 
-// function output mode
+// signal output function
 eOutput_mode eNewOutMode = Sine_Out_Mode;
+
+// signal output gain
+eOutput_gain eNewOutGain = One_Gain;
 
 // rotary encoder value
 uint32_t newRotEncoderValue = 0;
@@ -65,9 +76,9 @@ void EM_ProcessEvent()
 			{
 				eNextState = _FreqMenuHandler();
 			}
-			if(eNewEvent == evAmplMenu)
+			if(eNewEvent == evGainMenu)
 			{
-				eNextState = _AmplMenuHandler();
+				eNextState = _GainMenuHandler();
 			}
 			if(eNewEvent == evBiasMenu)
 			{
@@ -88,6 +99,20 @@ void EM_ProcessEvent()
 			{
 				eNextState = _ExitFuncMenuHandler();
 			}
+			break;
+
+		case Gain_Menu_State:
+			if(eNewEvent == evEncoderSet)
+			{
+				eNextState = _GainSetHandler();
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = _ExitGainMenuHandler();
+			}
+			break;
+			break;
+
 		default:
 			break;
 	}
@@ -213,40 +238,165 @@ eSystemState _ExitFuncMenuHandler()
 	return Idle_State;
 }
 
-/*
- *
- *	Business logic for FreqAdjust events
- *
- */
-eSystemState _FreqMenuHandler(void)
-{
-#ifdef EM_SWV_DEBUG
-	printf("FreqMenu Event captured\n");
-#endif
-
-	return Idle_State;
-}
 
 /*
  *
  *	Business logic for AmplitudeAdjust events
  *
  */
-eSystemState _AmplMenuHandler(void)
+eSystemState _GainMenuHandler()
 {
 #ifdef EM_SWV_DEBUG
-	printf("AmplitudeMenu Event captured\n");
+	printf("GainMenu Event captured\n");
+#endif
+	DM_ShowGainSelectMenu(ENABLE_GAINMENU);
+
+	// set the rotary encoder limits to 0-20 for this menu
+	TIM1->ARR = 32;
+
+	return Gain_Menu_State;
+}
+
+/*
+ *
+ *
+ *
+ */
+eSystemState _GainSetHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("GainSet Event captured\n");
+#endif
+	// PGA Truth table for LTC6910:
+	// https://www.analog.com/media/en/technical-documentation/data-sheets/6910fb.pdf
+	switch(TIM1->CNT)
+	{
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			eNewOutGain = Zero_Gain;
+			break;
+		case 4:
+		case 5:
+		case 6:
+		case 7:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			eNewOutGain = One_Gain;
+			break;
+		case 8:
+		case 9:
+		case 10:
+		case 11:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			eNewOutGain = Two_Gain;
+			break;
+		case 12:
+		case 13:
+		case 14:
+		case 15:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			eNewOutGain = Three_Gain;
+			break;
+		case 16:
+		case 17:
+		case 18:
+		case 19:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			eNewOutGain = Four_Gain;
+			break;
+		case 20:
+		case 21:
+		case 22:
+		case 23:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			eNewOutGain = Five_Gain;
+			break;
+		case 24:
+		case 25:
+		case 26:
+		case 27:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			eNewOutGain = Six_Gain;
+			break;
+		case 28:
+		case 29:
+		case 30:
+		case 31:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			eNewOutGain = Seven_Gain;
+			break;
+	}
+	eNewEvent = evGainMenu;
+	return Gain_Menu_State;
+}
+
+/*
+ *
+ *
+ *
+ */
+eSystemState _ExitGainMenuHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("ExitGainMenu Event captured\n");
 #endif
 
+
+	// disable the menu
+	DM_ShowGainSelectMenu(DISABLE_GAINMENU);
+
+	// reset the encoder range
+	TIM1->ARR = 1024;
+
+	// don't let the DisplayManager interrupt the LCD refresh
+	HAL_TIM_Base_Stop_IT(&htim15);
+	{
+		DM_RefreshBackgroundLayout();
+	}
+	HAL_TIM_Base_Start_IT(&htim15);
+
+	eNewEvent = evIdle;
 	return Idle_State;
 }
+
+/*
+ *
+ *	Business logic for FreqAdjust events
+ *
+ */
+eSystemState _FreqMenuHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("FreqMenu Event captured\n");
+#endif
+	return Idle_State;
+}
+
 
 /*
  *
  *	Business logic for BiasAdjust events
  *
  */
-eSystemState _BiasMenuHandler(void)
+eSystemState _BiasMenuHandler()
 {
 #ifdef EM_SWV_DEBUG
 	printf("BiasMenu Event captured\n");
@@ -260,7 +410,7 @@ eSystemState _BiasMenuHandler(void)
  *	Business logic for AdjustConfirmed events
  *
  */
-eSystemState _AdjustConfirmedHandler(void)
+eSystemState _AdjustConfirmedHandler()
 {
 #ifdef EM_SWV_DEBUG
 	printf("AdjustConfirmed Event captured\n");
@@ -291,6 +441,18 @@ eOutput_mode EM_GetOutputMode()
 {
 	return eNewOutMode;
 }
+
+/*
+ *
+ *
+ *
+ */
+eOutput_gain EM_GetOutputGain()
+{
+	return eNewOutGain;
+}
+
+
 
 /*
  *

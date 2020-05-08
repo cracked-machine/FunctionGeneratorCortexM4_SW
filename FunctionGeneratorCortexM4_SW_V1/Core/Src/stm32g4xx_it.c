@@ -439,7 +439,7 @@ void EXTI15_10_IRQHandler(void)
 
 	if(HAL_GPIO_ReadPin(BTN1_EXTI14_GPIO_Port, BTN1_EXTI14_Pin))
 	{
-		EM_SetNewEvent(evAmplMenu);
+		EM_SetNewEvent(evGainMenu);
 		//snprintf(control_pressed, sizeof(control_pressed), "BTN1");
 		//printf("BTN1_EXTI14_Pin\n");
 	}

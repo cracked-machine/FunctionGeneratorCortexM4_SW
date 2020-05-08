@@ -15,7 +15,8 @@
 typedef enum
 {
 	Idle_State = 0x00U,		// main display
-	Func_Menu_State
+	Func_Menu_State,
+	Gain_Menu_State,
 
 
 } eSystemState;
@@ -26,7 +27,7 @@ typedef enum
 
 	evFuncMenu,					// user presses blue "function" menu button
 	evFreqMenu,					// user presses green "freq" menu button
-	evAmplMenu,					// user presses yellow "Ampl" menu button
+	evGainMenu,					// user presses yellow "Ampl" menu button
 	evBiasMenu,					// user presses red "bias" menu button
 
 	evEncoderSet,				// user turns rotary encoder
@@ -47,10 +48,26 @@ typedef enum
 
 } eOutput_mode;
 
+typedef enum
+{
+	Zero_Gain = 0U,
+	One_Gain,
+	Two_Gain,
+	Three_Gain,
+	Four_Gain,
+	Five_Gain,
+	Six_Gain,
+	Seven_Gain
+
+} eOutput_gain;
+
 
 void EM_SetNewEvent(eSystemEvent pEvent);
 void EM_ProcessEvent();
+
 eOutput_mode EM_GetOutputMode();
+eOutput_gain EM_GetOutputGain();
+
 void EM_SetEncoderValue(uint32_t pValue);
 eSystemState EM_GetSystemState();
 

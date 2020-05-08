@@ -18,6 +18,7 @@ typedef enum
 
 } eDisplay_Mode;
 
+
 typedef enum
 {
 	DISABLE_FUNCMENU = 0x00U,
@@ -25,14 +26,29 @@ typedef enum
 
 } eFuncMenu_Status;
 
+typedef enum
+{
+	DISABLE_GAINMENU = 0x00U,
+	ENABLE_GAINMENU
+
+} eGainMenu_Status;
+
 void DM_Init();
 void DM_PostInit();
 void DM_UpdateDisplay();
-void DM_TestScreen();
-void DM_RegisterStrings();
-int DM_DigitCount(int num);
+
+void DM_RefreshBackgroundLayout();
+
 void DM_SetDisplayMode(eDisplay_Mode pMode);
 void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue);
-void DM_RefreshBackgroundLayout();
+
+void DM_ShowGainSelectMenu(eGainMenu_Status pValue);
+
+
+
+// unused
+int DM_DigitCount(int num);
+void DM_TestScreen();
+void DM_RegisterStrings();
 
 #endif /* INC_DISPLAYMANAGER_DISPLAYMANAGER_H_ */
