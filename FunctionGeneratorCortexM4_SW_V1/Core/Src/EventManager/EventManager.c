@@ -58,6 +58,12 @@ eOutput_mode eNewOutMode = Sine_Out_Mode;
 // signal output gain
 eOutput_gain eNewOutGain = One_Gain;
 
+// dc bias constants
+#define BIAS_MAG 10						// adjustment speed
+#define BIAS_MAX 8092/BIAS_MAG			// The encoder max value: top=max pos bias, 0=max neg bias
+#define BIAS_CENTER	4096/BIAS_MAG		// the encoder center value: zero crossing point
+
+
 // rotary encoder value
 uint32_t newRotEncoderValue = 0;
 uint32_t oldRotEncoderValue = 0;
@@ -418,8 +424,10 @@ eSystemState _BiasMenuHandler()
 	DM_ShowBiasSelectMenu(ENABLE_BIASMENU);
 
 	// set the rotary encoder limits to 0-20 for this menu
-	TIM1->ARR = 1024;
-	TIM1->CNT = 512;
+
+
+	TIM1->ARR = BIAS_MAX;
+	TIM1->CNT = BIAS_CENTER;
 
 	return Bias_Menu_State;
 }
@@ -435,13 +443,17 @@ eSystemState _BiasSetHandler()
 	printf("BiasSet Event captured\n");
 #endif
 
-	HAL_DAC_SetValue(&hdac1, DAC1_CHANNEL_2, DAC_ALIGN_12B_R, TIM1->CNT*10);
-	if(TIM1->CNT <= 512) {
-	  HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_RESET);
-	}
-	if(TIM1->CNT > 512) {
+	// apply negative dc bias
+	if(TIM1->CNT < 400) {
+		HAL_DAC_SetValue(&hdac1, DAC1_CHANNEL_2, DAC_ALIGN_12B_R, (BIAS_CENTER-TIM1->CNT)*BIAS_MAG);
 	  HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
 	}
+	// apply positive dc bias
+	if(TIM1->CNT >= 400) {
+		HAL_DAC_SetValue(&hdac1, DAC1_CHANNEL_2, DAC_ALIGN_12B_R, (TIM1->CNT-BIAS_CENTER)*BIAS_MAG);
+		HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_RESET);
+	}
+
 	eNewEvent = evBiasMenu;
 	return Bias_Menu_State;
 }
