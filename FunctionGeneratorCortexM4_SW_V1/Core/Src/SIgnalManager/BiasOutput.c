@@ -21,7 +21,7 @@
 void BO_ModifyOutput()
 {
 	// apply negative dc bias
-	if(SM_GetEncoderValue(ENCODER_REVERSE) < 400) {
+	if(SM_GetEncoderValue(ENCODER_REVERSE) < BIAS_CENTER) {
 
 		HAL_DAC_SetValue(	&hdac1,
 							DAC1_CHANNEL_2,
@@ -33,7 +33,7 @@ void BO_ModifyOutput()
 							GPIO_PIN_SET);
 	}
 	// apply positive dc bias
-	if(SM_GetEncoderValue(ENCODER_REVERSE) >= 400) {
+	if(SM_GetEncoderValue(ENCODER_REVERSE) >= BIAS_CENTER) {
 
 		HAL_DAC_SetValue(	&hdac1,
 							DAC1_CHANNEL_2,

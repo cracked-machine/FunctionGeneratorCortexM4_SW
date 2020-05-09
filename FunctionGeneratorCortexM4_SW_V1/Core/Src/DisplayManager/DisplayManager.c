@@ -108,8 +108,8 @@ void DM_UpdateDisplay()
 #ifdef ENCODER_DEBUG
 	char tim1tmp[5] = "";
 	//snprintf(tim1tmp, sizeof(tim1tmp), "%lu", ENCODER_TIMER->CNT);
-	DM_AddDigitPadding(ENCODER_TIMER->CNT, tim1tmp, sizeof(tim1tmp)+1);
-	ILI9341_Draw_Text(tim1tmp, 260, 50, BLACK, 2, RED);
+	if(DM_AddDigitPadding(ENCODER_TIMER->CNT, tim1tmp, sizeof(tim1tmp)) == 0)
+		ILI9341_Draw_Text(tim1tmp, 260, 50, BLACK, 2, RED);
 #endif //ENCODER_DEBUG
 /*
 	if((TIM1->SR & TIM_SR_IDXF) == TIM_SR_IDXF)
@@ -216,10 +216,10 @@ void _DrawGainSelectMenu()
 
 	ILI9341_Draw_Text("Output Signal Gain: ", 	10, 120, BLACK, 2, WHITE);
 
-	char gain[2] = "";
+	char gain[4] = "";
 	//snprintf(gain, sizeof(gain), "%u", GO_GetOutputGain());
-	DM_AddDigitPadding((uint16_t)GO_GetOutputGain(), gain, sizeof(gain)+1);
-	ILI9341_Draw_Text(gain, 250, 120, WHITE, 2, BLACK);
+	if(DM_AddDigitPadding((uint16_t)GO_GetOutputGain(), gain, sizeof(gain)) == 0)
+		ILI9341_Draw_Text(gain, 250, 120, WHITE, 2, BLACK);
 
 }
 
@@ -242,10 +242,10 @@ void _DrawFreqSelectMenu()
 {
 	ILI9341_Draw_Text("Output Signal Freq: ", 	10, 120, BLACK, 2, WHITE);
 
-	char freq[3] = "";
+	char freq[6] = "";
 	//snprintf(freq, sizeof(freq), "%u", (uint8_t)FreqO_GetOutputFreq());
-	DM_AddDigitPadding((uint16_t)FreqO_GetOutputFreq(), freq, sizeof(freq)+1);
-	ILI9341_Draw_Text(freq, 250, 120, WHITE, 2, BLACK);
+	if(DM_AddDigitPadding((uint16_t)FreqO_GetOutputFreq(), freq, sizeof(freq)) == 0)
+		ILI9341_Draw_Text(freq, 250, 120, WHITE, 2, BLACK);
 }
 
 /*
@@ -267,10 +267,10 @@ void _DrawBiasSelectMenu()
 {
 	ILI9341_Draw_Text("Output Signal Bias: ", 	10, 120, BLACK, 2, WHITE);
 
-	char bias[3] = "";
+	char bias[5] = "";
 	//snprintf(bias, sizeof(bias), "%u", (uint8_t)BO_GetOutputBias());
-	DM_AddDigitPadding((uint16_t)BO_GetOutputBias(), bias, sizeof(bias)+1);
-	ILI9341_Draw_Text(bias, 250, 120, WHITE, 2, BLACK);
+	if(DM_AddDigitPadding((uint16_t)BO_GetOutputBias(), bias, sizeof(bias)) == 0)
+		ILI9341_Draw_Text(bias, 250, 120, WHITE, 2, BLACK);
 }
 
 

@@ -52,6 +52,8 @@
 "ILI9341/ILI9341_GFX.o"
 "ILI9341/ILI9341_STM32_Driver.o"
 "ILI9341/ILI9341_TextManager.o"
+"LogSequenceGeneration/fade_lin_seq.o"
+"LogSequenceGeneration/fade_log_seq.o"
 "WaveTableGeneration/pysaw.o"
 "WaveTableGeneration/pysaw_rev.o"
 "WaveTableGeneration/pysine.o"

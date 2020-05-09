@@ -37,9 +37,14 @@
 			<location>/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341</location>
 		</link>
 		<link>
+			<name>LogSequenceGeneration</name>
+			<type>2</type>
+			<location>/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/LogSequenceGeneration</location>
+		</link>
+		<link>
 			<name>WaveTableGeneration</name>
 			<type>2</type>
-			<location>/home/chris/Projects/Python/WaveTableGeneration</location>
+			<location>/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration</location>
 		</link>
 	</linkedResources>
 </projectDescription>

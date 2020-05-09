@@ -160,6 +160,8 @@ int main(void)
 #ifndef DISABLE_ALL_TIMERS
   // single clock to run all DAC channels. TODO add independent clocks
   HAL_TIM_Base_Start(&htim8);
+  TIM8->ARR = 14015;			// 100Hz
+  //TIM8->ARR = 65535;
 #endif //DISABLE_ALL_TIMERS
 
   // DC bias inversion
