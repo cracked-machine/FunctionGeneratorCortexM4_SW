@@ -1,0 +1,30 @@
+/*
+ * BiasOutput.c
+ *
+ *  Created on: 9 May 2020
+ *      Author: chris
+ */
+
+#include "BiasOutput.h"
+
+#include "gpio.h"
+#include "dac.h"
+
+void BO_ModifyOutput()
+{
+
+}
+
+/*
+ *
+ *
+ *
+ */
+uint32_t BO_GetOutputBias()
+{
+	return HAL_DAC_GetValue(&hdac1, DAC1_CHANNEL_2);
+}
+
+
+
+

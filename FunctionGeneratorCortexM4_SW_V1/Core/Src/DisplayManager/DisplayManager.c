@@ -10,6 +10,8 @@
 
 #include "FunctionOutput.h"
 #include "GainOutput.h"
+#include "BiasOutput.h"
+#include "FreqOutput.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -265,7 +267,7 @@ void _DrawBiasSelectMenu()
 	ILI9341_Draw_Text("Output Signal Bias: ", 	10, 120, BLACK, 2, WHITE);
 
 	char bias[11] = "";
-	snprintf(bias, sizeof(bias), "%u", (uint8_t)EM_GetOutputBias());
+	snprintf(bias, sizeof(bias), "%u", (uint8_t)BO_GetOutputBias());
 	ILI9341_Draw_Text(bias, 250, 120, WHITE, 2, BLACK);
 }
 

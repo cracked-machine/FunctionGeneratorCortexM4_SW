@@ -54,7 +54,7 @@ void EM_ProcessEvent();
 uint32_t EM_GetOutputFreq();
 
 
-uint32_t EM_GetOutputBias();
+
 
 
 void EM_SetEncoderValue(uint32_t pValue);

@@ -8,8 +8,10 @@
 
 #include "EventManager.h"
 #include "DisplayManager.h"
+
 #include "FunctionOutput.h"
 #include "GainOutput.h"
+#include "BiasOutput.h"
 //#include "funcgen.h"
 
 #include "dac.h"
@@ -53,10 +55,6 @@ eSystemEvent eNewEvent = evIdle;
 
 
 
-// dc bias constants
-#define BIAS_MAG 10						// adjustment speed
-#define BIAS_MAX 8092/BIAS_MAG			// The encoder max value: top=max pos bias, 0=max neg bias
-#define BIAS_CENTER	4096/BIAS_MAG		// the encoder center value: zero crossing point
 
 
 // rotary encoder value
@@ -307,16 +305,7 @@ eSystemState _BiasSetHandler()
 	printf("BiasSet Event captured\n");
 #endif
 
-	// apply negative dc bias
-	if(TIM1->CNT < 400) {
-		HAL_DAC_SetValue(&hdac1, DAC1_CHANNEL_2, DAC_ALIGN_12B_R, (BIAS_CENTER-TIM1->CNT)*BIAS_MAG);
-	  HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
-	}
-	// apply positive dc bias
-	if(TIM1->CNT >= 400) {
-		HAL_DAC_SetValue(&hdac1, DAC1_CHANNEL_2, DAC_ALIGN_12B_R, (TIM1->CNT-BIAS_CENTER)*BIAS_MAG);
-		HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_RESET);
-	}
+	BO_ModifyOutput();
 
 	eNewEvent = evBiasMenu;
 	return Bias_Menu_State;
@@ -442,15 +431,6 @@ uint32_t EM_GetOutputFreq()
 }
 
 
-/*
- *
- *
- *
- */
-uint32_t EM_GetOutputBias()
-{
-	return HAL_DAC_GetValue(&hdac1, DAC1_CHANNEL_2);
-}
 
 /*
  *
