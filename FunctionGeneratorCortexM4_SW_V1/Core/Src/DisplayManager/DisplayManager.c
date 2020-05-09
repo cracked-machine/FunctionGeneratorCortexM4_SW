@@ -16,9 +16,11 @@
 #include <string.h>
 #include <stdlib.h>
 
-eDisplay_Mode eCurrentMode = Func_Adjust_mode;
+//eDisplay_Mode eCurrentMode = Func_Adjust_mode;
 eFuncMenu_Status eNextFuncMenuStatus = DISABLE_FUNCMENU;
 eGainMenu_Status eNextGainMenuStatus = DISABLE_GAINMENU;
+eFreqMenu_Status eNextFreqMenuStatus = DISABLE_FREQMENU;
+eBiasMenu_Status eNextBiasMenuStatus = DISABLE_BIASMENU;
 
  extern uint16_t BURST_MAX_SIZE;
 
@@ -41,6 +43,9 @@ void DM_RefreshBackgroundLayout();
 // private function prototypes
 void _DrawFuncSelectMenu();
 void _DrawGainSelectMenu();
+void _DrawFreqSelectMenu();
+void _DrawBiasSelectMenu();
+
 
 /*
  *
@@ -82,7 +87,7 @@ void DM_UpdateDisplay()
 
 	ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
 	ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("AMPL", 175, 210, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("GAIN", 175, 210, BLACK, 2, YELLOW);
 	ILI9341_Draw_Text("BIAS", 260, 210, BLACK, 2, RED);
 
 	if(eNextFuncMenuStatus)		//  == ENABLE_FUNCMENU
@@ -90,6 +95,12 @@ void DM_UpdateDisplay()
 
 	if(eNextGainMenuStatus)		//  == ENABLE_GAINMENU
 		_DrawGainSelectMenu();
+
+	if(eNextFreqMenuStatus)		//  == ENABLE_FREQMENU
+		_DrawFreqSelectMenu();
+
+	if(eNextBiasMenuStatus)		//  == ENABLE_BIASMENU
+		_DrawBiasSelectMenu();
 
 #ifdef ENCODER_DEBUG
 	char tim1tmp[11] = "";
@@ -102,6 +113,11 @@ void DM_UpdateDisplay()
 		TIM1->SR &= ~(TIM_SR_IDXF);
 	}*/
 }
+
+
+///////////////////////////////////
+/////// MENU FUNCTIONS ///////////
+///////////////////////////////////
 
 /*
  *
@@ -201,6 +217,55 @@ void _DrawGainSelectMenu()
 	ILI9341_Draw_Text(gain, 250, 120, WHITE, 2, BLACK);
 
 }
+
+/*
+ *
+ *
+ *
+ */
+void DM_ShowFreqSelectMenu(eFreqMenu_Status pValue)
+{
+	eNextFreqMenuStatus = pValue;
+}
+
+/*
+ *
+ *
+ *
+ */
+void _DrawFreqSelectMenu()
+{
+	ILI9341_Draw_Text("Output Signal Freq: ", 	10, 120, BLACK, 2, WHITE);
+
+	char freq[11] = "";
+	snprintf(freq, sizeof(freq), "%u", (uint8_t)EM_GetOutputFreq());
+	ILI9341_Draw_Text(freq, 250, 120, WHITE, 2, BLACK);
+}
+
+/*
+ *
+ *
+ *
+ */
+void DM_ShowBiasSelectMenu(eBiasMenu_Status pValue)
+{
+	eNextBiasMenuStatus = pValue;
+}
+
+/*
+ *
+ *
+ *
+ */
+void _DrawBiasSelectMenu()
+{
+	ILI9341_Draw_Text("Output Signal Bias: ", 	10, 120, BLACK, 2, WHITE);
+
+	char bias[11] = "";
+	snprintf(bias, sizeof(bias), "%u", (uint8_t)EM_GetOutputBias());
+	ILI9341_Draw_Text(bias, 250, 120, WHITE, 2, BLACK);
+}
+
 
 /*
  *
@@ -340,17 +405,13 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen)
 
 
 }
-
 /*
- *
- *
- *
- */
+
 void DM_SetDisplayMode(eDisplay_Mode pMode)
 {
 
 }
-
+*/
 
 /*
  *

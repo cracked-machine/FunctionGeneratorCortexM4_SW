@@ -8,6 +8,7 @@
 
 #include "EventManager.h"
 #include "DisplayManager.h"
+#include "funcgen.h"
 
 #include "dac.h"
 #include "tim.h"
@@ -36,8 +37,12 @@ eSystemState _GainSetHandler();
 eSystemState _ExitGainMenuHandler();
 
 eSystemState _FreqMenuHandler();
+eSystemState _FreqSetHandler();
+eSystemState _ExitFreqMenuHandler();
 
 eSystemState _BiasMenuHandler();
+eSystemState _BiasSetHandler();
+eSystemState _ExitBiasMenuHandler();
 
 eSystemState _AdjustConfirmedHandler();
 
@@ -84,10 +89,7 @@ void EM_ProcessEvent()
 			{
 				eNextState = _BiasMenuHandler();
 			}
-			if(eNewEvent == evAdjustConfirmed)
-			{
-				eNextState = _AdjustConfirmedHandler();
-			}
+
 			break;
 
 		case Func_Menu_State:
@@ -111,6 +113,27 @@ void EM_ProcessEvent()
 				eNextState = _ExitGainMenuHandler();
 			}
 			break;
+
+		case Freq_Menu_State:
+			if(eNewEvent == evEncoderSet)
+			{
+				eNextState = _FreqSetHandler();
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = _ExitFreqMenuHandler();
+			}
+			break;
+
+		case Bias_Menu_State:
+			if(eNewEvent == evEncoderSet)
+			{
+				eNextState = _BiasSetHandler();
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = _ExitBiasMenuHandler();
+			}
 			break;
 
 		default:
@@ -158,45 +181,50 @@ eSystemState _FuncSetHandler(void)
 		case 0:
 		case 1:
 		case 2:
-		case 3:
+
 			eNewOutMode = Sine_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
+		case 3:
 		case 4:
 		case 5:
 		case 6:
-		case 7:
+
 			eNewOutMode = Square_Out_Mode;
 
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, square_data_table, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
 
 			break;
+		case 7:
 		case 8:
 		case 9:
 		case 10:
-		case 11:
+
 			eNewOutMode = Saw_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_data_table, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
+		case 11:
 		case 12:
 		case 13:
 		case 14:
-		case 15:
+
 			eNewOutMode = RevSaw_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_rev_data_table, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
+		case 15:
 		case 16:
 		case 17:
 		case 18:
-		case 19:
+
 			eNewOutMode = Triangle_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, triangle_data_table, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
+		case 19:
 		case 20:
 		case 21:
 		case 22:
@@ -379,21 +407,7 @@ eSystemState _ExitGainMenuHandler()
 
 /*
  *
- *	Business logic for FreqAdjust events
- *
- */
-eSystemState _FreqMenuHandler()
-{
-#ifdef EM_SWV_DEBUG
-	printf("FreqMenu Event captured\n");
-#endif
-	return Idle_State;
-}
-
-
-/*
- *
- *	Business logic for BiasAdjust events
+ *	Business logic for BiasMenu events
  *
  */
 eSystemState _BiasMenuHandler()
@@ -401,23 +415,131 @@ eSystemState _BiasMenuHandler()
 #ifdef EM_SWV_DEBUG
 	printf("BiasMenu Event captured\n");
 #endif
+	DM_ShowBiasSelectMenu(ENABLE_BIASMENU);
 
+	// set the rotary encoder limits to 0-20 for this menu
+	TIM1->ARR = 1024;
+	TIM1->CNT = 512;
+
+	return Bias_Menu_State;
+}
+
+/*
+ *
+ *
+ *
+ */
+eSystemState _BiasSetHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("BiasSet Event captured\n");
+#endif
+
+	HAL_DAC_SetValue(&hdac1, DAC1_CHANNEL_2, DAC_ALIGN_12B_R, TIM1->CNT*10);
+	if(TIM1->CNT <= 512) {
+	  HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_RESET);
+	}
+	if(TIM1->CNT > 512) {
+	  HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
+	}
+	eNewEvent = evBiasMenu;
+	return Bias_Menu_State;
+}
+
+/*
+ *
+ *
+ *
+ */
+eSystemState _ExitBiasMenuHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("ExitBiasMenu Event captured\n");
+#endif
+
+
+	// disable the menu
+	DM_ShowBiasSelectMenu(DISABLE_BIASMENU);
+
+	// reset the encoder range
+	TIM1->ARR = 1024;
+
+	// don't let the DisplayManager interrupt the LCD refresh
+	HAL_TIM_Base_Stop_IT(&htim15);
+	{
+		DM_RefreshBackgroundLayout();
+	}
+	HAL_TIM_Base_Start_IT(&htim15);
+
+	eNewEvent = evIdle;
 	return Idle_State;
 }
 
 /*
  *
- *	Business logic for AdjustConfirmed events
+ *	Business logic for FREQ MENU events
  *
  */
-eSystemState _AdjustConfirmedHandler()
+eSystemState _FreqMenuHandler()
 {
 #ifdef EM_SWV_DEBUG
-	printf("AdjustConfirmed Event captured\n");
+	printf("FreqMenu Event captured\n");
+#endif
+	DM_ShowFreqSelectMenu(ENABLE_FREQMENU);
+
+	// set the rotary encoder limits to 0-20 for this menu
+	TIM1->ARR = 1024;
+
+	return Freq_Menu_State;
+}
+
+/*
+ *
+ *
+ *
+ */
+eSystemState _FreqSetHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("FreqSet Event captured\n");
 #endif
 
+	TIM8->ARR = TIM1->CNT;
+	eNewEvent = evFreqMenu;
+	return Freq_Menu_State;
+}
+
+/*
+ *
+ *
+ *
+ */
+eSystemState _ExitFreqMenuHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("ExitFreqMenu Event captured\n");
+#endif
+
+
+	// disable the menu
+	DM_ShowFreqSelectMenu(DISABLE_FREQMENU);
+
+	// reset the encoder range
+	TIM1->ARR = 1024;
+
+	// don't let the DisplayManager interrupt the LCD refresh
+	HAL_TIM_Base_Stop_IT(&htim15);
+	{
+		DM_RefreshBackgroundLayout();
+	}
+	HAL_TIM_Base_Start_IT(&htim15);
+
+	eNewEvent = evIdle;
 	return Idle_State;
 }
+
+
+
 
 
 /*
@@ -452,7 +574,26 @@ eOutput_gain EM_GetOutputGain()
 	return eNewOutGain;
 }
 
+/*
+ *
+ *
+ *
+ */
+uint32_t EM_GetOutputFreq()
+{
+	return TIM8->ARR;
+}
 
+
+/*
+ *
+ *
+ *
+ */
+uint32_t EM_GetOutputBias()
+{
+	return HAL_DAC_GetValue(&hdac1, DAC1_CHANNEL_2);
+}
 
 /*
  *

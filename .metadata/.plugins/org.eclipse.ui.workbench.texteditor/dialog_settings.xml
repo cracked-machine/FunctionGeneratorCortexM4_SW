@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="htim1"/>
+		<item key="selection" value="evFuncMenu"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="htim1"/>
+			<item value="evFuncMenu"/>
+			<item value="16"/>
 			<item value="TIM1"/>
+			<item value="IDX"/>
+			<item value="FreqAdjustHandler"/>
+			<item value="_FuncMenuHandler"/>
+			<item value="Idle_state"/>
+			<item value="htim1"/>
 			<item value="xpos"/>
 			<item value="Height"/>
 			<item value="Width"/>
@@ -17,14 +23,9 @@
 			<item value="Buffer_size"/>
 			<item value="Size"/>
 			<item value="BURST_MAx_SIZE"/>
-			<item value="X"/>
-			<item value="Character"/>
-			<item value="bdcolour"/>
-			<item value="Background_colour"/>
-			<item value="           &#x09;if(Size == 1)&#x0A;&#x09;&#x09;&#x09;&#x09;{&#x0A;            &#x09;&#x09;ILI9341_Draw_Pixel(X+j, Y+i, Colour);&#x0A;&#x09;&#x09;&#x09;&#x09;}&#x0A;&#x09;&#x09;&#x09;&#x09;else&#x0A;&#x09;&#x09;&#x09;&#x09;{&#x0A;&#x09;&#x09;&#x09;&#x09;&#x09;ILI9341_Draw_Rectangle(X+(j*Size), Y+(i*Size), Size, Size, Colour);&#x0A;&#x09;&#x09;&#x09;&#x09;}"/>
-			<item value="FuncDriver"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Idle_State"/>
 			<item value="chunk_xpos"/>
 			<item value="height"/>
 			<item value="width"/>
@@ -39,7 +40,6 @@
 			<item value="BORDER_SIZE"/>
 			<item value="(border_size)"/>
 			<item value="(border_size/2)"/>
-			<item value="hspi3"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

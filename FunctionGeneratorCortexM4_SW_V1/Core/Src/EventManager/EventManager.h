@@ -17,7 +17,8 @@ typedef enum
 	Idle_State = 0x00U,		// main display
 	Func_Menu_State,
 	Gain_Menu_State,
-
+	Freq_Menu_State,
+	Bias_Menu_State
 
 } eSystemState;
 
@@ -67,6 +68,8 @@ void EM_ProcessEvent();
 
 eOutput_mode EM_GetOutputMode();
 eOutput_gain EM_GetOutputGain();
+uint32_t EM_GetOutputFreq();
+uint32_t EM_GetOutputBias();
 
 void EM_SetEncoderValue(uint32_t pValue);
 eSystemState EM_GetSystemState();
