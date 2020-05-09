@@ -38,39 +38,18 @@ typedef enum
 
 } eSystemEvent;
 
-typedef enum
-{
-	Sine_Out_Mode,
-	Square_Out_Mode,
-	Saw_Out_Mode,
-	RevSaw_Out_Mode,
-	Triangle_Out_Mode,
-	Impulse_Out_Mode
 
-} eOutput_mode;
 
-typedef enum
-{
-	Zero_Gain = 0U,
-	One_Gain,
-	Two_Gain,
-	Three_Gain,
-	Four_Gain,
-	Five_Gain,
-	Six_Gain,
-	Seven_Gain
 
-} eOutput_gain;
 
 
 void EM_SetNewEvent(eSystemEvent pEvent);
 void EM_ProcessEvent();
 
-eOutput_mode EM_GetOutputMode();
-void EM_SetOutputMode(eOutput_mode pNewMode);
 
-eOutput_gain EM_GetOutputGain();
-void EM_SetOutputGain(eOutput_gain pNewGain);
+
+
+
 
 uint32_t EM_GetOutputFreq();
 

@@ -19,6 +19,13 @@
 #include "pysaw_rev.h"
 #include "pytriangle.h"
 
+
+eOutput_mode FO_GetOutputMode();
+//void FO_SetOutputMode(eOutput_mode pNewMode);
+
+// signal output function
+eOutput_mode eNewOutMode = Sine_Out_Mode;
+
 void FO_ModifyOutput()
 {
 
@@ -29,7 +36,7 @@ void FO_ModifyOutput()
 		case 1:
 		case 2:
 
-			EM_SetOutputMode(Sine_Out_Mode);
+			eNewOutMode = Sine_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
@@ -38,8 +45,7 @@ void FO_ModifyOutput()
 		case 5:
 		case 6:
 
-			EM_SetOutputMode(Square_Out_Mode);
-
+			eNewOutMode = Square_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, square_data_table, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
 
@@ -49,7 +55,7 @@ void FO_ModifyOutput()
 		case 9:
 		case 10:
 
-			EM_SetOutputMode(Saw_Out_Mode);
+			eNewOutMode = Saw_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_data_table, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
@@ -58,7 +64,7 @@ void FO_ModifyOutput()
 		case 13:
 		case 14:
 
-			EM_SetOutputMode(RevSaw_Out_Mode);
+			eNewOutMode = RevSaw_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_rev_data_table, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
@@ -67,7 +73,7 @@ void FO_ModifyOutput()
 		case 17:
 		case 18:
 
-			EM_SetOutputMode(Triangle_Out_Mode);
+			eNewOutMode = Triangle_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, triangle_data_table, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
@@ -76,9 +82,33 @@ void FO_ModifyOutput()
 		case 21:
 		case 22:
 		case 23:
-			EM_SetOutputMode(Impulse_Out_Mode);
+
+			eNewOutMode = Impulse_Out_Mode;
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, unitimpulse_data_table, UNITIMPULSE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
 	}
 }
+
+/*
+ *
+ *
+ *
+ */
+void FO_SetOutputMode(eOutput_mode pNewMode)
+{
+	eNewOutMode = pNewMode;
+}
+
+
+/*
+ *
+ *
+ *
+ */
+eOutput_mode FO_GetOutputMode()
+{
+	return eNewOutMode;
+}
+
+

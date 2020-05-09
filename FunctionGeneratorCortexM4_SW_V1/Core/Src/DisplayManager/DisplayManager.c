@@ -8,6 +8,9 @@
 #include "DisplayManager.h"
 #include "EventManager.h"
 
+#include "FunctionOutput.h"
+#include "GainOutput.h"
+
 #include <stdint.h>
 #include <stdio.h>
 #include "ILI9341_STM32_Driver.h"
@@ -137,7 +140,7 @@ void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue)
 void _DrawFuncSelectMenu()
 {
 
-	switch(EM_GetOutputMode())
+	switch(FO_GetOutputMode())
 	{
 		case Sine_Out_Mode:
 			ILI9341_Draw_Text("- SINE", 	10, 30, WHITE, 2, BLACK);
@@ -213,7 +216,7 @@ void _DrawGainSelectMenu()
 	ILI9341_Draw_Text("Output Signal Gain: ", 	10, 120, BLACK, 2, WHITE);
 
 	char gain[11] = "";
-	snprintf(gain, sizeof(gain), "%u", (uint8_t)EM_GetOutputGain());
+	snprintf(gain, sizeof(gain), "%u", GO_GetOutputGain());
 	ILI9341_Draw_Text(gain, 250, 120, WHITE, 2, BLACK);
 
 }
