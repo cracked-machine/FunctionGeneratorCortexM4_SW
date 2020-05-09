@@ -67,9 +67,16 @@ void EM_SetNewEvent(eSystemEvent pEvent);
 void EM_ProcessEvent();
 
 eOutput_mode EM_GetOutputMode();
+void EM_SetOutputMode(eOutput_mode pNewMode);
+
 eOutput_gain EM_GetOutputGain();
+void EM_SetOutputGain(eOutput_gain pNewGain);
+
 uint32_t EM_GetOutputFreq();
+
+
 uint32_t EM_GetOutputBias();
+
 
 void EM_SetEncoderValue(uint32_t pValue);
 eSystemState EM_GetSystemState();

@@ -51,6 +51,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/WaveTableGeneration}&quot;"/>
 									<listOptionValue builtIn="false" value="../Drivers/STM32G4xx_HAL_Driver/Inc"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/ILI9341}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1625654879" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
