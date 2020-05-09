@@ -40,24 +40,8 @@ typedef enum
 
 
 
-
-
-
-void EM_SetNewEvent(eSystemEvent pEvent);
 void EM_ProcessEvent();
-
-
-
-
-
-
-uint32_t EM_GetOutputFreq();
-
-
-
-
-
-void EM_SetEncoderValue(uint32_t pValue);
+void EM_SetNewEvent(eSystemEvent pEvent);
 eSystemState EM_GetSystemState();
 
 #endif /* SRC_EVENTMANAGER_EVENTMANAGER_H_ */

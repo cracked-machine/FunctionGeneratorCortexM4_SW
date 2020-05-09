@@ -10,6 +10,8 @@
 
 #include <stdint.h>
 
+
+
 void FreqO_ModifyOutput();
 uint32_t FreqO_GetOutputFreq();
 

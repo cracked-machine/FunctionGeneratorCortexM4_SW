@@ -10,6 +10,8 @@
 
 #include <stdint.h>
 
+
+
 // dc bias constants
 #define BIAS_MAG 10						// adjustment speed
 #define BIAS_MAX 8092/BIAS_MAG			// The encoder max value: top=max pos bias, 0=max neg bias

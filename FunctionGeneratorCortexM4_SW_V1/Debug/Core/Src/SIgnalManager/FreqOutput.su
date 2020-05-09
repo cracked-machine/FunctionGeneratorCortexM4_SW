@@ -1,2 +1,2 @@
-FreqOutput.c:21:6:FreqO_ModifyOutput	4	static
-FreqOutput.c:31:10:FreqO_GetOutputFreq	4	static
+FreqOutput.c:22:6:FreqO_ModifyOutput	8	static
+FreqOutput.c:32:10:FreqO_GetOutputFreq	4	static

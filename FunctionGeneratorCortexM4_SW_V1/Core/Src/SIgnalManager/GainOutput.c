@@ -10,6 +10,7 @@
 #include "gpio.h"
 #include "tim.h"
 
+#include "SignalManager.h"
 
 // signal output gain settings
 typedef enum
@@ -38,7 +39,7 @@ void GO_ModifyOutput()
 
 	// PGA Truth table for LTC6910:
 	// https://www.analog.com/media/en/technical-documentation/data-sheets/6910fb.pdf
-	switch(TIM1->CNT)
+	switch(SM_GetEncoderValue(ENCODER_REVERSE))
 	{
 		case 0:
 		case 1:

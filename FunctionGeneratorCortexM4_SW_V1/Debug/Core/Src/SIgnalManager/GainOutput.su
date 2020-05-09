@@ -1,2 +1,2 @@
-GainOutput.c:36:6:GO_ModifyOutput	8	static
-GainOutput.c:124:9:GO_GetOutputGain	4	static
+GainOutput.c:37:6:GO_ModifyOutput	8	static
+GainOutput.c:125:9:GO_GetOutputGain	4	static

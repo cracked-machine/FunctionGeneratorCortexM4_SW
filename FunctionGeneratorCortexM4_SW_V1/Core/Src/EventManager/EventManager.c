@@ -9,10 +9,7 @@
 #include "EventManager.h"
 #include "DisplayManager.h"
 
-#include "FunctionOutput.h"
-#include "GainOutput.h"
-#include "BiasOutput.h"
-#include "FreqOutput.h"
+#include "SignalManager.h"
 //#include "funcgen.h"
 
 #include "dac.h"
@@ -153,7 +150,8 @@ eSystemState _FuncMenuHandler(void)
 	DM_ShowFuncSelectMenu(ENABLE_FUNCMENU);
 
 	// set the rotary encoder limits to 0-20 for this menu
-	TIM1->ARR = 20;
+	ENCODER_TIMER->CNT = 0;
+	ENCODER_TIMER->ARR = 20;
 
 	return Func_Menu_State;
 }
@@ -189,7 +187,8 @@ eSystemState _ExitFuncMenuHandler()
 	DM_ShowFuncSelectMenu(DISABLE_FUNCMENU);
 
 	// reset the encoder range
-	TIM1->ARR = 1024;
+
+	ENCODER_TIMER->ARR = 1024;
 
 	// don't let the DisplayManager interrupt the LCD refresh
 	HAL_TIM_Base_Stop_IT(&htim15);
@@ -216,7 +215,8 @@ eSystemState _GainMenuHandler()
 	DM_ShowGainSelectMenu(ENABLE_GAINMENU);
 
 	// set the rotary encoder limits to 0-20 for this menu
-	TIM1->ARR = 32;
+	ENCODER_TIMER->CNT = 0;
+	ENCODER_TIMER->ARR = 32;
 
 	return Gain_Menu_State;
 }
@@ -254,7 +254,8 @@ eSystemState _ExitGainMenuHandler()
 	DM_ShowGainSelectMenu(DISABLE_GAINMENU);
 
 	// reset the encoder range
-	TIM1->ARR = 1024;
+
+	ENCODER_TIMER->ARR = 1024;
 
 	// don't let the DisplayManager interrupt the LCD refresh
 	HAL_TIM_Base_Stop_IT(&htim15);
@@ -282,8 +283,8 @@ eSystemState _BiasMenuHandler()
 	// set the rotary encoder limits to 0-20 for this menu
 
 
-	TIM1->ARR = BIAS_MAX;
-	TIM1->CNT = BIAS_CENTER;
+	ENCODER_TIMER->ARR = BIAS_MAX;
+	ENCODER_TIMER->CNT = BIAS_CENTER;
 
 	return Bias_Menu_State;
 }
@@ -321,7 +322,8 @@ eSystemState _ExitBiasMenuHandler()
 	DM_ShowBiasSelectMenu(DISABLE_BIASMENU);
 
 	// reset the encoder range
-	TIM1->ARR = 1024;
+
+	ENCODER_TIMER->ARR = 1024;
 
 	// don't let the DisplayManager interrupt the LCD refresh
 	HAL_TIM_Base_Stop_IT(&htim15);
@@ -347,7 +349,8 @@ eSystemState _FreqMenuHandler()
 	DM_ShowFreqSelectMenu(ENABLE_FREQMENU);
 
 	// set the rotary encoder limits to 0-20 for this menu
-	TIM1->ARR = 1024;
+	ENCODER_TIMER->CNT = 0;
+	ENCODER_TIMER->ARR = 1024;
 
 	return Freq_Menu_State;
 }
@@ -385,7 +388,8 @@ eSystemState _ExitFreqMenuHandler()
 	DM_ShowFreqSelectMenu(DISABLE_FREQMENU);
 
 	// reset the encoder range
-	TIM1->ARR = 1024;
+
+	ENCODER_TIMER->ARR = 1024;
 
 	// don't let the DisplayManager interrupt the LCD refresh
 	HAL_TIM_Base_Stop_IT(&htim15);

@@ -48,7 +48,10 @@ Core/Src/SIgnalManager/BiasOutput.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h \
- ../Core/Inc/dac.h
+ ../Core/Inc/dac.h ../Core/Src/SIgnalManager/SignalManager.h \
+ ../Core/Src/SIgnalManager/FunctionOutput.h \
+ ../Core/Src/SIgnalManager/GainOutput.h \
+ ../Core/Src/SIgnalManager/FreqOutput.h ../Core/Inc/tim.h
 
 ../Core/Src/SIgnalManager/BiasOutput.h:
 
@@ -151,3 +154,13 @@ Core/Src/SIgnalManager/BiasOutput.o: \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h:
 
 ../Core/Inc/dac.h:
+
+../Core/Src/SIgnalManager/SignalManager.h:
+
+../Core/Src/SIgnalManager/FunctionOutput.h:
+
+../Core/Src/SIgnalManager/GainOutput.h:
+
+../Core/Src/SIgnalManager/FreqOutput.h:
+
+../Core/Inc/tim.h:

@@ -19,6 +19,7 @@
 #include "pysaw_rev.h"
 #include "pytriangle.h"
 
+#include "SignalManager.h"
 
 eOutput_mode FO_GetOutputMode();
 //void FuncO_SetOutputMode(eOutput_mode pNewMode);
@@ -30,7 +31,7 @@ void FuncO_ModifyOutput()
 {
 
 
-	switch(TIM1->CNT)
+	switch(SM_GetEncoderValue(ENCODER_REVERSE))
 	{
 		case 0:
 		case 1:

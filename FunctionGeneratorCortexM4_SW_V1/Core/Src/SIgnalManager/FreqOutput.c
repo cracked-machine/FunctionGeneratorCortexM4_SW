@@ -12,6 +12,7 @@
 
 #include "tim.h"
 
+#include "SignalManager.h"
 
 /*
  *
@@ -20,7 +21,7 @@
  */
 void FreqO_ModifyOutput()
 {
-	TIM8->ARR = TIM1->CNT;
+	TIM8->ARR = SM_GetEncoderValue(ENCODER_REVERSE);
 }
 
 /*

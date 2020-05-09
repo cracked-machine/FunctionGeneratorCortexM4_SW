@@ -8,10 +8,7 @@
 #include "DisplayManager.h"
 #include "EventManager.h"
 
-#include "FunctionOutput.h"
-#include "GainOutput.h"
-#include "BiasOutput.h"
-#include "FreqOutput.h"
+#include "SignalManager.h"
 
 #include <stdint.h>
 #include <stdio.h>
@@ -44,6 +41,7 @@ uint16_t btn_x_pos[4] = { 0, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 
 // public function prototypes
 void DM_RefreshBackgroundLayout();
+int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
 // private function prototypes
 void _DrawFuncSelectMenu();
@@ -108,8 +106,9 @@ void DM_UpdateDisplay()
 		_DrawBiasSelectMenu();
 
 #ifdef ENCODER_DEBUG
-	char tim1tmp[11] = "";
-	snprintf(tim1tmp, sizeof(tim1tmp), "%lu", TIM1->CNT);
+	char tim1tmp[5] = "";
+	//snprintf(tim1tmp, sizeof(tim1tmp), "%lu", ENCODER_TIMER->CNT);
+	DM_AddDigitPadding(ENCODER_TIMER->CNT, tim1tmp, sizeof(tim1tmp)+1);
 	ILI9341_Draw_Text(tim1tmp, 260, 50, BLACK, 2, RED);
 #endif //ENCODER_DEBUG
 /*
@@ -217,8 +216,9 @@ void _DrawGainSelectMenu()
 
 	ILI9341_Draw_Text("Output Signal Gain: ", 	10, 120, BLACK, 2, WHITE);
 
-	char gain[11] = "";
-	snprintf(gain, sizeof(gain), "%u", GO_GetOutputGain());
+	char gain[2] = "";
+	//snprintf(gain, sizeof(gain), "%u", GO_GetOutputGain());
+	DM_AddDigitPadding((uint16_t)GO_GetOutputGain(), gain, sizeof(gain)+1);
 	ILI9341_Draw_Text(gain, 250, 120, WHITE, 2, BLACK);
 
 }
@@ -242,8 +242,9 @@ void _DrawFreqSelectMenu()
 {
 	ILI9341_Draw_Text("Output Signal Freq: ", 	10, 120, BLACK, 2, WHITE);
 
-	char freq[11] = "";
-	snprintf(freq, sizeof(freq), "%u", (uint8_t)FreqO_GetOutputFreq());
+	char freq[3] = "";
+	//snprintf(freq, sizeof(freq), "%u", (uint8_t)FreqO_GetOutputFreq());
+	DM_AddDigitPadding((uint16_t)FreqO_GetOutputFreq(), freq, sizeof(freq)+1);
 	ILI9341_Draw_Text(freq, 250, 120, WHITE, 2, BLACK);
 }
 
@@ -266,8 +267,9 @@ void _DrawBiasSelectMenu()
 {
 	ILI9341_Draw_Text("Output Signal Bias: ", 	10, 120, BLACK, 2, WHITE);
 
-	char bias[11] = "";
-	snprintf(bias, sizeof(bias), "%u", (uint8_t)BO_GetOutputBias());
+	char bias[3] = "";
+	//snprintf(bias, sizeof(bias), "%u", (uint8_t)BO_GetOutputBias());
+	DM_AddDigitPadding((uint16_t)BO_GetOutputBias(), bias, sizeof(bias)+1);
 	ILI9341_Draw_Text(bias, 250, 120, WHITE, 2, BLACK);
 }
 
@@ -367,7 +369,7 @@ void DM_RegisterStrings()
  *	used so that smaller number can erase previously
  *	larger number when displayed on TFT
  *
- *	buflen should include terminating null zero
+ *	buflen should be +1 to account for terminating null zero
  *
  *	returns 	0 when OK
  *				1 if buflen is invalid size
