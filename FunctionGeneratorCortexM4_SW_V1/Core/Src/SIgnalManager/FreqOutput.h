@@ -8,6 +8,9 @@
 #ifndef SRC_SIGNALMANAGER_FREQOUTPUT_H_
 #define SRC_SIGNALMANAGER_FREQOUTPUT_H_
 
+#include <stdint.h>
 
+void FreqO_ModifyOutput();
+uint32_t FreqO_GetOutputFreq();
 
 #endif /* SRC_SIGNALMANAGER_FREQOUTPUT_H_ */

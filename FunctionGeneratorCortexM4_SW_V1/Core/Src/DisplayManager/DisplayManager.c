@@ -142,7 +142,7 @@ void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue)
 void _DrawFuncSelectMenu()
 {
 
-	switch(FO_GetOutputMode())
+	switch(FuncO_GetOutputMode())
 	{
 		case Sine_Out_Mode:
 			ILI9341_Draw_Text("- SINE", 	10, 30, WHITE, 2, BLACK);
@@ -243,7 +243,7 @@ void _DrawFreqSelectMenu()
 	ILI9341_Draw_Text("Output Signal Freq: ", 	10, 120, BLACK, 2, WHITE);
 
 	char freq[11] = "";
-	snprintf(freq, sizeof(freq), "%u", (uint8_t)EM_GetOutputFreq());
+	snprintf(freq, sizeof(freq), "%u", (uint8_t)FreqO_GetOutputFreq());
 	ILI9341_Draw_Text(freq, 250, 120, WHITE, 2, BLACK);
 }
 

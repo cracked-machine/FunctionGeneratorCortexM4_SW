@@ -12,6 +12,7 @@
 #include "FunctionOutput.h"
 #include "GainOutput.h"
 #include "BiasOutput.h"
+#include "FreqOutput.h"
 //#include "funcgen.h"
 
 #include "dac.h"
@@ -53,13 +54,6 @@ eSystemEvent eNewEvent = evIdle;
 
 
 
-
-
-
-
-// rotary encoder value
-uint32_t newRotEncoderValue = 0;
-uint32_t oldRotEncoderValue = 0;
 
 /*
  *
@@ -175,7 +169,7 @@ eSystemState _FuncSetHandler(void)
 	printf("FunctionAdjust Event captured\n");
 #endif
 
-	FO_ModifyOutput();
+	FuncO_ModifyOutput();
 	eNewEvent = evFuncMenu;
 	return Func_Menu_State;
 }
@@ -369,7 +363,8 @@ eSystemState _FreqSetHandler()
 	printf("FreqSet Event captured\n");
 #endif
 
-	TIM8->ARR = TIM1->CNT;
+	FreqO_ModifyOutput();
+
 	eNewEvent = evFreqMenu;
 	return Freq_Menu_State;
 }
@@ -404,9 +399,6 @@ eSystemState _ExitFreqMenuHandler()
 }
 
 
-
-
-
 /*
  *
  * 	Set by NVIC interrupt handlers
@@ -416,20 +408,6 @@ void EM_SetNewEvent(eSystemEvent pEvent)
 {
 	eNewEvent = pEvent;
 }
-
-
-
-
-/*
- *
- *
- *
- */
-uint32_t EM_GetOutputFreq()
-{
-	return TIM8->ARR;
-}
-
 
 
 /*
@@ -442,17 +420,7 @@ eSystemState EM_GetSystemState()
 	return eNextState;
 }
 
-/*
- *
- *
- *
- */
-void EM_SetEncoderValue(uint32_t pValue)
-{
-	newRotEncoderValue = pValue;
 
-
-}
 
 
 

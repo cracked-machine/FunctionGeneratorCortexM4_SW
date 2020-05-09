@@ -366,7 +366,7 @@ void TIM1_BRK_TIM15_IRQHandler(void)
 
 	if((TIM1->CNT < last_enc_value) || (TIM1->CNT > last_enc_value))
 	{
-		EM_SetEncoderValue(TIM1->CNT);
+
 		EM_SetNewEvent(evEncoderSet);
 
 	}
