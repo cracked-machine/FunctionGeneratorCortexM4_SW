@@ -88,22 +88,53 @@ void DM_PostInit()
 void DM_UpdateDisplay()
 {
 
-	ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
-	ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("GAIN", 175, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("BIAS", 260, 210, BLACK, 2, RED);
 
 	if(eNextFuncMenuStatus)		//  == ENABLE_FUNCMENU
+	{
+/*
+ 		ILI9341_Draw_Text("    ", 10, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("    ", 100, 210, BLACK, 2, DARKGREEN);
+		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
+		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
+*/
 		_DrawFuncSelectMenu();
-
-	if(eNextGainMenuStatus)		//  == ENABLE_GAINMENU
+	}
+	else if(eNextGainMenuStatus)		//  == ENABLE_GAINMENU
+	{
+/*
+		ILI9341_Draw_Text("    ", 10, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("    ", 100, 210, BLACK, 2, DARKGREEN);
+		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
+		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
+*/
 		_DrawGainSelectMenu();
+	}
+	else if(eNextFreqMenuStatus)		//  == ENABLE_FREQMENU
+	{
+		ILI9341_Draw_Text("1Hz", 24, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("100Hz", 93, 210, BLACK, 2, DARKGREEN);
+		ILI9341_Draw_Text("1KHz", 175, 210, BLACK, 2, YELLOW);
+		ILI9341_Draw_Text("100KHz", 247, 210, BLACK, 2, RED);
 
-	if(eNextFreqMenuStatus)		//  == ENABLE_FREQMENU
 		_DrawFreqSelectMenu();
-
-	if(eNextBiasMenuStatus)		//  == ENABLE_BIASMENU
+	}
+	else if(eNextBiasMenuStatus)		//  == ENABLE_BIASMENU
+	{
+/*
+		ILI9341_Draw_Text("    ", 10, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("    ", 100, 210, BLACK, 2, DARKGREEN);
+		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
+		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
+*/
 		_DrawBiasSelectMenu();
+	}
+	else
+	{
+		ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
+		ILI9341_Draw_Text("GAIN", 175, 210, BLACK, 2, YELLOW);
+		ILI9341_Draw_Text("BIAS", 260, 210, BLACK, 2, RED);
+	}
 
 #ifdef ENCODER_DEBUG
 	char tim1tmp[5] = "";
@@ -270,7 +301,20 @@ void _DrawBiasSelectMenu()
 	char bias[5] = "";
 	//snprintf(bias, sizeof(bias), "%u", (uint8_t)BO_GetOutputBias());
 	if(DM_AddDigitPadding((uint16_t)BO_GetOutputBias(), bias, sizeof(bias)) == 0)
-		ILI9341_Draw_Text(bias, 250, 120, WHITE, 2, BLACK);
+	{
+		if(BO_GetBiasPolarity())
+		{
+			char symbol[2] = "+\0";
+			//char test[10] = strcat(symbol, "10");
+			ILI9341_Draw_Text(strcat(symbol, bias), 250, 120, WHITE, 2, BLACK);
+		}
+		else
+		{
+			char symbol[2] = "-\0";
+			ILI9341_Draw_Text(strcat(symbol, bias), 250, 120, WHITE, 2, BLACK);
+		}
+	}
+
 }
 
 

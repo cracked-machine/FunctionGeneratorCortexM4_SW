@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="evFuncMenu"/>
+		<item key="selection" value="newRotEncoderValue"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="newRotEncoderValue"/>
 			<item value="evFuncMenu"/>
 			<item value="16"/>
 			<item value="TIM1"/>
@@ -22,7 +23,6 @@
 			<item value="Colour"/>
 			<item value="Buffer_size"/>
 			<item value="Size"/>
-			<item value="BURST_MAx_SIZE"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Idle_State"/>

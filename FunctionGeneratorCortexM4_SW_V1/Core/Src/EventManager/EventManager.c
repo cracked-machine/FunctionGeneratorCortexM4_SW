@@ -147,6 +147,13 @@ eSystemState _FuncMenuHandler(void)
 	printf("FunctionMenu Event captured\n");
 #endif
 
+	// don't let the DisplayManager interrupt the LCD refresh
+	HAL_TIM_Base_Stop_IT(&htim15);
+	{
+		DM_RefreshBackgroundLayout();
+	}
+	HAL_TIM_Base_Start_IT(&htim15);
+
 	DM_ShowFuncSelectMenu(ENABLE_FUNCMENU);
 
 	// set the rotary encoder limits to 0-20 for this menu
@@ -167,6 +174,7 @@ eSystemState _FuncSetHandler(void)
 	printf("FunctionAdjust Event captured\n");
 #endif
 
+
 	FuncO_ModifyOutput();
 	eNewEvent = evFuncMenu;
 	return Func_Menu_State;
@@ -184,6 +192,7 @@ eSystemState _ExitFuncMenuHandler()
 #endif
 
 	// disable the menu
+
 	DM_ShowFuncSelectMenu(DISABLE_FUNCMENU);
 
 	// reset the encoder range
@@ -212,6 +221,14 @@ eSystemState _GainMenuHandler()
 #ifdef EM_SWV_DEBUG
 	printf("GainMenu Event captured\n");
 #endif
+
+	// don't let the DisplayManager interrupt the LCD refresh
+	HAL_TIM_Base_Stop_IT(&htim15);
+	{
+		DM_RefreshBackgroundLayout();
+	}
+	HAL_TIM_Base_Start_IT(&htim15);
+
 	DM_ShowGainSelectMenu(ENABLE_GAINMENU);
 
 	// set the rotary encoder limits to 0-20 for this menu
@@ -278,6 +295,14 @@ eSystemState _BiasMenuHandler()
 #ifdef EM_SWV_DEBUG
 	printf("BiasMenu Event captured\n");
 #endif
+
+	// don't let the DisplayManager interrupt the LCD refresh
+	HAL_TIM_Base_Stop_IT(&htim15);
+	{
+		DM_RefreshBackgroundLayout();
+	}
+	HAL_TIM_Base_Start_IT(&htim15);
+
 	DM_ShowBiasSelectMenu(ENABLE_BIASMENU);
 
 	// set the rotary encoder limits to 0-20 for this menu
@@ -346,6 +371,14 @@ eSystemState _FreqMenuHandler()
 #ifdef EM_SWV_DEBUG
 	printf("FreqMenu Event captured\n");
 #endif
+
+	// don't let the DisplayManager interrupt the LCD refresh
+	HAL_TIM_Base_Stop_IT(&htim15);
+	{
+		DM_RefreshBackgroundLayout();
+	}
+	HAL_TIM_Base_Start_IT(&htim15);
+
 	DM_ShowFreqSelectMenu(ENABLE_FREQMENU);
 
 	// set the rotary encoder limits to 0-20 for this menu

@@ -30433,3 +30433,7 @@
 2020-05-09 19:21:55,455 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
 2020-05-09 19:21:55,563 [INFO] OpenFileManager:294 - Restore cursor
 2020-05-09 19:22:01,056 [INFO] NvicIntPanel:88 - NVIC parent = com.st.microxplorer.plugins.ip.nvic.MultiNvicIntPanel[,0,0,0x0,invalid,layout=javax.swing.BoxLayout,alignmentX=0.0,alignmentY=0.0,border=,flags=9,maximumSize=,minimumSize=,preferredSize=]
+2020-05-09 22:20:12,077 [INFO] Activator:176 - 
+
+
+2020-05-09 22:20:12,081 [INFO] Activator:177 - !SESSION log4j initialized

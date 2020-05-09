@@ -12,6 +12,18 @@
 
 #include "SignalManager.h"
 
+eBias_Polarity eBiasPolarity = NORMALBIAS;
+
+
+/*
+ *
+ *
+ *
+ */
+eBias_Polarity BO_GetBiasPolarity()
+{
+	return eBiasPolarity;
+}
 
 /*
  *
@@ -22,6 +34,8 @@ void BO_ModifyOutput()
 {
 	// apply negative dc bias
 	if(SM_GetEncoderValue(ENCODER_REVERSE) < BIAS_CENTER) {
+
+		eBiasPolarity = INVERSEBIAS;
 
 		HAL_DAC_SetValue(	&hdac1,
 							DAC1_CHANNEL_2,
@@ -34,6 +48,8 @@ void BO_ModifyOutput()
 	}
 	// apply positive dc bias
 	if(SM_GetEncoderValue(ENCODER_REVERSE) >= BIAS_CENTER) {
+
+		eBiasPolarity = NORMALBIAS;
 
 		HAL_DAC_SetValue(	&hdac1,
 							DAC1_CHANNEL_2,

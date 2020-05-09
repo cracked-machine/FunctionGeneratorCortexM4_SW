@@ -1,2 +1,3 @@
-BiasOutput.c:21:6:BO_ModifyOutput	8	static
-BiasOutput.c:54:10:BO_GetOutputBias	8	static
+BiasOutput.c:23:16:BO_GetBiasPolarity	4	static
+BiasOutput.c:33:6:BO_ModifyOutput	8	static
+BiasOutput.c:70:10:BO_GetOutputBias	8	static
