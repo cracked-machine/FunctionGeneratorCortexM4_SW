@@ -242,7 +242,7 @@ void EXTI0_IRQHandler(void)
 //	if(HAL_GPIO_ReadPin(BTN3_EXTI0_GPIO_Port, BTN3_EXTI0_Pin))
 //	{
 		//snprintf(control_pressed, sizeof(control_pressed), "BTN3");
-		EM_SetNewEvent(evBiasMenu);
+		EM_SetNewEvent(evRedBtn);
  		//printf("BTN3_EXTI0_Pin\n");
 //	}
 
@@ -270,7 +270,7 @@ void EXTI1_IRQHandler(void)
 //	{
 		//snprintf(control_pressed, sizeof(control_pressed), "BTN4");
 		//printf("BTN4_EXTI1_Pin\n");
-		EM_SetNewEvent(evFreqMenu);
+		EM_SetNewEvent(evGreenBtn);
 //	}
 
   /* USER CODE END EXTI1_IRQn 0 */
@@ -439,13 +439,13 @@ void EXTI15_10_IRQHandler(void)
 
 	if(HAL_GPIO_ReadPin(BTN1_EXTI14_GPIO_Port, BTN1_EXTI14_Pin))
 	{
-		EM_SetNewEvent(evGainMenu);
+		EM_SetNewEvent(evYellowBtn);
 		//snprintf(control_pressed, sizeof(control_pressed), "BTN1");
 		//printf("BTN1_EXTI14_Pin\n");
 	}
 	if(HAL_GPIO_ReadPin(BTN2_EXTI15_GPIO_Port, BTN2_EXTI15_Pin))
 	{
-		EM_SetNewEvent(evFuncMenu);
+		EM_SetNewEvent(evBlueBtn);
 		//snprintf(control_pressed, sizeof(control_pressed), "BTN2");
 		//printf("BTN2_EXTI15_Pin\n");
 	}

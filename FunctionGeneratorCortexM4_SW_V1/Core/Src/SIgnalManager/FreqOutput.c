@@ -35,4 +35,36 @@ uint32_t FreqO_GetOutputFreq()
 	return TIM8->ARR;
 }
 
+/*
+ *
+ *
+ *
+ */
+void FreqO_ApplyPreset(eFreq_Preset pPreset)
+{
+	switch(pPreset)
+	{
+		case FPRESET_1HZ:
+			TIM8->PSC = 0x0002;
+			TIM8->ARR = 0xb5ff;
+			ENCODER_TIMER->CNT = TIM8->ARR;
+			break;
+		case FPRESET_100HZ:
+			TIM8->PSC = 0x0000;
+			TIM8->ARR = 0x36bf;
+			ENCODER_TIMER->CNT = TIM8->ARR;
+			break;
+		case FPRESET_1KHZ:
+			TIM8->PSC = 0x0000;
+			TIM8->ARR = 0x0570;
+			ENCODER_TIMER->CNT = TIM8->ARR;
+			break;
+		case FPRESET_100KHZ:
+			TIM8->PSC = 0x0000;
+			TIM8->ARR = 0x0008;
+			ENCODER_TIMER->CNT = TIM8->ARR;
+			break;
+	}
+}
+
 #endif /* SRC_SIGNALMANAGER_FREQOUTPUT_C_ */

@@ -26,10 +26,10 @@ typedef enum
 {
 	evIdle,						// default
 
-	evFuncMenu,					// user presses blue "function" menu button
-	evFreqMenu,					// user presses green "freq" menu button
-	evGainMenu,					// user presses yellow "Ampl" menu button
-	evBiasMenu,					// user presses red "bias" menu button
+	evBlueBtn,					// user presses blue "function" menu button
+	evGreenBtn,					// user presses green "freq" menu button
+	evYellowBtn,					// user presses yellow "Ampl" menu button
+	evRedBtn,					// user presses red "bias" menu button
 
 	evEncoderSet,				// user turns rotary encoder
 	evEncoderPush,				// user presses button. return to main screen. All menus closed.

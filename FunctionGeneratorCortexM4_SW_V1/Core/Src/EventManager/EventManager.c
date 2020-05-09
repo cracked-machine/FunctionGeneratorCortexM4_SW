@@ -63,19 +63,19 @@ void EM_ProcessEvent()
 	switch(eNextState)
 	{
 		case Idle_State:
-			if(eNewEvent == evFuncMenu)
+			if(eNewEvent == evBlueBtn)
 			{
 				eNextState = _FuncMenuHandler();
 			}
-			if(eNewEvent == evFreqMenu)
+			if(eNewEvent == evGreenBtn)
 			{
 				eNextState = _FreqMenuHandler();
 			}
-			if(eNewEvent == evGainMenu)
+			if(eNewEvent == evYellowBtn)
 			{
 				eNextState = _GainMenuHandler();
 			}
-			if(eNewEvent == evBiasMenu)
+			if(eNewEvent == evRedBtn)
 			{
 				eNextState = _BiasMenuHandler();
 			}
@@ -113,6 +113,26 @@ void EM_ProcessEvent()
 			{
 				eNextState = _ExitFreqMenuHandler();
 			}
+			if(eNewEvent == evBlueBtn)
+			{
+				FreqO_ApplyPreset(FPRESET_1HZ);
+				eNextState = Freq_Menu_State;
+			}
+			if(eNewEvent == evGreenBtn)
+			{
+				FreqO_ApplyPreset(FPRESET_100HZ);
+				eNextState = Freq_Menu_State;
+			}
+			if(eNewEvent == evYellowBtn)
+			{
+				FreqO_ApplyPreset(FPRESET_1KHZ);
+				eNextState = Freq_Menu_State;
+			}
+			if(eNewEvent == evRedBtn)
+			{
+				FreqO_ApplyPreset(FPRESET_100KHZ);
+				eNextState = Freq_Menu_State;
+			}
 			break;
 
 		case Bias_Menu_State:
@@ -124,6 +144,7 @@ void EM_ProcessEvent()
 			{
 				eNextState = _ExitBiasMenuHandler();
 			}
+
 			break;
 
 		default:
@@ -176,7 +197,7 @@ eSystemState _FuncSetHandler(void)
 
 
 	FuncO_ModifyOutput();
-	eNewEvent = evFuncMenu;
+	eNewEvent = evBlueBtn;
 	return Func_Menu_State;
 }
 
@@ -251,7 +272,7 @@ eSystemState _GainSetHandler()
 
 	GO_ModifyOutput();
 
-	eNewEvent = evGainMenu;
+	eNewEvent = evYellowBtn;
 	return Gain_Menu_State;
 }
 
@@ -327,7 +348,7 @@ eSystemState _BiasSetHandler()
 
 	BO_ModifyOutput();
 
-	eNewEvent = evBiasMenu;
+	eNewEvent = evRedBtn;
 	return Bias_Menu_State;
 }
 
@@ -401,7 +422,7 @@ eSystemState _FreqSetHandler()
 
 	FreqO_ModifyOutput();
 
-	eNewEvent = evFreqMenu;
+	//eNewEvent = evGreenBtn;
 	return Freq_Menu_State;
 }
 

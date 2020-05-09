@@ -1,2 +1,3 @@
 FreqOutput.c:23:6:FreqO_ModifyOutput	8	static
 FreqOutput.c:33:10:FreqO_GetOutputFreq	4	static
+FreqOutput.c:43:6:FreqO_ApplyPreset	16	static
