@@ -363,6 +363,7 @@ void TIM1_BRK_TIM15_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 0 */
 	DM_UpdateDisplay();
+	//DM_TestScreen();
 
 	if((TIM1->CNT < last_enc_value) || (TIM1->CNT > last_enc_value))
 	{

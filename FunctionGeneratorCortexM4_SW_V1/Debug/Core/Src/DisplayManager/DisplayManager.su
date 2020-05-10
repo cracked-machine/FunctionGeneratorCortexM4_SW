@@ -1,4 +1,3 @@
-stm32g4xx_ll_rng.h:359:26:LL_RNG_ReadRandData32	16	static
 DisplayManager.c:58:6:DM_Init	8	static
 DisplayManager.c:71:6:DM_PostInit	16	static
 DisplayManager.c:88:6:DM_UpdateDisplay	24	static
@@ -14,4 +13,4 @@ DisplayManager.c:326:5:DM_DigitCount	16	static
 DisplayManager.c:348:6:DM_RefreshBackgroundLayout	24	static
 DisplayManager.c:396:6:DM_RegisterStrings	24	static
 DisplayManager.c:423:5:DM_AddDigitPadding	24	static
-DisplayManager.c:472:6:DM_TestScreen	40	static
+DisplayManager.c:472:6:DM_TestScreen	16	static

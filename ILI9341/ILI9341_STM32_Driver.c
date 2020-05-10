@@ -91,7 +91,9 @@ volatile uint16_t LCD_WIDTH	 = ILI9341_SCREEN_WIDTH;
 
 uint16_t BURST_MAX_SIZE = 500;
 
-
+#define SPI_DELAY_HOLD 3
+//#define USE_HAL_SPI
+#define USE_BARE_SPI
 
 /* Initialize SPI */
 void ILI9341_SPI_Init(void)
@@ -104,13 +106,24 @@ void ILI9341_SPI_Init(void)
 /*Send data (char) to LCD*/
 void ILI9341_SPI_Send(unsigned char SPI_Data)
 {
-	HAL_StatusTypeDef res;
 
-		if( ((res = HAL_SPI_Transmit(HSPI_INSTANCE, &SPI_Data, 1, 1)) != HAL_OK) )
-		{
-			//printf("HAL_SPI_Transmit Error #%u, ", res);
-		}
+#ifdef USE_HAL_SPI
+	HAL_SPI_Transmit(HSPI_INSTANCE, &SPI_Data, 1, 1);
+#endif
 
+#ifdef USE_BARE_SPI
+	if ((SPI3->CR1 & SPI_CR1_SPE) != SPI_CR1_SPE)
+	{
+		/* Enable SPI peripheral */
+		SPI3->CR1 |= SPI_CR1_SPE;
+		//__HAL_SPI_ENABLE(hspi);
+	}
+	if((SPI3->SR & SPI_SR_TXE) == SPI_SR_TXE) /* Test Tx empty */
+	{
+		*(volatile uint8_t *)&SPI3->DR = SPI_Data;
+
+	}
+#endif
 
 }
 
@@ -119,7 +132,13 @@ void ILI9341_Write_Command(uint8_t Command)
 {
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 	LCD_DC_PORT->ODR &= ~(LCD_DC_PIN);
+
 	ILI9341_SPI_Send(Command);
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 }
 
@@ -128,7 +147,13 @@ void ILI9341_Write_Data(uint8_t Data)
 {
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	ILI9341_SPI_Send(Data);
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 }
 
@@ -348,12 +373,49 @@ void ILI9341_Init(void)
 /*Sends single pixel colour information to LCD*/
 void ILI9341_Draw_colour(uint16_t colour)
 {
-	//SENDS COLOUR
 	unsigned char TempBuffer[2] = {colour>>8, colour};
+
+#ifdef USE_HAL_SPI
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
-	HAL_SPI_Transmit(HSPI_INSTANCE, TempBuffer, 2, 1);
+
+	HAL_SPI_Transmit(HSPI_INSTANCE, TempBuffer, 2, 1 );
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
+#endif
+
+#ifdef USE_BARE_SPI
+	// SEND BYTE #1
+	LCD_DC_PORT->ODR |= LCD_DC_PIN;
+	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
+	//HAL_SPI_Transmit(HSPI_INSTANCE, TempBuffer, 2, 1 );
+	ILI9341_SPI_Send(TempBuffer[0]);
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
+	LCD_CS_PORT->ODR |= LCD_CS_PIN;
+
+	// SEND BYTE #2
+	LCD_DC_PORT->ODR |= LCD_DC_PIN;
+	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
+
+	ILI9341_SPI_Send(TempBuffer[1]);
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
+	LCD_CS_PORT->ODR |= LCD_CS_PIN;
+#endif
+
 }
 
 //INTERNAL FUNCTION OF LIBRARY
@@ -410,12 +472,110 @@ void ILI9341_Draw_colour_Burst(uint16_t chunk_xpos, uint16_t chunk_ypos, uint16_
 		for(uint32_t j = 0; j < (Sending_in_Block); j++)
 		{
 
-			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, buffer_size, 2);
+#ifdef USE_HAL_SPI
+			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, buffer_size, 2 );
+#endif
+
+#ifdef USE_BARE_SPI
+//			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, buffer_size, 2 );
+
+			uint8_t *pTxBuffPtr = (uint8_t *)burst_buffer;
+			volatile uint16_t TxXferCount = (uint16_t)buffer_size;
+
+		    while (TxXferCount > 0U)
+		    {
+		      // Wait until TXE flag is set to send data
+		      if ((SPI3->SR & SPI_SR_TXE) == SPI_SR_TXE)
+		      {
+		        if (TxXferCount > 1U)
+		        {
+		          // write on the data register in packing mode
+		          SPI3->DR = *((uint16_t *)pTxBuffPtr);
+		          pTxBuffPtr += sizeof(uint16_t);
+		          TxXferCount -= 2U;
+		        }
+		        else
+		        {
+		          *((volatile uint8_t *)&SPI3->DR) = (*pTxBuffPtr);
+		          pTxBuffPtr++;
+		          TxXferCount--;
+		        }
+		      }
+		    }
+#endif
+
 		}
 	}
 
 	//REMAINDER!
-	HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, Remainder_from_block, 2);
+
+	//HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, Remainder_from_block, 2 );
+
+#ifdef USE_HAL_SPI
+			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, Remainder_from_block, 2 );
+#endif
+
+#ifdef USE_BARE_SPI
+
+//			HAL_SPI_Transmit(HSPI_INSTANCE, (unsigned char *)burst_buffer, Remainder_from_block, 0 );
+
+//			uint16_t initial_TxXferCount = Remainder_from_block;
+			uint8_t *pTxBuffPtr2 = (unsigned char *)burst_buffer;
+			volatile uint16_t TxXferCount2 = (uint16_t)Remainder_from_block;
+
+/*			if(initial_TxXferCount == 0x01U)
+			{
+			  if (TxXferCount2 > 1U)
+			  {
+				// write on the data register in packing mode
+				SPI3->DR = *((uint16_t *)pTxBuffPtr2);
+				pTxBuffPtr2 += sizeof(uint16_t);
+				TxXferCount2 -= 2U;
+			  }
+			  else
+			  {
+				*((volatile uint8_t *)&SPI3->DR) = (*pTxBuffPtr2);
+				pTxBuffPtr2 ++;
+				TxXferCount2--;
+			  }
+			}
+*/
+		    while (TxXferCount2 > 0U)
+		    {
+		      // Wait until TXE flag is set to send data
+		      if ((SPI3->SR & SPI_SR_TXE) == SPI_SR_TXE)
+		      {
+		        if (TxXferCount2 > 1U)
+		        {
+		          // write on the data register in packing mode
+		          SPI3->DR = *((uint16_t *)pTxBuffPtr2);
+		          pTxBuffPtr2 += sizeof(uint16_t);
+		          TxXferCount2 -= 2U;
+		        }
+		        else
+		        {
+		          *((volatile uint8_t *)&SPI3->DR) = (*pTxBuffPtr2);
+		          pTxBuffPtr2++;
+		          TxXferCount2--;
+		        }
+		      }
+		    }
+
+		    do{
+		      __IO uint32_t tmpreg_ovr = 0x00U;
+		      tmpreg_ovr =SPI3->DR;
+		      tmpreg_ovr = SPI3->SR;
+		      UNUSED(tmpreg_ovr);
+		    } while(0U);
+
+		   	for(int d=0; d<9;d++)
+		   		asm("nop");
+
+#endif
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 
@@ -443,7 +603,12 @@ void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t colour)
 	//ADDRESS
 	LCD_DC_PORT->ODR &= ~(LCD_DC_PIN);
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	ILI9341_SPI_Send(0x2A);
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
@@ -451,7 +616,13 @@ void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t colour)
 	//XDATA
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 	unsigned char Temp_Buffer[4] = {X>>8,X, (X+1)>>8, (X+1)};
-	HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer, 4, 1);
+
+	HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer, 4, 1 );
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 
 	//ADDRESS
@@ -459,26 +630,49 @@ void ILI9341_Draw_Pixel(uint16_t X,uint16_t Y,uint16_t colour)
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 
 	ILI9341_SPI_Send(0x2B);
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 
 	//YDATA
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 	unsigned char Temp_Buffer1[4] = {Y>>8,Y, (Y+1)>>8, (Y+1)};
-	HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer1, 4, 1);
+
+	HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer1, 4, 1 );
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 
 	//ADDRESS
 	LCD_DC_PORT->ODR &= ~(LCD_DC_PIN);
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	ILI9341_SPI_Send(0x2C);
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 	
 	//COLOUR
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
 	unsigned char Temp_Buffer2[2] = {colour>>8, colour};
-	HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer2, 2, 1);
+
+	HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer2, 2, 1 );
+
+	// Additional SPI CS "low" hold
+	for(int x=0; x < SPI_DELAY_HOLD; x++)
+		LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
+
 	LCD_CS_PORT->ODR |= LCD_CS_PIN;
 
 	

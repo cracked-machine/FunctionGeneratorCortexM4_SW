@@ -246,7 +246,7 @@ int main(void)
   // TFT lib enable
   DM_Init();
   DM_PostInit();
-  //DM_RegisterStrings();
+
 
   HAL_TIM_Base_Start_IT(&htim15);
   HAL_TIM_Base_Start(&htim5);

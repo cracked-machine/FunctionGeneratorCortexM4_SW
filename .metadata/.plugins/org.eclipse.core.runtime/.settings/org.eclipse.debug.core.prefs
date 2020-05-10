@@ -4,4 +4,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.postmortemLaunchType=org.eclipse.cdt.dsf.gdb.launch.coreCLaunch,debug,;
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="(temp[j] &amp; (1&lt;&lt;i))"/>\n<expression enabled\="true" text\="y+(i*size)"/>\n<expression enabled\="true" text\="TIM8-&gt;ARR"/>\n<expression enabled\="true" text\="BIAS_CENTER - SM_GetEncoderValue(ENCODER_REVERSE)) * BIAS_MAG"/>\n<expression enabled\="true" text\="SM_GetEncoderValue(ENCODER_REVERSE) - BIAS_CENTER) * BIAS_MAG"/>\n<expression enabled\="true" text\="SM_GetEncoderValue(ENCODER_REVERSE)"/>\n<expression enabled\="true" text\="(BIAS_CENTER - SM_GetEncoderValue(ENCODER_REVERSE)) * BIAS_MAG)"/>\n</watchExpressions>\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="hspi-&gt;TxXferCount"/>\n</watchExpressions>\n
