@@ -38,7 +38,7 @@
 
 #include "DisplayManager.h"
 #include "EventManager.h"
-
+#include "GainOutput.h"
 
 // python-generated wave lut
 #include "pysine.h"

@@ -1,0 +1,28 @@
+/*
+ * SignalManager.c
+ *
+ *  Created on: 9 May 2020
+ *      Author: chris
+ */
+
+
+#include "SignalManager.h"
+
+eEncoder_Direction eNewEncoderDirection = ENCODER_REVERSE;
+
+uint16_t SM_GetEncoderValue(eEncoder_Direction direction)
+{
+	if(eNewEncoderDirection)
+	{
+		return ENCODER_TIMER->ARR - ENCODER_TIMER->CNT;
+	}
+	else
+	{
+		return ENCODER_TIMER->CNT;
+	}
+}
+
+eEncoder_Direction getEncoderDirection()
+{
+	return eNewEncoderDirection;
+}

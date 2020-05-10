@@ -10,7 +10,8 @@
 
 #include <stdint.h>
 
-void GO_ModifyOutput();
+void GO_SetOutputToEncoder(uint8_t pGain);
+void GO_SetOutputGain(uint8_t pGain, uint8_t reverse);
 uint8_t GO_GetOutputGain();
 
 #endif /* SRC_SIGNALMANAGER_GAINOUTPUT_H_ */

@@ -7,4 +7,4 @@ ILI9341_GFX.c:282:6:ILI9341_Draw_Char	48	static
 ILI9341_GFX.c:342:6:ILI9341_Draw_Text	40	static
 ILI9341_GFX.c:360:6:ILI9341_Draw_Image	104	dynamic
 ILI9341_GFX.c:451:6:ILI9341_Draw_ImageF	112	dynamic
-ILI9341_GFX.c:539:6:ILI9341_FillScreenGradient	32	static
+ILI9341_GFX.c:539:6:ILI9341_FillScreenGradient	24	static

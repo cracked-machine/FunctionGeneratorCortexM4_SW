@@ -548,7 +548,7 @@ void ILI9341_FillScreenGradient()
 
 	for(uint16_t i = 0; i <= (320); i++)
 	{
-		uint16_t Red = 0;
+/*		uint16_t Red = 0;
 		uint16_t Green = 0;
 		uint16_t Blue = 0;
 
@@ -562,9 +562,9 @@ void ILI9341_FillScreenGradient()
 
 		uint16_t RGB_color = Red + Green + Blue;
 		ILI9341_Draw_Rectangle(i, x, 1, 240, RGB_color, AREA_CHUNK);
+*/
 
-
-//	ILI9341_Draw_Rectangle(i, x, 1, 240, (uint16_t)fade_lin_seq_data_table[i], AREA_CHUNK);
+	ILI9341_Draw_Rectangle(i, x, 1, 240, (uint16_t)fade_log_seq_data_table[i], AREA_CHUNK);
 
 	}
 }

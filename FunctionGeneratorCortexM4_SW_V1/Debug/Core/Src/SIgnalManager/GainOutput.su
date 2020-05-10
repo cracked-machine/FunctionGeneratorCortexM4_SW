@@ -1,2 +1,3 @@
-GainOutput.c:37:6:GO_ModifyOutput	8	static
-GainOutput.c:125:9:GO_GetOutputGain	4	static
+GainOutput.c:37:6:GO_SetOutputToEncoder	16	static
+GainOutput.c:120:6:GO_SetOutputGain	16	static
+GainOutput.c:238:9:GO_GetOutputGain	4	static

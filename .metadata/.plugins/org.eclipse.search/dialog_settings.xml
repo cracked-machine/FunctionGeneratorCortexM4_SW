@@ -141,9 +141,6 @@
 	<section name="org.eclipse.cdt.ui.pdomSearchViewPage">
 		<item key="showEnclosingDefinitions" value="true"/>
 	</section>
-	<section name="">
-		<item key="org.eclipse.search.resultpage.limit" value="1000"/>
-	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
 			<item value="FuncO_SetOutputMode"/>

@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="newRotEncoderValue"/>
+		<item key="selection" value="ILI9341_Set_Frame"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="newRotEncoderValue"/>
-			<item value="evFuncMenu"/>
-			<item value="16"/>
-			<item value="TIM1"/>
-			<item value="IDX"/>
-			<item value="FreqAdjustHandler"/>
-			<item value="_FuncMenuHandler"/>
-			<item value="Idle_state"/>
-			<item value="htim1"/>
-			<item value="xpos"/>
-			<item value="Height"/>
-			<item value="Width"/>
-			<item value="Colour"/>
-			<item value="Buffer_size"/>
-			<item value="Size"/>
+			<item value="ILI9341_Set_Address"/>
+			<item value="_LCD_Draw_colour_Burst"/>
+			<item value="_LCD_Write_Frame"/>
+			<item value="_SPI_SendData"/>
+			<item value="_SPI_SendCommand"/>
+			<item value="ILI9341_Draw_colour_Burst"/>
+			<item value="ILI9341_Reset"/>
+			<item value="ILI9341_Enable"/>
+			<item value="_Write_Data"/>
+			<item value="_Write_Command"/>
+			<item value="ILI9341_SPI_SendByte"/>
+			<item value="ILI9341_Write_Data"/>
+			<item value="ILI9341_Write_Command"/>
+			<item value="ILI9341_Draw_colour"/>
+			<item value="SPI3"/>
 		</list>
 		<list key="replacehistory">
-			<item value="Idle_State"/>
-			<item value="chunk_xpos"/>
-			<item value="height"/>
-			<item value="width"/>
-			<item value="colour"/>
-			<item value="buffer_size"/>
-			<item value="size"/>
-			<item value="BURST_MAX_SIZE"/>
-			<item value="x"/>
-			<item value="character"/>
-			<item value="bgcolour"/>
-			<item value="bdcolour"/>
-			<item value="BORDER_SIZE"/>
-			<item value="(border_size)"/>
-			<item value="(border_size/2)"/>
+			<item value="ILI9341_Set_Frame"/>
+			<item value="_LCD_Write_Frame"/>
+			<item value=""/>
+			<item value="_LCD_SendData"/>
+			<item value="_LCD_SendCommand"/>
+			<item value="_LCD_Draw_colour_Burst"/>
+			<item value="_LCD_Reset"/>
+			<item value="_LCD_Enable"/>
+			<item value="_SPI_SendData"/>
+			<item value="_SPI_SendCommand"/>
+			<item value="_SPI_SendByte"/>
+			<item value="_Write_Data"/>
+			<item value="_Write_Command"/>
+			<item value="SPI_PERIPH"/>
+			<item value="ILI9341_SPI_SendByte"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1458"/>
+		<item key="DIALOG_X_ORIGIN" value="1457"/>
 		<item key="DIALOG_Y_ORIGIN" value="220"/>
 		<item key="DIALOG_WIDTH" value="348"/>
 		<item key="DIALOG_HEIGHT" value="440"/>
