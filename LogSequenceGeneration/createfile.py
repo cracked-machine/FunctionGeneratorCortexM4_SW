@@ -59,7 +59,7 @@ def write_to_source_file(data, dataname, filename, headerfile):
             fh.write(', ')
         if (i != 0) & (i % 10 == 0):
             fh.write("\n\t")
-        fh.write(str(int(item)))
+        fh.write(str((item)))
     fh.write("")  # last newline
 
     fh.write("\n};\n")

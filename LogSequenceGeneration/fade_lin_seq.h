@@ -13,7 +13,7 @@
 
 #include <stdint.h>
 
-#define FADE_LIN_SEQ_DATA_SIZE 256
+#define FADE_LIN_SEQ_DATA_SIZE 320
 uint32_t fade_lin_seq_data_table[FADE_LIN_SEQ_DATA_SIZE];
 
 

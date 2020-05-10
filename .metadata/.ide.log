@@ -32104,3 +32104,26 @@
 2020-05-10 14:04:22,306 [INFO] ProjectBuilder:2894 - Time for Generating toolchain IDE Files: 1759mS.
 2020-05-10 14:04:22,306 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
 2020-05-10 14:04:22,307 [INFO] ProjectBuilder:1878 - Time for Copy CMSIS : 0mS.
+2020-05-10 21:12:34,748 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] org.eclipse.core.runtime.CoreException: Serial Wire Viewer
+2020-05-10 21:12:34,750 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Client connection failed. Please check the debug configuration parameters.
+2020-05-10 21:12:34,752 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.createSWVsession(HardwareDebugUtil.java:227)
+2020-05-10 21:12:34,753 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.jlink.JLinkDebugHardware$2.handleCompleted(JLinkDebugHardware.java:442)
+2020-05-10 21:12:34,753 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+2020-05-10 21:12:34,754 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+2020-05-10 21:12:34,756 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+2020-05-10 21:12:34,757 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+2020-05-10 21:12:34,757 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+2020-05-10 21:12:34,758 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+2020-05-10 21:12:34,760 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+2020-05-10 21:12:34,760 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.lang.Thread.run(Thread.java:748)
+2020-05-10 21:12:34,764 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Caused by: java.io.FileNotFoundException: /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Debug/FunctionGeneratorCortexM4_SW_V1.elf (No such file or directory)
+2020-05-10 21:12:34,764 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.io.RandomAccessFile.open0(Native Method)
+2020-05-10 21:12:34,765 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.io.RandomAccessFile.open(RandomAccessFile.java:316)
+2020-05-10 21:12:34,765 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:243)
+2020-05-10 21:12:34,766 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at java.io.RandomAccessFile.<init>(RandomAccessFile.java:124)
+2020-05-10 21:12:34,766 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.utils.ERandomAccessFile.<init>(ERandomAccessFile.java:30)
+2020-05-10 21:12:34,766 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.utils.elf.Elf.commonSetup(Elf.java:683)
+2020-05-10 21:12:34,767 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.utils.elf.Elf.<init>(Elf.java:703)
+2020-05-10 21:12:34,796 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.utils.elf.ElfHelper.<init>(ElfHelper.java:111)
+2020-05-10 21:12:34,796 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.createSWVsession(HardwareDebugUtil.java:175)
+2020-05-10 21:12:34,797 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 9 more

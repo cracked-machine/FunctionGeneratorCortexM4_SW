@@ -18,6 +18,9 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "snow_tiger.h"
+
+
 //eDisplay_Mode eCurrentMode = Func_Adjust_mode;
 eFuncMenu_Status eNextFuncMenuStatus = DISABLE_FUNCMENU;
 eGainMenu_Status eNextGainMenuStatus = DISABLE_GAINMENU;
@@ -87,6 +90,7 @@ void DM_PostInit()
 
 void DM_UpdateDisplay()
 {
+
 
 
 	if(eNextFuncMenuStatus)		//  == ENABLE_FUNCMENU
@@ -349,7 +353,8 @@ void DM_RefreshBackgroundLayout()
 {
 
 
-	ILI9341_Fill_Screen(WHITE);
+	//ILI9341_Fill_Screen(WHITE);
+	ILI9341_FillScreenGradient();
 
 	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[0],
 													BTN_Y_POS,
@@ -456,13 +461,8 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen)
 
 
 }
-/*
 
-void DM_SetDisplayMode(eDisplay_Mode pMode)
-{
 
-}
-*/
 
 /*
  *
@@ -471,5 +471,13 @@ void DM_SetDisplayMode(eDisplay_Mode pMode)
  */
 void DM_TestScreen()
 {
+
+
+
+	/*
+	for(int f=0; f<50;f++)
+		ILI9341_Draw_Pixel(f, 50, RED);
+
 	ILI9341_Draw_Text("- SINE", 	10, 30, WHITE, 2, BLACK);
+	*/
 }

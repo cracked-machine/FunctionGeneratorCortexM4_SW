@@ -52,6 +52,8 @@
 #include <assert.h>
 #include <math.h>
 #include "ILI9341_TextManager.h"
+#include "fade_log_seq.h"
+#include "fade_lin_seq.h"
 
  extern uint16_t BURST_MAX_SIZE;
 
@@ -360,7 +362,7 @@ void ILI9341_Draw_Image(const char* Image_Array, uint8_t Orientation)
 	if(Orientation == SCREEN_HORIZONTAL_1)
 	{
 		ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
-		ILI9341_Set_Address(0,0,ILI9341_SCREEN_WIDTH,ILI9341_SCREEN_HEIGHT);
+		ILI9341_Set_Frame(0, 0, ILI9341_SCREEN_WIDTH, ILI9341_SCREEN_HEIGHT);
 			
 		GPIOC->ODR |= DC_Pin;
 		GPIOC->ODR &= ~(DC_Pin);
@@ -381,7 +383,7 @@ void ILI9341_Draw_Image(const char* Image_Array, uint8_t Orientation)
 	else if(Orientation == SCREEN_HORIZONTAL_2)
 	{
 		ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-		ILI9341_Set_Address(0,0,ILI9341_SCREEN_WIDTH,ILI9341_SCREEN_HEIGHT);
+		ILI9341_Set_Frame(0,0,ILI9341_SCREEN_WIDTH,ILI9341_SCREEN_HEIGHT);
 			
 		GPIOC->ODR |= DC_Pin;
 		GPIOC->ODR &= ~(CS_Pin);
@@ -402,7 +404,7 @@ void ILI9341_Draw_Image(const char* Image_Array, uint8_t Orientation)
 	else if(Orientation == SCREEN_VERTICAL_2)
 	{
 		ILI9341_Set_Rotation(SCREEN_VERTICAL_2);
-		ILI9341_Set_Address(0,0,ILI9341_SCREEN_HEIGHT,ILI9341_SCREEN_WIDTH);
+		ILI9341_Set_Frame(0,0,ILI9341_SCREEN_HEIGHT,ILI9341_SCREEN_WIDTH);
 			
 		GPIOC->ODR |= DC_Pin;
 		GPIOC->ODR &= ~(CS_Pin);
@@ -423,7 +425,7 @@ void ILI9341_Draw_Image(const char* Image_Array, uint8_t Orientation)
 	else if(Orientation == SCREEN_VERTICAL_1)
 	{
 		ILI9341_Set_Rotation(SCREEN_VERTICAL_1);
-		ILI9341_Set_Address(0,0,ILI9341_SCREEN_HEIGHT,ILI9341_SCREEN_WIDTH);
+		ILI9341_Set_Frame(0,0,ILI9341_SCREEN_HEIGHT,ILI9341_SCREEN_WIDTH);
 			
 		GPIOC->ODR |= DC_Pin;
 		GPIOC->ODR &= ~(CS_Pin);
@@ -451,7 +453,7 @@ void ILI9341_Draw_ImageF(const float* Image_Array, uint8_t Orientation)
 	if(Orientation == SCREEN_HORIZONTAL_1)
 	{
 		ILI9341_Set_Rotation(SCREEN_HORIZONTAL_1);
-		ILI9341_Set_Address(0,0,ILI9341_SCREEN_WIDTH,ILI9341_SCREEN_HEIGHT);
+		ILI9341_Set_Frame(0,0,ILI9341_SCREEN_WIDTH,ILI9341_SCREEN_HEIGHT);
 
 		GPIOC->ODR |= DC_Pin;
 		GPIOC->ODR &= ~(CS_Pin);
@@ -472,7 +474,7 @@ void ILI9341_Draw_ImageF(const float* Image_Array, uint8_t Orientation)
 	else if(Orientation == SCREEN_HORIZONTAL_2)
 	{
 		ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
-		ILI9341_Set_Address(0,0,ILI9341_SCREEN_WIDTH,ILI9341_SCREEN_HEIGHT);
+		ILI9341_Set_Frame(0,0,ILI9341_SCREEN_WIDTH,ILI9341_SCREEN_HEIGHT);
 
 		GPIOC->ODR |= DC_Pin;
 		GPIOC->ODR &= ~(CS_Pin);
@@ -493,7 +495,7 @@ void ILI9341_Draw_ImageF(const float* Image_Array, uint8_t Orientation)
 	else if(Orientation == SCREEN_VERTICAL_2)
 	{
 		ILI9341_Set_Rotation(SCREEN_VERTICAL_2);
-		ILI9341_Set_Address(0,0,ILI9341_SCREEN_HEIGHT,ILI9341_SCREEN_WIDTH);
+		ILI9341_Set_Frame(0,0,ILI9341_SCREEN_HEIGHT,ILI9341_SCREEN_WIDTH);
 
 		GPIOC->ODR |= DC_Pin;
 		GPIOC->ODR &= ~(CS_Pin);
@@ -514,7 +516,7 @@ void ILI9341_Draw_ImageF(const float* Image_Array, uint8_t Orientation)
 	else if(Orientation == SCREEN_VERTICAL_1)
 	{
 		ILI9341_Set_Rotation(SCREEN_VERTICAL_1);
-		ILI9341_Set_Address(0,0,ILI9341_SCREEN_HEIGHT,ILI9341_SCREEN_WIDTH);
+		ILI9341_Set_Frame(0,0,ILI9341_SCREEN_HEIGHT,ILI9341_SCREEN_WIDTH);
 
 		GPIOC->ODR |= DC_Pin;
 		GPIOC->ODR &= ~(CS_Pin);
@@ -531,6 +533,39 @@ void ILI9341_Draw_ImageF(const float* Image_Array, uint8_t Orientation)
 				counter += BURST_MAX_SIZE;
 		}
 		GPIOC->ODR |= CS_Pin;
+	}
+}
+
+void ILI9341_FillScreenGradient()
+{
+	uint16_t x = 0;
+	//ILI9341_Fill_Screen(WHITE);
+	//ILI9341_Set_Rotation(SCREEN_HORIZONTAL_2);
+	//ILI9341_Draw_Text("Colour gradient", 10, 10, BLACK, 1, WHITE);
+	//ILI9341_Draw_Text("Grayscale", 10, 20, BLACK, 1, WHITE);
+
+
+
+	for(uint16_t i = 0; i <= (320); i++)
+	{
+		uint16_t Red = 0;
+		uint16_t Green = 0;
+		uint16_t Blue = 0;
+
+		Red = i/(10);
+		Red <<= 11;
+		Green = i/(5);
+		Green <<= 5;
+		Blue = i/(10);
+
+
+
+		uint16_t RGB_color = Red + Green + Blue;
+		ILI9341_Draw_Rectangle(i, x, 1, 240, RGB_color, AREA_CHUNK);
+
+
+//	ILI9341_Draw_Rectangle(i, x, 1, 240, (uint16_t)fade_lin_seq_data_table[i], AREA_CHUNK);
+
 	}
 }
 
