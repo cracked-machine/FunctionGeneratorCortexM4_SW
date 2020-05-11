@@ -111,14 +111,7 @@ void FreqO_ModifyOutput()
 			FreqO_ApplyPreset(FPRESET_100KHZ);
 			break;
 	}
-	/*
-	if( (eNewFreqPreset == FPRESET_100KHZ) || (eNewFreqPreset == FPRESET_1KHZ))
-		TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_HIFREQ_MAG;
-	else if (eNewFreqPreset == FPRESET_100HZ)
-		TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_MIDFREQ_MAG;
-	else if (eNewFreqPreset == FPRESET_1HZ)
-		TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_LOFREQ_MAG;
-	*/
+
 }
 
 /*
@@ -230,6 +223,13 @@ void FreqO_ApplyPreset(eFreq_Preset pPreset)
 eFreq_Preset FreqO_GetFPreset()
 {
 	return eNewFreqPreset;
+}
+
+void FreqO_AdjustFreq()
+{
+		//TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_HIFREQ_MAG;
+		TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_MIDFREQ_MAG;
+		//TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_LOFREQ_MAG;
 }
 
 #endif /* SRC_SIGNALMANAGER_FREQOUTPUT_C_ */

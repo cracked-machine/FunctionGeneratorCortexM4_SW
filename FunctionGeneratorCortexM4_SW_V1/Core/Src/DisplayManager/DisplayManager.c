@@ -6,8 +6,9 @@
  */
 
 #include "DisplayManager.h"
-#include "EventManager.h"
+#include "FreqMenus.h"
 
+#include "EventManager.h"
 #include "SignalManager.h"
 
 #include <stdint.h>
@@ -18,13 +19,13 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "snow_tiger.h"
+
 
 
 //eDisplay_Mode eCurrentMode = Func_Adjust_mode;
 eFuncMenu_Status eNextFuncMenuStatus = DISABLE_FUNCMENU;
 eGainMenu_Status eNextGainMenuStatus = DISABLE_GAINMENU;
-eFreqMenu_Status eNextFreqMenuStatus = DISABLE_FREQMENU;
+eFreqMenu_Status eNextFreqMenuStatus = DISABLE_FREQ_MENU;
 eBiasMenu_Status eNextBiasMenuStatus = DISABLE_BIASMENU;
 
  extern uint16_t BURST_MAX_SIZE;
@@ -113,7 +114,7 @@ void DM_UpdateDisplay()
 */
 		_DrawGainSelectMenu();
 	}
-	else if(eNextFreqMenuStatus)		//  == ENABLE_FREQMENU
+	else if(eNextFreqMenuStatus)		//  frequency menu enabled
 	{
 /*
 		ILI9341_Draw_Text("1Hz", 24, 210, BLACK, 2, DARKCYAN);
@@ -121,7 +122,29 @@ void DM_UpdateDisplay()
 		ILI9341_Draw_Text("1KHz", 175, 210, BLACK, 2, YELLOW);
 		ILI9341_Draw_Text("100KHz", 247, 210, BLACK, 2, RED);
 */
-		_DrawFreqSelectMenu();
+		switch(eNextFreqMenuStatus)
+		{
+			case ENABLE_FREQ_MAIN_MENU:
+				FreqMenu_DrawFreqMainMenu();
+
+				break;
+
+			case ENABLE_FREQ_PRESET_MENU:
+				FreqMenu_DrawFreqPresetMenu();
+				break;
+
+			case ENABLE_FREQ_ADJUST_MENU:
+				FreqMenu_DrawFreqAdjustMenu();
+				break;
+
+			case ENABLE_FREQ_SWEEP_MENU:
+				FreqMenu_DrawFreqSweepMenu();
+				break;
+
+			default:
+				break;
+		}
+
 	}
 	else if(eNextBiasMenuStatus)		//  == ENABLE_BIASMENU
 	{
@@ -264,269 +287,13 @@ void _DrawGainSelectMenu()
  *
  *
  */
-void DM_ShowFreqSelectMenu(eFreqMenu_Status pValue)
+void DM_ShowFreqMenu(eFreqMenu_Status pValue)
 {
 	eNextFreqMenuStatus = pValue;
 }
 
-/*
- *
- *
- *
- */
-void _DrawFreqSelectMenu()
-{
-/*
-	ILI9341_Draw_Text("Output Signal Freq: ", 	10, 120, BLACK, 2, WHITE);
 
-	char freq[6] = "";
-	//snprintf(freq, sizeof(freq), "%u", (uint8_t)FreqO_GetOutputFreq());
-	if(DM_AddDigitPadding((uint16_t)FreqO_GetOutputFreq(), freq, sizeof(freq)) == 0)
-		ILI9341_Draw_Text(freq, 250, 120, WHITE, 2, BLACK);
-*/
-	switch(FreqO_GetFPreset())
-	{
-		case FPRESET_1HZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
 
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_10HZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_50HZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_100HZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_250HZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_500HZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_750HZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, WHITE, 2, BLACK);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_1KHZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_5KHZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_10KHZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_25KHZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-			break;
-		case FPRESET_50KHZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-		break;
-		case FPRESET_75KHZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, BLACK, 2, WHITE);
-		break;
-		case FPRESET_100KHZ:
-			ILI9341_Draw_Text("- 1Hz", 		10, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10Hz", 	10, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50Hz", 	10, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100Hz", 	10, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 250Hz", 	10, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 500Hz",	10, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 750Hz", 	10, 155, BLACK, 2, WHITE);
-
-			ILI9341_Draw_Text("- 1KHz", 	120, 35, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 5KHz", 	120, 55, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 10KHz", 	120, 75, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 25KHz", 	120, 95, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 50KHz", 	120, 115, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 75KHz",	120, 135, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- 100KHz", 	120, 155, WHITE, 2, BLACK);
-		break;
-
-	}
-}
 
 /*
  *

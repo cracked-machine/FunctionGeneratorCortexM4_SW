@@ -38,5 +38,6 @@ void FreqO_ModifyOutput();
 uint32_t FreqO_GetOutputFreq();
 void FreqO_ApplyPreset(eFreq_Preset pPreset);
 eFreq_Preset FreqO_GetFPreset();
+void FreqO_AdjustFreq();
 
 #endif /* SRC_SIGNALMANAGER_FREQOUTPUT_H_ */

@@ -69,6 +69,11 @@ uint16_t last_enc_value = 0;
 uint16_t new_enc_value = 0;
 
 extern char control_pressed[10];
+
+
+#define DEBOUNCE_DELAY 500
+uint16_t last_interrupt_time = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -239,12 +244,12 @@ void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
 
-//	if(HAL_GPIO_ReadPin(BTN3_EXTI0_GPIO_Port, BTN3_EXTI0_Pin))
-//	{
-		//snprintf(control_pressed, sizeof(control_pressed), "BTN3");
+	uint16_t interrupt_time = TIM5->CNT;
+	if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
+	{
 		EM_SetNewEvent(evRedBtn);
- 		//printf("BTN3_EXTI0_Pin\n");
-//	}
+	}
+	last_interrupt_time = interrupt_time;
 
   /* USER CODE END EXTI0_IRQn 0 */
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_0) != RESET)
@@ -266,12 +271,12 @@ void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
 
-//	if(HAL_GPIO_ReadPin(BTN4_EXTI1_GPIO_Port, BTN4_EXTI1_Pin))
-//	{
-		//snprintf(control_pressed, sizeof(control_pressed), "BTN4");
-		//printf("BTN4_EXTI1_Pin\n");
+	uint16_t interrupt_time = TIM5->CNT;
+	if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
+	{
 		EM_SetNewEvent(evGreenBtn);
-//	}
+	}
+	last_interrupt_time = interrupt_time;
 
   /* USER CODE END EXTI1_IRQn 0 */
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_1) != RESET)
@@ -294,10 +299,12 @@ void EXTI2_IRQHandler(void)
   /* USER CODE BEGIN EXTI2_IRQn 0 */
 
 
-		//snprintf(control_pressed, sizeof(control_pressed), "ENC_BTN");
-		//printf("ENC_EXTI2_Pin\n");
+	uint16_t interrupt_time = TIM5->CNT;
+	if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
+	{
 		EM_SetNewEvent(evEncoderPush);
-
+	}
+	last_interrupt_time = interrupt_time;
 
 
   /* USER CODE END EXTI2_IRQn 0 */
@@ -440,13 +447,23 @@ void EXTI15_10_IRQHandler(void)
 
 	if(HAL_GPIO_ReadPin(BTN1_EXTI14_GPIO_Port, BTN1_EXTI14_Pin))
 	{
-		EM_SetNewEvent(evYellowBtn);
+//		uint16_t interrupt_time = TIM5->CNT;
+//		if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
+//		{
+			EM_SetNewEvent(evYellowBtn);
+//		}
+//		last_interrupt_time = interrupt_time;
 		//snprintf(control_pressed, sizeof(control_pressed), "BTN1");
 		//printf("BTN1_EXTI14_Pin\n");
 	}
 	if(HAL_GPIO_ReadPin(BTN2_EXTI15_GPIO_Port, BTN2_EXTI15_Pin))
 	{
-		EM_SetNewEvent(evBlueBtn);
+//		uint16_t interrupt_time = TIM5->CNT;
+//		if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
+//		{
+			EM_SetNewEvent(evBlueBtn);
+//		}
+//		last_interrupt_time = interrupt_time;
 		//snprintf(control_pressed, sizeof(control_pressed), "BTN2");
 		//printf("BTN2_EXTI15_Pin\n");
 	}

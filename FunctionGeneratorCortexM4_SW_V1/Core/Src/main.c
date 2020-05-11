@@ -249,7 +249,10 @@ int main(void)
 
 
   HAL_TIM_Base_Start_IT(&htim15);
+
+  // debounce timer
   HAL_TIM_Base_Start(&htim5);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */

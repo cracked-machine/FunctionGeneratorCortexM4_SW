@@ -1,6 +1,7 @@
 Core/Src/DisplayManager/DisplayManager.o: \
  ../Core/Src/DisplayManager/DisplayManager.c \
  ../Core/Src/DisplayManager/DisplayManager.h \
+ ../Core/Src/DisplayManager/FreqMenus.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FunctionOutput.h \
@@ -58,10 +59,11 @@ Core/Src/DisplayManager/DisplayManager.o: \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_TextManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h \
- ../Core/Inc/rng.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/snow_tiger.h
+ ../Core/Inc/rng.h
 
 ../Core/Src/DisplayManager/DisplayManager.h:
+
+../Core/Src/DisplayManager/FreqMenus.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h:
 
@@ -180,5 +182,3 @@ Core/Src/DisplayManager/DisplayManager.o: \
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h:
 
 ../Core/Inc/rng.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/snow_tiger.h:

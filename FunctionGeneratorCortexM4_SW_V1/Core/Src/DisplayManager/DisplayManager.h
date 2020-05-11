@@ -10,6 +10,7 @@
 
 #define ENCODER_DEBUG
 
+#include <stdint.h>
 
 /*
 typedef enum
@@ -45,8 +46,11 @@ typedef enum
 
 typedef enum
 {
-	DISABLE_FREQMENU = 0x00U,
-	ENABLE_FREQMENU
+	DISABLE_FREQ_MENU = 0x00U,
+	ENABLE_FREQ_MAIN_MENU,
+	ENABLE_FREQ_PRESET_MENU,
+	ENABLE_FREQ_ADJUST_MENU,
+	ENABLE_FREQ_SWEEP_MENU
 
 } eFreqMenu_Status;
 
@@ -55,11 +59,17 @@ void DM_PostInit();
 void DM_UpdateDisplay();
 
 void DM_RefreshBackgroundLayout();
+int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
 //void DM_SetDisplayMode(eDisplay_Mode pMode);
 void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue);
 void DM_ShowGainSelectMenu(eGainMenu_Status pValue);
-void DM_ShowFreqSelectMenu(eFreqMenu_Status pValue);
+
+
+void DM_ShowFreqMenu(eFreqMenu_Status pValue);
+
+
+
 void DM_ShowBiasSelectMenu(eBiasMenu_Status pValue);
 
 // unused
