@@ -41,7 +41,7 @@ eSystemState _BiasMenuHandler();
 eSystemState _BiasSetHandler();
 eSystemState _ExitBiasMenuHandler();
 
-eSystemState _AdjustConfirmedHandler();
+
 
 
 
@@ -115,23 +115,23 @@ void EM_ProcessEvent()
 			}
 			if(eNewEvent == evBlueBtn)
 			{
-				FreqO_ApplyPreset(FPRESET_1HZ);
-				eNextState = Freq_Menu_State;
+//				FreqO_ApplyPreset(FPRESET_1HZ);
+//				eNextState = Freq_Menu_State;
 			}
 			if(eNewEvent == evGreenBtn)
 			{
-				FreqO_ApplyPreset(FPRESET_100HZ);
-				eNextState = Freq_Menu_State;
+//				FreqO_ApplyPreset(FPRESET_100HZ);
+//				eNextState = Freq_Menu_State;
 			}
 			if(eNewEvent == evYellowBtn)
 			{
-				FreqO_ApplyPreset(FPRESET_1KHZ);
-				eNextState = Freq_Menu_State;
+//				FreqO_ApplyPreset(FPRESET_1KHZ);
+//				eNextState = Freq_Menu_State;
 			}
 			if(eNewEvent == evRedBtn)
 			{
-				FreqO_ApplyPreset(FPRESET_100KHZ);
-				eNextState = Freq_Menu_State;
+//				FreqO_ApplyPreset(FPRESET_100KHZ);
+//				eNextState = Freq_Menu_State;
 			}
 			break;
 
@@ -402,9 +402,9 @@ eSystemState _FreqMenuHandler()
 
 	DM_ShowFreqSelectMenu(ENABLE_FREQMENU);
 
-	// set the rotary encoder limits to 0-20 for this menu
-	ENCODER_TIMER->CNT = TIM8->ARR;
-	ENCODER_TIMER->ARR = FREQ_ENCODER_MAX;
+	// set the rotary encoder limits to 0-? for this menu
+	ENCODER_TIMER->CNT = 0;
+	ENCODER_TIMER->ARR = 56;
 
 	return Freq_Menu_State;
 }
