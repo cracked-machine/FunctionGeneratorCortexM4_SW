@@ -32127,3 +32127,7 @@
 2020-05-10 21:12:34,796 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.utils.elf.ElfHelper.<init>(ElfHelper.java:111)
 2020-05-10 21:12:34,796 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at com.st.stm32cube.ide.mcu.debug.launch.export.HardwareDebugUtil.createSWVsession(HardwareDebugUtil.java:175)
 2020-05-10 21:12:34,797 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	... 9 more
+2020-05-11 09:33:14,487 [INFO] Activator:176 - 
+
+
+2020-05-11 09:33:14,491 [INFO] Activator:177 - !SESSION log4j initialized

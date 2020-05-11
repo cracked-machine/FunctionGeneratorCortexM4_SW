@@ -5210,7 +5210,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-  HAL_Init();
+	HAL_Init();
  800220e:	f000 ff42 	bl	8003096 <HAL_Init>
   /* USER CODE BEGIN Init */
 
@@ -24866,14 +24866,14 @@ void ILI9341_Draw_Rectangle(uint16_t xpos, uint16_t ypos, uint16_t width, uint16
  800937a:	1ad3      	subs	r3, r2, r3
  800937c:	803b      	strh	r3, [r7, #0]
 		}
-	ILI9341_Set_Frame(xpos,
+	ILI9341_Set_Frame(	xpos,
 						ypos,
 						(xpos + width) - 1,
  800937e:	88fa      	ldrh	r2, [r7, #6]
  8009380:	887b      	ldrh	r3, [r7, #2]
  8009382:	4413      	add	r3, r2
  8009384:	b29b      	uxth	r3, r3
-	ILI9341_Set_Frame(xpos,
+	ILI9341_Set_Frame(	xpos,
  8009386:	3b01      	subs	r3, #1
  8009388:	b29c      	uxth	r4, r3
 						(ypos + height) - 1);
@@ -24881,7 +24881,7 @@ void ILI9341_Draw_Rectangle(uint16_t xpos, uint16_t ypos, uint16_t width, uint16
  800938c:	883b      	ldrh	r3, [r7, #0]
  800938e:	4413      	add	r3, r2
  8009390:	b29b      	uxth	r3, r3
-	ILI9341_Set_Frame(xpos,
+	ILI9341_Set_Frame(	xpos,
  8009392:	3b01      	subs	r3, #1
  8009394:	b29b      	uxth	r3, r3
  8009396:	88b9      	ldrh	r1, [r7, #4]
@@ -24931,9 +24931,9 @@ void ILI9341_Draw_Rectangle(uint16_t xpos, uint16_t ypos, uint16_t width, uint16
  80093d8:	9300      	str	r3, [sp, #0]
  80093da:	4623      	mov	r3, r4
  80093dc:	f000 f898 	bl	8009510 <_LCD_Write_Frame>
-								colour,
-								size,
-								chunk_type);
+						colour,
+						size,
+						chunk_type);
 
 	// add the truncated pixel now
 	if(truncated)

@@ -476,7 +476,7 @@ void ILI9341_Draw_Rectangle(uint16_t xpos, uint16_t ypos, uint16_t width, uint16
 		{
 			height=LCD_HEIGHT-ypos;
 		}
-	ILI9341_Set_Frame(xpos,
+	ILI9341_Set_Frame(	xpos,
 						ypos,
 						(xpos + width) - 1,
 						(ypos + height) - 1);
@@ -496,10 +496,10 @@ void ILI9341_Draw_Rectangle(uint16_t xpos, uint16_t ypos, uint16_t width, uint16
 	}
 
 	_LCD_Write_Frame(	xpos,
-								ypos,
-								colour,
-								size,
-								chunk_type);
+						ypos,
+						colour,
+						size,
+						chunk_type);
 
 	// add the truncated pixel now
 	if(truncated)
