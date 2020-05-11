@@ -147,19 +147,19 @@ void FreqO_ApplyPreset(eFreq_Preset pPreset)
 			break;
 		case FPRESET_50HZ:
 			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x6D00;
+			TIM8->ARR = 0x6D7F;
 
 			eNewFreqPreset = FPRESET_50HZ;
 			break;
 		case FPRESET_100HZ:
 			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x37FF;
+			TIM8->ARR = 0x36C1;
 
 			eNewFreqPreset = FPRESET_100HZ;
 			break;
 		case FPRESET_250HZ:
 			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x163F;
+			TIM8->ARR = 0x15F0;
 
 			eNewFreqPreset = FPRESET_250HZ;
 			break;
@@ -228,8 +228,10 @@ eFreq_Preset FreqO_GetFPreset()
 void FreqO_AdjustFreq()
 {
 		//TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_HIFREQ_MAG;
-		TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_MIDFREQ_MAG;
+		TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD); //* FREQ_ENCODER_MIDFREQ_MAG;
 		//TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_LOFREQ_MAG;
 }
+
+
 
 #endif /* SRC_SIGNALMANAGER_FREQOUTPUT_C_ */

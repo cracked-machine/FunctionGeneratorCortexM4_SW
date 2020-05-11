@@ -12,22 +12,22 @@
 
 #include "SignalManager.h"
 
-// signal output gain settings
-typedef enum
-{
-	Zero_Gain = 0U,
-	One_Gain,
-	Two_Gain,
-	Three_Gain,
-	Four_Gain,
-	Five_Gain,
-	Six_Gain,
-	Seven_Gain
 
-} eOutput_gain;
+
+int8_t gain_decibels[8] = { -1, 0, 6, 9, 12, 14, 16, 18 };
 
 // signal output gain
 eOutput_gain eNewOutGain = One_Gain;
+
+/*
+ *
+ *
+ *
+ */
+int8_t GO_GetGainInDecibels(eOutput_gain pGain)
+{
+	return gain_decibels[pGain];
+}
 
 /*
  *

@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="ILI9341_Set_Frame"/>
+		<item key="selection" value="menu_pos_y7"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="ILI9341_Set_Address"/>
-			<item value="_LCD_Draw_colour_Burst"/>
-			<item value="_LCD_Write_Frame"/>
-			<item value="_SPI_SendData"/>
-			<item value="_SPI_SendCommand"/>
-			<item value="ILI9341_Draw_colour_Burst"/>
-			<item value="ILI9341_Reset"/>
-			<item value="ILI9341_Enable"/>
-			<item value="_Write_Data"/>
-			<item value="_Write_Command"/>
-			<item value="ILI9341_SPI_SendByte"/>
-			<item value="ILI9341_Write_Data"/>
-			<item value="ILI9341_Write_Command"/>
-			<item value="ILI9341_Draw_colour"/>
-			<item value="SPI3"/>
+			<item value="menu_pos_y7"/>
+			<item value="155"/>
+			<item value="170"/>
+			<item value="135"/>
+			<item value="115"/>
+			<item value="130"/>
+			<item value="95"/>
+			<item value="110"/>
+			<item value="TIM8ARR"/>
+			<item value="TIM8PSC"/>
+			<item value="&#x09;// don&apos;t let the DisplayManager interrupt the LCD refresh"/>
+			<item value="htim5"/>
+			<item value="Enter"/>
+			<item value="_ExitBiasMenuHandler"/>
+			<item value="_BiasSetHandler"/>
 		</list>
 		<list key="replacehistory">
-			<item value="ILI9341_Set_Frame"/>
-			<item value="_LCD_Write_Frame"/>
-			<item value=""/>
-			<item value="_LCD_SendData"/>
-			<item value="_LCD_SendCommand"/>
-			<item value="_LCD_Draw_colour_Burst"/>
-			<item value="_LCD_Reset"/>
-			<item value="_LCD_Enable"/>
-			<item value="_SPI_SendData"/>
-			<item value="_SPI_SendCommand"/>
-			<item value="_SPI_SendByte"/>
-			<item value="_Write_Data"/>
-			<item value="_Write_Command"/>
-			<item value="SPI_PERIPH"/>
-			<item value="ILI9341_SPI_SendByte"/>
+			<item value="menu_pos_y7"/>
+			<item value="menu_pos_y6"/>
+			<item value="menu_pos_y5"/>
+			<item value="menu_pos_y4"/>
+			<item value="tim8_arr"/>
+			<item value="tim8_psc"/>
+			<item value="Entry"/>
+			<item value="_BiasMenuExitHandler"/>
+			<item value="_BiasMenuInputHandler"/>
+			<item value="_BiasMenuEnterHandler"/>
+			<item value="_FreqMainMenuExitHandler"/>
+			<item value="_FreqMainMenuInputHandler"/>
+			<item value="_FreqMainMenuEnterHandler"/>
+			<item value="_GainMenuExitHandler"/>
+			<item value="_GainMenuInputHandler"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

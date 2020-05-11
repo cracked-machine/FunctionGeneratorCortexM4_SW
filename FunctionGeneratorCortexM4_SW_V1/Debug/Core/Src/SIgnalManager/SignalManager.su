@@ -1,1 +1,2 @@
-SignalManager.c:12:10:SM_GetEncoderValue	16	static
+SignalManager.c:15:10:SM_GetEncoderValue	16	static
+SignalManager.c:27:7:SM_GetOutputInHertz	24	static

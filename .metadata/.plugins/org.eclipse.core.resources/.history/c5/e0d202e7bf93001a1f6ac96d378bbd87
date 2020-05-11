@@ -1,0 +1,40 @@
+/*
+ * SignalManager.c
+ *
+ *  Created on: 9 May 2020
+ *      Author: chris
+ */
+
+
+#include "SignalManager.h"
+
+#define MCLK 168000000
+
+uint16_t SM_GetEncoderValue(eEncoder_Direction direction)
+{
+	if(direction)
+	{
+		return ENCODER_TIMER->ARR - ENCODER_TIMER->CNT;
+	}
+	else
+	{
+		return ENCODER_TIMER->CNT;
+	}
+}
+
+uint32_t SM_GetOutputInHertz()
+{
+	volatile uint32_t TIM8PSC;
+	volatile uint32_t TIM8ARR;
+
+	TIM8->PSC == 0) ? TIM8PSC = 1 : TIM8PSC = TIM8->PSC;
+
+	if(TIM8->ARR == 0)
+		TIM8ARR = 1;
+	else
+		TIM8ARR = TIM8->ARR;
+
+		return MCLK / (1 * TIM8->ARR);
+	else
+		return MCLK / (TIM8->PSC * TIM8->ARR);
+}

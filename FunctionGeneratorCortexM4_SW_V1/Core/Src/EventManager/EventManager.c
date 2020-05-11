@@ -482,8 +482,9 @@ eSystemState _FreqPresetMenuEntryHandler()
 
 	DM_ShowFreqMenu(ENABLE_FREQ_PRESET_MENU);
 
-	// set the rotary encoder limits to 0-? for this menu
-	ENCODER_TIMER->CNT = FreqO_GetFPreset();
+	// Always set the default preset to 100Hz
+	ENCODER_TIMER->CNT = 44;
+	FreqO_ApplyPreset(FPRESET_100HZ);
 	ENCODER_TIMER->ARR = 56;
 
 	// stay in this state
@@ -527,7 +528,7 @@ eSystemState _FreqPresetMenuExitHandler()
 
 	// reset the encoder range
 
-	ENCODER_TIMER->ARR = 1024;
+	//ENCODER_TIMER->ARR = 1024;
 
 	// back to main freq menu
 	eNewEvent = evGreenBtn;
@@ -550,7 +551,7 @@ eSystemState _FreqAdjustMenuEntryHandler()
 	DM_ShowFreqMenu(ENABLE_FREQ_ADJUST_MENU);
 
 	// set the rotary encoder limits to 0-? for this menu
-
+	ENCODER_TIMER->CNT = TIM8->ARR;
 	ENCODER_TIMER->ARR = 65535;
 
 	// stay in this state
@@ -594,7 +595,7 @@ eSystemState _FreqAdjustMenuExitHandler()
 
 	// reset the encoder range
 
-	ENCODER_TIMER->ARR = 1024;
+	//ENCODER_TIMER->ARR = 1024;
 
 	// back to main freq menu
 	eNewEvent = evGreenBtn;
