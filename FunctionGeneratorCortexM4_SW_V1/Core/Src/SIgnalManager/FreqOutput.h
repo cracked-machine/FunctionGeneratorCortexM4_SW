@@ -12,20 +12,20 @@
 
 typedef enum
 {
-	FPRESET_1HZ = 0U,
-	FPRESET_10HZ,
-	FPRESET_50HZ,
-	FPRESET_100HZ,
-	FPRESET_250HZ,
-	FPRESET_500HZ,
-	FPRESET_750HZ,
-	FPRESET_1KHZ,
-	FPRESET_5KHZ,
-	FPRESET_10KHZ,
-	FPRESET_25KHZ,
-	FPRESET_50KHZ,
-	FPRESET_75KHZ,
-	FPRESET_100KHZ
+	FPRESET_1HZ 	= 1U,
+	FPRESET_10HZ	= 10U,
+	FPRESET_50HZ	= 50U,
+	FPRESET_100HZ	= 100U,
+	FPRESET_250HZ	= 250U,
+	FPRESET_500HZ	= 500U,
+	FPRESET_750HZ	= 750U,
+	FPRESET_1KHZ	= 1000U,
+	FPRESET_5KHZ	= 5000U,
+	FPRESET_10KHZ	= 10000U,
+	FPRESET_25KHZ	= 25000U,
+	FPRESET_50KHZ	= 50000U,
+	FPRESET_75KHZ	= 75000U,
+	FPRESET_100KHZ	= 100000U
 
 } eFreq_Preset;
 
@@ -36,7 +36,10 @@ typedef enum
 
 void FreqO_ModifyOutput();
 uint32_t FreqO_GetOutputFreq();
+
 void FreqO_ApplyPreset(eFreq_Preset pPreset);
+void FreqO_ApplyPreset_Fast(eFreq_Preset pPreset);
+
 eFreq_Preset FreqO_GetFPreset();
 void FreqO_AdjustFreq();
 

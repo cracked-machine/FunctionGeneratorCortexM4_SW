@@ -1,0 +1,34 @@
+/*
+ * DacTimer.h
+ *
+ *  Created on: 12 May 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_SIGNALMANAGER_DACTIMERREGISTRY_H_
+#define SRC_SIGNALMANAGER_DACTIMERREGISTRY_H_
+
+#include "SignalManager.h"
+
+#include <stdint.h>
+
+#define MAX_DAC_TIMER_SETTINGS 14
+
+
+
+typedef struct
+{
+	uint8_t 		id;				// index
+	eFreq_Preset 	hertz;			// freq enum
+	uint32_t		psc;			// MCU timer prescaler
+	uint32_t		arr;			// MCU timer auto-reload (top)
+	float			error;			// coefficient for error correction, if needed
+
+} DacTimeReg_t;
+
+DacTimeReg_t DacTimerReg[MAX_DAC_TIMER_SETTINGS];
+
+void DT_InitRegister();
+DacTimeReg_t* DT_GetRegister(uint8_t pIndex);
+
+#endif /* SRC_SIGNALMANAGER_DACTIMERREGISTRY_H_ */

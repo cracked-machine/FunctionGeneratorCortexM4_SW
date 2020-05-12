@@ -14,7 +14,10 @@
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void FreqMenu_DrawFreqMainMenu()
@@ -31,7 +34,10 @@ void FreqMenu_DrawFreqMainMenu()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void FreqMenu_DrawFreqPresetMenu()
@@ -291,7 +297,10 @@ void FreqMenu_DrawFreqPresetMenu()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void FreqMenu_DrawFreqAdjustMenu()
@@ -309,7 +318,10 @@ void FreqMenu_DrawFreqAdjustMenu()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void FreqMenu_DrawFreqSweepMenu()

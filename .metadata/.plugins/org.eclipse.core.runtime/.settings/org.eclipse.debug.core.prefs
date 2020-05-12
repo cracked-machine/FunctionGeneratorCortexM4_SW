@@ -4,4 +4,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.postmortemLaunchType=org.eclipse.cdt.dsf.gdb.launch.coreCLaunch,debug,;
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="hspi-&gt;TxXferCount"/>\n<expression enabled\="true" text\="(uint16_t)fade_lin_seq_data_table[i]"/>\n<expression enabled\="true" text\="eNewOutGain"/>\n<expression enabled\="true" text\="ENCODER_TIMER-&gt;CNT"/>\n<expression enabled\="true" text\="TIM8-&gt;ARR"/>\n<expression enabled\="true" text\="TIM8-&gt;PSC"/>\n</watchExpressions>\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="DacTimerReg"/>\n</watchExpressions>\n

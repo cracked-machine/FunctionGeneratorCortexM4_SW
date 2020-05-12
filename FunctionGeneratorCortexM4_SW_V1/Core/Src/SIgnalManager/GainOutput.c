@@ -21,7 +21,10 @@ eOutput_gain eNewOutGain = One_Gain;
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 int8_t GO_GetGainInDecibels(eOutput_gain pGain)
@@ -31,7 +34,10 @@ int8_t GO_GetGainInDecibels(eOutput_gain pGain)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void GO_SetOutputToEncoder(uint8_t pGain)
@@ -117,6 +123,14 @@ void GO_SetOutputToEncoder(uint8_t pGain)
 
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void GO_SetOutputGain(uint8_t pGain, uint8_t reverse)
 {
 	if(reverse)
@@ -232,7 +246,10 @@ void GO_SetOutputGain(uint8_t pGain, uint8_t reverse)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 uint8_t GO_GetOutputGain()

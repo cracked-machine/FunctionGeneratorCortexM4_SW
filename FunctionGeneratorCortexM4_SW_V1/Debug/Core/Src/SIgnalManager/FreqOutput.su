@@ -1,5 +1,6 @@
 FreqOutput.c:24:6:FreqO_ModifyOutput	8	static
 FreqOutput.c:122:10:FreqO_GetOutputFreq	4	static
-FreqOutput.c:132:6:FreqO_ApplyPreset	16	static
-FreqOutput.c:223:14:FreqO_GetFPreset	4	static
-FreqOutput.c:228:6:FreqO_AdjustFreq	8	static
+FreqOutput.c:132:6:FreqO_ApplyPreset_Fast	16	static
+FreqOutput.c:256:6:FreqO_ApplyPreset	24	static
+FreqOutput.c:267:14:FreqO_GetFPreset	4	static
+FreqOutput.c:272:6:FreqO_AdjustFreq	8	static

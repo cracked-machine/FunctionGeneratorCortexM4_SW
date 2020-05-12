@@ -17,7 +17,10 @@ eBias_Polarity eBiasPolarity = NORMALBIAS;
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eBias_Polarity BO_GetBiasPolarity()
@@ -27,7 +30,10 @@ eBias_Polarity BO_GetBiasPolarity()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void BO_ModifyOutput()
@@ -64,7 +70,10 @@ void BO_ModifyOutput()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 uint32_t BO_GetOutputBias()

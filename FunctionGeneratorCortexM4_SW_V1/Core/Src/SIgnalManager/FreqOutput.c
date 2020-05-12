@@ -18,7 +18,10 @@ eFreq_Preset eNewFreqPreset = FPRESET_100HZ;
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void FreqO_ModifyOutput()
@@ -116,7 +119,10 @@ void FreqO_ModifyOutput()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 uint32_t FreqO_GetOutputFreq()
@@ -126,105 +132,171 @@ uint32_t FreqO_GetOutputFreq()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
-void FreqO_ApplyPreset(eFreq_Preset pPreset)
+void FreqO_ApplyPreset_Fast(eFreq_Preset pPreset)
 {
 	switch(pPreset)
 	{
 		case FPRESET_1HZ:
-			TIM8->PSC = 0x0014;
-			TIM8->ARR = 0xFFFF;
+			TIM8->PSC = DT_GetRegisterByIndex(0)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(0)->arr;
+//			TIM8->PSC = 0x0014;
+//			TIM8->ARR = 0xFFFF;
 
 			eNewFreqPreset = FPRESET_1HZ;
 			break;
 		case FPRESET_10HZ:
-			TIM8->PSC = 0x0003;
-			TIM8->ARR = 0x87FF;
+			TIM8->PSC = DT_GetRegisterByIndex(1)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(1)->arr;
+//			TIM8->PSC = 0x0003;
+//			TIM8->ARR = 0x87FF;
 
 			eNewFreqPreset = FPRESET_10HZ;
 			break;
 		case FPRESET_50HZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x6D7F;
+			TIM8->PSC = DT_GetRegisterByIndex(2)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(2)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x6D7F;
 
 			eNewFreqPreset = FPRESET_50HZ;
 			break;
 		case FPRESET_100HZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x36C1;
+			TIM8->PSC = DT_GetRegisterByIndex(3)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(3)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x36B0;
 
 			eNewFreqPreset = FPRESET_100HZ;
 			break;
 		case FPRESET_250HZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x15F0;
+			TIM8->PSC = DT_GetRegisterByIndex(4)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(4)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x15E0;
 
 			eNewFreqPreset = FPRESET_250HZ;
 			break;
 		case FPRESET_500HZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x0AFF;
+			TIM8->PSC = DT_GetRegisterByIndex(5)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(5)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x0AFF;
 
 			eNewFreqPreset = FPRESET_500HZ;
 			break;
 		case FPRESET_750HZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x07BF;
+			TIM8->PSC = DT_GetRegisterByIndex(6)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(6)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x07BF;
 
 			eNewFreqPreset = FPRESET_750HZ;
 			break;
 		case FPRESET_1KHZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x0577;
+			TIM8->PSC = DT_GetRegisterByIndex(7)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(7)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x0577;
 
 			eNewFreqPreset = FPRESET_1KHZ;
 			break;
 		case FPRESET_5KHZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x0118;
+			TIM8->PSC = DT_GetRegisterByIndex(8)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(8)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x0118;
 
 			eNewFreqPreset = FPRESET_5KHZ;
 			break;
 		case FPRESET_10KHZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x008B;
+			TIM8->PSC = DT_GetRegisterByIndex(9)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(9)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x008B;
 
 			eNewFreqPreset = FPRESET_10KHZ;
 			break;
 		case FPRESET_25KHZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x0037;
+			TIM8->PSC = DT_GetRegisterByIndex(10)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(10)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x0037;
 
 			eNewFreqPreset = FPRESET_25KHZ;
 			break;
 		case FPRESET_50KHZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x001B;
+			TIM8->PSC = DT_GetRegisterByIndex(11)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(11)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x001B;
 
 			eNewFreqPreset = FPRESET_50KHZ;
 			break;
 		case FPRESET_75KHZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x0012;
+			TIM8->PSC = DT_GetRegisterByIndex(12)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(12)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x0012;
 
 			eNewFreqPreset = FPRESET_75KHZ;
 			break;
 		case FPRESET_100KHZ:
-			TIM8->PSC = 0x0000;
-			TIM8->ARR = 0x0006;
+			TIM8->PSC = DT_GetRegisterByIndex(13)->psc;
+			TIM8->ARR = DT_GetRegisterByIndex(13)->arr;
+//			TIM8->PSC = 0x0000;
+//			TIM8->ARR = 0x0006;
 
 			eNewFreqPreset = FPRESET_100KHZ;
 			break;
 	}
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqO_ApplyPreset(eFreq_Preset pPreset)
+{
+	DacTimeReg_t* tmp = DT_GetRegisterByEnum(pPreset);
+	if(tmp)
+	{
+		TIM8->PSC = tmp->psc;
+		TIM8->ARR = tmp->arr;
+		eNewFreqPreset = pPreset;
+	}
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 eFreq_Preset FreqO_GetFPreset()
 {
 	return eNewFreqPreset;
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FreqO_AdjustFreq()
 {
 		//TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_HIFREQ_MAG;

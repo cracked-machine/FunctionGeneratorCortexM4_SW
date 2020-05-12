@@ -1,0 +1,29 @@
+/*
+ * DacTimer.c
+ *
+ *  Created on: 12 May 2020
+ *      Author: chris
+ */
+
+#include "DacTimer.h"
+
+DacTimeReg_t DacTimerReg[MAX_DAC_TIMER_SETTINGS] =
+{
+
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+		{0, 0, 0},
+
+
+};

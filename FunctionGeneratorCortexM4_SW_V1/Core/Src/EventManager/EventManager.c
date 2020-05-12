@@ -66,7 +66,10 @@ eSystemEvent eNewEvent = evIdle;
 
 /*
  *
- * 	Main state machine for event process
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 void EM_ProcessEvent()
@@ -207,7 +210,10 @@ void EM_ProcessEvent()
 
 /*
  *
- *	Business logic for evFunctionMenu events
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FuncMenuEntryHandler(void)
@@ -229,7 +235,10 @@ eSystemState _FuncMenuEntryHandler(void)
 
 /*
  *
- *	Business logic for evFunctionSet events
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FuncMenuInputHandler(void)
@@ -246,7 +255,10 @@ eSystemState _FuncMenuInputHandler(void)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FuncMenuExitHandler()
@@ -272,7 +284,10 @@ eSystemState _FuncMenuExitHandler()
 
 /*
  *
- *	Business logic for AmplitudeAdjust events
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _GainMenuEntryHandler()
@@ -294,7 +309,10 @@ eSystemState _GainMenuEntryHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _GainMenuInputHandler()
@@ -311,7 +329,10 @@ eSystemState _GainMenuInputHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _GainMenuExitHandler()
@@ -336,7 +357,10 @@ eSystemState _GainMenuExitHandler()
 
 /*
  *
- *	Business logic for BiasMenu events
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _BiasMenuEntryHandler()
@@ -360,7 +384,10 @@ eSystemState _BiasMenuEntryHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _BiasMenuInputHandler()
@@ -377,7 +404,10 @@ eSystemState _BiasMenuInputHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _BiasMenuExitHandler()
@@ -402,7 +432,10 @@ eSystemState _BiasMenuExitHandler()
 
 /*
  *
- *	event handler for main freq menu
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqMainMenuEntryHandler()
@@ -427,7 +460,10 @@ eSystemState _FreqMainMenuEntryHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqMainMenuInputHandler()
@@ -444,7 +480,10 @@ eSystemState _FreqMainMenuInputHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqMainMenuExitHandler()
@@ -469,7 +508,10 @@ eSystemState _FreqMainMenuExitHandler()
 
 /*
  *
- *	event handler for main freq menu
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqPresetMenuEntryHandler()
@@ -495,7 +537,10 @@ eSystemState _FreqPresetMenuEntryHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqPresetMenuInputHandler()
@@ -513,7 +558,10 @@ eSystemState _FreqPresetMenuInputHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqPresetMenuExitHandler()
@@ -537,7 +585,10 @@ eSystemState _FreqPresetMenuExitHandler()
 
 /*
  *
- *	event handler for main freq menu
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqAdjustMenuEntryHandler()
@@ -561,7 +612,10 @@ eSystemState _FreqAdjustMenuEntryHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqAdjustMenuInputHandler()
@@ -580,7 +634,10 @@ eSystemState _FreqAdjustMenuInputHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqAdjustMenuExitHandler()
@@ -604,7 +661,10 @@ eSystemState _FreqAdjustMenuExitHandler()
 
 /*
  *
- *	event handler for main freq menu
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqSweepMenuEntryHandler()
@@ -628,7 +688,10 @@ eSystemState _FreqSweepMenuEntryHandler()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState _FreqSweepMenuExitHandler()
@@ -653,7 +716,10 @@ eSystemState _FreqSweepMenuExitHandler()
 
 /*
  *
- * 	Set by NVIC interrupt handlers
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
  *
  */
 void EM_SetNewEvent(eSystemEvent pEvent)
@@ -664,7 +730,10 @@ void EM_SetNewEvent(eSystemEvent pEvent)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eSystemState EM_GetSystemState()
@@ -673,7 +742,14 @@ eSystemState EM_GetSystemState()
 }
 
 
-
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void _RefreshDisplay()
 {
 	// don't let the DisplayManager interrupt the LCD refresh

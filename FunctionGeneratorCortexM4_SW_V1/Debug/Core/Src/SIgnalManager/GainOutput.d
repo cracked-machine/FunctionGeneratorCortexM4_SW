@@ -51,7 +51,8 @@ Core/Src/SIgnalManager/GainOutput.o: \
  ../Core/Inc/tim.h ../Core/Src/SIgnalManager/SignalManager.h \
  ../Core/Src/SIgnalManager/FunctionOutput.h \
  ../Core/Src/SIgnalManager/BiasOutput.h \
- ../Core/Src/SIgnalManager/FreqOutput.h
+ ../Core/Src/SIgnalManager/FreqOutput.h \
+ ../Core/Src/SIgnalManager/DacTimerRegistry.h
 
 ../Core/Src/SIgnalManager/GainOutput.h:
 
@@ -162,3 +163,5 @@ Core/Src/SIgnalManager/GainOutput.o: \
 ../Core/Src/SIgnalManager/BiasOutput.h:
 
 ../Core/Src/SIgnalManager/FreqOutput.h:
+
+../Core/Src/SIgnalManager/DacTimerRegistry.h:

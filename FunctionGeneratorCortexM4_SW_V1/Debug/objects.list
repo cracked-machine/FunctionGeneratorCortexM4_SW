@@ -2,6 +2,7 @@
 "Core/Src/DisplayManager/FreqMenus.o"
 "Core/Src/EventManager/EventManager.o"
 "Core/Src/SIgnalManager/BiasOutput.o"
+"Core/Src/SIgnalManager/DacTimerRegistry.o"
 "Core/Src/SIgnalManager/FreqOutput.o"
 "Core/Src/SIgnalManager/FunctionOutput.o"
 "Core/Src/SIgnalManager/GainOutput.o"

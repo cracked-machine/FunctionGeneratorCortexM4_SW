@@ -4,7 +4,8 @@ Core/Src/SIgnalManager/SignalManager.o: \
  ../Core/Src/SIgnalManager/FunctionOutput.h \
  ../Core/Src/SIgnalManager/GainOutput.h \
  ../Core/Src/SIgnalManager/BiasOutput.h \
- ../Core/Src/SIgnalManager/FreqOutput.h ../Core/Inc/tim.h \
+ ../Core/Src/SIgnalManager/FreqOutput.h \
+ ../Core/Src/SIgnalManager/DacTimerRegistry.h ../Core/Inc/tim.h \
  ../Core/Inc/main.h ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
@@ -62,6 +63,8 @@ Core/Src/SIgnalManager/SignalManager.o: \
 ../Core/Src/SIgnalManager/BiasOutput.h:
 
 ../Core/Src/SIgnalManager/FreqOutput.h:
+
+../Core/Src/SIgnalManager/DacTimerRegistry.h:
 
 ../Core/Inc/tim.h:
 

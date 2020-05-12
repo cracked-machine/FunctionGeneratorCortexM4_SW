@@ -27,6 +27,14 @@ eOutput_mode FO_GetOutputMode();
 // signal output function
 eOutput_mode eNewOutMode = Sine_Out_Mode;
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FuncO_ModifyOutput()
 {
 
@@ -93,7 +101,10 @@ void FuncO_ModifyOutput()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void FuncO_SetOutputMode(eOutput_mode pNewMode)
@@ -104,7 +115,10 @@ void FuncO_SetOutputMode(eOutput_mode pNewMode)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 eOutput_mode FuncO_GetOutputMode()

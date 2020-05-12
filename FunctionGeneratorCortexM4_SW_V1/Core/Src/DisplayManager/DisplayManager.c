@@ -56,7 +56,10 @@ void _DrawBiasSelectMenu();
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_Init()
@@ -69,7 +72,10 @@ void DM_Init()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_PostInit()
@@ -82,6 +88,14 @@ void DM_PostInit()
 	  printf("Init Completed\n");
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void DM_DisplayFormattedOutput()
 {
 	char out_hertz[13] = "";
@@ -134,10 +148,12 @@ void DM_DisplayFormattedOutput()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
-
 void DM_UpdateDisplay()
 {
 
@@ -245,7 +261,10 @@ void DM_UpdateDisplay()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue)
@@ -255,7 +274,10 @@ void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void _DrawFuncSelectMenu()
@@ -319,7 +341,10 @@ void _DrawFuncSelectMenu()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_ShowGainSelectMenu(eGainMenu_Status pValue)
@@ -329,7 +354,10 @@ void DM_ShowGainSelectMenu(eGainMenu_Status pValue)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void _DrawGainSelectMenu()
@@ -348,7 +376,10 @@ void _DrawGainSelectMenu()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_ShowFreqMenu(eFreqMenu_Status pValue)
@@ -361,7 +392,10 @@ void DM_ShowFreqMenu(eFreqMenu_Status pValue)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_ShowBiasSelectMenu(eBiasMenu_Status pValue)
@@ -371,7 +405,10 @@ void DM_ShowBiasSelectMenu(eBiasMenu_Status pValue)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void _DrawBiasSelectMenu()
@@ -401,7 +438,10 @@ void _DrawBiasSelectMenu()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 int DM_DigitCount(int num)
@@ -422,8 +462,10 @@ int DM_DigitCount(int num)
 
 /*
  *
- * Call this only once during init.
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_RefreshBackgroundLayout()
@@ -472,7 +514,10 @@ void DM_RefreshBackgroundLayout()
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_RegisterStrings()
@@ -490,16 +535,20 @@ void DM_RegisterStrings()
 
 /*
  *
- *	adds num to buffer with empty char padding
+ *	@brief adds num to buffer with empty char padding
  *
  *	used so that smaller number can erase previously
  *	larger number when displayed on TFT
  *
  *	buflen should be +1 to account for terminating null zero
  *
- *	returns 	0 when OK
- *				1 if buflen is invalid size
- *				2 unknown error
+ *	@param num
+ *	@param buffer
+ *	@param buflen
+ *
+ *	@retval 0 when OK
+ *			1 if buflen is invalid size
+ *			2 unknown error
  *
  */
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen)
@@ -543,7 +592,10 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen)
 
 /*
  *
+ *	@brief
  *
+ *	@param None
+ *	@retval None
  *
  */
 void DM_TestScreen()

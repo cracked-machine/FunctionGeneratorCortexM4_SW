@@ -1,0 +1,3 @@
+DacTimerRegistry.c:38:6:DT_InitRegister	16	static
+DacTimerRegistry.c:58:15:DT_GetRegisterByIndex	16	static
+DacTimerRegistry.c:71:15:DT_GetRegisterByEnum	24	static

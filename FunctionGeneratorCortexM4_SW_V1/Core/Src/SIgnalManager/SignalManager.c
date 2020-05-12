@@ -9,9 +9,15 @@
 #include "SignalManager.h"
 #include <math.h>
 
-#define MCLK 168000000		// MCU master clock frequency
-#define FSAMP 120			// sampling frequency, defined in WaveTableGeneratiom scripts
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 uint16_t SM_GetEncoderValue(eEncoder_Direction direction)
 {
 	if(direction)
@@ -24,6 +30,14 @@ uint16_t SM_GetEncoderValue(eEncoder_Direction direction)
 	}
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 float SM_GetOutputInHertz()
 {
 	volatile float tim8_psc;
@@ -33,9 +47,9 @@ float SM_GetOutputInHertz()
 	(TIM8->PSC == 0) ? (tim8_psc = 1) : (tim8_psc = TIM8->PSC);
 	(TIM8->ARR == 0) ? (tim8_arr = 1) : (tim8_arr = TIM8->ARR);
 
-	float tim8_freq = MCLK / (tim8_psc * tim8_arr);
+	float tim8_freq = SM_MCLK / (tim8_psc * tim8_arr);
 
 
-	return tim8_freq / FSAMP;
+	return tim8_freq / SM_FSAMP;
 }
 

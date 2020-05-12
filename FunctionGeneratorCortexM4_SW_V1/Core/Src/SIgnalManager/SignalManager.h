@@ -12,10 +12,14 @@
 #include "GainOutput.h"
 #include "BiasOutput.h"
 #include "FreqOutput.h"
+#include "DacTimerRegistry.h"
 
 #include "tim.h"
 
 #define ENCODER_TIMER	TIM1
+#define SM_MCLK 168000000		// MCU master clock frequency
+#define SM_FSAMP 120			// sampling frequency, defined in WaveTableGeneratiom scripts
+
 
 typedef enum
 {
