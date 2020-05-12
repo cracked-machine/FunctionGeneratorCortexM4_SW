@@ -226,9 +226,13 @@ eSystemState _FuncMenuEntryHandler(void)
 
 	DM_ShowFuncSelectMenu(ENABLE_FUNCMENU);
 
-	// set the rotary encoder limits to 0-20 for this menu
-	ENCODER_TIMER->CNT = 20;
-	ENCODER_TIMER->ARR = 20;
+	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
+	if(pFuncPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
+		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
+	}
+
 
 	return Func_Menu_State;
 }
@@ -248,7 +252,7 @@ eSystemState _FuncMenuInputHandler(void)
 #endif
 
 
-	FuncO_ModifyOutput();
+	FuncO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 	eNewEvent = evBlueBtn;
 	return Func_Menu_State;
 }

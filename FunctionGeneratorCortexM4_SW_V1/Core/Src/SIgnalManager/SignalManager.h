@@ -21,6 +21,7 @@
 #define SM_FSAMP 120			// sampling frequency, defined in WaveTableGeneratiom scripts
 
 #define eDefaultFreqPreset FPRESET_1KHZ
+#define eDefaultFuncPreset SINE_FUNC_MODE
 
 typedef enum
 {
@@ -31,6 +32,6 @@ typedef enum
 
 uint16_t SM_GetEncoderValue(eEncoder_Direction direction);
 float SM_GetOutputInHertz();
-eFreq_Preset SM_GetDefaultFreqPreset();
+
 
 #endif /* SRC_SIGNALMANAGER_SIGNALMANAGER_H_ */

@@ -146,7 +146,8 @@ int main(void)
   DT_InitRegister();
 
   // main signal function output (external)
-  HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+  FuncO_ApplyPreset(eDefaultFuncPreset);
+  //HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
   //TIM8->ARR = sin1_max_arr;
 
   // DC bias output (internal)
@@ -161,12 +162,13 @@ int main(void)
   HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, triangle_data_table, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
 
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
+
 #ifndef DISABLE_ALL_TIMERS
+
   // single clock to run all DAC channels. TODO add independent clocks
   HAL_TIM_Base_Start(&htim8);
-  //TIM8->ARR = 14015;			// 100Hz
-  FreqO_ApplyPreset(SM_GetDefaultFreqPreset());
-  //TIM8->ARR = 65535;
+  FreqO_ApplyPreset(eDefaultFreqPreset);
+
 #endif //DISABLE_ALL_TIMERS
 
   // DC bias inversion

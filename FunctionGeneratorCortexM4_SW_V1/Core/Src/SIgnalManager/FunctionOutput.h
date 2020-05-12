@@ -8,22 +8,55 @@
 #ifndef SRC_SIGNALMANAGER_FUNCTIONOUTPUT_H_
 #define SRC_SIGNALMANAGER_FUNCTIONOUTPUT_H_
 
+#include <stdint.h>
+
+uint8_t FuncPresetEncoderRange;
 
 typedef enum
 {
-	Sine_Out_Mode,
-	Square_Out_Mode,
-	Saw_Out_Mode,
-	RevSaw_Out_Mode,
-	Triangle_Out_Mode,
-	Impulse_Out_Mode
+	SINE_FUNC_MODE,
+	SQUARE_FUNC_MODE,
+	SAW_FUNC_MODE,
+	REV_SAW_FUNC_MODE,
+	TRIANGLE_FUNC_MODE,
+	IMPULSE_FUNC_MODE
 
 } eOutput_mode;
 
 
-void FuncO_ModifyOutput();
+#define MAX_NUM_FUNC_PRESETS 6
 
-eOutput_mode FuncO_GetOutputMode();
+/*
+ *	object for Function Preset and its encoder position for func preset menu
+ */
+typedef struct
+{
+	eOutput_mode func;
+	uint8_t epos;
+
+} Func_Preset_Encoder_Pos_t;
+
+Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS];
+
+/*
+ * 		The Currently Used Function Preset
+ */
+Func_Preset_Encoder_Pos_t *pNewFuncPresetEncoderPos;
+
+
+/*
+ *  Function declarations
+ */
+void FuncO_ModifyOutput(uint16_t pEncoderValue);
+
+
+void FuncO_ApplyPreset(eOutput_mode pPresetEnum);
+void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum);
+
+Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum);
+Func_Preset_Encoder_Pos_t * FuncO_GetFPresetObject();
+
+uint8_t FuncO_GetFuncPresetEncoderRange();
 
 
 #endif /* SRC_SIGNALMANAGER_FUNCTIONOUTPUT_H_ */

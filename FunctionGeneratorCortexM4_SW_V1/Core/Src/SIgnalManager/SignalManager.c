@@ -54,8 +54,4 @@ float SM_GetOutputInHertz()
 	return tim8_freq / SM_FSAMP;
 }
 
-eFreq_Preset SM_GetDefaultFreqPreset()
-{
-	return eDefaultFreqPreset;
-}
 

@@ -16,7 +16,7 @@
 /*
  *	Array of objects for Frequency Presets and their encoder positions for freq preset menu
  */
-Freq_Preset_Encoder_Pos_t aFreqPresetEncoderPos[MAX_NUM_FPRESETS] =
+Freq_Preset_Encoder_Pos_t aFreqPresetEncoderPos[MAX_NUM_FREQ_PRESETS] =
 {
 	{ FPRESET_1HZ,		53 },
 	{ FPRESET_10HZ,		49 },
@@ -367,7 +367,7 @@ Freq_Preset_Encoder_Pos_t * FreqO_GetFPresetObject()
  */
 Freq_Preset_Encoder_Pos_t * FreqO_FindFPresetObject(eFreq_Preset pEnum)
 {
-	for(int i = 0; i < MAX_NUM_FPRESETS; i++ )
+	for(int i = 0; i < MAX_NUM_FREQ_PRESETS; i++ )
 	{
 		if(aFreqPresetEncoderPos[i].hertz == pEnum)
 		{

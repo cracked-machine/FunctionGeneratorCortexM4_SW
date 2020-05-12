@@ -21,11 +21,38 @@
 
 #include "SignalManager.h"
 
+
+
+/*
+ *	Array of objects for Function Presets and their encoder positions for func preset menu
+ */
+Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS] =
+{
+	{ SINE_FUNC_MODE,		20 },
+	{ SQUARE_FUNC_MODE,		16 },
+	{ SAW_FUNC_MODE,		12 },
+	{ REV_SAW_FUNC_MODE,	8 },
+	{ TRIANGLE_FUNC_MODE, 	4 },
+	{ IMPULSE_FUNC_MODE, 	0 }
+
+};
+
+/*
+ * 		eDefaultFuncPreset set by SignalManager
+ */
+Func_Preset_Encoder_Pos_t *pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+
+
+
+uint8_t FuncPresetEncoderRange = 20;
+
+
+
 eOutput_mode FO_GetOutputMode();
 //void FuncO_SetOutputMode(eOutput_mode pNewMode);
 
 // signal output function
-eOutput_mode eNewOutMode = Sine_Out_Mode;
+eOutput_mode eNewOutMode = SINE_FUNC_MODE;
 
 /*
  *
@@ -35,28 +62,24 @@ eOutput_mode eNewOutMode = Sine_Out_Mode;
  *	@retval None
  *
  */
-void FuncO_ModifyOutput()
+void FuncO_ModifyOutput(uint16_t pEncoderValue)
 {
 
 
-	switch(SM_GetEncoderValue(ENCODER_REVERSE))
+	switch(pEncoderValue)
 	{
 		case 0:
 		case 1:
 		case 2:
 
-			eNewOutMode = Sine_Out_Mode;
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+			FuncO_ApplyPreset_Fast(SINE_FUNC_MODE);
 			break;
 		case 3:
 		case 4:
 		case 5:
 		case 6:
 
-			eNewOutMode = Square_Out_Mode;
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, square_data_table, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
+			FuncO_ApplyPreset_Fast(SQUARE_FUNC_MODE);
 
 			break;
 		case 7:
@@ -64,27 +87,21 @@ void FuncO_ModifyOutput()
 		case 9:
 		case 10:
 
-			eNewOutMode = Saw_Out_Mode;
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_data_table, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
+			FuncO_ApplyPreset_Fast(SAW_FUNC_MODE);
 			break;
 		case 11:
 		case 12:
 		case 13:
 		case 14:
 
-			eNewOutMode = RevSaw_Out_Mode;
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_rev_data_table, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
+			FuncO_ApplyPreset_Fast(REV_SAW_FUNC_MODE);
 			break;
 		case 15:
 		case 16:
 		case 17:
 		case 18:
 
-			eNewOutMode = Triangle_Out_Mode;
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, triangle_data_table, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
+			FuncO_ApplyPreset_Fast(TRIANGLE_FUNC_MODE);
 			break;
 		case 19:
 		case 20:
@@ -92,38 +109,149 @@ void FuncO_ModifyOutput()
 		case 22:
 		case 23:
 
-			eNewOutMode = Impulse_Out_Mode;
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, unitimpulse_data_table, UNITIMPULSE_DATA_SIZE, DAC_ALIGN_12B_R);
+			FuncO_ApplyPreset_Fast(IMPULSE_FUNC_MODE);
 			break;
 	}
 }
 
 /*
  *
- *	@brief
+ *	@brief	Set function output preset by index
  *
- *	@param None
+ *	@param pPresetEnum the enum literal for the preset. Should be one of the following:
+ *
+ *
+
  *	@retval None
  *
  */
-void FuncO_SetOutputMode(eOutput_mode pNewMode)
+void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 {
-	eNewOutMode = pNewMode;
+
+	switch(pPresetEnum)
+	{
+		case SINE_FUNC_MODE:
+			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[0];
+			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+			break;
+
+		case SQUARE_FUNC_MODE:
+			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[1];
+			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, square_data_table, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
+			break;
+
+		case SAW_FUNC_MODE:
+			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[2];
+			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_data_table, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
+			break;
+
+		case REV_SAW_FUNC_MODE:
+			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[3];
+			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_rev_data_table, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
+			break;
+
+		case TRIANGLE_FUNC_MODE:
+			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[4];
+			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, triangle_data_table, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
+			break;
+
+		case IMPULSE_FUNC_MODE:
+			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[5];
+			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, unitimpulse_data_table, UNITIMPULSE_DATA_SIZE,  DAC_ALIGN_12B_R);
+			break;
+
+	//
+	}
+
+}
+
+
+
+// TODO Add table data arrays to Func_Preset_Encoder_Pos_t so that it can be looked up with preset enum
+/*
+ *
+ *	@brief Set function output preset by search
+ *
+ *	@param pPresetEnum search criteria. Should be one of the following:
+ *
+ *
+
+ *	@retval None
+ *
+ */
+void FuncO_ApplyPreset(eOutput_mode pPresetEnum)
+{
+/*	Func_Preset_Encoder_Pos_t * tmp = Func_FindFPresetObject(pPresetEnum);
+	if(tmp)
+	{
+
+	}
+	*/
+}
+
+/*
+ *
+ *	@brief Get currently set function output preset
+ *
+ *	@param None
+ *	@retval pointer to Func_Preset_Encoder_Pos_t struct
+ *
+ */
+Func_Preset_Encoder_Pos_t * FuncO_GetFPresetObject()
+{
+	return pNewFuncPresetEncoderPos;
 }
 
 
 /*
  *
- *	@brief
+ *	@brief Search array of structs for preset
  *
- *	@param None
- *	@retval None
+ *	@param Search criteria. Should be one of the following:
+ *
+ *	SINE_FUNC_MODE,
+	SQUARE_FUNC_MODE,
+	SAW_FUNC_MODE,
+	REV_SAW_FUNC_MODE,
+	TRIANGLE_FUNC_MODE,
+	IMPULSE_FUNC_MODE
+
+ *	@retval pointer to Func_Preset_Encoder_Pos_t struct
  *
  */
-eOutput_mode FuncO_GetOutputMode()
+Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum)
 {
-	return eNewOutMode;
+	for(int i = 0; i < MAX_NUM_FUNC_PRESETS; i++ )
+	{
+		if(aFuncPresetEncoderPos[i].func == pEnum)
+		{
+			return &aFuncPresetEncoderPos[i];
+		}
+	}
+	// error!
+	return 0;
 }
+
+
+
+/*
+ *
+ *	@brief	Get range value for rotary encoder
+ *
+ *	@param None
+ *	@retval uint8_t
+ *
+ */
+uint8_t FuncO_GetFuncPresetEncoderRange()
+{
+	return FuncPresetEncoderRange;
+}
+
 
 

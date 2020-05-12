@@ -284,58 +284,63 @@ void _DrawFuncSelectMenu()
 {
 	ILI9341_Draw_Text("SELECT FUNCTION", 	10, 10, WHITE, 3, BLACK);
 
-	switch(FuncO_GetOutputMode())
+	Func_Preset_Encoder_Pos_t *pFuncPresetTmp = FuncO_GetFPresetObject();
+	if(pFuncPresetTmp)
 	{
-		case Sine_Out_Mode:
-			ILI9341_Draw_Text("- SINE", 	10, 50, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-			break;
-		case Square_Out_Mode:
-			ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SQUARE", 	10, 70, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-			break;
-		case Saw_Out_Mode:
-			ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SAW", 		10, 90, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-			break;
-		case RevSaw_Out_Mode:
-			ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- REV SAW", 	10, 110, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-			break;
-		case Triangle_Out_Mode:
-			ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- TRIANGLE",	10, 130, WHITE, 2, BLACK);
-			ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-			break;
-		case Impulse_Out_Mode:
-			ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-			ILI9341_Draw_Text("- UNIT", 	10, 150, WHITE, 2, BLACK);
-			break;
+		switch(pFuncPresetTmp->func)
+		{
+			case SINE_FUNC_MODE:
+				ILI9341_Draw_Text("- SINE", 	10, 50, WHITE, 2, BLACK);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				break;
+			case SQUARE_FUNC_MODE:
+				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70, WHITE, 2, BLACK);
+				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				break;
+			case SAW_FUNC_MODE:
+				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SAW", 		10, 90, WHITE, 2, BLACK);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				break;
+			case REV_SAW_FUNC_MODE:
+				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, WHITE, 2, BLACK);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				break;
+			case TRIANGLE_FUNC_MODE:
+				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, WHITE, 2, BLACK);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				break;
+			case IMPULSE_FUNC_MODE:
+				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, WHITE, 2, BLACK);
+				break;
 
+		}
 	}
+
 
 }
 

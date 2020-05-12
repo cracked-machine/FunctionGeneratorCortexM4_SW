@@ -1,3 +1,6 @@
-FunctionOutput.c:38:6:FuncO_ModifyOutput	16	static
-FunctionOutput.c:110:6:FuncO_SetOutputMode	16	static
-FunctionOutput.c:124:14:FuncO_GetOutputMode	4	static
+FunctionOutput.c:65:6:FuncO_ModifyOutput	16	static
+FunctionOutput.c:128:6:FuncO_ApplyPreset_Fast	24	static
+FunctionOutput.c:188:6:FuncO_ApplyPreset	16	static
+FunctionOutput.c:206:29:FuncO_GetFPresetObject	4	static
+FunctionOutput.c:228:29:FuncO_FindFPresetObject	24	static
+FunctionOutput.c:251:9:FuncO_GetFuncPresetEncoderRange	4	static

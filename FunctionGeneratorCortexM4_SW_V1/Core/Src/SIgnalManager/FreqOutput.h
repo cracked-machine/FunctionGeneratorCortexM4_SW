@@ -34,11 +34,11 @@ typedef enum
 
 } eFreq_Preset;
 
-/*
- *	Array of objects for Frequency Presets and their encoder positions for freq preset menu
- */
-#define MAX_NUM_FPRESETS 14
+#define MAX_NUM_FREQ_PRESETS 14
 
+/*
+ *	object for Frequency Preset and its encoder position for freq preset menu
+ */
 typedef struct
 {
 	eFreq_Preset hertz;
@@ -46,7 +46,7 @@ typedef struct
 
 } Freq_Preset_Encoder_Pos_t;
 
-Freq_Preset_Encoder_Pos_t aFreqPresetEncoderPos[MAX_NUM_FPRESETS];
+Freq_Preset_Encoder_Pos_t aFreqPresetEncoderPos[MAX_NUM_FREQ_PRESETS];
 
 /*
  * 		The Currently Used Frequency Preset

@@ -1,3 +1,2 @@
 SignalManager.c:22:10:SM_GetEncoderValue	16	static
 SignalManager.c:42:7:SM_GetOutputInHertz	24	static
-SignalManager.c:57:14:SM_GetDefaultFreqPreset	4	static
