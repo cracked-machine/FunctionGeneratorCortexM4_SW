@@ -17,7 +17,7 @@
 
 #include <stdio.h>
 
-
+uint32_t last_enc_value = 0;
 
 // public function prototypes
 void EM_SetNewEvent(eSystemEvent pEvent);
@@ -62,7 +62,14 @@ eSystemState eNextState = Idle_State;
 eSystemEvent eNewEvent = evIdle;
 
 
-
+uint32_t EM_GetLastEncoderValue()
+{
+	return last_enc_value;
+}
+void EM_SetLastEncoderValue(uint32_t _value)
+{
+	last_enc_value = _value;
+}
 
 /*
  *
@@ -381,12 +388,10 @@ eSystemState _BiasMenuEntryHandler()
 
 	DM_ShowBiasSelectMenu(ENABLE_BIASMENU);
 
-	// set the rotary encoder limits to 0-20 for this menu
-
-
 	ENCODER_TIMER->ARR = BIAS_MAX;
-	ENCODER_TIMER->CNT = BIAS_CENTER;
+	ENCODER_TIMER->CNT = BO_GetDcBiasEncoderValue();
 
+	eNewEvent = evIdle;
 	return Bias_Menu_State;
 }
 
@@ -404,9 +409,9 @@ eSystemState _BiasMenuInputHandler()
 	printf("BiasSet Event captured\n");
 #endif
 
-	BO_ModifyOutput();
+	BO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
-	eNewEvent = evRedBtn;
+	eNewEvent = evIdle;
 	return Bias_Menu_State;
 }
 
@@ -430,7 +435,7 @@ eSystemState _BiasMenuExitHandler()
 
 	// reset the encoder range
 
-	ENCODER_TIMER->ARR = 1024;
+	//ENCODER_TIMER->ARR = 1024;
 
 	_RefreshDisplay();
 

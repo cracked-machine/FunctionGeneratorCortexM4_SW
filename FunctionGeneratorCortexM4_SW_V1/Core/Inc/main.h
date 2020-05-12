@@ -55,8 +55,8 @@ extern "C" {
 /* USER CODE BEGIN EC */
 #define TRIGGER_DATA_SIZE 1
 extern uint32_t trigger_input[TRIGGER_DATA_SIZE];
-extern uint16_t last_enc_value;
-extern uint16_t new_enc_value;
+
+
 char control_pressed[10];
 /* USER CODE END EC */
 

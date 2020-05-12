@@ -65,8 +65,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-uint16_t last_enc_value = 0;
-uint16_t new_enc_value = 0;
+
+
 
 extern char control_pressed[10];
 
@@ -367,15 +367,27 @@ void TIM1_BRK_TIM15_IRQHandler(void)
   /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 0 */
 	DM_UpdateDisplay();
 	//DM_TestScreen();
-
-	if((TIM1->CNT < last_enc_value) || (TIM1->CNT > last_enc_value))
+/*
+	if((TIM1->CNT < EM_GetLastEncoderValue()) || (TIM1->CNT > EM_GetLastEncoderValue()))
 	{
 
 		EM_SetNewEvent(evEncoderSet);
 
 	}
-	last_enc_value = TIM1->CNT;
+	EM_SetLastEncoderValue(TIM1->CNT);
+*/
+	if((TIM1->SR & TIM_SR_IDXF) == TIM_SR_IDXF)
+	{
+		printf("Encoder turned\n");
+		TIM1->SR &= ~(TIM_SR_IDXF);
+	}
 
+	if((TIM1->SR & TIM_SR_DIRF) == TIM_SR_DIRF)
+	{
+		EM_SetNewEvent(evEncoderSet);
+		printf("Encoder new direction\n");
+		TIM1->SR &= ~(TIM_SR_DIRF);
+	}
   /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim15);
@@ -390,7 +402,7 @@ void TIM1_BRK_TIM15_IRQHandler(void)
 void TIM1_UP_TIM16_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
-	snprintf(control_pressed, sizeof(control_pressed), " ");
+	//snprintf(control_pressed, sizeof(control_pressed), " ");
   /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim16);

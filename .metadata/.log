@@ -3443,3 +3443,481 @@ java.lang.Exception: Cannot execute this command while the target is running.\nU
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 20:39:19.729
 !MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:05:58.432
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:07:08.811
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:09:27.515
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:10:30.212
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:17:06.430
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:25:54.357
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:41:04.801
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:43:44.622
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:48:09.752
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:57:34.929
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.316
+!MESSAGE Request for monitor: '79^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.316
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c00 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.317
+!MESSAGE Request for monitor: '80^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.317
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c04 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.318
+!MESSAGE Request for monitor: '81^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.318
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c08 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.319
+!MESSAGE Request for monitor: '82^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.319
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c0c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.319
+!MESSAGE Request for monitor: '83^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.319
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c10 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.320
+!MESSAGE Request for monitor: '84^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.320
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c18 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.321
+!MESSAGE Request for monitor: '85^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.321
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c18 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.322
+!MESSAGE Request for monitor: '86^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.322
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c1c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.323
+!MESSAGE Request for monitor: '87^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.323
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c1c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.323
+!MESSAGE Request for monitor: '88^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.323
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c20 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.323
+!MESSAGE Request for monitor: '89^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.323
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c24 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.324
+!MESSAGE Request for monitor: '90^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.324
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c28 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.324
+!MESSAGE Request for monitor: '91^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.324
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c2c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.324
+!MESSAGE Request for monitor: '92^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.324
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c30 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.324
+!MESSAGE Request for monitor: '93^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.325
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c34 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.325
+!MESSAGE Request for monitor: '94^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.325
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c38 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.325
+!MESSAGE Request for monitor: '95^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.325
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c3c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.325
+!MESSAGE Request for monitor: '96^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.325
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c40 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.325
+!MESSAGE Request for monitor: '97^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.325
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c44 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.325
+!MESSAGE Request for monitor: '98^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.325
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c48 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.326
+!MESSAGE Request for monitor: '99^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.326
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c4c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.326
+!MESSAGE Request for monitor: '100^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.326
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c50 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.326
+!MESSAGE Request for monitor: '101^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.326
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c54 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.326
+!MESSAGE Request for monitor: '102^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.326
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c58 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.326
+!MESSAGE Request for monitor: '103^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.326
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c5c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.326
+!MESSAGE Request for monitor: '104^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.326
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c60 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.327
+!MESSAGE Request for monitor: '105^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.327
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012c64 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.327
+!MESSAGE Request for monitor: '106^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.327
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012fdc x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-12 21:58:22.327
+!MESSAGE Request for monitor: '107^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-12 21:58:22.327
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40012fe0 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 21:59:25.136
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:00:30.564
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:02:10.682
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:02:27.236
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:03:27.943
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:04:10.165
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:04:28.268
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:13:40.981
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:16:53.685
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:36:37.163
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:41:12.825
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:41:20.950
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:44:54.936
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-12 22:51:47.900
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6

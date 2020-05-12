@@ -112,7 +112,7 @@ int main(void)
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-	HAL_Init();
+  HAL_Init();
 
   /* USER CODE BEGIN Init */
 
@@ -252,8 +252,10 @@ int main(void)
   DM_Init();
   DM_PostInit();
 
-
+  // DM_UpdateDisplay()
   HAL_TIM_Base_Start_IT(&htim15);
+
+  //HAL_TIM_Base_Start_IT(&htim16);
 
   // debounce timer
   HAL_TIM_Base_Start(&htim5);

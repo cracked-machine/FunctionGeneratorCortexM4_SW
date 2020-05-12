@@ -52,7 +52,8 @@ Core/Src/SIgnalManager/BiasOutput.o: \
  ../Core/Src/SIgnalManager/FunctionOutput.h \
  ../Core/Src/SIgnalManager/GainOutput.h \
  ../Core/Src/SIgnalManager/FreqOutput.h \
- ../Core/Src/SIgnalManager/DacTimerRegistry.h ../Core/Inc/tim.h
+ ../Core/Src/SIgnalManager/DacTimerRegistry.h ../Core/Inc/tim.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h
 
 ../Core/Src/SIgnalManager/BiasOutput.h:
 
@@ -167,3 +168,5 @@ Core/Src/SIgnalManager/BiasOutput.o: \
 ../Core/Src/SIgnalManager/DacTimerRegistry.h:
 
 ../Core/Inc/tim.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h:
