@@ -30,6 +30,7 @@ eBiasMenu_Status eNextBiasMenuStatus = DISABLE_BIASMENU;
 
  extern uint16_t BURST_MAX_SIZE;
 
+ char ErrorDebugMsg[45] = "";
 
 
 #define BTN_WIDTH 				(ILI9341_SCREEN_WIDTH)/4
@@ -135,19 +136,17 @@ void DM_DisplayFormattedOutput()
 	(BO_GetOutputBias() == 0) ? (dc_volts = 0) : (dc_volts = volts_per_thou * (float)BO_GetOutputBias());
 
 	snprintf(out_dcvolts, sizeof(out_dcvolts), "%1.4f v", dc_volts);
-	//if(DM_AddDigitPadding(dc_volts, out_dcvolts, sizeof(out_dcvolts)) == 0)
-	//{
-		if(BO_GetBiasPolarity())
-		{
-			char symbol[2] = "+\0";
-			ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, 3, WHITE);
-		}
-		else
-		{
-			char symbol[2] = "-\0";
-			ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, 3, WHITE);
-		}
-	//}
+	if(BO_GetBiasPolarity())
+	{
+		char symbol[2] = "+\0";
+		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, 3, WHITE);
+	}
+	else
+	{
+		char symbol[2] = "-\0";
+		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, 3, WHITE);
+	}
+
 }
 
 
@@ -247,16 +246,15 @@ void DM_UpdateDisplay()
 	}
 
 #ifdef ENCODER_DEBUG
-	char tim1tmp[5] = "";
+	char encoder_value[5] = "";
 	//snprintf(tim1tmp, sizeof(tim1tmp), "%lu", ENCODER_TIMER->CNT);
-	if(DM_AddDigitPadding(ENCODER_TIMER->CNT, tim1tmp, sizeof(tim1tmp)) == 0)
-		ILI9341_Draw_Text(tim1tmp, 260, 180, BLACK, 2, RED);
+	if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
+		ILI9341_Draw_Text(encoder_value, 280, 190, BLACK, 1, RED);
 #endif //ENCODER_DEBUG
-/*
-	if((TIM1->SR & TIM_SR_IDXF) == TIM_SR_IDXF)
-	{
-		TIM1->SR &= ~(TIM_SR_IDXF);
-	}*/
+
+	if(*ErrorDebugMsg)
+		ILI9341_Draw_Text(ErrorDebugMsg, 10, 190, BLACK, 1, RED);
+
 }
 
 
@@ -374,14 +372,7 @@ void _DrawGainSelectMenu()
 {
 
 	ILI9341_Draw_Text("ADJUST GAIN", 	40, 10, WHITE, 3, BLACK);
-/*
-	ILI9341_Draw_Text("Output Signal Gain: ", 	10, 150, BLACK, 1, WHITE);
 
-	char gain[4] = "";
-	//snprintf(gain, sizeof(gain), "%u", GO_GetOutputGain());
-	if(DM_AddDigitPadding((uint16_t)GO_GetOutputGain(), gain, sizeof(gain)) == 0)
-		ILI9341_Draw_Text(gain, 250, 150, WHITE, 1, BLACK);
-*/
 }
 
 /*
@@ -424,25 +415,7 @@ void DM_ShowBiasSelectMenu(eBiasMenu_Status pValue)
 void _DrawBiasSelectMenu()
 {
 	ILI9341_Draw_Text("ADJUST DC BIAS", 	30, 10, WHITE, 3, BLACK);
-	//ILI9341_Draw_Text("Output Signal Bias: ", 	10, 150, BLACK, 1, WHITE);
-/*
-	char bias[5] = "";
-	//snprintf(bias, sizeof(bias), "%u", (uint8_t)BO_GetOutputBias());
-	if(DM_AddDigitPadding((uint16_t)BO_GetOutputBias(), bias, sizeof(bias)) == 0)
-	{
-		if(BO_GetBiasPolarity())
-		{
-			char symbol[2] = "+\0";
-			//char test[10] = strcat(symbol, "10");
-			ILI9341_Draw_Text(strcat(symbol, bias), 250, 150, WHITE, 1, BLACK);
-		}
-		else
-		{
-			char symbol[2] = "-\0";
-			ILI9341_Draw_Text(strcat(symbol, bias), 250, 150, WHITE, 1, BLACK);
-		}
-	}
-*/
+
 }
 
 
@@ -564,7 +537,10 @@ void DM_RegisterStrings()
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen)
 {
 	if((buflen < 1) || (buflen > 6))
+	{
+		DM_SetErrorDebugMsg("DM_AddDigitPadding: invalid input string size");
 		return 1;
+	}
 
 	//char* tmpbuf = malloc(sizeof(buffer) * buflen);
 
@@ -592,7 +568,7 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen)
 			return 0;
 
 	}
-
+	DM_SetErrorDebugMsg("DM_AddDigitPadding: unknown error");
 	return 2;
 
 
@@ -619,4 +595,9 @@ void DM_TestScreen()
 
 	ILI9341_Draw_Text("- SINE", 	10, 30, WHITE, 2, BLACK);
 	*/
+}
+
+void DM_SetErrorDebugMsg(char* msg)
+{
+	snprintf(ErrorDebugMsg, sizeof(ErrorDebugMsg), "%s", msg);
 }

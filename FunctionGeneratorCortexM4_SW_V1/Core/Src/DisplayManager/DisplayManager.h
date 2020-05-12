@@ -68,7 +68,7 @@ void DM_ShowGainSelectMenu(eGainMenu_Status pValue);
 
 void DM_ShowFreqMenu(eFreqMenu_Status pValue);
 
-
+void DM_SetErrorDebugMsg(char* msg);
 
 void DM_ShowBiasSelectMenu(eBiasMenu_Status pValue);
 

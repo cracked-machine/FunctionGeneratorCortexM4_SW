@@ -11,6 +11,7 @@
 #include "tim.h"
 
 #include "SignalManager.h"
+#include "DisplayManager.h"
 
 
 /*
@@ -189,6 +190,7 @@ Gain_Preset_Encoder_Pos_t * GO_FindGPresetObject(eOutput_gain pEnum)
 		}
 	}
 	// error!
+	DM_SetErrorDebugMsg("GO_FindGPresetObject(): no GPreset obj found");
 	return 0;
 }
 

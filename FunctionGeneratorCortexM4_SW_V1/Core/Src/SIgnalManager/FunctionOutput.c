@@ -235,6 +235,7 @@ Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum)
 		}
 	}
 	// error!
+	DM_SetErrorDebugMsg("FuncO_FindFPresetObject(): no FPreset obj found");
 	return 0;
 }
 

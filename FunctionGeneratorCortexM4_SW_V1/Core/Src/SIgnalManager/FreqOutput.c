@@ -10,6 +10,7 @@
 
 #include "FreqOutput.h"
 #include "SignalManager.h"
+#include "DisplayManager.h"
 
 #include "tim.h"
 
@@ -323,6 +324,10 @@ void FreqO_ApplyPreset(eFreq_Preset pPresetEnum)
 		{
 			pNewFreqPresetEncoderPos = tmp;
 		}
+		else
+		{
+			DM_SetErrorDebugMsg("FreqO_ApplyPreset() null pointer error");
+		}
 
 	}
 }
@@ -375,6 +380,7 @@ Freq_Preset_Encoder_Pos_t * FreqO_FindFPresetObject(eFreq_Preset pEnum)
 		}
 	}
 	// error!
+	DM_SetErrorDebugMsg("FreqO_FindFPresetObject(): no FPreset obj found");
 	return 0;
 }
 

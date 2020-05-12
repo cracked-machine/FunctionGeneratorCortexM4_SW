@@ -1,5 +1,5 @@
-GainOutput.c:45:6:GO_ModifyOutput	16	static
-GainOutput.c:111:6:GO_ApplyPreset_Fast	16	static
-GainOutput.c:181:29:GO_FindGPresetObject	24	static
-GainOutput.c:203:29:GO_GetGPresetObject	4	static
-GainOutput.c:216:9:GO_GetGainPresetEncoderRange	4	static
+GainOutput.c:46:6:GO_ModifyOutput	16	static
+GainOutput.c:112:6:GO_ApplyPreset_Fast	16	static
+GainOutput.c:182:29:GO_FindGPresetObject	24	static
+GainOutput.c:205:29:GO_GetGPresetObject	4	static
+GainOutput.c:218:9:GO_GetGainPresetEncoderRange	4	static

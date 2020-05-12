@@ -239,6 +239,10 @@ eSystemState _FuncMenuEntryHandler(void)
 		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
 		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
 	}
+	else
+	{
+		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: pFuncPresetTmp null pointer");
+	}
 
 
 	return Func_Menu_State;
@@ -316,6 +320,10 @@ eSystemState _GainMenuEntryHandler()
 	{
 		ENCODER_TIMER->CNT = pGainPresetTmp->epos;
 		ENCODER_TIMER->ARR = GO_GetGainPresetEncoderRange();
+	}
+	else
+	{
+		DM_SetErrorDebugMsg("_GainMenuEntryHandler: pGainPresetTmp null pointer");
 	}
 
 
@@ -461,10 +469,6 @@ eSystemState _FreqMainMenuEntryHandler()
 
 	DM_ShowFreqMenu(ENABLE_FREQ_MAIN_MENU);
 
-	// set the rotary encoder limits to 0-? for this menu
-//	ENCODER_TIMER->CNT = 0;
-//	ENCODER_TIMER->ARR = 56;
-
 	// stay in this state
 	eNewEvent = evIdle;
 	return Freq_Main_Menu_State;
@@ -486,8 +490,6 @@ eSystemState _FreqMainMenuInputHandler()
 #endif
 
 
-
-	//eNewEvent = evGreenBtn;
 	return Freq_Main_Menu_State;
 }
 
@@ -543,6 +545,10 @@ eSystemState _FreqPresetMenuEntryHandler()
 		ENCODER_TIMER->CNT = pFreqPresetTmp->epos;
 		ENCODER_TIMER->ARR = FreqO_GetFreqPresetEncoderRange();
 	}
+	else
+	{
+		DM_SetErrorDebugMsg("_FreqPresetMenuEntryHandler: pFreqPresetTmp null pointer");
+	}
 
 
 	// stay in this state
@@ -589,10 +595,6 @@ eSystemState _FreqPresetMenuExitHandler()
 
 	// disable the menu
 	DM_ShowFreqMenu(DISABLE_FREQ_MENU);
-
-	// reset the encoder range
-
-	//ENCODER_TIMER->ARR = 1024;
 
 	// back to main freq menu
 	eNewEvent = evGreenBtn;
@@ -666,10 +668,6 @@ eSystemState _FreqAdjustMenuExitHandler()
 	// disable the menu
 	DM_ShowFreqMenu(DISABLE_FREQ_MENU);
 
-	// reset the encoder range
-
-	//ENCODER_TIMER->ARR = 1024;
-
 	// back to main freq menu
 	eNewEvent = evGreenBtn;
 	return Idle_State;
@@ -719,10 +717,6 @@ eSystemState _FreqSweepMenuExitHandler()
 
 	// disable the menu
 	DM_ShowFreqMenu(DISABLE_FREQ_MENU);
-
-	// reset the encoder range
-
-	ENCODER_TIMER->ARR = 1024;
 
 	// back to main freq menu
 	eNewEvent = evGreenBtn;
