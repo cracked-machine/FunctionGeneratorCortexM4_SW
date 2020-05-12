@@ -10,6 +10,11 @@
 
 #include <stdint.h>
 
+uint8_t FreqPresetEncoderRange;
+
+/*
+ *	Frequency Preset value enumerations
+ */
 typedef enum
 {
 	FPRESET_1HZ 	= 1U,
@@ -29,18 +34,50 @@ typedef enum
 
 } eFreq_Preset;
 
+/*
+ *	Array of objects for Frequency Presets and their encoder positions for freq preset menu
+ */
+#define MAX_NUM_FPRESETS 14
+
+typedef struct
+{
+	eFreq_Preset hertz;
+	uint8_t epos;
+
+} Freq_Preset_Encoder_Pos_t;
+
+Freq_Preset_Encoder_Pos_t aFreqPresetEncoderPos[MAX_NUM_FPRESETS];
+
+/*
+ * 		The Currently Used Frequency Preset
+ */
+Freq_Preset_Encoder_Pos_t *pNewFreqPresetEncoderPos;
+
+/*
+ *
+ */
 #define FREQ_ENCODER_HIFREQ_MAG 1						// adjustment speed
 #define FREQ_ENCODER_MIDFREQ_MAG 5						// adjustment speed
 #define FREQ_ENCODER_LOFREQ_MAG 10						// adjustment speed
 #define FREQ_ENCODER_MAX 65535
 
-void FreqO_ModifyOutput();
+/*
+ *  Function definitions
+ */
+void FreqO_ModifyOutput(uint16_t pEncValue);
 uint32_t FreqO_GetOutputFreq();
 
-void FreqO_ApplyPreset(eFreq_Preset pPreset);
-void FreqO_ApplyPreset_Fast(eFreq_Preset pPreset);
+void FreqO_ApplyPreset(eFreq_Preset pPresetEnum);
+void FreqO_ApplyPreset_Fast(eFreq_Preset pPresetEnum);
 
-eFreq_Preset FreqO_GetFPreset();
+
+Freq_Preset_Encoder_Pos_t * FreqO_FindFPresetObject(eFreq_Preset pEnum);
+Freq_Preset_Encoder_Pos_t * FreqO_GetFPresetObject();
+
 void FreqO_AdjustFreq();
+
+uint8_t FreqO_GetPresetEncoderPos();
+uint8_t FreqO_GetFreqPresetEncoderRange();
+
 
 #endif /* SRC_SIGNALMANAGER_FREQOUTPUT_H_ */

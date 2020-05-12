@@ -524,10 +524,13 @@ eSystemState _FreqPresetMenuEntryHandler()
 
 	DM_ShowFreqMenu(ENABLE_FREQ_PRESET_MENU);
 
-	// Always set the default preset to 100Hz
-	ENCODER_TIMER->CNT = 44;
-	FreqO_ApplyPreset(FPRESET_100HZ);
-	ENCODER_TIMER->ARR = 56;
+	Freq_Preset_Encoder_Pos_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
+	if(pFreqPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pFreqPresetTmp->epos;
+		ENCODER_TIMER->ARR = FreqO_GetFreqPresetEncoderRange();
+	}
+
 
 	// stay in this state
 	eNewEvent = evIdle;
@@ -549,7 +552,7 @@ eSystemState _FreqPresetMenuInputHandler()
 	printf("FreqSet Event captured\n");
 #endif
 
-	FreqO_ModifyOutput();
+	FreqO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	// stay in this state
 	eNewEvent = evIdle;

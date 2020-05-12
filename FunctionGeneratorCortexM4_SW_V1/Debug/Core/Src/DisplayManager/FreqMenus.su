@@ -1,4 +1,4 @@
-FreqMenus.c:20:6:FreqMenu_DrawFreqMainMenu	16	static
-FreqMenus.c:37:6:FreqMenu_DrawFreqPresetMenu	24	static
-FreqMenus.c:297:6:FreqMenu_DrawFreqAdjustMenu	24	static
-FreqMenus.c:315:6:FreqMenu_DrawFreqSweepMenu	16	static
+FreqMenus.c:23:6:FreqMenu_DrawFreqMainMenu	16	static
+FreqMenus.c:43:6:FreqMenu_DrawFreqPresetMenu	32	static
+FreqMenus.c:314:6:FreqMenu_DrawFreqAdjustMenu	24	static
+FreqMenus.c:335:6:FreqMenu_DrawFreqSweepMenu	16	static

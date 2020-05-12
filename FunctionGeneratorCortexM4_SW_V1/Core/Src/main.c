@@ -165,7 +165,7 @@ int main(void)
   // single clock to run all DAC channels. TODO add independent clocks
   HAL_TIM_Base_Start(&htim8);
   //TIM8->ARR = 14015;			// 100Hz
-  FreqO_ApplyPreset(FPRESET_100HZ);
+  FreqO_ApplyPreset(SM_GetDefaultFreqPreset());
   //TIM8->ARR = 65535;
 #endif //DISABLE_ALL_TIMERS
 

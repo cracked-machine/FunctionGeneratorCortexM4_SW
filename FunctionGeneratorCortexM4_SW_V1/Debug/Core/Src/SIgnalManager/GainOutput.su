@@ -1,4 +1,4 @@
-GainOutput.c:27:8:GO_GetGainInDecibels	16	static
-GainOutput.c:37:6:GO_SetOutputToEncoder	16	static
-GainOutput.c:120:6:GO_SetOutputGain	16	static
-GainOutput.c:238:9:GO_GetOutputGain	4	static
+GainOutput.c:30:8:GO_GetGainInDecibels	16	static
+GainOutput.c:43:6:GO_SetOutputToEncoder	16	static
+GainOutput.c:134:6:GO_SetOutputGain	16	static
+GainOutput.c:255:9:GO_GetOutputGain	4	static
