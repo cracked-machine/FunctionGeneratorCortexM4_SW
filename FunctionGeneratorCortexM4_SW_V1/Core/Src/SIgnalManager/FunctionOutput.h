@@ -50,7 +50,7 @@ Func_Preset_Encoder_Pos_t *pNewFuncPresetEncoderPos;
 void FuncO_ModifyOutput(uint16_t pEncoderValue);
 
 
-void FuncO_ApplyPreset(eOutput_mode pPresetEnum);
+//void FuncO_ApplyPreset(eOutput_mode pPresetEnum);
 void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum);
 
 Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum);

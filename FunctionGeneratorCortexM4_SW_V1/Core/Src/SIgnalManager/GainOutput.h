@@ -13,20 +13,44 @@
 // signal output gain settings
 typedef enum
 {
-	Zero_Gain = 0U,
-	One_Gain,
-	Two_Gain,
-	Three_Gain,
-	Four_Gain,
-	Five_Gain,
-	Six_Gain,
-	Seven_Gain
+	ZERO_GAIN = 0U,
+	ONE_GAIN,
+	TWO_GAIN,
+	THREE_GAIN,
+	FOUR_GAIN,
+	FIVE_GAIN,
+	SIX_GAIN,
+	SEVEN_GAIN
 
 } eOutput_gain;
 
-void GO_SetOutputToEncoder(uint8_t pGain);
-void GO_SetOutputGain(uint8_t pGain, uint8_t reverse);
-uint8_t GO_GetOutputGain();
-int8_t GO_GetGainInDecibels(eOutput_gain pGain);
+#define MAX_NUM_GAIN_PRESETS 8
+
+/*
+ *	object for Frequency Preset and its encoder position for freq preset menu
+ */
+typedef struct
+{
+	eOutput_gain gain;
+	int8_t decibels;
+	uint8_t epos;
+
+} Gain_Preset_Encoder_Pos_t;
+
+Gain_Preset_Encoder_Pos_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS];
+
+/*
+ * 		The Currently Used Frequency Preset
+ */
+Gain_Preset_Encoder_Pos_t *pNewGainPresetEncoderPos;
+
+
+void GO_ModifyOutput(uint16_t pEncoderValue);
+void GO_ApplyPreset_Fast(eOutput_gain pPresetEnum);
+
+Gain_Preset_Encoder_Pos_t * GO_FindGPresetObject(eOutput_gain pEnum);
+Gain_Preset_Encoder_Pos_t * GO_GetGPresetObject();
+
+uint8_t GO_GetGainPresetEncoderRange();
 
 #endif /* SRC_SIGNALMANAGER_GAINOUTPUT_H_ */

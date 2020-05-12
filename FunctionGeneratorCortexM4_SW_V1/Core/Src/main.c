@@ -146,7 +146,7 @@ int main(void)
   DT_InitRegister();
 
   // main signal function output (external)
-  FuncO_ApplyPreset(eDefaultFuncPreset);
+  FuncO_ApplyPreset_Fast(eDefaultFuncPreset);
   //HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
   //TIM8->ARR = sin1_max_arr;
 
@@ -175,9 +175,7 @@ int main(void)
   HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
 
   // PGA gain
-  HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
-  HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+  GO_ApplyPreset_Fast(eDefaultGainPreset);
 
 #ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())

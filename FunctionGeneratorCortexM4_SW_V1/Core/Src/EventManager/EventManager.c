@@ -304,9 +304,13 @@ eSystemState _GainMenuEntryHandler()
 
 	DM_ShowGainSelectMenu(ENABLE_GAINMENU);
 
-	// set the rotary encoder limits to 0-32 for this menu
-	ENCODER_TIMER->CNT = GO_GetOutputGain();
-	ENCODER_TIMER->ARR = 32;
+	Gain_Preset_Encoder_Pos_t *pGainPresetTmp =  GO_GetGPresetObject();
+	if(pGainPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pGainPresetTmp->epos;
+		ENCODER_TIMER->ARR = GO_GetGainPresetEncoderRange();
+	}
+
 
 	return Gain_Menu_State;
 }
@@ -325,7 +329,7 @@ eSystemState _GainMenuInputHandler()
 	printf("GainSet Event captured\n");
 #endif
 
-	GO_SetOutputToEncoder(SM_GetEncoderValue(ENCODER_REVERSE));
+	GO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evYellowBtn;
 	return Gain_Menu_State;
@@ -351,7 +355,7 @@ eSystemState _GainMenuExitHandler()
 
 	// reset the encoder range
 
-	ENCODER_TIMER->ARR = 1024;
+	//ENCODER_TIMER->ARR = 1024;
 
 	_RefreshDisplay();
 
@@ -476,7 +480,7 @@ eSystemState _FreqMainMenuInputHandler()
 	printf("FreqSet Event captured\n");
 #endif
 
-	//FreqO_ModifyOutput();
+
 
 	//eNewEvent = evGreenBtn;
 	return Freq_Main_Menu_State;

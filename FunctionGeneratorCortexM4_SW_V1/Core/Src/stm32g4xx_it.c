@@ -456,7 +456,7 @@ void EXTI15_10_IRQHandler(void)
 		//snprintf(control_pressed, sizeof(control_pressed), "BTN1");
 		//printf("BTN1_EXTI14_Pin\n");
 	}
-	if(HAL_GPIO_ReadPin(BTN2_EXTI15_GPIO_Port, BTN2_EXTI15_Pin))
+	else if(HAL_GPIO_ReadPin(BTN2_EXTI15_GPIO_Port, BTN2_EXTI15_Pin))
 	{
 //		uint16_t interrupt_time = TIM5->CNT;
 //		if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)

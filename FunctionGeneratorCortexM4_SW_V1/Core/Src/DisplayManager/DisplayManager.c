@@ -116,12 +116,17 @@ void DM_DisplayFormattedOutput()
 	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, BLACK, 3, WHITE);
 
 	// display output in decibels
-	if(GO_GetGainInDecibels(GO_GetOutputGain()) < 0)
-		snprintf(out_decibels, sizeof(out_decibels), "AMP OFF");
-	if(GO_GetGainInDecibels(GO_GetOutputGain()) == 0)
-		snprintf(out_decibels, sizeof(out_decibels), "  %2d dB", GO_GetGainInDecibels(GO_GetOutputGain()));
-	if(GO_GetGainInDecibels(GO_GetOutputGain()) > 0)
-		snprintf(out_decibels, sizeof(out_decibels), " +%2d dB", GO_GetGainInDecibels(GO_GetOutputGain()));
+	Gain_Preset_Encoder_Pos_t *pGainPresetTmp =  GO_GetGPresetObject();
+	if(pGainPresetTmp)
+	{
+		if(pGainPresetTmp->decibels < 0)
+			snprintf(out_decibels, sizeof(out_decibels), "AMP OFF");
+		if(pGainPresetTmp->decibels == 0)
+			snprintf(out_decibels, sizeof(out_decibels), "  %2d dB", pGainPresetTmp->decibels);
+		if(pGainPresetTmp->decibels > 0)
+			snprintf(out_decibels, sizeof(out_decibels), " +%2d dB", pGainPresetTmp->decibels);
+
+	}
 
 	ILI9341_Draw_Text(out_decibels, out_decibels_x, out_decibels_y, BLACK, 3, WHITE);
 
