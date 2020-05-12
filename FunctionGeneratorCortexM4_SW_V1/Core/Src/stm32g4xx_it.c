@@ -243,13 +243,11 @@ void SysTick_Handler(void)
 void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
-
-	uint16_t interrupt_time = TIM5->CNT;
-	if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
+	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_0))
 	{
 		EM_SetNewEvent(evRedBtn);
+		printf("'Red' BTN3_EXTI0_Pin\n");
 	}
-	last_interrupt_time = interrupt_time;
 
   /* USER CODE END EXTI0_IRQn 0 */
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_0) != RESET)
@@ -271,12 +269,12 @@ void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
 
-	uint16_t interrupt_time = TIM5->CNT;
-	if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
+	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_1))
 	{
 		EM_SetNewEvent(evGreenBtn);
+		printf("'Green' BTN4_EXTI1_Pin\n");
 	}
-	last_interrupt_time = interrupt_time;
+
 
   /* USER CODE END EXTI1_IRQn 0 */
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_1) != RESET)
@@ -298,13 +296,11 @@ void EXTI2_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI2_IRQn 0 */
 
-
-	uint16_t interrupt_time = TIM5->CNT;
-	if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
+	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_2))
 	{
 		EM_SetNewEvent(evEncoderPush);
+		printf("'EncoderPush' ENC_EXTI2_Pin\n");
 	}
-	last_interrupt_time = interrupt_time;
 
 
   /* USER CODE END EXTI2_IRQn 0 */
@@ -445,27 +441,17 @@ void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
 
-	if(HAL_GPIO_ReadPin(BTN1_EXTI14_GPIO_Port, BTN1_EXTI14_Pin))
+
+	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_14))
 	{
-//		uint16_t interrupt_time = TIM5->CNT;
-//		if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
-//		{
-			EM_SetNewEvent(evYellowBtn);
-//		}
-//		last_interrupt_time = interrupt_time;
-		//snprintf(control_pressed, sizeof(control_pressed), "BTN1");
-		//printf("BTN1_EXTI14_Pin\n");
+
+		EM_SetNewEvent(evBlueBtn);
+		printf("'Blue' BTN1_EXTI14_Pin\n");
 	}
-	else if(HAL_GPIO_ReadPin(BTN2_EXTI15_GPIO_Port, BTN2_EXTI15_Pin))
+	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_15))
 	{
-//		uint16_t interrupt_time = TIM5->CNT;
-//		if (interrupt_time - last_interrupt_time > DEBOUNCE_DELAY)
-//		{
-			EM_SetNewEvent(evBlueBtn);
-//		}
-//		last_interrupt_time = interrupt_time;
-		//snprintf(control_pressed, sizeof(control_pressed), "BTN2");
-		//printf("BTN2_EXTI15_Pin\n");
+		EM_SetNewEvent(evYellowBtn);
+		printf("'Yellow' BTN2_EXTI15_Pin\n");
 	}
 
   /* USER CODE END EXTI15_10_IRQn 0 */
