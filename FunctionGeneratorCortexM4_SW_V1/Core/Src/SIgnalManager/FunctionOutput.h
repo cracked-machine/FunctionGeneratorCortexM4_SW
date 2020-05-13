@@ -9,6 +9,7 @@
 #define SRC_SIGNALMANAGER_FUNCTIONOUTPUT_H_
 
 #include <stdint.h>
+#include "pysine.h"
 
 uint8_t FuncPresetEncoderRange;
 
@@ -44,6 +45,10 @@ Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS];
 Func_Preset_Encoder_Pos_t *pNewFuncPresetEncoderPos;
 
 
+uint32_t *pOriginalDataTable;
+uint32_t aModdedDataTable[SINE_DATA_SIZE];
+
+void FuncO_Init();
 /*
  *  Function declarations
  */

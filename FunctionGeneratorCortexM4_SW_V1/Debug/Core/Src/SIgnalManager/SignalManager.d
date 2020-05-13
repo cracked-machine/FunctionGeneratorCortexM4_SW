@@ -2,8 +2,8 @@ Core/Src/SIgnalManager/SignalManager.o: \
  ../Core/Src/SIgnalManager/SignalManager.c \
  ../Core/Src/SIgnalManager/SignalManager.h \
  ../Core/Src/SIgnalManager/FunctionOutput.h \
- ../Core/Src/SIgnalManager/GainOutput.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h \
+ ../Core/Src/SIgnalManager/GainOutput.h \
  ../Core/Src/SIgnalManager/BiasOutput.h \
  ../Core/Src/SIgnalManager/FreqOutput.h \
  ../Core/Src/SIgnalManager/DacTimerRegistry.h ../Core/Inc/tim.h \
@@ -59,9 +59,9 @@ Core/Src/SIgnalManager/SignalManager.o: \
 
 ../Core/Src/SIgnalManager/FunctionOutput.h:
 
-../Core/Src/SIgnalManager/GainOutput.h:
-
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h:
+
+../Core/Src/SIgnalManager/GainOutput.h:
 
 ../Core/Src/SIgnalManager/BiasOutput.h:
 

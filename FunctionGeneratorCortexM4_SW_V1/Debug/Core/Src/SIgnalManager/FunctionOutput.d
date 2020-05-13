@@ -1,6 +1,7 @@
 Core/Src/SIgnalManager/FunctionOutput.o: \
  ../Core/Src/SIgnalManager/FunctionOutput.c \
  ../Core/Src/SIgnalManager/FunctionOutput.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager/DisplayManager.h \
  ../Core/Inc/dac.h ../Core/Inc/main.h \
@@ -52,7 +53,6 @@ Core/Src/SIgnalManager/FunctionOutput.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h \
  ../Core/Inc/tim.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysquare.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pyunitimpulse.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw.h \
@@ -65,6 +65,8 @@ Core/Src/SIgnalManager/FunctionOutput.o: \
  ../Core/Src/SIgnalManager/DacTimerRegistry.h
 
 ../Core/Src/SIgnalManager/FunctionOutput.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h:
 
@@ -169,8 +171,6 @@ Core/Src/SIgnalManager/FunctionOutput.o: \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h:
 
 ../Core/Inc/tim.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysquare.h:
 

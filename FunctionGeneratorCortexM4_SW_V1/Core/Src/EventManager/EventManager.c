@@ -17,6 +17,7 @@
 #include "tim.h"
 
 #include <stdio.h>
+#include <string.h>
 
 uint32_t last_enc_value = 0;
 
@@ -56,7 +57,7 @@ eSystemState _BiasMenuExitHandler();
 
 void _RefreshDisplay();
 
-
+uint32_t tmpDataTable[SINE_DATA_SIZE];
 
 // state machine
 eSystemState eNextState = Idle_State;
@@ -87,6 +88,9 @@ void EM_ProcessEvent()
 	{
 		case Idle_State:
 
+
+			TIM1->ARR = 12;
+
 			if(eNewEvent == evBlueBtn)
 			{
 				eNextState = _FuncMenuEntryHandler();
@@ -103,19 +107,35 @@ void EM_ProcessEvent()
 			{
 				eNextState = _BiasMenuEntryHandler();
 			}
-/*			if(eNewEvent == evEncoderSet)
+			if(eNewEvent == evEncoderSet)
 			{
-				if(SM_GetEncoderValue(ENCODER_FORWARD))
+
+				for(int i = 0; i < SINE_DATA_SIZE; i++)
 				{
-					for(int e = 0; e < SINE_DATA_SIZE; e++)
-					{
-						sine_data_table[e] *= 1.05 ;
-					}
+					tmpDataTable[i] = pOriginalDataTable[i];
 				}
 
+				float gain_coeff = 1;
+				if(TIM1->CNT)
+					gain_coeff = (TIM1->CNT/4);
+
+				for(int i = 0; i < SINE_DATA_SIZE; i++)
+				{
+
+					tmpDataTable[i] = tmpDataTable[i] * (0.8/gain_coeff);
+					tmpDataTable[i] = tmpDataTable[i] + (800 * gain_coeff);
+				}
+				for(int i = 0; i < SINE_DATA_SIZE; i++)
+				{
+					aModdedDataTable[i] = tmpDataTable[i];
+				}
+
+
+				//FuncO_ApplyPreset_Fast(SINE_FUNC_MODE);
 				eNewEvent = evIdle;
+
 			}
-*/
+
 			break;
 
 		case Func_Menu_State:
@@ -382,8 +402,8 @@ eSystemState _GainMenuExitHandler()
 	DM_ShowGainSelectMenu(DISABLE_GAINMENU);
 
 	// reset the encoder range
-
-	//ENCODER_TIMER->ARR = 1024;
+	ENCODER_TIMER->CNT = 0;
+	ENCODER_TIMER->ARR = 12;
 
 	_RefreshDisplay();
 

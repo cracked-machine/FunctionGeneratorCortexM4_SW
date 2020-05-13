@@ -146,6 +146,7 @@ int main(void)
   DT_InitRegister();
 
   // main signal function output (external)
+  FuncO_Init();
   FuncO_ApplyPreset_Fast(eDefaultFuncPreset);
   //HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
   //TIM8->ARR = sin1_max_arr;

@@ -13,7 +13,7 @@
 #include "dac.h"
 #include "tim.h"
 
-#include "pysine.h"
+
 #include "pysquare.h"
 #include "pyunitimpulse.h"
 #include "pysaw.h"
@@ -22,6 +22,13 @@
 
 #include "SignalManager.h"
 
+uint32_t *pOriginalDataTable = sine_data_table_1300;
+
+void FuncO_Init()
+{
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+		aModdedDataTable[i] = sine_data_table_1300[i];
+}
 
 
 /*
@@ -43,9 +50,9 @@ Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS] =
  */
 Func_Preset_Encoder_Pos_t *pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[eDefaultFuncPreset];
 
-
-
 uint8_t FuncPresetEncoderRange = 20;
+
+
 
 
 
@@ -133,8 +140,8 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 	{
 		case SINE_FUNC_MODE:
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[0];
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table_100, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+			//HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
 
 		case SQUARE_FUNC_MODE:

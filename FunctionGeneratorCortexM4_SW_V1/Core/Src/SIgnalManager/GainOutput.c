@@ -54,56 +54,56 @@ void GO_ModifyOutput(uint16_t pEncoderValue)
 		case 1:
 		case 2:
 			GO_ApplyPreset_Fast(ZERO_GAIN);
-			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 3:
 		case 4:
 		case 5:
 		case 6:
 			GO_ApplyPreset_Fast(ONE_GAIN);
-			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 7:
 		case 8:
 		case 9:
 		case 10:
 			GO_ApplyPreset_Fast(TWO_GAIN);
-			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 11:
 		case 12:
 		case 13:
 		case 14:
 			GO_ApplyPreset_Fast(THREE_GAIN);
-			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 15:
 		case 16:
 		case 17:
 		case 18:
 			GO_ApplyPreset_Fast(FOUR_GAIN);
-			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 19:
 		case 20:
 		case 21:
 		case 22:
 			GO_ApplyPreset_Fast(FIVE_GAIN);
-			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 23:
 		case 24:
 		case 25:
 		case 26:
 			GO_ApplyPreset_Fast(SIX_GAIN);
-			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 27:
 		case 28:
 		case 29:
 		case 30:
 			GO_ApplyPreset_Fast(SEVEN_GAIN);
-			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 
 
