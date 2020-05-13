@@ -368,25 +368,18 @@ void TIM1_BRK_TIM15_IRQHandler(void)
 	DM_UpdateDisplay();
 	//DM_TestScreen();
 /*
-	if((TIM1->CNT < EM_GetLastEncoderValue()) || (TIM1->CNT > EM_GetLastEncoderValue()))
-	{
-
-		EM_SetNewEvent(evEncoderSet);
-
-	}
-	EM_SetLastEncoderValue(TIM1->CNT);
-*/
 	if((TIM1->SR & TIM_SR_IDXF) == TIM_SR_IDXF)
 	{
 		printf("Encoder turned\n");
 		TIM1->SR &= ~(TIM_SR_IDXF);
 	}
-
+*/
 	if((TIM1->SR & TIM_SR_DIRF) == TIM_SR_DIRF)
 	{
 		EM_SetNewEvent(evEncoderSet);
 		printf("Encoder new direction\n");
 		TIM1->SR &= ~(TIM_SR_DIRF);
+
 	}
   /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);

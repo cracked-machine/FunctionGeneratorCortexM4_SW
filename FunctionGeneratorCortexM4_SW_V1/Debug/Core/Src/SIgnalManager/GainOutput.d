@@ -1,7 +1,9 @@
 Core/Src/SIgnalManager/GainOutput.o: \
  ../Core/Src/SIgnalManager/GainOutput.c \
- ../Core/Src/SIgnalManager/GainOutput.h ../Core/Inc/gpio.h \
- ../Core/Inc/main.h ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
+ ../Core/Src/SIgnalManager/GainOutput.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h \
+ ../Core/Inc/gpio.h ../Core/Inc/main.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h \
@@ -56,6 +58,8 @@ Core/Src/SIgnalManager/GainOutput.o: \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager/DisplayManager.h
 
 ../Core/Src/SIgnalManager/GainOutput.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h:
 
 ../Core/Inc/gpio.h:
 

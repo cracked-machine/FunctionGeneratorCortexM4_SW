@@ -13,20 +13,21 @@
 #include "SignalManager.h"
 #include "DisplayManager.h"
 
+#include "pysine.h"
 
 /*
  *	Array of objects for Gain Presets and their encoder positions for gain preset menu
  */
 Gain_Preset_Encoder_Pos_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS] =
 {
-	{ ZERO_GAIN,	-1, 28 },
-	{ ONE_GAIN,		0,  24 },
-	{ TWO_GAIN,		6,  20 },
-	{ THREE_GAIN,	9,  16 },
-	{ FOUR_GAIN, 	12, 12 },
-	{ FIVE_GAIN, 	14, 8 },
-	{ SIX_GAIN,		16, 4 },
-	{ SEVEN_GAIN, 	18, 0 }
+	{ ZERO_GAIN,	-1, 28, sine_data_table_100 },
+	{ ONE_GAIN,		0,  24, sine_data_table_100 },
+	{ TWO_GAIN,		6,  20, sine_data_table_100 },
+	{ THREE_GAIN,	9,  16, sine_data_table_100 },
+	{ FOUR_GAIN, 	12, 12, sine_data_table_100 },
+	{ FIVE_GAIN, 	14, 8, sine_data_table_100 },
+	{ SIX_GAIN,		16, 4, sine_data_table_100 },
+	{ SEVEN_GAIN, 	18, 0, sine_data_table_100 }
 
 };
 
@@ -53,48 +54,56 @@ void GO_ModifyOutput(uint16_t pEncoderValue)
 		case 1:
 		case 2:
 			GO_ApplyPreset_Fast(ZERO_GAIN);
+			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 3:
 		case 4:
 		case 5:
 		case 6:
 			GO_ApplyPreset_Fast(ONE_GAIN);
+			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 7:
 		case 8:
 		case 9:
 		case 10:
 			GO_ApplyPreset_Fast(TWO_GAIN);
+			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 11:
 		case 12:
 		case 13:
 		case 14:
 			GO_ApplyPreset_Fast(THREE_GAIN);
+			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 15:
 		case 16:
 		case 17:
 		case 18:
 			GO_ApplyPreset_Fast(FOUR_GAIN);
+			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 19:
 		case 20:
 		case 21:
 		case 22:
 			GO_ApplyPreset_Fast(FIVE_GAIN);
+			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 23:
 		case 24:
 		case 25:
 		case 26:
 			GO_ApplyPreset_Fast(SIX_GAIN);
+			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 		case 27:
 		case 28:
 		case 29:
 		case 30:
 			GO_ApplyPreset_Fast(SEVEN_GAIN);
+			FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
 			break;
 
 
@@ -111,6 +120,9 @@ void GO_ModifyOutput(uint16_t pEncoderValue)
  */
 void GO_ApplyPreset_Fast(eOutput_gain pPresetEnum)
 {
+
+
+
 	switch(pPresetEnum)
 	{
 		case ZERO_GAIN:

@@ -57,12 +57,12 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FunctionOutput.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/GainOutput.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/BiasOutput.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FreqOutput.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysquare.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pyunitimpulse.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw.h \
@@ -201,6 +201,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/GainOutput.h:
 
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h:
+
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/BiasOutput.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FreqOutput.h:
@@ -210,8 +212,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysquare.h:
 

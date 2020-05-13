@@ -56,6 +56,8 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum);
 Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum);
 Func_Preset_Encoder_Pos_t * FuncO_GetFPresetObject();
 
+void FuncO_SetNewDataTable(uint32_t * pdata_table);
+
 uint8_t FuncO_GetFuncPresetEncoderRange();
 
 

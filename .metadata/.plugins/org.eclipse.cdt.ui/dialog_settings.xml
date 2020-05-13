@@ -23,4 +23,9 @@
 		<item key="DIALOG_HEIGHT" value="488"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
+	<section name="CResourceRenameRefactoringInputPage">
+		<item key="updateReferences" value="true"/>
+	</section>
+	<section name="PDOMSearchPage">
+	</section>
 </section>

@@ -9,6 +9,7 @@
 #define SRC_SIGNALMANAGER_GAINOUTPUT_H_
 
 #include <stdint.h>
+#include "pysine.h"
 
 // signal output gain settings
 typedef enum
@@ -24,6 +25,7 @@ typedef enum
 
 } eOutput_gain;
 
+
 #define MAX_NUM_GAIN_PRESETS 8
 
 /*
@@ -34,6 +36,7 @@ typedef struct
 	eOutput_gain gain;
 	int8_t decibels;
 	uint8_t epos;
+	uint32_t* data_table;
 
 } Gain_Preset_Encoder_Pos_t;
 

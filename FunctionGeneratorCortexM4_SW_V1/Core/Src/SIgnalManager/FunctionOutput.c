@@ -8,6 +8,7 @@
 
 #include "FunctionOutput.h"
 #include "EventManager.h"
+#include "DisplayManager.h"
 
 #include "dac.h"
 #include "tim.h"
@@ -133,7 +134,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 		case SINE_FUNC_MODE:
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[0];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, sine_data_table_100, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
 
 		case SQUARE_FUNC_MODE:
@@ -171,6 +172,11 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 }
 
+void FuncO_SetNewDataTable(uint32_t * pdata_table)
+{
+	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, pdata_table , SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+}
 
 
 // TODO Add table data arrays to Func_Preset_Encoder_Pos_t so that it can be looked up with preset enum

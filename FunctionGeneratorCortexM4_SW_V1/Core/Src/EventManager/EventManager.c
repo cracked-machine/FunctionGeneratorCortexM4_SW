@@ -10,7 +10,8 @@
 #include "DisplayManager.h"
 
 #include "SignalManager.h"
-//#include "funcgen.h"
+
+#include "pysine.h"
 
 #include "dac.h"
 #include "tim.h"
@@ -102,7 +103,19 @@ void EM_ProcessEvent()
 			{
 				eNextState = _BiasMenuEntryHandler();
 			}
+/*			if(eNewEvent == evEncoderSet)
+			{
+				if(SM_GetEncoderValue(ENCODER_FORWARD))
+				{
+					for(int e = 0; e < SINE_DATA_SIZE; e++)
+					{
+						sine_data_table[e] *= 1.05 ;
+					}
+				}
 
+				eNewEvent = evIdle;
+			}
+*/
 			break;
 
 		case Func_Menu_State:

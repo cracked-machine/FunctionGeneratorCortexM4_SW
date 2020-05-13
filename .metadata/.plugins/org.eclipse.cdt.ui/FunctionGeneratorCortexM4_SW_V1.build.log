@@ -1,10 +1,10 @@
-23:19:55 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+15:59:28 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
 make -j4 all 
 arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
    text	   data	    bss	    dec	    hex	filename
-  62232	   5120	   2752	  70104	  111d8	FunctionGeneratorCortexM4_SW_V1.elf
+  62320	   5160	   2752	  70232	  11258	FunctionGeneratorCortexM4_SW_V1.elf
 Finished building: default.size.stdout
  
 
-23:19:55 Build Finished. 0 errors, 0 warnings. (took 543ms)
+15:59:29 Build Finished. 0 errors, 0 warnings. (took 583ms)
 

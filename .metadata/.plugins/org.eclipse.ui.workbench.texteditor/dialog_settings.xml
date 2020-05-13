@@ -1,30 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="menu_pos_y7"/>
+		<item key="selection" value="dc_bias_encoder_value"/>
 		<item key="wrap" value="true"/>
-		<item key="casesensitive" value="true"/>
+		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="u16DC_Bias_Voltage"/>
+			<item value="htim16"/>
+			<item value="htim1"/>
+			<item value="last_enc_value"/>
+			<item value="readpin"/>
+			<item value="read"/>
+			<item value="ZERO_GAIN"/>
+			<item value="Saw_Out_Mode"/>
+			<item value="Square_Out_Mode"/>
+			<item value="Sine_Out_Mode"/>
+			<item value="MAX_NUM_FPRESETS"/>
+			<item value="DT_GetRegister"/>
 			<item value="menu_pos_y7"/>
 			<item value="155"/>
 			<item value="170"/>
-			<item value="135"/>
-			<item value="115"/>
-			<item value="130"/>
-			<item value="95"/>
-			<item value="110"/>
-			<item value="TIM8ARR"/>
-			<item value="TIM8PSC"/>
-			<item value="&#x09;// don&apos;t let the DisplayManager interrupt the LCD refresh"/>
-			<item value="htim5"/>
-			<item value="Enter"/>
-			<item value="_ExitBiasMenuHandler"/>
-			<item value="_BiasSetHandler"/>
 		</list>
 		<list key="replacehistory">
+			<item value="dc_bias_encoder_value"/>
+			<item value="SAW_FUNC_MODE"/>
+			<item value="SQUARE_FUNC_MODE"/>
+			<item value="SINE_FUNC_MODE"/>
+			<item value="DT_GetRegisterByIndex"/>
 			<item value="menu_pos_y7"/>
 			<item value="menu_pos_y6"/>
 			<item value="menu_pos_y5"/>
@@ -35,11 +40,6 @@
 			<item value="_BiasMenuExitHandler"/>
 			<item value="_BiasMenuInputHandler"/>
 			<item value="_BiasMenuEnterHandler"/>
-			<item value="_FreqMainMenuExitHandler"/>
-			<item value="_FreqMainMenuInputHandler"/>
-			<item value="_FreqMainMenuEnterHandler"/>
-			<item value="_GainMenuExitHandler"/>
-			<item value="_GainMenuInputHandler"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

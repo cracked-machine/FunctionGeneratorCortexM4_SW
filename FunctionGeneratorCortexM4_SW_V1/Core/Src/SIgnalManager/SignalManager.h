@@ -22,7 +22,7 @@
 
 #define eDefaultFreqPreset FPRESET_1KHZ
 #define eDefaultFuncPreset SINE_FUNC_MODE
-#define eDefaultGainPreset THREE_GAIN
+#define eDefaultGainPreset ONE_GAIN
 
 typedef enum
 {
