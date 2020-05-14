@@ -25,20 +25,120 @@
  */
 VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS] =
 {
-		{	VPP01	,	0.1	,	1	,	"+40.0 dBmV"	,	0.08	,	VPP_OFFSET	,	4	},
-		{	VPP02	,	0.2	,	1	,	"+46.0 dBmV"	,	0.15	,	VPP_OFFSET	,	8	},
-		{	VPP03	,	0.3	,	1	,	"+49.5 dBmV"	,	0.23	,	VPP_OFFSET	,	12	},
-		{	VPP04	,	0.4	,	1	,	"+52.0 dBmV"	,	0.31	,	VPP_OFFSET	,	16	},
-		{	VPP05	,	0.5	,	1	,	"+54.0 dBmV"	,	0.38	,	VPP_OFFSET	,	20	},
-		{	VPP06	,	0.6	,	1	,	"+55.6 dBmV"	,	0.46	,	VPP_OFFSET	,	24	},
-		{	VPP07	,	0.7	,	1	,	"+56.9 dBmV"	,	0.54	,	VPP_OFFSET	,	28	},
-		{	VPP08	,	0.8	,	1	,	"+58.1 dBmV"	,	0.62	,	VPP_OFFSET	,	32	},
-		{	VPP09	,	0.9	,	1	,	"+59.1 dBmV"	,	0.69	,	VPP_OFFSET	,	36	},
-		{	VPP10	,	1.0	,	1	,	"+60.0 dBmV"	,	0.77	,	VPP_OFFSET	,	40	},
-		{	VPP11	,	1.1	,	1	,	"+60.8 dBmV"	,	0.85	,	VPP_OFFSET	,	44	},
-		{	VPP12	,	1.2	,	1	,	"+61.6 dBmV"	,	0.92	,	VPP_OFFSET	,	48	},
-		{	VPP13	,	1.3	,	1	,	"+62.3 dBmV"	,	1.00	,	VPP_OFFSET	,	52	},
-		{	VPP14	,	1.4	,	1	,	"+62.9 dBmV"	,	1.08	,	VPP_OFFSET	,	56	},
+		{	VPP01	,	0.1	,	1	,	"+40.0 dBmV"	,	0.08	,	VPP_OFFSET		,	392	},
+		{	VPP02	,	0.2	,	1	,	"+46.0 dBmV"	,	0.15	,	VPP_OFFSET		,	388	},
+		{	VPP03	,	0.3	,	1	,	"+49.5 dBmV"	,	0.23	,	VPP_OFFSET		,	384	},
+		{	VPP04	,	0.4	,	1	,	"+52.0 dBmV"	,	0.31	,	VPP_OFFSET		,	380	},
+		{	VPP05	,	0.5	,	1	,	"+54.0 dBmV"	,	0.38	,	VPP_OFFSET		,	376	},
+		{	VPP06	,	0.6	,	1	,	"+55.6 dBmV"	,	0.46	,	VPP_OFFSET		,	372	},
+		{	VPP07	,	0.7	,	1	,	"+56.9 dBmV"	,	0.54	,	VPP_OFFSET		,	368	},
+		{	VPP08	,	0.8	,	1	,	"+58.1 dBmV"	,	0.62	,	VPP_OFFSET+50	,	364	},
+		{	VPP09	,	0.9	,	1	,	"+59.1 dBmV"	,	0.69	,	VPP_OFFSET+50	,	360	},
+		{	VPP10	,	1.0	,	1	,	"+60.0 dBmV"	,	0.77	,	VPP_OFFSET+50	,	356	},
+		{	VPP11	,	1.1	,	1	,	"+60.8 dBmV"	,	0.85	,	VPP_OFFSET+100	,	352	},
+		{	VPP12	,	1.2	,	1	,	"+61.6 dBmV"	,	0.92	,	VPP_OFFSET+150	,	348	},
+		{	VPP13	,	1.3	,	1	,	"+62.3 dBmV"	,	1.00	,	VPP_OFFSET+200	,	344	},
+		{	VPP14	,	1.4	,	1	,	"+62.9 dBmV"	,	1.08	,	VPP_OFFSET+300	,	340	},
+		{	VPP15	,	1.5	,	2	,	"+63.5 dBmV"	,	0.58	,	VPP_OFFSET		,	336	},
+		{	VPP16	,	1.6	,	2	,	"+64.1 dBmV"	,	0.62	,	VPP_OFFSET		,	332	},
+		{	VPP17	,	1.7	,	2	,	"+64.6 dBmV"	,	0.65	,	VPP_OFFSET		,	328	},
+		{	VPP18	,	1.8	,	2	,	"+65.1 dBmV"	,	0.69	,	VPP_OFFSET		,	324	},
+		{	VPP19	,	1.9	,	2	,	"+65.6 dBmV"	,	0.73	,	VPP_OFFSET		,	320	},
+		{	VPP20	,	2.0	,	2	,	"+66.0 dBmV"	,	0.77	,	VPP_OFFSET		,	316	},
+		{	VPP21	,	2.1	,	2	,	"+66.4 dBmV"	,	0.81	,	VPP_OFFSET		,	312	},
+		{	VPP22	,	2.2	,	2	,	"+66.8 dBmV"	,	0.85	,	VPP_OFFSET		,	308	},
+		{	VPP23	,	2.3	,	2	,	"+67.2 dBmV"	,	0.88	,	VPP_OFFSET		,	304	},
+		{	VPP24	,	2.4	,	2	,	"+67.6 dBmV"	,	0.92	,	VPP_OFFSET-50		,	300	},
+		{	VPP25	,	2.5	,	2	,	"+68.0 dBmV"	,	0.96	,	VPP_OFFSET-100	,	296	},
+		{	VPP26	,	2.6	,	2	,	"+68.3 dBmV"	,	1.00	,	VPP_OFFSET-150	,	292	},
+		{	VPP27	,	2.7	,	2	,	"+68.6 dBmV"	,	1.04	,	VPP_OFFSET-200	,	288	},
+		{	VPP28	,	2.8	,	2	,	"+68.9 dBmV"	,	1.08	,	VPP_OFFSET-250	,	284	},
+		{	VPP29	,	2.9	,	3	,	"+69.2 dBmV"	,	0.74	,	VPP_OFFSET	,	280	},
+		{	VPP30	,	3.0	,	3	,	"+69.5 dBmV"	,	0.77	,	VPP_OFFSET	,	276	},
+		{	VPP31	,	3.1	,	3	,	"+69.8 dBmV"	,	0.79	,	VPP_OFFSET	,	272	},
+		{	VPP32	,	3.2	,	3	,	"+70.1 dBmV"	,	0.82	,	VPP_OFFSET	,	268	},
+		{	VPP33	,	3.3	,	3	,	"+70.4 dBmV"	,	0.85	,	VPP_OFFSET	,	264	},
+		{	VPP34	,	3.4	,	3	,	"+70.6 dBmV"	,	0.87	,	VPP_OFFSET	,	260	},
+		{	VPP35	,	3.5	,	3	,	"+70.9 dBmV"	,	0.90	,	VPP_OFFSET	,	256	},
+		{	VPP36	,	3.6	,	3	,	"+71.1 dBmV"	,	0.92	,	VPP_OFFSET	,	252	},
+		{	VPP37	,	3.7	,	3	,	"+71.4 dBmV"	,	0.95	,	VPP_OFFSET-50	,	248	},
+		{	VPP38	,	3.8	,	3	,	"+71.6 dBmV"	,	0.97	,	VPP_OFFSET-100	,	244	},
+		{	VPP39	,	3.9	,	3	,	"+71.8 dBmV"	,	1.00	,	VPP_OFFSET-250	,	240	},
+		{	VPP40	,	4.0	,	3	,	"+72.0 dBmV"	,	1.03	,	VPP_OFFSET-250	,	236	},
+		{	VPP41	,	4.1	,	3	,	"+72.3 dBmV"	,	1.05	,	VPP_OFFSET-250	,	232	},
+		{	VPP42	,	4.2	,	3	,	"+72.5 dBmV"	,	1.08	,	VPP_OFFSET-250	,	228	},
+		{	VPP43	,	4.3	,	4	,	"+72.7 dBmV"	,	0.83	,	VPP_OFFSET-250	,	224	},
+		{	VPP44	,	4.4	,	4	,	"+72.9 dBmV"	,	0.85	,	VPP_OFFSET-150	,	220	},
+		{	VPP45	,	4.5	,	4	,	"+73.1 dBmV"	,	0.87	,	VPP_OFFSET-100	,	216	},
+		{	VPP46	,	4.6	,	4	,	"+73.3 dBmV"	,	0.88	,	VPP_OFFSET-150	,	212	},
+		{	VPP47	,	4.7	,	4	,	"+73.4 dBmV"	,	0.90	,	VPP_OFFSET	,	208	},
+		{	VPP48	,	4.8	,	4	,	"+73.6 dBmV"	,	0.92	,	VPP_OFFSET	,	204	},
+		{	VPP49	,	4.9	,	4	,	"+73.8 dBmV"	,	0.94	,	VPP_OFFSET	,	200	},
+		{	VPP50	,	5.0	,	4	,	"+74.0 dBmV"	,	0.96	,	VPP_OFFSET	,	196	},
+		{	VPP51	,	5.1	,	4	,	"+74.2 dBmV"	,	0.98	,	VPP_OFFSET-60	,	192	},
+		{	VPP52	,	5.2	,	4	,	"+74.3 dBmV"	,	1.00	,	VPP_OFFSET-150	,	188	},
+		{	VPP53	,	5.3	,	4	,	"+74.5 dBmV"	,	1.02	,	VPP_OFFSET-250	,	184	},
+		{	VPP54	,	5.4	,	4	,	"+74.6 dBmV"	,	1.04	,	VPP_OFFSET-250	,	180	},
+		{	VPP55	,	5.5	,	4	,	"+74.8 dBmV"	,	1.06	,	VPP_OFFSET-250	,	176	},
+		{	VPP56	,	5.6	,	4	,	"+75.0 dBmV"	,	1.08	,	VPP_OFFSET-250	,	172	},
+		{	VPP57	,	5.7	,	5	,	"+75.1 dBmV"	,	0.88	,	VPP_OFFSET+60	,	168	},
+		{	VPP58	,	5.8	,	5	,	"+75.3 dBmV"	,	0.89	,	VPP_OFFSET+70	,	164	},
+		{	VPP59	,	5.9	,	5	,	"+75.4 dBmV"	,	0.91	,	VPP_OFFSET+80	,	160	},
+		{	VPP60	,	6.0	,	5	,	"+75.6 dBmV"	,	0.92	,	VPP_OFFSET	,	156	},
+		{	VPP61	,	6.1	,	5	,	"+75.7 dBmV"	,	0.94	,	VPP_OFFSET	,	152	},
+		{	VPP62	,	6.2	,	5	,	"+75.8 dBmV"	,	0.95	,	VPP_OFFSET	,	148	},
+		{	VPP63	,	6.3	,	5	,	"+76.0 dBmV"	,	0.97	,	VPP_OFFSET	,	144	},
+		{	VPP64	,	6.4	,	5	,	"+76.1 dBmV"	,	0.98	,	VPP_OFFSET-100	,	140	},
+		{	VPP65	,	6.5	,	5	,	"+76.3 dBmV"	,	1.00	,	VPP_OFFSET-220	,	136	},
+		{	VPP66	,	6.6	,	5	,	"+76.4 dBmV"	,	1.02	,	VPP_OFFSET-220	,	132	},
+		{	VPP67	,	6.7	,	5	,	"+76.5 dBmV"	,	1.03	,	VPP_OFFSET-80	,	128	},
+		{	VPP68	,	6.8	,	5	,	"+76.7 dBmV"	,	1.05	,	VPP_OFFSET-80	,	124	},
+		{	VPP69	,	6.9	,	5	,	"+76.8 dBmV"	,	1.06	,	VPP_OFFSET-350	,	120	},
+		{	VPP70	,	7.0	,	5	,	"+76.9 dBmV"	,	1.08	,	VPP_OFFSET-60	,	116	},
+		{	VPP71	,	7.1	,	6	,	"+77.0 dBmV"	,	0.91	,	VPP_OFFSET-50	,	112	},
+		{	VPP72	,	7.2	,	6	,	"+77.1 dBmV"	,	0.92	,	VPP_OFFSET-40	,	108	},
+		{	VPP73	,	7.3	,	6	,	"+77.3 dBmV"	,	0.94	,	VPP_OFFSET-30	,	104	},
+		{	VPP74	,	7.4	,	6	,	"+77.4 dBmV"	,	0.95	,	VPP_OFFSET-20	,	100	},
+		{	VPP75	,	7.5	,	6	,	"+77.5 dBmV"	,	0.96	,	VPP_OFFSET	,	96	},
+		{	VPP76	,	7.6	,	6	,	"+77.6 dBmV"	,	0.97	,	VPP_OFFSET	,	92	},
+		{	VPP77	,	7.7	,	6	,	"+77.7 dBmV"	,	0.99	,	VPP_OFFSET+20	,	88	},
+		{	VPP78	,	7.8	,	6	,	"+77.8 dBmV"	,	1.00	,	VPP_OFFSET+30	,	84	},
+		{	VPP79	,	7.9	,	6	,	"+78.0 dBmV"	,	1.01	,	VPP_OFFSET+40	,	80	},
+		{	VPP80	,	8.0	,	6	,	"+78.1 dBmV"	,	1.03	,	VPP_OFFSET+60	,	76	},
+		{	VPP81	,	8.1	,	6	,	"+78.2 dBmV"	,	1.04	,	VPP_OFFSET+75	,	72	},
+		{	VPP82	,	8.2	,	6	,	"+78.3 dBmV"	,	1.05	,	VPP_OFFSET+95	,	68	},
+		{	VPP83	,	8.3	,	6	,	"+78.4 dBmV"	,	1.06	,	VPP_OFFSET+120	,	64	},
+		{	VPP84	,	8.4	,	6	,	"+78.5 dBmV"	,	1.08	,	VPP_OFFSET+140	,	60	},
+		{	VPP85	,	8.5	,	7	,	"+78.6 dBmV"	,	0.93	,	VPP_OFFSET-80	,	56	},
+		{	VPP86	,	8.6	,	7	,	"+78.7 dBmV"	,	0.95	,	VPP_OFFSET-70	,	52	},
+		{	VPP87	,	8.7	,	7	,	"+78.8 dBmV"	,	0.96	,	VPP_OFFSET-50	,	48	},
+		{	VPP88	,	8.8	,	7	,	"+78.9 dBmV"	,	0.97	,	VPP_OFFSET-30	,	44	},
+		{	VPP89	,	8.9	,	7	,	"+79.0 dBmV"	,	0.98	,	VPP_OFFSET-10	,	40	},
+		{	VPP90	,	9.0	,	7	,	"+79.1 dBmV"	,	0.99	,	VPP_OFFSET+15	,	36	},
+		{	VPP91	,	9.1	,	7	,	"+79.2 dBmV"	,	1.00	,	VPP_OFFSET+50	,	32	},
+		{	VPP92	,	9.2	,	7	,	"+79.3 dBmV"	,	1.01	,	VPP_OFFSET+100	,	28	},
+		{	VPP93	,	9.3	,	7	,	"+79.4 dBmV"	,	1.02	,	VPP_OFFSET+162	,	24	},
+		{	VPP94	,	9.4	,	7	,	"+79.5 dBmV"	,	1.03	,	VPP_OFFSET+245	,	20	},
+		{	VPP95	,	9.5	,	7	,	"+79.6 dBmV"	,	1.04	,	VPP_OFFSET+374	,	16	},
+	//	{	VPP96	,	9.6	,	7	,	"+79.6 dBmV"	,	1.05	,	VPP_OFFSET-770	,	12	},
+	//	{	VPP97	,	9.7	,	7	,	"+79.7 dBmV"	,	1.07	,	VPP_OFFSET-1050	,	8	},
+	//	{	VPP98	,	9.8	,	7	,	"+79.8 dBmV"	,	1.08	,	VPP_OFFSET-2000	,	4	}
+
+
+/*		{	VPP01	,	0.1	,	1	,	"+40.0 dBmV"	,	0.08	,	VPP_OFFSET	,	4	},			// fine
+		{	VPP02	,	0.2	,	1	,	"+46.0 dBmV"	,	0.15	,	VPP_OFFSET	,	8	},			// fine
+		{	VPP03	,	0.3	,	1	,	"+49.5 dBmV"	,	0.23	,	VPP_OFFSET	,	12	},			// fine
+		{	VPP04	,	0.4	,	1	,	"+52.0 dBmV"	,	0.31	,	VPP_OFFSET	,	16	},			// fine
+		{	VPP05	,	0.5	,	1	,	"+54.0 dBmV"	,	0.38	,	VPP_OFFSET	,	20	},			// fine
+		{	VPP06	,	0.6	,	1	,	"+55.6 dBmV"	,	0.46	,	VPP_OFFSET	,	24	},			// fine
+		{	VPP07	,	0.7	,	1	,	"+56.9 dBmV"	,	0.54	,	VPP_OFFSET-50	,	28	},
+		{	VPP08	,	0.8	,	1	,	"+58.1 dBmV"	,	0.62	,	VPP_OFFSET-100	,	32	},
+		{	VPP09	,	0.9	,	1	,	"+59.1 dBmV"	,	0.69	,	VPP_OFFSET	,	36	},			// fine
+		{	VPP10	,	1.0	,	1	,	"+60.0 dBmV"	,	0.77	,	VPP_OFFSET	,	40	},			// fine
+		{	VPP11	,	1.1	,	1	,	"+60.8 dBmV"	,	0.85	,	VPP_OFFSET	,	44	},			// fine
+		{	VPP12	,	1.2	,	1	,	"+61.6 dBmV"	,	0.92	,	VPP_OFFSET	,	48	},			// fine
+		{	VPP13	,	1.3	,	1	,	"+62.3 dBmV"	,	1.00	,	VPP_OFFSET	,	52	},			// fine
+		{	VPP14	,	1.4	,	1	,	"+62.9 dBmV"	,	1.08	,	VPP_OFFSET-50	,	56	},
 		{	VPP15	,	1.5	,	2	,	"+63.5 dBmV"	,	0.58	,	VPP_OFFSET	,	60	},			// fine
 		{	VPP16	,	1.6	,	2	,	"+64.1 dBmV"	,	0.62	,	VPP_OFFSET	,	64	},			// fine
 		{	VPP17	,	1.7	,	2	,	"+64.6 dBmV"	,	0.65	,	VPP_OFFSET	,	68	},			// fine
@@ -122,8 +222,8 @@ VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS] =
 		{	VPP95	,	9.5	,	7	,	"+79.6 dBmV"	,	1.04	,	VPP_OFFSET	,	380	},
 		{	VPP96	,	9.6	,	7	,	"+79.6 dBmV"	,	1.05	,	VPP_OFFSET	,	384	},
 		{	VPP97	,	9.7	,	7	,	"+79.7 dBmV"	,	1.07	,	VPP_OFFSET	,	388	},
-		{	VPP98	,	9.8	,	7	,	"+79.8 dBmV"	,	1.08	,	VPP_OFFSET	,	MAX_VPP_ENCODER_RANGE	}
-
+		{	VPP98	,	9.8	,	7	,	"+79.8 dBmV"	,	1.17	,	191	,	MAX_VPP_ENCODER_RANGE	}
+*/
 };
 
 
@@ -133,7 +233,7 @@ VppEncoderPreset_t* pVppEncoderPreset = &aVppEncoderPresets[eDefaultVppPreset];
 /*
  * 		Function prototypes
  */
-void _ProcessDataTable(float _neg_gain_coeff, uint16_t vpp_offset, uint16_t _encoder_value);
+void _ProcessDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value);
 void VPP_ApplyPreset_Fast(eVppPreset_t pPresetEnum);
 
 /*
@@ -159,7 +259,7 @@ void VPP_ApplyPreset_Fast(eVppPreset_t pPresetEnum)
  *	@retval None
  *
  */
-void _ProcessDataTable(float _neg_gain_coeff, uint16_t vpp_offset, uint16_t _encoder_value)
+void _ProcessDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value)
 {
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
@@ -194,6 +294,11 @@ void VPP_ModifyOutput(uint16_t pEncoderValue)
 {
 	switch(pEncoderValue)
 	{
+		case 0	:
+		case 1	:
+		case 2	:
+			VPP_ApplyPreset_Fast( VPP01 );
+			break;
 		case 3	:
 		case 4	:
 		case 5	:
@@ -758,7 +863,7 @@ void VPP_ModifyOutput(uint16_t pEncoderValue)
 		case 378	:
 			VPP_ApplyPreset_Fast( VPP95	);
 			break;
-		case 379	:
+/*		case 379	:
 		case 380	:
 		case 381	:
 		case 382	:
@@ -776,7 +881,7 @@ void VPP_ModifyOutput(uint16_t pEncoderValue)
 		case 390	:
 			VPP_ApplyPreset_Fast( VPP98	);
 			break;
-
+*/
 		default:
 			break;
 	}

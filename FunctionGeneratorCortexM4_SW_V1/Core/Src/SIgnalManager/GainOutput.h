@@ -14,7 +14,7 @@
 // signal output gain settings
 typedef enum
 {
-	ZERO_GAIN = 1U,
+	ZERO_GAIN = 0U,
 	ONE_GAIN,
 	TWO_GAIN,
 	THREE_GAIN,

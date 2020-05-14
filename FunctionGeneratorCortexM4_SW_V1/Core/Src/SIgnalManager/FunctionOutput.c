@@ -139,6 +139,8 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 	switch(pPresetEnum)
 	{
 		case SINE_FUNC_MODE:
+
+
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[0];
 			//HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
