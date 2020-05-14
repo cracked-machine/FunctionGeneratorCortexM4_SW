@@ -1,0 +1,152 @@
+/*
+ * VppOutput.h
+ *
+ *  Created on: 14 May 2020
+ *      Author: chris
+ */
+
+#include <stdint.h>
+
+#ifndef SRC_SIGNALMANAGER_VOLTPEAKPEAKOUTPUT_H_
+#define SRC_SIGNALMANAGER_VOLTPEAKPEAKOUTPUT_H_
+
+typedef enum
+{
+	Vpp01 = 0U,
+	Vpp02,
+	Vpp03,
+	Vpp04,
+	Vpp05,
+	Vpp06,
+	Vpp07,
+	Vpp08,
+	Vpp09,
+	Vpp10,
+	Vpp11,
+	Vpp12,
+	Vpp13,
+	Vpp14,
+	Vpp15,
+	Vpp16,
+	Vpp17,
+	Vpp18,
+	Vpp19,
+	Vpp20,
+	Vpp21,
+	Vpp22,
+	Vpp23,
+	Vpp24,
+	Vpp25,
+	Vpp26,
+	Vpp27,
+	Vpp28,
+	Vpp29,
+	Vpp30,
+	Vpp31,
+	Vpp32,
+	Vpp33,
+	Vpp34,
+	Vpp35,
+	Vpp36,
+	Vpp37,
+	Vpp38,
+	Vpp39,
+	Vpp40,
+	Vpp41,
+	Vpp42,
+	Vpp43,
+	Vpp44,
+	Vpp45,
+	Vpp46,
+	Vpp47,
+	Vpp48,
+	Vpp49,
+	Vpp50,
+	Vpp51,
+	Vpp52,
+	Vpp53,
+	Vpp54,
+	Vpp55,
+	Vpp56,
+	Vpp57,
+	Vpp58,
+	Vpp59,
+	Vpp60,
+	Vpp61,
+	Vpp62,
+	Vpp63,
+	Vpp64,
+	Vpp65,
+	Vpp66,
+	Vpp67,
+	Vpp68,
+	Vpp69,
+	Vpp70,
+	Vpp71,
+	Vpp72,
+	Vpp73,
+	Vpp74,
+	Vpp75,
+	Vpp76,
+	Vpp77,
+	Vpp78,
+	Vpp79,
+	Vpp80,
+	Vpp81,
+	Vpp82,
+	Vpp83,
+	Vpp84,
+	Vpp85,
+	Vpp86,
+	Vpp87,
+	Vpp88,
+	Vpp89,
+	Vpp90,
+	Vpp91,
+	Vpp92,
+	Vpp93,
+	Vpp94,
+	Vpp95,
+	Vpp96,
+	Vpp97,
+	Vpp98,
+
+} eVppPreset_t;
+
+
+/*
+ *	object for Vpp Preset and its encoder position for Vpp preset menu
+ */
+typedef struct
+{
+	eVppPreset_t Vpp_literal;
+	float Vpp_target;
+	uint8_t gain_preset;
+	float neg_gain_coeff;
+	uint8_t epos;
+
+} VppEncoderPreset_t;
+
+#define MAX_NUM_VPP_PRESETS 98
+
+VppEncoderPreset_t aVppEncoderPresets[MAX_NUM_VPP_PRESETS];
+
+/*
+ * 		The Currently Used Vpp Preset
+ */
+VppEncoderPreset_t* pVppEncoderPreset;
+
+uint8_t VppEncoderPresetRange;
+
+
+/*
+ * 		Function declarations
+ */
+VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum);
+VppEncoderPreset_t * VPP_GetVppPresetObject();
+
+
+uint8_t VPP_GetFuncPresetEncoderRange();
+
+
+#endif /* SRC_SIGNALMANAGER_VOLTPEAKPEAKOUTPUT_H_ */

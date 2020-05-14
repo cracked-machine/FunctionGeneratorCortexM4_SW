@@ -176,7 +176,8 @@ int main(void)
   HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
 
   // PGA gain
-  GO_ApplyPreset_Fast(eDefaultGainPreset);
+  //GO_ApplyPreset_Fast(eDefaultGainPreset);
+  VPP_ApplyPreset_Fast(eDefaultVppPreset);
 
 #ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())

@@ -1,0 +1,5 @@
+VoltPeakPeakOutput.c:147:6:VPP_ApplyPreset_Fast	16	static
+VoltPeakPeakOutput.c:162:6:_ProcessDataTable	32	static
+VoltPeakPeakOutput.c:193:6:VPP_ModifyOutput	16	static
+VoltPeakPeakOutput.c:795:22:VPP_GetVppPresetObject	4	static
+VoltPeakPeakOutput.c:818:22:VPP_FindVppPresetObject	24	static

@@ -109,7 +109,7 @@ void EM_ProcessEvent()
 			}
 			if(eNewEvent == evEncoderSet)
 			{
-
+/*
 				for(int i = 0; i < SINE_DATA_SIZE; i++)
 				{
 					tmpDataTable[i] = pOriginalDataTable[i];
@@ -133,7 +133,7 @@ void EM_ProcessEvent()
 
 				//FuncO_ApplyPreset_Fast(SINE_FUNC_MODE);
 				eNewEvent = evIdle;
-
+*/
 			}
 
 			break;
@@ -346,8 +346,21 @@ eSystemState _GainMenuEntryHandler()
 
 	_RefreshDisplay();
 
-	DM_ShowGainSelectMenu(ENABLE_GAINMENU);
+	//DM_ShowGainSelectMenu(ENABLE_GAINMENU);
+	DM_ShowVppSelectMenu(ENABLE_VPPMENU);
 
+	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject();
+	if(pVppPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pVppPresetTmp->epos;
+		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
+	}
+	else
+	{
+		DM_SetErrorDebugMsg("_GainMenuEntryHandler: pVppPresetTmp null pointer");
+	}
+
+/*
 	Gain_Preset_Encoder_Pos_t *pGainPresetTmp =  GO_GetGPresetObject();
 	if(pGainPresetTmp)
 	{
@@ -358,7 +371,7 @@ eSystemState _GainMenuEntryHandler()
 	{
 		DM_SetErrorDebugMsg("_GainMenuEntryHandler: pGainPresetTmp null pointer");
 	}
-
+*/
 
 	return Gain_Menu_State;
 }
@@ -377,7 +390,8 @@ eSystemState _GainMenuInputHandler()
 	printf("GainSet Event captured\n");
 #endif
 
-	GO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	//GO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	VPP_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evYellowBtn;
 	return Gain_Menu_State;
@@ -399,7 +413,8 @@ eSystemState _GainMenuExitHandler()
 
 
 	// disable the menu
-	DM_ShowGainSelectMenu(DISABLE_GAINMENU);
+	//DM_ShowGainSelectMenu(DISABLE_GAINMENU);
+	DM_ShowVppSelectMenu(DISABLE_VPPMENU);
 
 	// reset the encoder range
 	ENCODER_TIMER->CNT = 0;

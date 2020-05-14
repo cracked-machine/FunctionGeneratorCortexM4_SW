@@ -52,6 +52,7 @@ Core/Src/SIgnalManager/GainOutput.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h \
  ../Core/Inc/tim.h ../Core/Src/SIgnalManager/SignalManager.h \
  ../Core/Src/SIgnalManager/FunctionOutput.h \
+ ../Core/Src/SIgnalManager/VoltPeakPeakOutput.h \
  ../Core/Src/SIgnalManager/BiasOutput.h \
  ../Core/Src/SIgnalManager/FreqOutput.h \
  ../Core/Src/SIgnalManager/DacTimerRegistry.h \
@@ -164,6 +165,8 @@ Core/Src/SIgnalManager/GainOutput.o: \
 ../Core/Src/SIgnalManager/SignalManager.h:
 
 ../Core/Src/SIgnalManager/FunctionOutput.h:
+
+../Core/Src/SIgnalManager/VoltPeakPeakOutput.h:
 
 ../Core/Src/SIgnalManager/BiasOutput.h:
 

@@ -23,10 +23,11 @@
 
 
 //eDisplay_Mode eCurrentMode = Func_Adjust_mode;
-eFuncMenu_Status eNextFuncMenuStatus = DISABLE_FUNCMENU;
-eGainMenu_Status eNextGainMenuStatus = DISABLE_GAINMENU;
-eFreqMenu_Status eNextFreqMenuStatus = DISABLE_FREQ_MENU;
-eBiasMenu_Status eNextBiasMenuStatus = DISABLE_BIASMENU;
+eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNCMENU;
+eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAINMENU;
+eGainMenu_Status eNextVppMenuStatus = 	DISABLE_VPPMENU;
+eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
+eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIASMENU;
 
  extern uint16_t BURST_MAX_SIZE;
 
@@ -51,6 +52,7 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 // private function prototypes
 void _DrawFuncSelectMenu();
 void _DrawGainSelectMenu();
+void _DrawVppSelectMenu();
 void _DrawFreqSelectMenu();
 void _DrawBiasSelectMenu();
 
@@ -97,39 +99,41 @@ void DM_PostInit()
  *	@retval None
  *
  */
-void DM_DisplayFormattedOutput()
+void _DisplayFormattedOutput()
 {
 	char out_hertz[13] = "";
 	uint8_t out_hertz_x = 70;
 	uint8_t out_hertz_y = 50;
 
-	char out_decibels[8] = "";
+	char out_vpp[16] = "";
+	uint8_t out_vpp_x = 70;
+	uint8_t out_vpp_y = 80;
+
+	char out_decibels[11] = "";
 	uint8_t out_decibels_x = 70;
-	uint8_t out_decibels_y = 80;
+	uint8_t out_decibels_y = 110;
+
 
 	float volts_per_thou = 0.00075;
 	char out_dcvolts[10] = "";
 	uint8_t out_dcvolts_x = 70;
-	uint8_t out_dcvolts_y = 110;
+	uint8_t out_dcvolts_y = 140;
 
 	// display output in hertz
 	snprintf(out_hertz, sizeof(out_hertz), "%4.2f Hz", SM_GetOutputInHertz());
 	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, BLACK, 3, WHITE);
 
-	// display output in decibels
-	Gain_Preset_Encoder_Pos_t *pGainPresetTmp =  GO_GetGPresetObject();
-	if(pGainPresetTmp)
+	// display output in volts peak-to-peak and decibels
+	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject();
+	if(pVppPresetTmp)
 	{
-		if(pGainPresetTmp->decibels < 0)
-			snprintf(out_decibels, sizeof(out_decibels), "AMP OFF");
-		if(pGainPresetTmp->decibels == 0)
-			snprintf(out_decibels, sizeof(out_decibels), "  %2d dB", pGainPresetTmp->decibels);
-		if(pGainPresetTmp->decibels > 0)
-			snprintf(out_decibels, sizeof(out_decibels), " +%2d dB", pGainPresetTmp->decibels);
-
+		snprintf(out_vpp, sizeof(out_vpp), "%2.2f Vpp", pVppPresetTmp->Vpp_target);
+		snprintf(out_decibels, sizeof(out_decibels), "%s", pVppPresetTmp->gain_decibels);
 	}
-
+	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, BLACK, 3, WHITE);
 	ILI9341_Draw_Text(out_decibels, out_decibels_x, out_decibels_y, BLACK, 3, WHITE);
+
+
 
 	// display output bias in +/- Volts
 	float dc_volts;
@@ -180,8 +184,19 @@ void DM_UpdateDisplay()
 		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
 		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
 */
-		DM_DisplayFormattedOutput();
+		_DisplayFormattedOutput();
 		_DrawGainSelectMenu();
+	}
+	else if(eNextVppMenuStatus)		//  == ENABLE_GAINMENU
+	{
+/*
+		ILI9341_Draw_Text("    ", 10, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("    ", 100, 210, BLACK, 2, DARKGREEN);
+		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
+		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
+*/
+		_DisplayFormattedOutput();
+		_DrawVppSelectMenu();
 	}
 	else if(eNextFreqMenuStatus)		//  frequency menu enabled
 	{
@@ -197,7 +212,7 @@ void DM_UpdateDisplay()
 		{
 			case ENABLE_FREQ_MAIN_MENU:
 
-				DM_DisplayFormattedOutput();
+				_DisplayFormattedOutput();
 
 				FreqMenu_DrawFreqMainMenu();
 
@@ -209,7 +224,7 @@ void DM_UpdateDisplay()
 
 			case ENABLE_FREQ_ADJUST_MENU:
 
-				DM_DisplayFormattedOutput();
+				_DisplayFormattedOutput();
 
 				FreqMenu_DrawFreqAdjustMenu();
 
@@ -232,12 +247,12 @@ void DM_UpdateDisplay()
 		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
 		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
 */
-		DM_DisplayFormattedOutput();
+		_DisplayFormattedOutput();
 		_DrawBiasSelectMenu();
 	}
 	else
 	{
-		DM_DisplayFormattedOutput();
+		_DisplayFormattedOutput();
 
 		ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
 		ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
@@ -368,10 +383,38 @@ void DM_ShowGainSelectMenu(eGainMenu_Status pValue)
  *	@retval None
  *
  */
+void DM_ShowVppSelectMenu(eVppMenu_Status pValue)
+{
+	eNextVppMenuStatus = pValue;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void _DrawGainSelectMenu()
 {
 
 	ILI9341_Draw_Text("ADJUST GAIN", 	40, 10, WHITE, 3, BLACK);
+
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void _DrawVppSelectMenu()
+{
+
+	ILI9341_Draw_Text("ADJUST VPP", 	40, 10, WHITE, 3, BLACK);
 
 }
 

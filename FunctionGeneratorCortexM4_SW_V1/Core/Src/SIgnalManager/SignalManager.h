@@ -10,6 +10,7 @@
 
 #include "FunctionOutput.h"
 #include "GainOutput.h"
+#include "VoltPeakPeakOutput.h"
 #include "BiasOutput.h"
 #include "FreqOutput.h"
 #include "DacTimerRegistry.h"
@@ -20,9 +21,10 @@
 #define SM_MCLK 168000000		// MCU master clock frequency
 #define SM_FSAMP 120			// sampling frequency, defined in WaveTableGeneratiom scripts
 
-#define eDefaultFreqPreset FPRESET_1KHZ
-#define eDefaultFuncPreset SINE_FUNC_MODE
-#define eDefaultGainPreset ONE_GAIN
+#define eDefaultFreqPreset 	FPRESET_1KHZ
+#define eDefaultFuncPreset 	SINE_FUNC_MODE
+#define eDefaultGainPreset 	ONE_GAIN
+#define eDefaultVppPreset 	VPP45
 
 typedef enum
 {

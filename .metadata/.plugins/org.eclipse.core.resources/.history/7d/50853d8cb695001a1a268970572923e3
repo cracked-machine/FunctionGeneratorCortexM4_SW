@@ -1,0 +1,13 @@
+/*
+ * VoltPeakPeakOutput.h
+ *
+ *  Created on: 14 May 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_SIGNALMANAGER_VOLTPEAKPEAKOUTPUT_H_
+#define SRC_SIGNALMANAGER_VOLTPEAKPEAKOUTPUT_H_
+
+
+
+#endif /* SRC_SIGNALMANAGER_VOLTPEAKPEAKOUTPUT_H_ */

@@ -39,6 +39,13 @@ typedef enum
 
 typedef enum
 {
+	DISABLE_VPPMENU = 0x00U,
+	ENABLE_VPPMENU
+
+} eVppMenu_Status;
+
+typedef enum
+{
 	DISABLE_BIASMENU = 0x00U,
 	ENABLE_BIASMENU
 
@@ -61,9 +68,12 @@ void DM_UpdateDisplay();
 void DM_RefreshBackgroundLayout();
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
+
+
 //void DM_SetDisplayMode(eDisplay_Mode pMode);
 void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue);
 void DM_ShowGainSelectMenu(eGainMenu_Status pValue);
+void DM_ShowVppSelectMenu(eVppMenu_Status pValue);
 
 
 void DM_ShowFreqMenu(eFreqMenu_Status pValue);
