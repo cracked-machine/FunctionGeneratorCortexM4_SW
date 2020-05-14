@@ -14,7 +14,9 @@
 #include <stdint.h>
 
 #define TRIANGLE_DATA_SIZE 120
-uint32_t triangle_data_table[TRIANGLE_DATA_SIZE];
+
+uint32_t triangle_data_table_1300[TRIANGLE_DATA_SIZE];
+
 
 
 #endif //__SINE_H__

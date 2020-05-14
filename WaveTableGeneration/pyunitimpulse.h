@@ -14,7 +14,9 @@
 #include <stdint.h>
 
 #define UNITIMPULSE_DATA_SIZE 120
-uint32_t unitimpulse_data_table[UNITIMPULSE_DATA_SIZE];
+
+uint32_t unitimpulse_data_table_1300[UNITIMPULSE_DATA_SIZE];
+
 
 
 #endif //__SINE_H__

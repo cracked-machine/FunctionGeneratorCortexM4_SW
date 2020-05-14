@@ -23,9 +23,12 @@ offset = 3050
 # 120   = 0.2Vpp
 # 56    = 0.1Vpp
 
-amp_label = [100, 200, 300, 400, 500, 600, 700,
-             800, 900, 1000, 1100, 1200, 1300]
-amp_coeff = [56, 120, 192, 257, 327, 395, 460, 530, 590, 650, 710, 770, 860]
+# amp_label = [100, 200, 300, 400, 500, 600, 700,
+#             800, 900, 1000, 1100, 1200, 1300]
+# amp_coeff = [56, 120, 192, 257, 327, 395, 460, 530, 590, 650, 710, 770, 860]
+
+amp_label = [1300]
+amp_coeff = [860]
 
 
 x = np.arange(sample)
@@ -50,7 +53,7 @@ for n in range(len(amp_coeff)):
 # res = 5
 # print(results[res][0])     # list containging single 'vpp' value
 # print(results[res][0])     # list containing data array
-f = np.sin(x)
+# f = np.sin(x)
 for n in range(len(results)):
     # get the list containing the array
     data = results[n][1]

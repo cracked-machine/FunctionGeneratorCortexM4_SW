@@ -55,7 +55,8 @@ Core/Src/SIgnalManager/VoltPeakPeakOutput.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_utils.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h \
- ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h \
+ ../Core/Inc/dac.h
 
 ../Core/Src/SIgnalManager/VoltPeakPeakOutput.h:
 
@@ -172,3 +173,5 @@ Core/Src/SIgnalManager/VoltPeakPeakOutput.o: \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h:
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h:
+
+../Core/Inc/dac.h:

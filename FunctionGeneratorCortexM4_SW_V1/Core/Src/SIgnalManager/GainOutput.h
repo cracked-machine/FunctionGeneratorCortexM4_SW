@@ -36,7 +36,6 @@ typedef struct
 	eOutput_gain gain;
 	int8_t decibels;
 	uint8_t epos;
-	uint32_t* data_table;
 
 } Gain_Preset_Encoder_Pos_t;
 

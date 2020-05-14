@@ -14,7 +14,9 @@
 #include <stdint.h>
 
 #define SAW_REV_DATA_SIZE 120
-uint32_t saw_rev_data_table[SAW_REV_DATA_SIZE];
+
+uint32_t saw_rev_data_table_1300[SAW_REV_DATA_SIZE];
+
 
 
 #endif //__SINE_H__

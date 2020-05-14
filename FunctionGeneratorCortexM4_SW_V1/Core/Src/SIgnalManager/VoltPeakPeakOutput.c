@@ -9,16 +9,10 @@
 #include "DisplayManager.h"
 #include "SignalManager.h"
 
+#include "dac.h"
+
 #define VPP_OFFSET 300
-#define VPP_OFFSET_1 	200
-#define VPP_OFFSET_2 	200
-#define VPP_OFFSET_3 	200
-#define VPP_OFFSET_4 	100
-#define VPP_OFFSET_45 	300
-#define VPP_OFFSET_5 	200
-#define VPP_OFFSET_6 	200
-#define VPP_OFFSET_7 	200
-#define VPP_OFFSET_8 	200
+
 
 /*
  *	Array of objects for Function Presets and their encoder positions for func preset menu
@@ -120,110 +114,14 @@ VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS] =
 		{	VPP93	,	9.3	,	7	,	"+79.4 dBmV"	,	1.02	,	VPP_OFFSET+162	,	24	},
 		{	VPP94	,	9.4	,	7	,	"+79.5 dBmV"	,	1.03	,	VPP_OFFSET+245	,	20	},
 		{	VPP95	,	9.5	,	7	,	"+79.6 dBmV"	,	1.04	,	VPP_OFFSET+374	,	16	},
+
+	// She cannae take it, capt'n!!!
 	//	{	VPP96	,	9.6	,	7	,	"+79.6 dBmV"	,	1.05	,	VPP_OFFSET-770	,	12	},
 	//	{	VPP97	,	9.7	,	7	,	"+79.7 dBmV"	,	1.07	,	VPP_OFFSET-1050	,	8	},
 	//	{	VPP98	,	9.8	,	7	,	"+79.8 dBmV"	,	1.08	,	VPP_OFFSET-2000	,	4	}
 
 
-/*		{	VPP01	,	0.1	,	1	,	"+40.0 dBmV"	,	0.08	,	VPP_OFFSET	,	4	},			// fine
-		{	VPP02	,	0.2	,	1	,	"+46.0 dBmV"	,	0.15	,	VPP_OFFSET	,	8	},			// fine
-		{	VPP03	,	0.3	,	1	,	"+49.5 dBmV"	,	0.23	,	VPP_OFFSET	,	12	},			// fine
-		{	VPP04	,	0.4	,	1	,	"+52.0 dBmV"	,	0.31	,	VPP_OFFSET	,	16	},			// fine
-		{	VPP05	,	0.5	,	1	,	"+54.0 dBmV"	,	0.38	,	VPP_OFFSET	,	20	},			// fine
-		{	VPP06	,	0.6	,	1	,	"+55.6 dBmV"	,	0.46	,	VPP_OFFSET	,	24	},			// fine
-		{	VPP07	,	0.7	,	1	,	"+56.9 dBmV"	,	0.54	,	VPP_OFFSET-50	,	28	},
-		{	VPP08	,	0.8	,	1	,	"+58.1 dBmV"	,	0.62	,	VPP_OFFSET-100	,	32	},
-		{	VPP09	,	0.9	,	1	,	"+59.1 dBmV"	,	0.69	,	VPP_OFFSET	,	36	},			// fine
-		{	VPP10	,	1.0	,	1	,	"+60.0 dBmV"	,	0.77	,	VPP_OFFSET	,	40	},			// fine
-		{	VPP11	,	1.1	,	1	,	"+60.8 dBmV"	,	0.85	,	VPP_OFFSET	,	44	},			// fine
-		{	VPP12	,	1.2	,	1	,	"+61.6 dBmV"	,	0.92	,	VPP_OFFSET	,	48	},			// fine
-		{	VPP13	,	1.3	,	1	,	"+62.3 dBmV"	,	1.00	,	VPP_OFFSET	,	52	},			// fine
-		{	VPP14	,	1.4	,	1	,	"+62.9 dBmV"	,	1.08	,	VPP_OFFSET-50	,	56	},
-		{	VPP15	,	1.5	,	2	,	"+63.5 dBmV"	,	0.58	,	VPP_OFFSET	,	60	},			// fine
-		{	VPP16	,	1.6	,	2	,	"+64.1 dBmV"	,	0.62	,	VPP_OFFSET	,	64	},			// fine
-		{	VPP17	,	1.7	,	2	,	"+64.6 dBmV"	,	0.65	,	VPP_OFFSET	,	68	},			// fine
-		{	VPP18	,	1.8	,	2	,	"+65.1 dBmV"	,	0.69	,	VPP_OFFSET	,	72	},			// fine
-		{	VPP19	,	1.9	,	2	,	"+65.6 dBmV"	,	0.73	,	VPP_OFFSET	,	76	},
-		{	VPP20	,	2.0	,	2	,	"+66.0 dBmV"	,	0.77	,	VPP_OFFSET	,	80	},
-		{	VPP21	,	2.1	,	2	,	"+66.4 dBmV"	,	0.81	,	VPP_OFFSET	,	84	},
-		{	VPP22	,	2.2	,	2	,	"+66.8 dBmV"	,	0.85	,	VPP_OFFSET	,	88	},			// fine
-		{	VPP23	,	2.3	,	2	,	"+67.2 dBmV"	,	0.88	,	VPP_OFFSET	,	92	},			// fine
-		{	VPP24	,	2.4	,	2	,	"+67.6 dBmV"	,	0.92	,	VPP_OFFSET	,	96	},			// fine
-		{	VPP25	,	2.5	,	2	,	"+68.0 dBmV"	,	0.96	,	VPP_OFFSET	,	100	},			// fine
-		{	VPP26	,	2.6	,	2	,	"+68.3 dBmV"	,	1.00	,	VPP_OFFSET	,	104	},			// fine
-		{	VPP27	,	2.7	,	2	,	"+68.6 dBmV"	,	1.04	,	VPP_OFFSET	,	108	},			// fine
-		{	VPP28	,	2.8	,	2	,	"+68.9 dBmV"	,	1.08	,	VPP_OFFSET	,	112	},
-		{	VPP29	,	2.9	,	3	,	"+69.2 dBmV"	,	0.74	,	VPP_OFFSET	,	116	},			// fine
-		{	VPP30	,	3.0	,	3	,	"+69.5 dBmV"	,	0.77	,	VPP_OFFSET	,	120	},			// fine
-		{	VPP31	,	3.1	,	3	,	"+69.8 dBmV"	,	0.79	,	VPP_OFFSET	,	124	},
-		{	VPP32	,	3.2	,	3	,	"+70.1 dBmV"	,	0.82	,	VPP_OFFSET	,	128	},
-		{	VPP33	,	3.3	,	3	,	"+70.4 dBmV"	,	0.85	,	VPP_OFFSET	,	132	},
-		{	VPP34	,	3.4	,	3	,	"+70.6 dBmV"	,	0.87	,	VPP_OFFSET	,	136	},
-		{	VPP35	,	3.5	,	3	,	"+70.9 dBmV"	,	0.90	,	VPP_OFFSET	,	140	},			// fine
-		{	VPP36	,	3.6	,	3	,	"+71.1 dBmV"	,	0.92	,	VPP_OFFSET	,	144	},			// fine
-		{	VPP37	,	3.7	,	3	,	"+71.4 dBmV"	,	0.95	,	VPP_OFFSET	,	148	},			// fine
-		{	VPP38	,	3.8	,	3	,	"+71.6 dBmV"	,	0.97	,	VPP_OFFSET	,	152	},			// fine
-		{	VPP39	,	3.9	,	3	,	"+71.8 dBmV"	,	1.00	,	VPP_OFFSET	,	156	},			// fine
-		{	VPP40	,	4.0	,	3	,	"+72.0 dBmV"	,	1.03	,	VPP_OFFSET	,	160	},			// fine
-		{	VPP41	,	4.1	,	3	,	"+72.3 dBmV"	,	1.05	,	VPP_OFFSET	,	164	},
-		{	VPP42	,	4.2	,	3	,	"+72.5 dBmV"	,	1.08	,	VPP_OFFSET	,	168	},
-		{	VPP43	,	4.3	,	4	,	"+72.7 dBmV"	,	0.83	,	VPP_OFFSET	,	172	},			// fine
-		{	VPP44	,	4.4	,	4	,	"+72.9 dBmV"	,	0.85	,	VPP_OFFSET_4	,	176	},			// fine
-		{	VPP45	,	4.5	,	4	,	"+73.1 dBmV"	,	0.87	,	VPP_OFFSET_4	,	180	},			// fine
-		{	VPP46	,	4.6	,	4	,	"+73.3 dBmV"	,	0.88	,	VPP_OFFSET_4	,	184	},			// fine
-		{	VPP47	,	4.7	,	4	,	"+73.4 dBmV"	,	0.90	,	VPP_OFFSET_45	,	188	},
-		{	VPP48	,	4.8	,	4	,	"+73.6 dBmV"	,	0.92	,	VPP_OFFSET_45	,	192	},
-		{	VPP49	,	4.9	,	4	,	"+73.8 dBmV"	,	0.94	,	VPP_OFFSET_45	,	196	},			// fine
-		{	VPP50	,	5.0	,	4	,	"+74.0 dBmV"	,	0.96	,	VPP_OFFSET_45	,	200	},			// fine
-		{	VPP51	,	5.1	,	4	,	"+74.2 dBmV"	,	0.98	,	VPP_OFFSET_5	,	204	},
-		{	VPP52	,	5.2	,	4	,	"+74.3 dBmV"	,	1.00	,	VPP_OFFSET_5	,	208	},			// fine
-		{	VPP53	,	5.3	,	4	,	"+74.5 dBmV"	,	1.02	,	VPP_OFFSET_5	,	212	},			// fine
-		{	VPP54	,	5.4	,	4	,	"+74.6 dBmV"	,	1.04	,	VPP_OFFSET_5	,	216	},			// fine
-		{	VPP55	,	5.5	,	4	,	"+74.8 dBmV"	,	1.06	,	VPP_OFFSET_5	,	220	},			// fine
-		{	VPP56	,	5.6	,	4	,	"+75.0 dBmV"	,	1.08	,	VPP_OFFSET_5	,	224	},			// fine
-		{	VPP57	,	5.7	,	5	,	"+75.1 dBmV"	,	0.88	,	VPP_OFFSET_5	,	228	},			// fine
-		{	VPP58	,	5.8	,	5	,	"+75.3 dBmV"	,	0.89	,	VPP_OFFSET_5	,	232	},			// fine
-		{	VPP59	,	5.9	,	5	,	"+75.4 dBmV"	,	0.91	,	VPP_OFFSET_5	,	236	},			// fine
-		{	VPP60	,	6.0	,	5	,	"+75.6 dBmV"	,	0.92	,	VPP_OFFSET	,	240	},
-		{	VPP61	,	6.1	,	5	,	"+75.7 dBmV"	,	0.94	,	VPP_OFFSET	,	244	},
-		{	VPP62	,	6.2	,	5	,	"+75.8 dBmV"	,	0.95	,	VPP_OFFSET	,	248	},
-		{	VPP63	,	6.3	,	5	,	"+76.0 dBmV"	,	0.97	,	VPP_OFFSET	,	252	},			// fine
-		{	VPP64	,	6.4	,	5	,	"+76.1 dBmV"	,	0.98	,	VPP_OFFSET	,	256	},			// fine
-		{	VPP65	,	6.5	,	5	,	"+76.3 dBmV"	,	1.00	,	VPP_OFFSET	,	260	},			// fine
-		{	VPP66	,	6.6	,	5	,	"+76.4 dBmV"	,	1.02	,	VPP_OFFSET	,	264	},			// fine
-		{	VPP67	,	6.7	,	5	,	"+76.5 dBmV"	,	1.03	,	VPP_OFFSET	,	268	},
-		{	VPP68	,	6.8	,	5	,	"+76.7 dBmV"	,	1.05	,	VPP_OFFSET	,	272	},
-		{	VPP69	,	6.9	,	5	,	"+76.8 dBmV"	,	1.06	,	VPP_OFFSET	,	276	},
-		{	VPP70	,	7.0	,	5	,	"+76.9 dBmV"	,	1.08	,	VPP_OFFSET	,	280	},
-		{	VPP71	,	7.1	,	6	,	"+77.0 dBmV"	,	0.91	,	VPP_OFFSET	,	284	},
-		{	VPP72	,	7.2	,	6	,	"+77.1 dBmV"	,	0.92	,	VPP_OFFSET	,	288	},
-		{	VPP73	,	7.3	,	6	,	"+77.3 dBmV"	,	0.94	,	VPP_OFFSET	,	292	},
-		{	VPP74	,	7.4	,	6	,	"+77.4 dBmV"	,	0.95	,	VPP_OFFSET	,	296	},
-		{	VPP75	,	7.5	,	6	,	"+77.5 dBmV"	,	0.96	,	VPP_OFFSET	,	300	},
-		{	VPP76	,	7.6	,	6	,	"+77.6 dBmV"	,	0.97	,	VPP_OFFSET	,	304	},
-		{	VPP77	,	7.7	,	6	,	"+77.7 dBmV"	,	0.99	,	VPP_OFFSET	,	308	},			// fine
-		{	VPP78	,	7.8	,	6	,	"+77.8 dBmV"	,	1.00	,	VPP_OFFSET	,	312	},			// fine
-		{	VPP79	,	7.9	,	6	,	"+78.0 dBmV"	,	1.01	,	VPP_OFFSET	,	316	},
-		{	VPP80	,	8.0	,	6	,	"+78.1 dBmV"	,	1.03	,	VPP_OFFSET	,	320	},
-		{	VPP81	,	8.1	,	6	,	"+78.2 dBmV"	,	1.04	,	VPP_OFFSET	,	324	},
-		{	VPP82	,	8.2	,	6	,	"+78.3 dBmV"	,	1.05	,	VPP_OFFSET	,	328	},
-		{	VPP83	,	8.3	,	6	,	"+78.4 dBmV"	,	1.06	,	VPP_OFFSET	,	332	},
-		{	VPP84	,	8.4	,	6	,	"+78.5 dBmV"	,	1.08	,	VPP_OFFSET	,	336	},
-		{	VPP85	,	8.5	,	7	,	"+78.6 dBmV"	,	0.93	,	VPP_OFFSET	,	340	},
-		{	VPP86	,	8.6	,	7	,	"+78.7 dBmV"	,	0.95	,	VPP_OFFSET	,	344	},
-		{	VPP87	,	8.7	,	7	,	"+78.8 dBmV"	,	0.96	,	VPP_OFFSET	,	348	},
-		{	VPP88	,	8.8	,	7	,	"+78.9 dBmV"	,	0.97	,	VPP_OFFSET	,	352	},
-		{	VPP89	,	8.9	,	7	,	"+79.0 dBmV"	,	0.98	,	VPP_OFFSET	,	356	},
-		{	VPP90	,	9.0	,	7	,	"+79.1 dBmV"	,	0.99	,	VPP_OFFSET	,	360	},
-		{	VPP91	,	9.1	,	7	,	"+79.2 dBmV"	,	1.00	,	VPP_OFFSET	,	364	},			// fine
-		{	VPP92	,	9.2	,	7	,	"+79.3 dBmV"	,	1.01	,	VPP_OFFSET	,	368	},
-		{	VPP93	,	9.3	,	7	,	"+79.4 dBmV"	,	1.02	,	VPP_OFFSET	,	372	},
-		{	VPP94	,	9.4	,	7	,	"+79.5 dBmV"	,	1.03	,	VPP_OFFSET	,	376	},
-		{	VPP95	,	9.5	,	7	,	"+79.6 dBmV"	,	1.04	,	VPP_OFFSET	,	380	},
-		{	VPP96	,	9.6	,	7	,	"+79.6 dBmV"	,	1.05	,	VPP_OFFSET	,	384	},
-		{	VPP97	,	9.7	,	7	,	"+79.7 dBmV"	,	1.07	,	VPP_OFFSET	,	388	},
-		{	VPP98	,	9.8	,	7	,	"+79.8 dBmV"	,	1.17	,	191	,	MAX_VPP_ENCODER_RANGE	}
-*/
+
 };
 
 
@@ -276,10 +174,12 @@ void _ProcessDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encode
 		tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
 		tmpDataTable[i] = tmpDataTable[i] + (vpp_offset * pos_offset_coeff);
 	}
+	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
 		aModdedDataTable[i] = tmpDataTable[i];
 	}
+	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SINE_DATA_SIZE,  DAC_ALIGN_12B_R);
 }
 
 /*

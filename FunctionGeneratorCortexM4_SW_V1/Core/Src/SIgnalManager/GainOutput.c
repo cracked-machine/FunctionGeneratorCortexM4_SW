@@ -20,14 +20,14 @@
  */
 Gain_Preset_Encoder_Pos_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS] =
 {
-	{ ZERO_GAIN,	-1, 28, sine_data_table_100 },
-	{ ONE_GAIN,		0,  24, sine_data_table_100 },
-	{ TWO_GAIN,		6,  20, sine_data_table_100 },
-	{ THREE_GAIN,	9,  16, sine_data_table_100 },
-	{ FOUR_GAIN, 	12, 12, sine_data_table_100 },
-	{ FIVE_GAIN, 	14, 8, sine_data_table_100 },
-	{ SIX_GAIN,		16, 4, sine_data_table_100 },
-	{ SEVEN_GAIN, 	18, 0, sine_data_table_100 }
+	{ ZERO_GAIN,	-1, 28 },
+	{ ONE_GAIN,		0,  24 },
+	{ TWO_GAIN,		6,  20 },
+	{ THREE_GAIN,	9,  16 },
+	{ FOUR_GAIN, 	12, 12 },
+	{ FIVE_GAIN, 	14, 8  },
+	{ SIX_GAIN,		16, 4  },
+	{ SEVEN_GAIN, 	18, 0  }
 
 };
 

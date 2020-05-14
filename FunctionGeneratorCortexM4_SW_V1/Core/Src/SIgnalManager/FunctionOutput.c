@@ -140,44 +140,75 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 	{
 		case SINE_FUNC_MODE:
 
+			pOriginalDataTable = sine_data_table_1300;
+
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
 
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[0];
-			//HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+
+			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
 
 		case SQUARE_FUNC_MODE:
+
+			pOriginalDataTable = square_data_table_1300;
+
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[1];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, square_data_table, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
 
 		case SAW_FUNC_MODE:
+
+			pOriginalDataTable = saw_data_table_1300;
+
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[2];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_data_table, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
 
 		case REV_SAW_FUNC_MODE:
+
+			pOriginalDataTable = saw_rev_data_table_1300;
+
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[3];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, saw_rev_data_table, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
 
 		case TRIANGLE_FUNC_MODE:
+
+			pOriginalDataTable = triangle_data_table_1300;
+
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[4];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, triangle_data_table, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
 			break;
 
 		case IMPULSE_FUNC_MODE:
+
+			pOriginalDataTable = unitimpulse_data_table_1300;
+
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[5];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, unitimpulse_data_table, UNITIMPULSE_DATA_SIZE,  DAC_ALIGN_12B_R);
+			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, UNITIMPULSE_DATA_SIZE,  DAC_ALIGN_12B_R);
 			break;
 
 	//
 	}
+
+
 
 }
 
