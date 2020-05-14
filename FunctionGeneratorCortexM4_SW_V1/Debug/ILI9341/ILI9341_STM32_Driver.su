@@ -12,5 +12,5 @@ ILI9341_STM32_Driver.c:572:6:_LCD_Reset	8	static
 ILI9341_STM32_Driver.c:592:6:_LCD_Write_Frame	72	dynamic
 ILI9341_STM32_Driver.c:654:6:_LCD_SendCommand	24	static
 ILI9341_STM32_Driver.c:673:6:_LCD_SendData	24	static
-ILI9341_STM32_Driver.c:693:6:_SPI_SendByte	16	static
-ILI9341_STM32_Driver.c:725:6:_SPI_SendByteMultiByte	24	static
+ILI9341_STM32_Driver.c:693:6:_SPI_SendByte	24	static,ignoring_inline_asm
+ILI9341_STM32_Driver.c:725:6:_SPI_SendByteMultiByte	40	static,ignoring_inline_asm

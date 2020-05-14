@@ -23,7 +23,7 @@
 void FreqMenu_DrawFreqMainMenu()
 {
 	// main
-	ILI9341_Draw_Text("Select an option below", 	30, 150, BLACK, 2, WHITE);
+	ILI9341_Draw_Text("Select an option below", 	30, 165, BLACK, 2, WHITE);
 
 	// buttons
 	ILI9341_Draw_Text("PRESET", 5, 210, BLACK, 2, DARKCYAN);

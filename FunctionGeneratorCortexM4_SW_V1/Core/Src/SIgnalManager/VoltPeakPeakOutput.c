@@ -145,7 +145,8 @@ void VPP_ApplyPreset_Fast(eVppPreset_t pPresetEnum);
 void VPP_ApplyPreset_Fast(eVppPreset_t pPresetEnum)
 {
     pVppEncoderPreset = &aVppEncoderPresets[pPresetEnum];
-	GO_ApplyPreset_Fast(pVppEncoderPreset->gain_preset);
+    //GO_ApplyPreset_Fast((ONE_GAIN));
+    GO_ApplyPreset_Fast(pVppEncoderPreset->gain_preset);
     _ProcessDataTable(pVppEncoderPreset->neg_gain_coeff, pVppEncoderPreset->vpp_offset , pVppEncoderPreset->epos);
 }
 
@@ -174,12 +175,12 @@ void _ProcessDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encode
 		tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
 		tmpDataTable[i] = tmpDataTable[i] + (vpp_offset * pos_offset_coeff);
 	}
-	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+	//HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
 		aModdedDataTable[i] = tmpDataTable[i];
 	}
-	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SINE_DATA_SIZE,  DAC_ALIGN_12B_R);
+	//HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aModdedDataTable, SINE_DATA_SIZE,  DAC_ALIGN_12B_R);
 }
 
 /*

@@ -103,21 +103,21 @@ void _DisplayFormattedOutput()
 {
 	char out_hertz[13] = "";
 	uint8_t out_hertz_x = 70;
-	uint8_t out_hertz_y = 50;
+	uint8_t out_hertz_y = 40;
 
 	char out_vpp[16] = "";
 	uint8_t out_vpp_x = 70;
-	uint8_t out_vpp_y = 80;
+	uint8_t out_vpp_y = 70;
 
 	char out_decibels[11] = "";
 	uint8_t out_decibels_x = 70;
-	uint8_t out_decibels_y = 110;
+	uint8_t out_decibels_y = 100;
 
 
 	float volts_per_thou = 0.00075;
 	char out_dcvolts[10] = "";
 	uint8_t out_dcvolts_x = 70;
-	uint8_t out_dcvolts_y = 140;
+	uint8_t out_dcvolts_y = 130;
 
 	// display output in hertz
 	snprintf(out_hertz, sizeof(out_hertz), "%4.2f Hz", SM_GetOutputInHertz());

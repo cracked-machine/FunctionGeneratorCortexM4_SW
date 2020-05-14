@@ -102,8 +102,8 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
 uint16_t BURST_MAX_SIZE = 500;
 
 #define SPI_DELAY_HOLD 3
-#define USE_HAL_SPI
-//#define USE_BARE_SPI
+//#define USE_HAL_SPI
+#define USE_BARE_SPI
 
 
 /*
@@ -389,7 +389,7 @@ void ILI9341_Draw_Pixel(uint16_t x,uint16_t y,uint16_t colour)
 			(x + 1)
 	};
 
-	_SPI_SendByteMultiByte(Temp_Buffer, 4, 0, 9);
+	_SPI_SendByteMultiByte(Temp_Buffer, 4, 0, 10);
 	//HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer, 4, 1 );
 
 	// Additional SPI CS "low" hold
@@ -422,7 +422,7 @@ void ILI9341_Draw_Pixel(uint16_t x,uint16_t y,uint16_t colour)
 	};
 
 	//HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer1, 4, 1 );
-	_SPI_SendByteMultiByte(Temp_Buffer1, 4, 0, 9);
+	_SPI_SendByteMultiByte(Temp_Buffer1, 4, 0, 10);
 
 	// Additional SPI CS "low" hold
 	for(int s=0; s < SPI_DELAY_HOLD; s++)
@@ -448,7 +448,7 @@ void ILI9341_Draw_Pixel(uint16_t x,uint16_t y,uint16_t colour)
 	unsigned char Temp_Buffer2[2] = {colour>>8, colour};
 
 	//HAL_SPI_Transmit(HSPI_INSTANCE, Temp_Buffer2, 2, 1 );
-	_SPI_SendByteMultiByte(Temp_Buffer2, 4, 0, 9);
+	_SPI_SendByteMultiByte(Temp_Buffer2, 4, 0, 10);
 
 	// Additional SPI CS "low" hold
 	for(int s=0; s < SPI_DELAY_HOLD; s++)
@@ -629,11 +629,11 @@ void _LCD_Write_Frame(uint16_t chunk_xpos, uint16_t chunk_ypos, uint16_t colour,
 	{
 		for(uint32_t j = 0; j < (Sending_in_Block); j++)
 		{
-			_SPI_SendByteMultiByte(burst_buffer, buffer_size, 0, 9);
+			_SPI_SendByteMultiByte(burst_buffer, buffer_size, 0, 10);
 		}
 	}
 
-	_SPI_SendByteMultiByte(burst_buffer, Remainder_from_block, 0, 9);
+	_SPI_SendByteMultiByte(burst_buffer, Remainder_from_block, 0, 10);
 
 
 	// Additional SPI CS "low" hold
