@@ -160,7 +160,7 @@ int main(void)
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, unitimpulse_data_table, UNITIMPULSE_DATA_SIZE, DAC_ALIGN_12B_R);
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, saw_data_table, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, saw_rev_data_table, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
-  HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, triangle_data_table_1300, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
+  HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, triangle_data_table_3600, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
 
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
 

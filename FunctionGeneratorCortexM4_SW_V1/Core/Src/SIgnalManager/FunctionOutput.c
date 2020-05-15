@@ -22,12 +22,13 @@
 
 #include "SignalManager.h"
 
-uint32_t *pOriginalDataTable = sine_data_table_1300;
+uint32_t *pOriginalDataTable = sine_data_table_3600;
+//uint32_t *pOriginalDataTable = sine_data_table_1300;
 
 void FuncO_Init()
 {
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
-		aModdedDataTable[i] = sine_data_table_1300[i];
+		aModdedDataTable[i] = sine_data_table_3600[i];
 }
 
 
@@ -140,7 +141,8 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 	{
 		case SINE_FUNC_MODE:
 
-			pOriginalDataTable = sine_data_table_1300;
+			pOriginalDataTable = sine_data_table_3600;
+			//pOriginalDataTable = sine_data_table_1300;
 
 			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
 
@@ -152,7 +154,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 		case SQUARE_FUNC_MODE:
 
-			pOriginalDataTable = square_data_table_1300;
+			pOriginalDataTable = square_data_table_3600;
 
 			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
 
@@ -163,7 +165,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 		case SAW_FUNC_MODE:
 
-			pOriginalDataTable = saw_data_table_1300;
+			pOriginalDataTable = saw_data_table_3600;
 
 			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
 
@@ -174,7 +176,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 		case REV_SAW_FUNC_MODE:
 
-			pOriginalDataTable = saw_rev_data_table_1300;
+			pOriginalDataTable = saw_rev_data_table_3600;
 
 			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
 
@@ -185,7 +187,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 		case TRIANGLE_FUNC_MODE:
 
-			pOriginalDataTable = triangle_data_table_1300;
+			pOriginalDataTable = triangle_data_table_3600;
 
 			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
 
@@ -196,7 +198,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 		case IMPULSE_FUNC_MODE:
 
-			pOriginalDataTable = unitimpulse_data_table_1300;
+			pOriginalDataTable = unitimpulse_data_table_3600;
 
 			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
 

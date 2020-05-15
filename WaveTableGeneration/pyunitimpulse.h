@@ -15,7 +15,7 @@
 
 #define UNITIMPULSE_DATA_SIZE 120
 
-uint32_t unitimpulse_data_table_1300[UNITIMPULSE_DATA_SIZE];
+uint32_t unitimpulse_data_table_3600[UNITIMPULSE_DATA_SIZE];
 
 
 

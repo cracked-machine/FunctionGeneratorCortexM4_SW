@@ -7,7 +7,7 @@ from createfile import write_to_source_file
 Fs = 120
 freq = 1
 sample = 120
-offset = 3050
+offset = 2100
 
 # 860   = 1.3Vpp
 # 770   = 1.2Vpp
@@ -27,8 +27,8 @@ offset = 3050
 #             800, 900, 1000, 1100, 1200, 1300]
 # amp_coeff = [56, 120, 192, 257, 327, 395, 460, 530, 590, 650, 710, 770, 860]
 
-amp_label = [1300]
-amp_coeff = [860]
+amp_label = [1300, 3600]
+amp_coeff = [860, 1800]
 
 
 x = np.arange(sample)

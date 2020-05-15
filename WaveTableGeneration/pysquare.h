@@ -15,7 +15,7 @@
 
 #define SQUARE_DATA_SIZE 120
 
-uint32_t square_data_table_1300[SQUARE_DATA_SIZE];
+uint32_t square_data_table_3600[SQUARE_DATA_SIZE];
 
 
 

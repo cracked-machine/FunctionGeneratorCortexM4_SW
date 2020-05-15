@@ -8,9 +8,9 @@ from scipy import signal
 
 t = np.linspace(0.25, 1.25, 120, endpoint=True)
 
-offset = 3050
-amp_label = [1300]
-amp_coeff = [430]
+offset = 2100
+amp_label = [3600]
+amp_coeff = [900]
 
 
 results = []

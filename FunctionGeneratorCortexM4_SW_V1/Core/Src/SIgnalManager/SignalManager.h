@@ -24,7 +24,7 @@
 #define eDefaultFreqPreset 	FPRESET_1KHZ
 #define eDefaultFuncPreset 	SINE_FUNC_MODE
 #define eDefaultGainPreset 	ONE_GAIN
-#define eDefaultVppPreset 	VPP95
+#define eDefaultVppPreset 	VPP80
 
 typedef enum
 {
