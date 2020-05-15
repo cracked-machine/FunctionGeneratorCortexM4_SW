@@ -38,11 +38,11 @@
 uint16_t btn_x_pos[4] = { 0, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 
 
-// public function prototypes
+// public function protochannels
 void DM_RefreshScreen();
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
-// private function prototypes
+// private function protochannels
 
 void _DrawBiasSelectMenu();
 
@@ -114,11 +114,12 @@ void _DisplayFormattedOutput()
 	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, BLACK, 3, WHITE);
 
 	// display output in volts peak-to-peak and decibels
-	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET);
-	if(pVppPresetTmp)
+	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile;
+
+	if(pTmpVppPreset)
 	{
-		snprintf(out_vpp, sizeof(out_vpp), "%2.2f Vpp", pVppPresetTmp->Vpp_target);
-		snprintf(out_decibels, sizeof(out_decibels), "%s", pVppPresetTmp->gain_decibels);
+		snprintf(out_vpp, sizeof(out_vpp), "%2.2f Vpp", pTmpVppPreset->Vpp_target);
+		snprintf(out_decibels, sizeof(out_decibels), "%s", pTmpVppPreset->gain_decibels);
 	}
 	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, BLACK, 3, WHITE);
 	ILI9341_Draw_Text(out_decibels, out_decibels_x, out_decibels_y, BLACK, 3, WHITE);

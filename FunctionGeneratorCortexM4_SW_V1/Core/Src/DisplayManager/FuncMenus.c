@@ -73,10 +73,11 @@ void FuncMenu_DrawSignalMenu()
 {
 	ILI9341_Draw_Text("SELECT SIGNAL FUNCTION", 	10, 10, WHITE, 3, BLACK);
 
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp = FuncO_GetSignalFPresetObject();
-	if(pFuncPresetTmp)
+	//FunctionProfile_t *func_profileTmp = FuncO_GetSignalFPresetObject();
+	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile;
+	if(func_profileTmp)
 	{
-		switch(pFuncPresetTmp->func)
+		switch(func_profileTmp->func)
 		{
 			case SINE_FUNC_MODE:
 				ILI9341_Draw_Text("- SINE", 	10, 50, WHITE, 2, BLACK);
@@ -144,10 +145,11 @@ void FuncMenu_DrawSignalMenu()
 void FuncMenu_DrawSyncMenu()
 {
 	ILI9341_Draw_Text("SELECT SYNC FUNCTION", 	10, 10, WHITE, 3, BLACK);
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp = FuncO_GetSyncFPresetObject();
-	if(pFuncPresetTmp)
+	//FunctionProfile_t *func_profileTmp = FuncO_GetSyncFPresetObject();
+	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile;
+	if(func_profileTmp)
 	{
-		switch(pFuncPresetTmp->func)
+		switch(func_profileTmp->func)
 		{
 			case SINE_FUNC_MODE:
 				ILI9341_Draw_Text("- SINE", 	10, 50, WHITE, 2, BLACK);

@@ -7,8 +7,10 @@
 
 
 #include "FunctionOutput.h"
+
 #include "EventManager.h"
 #include "DisplayManager.h"
+#include "SignalManager.h"
 
 #include "dac.h"
 #include "tim.h"
@@ -16,25 +18,11 @@
 
 
 
-#include "SignalManager.h"
-
-uint32_t *pOriginalSignalDataTable = sine_data_table_3600;
-
-
-void FuncO_Init()
-{
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
-		aProcessedSignalDataTable[i] = sine_data_table_3600[i];
-
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
-		aProcessedSyncDataTable[i] = sine_data_table_3600[i];
-}
-
 
 /*
  *	Array of objects for Function Presets, their encoder positions for func preset menu and LUT data for the function
  */
-Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS] =
+FunctionProfile_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS] =
 {
 	{ SINE_FUNC_MODE,		20, sine_data_table_3600 		},
 	{ SQUARE_FUNC_MODE,		16, square_data_table_3600 		},
@@ -47,13 +35,35 @@ Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS] =
 
 
 // pointer to eDefaultFuncPreset used by Signal output
-Func_Preset_Encoder_Pos_t *pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+//FunctionProfile_t *pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[eDefaultFuncPreset];
 
 // pointer to eDefaultFuncPreset used by Signal output
-Func_Preset_Encoder_Pos_t *pSyncFuncPresetEncoderPos = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+//FunctionProfile_t *pSyncFuncPresetEncoderPos = &aFuncPresetEncoderPos[eDefaultFuncPreset];
 
 
 uint8_t FuncPresetEncoderRange = 20;
+
+
+
+/*
+ *
+ *	@brief	Initialise the
+ *
+ *	@param pEncoderValue rotary encoder value
+ *	@retval None
+ *
+ */
+void FuncO_Init()
+{
+	/*
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+		aProcessedSignalDataTable[i] = sine_data_table_3600[i];
+
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+		aProcessedSyncDataTable[i] = sine_data_table_3600[i];
+		*/
+}
+
 
 /*
  *
@@ -156,18 +166,22 @@ void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
  */
 void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 {
-	// get pointer to the LUT data.  This will be the restore point for the dsp
-	pOriginalSignalDataTable = aFuncPresetEncoderPos[pPresetEnum].lookup_table_data;
 
-	// set PGA gain preset and dsp amplitude adjustment
-	VPP_ApplyPresetToSignal(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
+	// copy the lookup table for the next output function in to SignalChannel object
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = aFuncPresetEncoderPos[pPresetEnum].lookup_table_data;
 
-	// set the requested function output
-	pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[pPresetEnum];
+	// set preset for PGA gain and dsp amplitude adjustment
+	eVppPreset_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->Vpp_literal;
+	VPP_ApplyPresetToSignal(eTmpVppPreset);
+
+	// set the next function output
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &aFuncPresetEncoderPos[pPresetEnum];
 
 	// restart the DAC with the new data
 	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+
+
 
 }
 
@@ -189,18 +203,20 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
  */
 void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
 {
-	// get pointer to the LUT data.  This will be the restore point for the dsp
-	pOriginalSyncDataTable = aFuncPresetEncoderPos[pPresetEnum].lookup_table_data;
+	// copy the lookup table for the next output function in to SyncChannel object
+	SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = aFuncPresetEncoderPos[pPresetEnum].lookup_table_data;
 
-	// set PGA gain preset and dsp amplitude adjustment
-	VPP_ApplyPresetToSync(VPP_GetVppPresetObject(SYNC_OUTPUT_PRESET)->Vpp_literal);
+	// set preset PGA gain and dsp amplitude adjustment
+	eVppPreset_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->Vpp_literal;
+	VPP_ApplyPresetToSync(eTmpVppPreset);
 
-	// set the requested function output
-	pSyncFuncPresetEncoderPos = &aFuncPresetEncoderPos[pPresetEnum];
+	// set the next output function
+	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &aFuncPresetEncoderPos[pPresetEnum];
 
 	// restart the DAC with the new data
 	HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-	HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)aProcessedSyncDataTable, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+	HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+
 
 }
 
@@ -218,10 +234,10 @@ void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
 	TRIANGLE_FUNC_MODE,
 	IMPULSE_FUNC_MODE
 
- *	@retval pointer to Func_Preset_Encoder_Pos_t struct
+ *	@retval pointer to FunctionProfile_t struct
  *
  */
-Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum)
+FunctionProfile_t * FuncO_FindFPresetObject(eOutput_mode pEnum)
 {
 	for(int i = 0; i < MAX_NUM_FUNC_PRESETS; i++ )
 	{
@@ -241,27 +257,30 @@ Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum)
  *	@brief Get currently set function output preset
  *
  *	@param None
- *	@retval pointer to Func_Preset_Encoder_Pos_t struct
+ *	@retval pointer to FunctionProfile_t struct
  *
  */
-Func_Preset_Encoder_Pos_t * FuncO_GetSignalFPresetObject()
+/*
+FunctionProfile_t * FuncO_GetSignalFPresetObject()
 {
 	return pSignalFuncPresetEncoderPos;
 }
+*/
 
 /*
  *
  *	@brief Get currently set function output preset
  *
  *	@param None
- *	@retval pointer to Func_Preset_Encoder_Pos_t struct
+ *	@retval pointer to FunctionProfile_t struct
  *
  */
-Func_Preset_Encoder_Pos_t * FuncO_GetSyncFPresetObject()
+/*
+FunctionProfile_t * FuncO_GetSyncFPresetObject()
 {
 	return pSyncFuncPresetEncoderPos;
 }
-
+*/
 
 /*
  *

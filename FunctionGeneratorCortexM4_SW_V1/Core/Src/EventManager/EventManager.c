@@ -22,7 +22,7 @@
 
 uint32_t last_enc_value = 0;
 
-// public function prototypes
+// public function protochannels
 void EM_SetNewEvent(eSystemEvent pEvent);
 
 

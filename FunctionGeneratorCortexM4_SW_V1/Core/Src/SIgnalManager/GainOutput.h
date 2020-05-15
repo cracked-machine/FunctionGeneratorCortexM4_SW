@@ -11,6 +11,8 @@
 #include <stdint.h>
 #include "pysine.h"
 
+
+
 // signal output gain settings
 typedef enum
 {
@@ -37,21 +39,18 @@ typedef struct
 	int8_t decibels;
 	uint8_t epos;
 
-} Gain_Preset_Encoder_Pos_t;
+} GainProfile_t;
 
-Gain_Preset_Encoder_Pos_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS];
-
-/*
- * 		The Currently Used Frequency Preset
- */
-Gain_Preset_Encoder_Pos_t *pNewGainPresetEncoderPos;
+GainProfile_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS];
 
 
-void GO_ModifyOutput(uint16_t pEncoderValue);
-void GO_ApplyPreset_Fast(eOutput_gain pPresetEnum);
+void GO_ModifyOutputSignal(uint16_t pEncoderValue);
+void GO_ApplyPresetToSignal(eOutput_gain pPresetEnum);
 
-Gain_Preset_Encoder_Pos_t * GO_FindGPresetObject(eOutput_gain pEnum);
-Gain_Preset_Encoder_Pos_t * GO_GetGPresetObject();
+void GO_ModifyOutputSync(uint16_t pEncoderValue);
+void GO_ApplyPresetToSync(eOutput_gain pPresetEnum);
+
+GainProfile_t * GO_FindGPresetObject(eOutput_gain pEnum);
 
 uint8_t GO_GetGainPresetEncoderRange();
 

@@ -42,21 +42,18 @@ typedef struct
 	uint32_t *lookup_table_data;
 
 
-} Func_Preset_Encoder_Pos_t;
+} FunctionProfile_t;
 
-Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS];
-
-/*
- * 		The Currently Used Function Preset
- */
-Func_Preset_Encoder_Pos_t *pNewFuncPresetEncoderPos;
+FunctionProfile_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS];
 
 
-uint32_t *pOriginalSignalDataTable;
-uint32_t aProcessedSignalDataTable[SINE_DATA_SIZE];
 
-uint32_t *pOriginalSyncDataTable;
-uint32_t aProcessedSyncDataTable[SINE_DATA_SIZE];
+
+//uint32_t *pOriginalSignalDataTable;
+//uint32_t aProcessedSignalDataTable[SINE_DATA_SIZE];
+
+//uint32_t *pOriginalSyncDataTable;
+//uint32_t aProcessedSyncDataTable[SINE_DATA_SIZE];
 
 void FuncO_Init();
 /*
@@ -68,9 +65,9 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum);
 void FuncO_ModifySyncOutput(uint16_t pEncoderValue);
 void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum);
 
-Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum);
-Func_Preset_Encoder_Pos_t * FuncO_GetSignalFPresetObject();
-Func_Preset_Encoder_Pos_t * FuncO_GetSyncFPresetObject();
+FunctionProfile_t * FuncO_FindFPresetObject(eOutput_mode pEnum);
+FunctionProfile_t * FuncO_GetSignalFPresetObject();
+FunctionProfile_t * FuncO_GetSyncFPresetObject();
 
 //void FuncO_SetNewDataTable(uint32_t * pdata_table);
 

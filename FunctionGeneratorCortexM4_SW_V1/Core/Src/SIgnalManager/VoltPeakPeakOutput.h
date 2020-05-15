@@ -15,7 +15,7 @@
 #define MAX_VPP_PRESETS 98
 #define MAX_VPP_ENCODER_RANGE 398
 
-uint32_t tmpDataTable[SINE_DATA_SIZE];
+
 
 typedef enum
 {
@@ -44,7 +44,7 @@ typedef struct
 	float vpp_offset;
 	uint16_t epos;
 
-} VppEncoderPreset_t;
+} AmplitudeProfile_t;
 
 typedef enum
 {
@@ -56,17 +56,17 @@ typedef enum
 /*
  * 		Array of Vpp presets
  */
-VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS];
+AmplitudeProfile_t aVppEncoderPresets[MAX_VPP_PRESETS];
 
 /*
  * 		Pointer to active "signal output" Vpp preset
  */
-VppEncoderPreset_t* pSignalVppEncoderPreset;
+//AmplitudeProfile_t* pSignalVppEncoderPreset;
 
 /*
  * 		Pointer to active "sync output" Vpp preset
  */
-VppEncoderPreset_t* pSyncVppEncoderPreset;
+//AmplitudeProfile_t* pSyncVppEncoderPreset;
 
 
 /*
@@ -80,8 +80,8 @@ void VPP_ModifySyncOutput(uint16_t pEncoderValue);
 void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum);
 
 
-VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum);
-VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect);
+AmplitudeProfile_t * VPP_FindVppPresetObject(eVppPreset_t pEnum);
+//AmplitudeProfile_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect);
 
 
 

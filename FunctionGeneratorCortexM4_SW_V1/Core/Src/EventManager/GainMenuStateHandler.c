@@ -101,10 +101,11 @@ eSystemState GainSignalMenuEntryHandler()
 
 	eNextGainMenuStatus = ENABLE_GAIN_SIGNAL_MENU;
 
-	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET);
-	if(pVppPresetTmp)
+	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile;
+
+	if(pTmpVppPreset)
 	{
-		ENCODER_TIMER->CNT = pVppPresetTmp->epos;
+		ENCODER_TIMER->CNT = pTmpVppPreset->epos;
 		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
 	}
 	else
@@ -178,10 +179,11 @@ eSystemState GainSyncMenuEntryHandler()
 
 	eNextGainMenuStatus = ENABLE_GAIN_SYNC_MENU;
 
-	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject(SYNC_OUTPUT_PRESET);
-	if(pVppPresetTmp)
+	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile;
+
+	if(pTmpVppPreset)
 	{
-		ENCODER_TIMER->CNT = pVppPresetTmp->epos;
+		ENCODER_TIMER->CNT = pTmpVppPreset->epos;
 		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
 	}
 	else

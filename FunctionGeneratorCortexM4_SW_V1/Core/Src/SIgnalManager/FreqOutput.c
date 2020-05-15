@@ -47,7 +47,7 @@ uint8_t FreqPresetEncoderRange = 56;
 
 
 /*
- * 	Function prototypes
+ * 	Function protochannels
  */
 Freq_Preset_Encoder_Pos_t * FreqO_GetFPresetObject();
 

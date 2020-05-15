@@ -33,7 +33,27 @@ typedef enum
 
 } eEncoder_Direction;
 
+typedef enum
+{
+	SIGNAL_CHANNEL = 0U,
+	SYNC_CHANNEL
 
+} eOutputChannel_t;
+
+typedef struct
+{
+	eOutputChannel_t channel;
+	uint32_t *ref_lut_data;
+	uint32_t dsp_lut_data[SINE_DATA_SIZE];
+	FunctionProfile_t *func_profile;
+	AmplitudeProfile_t* amp_profile;
+	GainProfile_t *gain_profile;
+
+
+} sOutputChannel_t;
+
+void SM_Init();
+sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel);
 
 uint16_t SM_GetEncoderValue(eEncoder_Direction direction);
 float SM_GetOutputInHertz();

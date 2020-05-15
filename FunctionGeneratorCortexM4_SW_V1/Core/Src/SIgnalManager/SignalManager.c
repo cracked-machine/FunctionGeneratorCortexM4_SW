@@ -10,6 +10,38 @@
 #include <math.h>
 
 
+sOutputChannel_t SignalChannel;
+sOutputChannel_t SyncChannel;
+
+
+void SM_Init()
+{
+
+	// initialise the output channels
+	SignalChannel.channel = SIGNAL_CHANNEL;
+	SignalChannel.ref_lut_data = aFuncPresetEncoderPos[SINE_FUNC_MODE].lookup_table_data;
+	SignalChannel.func_profile = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+		SignalChannel.dsp_lut_data[i] = sine_data_table_3600[i];
+	SignalChannel.amp_profile = &aVppEncoderPresets[eDefaultVppPreset];
+	SignalChannel.gain_profile = &aGainPresetEncoderPos[eDefaultGainPreset];
+
+	SyncChannel.channel = SYNC_CHANNEL;
+	SyncChannel.ref_lut_data = aFuncPresetEncoderPos[SINE_FUNC_MODE].lookup_table_data;
+	SyncChannel.func_profile = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+		SyncChannel.dsp_lut_data[i] = sine_data_table_3600[i];
+	SyncChannel.amp_profile = &aVppEncoderPresets[eDefaultVppPreset];
+	SyncChannel.gain_profile = &aGainPresetEncoderPos[eDefaultGainPreset];
+}
+
+sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
+{
+	if(!pChannel)
+		return &SignalChannel;
+	else
+		return &SyncChannel;
+}
 
 /*
  *

@@ -89,7 +89,7 @@
 volatile uint16_t LCD_HEIGHT = ILI9341_SCREEN_HEIGHT;
 volatile uint16_t LCD_WIDTH	 = ILI9341_SCREEN_WIDTH;
 
-// private function prototypes
+// private function protochannels
 void _LCD_Enable();
 void _LCD_Reset();
 void _LCD_Write_Frame(uint16_t chunk_xpos, uint16_t chunk_ypos, uint16_t colour, uint32_t chunk_size, CHUNK_Type chunk_type);

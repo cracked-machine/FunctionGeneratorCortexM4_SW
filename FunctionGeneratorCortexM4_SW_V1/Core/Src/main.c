@@ -147,7 +147,8 @@ int main(void)
   DT_InitRegister();
 
   // main signal function output (external)
-  //DAC_InitDevices();
+  //DAC_InitDevices()
+  SM_Init();
   FuncO_Init();
   FuncO_ApplyPresetToSignal(eDefaultFuncPreset);
   FuncO_ApplyPresetToSync(eDefaultFuncPreset);
@@ -300,7 +301,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
   RCC_OscInitStruct.PLL.PLLN = 42;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV25;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV30;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV4;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)

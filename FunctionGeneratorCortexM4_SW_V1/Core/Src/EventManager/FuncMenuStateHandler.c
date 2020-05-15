@@ -38,15 +38,15 @@ eSystemState FuncMainMenuEntryHandler(void)
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
 
-/*	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetSignalFPresetObject();
-	if(pFuncPresetTmp)
+/*	FunctionProfile_t *func_profileTmp =  FuncO_GetSignalFPresetObject();
+	if(func_profileTmp)
 	{
-		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
+		ENCODER_TIMER->CNT = func_profileTmp->epos;
 		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
 	}
 	else
 	{
-		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: pFuncPresetTmp null pointer");
+		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
 	}
 */
 	eNewEvent = evIdle;
@@ -121,15 +121,16 @@ eSystemState FuncSignalMenuEntryHandler(void)
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_SIGNAL_MENU;
 
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetSignalFPresetObject();
-	if(pFuncPresetTmp)
+	//FunctionProfile_t *func_profileTmp =  FuncO_GetSignalFPresetObject();
+	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile;
+	if(func_profileTmp)
 	{
-		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
+		ENCODER_TIMER->CNT = func_profileTmp->epos;
 		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
 	}
 	else
 	{
-		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: pFuncPresetTmp null pointer");
+		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
 	}
 
 	eNewEvent = evIdle;
@@ -203,15 +204,16 @@ eSystemState FuncSyncMenuEntryHandler(void)
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_SYNC_MENU;
 
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetSyncFPresetObject();
-	if(pFuncPresetTmp)
+	//FunctionProfile_t *func_profileTmp =  FuncO_GetSyncFPresetObject();
+	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile;
+	if(func_profileTmp)
 	{
-		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
+		ENCODER_TIMER->CNT = func_profileTmp->epos;
 		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
 	}
 	else
 	{
-		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: pFuncPresetTmp null pointer");
+		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
 	}
 
 	eNewEvent = evIdle;

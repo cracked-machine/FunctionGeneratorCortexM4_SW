@@ -6,19 +6,13 @@
  */
 
 #include "GainOutput.h"
-
-#include "gpio.h"
-#include "tim.h"
-
-#include "SignalManager.h"
 #include "DisplayManager.h"
 
-#include "pysine.h"
 
 /*
  *	Array of objects for Gain Presets and their encoder positions for gain preset menu
  */
-Gain_Preset_Encoder_Pos_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS] =
+GainProfile_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS] =
 {
 	{ ZERO_GAIN,	-1, 28 },
 	{ ONE_GAIN,		0,  24 },
@@ -31,82 +25,86 @@ Gain_Preset_Encoder_Pos_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS] =
 
 };
 
-/*
- * 		eDefaultFreqPreset set by SignalManager
- */
-Gain_Preset_Encoder_Pos_t *pNewGainPresetEncoderPos = &aGainPresetEncoderPos[eDefaultGainPreset];
-
-
 uint8_t GainPresetEncoderRange = 28;
 
 
 // signal output gain
-eOutput_gain eNewOutGain = ONE_GAIN;
+//eOutput_gain eNewOutGain = ONE_GAIN;
 
 
-void GO_ModifyOutput(uint16_t pEncoderValue)
+void GO_ModifyOutputSync(uint16_t pEncoderValue)
 {
-
-
 	switch(pEncoderValue)
 	{
-		case 0:
-		case 1:
-		case 2:
-			GO_ApplyPreset_Fast(ZERO_GAIN);
-			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
-			break;
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-			GO_ApplyPreset_Fast(ONE_GAIN);
-			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
-			break;
-		case 7:
-		case 8:
-		case 9:
-		case 10:
-			GO_ApplyPreset_Fast(TWO_GAIN);
-			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
-			break;
-		case 11:
-		case 12:
-		case 13:
-		case 14:
-			GO_ApplyPreset_Fast(THREE_GAIN);
-			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
-			break;
-		case 15:
-		case 16:
-		case 17:
-		case 18:
-			GO_ApplyPreset_Fast(FOUR_GAIN);
-			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
-			break;
-		case 19:
-		case 20:
-		case 21:
-		case 22:
-			GO_ApplyPreset_Fast(FIVE_GAIN);
-			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
-			break;
-		case 23:
-		case 24:
-		case 25:
-		case 26:
-			GO_ApplyPreset_Fast(SIX_GAIN);
-			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
-			break;
-		case 27:
-		case 28:
-		case 29:
-		case 30:
-			GO_ApplyPreset_Fast(SEVEN_GAIN);
-			//FuncO_SetNewDataTable(pNewGainPresetEncoderPos->data_table);
+		case 0: case 1: case 2:
+			GO_ApplyPresetToSync(ZERO_GAIN);
 			break;
 
+		case 3: case 4: case 5: case 6:
+			GO_ApplyPresetToSync(ONE_GAIN);
+			break;
 
+		case 7: case 8: case 9: case 10:
+			GO_ApplyPresetToSync(TWO_GAIN);
+			break;
+
+		case 11: case 12: case 13: case 14:
+			GO_ApplyPresetToSync(THREE_GAIN);
+			break;
+
+		case 15: case 16: case 17: case 18:
+			GO_ApplyPresetToSync(FOUR_GAIN);
+			break;
+
+		case 19: case 20: case 21: case 22:
+			GO_ApplyPresetToSync(FIVE_GAIN);
+			break;
+
+		case 23: case 24: case 25: case 26:
+			GO_ApplyPresetToSync(SIX_GAIN);
+			break;
+
+		case 27: case 28: case 29: case 30:
+			GO_ApplyPresetToSync(SEVEN_GAIN);
+			break;
+	}
+}
+
+void GO_ModifyOutputSignal(uint16_t pEncoderValue)
+{
+	switch(pEncoderValue)
+	{
+		case 0: case 1: case 2:
+			GO_ApplyPresetToSignal(ZERO_GAIN);
+			break;
+
+		case 3: case 4: case 5: case 6:
+			GO_ApplyPresetToSignal(ONE_GAIN);
+			break;
+
+		case 7: case 8: case 9: case 10:
+			GO_ApplyPresetToSignal(TWO_GAIN);
+			break;
+
+		case 11: case 12: case 13: case 14:
+			GO_ApplyPresetToSignal(THREE_GAIN);
+			break;
+
+		case 15: case 16: case 17: case 18:
+			GO_ApplyPresetToSignal(FOUR_GAIN);
+			break;
+
+		case 19: case 20: case 21: case 22:
+			GO_ApplyPresetToSignal(FIVE_GAIN);
+			break;
+
+		case 23: case 24: case 25: case 26:
+			GO_ApplyPresetToSignal(SIX_GAIN);
+			break;
+
+		case 27: case 28: case 29: case 30:
+			GO_ApplyPresetToSignal(SEVEN_GAIN);
+			break;
 	}
 }
 
@@ -118,64 +116,55 @@ void GO_ModifyOutput(uint16_t pEncoderValue)
  *	@retval None
  *
  */
-void GO_ApplyPreset_Fast(eOutput_gain pPresetEnum)
+void GO_ApplyPresetToSignal(eOutput_gain pPresetEnum)
 {
-
-
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->gain_profile = &aGainPresetEncoderPos[pPresetEnum];
 
 	switch(pPresetEnum)
 	{
 		case ZERO_GAIN:
-			pNewGainPresetEncoderPos = &aGainPresetEncoderPos[0];
 			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
 			break;
 
 		case ONE_GAIN:
-			pNewGainPresetEncoderPos = &aGainPresetEncoderPos[1];
 			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
 			break;
 
 		case TWO_GAIN:
-			pNewGainPresetEncoderPos = &aGainPresetEncoderPos[2];
 			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
 			break;
 
 		case THREE_GAIN:
-			pNewGainPresetEncoderPos = &aGainPresetEncoderPos[3];
 			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
 			break;
 
 		case FOUR_GAIN:
-			pNewGainPresetEncoderPos = &aGainPresetEncoderPos[4];
 			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
 			break;
 
 		case FIVE_GAIN:
-			pNewGainPresetEncoderPos = &aGainPresetEncoderPos[5];
 			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
 			break;
 
 		case SIX_GAIN:
-			pNewGainPresetEncoderPos = &aGainPresetEncoderPos[6];
 			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
 			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
 			break;
 
 		case SEVEN_GAIN:
-			pNewGainPresetEncoderPos = &aGainPresetEncoderPos[7];
 			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
 			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
@@ -191,7 +180,73 @@ void GO_ApplyPreset_Fast(eOutput_gain pPresetEnum)
  *	@retval None
  *
  */
-Gain_Preset_Encoder_Pos_t * GO_FindGPresetObject(eOutput_gain pEnum)
+void GO_ApplyPresetToSync(eOutput_gain pPresetEnum)
+{
+	SM_GetOutputChannel(SYNC_CHANNEL)->gain_profile = &aGainPresetEncoderPos[pPresetEnum];
+
+	switch(pPresetEnum)
+	{
+		case ZERO_GAIN:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			break;
+
+		case ONE_GAIN:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			break;
+
+		case TWO_GAIN:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			break;
+
+		case THREE_GAIN:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			break;
+
+		case FOUR_GAIN:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			break;
+
+		case FIVE_GAIN:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			break;
+
+		case SIX_GAIN:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			break;
+
+		case SEVEN_GAIN:
+			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			break;
+	}
+}
+
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+GainProfile_t * GO_FindGPresetObject(eOutput_gain pEnum)
 {
 
 	for(int i = 0; i < MAX_NUM_GAIN_PRESETS; i++ )
@@ -204,19 +259,6 @@ Gain_Preset_Encoder_Pos_t * GO_FindGPresetObject(eOutput_gain pEnum)
 	// error!
 	DM_SetErrorDebugMsg("GO_FindGPresetObject(): no GPreset obj found");
 	return 0;
-}
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-Gain_Preset_Encoder_Pos_t * GO_GetGPresetObject()
-{
-	return pNewGainPresetEncoderPos;
 }
 
 /*

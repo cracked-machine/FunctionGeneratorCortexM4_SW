@@ -90,7 +90,7 @@
   * @}
   */
 
-/** @addtogroup STM32G4xx_System_Private_TypesDefinitions
+/** @addtogroup STM32G4xx_System_Private_channelsDefinitions
   * @{
   */
 
@@ -141,7 +141,7 @@
   * @}
   */
 
-/** @addtogroup STM32G4xx_System_Private_FunctionPrototypes
+/** @addtogroup STM32G4xx_System_Private_FunctionProtochannels
   * @{
   */
 

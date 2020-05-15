@@ -24,7 +24,7 @@
 /*
  * 		Array of Vpp presets
  */
-VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS] =
+AmplitudeProfile_t aVppEncoderPresets[MAX_VPP_PRESETS] =
 {
 
 		{	VPP01	,	0.1	,	7	,	"+40.0 dBmV"	,	0.005	,	VPP_OFFSET	,	392	},
@@ -127,24 +127,19 @@ VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS] =
 		{	VPP98	,	9.8	,	7	,	"+79.8 dBmV"	,	0.519	,	VPP_OFFSET	,	4	}
 };
 
-/*
- * 		Pointer to active "main output" Vpp preset
- */
-VppEncoderPreset_t* pSignalVppEncoderPreset = &aVppEncoderPresets[eDefaultVppPreset];
+
+// temp location to hold a copy of the lookup table data that is modified by dsp
+uint32_t tmpDataTable[SINE_DATA_SIZE];
 
 /*
- * 		Pointer to active "sync output" Vpp preset
- */
-VppEncoderPreset_t* pSyncVppEncoderPreset = &aVppEncoderPresets[eDefaultVppPreset];
-
-/*
- * 		Function prototypes
+ * 		Function protochannels
  */
 void _ProcessSignalDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value);
 void VPP_ApplyPresetToSignal(eVppPreset_t pPresetEnum);
 
 void _ProcessSyncDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value);
 void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum);
+
 
 /*
  *
@@ -156,14 +151,19 @@ void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum);
  */
 void VPP_ApplyPresetToSignal(eVppPreset_t pPresetEnum)
 {
-    pSignalVppEncoderPreset = &aVppEncoderPresets[pPresetEnum];
-    //GO_ApplyPreset_Fast((ONE_GAIN));
+	// retrieve the next preset
+	AmplitudeProfile_t* pNextEncPreset = &aVppEncoderPresets[pPresetEnum];
+
+	// Set the new VPP Preset to the SignalChannel object
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile = pNextEncPreset;
 
     // set the gain preset
-    GO_ApplyPreset_Fast(pSignalVppEncoderPreset->gain_preset);
+	GO_ApplyPresetToSignal(pNextEncPreset->gain_preset);
 
-    // set the amplitude
-    _ProcessSignalDataTable(pSignalVppEncoderPreset->neg_gain_coeff, pSignalVppEncoderPreset->vpp_offset , pSignalVppEncoderPreset->epos);
+    // Apply the next amplitude setting to the SignalChannel object
+    _ProcessSignalDataTable(pNextEncPreset->neg_gain_coeff, pNextEncPreset->vpp_offset , pNextEncPreset->epos);
+
+
 }
 
 /*
@@ -176,19 +176,25 @@ void VPP_ApplyPresetToSignal(eVppPreset_t pPresetEnum)
  */
 void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum)
 {
-    pSyncVppEncoderPreset = &aVppEncoderPresets[pPresetEnum];
-    //GO_ApplyPreset_Fast((ONE_GAIN));
+	// retrieve the next preset
+	AmplitudeProfile_t* pNextEncPreset = &aVppEncoderPresets[pPresetEnum];
 
-    // set the gain preset
-    GO_ApplyPreset_Fast(pSyncVppEncoderPreset->gain_preset);
+	// Set the new VPP Preset to the SyncChannel object
+	SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile = pNextEncPreset;
 
-    // set the amplitude
-    _ProcessSyncDataTable(pSyncVppEncoderPreset->neg_gain_coeff, pSyncVppEncoderPreset->vpp_offset , pSyncVppEncoderPreset->epos);
+	 // set the gain preset
+	GO_ApplyPresetToSync(pNextEncPreset->gain_preset);
+
+	// Apply the next amplitude setting to the SyncChannel object
+	_ProcessSyncDataTable(pNextEncPreset->neg_gain_coeff, pNextEncPreset->vpp_offset , pNextEncPreset->epos);
+
+
+
 }
 
 /*
  *
- *	@brief
+ *	@brief	amplitude/offset DSP function for Signal output
  *
  *	@param None
  *	@retval None
@@ -196,32 +202,36 @@ void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum)
  */
 void _ProcessSignalDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value)
 {
+	// copy refer lookup datat table from SignalChannel object
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
-		tmpDataTable[i] = pOriginalSignalDataTable[i];
+		tmpDataTable[i] = SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data[i];
 	}
 
+	// calculate positive offset coefficient from encoder position
 	float pos_offset_coeff = 1;
 	if(_encoder_value)
+	{
 		pos_offset_coeff = (_encoder_value/4);
+	}
 
+	// adjust amplitude and offset of lookup table copy
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
-
 		tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
 		tmpDataTable[i] = tmpDataTable[i] + (vpp_offset * pos_offset_coeff);
 	}
-	//HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+
+	// restore lookup table copy to active lookup table in SignalChannel object
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
-		aProcessedSignalDataTable[i] = tmpDataTable[i];
+		SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
 	}
-	//HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SINE_DATA_SIZE,  DAC_ALIGN_12B_R);
 }
 
 /*
  *
- *	@brief
+ *	@brief	amplitude/offset DSP function for Sync output
  *
  *	@param None
  *	@retval None
@@ -229,27 +239,32 @@ void _ProcessSignalDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _
  */
 void _ProcessSyncDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value)
 {
+	// copy refer lookup datat table from SyncChannel object
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
-		tmpDataTable[i] = pOriginalSyncDataTable[i];
+		tmpDataTable[i] = SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data[i];
 	}
 
+	// calculate positive offset coefficient from encoder position
 	float pos_offset_coeff = 1;
 	if(_encoder_value)
+	{
 		pos_offset_coeff = (_encoder_value/4);
+	}
 
+	// adjust amplitude and offset of lookup table copy
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
 
 		tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
 		tmpDataTable[i] = tmpDataTable[i] + (vpp_offset * pos_offset_coeff);
 	}
-	//HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+
+	// restore lookup table copy to active lookup table in SignalChannel object
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
-		aProcessedSyncDataTable[i] = tmpDataTable[i];
+		SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
 	}
-	//HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SINE_DATA_SIZE,  DAC_ALIGN_12B_R);
 }
 
 
@@ -259,16 +274,18 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _en
  *	@brief Get VPP preset pointer
  *
  *	@param None
- *	@retval pointer to VppEncoderPreset_t struct
+ *	@retval pointer to AmplitudeProfile_t struct
  *
  */
-VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect)
+/*
+AmplitudeProfile_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect)
 {
 	if(eVppActivePresetSelect)
 		return pSyncVppEncoderPreset;
 	else
 		return pSignalVppEncoderPreset;
 }
+*/
 
 
 /*
@@ -285,10 +302,10 @@ VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActiveP
 	VPP76,	VPP77,	VPP78,	VPP79,	VPP80,	VPP81,	VPP82,	VPP83,	VPP84,	VPP85,	VPP86,	VPP87,	VPP88,	VPP89,	VPP90,
 	VPP91,	VPP92,	VPP93,	VPP94,	VPP95,	VPP96,	VPP97,	VPP98,
 
- *	@retval pointer to VppEncoderPreset_t struct
+ *	@retval pointer to AmplitudeProfile_t struct
  *
  */
-VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum)
+AmplitudeProfile_t * VPP_FindVppPresetObject(eVppPreset_t pEnum)
 {
 	for(int i = 0; i < MAX_VPP_PRESETS; i++ )
 	{
@@ -298,7 +315,7 @@ VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum)
 		}
 	}
 	// error!
-	DM_SetErrorDebugMsg("VPP_FindVppPresetObject(): VppEncoderPreset_t obj not found");
+	DM_SetErrorDebugMsg("VPP_FindVppPresetObject(): AmplitudeProfile_t obj not found");
 	return 0;
 }
 
