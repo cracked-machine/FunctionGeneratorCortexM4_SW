@@ -28,45 +28,28 @@ typedef enum
 	VPP72,	VPP73,	VPP74,	VPP75,	VPP76,	VPP77,	VPP78,	VPP79,	VPP80,	VPP81,  VPP82,	VPP83,	VPP84,	VPP85,
 	VPP86,	VPP87,	VPP88,	VPP89,	VPP90,	VPP91,	VPP92,	VPP93,	VPP94,	VPP95,	VPP96,	VPP97,	VPP98,
 
-} eVppPreset_t;
+} eAmpSettings_t;
 
 
 /*
- *	object for Vpp Preset and its encoder position for Vpp preset menu
+ *	object for Vpp Preset and its encoder position for amp profile menu
  */
 typedef struct
 {
-	eVppPreset_t Vpp_literal;
-	float Vpp_target;
+	eAmpSettings_t amp_setting;
+	float amp_value;
 	uint8_t gain_preset;
 	char* gain_decibels;
 	float neg_gain_coeff;
-	float vpp_offset;
+	float amp_offset;
 	uint16_t epos;
 
 } AmplitudeProfile_t;
 
-typedef enum
-{
-	SIGNAL_OUTPUT_PRESET = 0U,
-	SYNC_OUTPUT_PRESET
-} eVppActivePresetSelect_t;
-
-
 /*
- * 		Array of Vpp presets
+ * 		Array of  amp profile
  */
-AmplitudeProfile_t aVppEncoderPresets[MAX_VPP_PRESETS];
-
-/*
- * 		Pointer to active "signal output" Vpp preset
- */
-//AmplitudeProfile_t* pSignalVppEncoderPreset;
-
-/*
- * 		Pointer to active "sync output" Vpp preset
- */
-//AmplitudeProfile_t* pSyncVppEncoderPreset;
+AmplitudeProfile_t theAmpProfiles[MAX_VPP_PRESETS];
 
 
 /*
@@ -74,17 +57,13 @@ AmplitudeProfile_t aVppEncoderPresets[MAX_VPP_PRESETS];
  */
 
 void VPP_ModifySignalOutput(uint16_t pEncoderValue);
-void VPP_ApplyPresetToSignal(eVppPreset_t pPresetEnum);
+void VPP_ApplyPresetToSignal(eAmpSettings_t pPresetEnum);
 
 void VPP_ModifySyncOutput(uint16_t pEncoderValue);
-void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum);
+void VPP_ApplyPresetToSync(eAmpSettings_t pPresetEnum);
 
 
-AmplitudeProfile_t * VPP_FindVppPresetObject(eVppPreset_t pEnum);
-//AmplitudeProfile_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect);
-
-
-
+AmplitudeProfile_t * VPP_FindVppPresetObject(eAmpSettings_t pEnum);
 
 
 #endif /* SRC_SIGNALMANAGER_VOLTPEAKPEAKOUTPUT_H_ */

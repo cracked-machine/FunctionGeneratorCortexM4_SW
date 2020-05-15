@@ -12,7 +12,7 @@
 /*
  *	Array of objects for Gain Presets and their encoder positions for gain preset menu
  */
-GainProfile_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS] =
+GainProfile_t theGainProfiles[MAX_NUM_GAIN_PRESETS] =
 {
 	{ ZERO_GAIN,	-1, 28 },
 	{ ONE_GAIN,		0,  24 },
@@ -29,7 +29,7 @@ uint8_t GainPresetEncoderRange = 28;
 
 
 // signal output gain
-//eOutput_gain eNewOutGain = ONE_GAIN;
+//eGainSettings_t eNewOutGain = ONE_GAIN;
 
 
 void GO_ModifyOutputSync(uint16_t pEncoderValue)
@@ -116,9 +116,9 @@ void GO_ModifyOutputSignal(uint16_t pEncoderValue)
  *	@retval None
  *
  */
-void GO_ApplyPresetToSignal(eOutput_gain pPresetEnum)
+void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
 {
-	SM_GetOutputChannel(SIGNAL_CHANNEL)->gain_profile = &aGainPresetEncoderPos[pPresetEnum];
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->gain_profile = &theGainProfiles[pPresetEnum];
 
 	switch(pPresetEnum)
 	{
@@ -180,9 +180,9 @@ void GO_ApplyPresetToSignal(eOutput_gain pPresetEnum)
  *	@retval None
  *
  */
-void GO_ApplyPresetToSync(eOutput_gain pPresetEnum)
+void GO_ApplyPresetToSync(eGainSettings_t pPresetEnum)
 {
-	SM_GetOutputChannel(SYNC_CHANNEL)->gain_profile = &aGainPresetEncoderPos[pPresetEnum];
+	SM_GetOutputChannel(SYNC_CHANNEL)->gain_profile = &theGainProfiles[pPresetEnum];
 
 	switch(pPresetEnum)
 	{
@@ -246,14 +246,14 @@ void GO_ApplyPresetToSync(eOutput_gain pPresetEnum)
  *	@retval None
  *
  */
-GainProfile_t * GO_FindGPresetObject(eOutput_gain pEnum)
+GainProfile_t * GO_FindGPresetObject(eGainSettings_t pEnum)
 {
 
 	for(int i = 0; i < MAX_NUM_GAIN_PRESETS; i++ )
 	{
-		if(aGainPresetEncoderPos[i].gain == pEnum)
+		if(theGainProfiles[i].gain == pEnum)
 		{
-			return &aGainPresetEncoderPos[i];
+			return &theGainProfiles[i];
 		}
 	}
 	// error!

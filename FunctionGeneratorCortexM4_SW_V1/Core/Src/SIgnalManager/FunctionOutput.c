@@ -22,7 +22,7 @@
 /*
  *	Array of objects for Function Presets, their encoder positions for func preset menu and LUT data for the function
  */
-FunctionProfile_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS] =
+FunctionProfile_t theFuncProfiles[MAX_NUM_FUNC_PRESETS] =
 {
 	{ SINE_FUNC_MODE,		20, sine_data_table_3600 		},
 	{ SQUARE_FUNC_MODE,		16, square_data_table_3600 		},
@@ -35,10 +35,10 @@ FunctionProfile_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS] =
 
 
 // pointer to eDefaultFuncPreset used by Signal output
-//FunctionProfile_t *pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+//FunctionProfile_t *pSignalFuncPresetEncoderPos = &theFuncProfiles[eDefaultFuncPreset];
 
 // pointer to eDefaultFuncPreset used by Signal output
-//FunctionProfile_t *pSyncFuncPresetEncoderPos = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+//FunctionProfile_t *pSyncFuncPresetEncoderPos = &theFuncProfiles[eDefaultFuncPreset];
 
 
 uint8_t FuncPresetEncoderRange = 20;
@@ -168,21 +168,28 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 {
 
 	// copy the lookup table for the next output function in to SignalChannel object
-	SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = aFuncPresetEncoderPos[pPresetEnum].lookup_table_data;
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
 	// set preset for PGA gain and dsp amplitude adjustment
-	eVppPreset_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->Vpp_literal;
+	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
 	VPP_ApplyPresetToSignal(eTmpVppPreset);
 
 	// set the next function output
-	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &aFuncPresetEncoderPos[pPresetEnum];
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
+
+	// pause timer to resync both outputs
+	HAL_TIM_Base_Stop(&htim8);
 
 	// restart the DAC with the new data
 	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
 	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
+	// restart the the other DAC
+	HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+	HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
-
+	// resume timer to resync both outputs
+	HAL_TIM_Base_Start(&htim8);
 }
 
 /*
@@ -204,20 +211,28 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
 {
 	// copy the lookup table for the next output function in to SyncChannel object
-	SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = aFuncPresetEncoderPos[pPresetEnum].lookup_table_data;
+	SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
 	// set preset PGA gain and dsp amplitude adjustment
-	eVppPreset_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->Vpp_literal;
+	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
 	VPP_ApplyPresetToSync(eTmpVppPreset);
 
 	// set the next output function
-	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &aFuncPresetEncoderPos[pPresetEnum];
+	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
+
+	// pause timer to resync both outputs
+	HAL_TIM_Base_Stop(&htim8);
 
 	// restart the DAC with the new data
 	HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
 	HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
+	// restart the the other DAC
+	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
+	// resume timer to resync both outputs
+	HAL_TIM_Base_Start(&htim8);
 }
 
 
@@ -241,9 +256,9 @@ FunctionProfile_t * FuncO_FindFPresetObject(eOutput_mode pEnum)
 {
 	for(int i = 0; i < MAX_NUM_FUNC_PRESETS; i++ )
 	{
-		if(aFuncPresetEncoderPos[i].func == pEnum)
+		if(theFuncProfiles[i].func == pEnum)
 		{
-			return &aFuncPresetEncoderPos[i];
+			return &theFuncProfiles[i];
 		}
 	}
 	// error!

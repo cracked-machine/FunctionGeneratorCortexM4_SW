@@ -25,7 +25,7 @@ typedef enum
 	SIX_GAIN,
 	SEVEN_GAIN
 
-} eOutput_gain;
+} eGainSettings_t;
 
 
 #define MAX_NUM_GAIN_PRESETS 8
@@ -35,22 +35,22 @@ typedef enum
  */
 typedef struct
 {
-	eOutput_gain gain;
+	eGainSettings_t gain;
 	int8_t decibels;
 	uint8_t epos;
 
 } GainProfile_t;
 
-GainProfile_t aGainPresetEncoderPos[MAX_NUM_GAIN_PRESETS];
+GainProfile_t theGainProfiles[MAX_NUM_GAIN_PRESETS];
 
 
 void GO_ModifyOutputSignal(uint16_t pEncoderValue);
-void GO_ApplyPresetToSignal(eOutput_gain pPresetEnum);
+void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum);
 
 void GO_ModifyOutputSync(uint16_t pEncoderValue);
-void GO_ApplyPresetToSync(eOutput_gain pPresetEnum);
+void GO_ApplyPresetToSync(eGainSettings_t pPresetEnum);
 
-GainProfile_t * GO_FindGPresetObject(eOutput_gain pEnum);
+GainProfile_t * GO_FindGPresetObject(eGainSettings_t pEnum);
 
 uint8_t GO_GetGainPresetEncoderRange();
 

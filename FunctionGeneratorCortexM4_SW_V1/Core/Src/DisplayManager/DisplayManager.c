@@ -118,7 +118,7 @@ void _DisplayFormattedOutput()
 
 	if(pTmpVppPreset)
 	{
-		snprintf(out_vpp, sizeof(out_vpp), "%2.2f Vpp", pTmpVppPreset->Vpp_target);
+		snprintf(out_vpp, sizeof(out_vpp), "%2.2f Vpp", pTmpVppPreset->amp_value);
 		snprintf(out_decibels, sizeof(out_decibels), "%s", pTmpVppPreset->gain_decibels);
 	}
 	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, BLACK, 3, WHITE);

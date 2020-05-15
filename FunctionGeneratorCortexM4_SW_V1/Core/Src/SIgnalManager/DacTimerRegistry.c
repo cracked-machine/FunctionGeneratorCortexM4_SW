@@ -67,11 +67,11 @@ DacTimeReg_t* DT_GetRegisterByIndex(uint8_t pIndex)
  *
  *	@brief Enum-based Search for DAC Timer registry
  *
- *	@param pEnum Enummeration (eFreq_Preset) search criteria. Not an index
+ *	@param pEnum Enummeration (eFreqSettings_t) search criteria. Not an index
  *	@retval Pointer to the found DacTimeReg_t struct. Null if no result!
  *
  */
-DacTimeReg_t* DT_GetRegisterByEnum(eFreq_Preset pEnum)
+DacTimeReg_t* DT_GetRegisterByEnum(eFreqSettings_t pEnum)
 {
 	for(int i = 0; i < MAX_DAC_TIMER_SETTINGS; i++)
 		if(DacTimerReg[i].hertz == pEnum)

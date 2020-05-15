@@ -80,7 +80,7 @@ void FreqMenu_DrawPresetMenu()
 	uint8_t menu_pos_y5 = 130;
 	uint8_t menu_pos_y6 = 150;
 	uint8_t menu_pos_y7 = 170;
-	Freq_Preset_Encoder_Pos_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
+	FreqProfile_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
 	if(pFreqPresetTmp)
 	{
 		switch(pFreqPresetTmp->hertz)

@@ -17,7 +17,7 @@
 /*
  *	Array of objects for Frequency Presets and their encoder positions for freq preset menu
  */
-Freq_Preset_Encoder_Pos_t aFreqPresetEncoderPos[MAX_NUM_FREQ_PRESETS] =
+FreqProfile_t theFreqProfiles[MAX_NUM_FREQ_PRESETS] =
 {
 	{ FPRESET_1HZ,		53 },
 	{ FPRESET_10HZ,		49 },
@@ -39,7 +39,7 @@ Freq_Preset_Encoder_Pos_t aFreqPresetEncoderPos[MAX_NUM_FREQ_PRESETS] =
 /*
  * 		eDefaultFreqPreset set by SignalManager
  */
-Freq_Preset_Encoder_Pos_t *pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[eDefaultFreqPreset];
+FreqProfile_t *freq_profile = &theFreqProfiles[eDefaultFreqPreset];
 
 
 uint8_t FreqPresetEncoderRange = 56;
@@ -49,7 +49,7 @@ uint8_t FreqPresetEncoderRange = 56;
 /*
  * 	Function protochannels
  */
-Freq_Preset_Encoder_Pos_t * FreqO_GetFPresetObject();
+FreqProfile_t * FreqO_GetFPresetObject();
 
 
 
@@ -196,7 +196,7 @@ void FreqO_ModifyOutput(uint16_t pEncValue)
  *	@retval None
  *
  */
-void FreqO_ApplyPreset_Fast(eFreq_Preset pPresetEnum)
+void FreqO_ApplyPreset_Fast(eFreqSettings_t pPresetEnum)
 {
 	switch(pPresetEnum)
 	{
@@ -204,85 +204,85 @@ void FreqO_ApplyPreset_Fast(eFreq_Preset pPresetEnum)
 			TIM8->PSC = DT_GetRegisterByIndex(0)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(0)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[0];
+			freq_profile = &theFreqProfiles[0];
 			break;
 		case FPRESET_10HZ:
 			TIM8->PSC = DT_GetRegisterByIndex(1)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(1)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[1];
+			freq_profile = &theFreqProfiles[1];
 			break;
 		case FPRESET_50HZ:
 			TIM8->PSC = DT_GetRegisterByIndex(2)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(2)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[2];
+			freq_profile = &theFreqProfiles[2];
 			break;
 		case FPRESET_100HZ:
 			TIM8->PSC = DT_GetRegisterByIndex(3)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(3)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[3];
+			freq_profile = &theFreqProfiles[3];
 			break;
 		case FPRESET_250HZ:
 			TIM8->PSC = DT_GetRegisterByIndex(4)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(4)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[4];
+			freq_profile = &theFreqProfiles[4];
 			break;
 		case FPRESET_500HZ:
 			TIM8->PSC = DT_GetRegisterByIndex(5)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(5)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[5];
+			freq_profile = &theFreqProfiles[5];
 			break;
 		case FPRESET_750HZ:
 			TIM8->PSC = DT_GetRegisterByIndex(6)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(6)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[6];
+			freq_profile = &theFreqProfiles[6];
 			break;
 		case FPRESET_1KHZ:
 			TIM8->PSC = DT_GetRegisterByIndex(7)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(7)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[7];
+			freq_profile = &theFreqProfiles[7];
 			break;
 		case FPRESET_5KHZ:
 			TIM8->PSC = DT_GetRegisterByIndex(8)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(8)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[8];
+			freq_profile = &theFreqProfiles[8];
 			break;
 		case FPRESET_10KHZ:
 			TIM8->PSC = DT_GetRegisterByIndex(9)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(9)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[9];
+			freq_profile = &theFreqProfiles[9];
 			break;
 		case FPRESET_25KHZ:
 			TIM8->PSC = DT_GetRegisterByIndex(10)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(10)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[10];
+			freq_profile = &theFreqProfiles[10];
 			break;
 		case FPRESET_50KHZ:
 			TIM8->PSC = DT_GetRegisterByIndex(11)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(11)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[11];
+			freq_profile = &theFreqProfiles[11];
 			break;
 		case FPRESET_75KHZ:
 			TIM8->PSC = DT_GetRegisterByIndex(12)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(12)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[12];
+			freq_profile = &theFreqProfiles[12];
 			break;
 		case FPRESET_100KHZ:
 			TIM8->PSC = DT_GetRegisterByIndex(13)->psc;
 			TIM8->ARR = DT_GetRegisterByIndex(13)->arr;
 
-			pNewFreqPresetEncoderPos = &aFreqPresetEncoderPos[13];
+			freq_profile = &theFreqProfiles[13];
 			break;
 	}
 }
@@ -311,7 +311,7 @@ void FreqO_ApplyPreset_Fast(eFreq_Preset pPresetEnum)
  *	@retval None
  *
  */
-void FreqO_ApplyPreset(eFreq_Preset pPresetEnum)
+void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum)
 {
 	DacTimeReg_t* tmp = DT_GetRegisterByEnum(pPresetEnum);
 	if(tmp)
@@ -319,10 +319,10 @@ void FreqO_ApplyPreset(eFreq_Preset pPresetEnum)
 		TIM8->PSC = tmp->psc;
 		TIM8->ARR = tmp->arr;
 		//eNewFreqPreset = pPresetEnum;
-		Freq_Preset_Encoder_Pos_t * tmp = FreqO_FindFPresetObject(pPresetEnum);
+		FreqProfile_t * tmp = FreqO_FindFPresetObject(pPresetEnum);
 		if(tmp)
 		{
-			pNewFreqPresetEncoderPos = tmp;
+			freq_profile = tmp;
 		}
 		else
 		{
@@ -337,12 +337,12 @@ void FreqO_ApplyPreset(eFreq_Preset pPresetEnum)
  *	@brief Get currently set freq output preset
  *
  *	@param None
- *	@retval pointer to Freq_Preset_Encoder_Pos_t struct
+ *	@retval pointer to FreqProfile_t struct
  *
  */
-Freq_Preset_Encoder_Pos_t * FreqO_GetFPresetObject()
+FreqProfile_t * FreqO_GetFPresetObject()
 {
-	return pNewFreqPresetEncoderPos;
+	return freq_profile;
 }
 
 
@@ -367,16 +367,16 @@ Freq_Preset_Encoder_Pos_t * FreqO_GetFPresetObject()
 	FPRESET_75KHZ	= 75000U,
 	FPRESET_100KHZ	= 100000U
 
- *	@retval pointer to Freq_Preset_Encoder_Pos_t struct
+ *	@retval pointer to FreqProfile_t struct
  *
  */
-Freq_Preset_Encoder_Pos_t * FreqO_FindFPresetObject(eFreq_Preset pEnum)
+FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum)
 {
 	for(int i = 0; i < MAX_NUM_FREQ_PRESETS; i++ )
 	{
-		if(aFreqPresetEncoderPos[i].hertz == pEnum)
+		if(theFreqProfiles[i].hertz == pEnum)
 		{
-			return &aFreqPresetEncoderPos[i];
+			return &theFreqProfiles[i];
 		}
 	}
 	// error!

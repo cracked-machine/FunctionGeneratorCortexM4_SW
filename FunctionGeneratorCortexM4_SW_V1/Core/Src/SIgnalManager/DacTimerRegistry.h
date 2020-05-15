@@ -19,7 +19,7 @@
 typedef struct
 {
 	uint8_t 		id;				// index
-	eFreq_Preset 	hertz;			// freq enum
+	eFreqSettings_t 	hertz;			// freq enum
 	uint32_t		psc;			// MCU timer prescaler. Default 0. Set higher for freq < 20Hz.
 	uint32_t		arr;			// MCU timer auto-reload (top). Set by DT_InitRegister()
 	float			error;			// coefficient for error correction, set to 1.0 if not required
@@ -32,6 +32,6 @@ DacTimeReg_t DacTimerReg[MAX_DAC_TIMER_SETTINGS];
 
 void DT_InitRegister();
 DacTimeReg_t* DT_GetRegisterByIndex(uint8_t pIndex);
-DacTimeReg_t* DT_GetRegisterByEnum(eFreq_Preset pEnum);
+DacTimeReg_t* DT_GetRegisterByEnum(eFreqSettings_t pEnum);
 
 #endif /* SRC_SIGNALMANAGER_DACTIMERREGISTRY_H_ */

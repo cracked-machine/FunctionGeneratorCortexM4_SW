@@ -32,7 +32,7 @@ typedef enum
 	FPRESET_75KHZ	= 75000U,
 	FPRESET_100KHZ	= 100000U
 
-} eFreq_Preset;
+} eFreqSettings_t;
 
 #define MAX_NUM_FREQ_PRESETS 14
 
@@ -41,17 +41,17 @@ typedef enum
  */
 typedef struct
 {
-	eFreq_Preset hertz;
+	eFreqSettings_t hertz;
 	uint8_t epos;
 
-} Freq_Preset_Encoder_Pos_t;
+} FreqProfile_t;
 
-Freq_Preset_Encoder_Pos_t aFreqPresetEncoderPos[MAX_NUM_FREQ_PRESETS];
+FreqProfile_t theFreqProfiles[MAX_NUM_FREQ_PRESETS];
 
 /*
  * 		The Currently Used Frequency Preset
  */
-Freq_Preset_Encoder_Pos_t *pNewFreqPresetEncoderPos;
+FreqProfile_t *freq_profile;
 
 /*
  *
@@ -67,12 +67,12 @@ Freq_Preset_Encoder_Pos_t *pNewFreqPresetEncoderPos;
 void FreqO_ModifyOutput(uint16_t pEncValue);
 uint32_t FreqO_GetOutputFreq();
 
-void FreqO_ApplyPreset(eFreq_Preset pPresetEnum);
-void FreqO_ApplyPreset_Fast(eFreq_Preset pPresetEnum);
+void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum);
+void FreqO_ApplyPreset_Fast(eFreqSettings_t pPresetEnum);
 
 
-Freq_Preset_Encoder_Pos_t * FreqO_FindFPresetObject(eFreq_Preset pEnum);
-Freq_Preset_Encoder_Pos_t * FreqO_GetFPresetObject();
+FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum);
+FreqProfile_t * FreqO_GetFPresetObject();
 
 void FreqO_AdjustFreq();
 

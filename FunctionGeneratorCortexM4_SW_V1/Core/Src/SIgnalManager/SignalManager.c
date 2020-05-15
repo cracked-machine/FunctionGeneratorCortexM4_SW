@@ -19,20 +19,20 @@ void SM_Init()
 
 	// initialise the output channels
 	SignalChannel.channel = SIGNAL_CHANNEL;
-	SignalChannel.ref_lut_data = aFuncPresetEncoderPos[SINE_FUNC_MODE].lookup_table_data;
-	SignalChannel.func_profile = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+	SignalChannel.ref_lut_data = theFuncProfiles[SINE_FUNC_MODE].lookup_table_data;
+	SignalChannel.func_profile = &theFuncProfiles[eDefaultFuncPreset];
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 		SignalChannel.dsp_lut_data[i] = sine_data_table_3600[i];
-	SignalChannel.amp_profile = &aVppEncoderPresets[eDefaultVppPreset];
-	SignalChannel.gain_profile = &aGainPresetEncoderPos[eDefaultGainPreset];
+	SignalChannel.amp_profile = &theAmpProfiles[eDefaultVppPreset];
+	SignalChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
 
 	SyncChannel.channel = SYNC_CHANNEL;
-	SyncChannel.ref_lut_data = aFuncPresetEncoderPos[SINE_FUNC_MODE].lookup_table_data;
-	SyncChannel.func_profile = &aFuncPresetEncoderPos[eDefaultFuncPreset];
+	SyncChannel.ref_lut_data = theFuncProfiles[SINE_FUNC_MODE].lookup_table_data;
+	SyncChannel.func_profile = &theFuncProfiles[eDefaultFuncPreset];
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 		SyncChannel.dsp_lut_data[i] = sine_data_table_3600[i];
-	SyncChannel.amp_profile = &aVppEncoderPresets[eDefaultVppPreset];
-	SyncChannel.gain_profile = &aGainPresetEncoderPos[eDefaultGainPreset];
+	SyncChannel.amp_profile = &theAmpProfiles[eDefaultVppPreset];
+	SyncChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
 }
 
 sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)

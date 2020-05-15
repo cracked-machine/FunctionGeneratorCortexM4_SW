@@ -44,7 +44,7 @@ typedef struct
 
 } FunctionProfile_t;
 
-FunctionProfile_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS];
+FunctionProfile_t theFuncProfiles[MAX_NUM_FUNC_PRESETS];
 
 
 

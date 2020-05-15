@@ -106,7 +106,7 @@ eSystemState FreqPresetMenuEntryHandler()
 
 	eNextFreqMenuStatus = ENABLE_FREQ_PRESET_MENU;
 
-	Freq_Preset_Encoder_Pos_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
+	FreqProfile_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
 	if(pFreqPresetTmp)
 	{
 		ENCODER_TIMER->CNT = pFreqPresetTmp->epos;
