@@ -1,0 +1,20 @@
+/*
+ * DacDevice.c
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+
+#include "DacChannel.h"
+
+
+
+void DAC_InitDevices()
+{
+
+	pSignalOutputDac->pDAC = &hdac1;
+	pSignalOutputDac->channel = DAC_CHANNEL_1;
+	pSignalOutputDac->function - SINE_FUNC_MODE;
+	pSignalOutputDac->pProcessedDataTable
+}

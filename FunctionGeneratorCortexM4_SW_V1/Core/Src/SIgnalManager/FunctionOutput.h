@@ -10,6 +10,11 @@
 
 #include <stdint.h>
 #include "pysine.h"
+#include "pysquare.h"
+#include "pyunitimpulse.h"
+#include "pysaw.h"
+#include "pysaw_rev.h"
+#include "pytriangle.h"
 
 uint8_t FuncPresetEncoderRange;
 
@@ -35,6 +40,7 @@ typedef struct
 	eOutput_mode func;
 	uint8_t epos;
 
+
 } Func_Preset_Encoder_Pos_t;
 
 Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS];
@@ -45,23 +51,28 @@ Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS];
 Func_Preset_Encoder_Pos_t *pNewFuncPresetEncoderPos;
 
 
-uint32_t *pOriginalDataTable;
-uint32_t aModdedDataTable[SINE_DATA_SIZE];
+uint32_t *pOriginalSignalDataTable;
+uint32_t aProcessedSignalDataTable[SINE_DATA_SIZE];
+
+uint32_t *pOriginalSyncDataTable;
+uint32_t aProcessedSyncDataTable[SINE_DATA_SIZE];
 
 void FuncO_Init();
 /*
  *  Function declarations
  */
-void FuncO_ModifyOutput(uint16_t pEncoderValue);
-
+void FuncO_ModifySignalOutput(uint16_t pEncoderValue);
+void FuncO_ModifySyncOutput(uint16_t pEncoderValue);
 
 //void FuncO_ApplyPreset(eOutput_mode pPresetEnum);
-void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum);
+void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum);
+void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum);
 
 Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum);
-Func_Preset_Encoder_Pos_t * FuncO_GetFPresetObject();
+Func_Preset_Encoder_Pos_t * FuncO_GetSignalFPresetObject();
+Func_Preset_Encoder_Pos_t * FuncO_GetSyncFPresetObject();
 
-void FuncO_SetNewDataTable(uint32_t * pdata_table);
+//void FuncO_SetNewDataTable(uint32_t * pdata_table);
 
 uint8_t FuncO_GetFuncPresetEncoderRange();
 

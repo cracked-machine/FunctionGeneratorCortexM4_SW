@@ -33,6 +33,8 @@ typedef enum
 
 } eEncoder_Direction;
 
+
+
 uint16_t SM_GetEncoderValue(eEncoder_Direction direction);
 float SM_GetOutputInHertz();
 

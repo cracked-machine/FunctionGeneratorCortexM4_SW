@@ -73,8 +73,8 @@ VppEncoderPreset_t* pSyncVppEncoderPreset;
  * 		Function declarations
  */
 
-void VPP_ModifyOutput(uint16_t pEncoderValue);
-void VPP_ApplyPreset_Fast(eVppPreset_t pPresetEnum);
+void VPP_ModifySignalOutput(uint16_t pEncoderValue);
+void VPP_ApplyPresetToSignal(eVppPreset_t pPresetEnum);
 //void VPP_ProcessDataTable(float _neg_gain_coeff, uint16_t _encoder_value);
 
 VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum);

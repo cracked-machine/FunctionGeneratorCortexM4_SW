@@ -9,6 +9,7 @@
 "Core/Src/EventManager/FuncMenuStateHandler.o"
 "Core/Src/EventManager/GainMenuStateHandler.o"
 "Core/Src/SIgnalManager/BiasOutput.o"
+"Core/Src/SIgnalManager/DacChannel.o"
 "Core/Src/SIgnalManager/DacTimerRegistry.o"
 "Core/Src/SIgnalManager/FreqOutput.o"
 "Core/Src/SIgnalManager/FunctionOutput.o"

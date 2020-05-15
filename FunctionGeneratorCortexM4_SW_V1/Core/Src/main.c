@@ -40,6 +40,7 @@
 #include "EventManager.h"
 #include "SignalManager.h"
 #include "DacTimerRegistry.h"
+#include "DacChannel.h"
 //#include "GainOutput.h"
 
 // python-generated wave lut
@@ -146,8 +147,9 @@ int main(void)
   DT_InitRegister();
 
   // main signal function output (external)
+  //DAC_InitDevices();
   FuncO_Init();
-  FuncO_ApplyPreset_Fast(eDefaultFuncPreset);
+  FuncO_ApplyPresetToSignal(eDefaultFuncPreset);
 
   //TIM8->ARR = sin1_max_arr;
 
@@ -177,7 +179,7 @@ int main(void)
 
   // PGA gain
   //GO_ApplyPreset_Fast(eDefaultGainPreset);
-  VPP_ApplyPreset_Fast(eDefaultVppPreset);
+  VPP_ApplyPresetToSignal(eDefaultVppPreset);
 
 #ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())

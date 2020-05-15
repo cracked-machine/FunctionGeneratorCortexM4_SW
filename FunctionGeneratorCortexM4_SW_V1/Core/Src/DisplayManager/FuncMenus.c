@@ -73,7 +73,7 @@ void FuncMenu_DrawSignalMenu()
 {
 	ILI9341_Draw_Text("SELECT SIGNAL FUNCTION", 	10, 10, WHITE, 3, BLACK);
 
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp = FuncO_GetFPresetObject();
+	Func_Preset_Encoder_Pos_t *pFuncPresetTmp = FuncO_GetSignalFPresetObject();
 	if(pFuncPresetTmp)
 	{
 		switch(pFuncPresetTmp->func)

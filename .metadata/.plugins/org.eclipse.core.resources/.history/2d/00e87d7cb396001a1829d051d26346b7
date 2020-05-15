@@ -1,0 +1,19 @@
+/*
+ * DacDevice.c
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+
+#include "DacChannel.h"
+
+
+
+DacDevice_t *pSignalOutputDac =
+{
+		&hdac1,
+		0x00000000U,
+		SINE_FUNC_MODE,
+		sine_data_table_3600
+};

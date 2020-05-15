@@ -1,0 +1,24 @@
+/*
+ * DacChannel.h
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_SIGNALMANAGER_DACCHANNEL_H_
+#define SRC_SIGNALMANAGER_DACCHANNEL_H_
+
+typedef struct
+{
+	DAC_HandleTypeDef * dac;
+	uint32_t channel;
+	Func_Preset_Encoder_Pos_t function;
+	uint32_t aModdedDataTable[SINE_DATA_SIZE];
+
+} DacDevice_t;
+
+DacDevice_t *pSignalOutputDac;
+DacDevice_t *pSyncOutputDac;
+
+
+#endif /* SRC_SIGNALMANAGER_DACCHANNEL_H_ */

@@ -1,0 +1,31 @@
+/*
+ * DacDevice.c
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+
+#include "DacChannel.h"
+
+
+
+void DAC_InitDevices()
+{
+	// init DacDevice_t for signal output
+	pSignalOutputDac->theDac = &hdac1;
+	pSignalOutputDac->channel = DAC_CHANNEL_1;
+	pSignalOutputDac->function = SINE_FUNC_MODE;
+
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+		pSignalOutputDac->pProcessedDataTable[i] = sine_data_table_3600[i];
+
+	// init DacDevice_t for sync output
+	pSyncOutputDac->theDac = &hdac2;
+	pSyncOutputDac->channel = DAC_CHANNEL_1;
+	pSyncOutputDac->function = SAW_FUNC_MODE;
+
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+		pSyncOutputDac->pProcessedDataTable[i] = saw_data_table_3600[i];
+
+}

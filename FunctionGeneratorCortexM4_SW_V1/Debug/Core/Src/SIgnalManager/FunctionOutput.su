@@ -1,8 +1,7 @@
-FunctionOutput.c:28:6:FuncO_Init	16	static
-FunctionOutput.c:74:6:FuncO_ModifyOutput	16	static
-FunctionOutput.c:137:6:FuncO_ApplyPreset_Fast	24	static
-FunctionOutput.c:217:6:FuncO_SetNewDataTable	24	static
-FunctionOutput.c:236:6:FuncO_ApplyPreset	16	static
-FunctionOutput.c:254:29:FuncO_GetFPresetObject	4	static
-FunctionOutput.c:276:29:FuncO_FindFPresetObject	24	static
-FunctionOutput.c:300:9:FuncO_GetFuncPresetEncoderRange	4	static
+FunctionOutput.c:24:6:FuncO_Init	16	static
+FunctionOutput.c:66:6:FuncO_ModifySignalOutput	16	static
+FunctionOutput.c:131:6:FuncO_ApplyPresetToSignal	24	static
+FunctionOutput.c:228:29:FuncO_FindFPresetObject	24	static
+FunctionOutput.c:251:29:FuncO_GetSignalFPresetObject	4	static
+FunctionOutput.c:264:29:FuncO_GetSyncFPresetObject	4	static
+FunctionOutput.c:278:9:FuncO_GetFuncPresetEncoderRange	4	static

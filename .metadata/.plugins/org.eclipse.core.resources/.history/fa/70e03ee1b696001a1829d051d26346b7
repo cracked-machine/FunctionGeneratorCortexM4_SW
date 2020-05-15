@@ -1,0 +1,36 @@
+/*
+ * DacChannel.h
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_SIGNALMANAGER_DACCHANNEL_H_
+#define SRC_SIGNALMANAGER_DACCHANNEL_H_
+
+
+#include "FunctionOutput.h"
+#include "dac.h"
+
+typedef enum
+{
+	SIGNAL_OUT_DAC = 0U,
+	SYNC_OUT_DAC
+};
+
+typedef struct
+{
+	DAC_HandleTypeDef theDac;
+	uint32_t channel;
+	eOutput_mode function;
+	uint32_t *pProcessedDataTable;
+
+} DacDevice_t;
+
+DacDevice_t *pSignalOutputDac;
+DacDevice_t *pSyncOutputDac;
+
+
+void DAC_InitDevices();
+
+#endif /* SRC_SIGNALMANAGER_DACCHANNEL_H_ */

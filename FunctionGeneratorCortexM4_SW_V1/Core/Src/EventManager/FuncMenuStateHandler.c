@@ -38,7 +38,7 @@ eSystemState FuncMainMenuEntryHandler(void)
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
 
-/*	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
+/*	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetSignalFPresetObject();
 	if(pFuncPresetTmp)
 	{
 		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
@@ -68,7 +68,7 @@ eSystemState FuncMainMenuInputHandler(void)
 #endif
 
 
-//	FuncO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+//	FuncO_ModifySignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evBlueBtn;
 	return Func_Main_Menu_State;
@@ -121,7 +121,7 @@ eSystemState FuncSignalMenuEntryHandler(void)
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_SIGNAL_MENU;
 
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
+	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetSignalFPresetObject();
 	if(pFuncPresetTmp)
 	{
 		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
@@ -151,7 +151,7 @@ eSystemState FuncSignalMenuInputHandler(void)
 #endif
 
 
-	FuncO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	FuncO_ModifySignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 	eNewEvent = evBlueBtn;
 	return Func_Signal_Menu_State;
 }
@@ -203,7 +203,7 @@ eSystemState FuncSyncMenuEntryHandler(void)
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_SYNC_MENU;
 
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
+	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetSignalFPresetObject();
 	if(pFuncPresetTmp)
 	{
 		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
@@ -233,7 +233,7 @@ eSystemState FuncSyncMenuInputHandler(void)
 #endif
 
 
-	FuncO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	FuncO_ModifySignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 	eNewEvent = evBlueBtn;
 	return Func_Sync_Menu_State;
 }
