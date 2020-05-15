@@ -10,9 +10,7 @@
 
 #include "EventManager.h"
 
-/*
- *  Used by DM_ShowGainMenu()
- */
+
 typedef enum
 {
 	DISABLE_GAIN_MENU = 0x00U,
@@ -21,6 +19,9 @@ typedef enum
 	ENABLE_GAIN_SYNC_MENU,
 
 } eGainMenu_Status;
+
+
+eGainMenu_Status GainMenu_getStatus();
 
 eSystemState GainMainMenuEntryHandler();
 eSystemState GainMainMenuInputHandler();

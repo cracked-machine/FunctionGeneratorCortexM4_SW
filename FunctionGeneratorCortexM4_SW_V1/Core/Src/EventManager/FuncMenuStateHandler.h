@@ -22,6 +22,8 @@ typedef enum
 
 } eFuncMenu_Status;
 
+eFuncMenu_Status FuncMenu_getStatus();
+
 eSystemState FuncMainMenuEntryHandler();
 eSystemState FuncMainMenuInputHandler();
 eSystemState FuncMainMenuExitHandler();

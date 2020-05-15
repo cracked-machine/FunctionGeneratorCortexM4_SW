@@ -24,6 +24,9 @@ typedef enum
 } eFreqMenu_Status;
 
 
+
+eFreqMenu_Status FreqMenu_getStatus();
+
 eSystemState FreqMainMenuEntryHandler();
 eSystemState FreqMainMenuInputHandler();
 eSystemState FreqMainMenuExitHandler();

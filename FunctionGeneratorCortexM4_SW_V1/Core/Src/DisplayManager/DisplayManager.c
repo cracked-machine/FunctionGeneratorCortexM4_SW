@@ -23,13 +23,6 @@
 
 
 
-
-//eDisplay_Mode eCurrentMode = Func_Adjust_mode;
-eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
-eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAIN_MENU;
-eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
-eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIAS_MENU;
-
  extern uint16_t BURST_MAX_SIZE;
 
  char ErrorDebugMsg[45] = "";
@@ -162,29 +155,28 @@ void _DisplayFormattedOutput()
 void DM_UpdateDisplay()
 {
 
-
-	if(eNextFuncMenuStatus)		//  != DISABLE_FUNC_MENU
+	// Function menus
+	if(FuncMenu_getStatus())		//  != DISABLE_FUNC_MENU
 	{
-		switch(eNextFuncMenuStatus)
+		switch(FuncMenu_getStatus())
 		{
 			case ENABLE_FUNC_MAIN_MENU:
 
 				_DisplayFormattedOutput();
-
 				FuncMenu_DrawMenu(ENABLE_FUNC_MAIN_MENU);
 
 				break;
 
 			case ENABLE_FUNC_SIGNAL_MENU:
 
-//				_DisplayFormattedOutput();
+				// _DisplayFormattedOutput();
 				FuncMenu_DrawMenu(ENABLE_FUNC_SIGNAL_MENU);
 
 				break;
 
 			case ENABLE_FUNC_SYNC_MENU:
 
-//				_DisplayFormattedOutput();
+				//_DisplayFormattedOutput();
 				FuncMenu_DrawMenu(ENABLE_FUNC_SYNC_MENU);
 
 				break;
@@ -194,10 +186,11 @@ void DM_UpdateDisplay()
 		}
 
 	}
-	else if(eNextGainMenuStatus)		//  != DISABLE_GAIN_MENU
+	// Gain menus
+	else if(GainMenu_getStatus())		//  != DISABLE_GAIN_MENU
 	{
 
-		switch(eNextGainMenuStatus)
+		switch(GainMenu_getStatus())
 		{
 			case ENABLE_GAIN_MAIN_MENU:
 
@@ -226,39 +219,35 @@ void DM_UpdateDisplay()
 
 	}
 
-	else if(eNextFreqMenuStatus)		//  frequency menu enabled
+	// Frequency menus
+	else if(FreqMenu_getStatus())		//  != DISABLE_FREQ_MENU
 	{
 
 		ILI9341_Draw_Text("FREQUENCY MENU", 	30, 10, WHITE, 3, BLACK);
-/*
-		ILI9341_Draw_Text("1Hz", 24, 210, BLACK, 2, DARKCYAN);
-		ILI9341_Draw_Text("100Hz", 93, 210, BLACK, 2, DARKGREEN);
-		ILI9341_Draw_Text("1KHz", 175, 210, BLACK, 2, YELLOW);
-		ILI9341_Draw_Text("100KHz", 247, 210, BLACK, 2, RED);
-*/
-		switch(eNextFreqMenuStatus)
+
+		switch(FreqMenu_getStatus())
 		{
 			case ENABLE_FREQ_MAIN_MENU:
 
 				_DisplayFormattedOutput();
-
 				FreqMenu_DrawMenu(ENABLE_FREQ_MAIN_MENU);
 
 				break;
 
 			case ENABLE_FREQ_PRESET_MENU:
+
 				FreqMenu_DrawMenu(ENABLE_FREQ_PRESET_MENU);
 				break;
 
 			case ENABLE_FREQ_ADJUST_MENU:
 
 				_DisplayFormattedOutput();
-
 				FreqMenu_DrawMenu(ENABLE_FREQ_ADJUST_MENU);
 
 				break;
 
 			case ENABLE_FREQ_SWEEP_MENU:
+
 				FreqMenu_DrawMenu(ENABLE_FREQ_SWEEP_MENU);
 				break;
 
@@ -267,19 +256,17 @@ void DM_UpdateDisplay()
 		}
 
 	}
-	else if(eNextBiasMenuStatus)		//  == ENABLE_BIASMENU
+
+	// Bias menu
+	else if(BiasMenu_getStatus())		//  != DISABLE_BIAS_MENU
 	{
-/*
-		ILI9341_Draw_Text("    ", 10, 210, BLACK, 2, DARKCYAN);
-		ILI9341_Draw_Text("    ", 100, 210, BLACK, 2, DARKGREEN);
-		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
-		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
-*/
+
 		_DisplayFormattedOutput();
 		BiasMenu_DrawMenu(ENABLE_BIAS_MENU);
 	}
 	else
 	{
+		// Main screen
 		ILI9341_Draw_Text("SIGNAL GENERATOR", 	10, 10, WHITE, 3, BLACK);
 		_DisplayFormattedOutput();
 
@@ -300,71 +287,6 @@ void DM_UpdateDisplay()
 		ILI9341_Draw_Text(ErrorDebugMsg, 10, 190, BLACK, 1, RED);
 
 }
-
-
-///////////////////////////////////
-/////// MENU FUNCTIONS ///////////
-///////////////////////////////////
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void DM_ShowFuncMenu(eFuncMenu_Status pValue)
-{
-	eNextFuncMenuStatus = pValue;
-}
-
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void DM_ShowGainMenu(eGainMenu_Status pValue)
-{
-	eNextGainMenuStatus = pValue;
-}
-
-
-
-
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void DM_ShowFreqMenu(eFreqMenu_Status pValue)
-{
-	eNextFreqMenuStatus = pValue;
-}
-
-
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void DM_ShowBiasMenu(eBiasMenu_Status pValue)
-{
-	eNextBiasMenuStatus = pValue;
-}
-
 
 
 /*

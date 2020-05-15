@@ -10,6 +10,8 @@
 
 #include "EventManager.h"
 
+
+
 /*
  * 	Used by DM_ShowBiasMenu()
  */
@@ -21,6 +23,7 @@ typedef enum
 } eBiasMenu_Status;
 
 
+eBiasMenu_Status BiasMenu_getStatus();
 eSystemState BiasMenuEntryHandler();
 eSystemState BiasMenuInputHandler();
 eSystemState BiasMenuExitHandler();

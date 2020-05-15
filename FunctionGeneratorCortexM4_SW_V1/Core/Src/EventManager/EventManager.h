@@ -52,6 +52,8 @@ typedef enum
 
 } eSystemEvent;
 
+
+
 // state machine context
 eSystemState eNextState;
 eSystemEvent eNewEvent;

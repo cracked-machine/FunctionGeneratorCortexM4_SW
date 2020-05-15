@@ -11,9 +11,12 @@
 #include "SignalManager.h"
 #include <stdio.h>
 
-///////////////////////////////////////////////////////
-//////    "GAIN" EVENTHANDLER FUNCTIONS		///////
-///////////////////////////////////////////////////////
+eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAIN_MENU;
+
+eGainMenu_Status GainMenu_getStatus()
+{
+	return eNextGainMenuStatus;
+}
 
 /*
  *
@@ -31,7 +34,7 @@ eSystemState GainMainMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	DM_ShowGainMenu(ENABLE_GAIN_MAIN_MENU);
+	eNextGainMenuStatus = ENABLE_GAIN_MAIN_MENU;
 
 	eNewEvent = evIdle;
 	return Gain_Main_Menu_State;
@@ -72,7 +75,7 @@ eSystemState GainMainMenuExitHandler()
 	printf("ExitGainMenu Event captured\n");
 #endif
 
-	DM_ShowGainMenu(DISABLE_GAIN_MENU);
+	eNextGainMenuStatus = DISABLE_GAIN_MENU;
 
 	DM_RefreshScreen();
 
@@ -96,7 +99,7 @@ eSystemState GainSignalMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	DM_ShowGainMenu(ENABLE_GAIN_SIGNAL_MENU);
+	eNextGainMenuStatus = ENABLE_GAIN_SIGNAL_MENU;
 
 	VppEncoderPreset_t *pVppPresetTmp =  VPP_FindVppPresetObject(SIGNAL_OUTPUT_PRESET);
 	if(pVppPresetTmp)
@@ -148,7 +151,7 @@ eSystemState GainSignalMenuExitHandler()
 	printf("ExitGainMenu Event captured\n");
 #endif
 
-	DM_ShowGainMenu(ENABLE_GAIN_MAIN_MENU);
+	eNextGainMenuStatus = ENABLE_GAIN_MAIN_MENU;
 
 	DM_RefreshScreen();
 
@@ -173,7 +176,7 @@ eSystemState GainSyncMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	DM_ShowGainMenu(ENABLE_GAIN_SYNC_MENU);
+	eNextGainMenuStatus = ENABLE_GAIN_SYNC_MENU;
 
 /*	VppEncoderPreset_t *pVppPresetTmp =  VPPGetVppPresetObject(SYNC_OUTPUT_PRESET);
 	if(pVppPresetTmp)
@@ -226,7 +229,7 @@ eSystemState GainSyncMenuExitHandler()
 	printf("ExitGainMenu Event captured\n");
 #endif
 
-	DM_ShowGainMenu(ENABLE_GAIN_MAIN_MENU);
+	eNextGainMenuStatus = ENABLE_GAIN_MAIN_MENU;
 
 	DM_RefreshScreen();
 

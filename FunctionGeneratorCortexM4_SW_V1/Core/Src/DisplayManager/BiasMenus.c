@@ -9,6 +9,9 @@
 #include "DisplayManager.h"
 
 
+
+
+
 /*
  *
  *	@brief
@@ -24,7 +27,6 @@ void BiasMenu_DrawMenu(eBiasMenu_Status pMenu)
 		case ENABLE_BIAS_MENU:
 			BiasMenu_DrawMainMenu();
 			break;
-
 
 		default:
 			break;

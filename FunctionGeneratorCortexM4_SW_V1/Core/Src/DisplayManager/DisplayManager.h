@@ -23,26 +23,20 @@
 #include <stdint.h>
 
 
-
-
 void DM_Init();
 void DM_PostInit();
 void DM_UpdateDisplay();
 
 void DM_RefreshScreen();
 
-void DM_ShowFuncMenu(eFuncMenu_Status pValue);
-void DM_ShowGainMenu(eGainMenu_Status pValue);
-void DM_ShowFreqMenu(eFreqMenu_Status pValue);
-void DM_ShowBiasMenu(eBiasMenu_Status pValue);
 
 void DM_SetErrorDebugMsg(char* msg);
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
 
 // unused
-int DM_DigitCount(int num);
-void DM_TestScreen();
-void DM_RegisterStrings();
+//int DM_DigitCount(int num);
+//void DM_TestScreen();
+//void DM_RegisterStrings();
 
 #endif /* INC_DISPLAYMANAGER_DISPLAYMANAGER_H_ */

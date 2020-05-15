@@ -11,9 +11,12 @@
 #include "SignalManager.h"
 #include <stdio.h>
 
-///////////////////////////////////////////////////////
-//////    "FREQUENCY" EVENTHANDLER FUNCTIONS	///////
-///////////////////////////////////////////////////////
+eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
+
+eFreqMenu_Status FreqMenu_getStatus()
+{
+	return eNextFreqMenuStatus;
+}
 
 /*
  *
@@ -31,7 +34,7 @@ eSystemState FreqMainMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	DM_ShowFreqMenu(ENABLE_FREQ_MAIN_MENU);
+	eNextFreqMenuStatus = ENABLE_FREQ_MAIN_MENU;
 
 	// stay in this state
 	eNewEvent = evIdle;
@@ -73,7 +76,7 @@ eSystemState FreqMainMenuExitHandler()
 
 
 	// disable the menu
-	DM_ShowFreqMenu(DISABLE_FREQ_MENU);
+	eNextFreqMenuStatus = DISABLE_FREQ_MENU;
 
 	// reset the encoder range
 
@@ -101,7 +104,7 @@ eSystemState FreqPresetMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	DM_ShowFreqMenu(ENABLE_FREQ_PRESET_MENU);
+	eNextFreqMenuStatus = ENABLE_FREQ_PRESET_MENU;
 
 	Freq_Preset_Encoder_Pos_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
 	if(pFreqPresetTmp)
@@ -158,7 +161,7 @@ eSystemState FreqPresetMenuExitHandler()
 
 
 	// disable the menu
-	DM_ShowFreqMenu(DISABLE_FREQ_MENU);
+	eNextFreqMenuStatus = DISABLE_FREQ_MENU;
 
 	// back to main freq menu
 	eNewEvent = evGreenBtn;
@@ -181,7 +184,7 @@ eSystemState FreqAdjustMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	DM_ShowFreqMenu(ENABLE_FREQ_ADJUST_MENU);
+	eNextFreqMenuStatus = ENABLE_FREQ_ADJUST_MENU;
 
 	// set the rotary encoder limits to 0-? for this menu
 	ENCODER_TIMER->CNT = TIM8->ARR;
@@ -230,7 +233,7 @@ eSystemState FreqAdjustMenuExitHandler()
 
 
 	// disable the menu
-	DM_ShowFreqMenu(DISABLE_FREQ_MENU);
+	eNextFreqMenuStatus = DISABLE_FREQ_MENU;
 
 	// back to main freq menu
 	eNewEvent = evGreenBtn;
@@ -253,7 +256,7 @@ eSystemState FreqSweepMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	DM_ShowFreqMenu(ENABLE_FREQ_SWEEP_MENU);
+	eNextFreqMenuStatus = ENABLE_FREQ_SWEEP_MENU;
 
 	// set the rotary encoder limits to 0-? for this menu
 	ENCODER_TIMER->CNT = 0;
@@ -280,7 +283,7 @@ eSystemState FreqSweepMenuExitHandler()
 
 
 	// disable the menu
-	DM_ShowFreqMenu(DISABLE_FREQ_MENU);
+	eNextFreqMenuStatus = DISABLE_FREQ_MENU;
 
 	// back to main freq menu
 	eNewEvent = evGreenBtn;

@@ -10,9 +10,15 @@
 
 #include "DisplayManager.h"
 #include "SignalManager.h"
+
 #include <stdio.h>
 
+eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
 
+eFuncMenu_Status FuncMenu_getStatus()
+{
+	return eNextFuncMenuStatus;
+}
 
 /*
  *
@@ -30,7 +36,7 @@ eSystemState FuncMainMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 
-	DM_ShowFuncMenu(ENABLE_FUNC_MAIN_MENU);
+	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
 
 /*	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
 	if(pFuncPresetTmp)
@@ -84,7 +90,7 @@ eSystemState FuncMainMenuExitHandler()
 
 	// disable the menu
 
-	DM_ShowFuncMenu(DISABLE_FUNC_MENU);
+	eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
 
 	// reset the encoder range
 
@@ -113,7 +119,7 @@ eSystemState FuncSignalMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 
-	DM_ShowFuncMenu(ENABLE_FUNC_SIGNAL_MENU);
+	eNextFuncMenuStatus = 	ENABLE_FUNC_SIGNAL_MENU;
 
 	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
 	if(pFuncPresetTmp)
@@ -166,7 +172,7 @@ eSystemState FuncSignalMenuExitHandler()
 
 	// disable the menu
 
-	DM_ShowFuncMenu(ENABLE_FUNC_MAIN_MENU);
+	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
 
 	// reset the encoder range
 
@@ -195,7 +201,7 @@ eSystemState FuncSyncMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 
-	DM_ShowFuncMenu(ENABLE_FUNC_SYNC_MENU);
+	eNextFuncMenuStatus = 	ENABLE_FUNC_SYNC_MENU;
 
 	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
 	if(pFuncPresetTmp)
@@ -248,7 +254,7 @@ eSystemState FuncSyncMenuExitHandler()
 
 	// disable the menu
 
-	DM_ShowFuncMenu(ENABLE_FUNC_MAIN_MENU);
+	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
 
 	// reset the encoder range
 
