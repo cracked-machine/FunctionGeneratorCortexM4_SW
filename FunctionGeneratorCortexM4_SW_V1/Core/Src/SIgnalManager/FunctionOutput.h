@@ -39,6 +39,7 @@ typedef struct
 {
 	eOutput_mode func;
 	uint8_t epos;
+	uint32_t *lookup_table_data;
 
 
 } Func_Preset_Encoder_Pos_t;
@@ -62,10 +63,9 @@ void FuncO_Init();
  *  Function declarations
  */
 void FuncO_ModifySignalOutput(uint16_t pEncoderValue);
-void FuncO_ModifySyncOutput(uint16_t pEncoderValue);
-
-//void FuncO_ApplyPreset(eOutput_mode pPresetEnum);
 void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum);
+
+void FuncO_ModifySyncOutput(uint16_t pEncoderValue);
 void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum);
 
 Func_Preset_Encoder_Pos_t * FuncO_FindFPresetObject(eOutput_mode pEnum);

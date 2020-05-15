@@ -31,7 +31,7 @@ void EM_SetNewEvent(eSystemEvent pEvent);
 
 void EM_RefreshDisplay();
 
-uint32_t tmpDataTable[SINE_DATA_SIZE];
+//uint32_t tmpDataTable[SINE_DATA_SIZE];
 
 // state machine
 eSystemState eNextState = Idle_State;

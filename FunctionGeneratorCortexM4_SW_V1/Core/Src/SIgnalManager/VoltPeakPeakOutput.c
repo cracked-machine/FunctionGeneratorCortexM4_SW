@@ -143,6 +143,9 @@ VppEncoderPreset_t* pSyncVppEncoderPreset = &aVppEncoderPresets[eDefaultVppPrese
 void _ProcessSignalDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value);
 void VPP_ApplyPresetToSignal(eVppPreset_t pPresetEnum);
 
+void _ProcessSyncDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value);
+void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum);
+
 /*
  *
  *	@brief
@@ -161,6 +164,26 @@ void VPP_ApplyPresetToSignal(eVppPreset_t pPresetEnum)
 
     // set the amplitude
     _ProcessSignalDataTable(pSignalVppEncoderPreset->neg_gain_coeff, pSignalVppEncoderPreset->vpp_offset , pSignalVppEncoderPreset->epos);
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum)
+{
+    pSyncVppEncoderPreset = &aVppEncoderPresets[pPresetEnum];
+    //GO_ApplyPreset_Fast((ONE_GAIN));
+
+    // set the gain preset
+    GO_ApplyPreset_Fast(pSyncVppEncoderPreset->gain_preset);
+
+    // set the amplitude
+    _ProcessSyncDataTable(pSyncVppEncoderPreset->neg_gain_coeff, pSyncVppEncoderPreset->vpp_offset , pSyncVppEncoderPreset->epos);
 }
 
 /*
@@ -201,6 +224,101 @@ void _ProcessSignalDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _
  *	@brief
  *
  *	@param None
+ *	@retval None
+ *
+ */
+void _ProcessSyncDataTable(float _neg_gain_coeff, float vpp_offset, uint16_t _encoder_value)
+{
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+	{
+		tmpDataTable[i] = pOriginalSyncDataTable[i];
+	}
+
+	float pos_offset_coeff = 1;
+	if(_encoder_value)
+		pos_offset_coeff = (_encoder_value/4);
+
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+	{
+
+		tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
+		tmpDataTable[i] = tmpDataTable[i] + (vpp_offset * pos_offset_coeff);
+	}
+	//HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+	for(int i = 0; i < SINE_DATA_SIZE; i++)
+	{
+		aProcessedSyncDataTable[i] = tmpDataTable[i];
+	}
+	//HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SINE_DATA_SIZE,  DAC_ALIGN_12B_R);
+}
+
+
+
+/*
+ *
+ *	@brief Get VPP preset pointer
+ *
+ *	@param None
+ *	@retval pointer to VppEncoderPreset_t struct
+ *
+ */
+VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect)
+{
+	if(eVppActivePresetSelect)
+		return pSyncVppEncoderPreset;
+	else
+		return pSignalVppEncoderPreset;
+}
+
+
+/*
+ *
+ *	@brief Search array of structs for preset
+ *
+ *	@param Search criteria. Should be one of the following:
+ *
+ *	VPP01, 	VPP02,	VPP03,	VPP04,	VPP05,	VPP06,	VPP07,	VPP08,	VPP09,	VPP10,	VPP11,	VPP12,	VPP13,	VPP14,	VPP15,
+	VPP16,	VPP17,	VPP18,	VPP19,	VPP20,	VPP21,	VPP22,	VPP23,	VPP24,	VPP25,	VPP26,	VPP27,	VPP28,	VPP29,	VPP30,
+	VPP31,	VPP32,	VPP33,	VPP34,	VPP35,	VPP36,	VPP37,	VPP38,	VPP39,	VPP40,	VPP41,  VPP42,  VPP43,	VPP44,	VPP45,
+	VPP46,	VPP47,	VPP48,	VPP49,	VPP50,	VPP51,	VPP52,	VPP53,	VPP54,	VPP55,	VPP56,	VPP57,	VPP58,	VPP59,	VPP60,
+	VPP61,	VPP62,	VPP63,	VPP64,	VPP65,	VPP66,	VPP67,	VPP68,	VPP69,	VPP70,	VPP71,	VPP72,	VPP73,  VPP74,	VPP75,
+	VPP76,	VPP77,	VPP78,	VPP79,	VPP80,	VPP81,	VPP82,	VPP83,	VPP84,	VPP85,	VPP86,	VPP87,	VPP88,	VPP89,	VPP90,
+	VPP91,	VPP92,	VPP93,	VPP94,	VPP95,	VPP96,	VPP97,	VPP98,
+
+ *	@retval pointer to VppEncoderPreset_t struct
+ *
+ */
+VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum)
+{
+	for(int i = 0; i < MAX_VPP_PRESETS; i++ )
+	{
+		if(aVppEncoderPresets[i].Vpp_literal == pEnum)
+		{
+			return &aVppEncoderPresets[i];
+		}
+	}
+	// error!
+	DM_SetErrorDebugMsg("VPP_FindVppPresetObject(): VppEncoderPreset_t obj not found");
+	return 0;
+}
+
+
+
+
+/*
+ *
+ *	@brief multiplex encoder input -> preset function
+ *
+ *	@param Should be one of the following:
+ *
+ *	VPP01, 	VPP02,	VPP03,	VPP04,	VPP05,	VPP06,	VPP07,	VPP08,	VPP09,	VPP10,	VPP11,	VPP12,	VPP13,	VPP14,	VPP15,
+	VPP16,	VPP17,	VPP18,	VPP19,	VPP20,	VPP21,	VPP22,	VPP23,	VPP24,	VPP25,	VPP26,	VPP27,	VPP28,	VPP29,	VPP30,
+	VPP31,	VPP32,	VPP33,	VPP34,	VPP35,	VPP36,	VPP37,	VPP38,	VPP39,	VPP40,	VPP41,  VPP42,  VPP43,	VPP44,	VPP45,
+	VPP46,	VPP47,	VPP48,	VPP49,	VPP50,	VPP51,	VPP52,	VPP53,	VPP54,	VPP55,	VPP56,	VPP57,	VPP58,	VPP59,	VPP60,
+	VPP61,	VPP62,	VPP63,	VPP64,	VPP65,	VPP66,	VPP67,	VPP68,	VPP69,	VPP70,	VPP71,	VPP72,	VPP73,  VPP74,	VPP75,
+	VPP76,	VPP77,	VPP78,	VPP79,	VPP80,	VPP81,	VPP82,	VPP83,	VPP84,	VPP85,	VPP86,	VPP87,	VPP88,	VPP89,	VPP90,
+	VPP91,	VPP92,	VPP93,	VPP94,	VPP95,	VPP96,	VPP97,	VPP98,
+
  *	@retval None
  *
  */
@@ -801,30 +919,11 @@ void VPP_ModifySignalOutput(uint16_t pEncoderValue)
 	}
 }
 
-
-
 /*
  *
- *	@brief Get VPP preset pointer
+ *	@brief multiplex encoder input -> preset function
  *
- *	@param None
- *	@retval pointer to VppEncoderPreset_t struct
- *
- */
-VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect)
-{
-	if(eVppActivePresetSelect)
-		return pSyncVppEncoderPreset;
-	else
-		return pSignalVppEncoderPreset;
-}
-
-
-/*
- *
- *	@brief Search array of structs for preset
- *
- *	@param Search criteria. Should be one of the following:
+ *	@param Should be one of the following:
  *
  *	VPP01, 	VPP02,	VPP03,	VPP04,	VPP05,	VPP06,	VPP07,	VPP08,	VPP09,	VPP10,	VPP11,	VPP12,	VPP13,	VPP14,	VPP15,
 	VPP16,	VPP17,	VPP18,	VPP19,	VPP20,	VPP21,	VPP22,	VPP23,	VPP24,	VPP25,	VPP26,	VPP27,	VPP28,	VPP29,	VPP30,
@@ -834,23 +933,605 @@ VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActiveP
 	VPP76,	VPP77,	VPP78,	VPP79,	VPP80,	VPP81,	VPP82,	VPP83,	VPP84,	VPP85,	VPP86,	VPP87,	VPP88,	VPP89,	VPP90,
 	VPP91,	VPP92,	VPP93,	VPP94,	VPP95,	VPP96,	VPP97,	VPP98,
 
- *	@retval pointer to VppEncoderPreset_t struct
+ *	@retval None
  *
  */
-VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum)
+void VPP_ModifySyncOutput(uint16_t pEncoderValue)
 {
-	for(int i = 0; i < MAX_VPP_PRESETS; i++ )
+	switch(pEncoderValue)
 	{
-		if(aVppEncoderPresets[i].Vpp_literal == pEnum)
-		{
-			return &aVppEncoderPresets[i];
-		}
-	}
-	// error!
-	DM_SetErrorDebugMsg("VPP_FindVppPresetObject(): VppEncoderPreset_t obj not found");
-	return 0;
-}
+		case 0	:
+		case 1	:
+		case 2	:
+			VPP_ApplyPresetToSync( VPP01 );
+			break;
+		case 3	:
+		case 4	:
+		case 5	:
+		case 6	:
+			VPP_ApplyPresetToSync( VPP02	);
+			break;
+		case 7	:
+		case 8	:
+		case 9	:
+		case 10	:
+			VPP_ApplyPresetToSync( VPP03	);
+			break;
+		case 11	:
+		case 12	:
+		case 13	:
+		case 14	:
+			VPP_ApplyPresetToSync( VPP04	);
+			break;
+		case 15	:
+		case 16	:
+		case 17	:
+		case 18	:
+			VPP_ApplyPresetToSync( VPP05	);
+			break;
+		case 19	:
+		case 20	:
+		case 21	:
+		case 22	:
+			VPP_ApplyPresetToSync( VPP06	);
+			break;
+		case 23	:
+		case 24	:
+		case 25	:
+		case 26	:
+			VPP_ApplyPresetToSync( VPP07	);
+			break;
+		case 27	:
+		case 28	:
+		case 29	:
+		case 30	:
+			VPP_ApplyPresetToSync( VPP08	);
+			break;
+		case 31	:
+		case 32	:
+		case 33	:
+		case 34	:
+			VPP_ApplyPresetToSync( VPP09	);
+			break;
+		case 35	:
+		case 36	:
+		case 37	:
+		case 38	:
+			VPP_ApplyPresetToSync( VPP10	);
+			break;
+		case 39	:
+		case 40	:
+		case 41	:
+		case 42	:
+			VPP_ApplyPresetToSync( VPP11	);
+			break;
+		case 43	:
+		case 44	:
+		case 45	:
+		case 46	:
+			VPP_ApplyPresetToSync( VPP12	);
+			break;
+		case 47	:
+		case 48	:
+		case 49	:
+		case 50	:
+			VPP_ApplyPresetToSync( VPP13	);
+			break;
+		case 51	:
+		case 52	:
+		case 53	:
+		case 54	:
+			VPP_ApplyPresetToSync( VPP14	);
+			break;
+		case 55	:
+		case 56	:
+		case 57	:
+		case 58	:
+			VPP_ApplyPresetToSync( VPP15	);
+			break;
+		case 59	:
+		case 60	:
+		case 61	:
+		case 62	:
+			VPP_ApplyPresetToSync( VPP16	);
+			break;
+		case 63	:
+		case 64	:
+		case 65	:
+		case 66	:
+			VPP_ApplyPresetToSync( VPP17	);
+			break;
+		case 67	:
+		case 68	:
+		case 69	:
+		case 70	:
+			VPP_ApplyPresetToSync( VPP18	);
+			break;
+		case 71	:
+		case 72	:
+		case 73	:
+		case 74	:
+			VPP_ApplyPresetToSync( VPP19	);
+			break;
+		case 75	:
+		case 76	:
+		case 77	:
+		case 78	:
+			VPP_ApplyPresetToSync( VPP20	);
+			break;
+		case 79	:
+		case 80	:
+		case 81	:
+		case 82	:
+			VPP_ApplyPresetToSync( VPP21	);
+			break;
+		case 83	:
+		case 84	:
+		case 85	:
+		case 86	:
+			VPP_ApplyPresetToSync( VPP22	);
+			break;
+		case 87	:
+		case 88	:
+		case 89	:
+		case 90	:
+			VPP_ApplyPresetToSync( VPP23	);
+			break;
+		case 91	:
+		case 92	:
+		case 93	:
+		case 94	:
+			VPP_ApplyPresetToSync( VPP24	);
+			break;
+		case 95	:
+		case 96	:
+		case 97	:
+		case 98	:
+			VPP_ApplyPresetToSync( VPP25	);
+			break;
+		case 99		:
+		case 100	:
+		case 101	:
+		case 102	:
+			VPP_ApplyPresetToSync( VPP26	);
+			break;
+		case 103	:
+		case 104	:
+		case 105	:
+		case 106	:
+			VPP_ApplyPresetToSync( VPP27	);
+			break;
+		case 107	:
+		case 108	:
+		case 109	:
+		case 110	:
+			VPP_ApplyPresetToSync( VPP28	);
+			break;
+		case 111	:
+		case 112	:
+		case 113	:
+		case 114	:
+			VPP_ApplyPresetToSync( VPP29	);
+			break;
+		case 115	:
+		case 116	:
+		case 117	:
+		case 118	:
+			VPP_ApplyPresetToSync( VPP30	);
+			break;
+		case 119	:
+		case 120	:
+		case 121	:
+		case 122	:
+			VPP_ApplyPresetToSync( VPP31	);
+			break;
+		case 123	:
+		case 124	:
+		case 125	:
+		case 126	:
+			VPP_ApplyPresetToSync( VPP32	);
+			break;
+		case 127	:
+		case 128	:
+		case 129	:
+		case 130	:
+			VPP_ApplyPresetToSync( VPP33	);
+			break;
+		case 131	:
+		case 132	:
+		case 133	:
+		case 134	:
+			VPP_ApplyPresetToSync( VPP34	);
+			break;
+		case 135	:
+		case 136	:
+		case 137	:
+		case 138	:
+			VPP_ApplyPresetToSync( VPP35	);
+			break;
+		case 139	:
+		case 140	:
+		case 141	:
+		case 142	:
+			VPP_ApplyPresetToSync( VPP36	);
+			break;
+		case 143	:
+		case 144	:
+		case 145	:
+		case 146	:
+			VPP_ApplyPresetToSync( VPP37	);
+			break;
+		case 147	:
+		case 148	:
+		case 149	:
+		case 150	:
+			VPP_ApplyPresetToSync( VPP38	);
+			break;
+		case 151	:
+		case 152	:
+		case 153	:
+		case 154	:
+			VPP_ApplyPresetToSync( VPP39	);
+			break;
+		case 155	:
+		case 156	:
+		case 157	:
+		case 158	:
+			VPP_ApplyPresetToSync( VPP40	);
+			break;
+		case 159	:
+		case 160	:
+		case 161	:
+		case 162	:
+			VPP_ApplyPresetToSync( VPP41	);
+			break;
+		case 163	:
+		case 164	:
+		case 165	:
+		case 166	:
+			VPP_ApplyPresetToSync( VPP42	);
+			break;
+		case 167	:
+		case 168	:
+		case 169	:
+		case 170	:
+			VPP_ApplyPresetToSync( VPP43	);
+			break;
+		case 171	:
+		case 172	:
+		case 173	:
+		case 174	:
+			VPP_ApplyPresetToSync( VPP44	);
+			break;
+		case 175	:
+		case 176	:
+		case 177	:
+		case 178	:
+			VPP_ApplyPresetToSync( VPP45	);
+			break;
+		case 179	:
+		case 180	:
+		case 181	:
+		case 182	:
+			VPP_ApplyPresetToSync( VPP46	);
+			break;
+		case 183	:
+		case 184	:
+		case 185	:
+		case 186	:
+			VPP_ApplyPresetToSync( VPP47	);
+			break;
+		case 187	:
+		case 188	:
+		case 189	:
+		case 190	:
+			VPP_ApplyPresetToSync( VPP48	);
+			break;
+		case 191	:
+		case 192	:
+		case 193	:
+		case 194	:
+			VPP_ApplyPresetToSync( VPP49	);
+			break;
+		case 195	:
+		case 196	:
+		case 197	:
+		case 198	:
+			VPP_ApplyPresetToSync( VPP50	);
+			break;
+		case 199	:
+		case 200	:
+		case 201	:
+		case 202	:
+			VPP_ApplyPresetToSync( VPP51	);
+			break;
+		case 203	:
+		case 204	:
+		case 205	:
+		case 206	:
+			VPP_ApplyPresetToSync( VPP52	);
+			break;
+		case 207	:
+		case 208	:
+		case 209	:
+		case 210	:
+			VPP_ApplyPresetToSync( VPP53	);
+			break;
+		case 211	:
+		case 212	:
+		case 213	:
+		case 214	:
+			VPP_ApplyPresetToSync( VPP54	);
+			break;
+		case 215	:
+		case 216	:
+		case 217	:
+		case 218	:
+			VPP_ApplyPresetToSync( VPP55	);
+			break;
+		case 219	:
+		case 220	:
+		case 221	:
+		case 222	:
+			VPP_ApplyPresetToSync( VPP56	);
+			break;
+		case 223	:
+		case 224	:
+		case 225	:
+		case 226	:
+			VPP_ApplyPresetToSync( VPP57	);
+			break;
+		case 227	:
+		case 228	:
+		case 229	:
+		case 230	:
+			VPP_ApplyPresetToSync( VPP58	);
+			break;
+		case 231	:
+		case 232	:
+		case 233	:
+		case 234	:
+			VPP_ApplyPresetToSync( VPP59	);
+			break;
+		case 235	:
+		case 236	:
+		case 237	:
+		case 238	:
+			VPP_ApplyPresetToSync( VPP60	);
+			break;
+		case 239	:
+		case 240	:
+		case 241	:
+		case 242	:
+			VPP_ApplyPresetToSync( VPP61	);
+			break;
+		case 243	:
+		case 244	:
+		case 245	:
+		case 246	:
+			VPP_ApplyPresetToSync( VPP62	);
+			break;
+		case 247	:
+		case 248	:
+		case 249	:
+		case 250	:
+			VPP_ApplyPresetToSync( VPP63	);
+			break;
+		case 251	:
+		case 252	:
+		case 253	:
+		case 254	:
+			VPP_ApplyPresetToSync( VPP64	);
+			break;
+		case 255	:
+		case 256	:
+		case 257	:
+		case 258	:
+			VPP_ApplyPresetToSync( VPP65	);
+			break;
+		case 259	:
+		case 260	:
+		case 261	:
+		case 262	:
+			VPP_ApplyPresetToSync( VPP66	);
+			break;
+		case 263	:
+		case 264	:
+		case 265	:
+		case 266	:
+			VPP_ApplyPresetToSync( VPP67	);
+			break;
+		case 267	:
+		case 268	:
+		case 269	:
+		case 270	:
+			VPP_ApplyPresetToSync( VPP68	);
+			break;
+		case 271	:
+		case 272	:
+		case 273	:
+		case 274	:
+			VPP_ApplyPresetToSync( VPP69	);
+			break;
+		case 275	:
+		case 276	:
+		case 277	:
+		case 278	:
+			VPP_ApplyPresetToSync( VPP70	);
+			break;
+		case 279	:
+		case 280	:
+		case 281	:
+		case 282	:
+			VPP_ApplyPresetToSync( VPP71	);
+			break;
+		case 283	:
+		case 284	:
+		case 285	:
+		case 286	:
+			VPP_ApplyPresetToSync( VPP72	);
+			break;
+		case 287	:
+		case 288	:
+		case 289	:
+		case 290	:
+			VPP_ApplyPresetToSync( VPP73	);
+			break;
+		case 291	:
+		case 292	:
+		case 293	:
+		case 294	:
+			VPP_ApplyPresetToSync( VPP74	);
+			break;
+		case 295	:
+		case 296	:
+		case 297	:
+		case 298	:
+			VPP_ApplyPresetToSync( VPP75	);
+			break;
+		case 299	:
+		case 300	:
+		case 301	:
+		case 302	:
+			VPP_ApplyPresetToSync( VPP76	);
+			break;
+		case 303	:
+		case 304	:
+		case 305	:
+		case 306	:
+			VPP_ApplyPresetToSync( VPP77	);
+			break;
+		case 307	:
+		case 308	:
+		case 309	:
+		case 310	:
+			VPP_ApplyPresetToSync( VPP78	);
+			break;
+		case 311	:
+		case 312	:
+		case 313	:
+		case 314	:
+			VPP_ApplyPresetToSync( VPP79	);
+			break;
+		case 315	:
+		case 316	:
+		case 317	:
+		case 318	:
+			VPP_ApplyPresetToSync( VPP80	);
+			break;
+		case 319	:
+		case 320	:
+		case 321	:
+		case 322	:
+			VPP_ApplyPresetToSync( VPP81	);
+			break;
+		case 323	:
+		case 324	:
+		case 325	:
+		case 326	:
+			VPP_ApplyPresetToSync( VPP82	);
+			break;
+		case 327	:
+		case 328	:
+		case 329	:
+		case 330	:
+			VPP_ApplyPresetToSync( VPP83	);
+			break;
+		case 331	:
+		case 332	:
+		case 333	:
+		case 334	:
+			VPP_ApplyPresetToSync( VPP84	);
+			break;
+		case 335	:
+		case 336	:
+		case 337	:
+		case 338	:
+			VPP_ApplyPresetToSync( VPP85	);
+			break;
+		case 339	:
+		case 340	:
+		case 341	:
+		case 342	:
+			VPP_ApplyPresetToSync( VPP86	);
+			break;
+		case 343	:
+		case 344	:
+		case 345	:
+		case 346	:
+			VPP_ApplyPresetToSync( VPP87	);
+			break;
+		case 347	:
+		case 348	:
+		case 349	:
+		case 350	:
+			VPP_ApplyPresetToSync( VPP88	);
+			break;
+		case 351	:
+		case 352	:
+		case 353	:
+		case 354	:
+			VPP_ApplyPresetToSync( VPP89	);
+			break;
+		case 355	:
+		case 356	:
+		case 357	:
+		case 358	:
+			VPP_ApplyPresetToSync( VPP90	);
+			break;
+		case 359	:
+		case 360	:
+		case 361	:
+		case 362	:
+			VPP_ApplyPresetToSync( VPP91	);
+			break;
+		case 363	:
+		case 364	:
+		case 365	:
+		case 366	:
+			VPP_ApplyPresetToSync( VPP92	);
+			break;
+		case 367	:
+		case 368	:
+		case 369	:
+		case 370	:
+			VPP_ApplyPresetToSync( VPP93	);
+			break;
+		case 371	:
+		case 372	:
+		case 373	:
+		case 374	:
+			VPP_ApplyPresetToSync( VPP94	);
+			break;
+		case 375	:
+		case 376	:
+		case 377	:
+		case 378	:
+			VPP_ApplyPresetToSync( VPP95	);
+			break;
+		case 379	:
+		case 380	:
+		case 381	:
+		case 382	:
+			VPP_ApplyPresetToSync( VPP96	);
+			break;
+		case 383	:
+		case 384	:
+		case 385	:
+		case 386	:
+			VPP_ApplyPresetToSync( VPP97	);
+			break;
+		case 387	:
+		case 388	:
+		case 389	:
+		case 390	:
+			VPP_ApplyPresetToSync( VPP98	);
+			break;
 
+		default:
+			break;
+	}
+}
 
 
 

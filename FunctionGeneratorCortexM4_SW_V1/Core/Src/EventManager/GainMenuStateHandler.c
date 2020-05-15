@@ -101,7 +101,7 @@ eSystemState GainSignalMenuEntryHandler()
 
 	eNextGainMenuStatus = ENABLE_GAIN_SIGNAL_MENU;
 
-	VppEncoderPreset_t *pVppPresetTmp =  VPP_FindVppPresetObject(SIGNAL_OUTPUT_PRESET);
+	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET);
 	if(pVppPresetTmp)
 	{
 		ENCODER_TIMER->CNT = pVppPresetTmp->epos;
@@ -178,7 +178,7 @@ eSystemState GainSyncMenuEntryHandler()
 
 	eNextGainMenuStatus = ENABLE_GAIN_SYNC_MENU;
 
-/*	VppEncoderPreset_t *pVppPresetTmp =  VPPGetVppPresetObject(SYNC_OUTPUT_PRESET);
+	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject(SYNC_OUTPUT_PRESET);
 	if(pVppPresetTmp)
 	{
 		ENCODER_TIMER->CNT = pVppPresetTmp->epos;
@@ -188,7 +188,7 @@ eSystemState GainSyncMenuEntryHandler()
 	{
 		DM_SetErrorDebugMsg("GainMainMenuEntryHandler: pVppPresetTmp null pointer");
 	}
-*/
+
 	eNewEvent = evIdle;
 	return Gain_Sync_Menu_State;
 }
@@ -208,7 +208,7 @@ eSystemState GainSyncMenuInputHandler()
 #endif
 
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-//	VPP_ModifySignalOutput(SMGetEncoderValue(ENCODER_REVERSE));
+	VPP_ModifySyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evYellowBtn;
 	return Gain_Sync_Menu_State;

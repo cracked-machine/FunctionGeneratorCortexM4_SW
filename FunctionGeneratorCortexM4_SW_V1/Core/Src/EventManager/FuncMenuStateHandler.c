@@ -203,7 +203,7 @@ eSystemState FuncSyncMenuEntryHandler(void)
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_SYNC_MENU;
 
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetSignalFPresetObject();
+	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetSyncFPresetObject();
 	if(pFuncPresetTmp)
 	{
 		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
@@ -233,7 +233,7 @@ eSystemState FuncSyncMenuInputHandler(void)
 #endif
 
 
-	FuncO_ModifySignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	FuncO_ModifySyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 	eNewEvent = evBlueBtn;
 	return Func_Sync_Menu_State;
 }
@@ -258,7 +258,7 @@ eSystemState FuncSyncMenuExitHandler()
 
 	// reset the encoder range
 
-	ENCODER_TIMER->ARR = 1024;
+	//ENCODER_TIMER->ARR = 1024;
 
 	DM_RefreshScreen();
 

@@ -59,7 +59,7 @@ typedef enum
 VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS];
 
 /*
- * 		Pointer to active Vpp preset
+ * 		Pointer to active "signal output" Vpp preset
  */
 VppEncoderPreset_t* pSignalVppEncoderPreset;
 
@@ -75,7 +75,10 @@ VppEncoderPreset_t* pSyncVppEncoderPreset;
 
 void VPP_ModifySignalOutput(uint16_t pEncoderValue);
 void VPP_ApplyPresetToSignal(eVppPreset_t pPresetEnum);
-//void VPP_ProcessDataTable(float _neg_gain_coeff, uint16_t _encoder_value);
+
+void VPP_ModifySyncOutput(uint16_t pEncoderValue);
+void VPP_ApplyPresetToSync(eVppPreset_t pPresetEnum);
+
 
 VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum);
 VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect);

@@ -32,16 +32,16 @@ void FuncO_Init()
 
 
 /*
- *	Array of objects for Function Presets and their encoder positions for func preset menu
+ *	Array of objects for Function Presets, their encoder positions for func preset menu and LUT data for the function
  */
 Func_Preset_Encoder_Pos_t aFuncPresetEncoderPos[MAX_NUM_FUNC_PRESETS] =
 {
-	{ SINE_FUNC_MODE,		20 },
-	{ SQUARE_FUNC_MODE,		16 },
-	{ SAW_FUNC_MODE,		12 },
-	{ REV_SAW_FUNC_MODE,	8 },
-	{ TRIANGLE_FUNC_MODE, 	4 },
-	{ IMPULSE_FUNC_MODE, 	0 }
+	{ SINE_FUNC_MODE,		20, sine_data_table_3600 		},
+	{ SQUARE_FUNC_MODE,		16, square_data_table_3600 		},
+	{ SAW_FUNC_MODE,		12, saw_data_table_3600 		},
+	{ REV_SAW_FUNC_MODE,	8, 	saw_rev_data_table_3600 	},
+	{ TRIANGLE_FUNC_MODE, 	4, 	triangle_data_table_3600 	},
+	{ IMPULSE_FUNC_MODE, 	0, 	unitimpulse_data_table_3600 }
 
 };
 
@@ -57,9 +57,9 @@ uint8_t FuncPresetEncoderRange = 20;
 
 /*
  *
- *	@brief
+ *	@brief	multiplex encoder input -> preset function
  *
- *	@param None
+ *	@param pEncoderValue rotary encoder value
  *	@retval None
  *
  */
@@ -69,142 +69,138 @@ void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
 
 	switch(pEncoderValue)
 	{
-		case 0:
-		case 1:
-		case 2:
-
+		case 0: case 1: case 2:
 			FuncO_ApplyPresetToSignal(SINE_FUNC_MODE);
 			break;
-		case 3:
-		case 4:
-		case 5:
-		case 6:
 
+		case 3: case 4: case 5: case 6:
 			FuncO_ApplyPresetToSignal(SQUARE_FUNC_MODE);
-
 			break;
-		case 7:
-		case 8:
-		case 9:
-		case 10:
 
+		case 7: case 8: case 9: case 10:
 			FuncO_ApplyPresetToSignal(SAW_FUNC_MODE);
 			break;
-		case 11:
-		case 12:
-		case 13:
-		case 14:
 
+		case 11: case 12: case 13: case 14:
 			FuncO_ApplyPresetToSignal(REV_SAW_FUNC_MODE);
 			break;
-		case 15:
-		case 16:
-		case 17:
-		case 18:
 
+		case 15: case 16: case 17: case 18:
 			FuncO_ApplyPresetToSignal(TRIANGLE_FUNC_MODE);
 			break;
-		case 19:
-		case 20:
-		case 21:
-		case 22:
-		case 23:
 
+		case 19: case 20: case 21: case 22: case 23:
 			FuncO_ApplyPresetToSignal(IMPULSE_FUNC_MODE);
 			break;
+
+	}
+}
+
+/*
+ *
+ *	@brief multiplex encoder input -> preset function
+ *
+ *	@param pEncoderValue rotary encoder value
+ *	@retval None
+ *
+ */
+void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
+{
+
+
+	switch(pEncoderValue)
+	{
+		case 0: case 1: case 2:
+			FuncO_ApplyPresetToSync(SINE_FUNC_MODE);
+			break;
+
+		case 3: case 4: case 5: case 6:
+			FuncO_ApplyPresetToSync(SQUARE_FUNC_MODE);
+			break;
+
+		case 7: case 8: case 9: case 10:
+			FuncO_ApplyPresetToSync(SAW_FUNC_MODE);
+			break;
+
+		case 11: case 12: case 13: case 14:
+			FuncO_ApplyPresetToSync(REV_SAW_FUNC_MODE);
+			break;
+
+		case 15: case 16: case 17: case 18:
+			FuncO_ApplyPresetToSync(TRIANGLE_FUNC_MODE);
+			break;
+
+		case 19: case 20: case 21: case 22: case 23:
+			FuncO_ApplyPresetToSync(IMPULSE_FUNC_MODE);
+			break;
+
 	}
 }
 
 
-
 /*
  *
- *	@brief	Set function output preset by index
+ *	@brief	Modify the function and gain of the main Signal output (DAC1/CH1)
  *
  *	@param pPresetEnum the enum literal for the preset. Should be one of the following:
  *
- *
+ *	SINE_FUNC_MODE,
+	SQUARE_FUNC_MODE,
+	SAW_FUNC_MODE,
+	REV_SAW_FUNC_MODE,
+	TRIANGLE_FUNC_MODE,
+	IMPULSE_FUNC_MODE
 
  *	@retval None
  *
  */
 void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 {
+	// get pointer to the LUT data.  This will be the restore point for the dsp
+	pOriginalSignalDataTable = aFuncPresetEncoderPos[pPresetEnum].lookup_table_data;
 
-	switch(pPresetEnum)
-	{
-		case SINE_FUNC_MODE:
+	// set PGA gain preset and dsp amplitude adjustment
+	VPP_ApplyPresetToSignal(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
 
-			pOriginalSignalDataTable = sine_data_table_3600;
-			//pOriginalSignalDataTable = sine_data_table_1300;
+	// set the requested function output
+	pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[pPresetEnum];
 
-			VPP_ApplyPresetToSignal(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
+	// restart the DAC with the new data
+	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
-			pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[0];
+}
 
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
-			break;
+/*
+ *
+ *	@brief	Modify the function and gain of the aux Sync output (DAC2/CH1)
+ *
+ *	@param pPresetEnum the enum literal for the preset. Should be one of the following:
+ *
+ *	SINE_FUNC_MODE,
+	SQUARE_FUNC_MODE,
+	SAW_FUNC_MODE,
+	REV_SAW_FUNC_MODE,
+	TRIANGLE_FUNC_MODE,
+	IMPULSE_FUNC_MODE
 
-		case SQUARE_FUNC_MODE:
+ *	@retval None
+ *
+ */
+void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
+{
+	// get pointer to the LUT data.  This will be the restore point for the dsp
+	pOriginalSyncDataTable = aFuncPresetEncoderPos[pPresetEnum].lookup_table_data;
 
-			pOriginalSignalDataTable = square_data_table_3600;
+	// set PGA gain preset and dsp amplitude adjustment
+	VPP_ApplyPresetToSync(VPP_GetVppPresetObject(SYNC_OUTPUT_PRESET)->Vpp_literal);
 
-			VPP_ApplyPresetToSignal(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
+	// set the requested function output
+	pSyncFuncPresetEncoderPos = &aFuncPresetEncoderPos[pPresetEnum];
 
-			pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[1];
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
-			break;
-
-		case SAW_FUNC_MODE:
-
-			pOriginalSignalDataTable = saw_data_table_3600;
-
-			VPP_ApplyPresetToSignal(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
-
-			pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[2];
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
-			break;
-
-		case REV_SAW_FUNC_MODE:
-
-			pOriginalSignalDataTable = saw_rev_data_table_3600;
-
-			VPP_ApplyPresetToSignal(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
-
-			pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[3];
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
-			break;
-
-		case TRIANGLE_FUNC_MODE:
-
-			pOriginalSignalDataTable = triangle_data_table_3600;
-
-			VPP_ApplyPresetToSignal(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
-
-			pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[4];
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
-			break;
-
-		case IMPULSE_FUNC_MODE:
-
-			pOriginalSignalDataTable = unitimpulse_data_table_3600;
-
-			VPP_ApplyPresetToSignal(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
-
-			pSignalFuncPresetEncoderPos = &aFuncPresetEncoderPos[5];
-			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-			HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)aProcessedSignalDataTable, UNITIMPULSE_DATA_SIZE,  DAC_ALIGN_12B_R);
-			break;
-
-	//
-	}
-
-
+	// restart the DAC with the new data
+	HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+	HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)aProcessedSyncDataTable, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
 }
 

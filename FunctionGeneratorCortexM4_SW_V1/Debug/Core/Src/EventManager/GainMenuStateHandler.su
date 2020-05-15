@@ -5,6 +5,6 @@ GainMenuStateHandler.c:72:14:GainMainMenuExitHandler	8	static
 GainMenuStateHandler.c:94:14:GainSignalMenuEntryHandler	16	static
 GainMenuStateHandler.c:127:14:GainSignalMenuInputHandler	8	static
 GainMenuStateHandler.c:148:14:GainSignalMenuExitHandler	8	static
-GainMenuStateHandler.c:171:14:GainSyncMenuEntryHandler	8	static
+GainMenuStateHandler.c:171:14:GainSyncMenuEntryHandler	16	static
 GainMenuStateHandler.c:204:14:GainSyncMenuInputHandler	8	static
 GainMenuStateHandler.c:226:14:GainSyncMenuExitHandler	8	static
