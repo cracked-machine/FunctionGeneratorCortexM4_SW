@@ -1,0 +1,11 @@
+FreqMenuStateHandler.c:26:14:FreqMainMenuEntryHandler	8	static
+FreqMenuStateHandler.c:50:14:FreqMainMenuInputHandler	8	static
+FreqMenuStateHandler.c:68:14:FreqMainMenuExitHandler	8	static
+FreqMenuStateHandler.c:96:14:FreqPresetMenuEntryHandler	16	static
+FreqMenuStateHandler.c:132:14:FreqPresetMenuInputHandler	8	static
+FreqMenuStateHandler.c:153:14:FreqPresetMenuExitHandler	8	static
+FreqMenuStateHandler.c:176:14:FreqAdjustMenuEntryHandler	8	static
+FreqMenuStateHandler.c:203:14:FreqAdjustMenuInputHandler	8	static
+FreqMenuStateHandler.c:225:14:FreqAdjustMenuExitHandler	8	static
+FreqMenuStateHandler.c:248:14:FreqSweepMenuEntryHandler	8	static
+FreqMenuStateHandler.c:275:14:FreqSweepMenuExitHandler	8	static

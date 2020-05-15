@@ -14,6 +14,11 @@
 #include "ILI9341_GFX.h"
 
 #include "SignalManager.h"
+#include "EventManager.h"
+#include "GainMenuStateHandler.h"
+#include "FuncMenuStateHandler.h"
+#include "FreqMenuStateHandler.h"
+#include "BiasMenuStateHandler.h"
 
 #include <stdint.h>
 
@@ -29,29 +34,9 @@ typedef enum
 */
 
 
-/*
- *  Used by DM_ShowFuncMenu()
- */
-typedef enum
-{
-	DISABLE_FUNCMENU = 0x00U,
-	ENABLE_FUNC_MAIN_MENU,
-	ENABLE_FUNC_SIGNAL_MENU,
-	ENABLE_FUNC_SYNC_MENU,
 
-} eFuncMenu_Status;
 
-/*
- *  Used by DM_ShowGainMenu()
- */
-typedef enum
-{
-	DISABLE_GAINMENU = 0x00U,
-	ENABLE_GAIN_MAIN_MENU,
-	ENABLE_GAIN_SIGNAL_MENU,
-	ENABLE_GAIN_SYNC_MENU,
 
-} eGainMenu_Status;
 
 /*
  * 	Deprecated
@@ -63,52 +48,22 @@ typedef enum
 
 } eVppMenu_Status;
 
-/*
- * 	Used by DM_ShowBiasMenu()
- */
-typedef enum
-{
-	DISABLE_BIASMENU = 0x00U,
-	ENABLE_BIASMENU
 
-} eBiasMenu_Status;
-
-/*
- * 	Used by DM_ShowFreqMenu()
- */
-typedef enum
-{
-	DISABLE_FREQ_MENU = 0x00U,
-	ENABLE_FREQ_MAIN_MENU,
-	ENABLE_FREQ_PRESET_MENU,
-	ENABLE_FREQ_ADJUST_MENU,
-	ENABLE_FREQ_SWEEP_MENU
-
-} eFreqMenu_Status;
 
 void DM_Init();
 void DM_PostInit();
 void DM_UpdateDisplay();
 
-void DM_RefreshBackgroundLayout();
-int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
+void DM_RefreshScreen();
 
-
-
-//void DM_SetDisplayMode(eDisplay_Mode pMode);
 void DM_ShowFuncMenu(eFuncMenu_Status pValue);
-
 void DM_ShowGainMenu(eGainMenu_Status pValue);
-
-
-//void DM_ShowVppSelectMenu(eVppMenu_Status pValue);
-
-
 void DM_ShowFreqMenu(eFreqMenu_Status pValue);
+void DM_ShowBiasMenu(eBiasMenu_Status pValue);
 
 void DM_SetErrorDebugMsg(char* msg);
+int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
-void DM_ShowBiasSelectMenu(eBiasMenu_Status pValue);
 
 // unused
 int DM_DigitCount(int num);

@@ -6,11 +6,11 @@ DisplayManager.c:321:6:DM_ShowFuncMenu	16	static
 DisplayManager.c:335:6:DM_ShowGainMenu	16	static
 DisplayManager.c:350:6:DM_ShowVppSelectMenu	16	static
 DisplayManager.c:365:6:DM_ShowFreqMenu	16	static
-DisplayManager.c:381:6:DM_ShowBiasSelectMenu	16	static
+DisplayManager.c:381:6:DM_ShowBiasMenu	16	static
 DisplayManager.c:394:6:_DrawBiasSelectMenu	16	static
 DisplayManager.c:409:5:DM_DigitCount	16	static
-DisplayManager.c:433:6:DM_RefreshBackgroundLayout	24	static
-DisplayManager.c:485:6:DM_RegisterStrings	24	static
-DisplayManager.c:516:5:DM_AddDigitPadding	24	static
-DisplayManager.c:566:6:DM_TestScreen	4	static
-DisplayManager.c:579:6:DM_SetErrorDebugMsg	16	static
+DisplayManager.c:433:6:DM_RefreshScreen	24	static
+DisplayManager.c:489:6:DM_RegisterStrings	24	static
+DisplayManager.c:520:5:DM_AddDigitPadding	24	static
+DisplayManager.c:570:6:DM_TestScreen	4	static
+DisplayManager.c:583:6:DM_SetErrorDebugMsg	16	static

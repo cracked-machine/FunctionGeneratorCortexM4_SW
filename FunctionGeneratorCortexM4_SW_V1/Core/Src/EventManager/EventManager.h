@@ -10,6 +10,8 @@
 
 #include <stdint.h>
 
+
+
 #define EM_SWV_DEBUG
 
 typedef enum
@@ -50,13 +52,15 @@ typedef enum
 
 } eSystemEvent;
 
-
+// state machine
+eSystemState eNextState;
+eSystemEvent eNewEvent;
 
 void EM_ProcessEvent();
 void EM_SetNewEvent(eSystemEvent pEvent);
 eSystemState EM_GetSystemState();
 
-uint32_t EM_GetLastEncoderValue();
-void EM_SetLastEncoderValue(uint32_t _value);
+
+
 
 #endif /* SRC_EVENTMANAGER_EVENTMANAGER_H_ */

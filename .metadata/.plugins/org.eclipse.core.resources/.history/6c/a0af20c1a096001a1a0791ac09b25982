@@ -1,0 +1,35 @@
+/*
+ * GainMenuStateHandler.h
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_EVENTMANAGER_GAINMENUSTATEHANDLER_H_
+#define SRC_EVENTMANAGER_GAINMENUSTATEHANDLER_H_
+
+#include "EventManager.h"
+
+/*
+ *  Used by DM_ShowGainMenu()
+ */
+typedef enum
+{
+	DISABLE_GAINMENU = 0x00U,
+	ENABLE_GAIN_MAIN_MENU,
+	ENABLE_GAIN_SIGNAL_MENU,
+	ENABLE_GAIN_SYNC_MENU,
+
+} eGainMenu_Status;
+
+eSystemState GainMainMenuEntryHandler();
+eSystemState GainMainMenuInputHandler();
+eSystemState GainMainMenuExitHandler();
+eSystemState GainSignalMenuEntryHandler();
+eSystemState GainSignalMenuInputHandler();
+eSystemState GainSignalMenuExitHandler();
+eSystemState GainSyncMenuEntryHandler();
+eSystemState GainSyncMenuInputHandler();
+eSystemState GainSyncMenuExitHandler();
+
+#endif /* SRC_EVENTMANAGER_GAINMENUSTATEHANDLER_H_ */

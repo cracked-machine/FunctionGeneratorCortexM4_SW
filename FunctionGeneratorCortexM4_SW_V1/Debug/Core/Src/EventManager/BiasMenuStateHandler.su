@@ -1,0 +1,3 @@
+BiasMenuStateHandler.c:27:14:BiasMenuEntryHandler	8	static
+BiasMenuStateHandler.c:52:14:BiasMenuInputHandler	8	static
+BiasMenuStateHandler.c:72:14:BiasMenuExitHandler	8	static

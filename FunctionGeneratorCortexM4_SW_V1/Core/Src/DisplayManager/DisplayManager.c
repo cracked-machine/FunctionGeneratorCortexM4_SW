@@ -25,7 +25,7 @@
 
 //eDisplay_Mode eCurrentMode = Func_Adjust_mode;
 eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNCMENU;
-eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAINMENU;
+eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAIN_MENU;
 eGainMenu_Status eNextVppMenuStatus = 	DISABLE_VPPMENU;		//deprecated
 eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
 eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIASMENU;
@@ -47,7 +47,7 @@ uint16_t btn_x_pos[4] = { 0, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 //uint16_t button_x_positions[1] = { (BUTTON_WIDTH) };
 
 // public function prototypes
-void DM_RefreshBackgroundLayout();
+void DM_RefreshScreen();
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
 // private function prototypes
@@ -88,7 +88,7 @@ void DM_PostInit()
 	  ILI9341_Draw_Text("Initialising", 10, 10, BLACK, 1, WHITE);
 	  HAL_Delay(500);
 
-	  DM_RefreshBackgroundLayout();
+	  DM_RefreshScreen();
 	  printf("Init Completed\n");
 }
 
@@ -378,7 +378,7 @@ void DM_ShowFreqMenu(eFreqMenu_Status pValue)
  *	@retval None
  *
  */
-void DM_ShowBiasSelectMenu(eBiasMenu_Status pValue)
+void DM_ShowBiasMenu(eBiasMenu_Status pValue)
 {
 	eNextBiasMenuStatus = pValue;
 }
@@ -430,8 +430,10 @@ int DM_DigitCount(int num)
  *	@retval None
  *
  */
-void DM_RefreshBackgroundLayout()
+void DM_RefreshScreen()
 {
+	// pause display interrupts
+	HAL_TIM_Base_Stop_IT(&htim15);
 
 
 	//ILI9341_Fill_Screen(WHITE);
@@ -468,6 +470,8 @@ void DM_RefreshBackgroundLayout()
 													RED,
 													BORDER_SIZE,
 													BLACK);
+	// resume diaplay interrupts
+	HAL_TIM_Base_Start_IT(&htim15);
 }
 
 
