@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="dc_bias_encoder_value"/>
+		<item key="selection" value="VPP_OFFSET60"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="u16DC_Bias_Voltage"/>
-			<item value="htim16"/>
-			<item value="htim1"/>
-			<item value="last_enc_value"/>
-			<item value="readpin"/>
-			<item value="read"/>
-			<item value="ZERO_GAIN"/>
-			<item value="Saw_Out_Mode"/>
-			<item value="Square_Out_Mode"/>
-			<item value="Sine_Out_Mode"/>
-			<item value="MAX_NUM_FPRESETS"/>
-			<item value="DT_GetRegister"/>
-			<item value="menu_pos_y7"/>
-			<item value="155"/>
-			<item value="170"/>
+			<item value="VPP_OFFSET60"/>
+			<item value="VPP_OFFSET50"/>
+			<item value="VPP_OFFSET+50"/>
+			<item value="VPP_OFFSET+40"/>
+			<item value="VPP_OFFSET"/>
+			<item value="&#x09; dBmV"/>
+			<item value="+&#x09;"/>
+			<item value="select an option below"/>
+			<item value="dbmV"/>
+			<item value="&#x09; dbmV"/>
+			<item value="&#x09;:"/>
+			<item value="DM_DisplayFormattedOutput"/>
+			<item value="&#x09;,"/>
+			<item value="VPP"/>
+			<item value="VoltPeakPeak"/>
 		</list>
 		<list key="replacehistory">
+			<item value="VPP_OFFSET70"/>
+			<item value="VPP_OFFSET60"/>
+			<item value="VPP_OFFSET50"/>
+			<item value="VPP_OFFSET+50"/>
+			<item value="VPP_OFFSET+40"/>
+			<item value=" dBmV"/>
+			<item value="+"/>
+			<item value="dBmV"/>
+			<item value=" dbmV"/>
+			<item value="&#x09;:"/>
+			<item value="_DisplayFormattedOutput"/>
+			<item value=","/>
+			<item value="Vpp"/>
+			<item value="VPP"/>
 			<item value="dc_bias_encoder_value"/>
-			<item value="SAW_FUNC_MODE"/>
-			<item value="SQUARE_FUNC_MODE"/>
-			<item value="SINE_FUNC_MODE"/>
-			<item value="DT_GetRegisterByIndex"/>
-			<item value="menu_pos_y7"/>
-			<item value="menu_pos_y6"/>
-			<item value="menu_pos_y5"/>
-			<item value="menu_pos_y4"/>
-			<item value="tim8_arr"/>
-			<item value="tim8_psc"/>
-			<item value="Entry"/>
-			<item value="_BiasMenuExitHandler"/>
-			<item value="_BiasMenuInputHandler"/>
-			<item value="_BiasMenuEnterHandler"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
