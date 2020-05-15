@@ -9,6 +9,40 @@
 #include <FuncMenus.h>
 #include "DisplayManager.h"
 
+
+void FuncMenu_DrawMainMenu();
+void FuncMenu_DrawSignalMenu();
+void FuncMenu_DrawSyncMenu();
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
+{
+	switch(pMenu)
+	{
+		case ENABLE_FUNC_MAIN_MENU:
+			FuncMenu_DrawMainMenu();
+			break;
+		case ENABLE_FUNC_SIGNAL_MENU:
+			FuncMenu_DrawSignalMenu();
+			break;
+		case ENABLE_FUNC_SYNC_MENU:
+			FuncMenu_DrawSyncMenu();
+			break;
+
+		default:
+			break;
+
+	}
+}
+
+
 /*
  *
  *	@brief

@@ -22,31 +22,6 @@
 
 #include <stdint.h>
 
-/*
-typedef enum
-{
-	Func_Adjust_mode,				// edit output function
-	Freq_Adjust_mode,				// edit output frequency
-	Ampl_Adjust_mode,				// edit output amplitude
-	Bias_Adjust_mode				// edit output DC bias
-
-} eDisplay_Mode;
-*/
-
-
-
-
-
-
-/*
- * 	Deprecated
- */
-typedef enum
-{
-	DISABLE_VPPMENU = 0x00U,
-	ENABLE_VPPMENU
-
-} eVppMenu_Status;
 
 
 

@@ -9,6 +9,7 @@
 #include "FreqMenus.h"
 #include "GainMenus.h"
 #include "FuncMenus.h"
+#include "BiasMenus.h"
 
 #include "EventManager.h"
 
@@ -24,11 +25,10 @@
 
 
 //eDisplay_Mode eCurrentMode = Func_Adjust_mode;
-eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNCMENU;
+eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
 eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAIN_MENU;
-eGainMenu_Status eNextVppMenuStatus = 	DISABLE_VPPMENU;		//deprecated
 eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
-eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIASMENU;
+eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIAS_MENU;
 
  extern uint16_t BURST_MAX_SIZE;
 
@@ -43,18 +43,14 @@ eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIASMENU;
 #define BTN_TXT_Y_POS 			(ILI9341_SCREEN_HEIGHT)-25
 
 uint16_t btn_x_pos[4] = { 0, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
-//#define BUTTON_Y_POSITION 50
-//uint16_t button_x_positions[1] = { (BUTTON_WIDTH) };
+
 
 // public function prototypes
 void DM_RefreshScreen();
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
 // private function prototypes
-void FuncMenu_DrawSignalMenu();
-void _DrawGainMainMenu();
-void _DrawVppSelectMenu();
-void _DrawFreqSelectMenu();
+
 void _DrawBiasSelectMenu();
 
 
@@ -167,7 +163,7 @@ void DM_UpdateDisplay()
 {
 
 
-	if(eNextFuncMenuStatus)		//  == ENABLE_FUNCMENU
+	if(eNextFuncMenuStatus)		//  != DISABLE_FUNC_MENU
 	{
 		switch(eNextFuncMenuStatus)
 		{
@@ -175,21 +171,21 @@ void DM_UpdateDisplay()
 
 				_DisplayFormattedOutput();
 
-				FuncMenu_DrawMainMenu();
+				FuncMenu_DrawMenu(ENABLE_FUNC_MAIN_MENU);
 
 				break;
 
 			case ENABLE_FUNC_SIGNAL_MENU:
 
 //				_DisplayFormattedOutput();
-				FuncMenu_DrawSignalMenu();
+				FuncMenu_DrawMenu(ENABLE_FUNC_SIGNAL_MENU);
 
 				break;
 
 			case ENABLE_FUNC_SYNC_MENU:
 
 //				_DisplayFormattedOutput();
-				FuncMenu_DrawSyncMenu();
+				FuncMenu_DrawMenu(ENABLE_FUNC_SYNC_MENU);
 
 				break;
 
@@ -198,7 +194,7 @@ void DM_UpdateDisplay()
 		}
 
 	}
-	else if(eNextGainMenuStatus)		//  == ENABLE_GAINMENU
+	else if(eNextGainMenuStatus)		//  != DISABLE_GAIN_MENU
 	{
 
 		switch(eNextGainMenuStatus)
@@ -206,21 +202,21 @@ void DM_UpdateDisplay()
 			case ENABLE_GAIN_MAIN_MENU:
 
 				_DisplayFormattedOutput();
-				GainMenu_DrawMainMenu();
+				GainMenu_DrawMenu(ENABLE_GAIN_MAIN_MENU);
 
 				break;
 
 			case ENABLE_GAIN_SIGNAL_MENU:
 
 				_DisplayFormattedOutput();
-				GainMenu_DrawSignalMenu();
+				GainMenu_DrawMenu(ENABLE_GAIN_SIGNAL_MENU);
 
 				break;
 
 			case ENABLE_GAIN_SYNC_MENU:
 
 				_DisplayFormattedOutput();
-				GainMenu_DrawSyncMenu();
+				GainMenu_DrawMenu(ENABLE_GAIN_SYNC_MENU);
 
 				break;
 
@@ -246,24 +242,24 @@ void DM_UpdateDisplay()
 
 				_DisplayFormattedOutput();
 
-				FreqMenu_DrawMainMenu();
+				FreqMenu_DrawMenu(ENABLE_FREQ_MAIN_MENU);
 
 				break;
 
 			case ENABLE_FREQ_PRESET_MENU:
-				FreqMenu_DrawPresetMenu();
+				FreqMenu_DrawMenu(ENABLE_FREQ_PRESET_MENU);
 				break;
 
 			case ENABLE_FREQ_ADJUST_MENU:
 
 				_DisplayFormattedOutput();
 
-				FreqMenu_DrawAdjustMenu();
+				FreqMenu_DrawMenu(ENABLE_FREQ_ADJUST_MENU);
 
 				break;
 
 			case ENABLE_FREQ_SWEEP_MENU:
-				FreqMenu_DrawSweepMenu();
+				FreqMenu_DrawMenu(ENABLE_FREQ_SWEEP_MENU);
 				break;
 
 			default:
@@ -280,7 +276,7 @@ void DM_UpdateDisplay()
 		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
 */
 		_DisplayFormattedOutput();
-		_DrawBiasSelectMenu();
+		BiasMenu_DrawMenu(ENABLE_BIAS_MENU);
 	}
 	else
 	{
@@ -339,19 +335,6 @@ void DM_ShowGainMenu(eGainMenu_Status pValue)
 
 
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void DM_ShowVppSelectMenu(eVppMenu_Status pValue)
-{
-	eNextVppMenuStatus = pValue;
-}
-
 
 
 /*
@@ -369,7 +352,6 @@ void DM_ShowFreqMenu(eFreqMenu_Status pValue)
 
 
 
-
 /*
  *
  *	@brief
@@ -383,19 +365,6 @@ void DM_ShowBiasMenu(eBiasMenu_Status pValue)
 	eNextBiasMenuStatus = pValue;
 }
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void _DrawBiasSelectMenu()
-{
-	ILI9341_Draw_Text("ADJUST DC BIAS", 	30, 10, WHITE, 3, BLACK);
-
-}
 
 
 /*

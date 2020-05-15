@@ -69,7 +69,8 @@ Core/Src/DisplayManager/DisplayManager.o: \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/BiasMenuStateHandler.h \
  ../Core/Src/DisplayManager/FreqMenus.h \
  ../Core/Src/DisplayManager/GainMenus.h \
- ../Core/Src/DisplayManager/FuncMenus.h ../Core/Inc/rng.h
+ ../Core/Src/DisplayManager/FuncMenus.h \
+ ../Core/Src/DisplayManager/BiasMenus.h ../Core/Inc/rng.h
 
 ../Core/Src/DisplayManager/DisplayManager.h:
 
@@ -212,5 +213,7 @@ Core/Src/DisplayManager/DisplayManager.o: \
 ../Core/Src/DisplayManager/GainMenus.h:
 
 ../Core/Src/DisplayManager/FuncMenus.h:
+
+../Core/Src/DisplayManager/BiasMenus.h:
 
 ../Core/Inc/rng.h:

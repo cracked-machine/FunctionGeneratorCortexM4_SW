@@ -32,7 +32,7 @@ eSystemState BiasMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	DM_ShowBiasMenu(ENABLE_BIASMENU);
+	DM_ShowBiasMenu(ENABLE_BIAS_MENU);
 
 	ENCODER_TIMER->ARR = BIAS_MAX;
 	ENCODER_TIMER->CNT = BO_GetDcBiasEncoderValue();
@@ -77,7 +77,7 @@ eSystemState BiasMenuExitHandler()
 
 
 	// disable the menu
-	DM_ShowBiasMenu(DISABLE_BIASMENU);
+	DM_ShowBiasMenu(DISABLE_BIAS_MENU);
 
 	// reset the encoder range
 

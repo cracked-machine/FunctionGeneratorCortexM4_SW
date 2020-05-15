@@ -52,15 +52,13 @@ typedef enum
 
 } eSystemEvent;
 
-// state machine
+// state machine context
 eSystemState eNextState;
 eSystemEvent eNewEvent;
 
 void EM_ProcessEvent();
 void EM_SetNewEvent(eSystemEvent pEvent);
 eSystemState EM_GetSystemState();
-
-
 
 
 #endif /* SRC_EVENTMANAGER_EVENTMANAGER_H_ */

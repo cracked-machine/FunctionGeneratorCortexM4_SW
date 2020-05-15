@@ -10,6 +10,38 @@
 #include "DisplayManager.h"
 
 
+void FreqMenu_DrawMainMenu();
+void FreqMenu_DrawPresetMenu();
+void FreqMenu_DrawSyncMenu();
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqMenu_DrawMenu(eFreqMenu_Status pMenu)
+{
+	switch(pMenu)
+	{
+		case ENABLE_FREQ_MAIN_MENU:
+			FreqMenu_DrawMainMenu();
+			break;
+		case ENABLE_FREQ_PRESET_MENU:
+			FreqMenu_DrawPresetMenu();
+			break;
+		case ENABLE_FREQ_ADJUST_MENU:
+			FreqMenu_DrawAdjustMenu();
+			break;
+
+		default:
+			break;
+
+	}
+}
+
 /*
  *
  *	@brief

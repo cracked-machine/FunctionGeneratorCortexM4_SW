@@ -15,8 +15,8 @@
  */
 typedef enum
 {
-	DISABLE_BIASMENU = 0x00U,
-	ENABLE_BIASMENU
+	DISABLE_BIAS_MENU = 0x00U,
+	ENABLE_BIAS_MENU
 
 } eBiasMenu_Status;
 

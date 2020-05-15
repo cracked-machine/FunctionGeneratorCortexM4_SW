@@ -18,6 +18,35 @@
  *	@retval None
  *
  */
+void GainMenu_DrawMenu(eGainMenu_Status pMenu)
+{
+	switch(pMenu)
+	{
+		case ENABLE_GAIN_MAIN_MENU:
+			GainMenu_DrawMainMenu();
+			break;
+		case ENABLE_GAIN_SIGNAL_MENU:
+			GainMenu_DrawSignalMenu();
+			break;
+		case ENABLE_GAIN_SYNC_MENU:
+			GainMenu_DrawSyncMenu();
+			break;
+
+		default:
+			break;
+
+	}
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void GainMenu_DrawMainMenu()
 {
 	ILI9341_Draw_Text("GAIN MAIN MENU", 	10, 10, WHITE, 3, BLACK);

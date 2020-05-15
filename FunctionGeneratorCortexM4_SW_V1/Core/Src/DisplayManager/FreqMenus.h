@@ -8,6 +8,10 @@
 #ifndef SRC_DISPLAYMANAGER_FREQMENUS_H_
 #define SRC_DISPLAYMANAGER_FREQMENUS_H_
 
+#include "FreqMenuStateHandler.h"
+
+void FreqMenu_DrawMenu(eFreqMenu_Status pMenu);
+
 void FreqMenu_DrawMainMenu();
 void FreqMenu_DrawPresetMenu();
 void FreqMenu_DrawAdjustMenu();

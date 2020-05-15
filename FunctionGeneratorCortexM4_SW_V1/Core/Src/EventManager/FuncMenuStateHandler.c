@@ -12,9 +12,6 @@
 #include "SignalManager.h"
 #include <stdio.h>
 
-///////////////////////////////////////////////////////
-//////    "FUNCTION" EVENTHANDLER FUNCTIONS		///////
-///////////////////////////////////////////////////////
 
 
 /*
@@ -87,7 +84,7 @@ eSystemState FuncMainMenuExitHandler()
 
 	// disable the menu
 
-	DM_ShowFuncMenu(DISABLE_FUNCMENU);
+	DM_ShowFuncMenu(DISABLE_FUNC_MENU);
 
 	// reset the encoder range
 
