@@ -51,7 +51,7 @@
 #include "spi.h"
 #include <assert.h>
 #include <math.h>
-#include "ILI9341_TextManager.h"
+
 #include "fade_log_seq.h"
 #include "fade_lin_seq.h"
 

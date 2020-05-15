@@ -369,26 +369,7 @@ void DM_RefreshScreen()
 
 
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void DM_RegisterStrings()
-{
-	int res = 0;
-	res = TM_RegisterString("ONE", 10, 220, 2);
-	res = TM_RegisterString("TWO", 100, 220, 2);
-	res = TM_RegisterString("THREE", 175, 220, 2);
-	res = TM_RegisterString("FOUR", 260, 220, 2);
-	if(res < 0)
-	{
-		ILI9341_Draw_Text("Exceeded String Buffer Bounds!", 10, 20, BLACK, 1, WHITE);
-	}
-}
+
 
 /*
  *

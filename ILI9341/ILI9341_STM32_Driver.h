@@ -85,7 +85,7 @@
 #define ILI9341_STM32_DRIVER_H
 
 #include "stm32g4xx_hal.h"
-#include "ILI9341_TextManager.h"
+
 
 
 #define ILI9341_SCREEN_HEIGHT 					240

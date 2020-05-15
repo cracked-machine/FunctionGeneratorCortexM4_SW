@@ -37,6 +37,6 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 // unused
 //int DM_DigitCount(int num);
 //void DM_TestScreen();
-//void DM_RegisterStrings();
+
 
 #endif /* INC_DISPLAYMANAGER_DISPLAYMANAGER_H_ */

@@ -40,7 +40,7 @@
 #include "EventManager.h"
 #include "SignalManager.h"
 #include "DacTimerRegistry.h"
-#include "DacChannel.h"
+
 //#include "GainOutput.h"
 
 // python-generated wave lut
@@ -157,14 +157,7 @@ int main(void)
   // DC bias output (internal)
   HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
 
-  // auxilliary signal sync output (external)
-  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, sine_data_table, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
-  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, square_data_table, SQUARE_DATA_SIZE, DAC_ALIGN_12B_R);
-  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, unitimpulse_data_table, UNITIMPULSE_DATA_SIZE, DAC_ALIGN_12B_R);
-  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, saw_data_table, SAW_DATA_SIZE, DAC_ALIGN_12B_R);
-  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, saw_rev_data_table, SAW_REV_DATA_SIZE, DAC_ALIGN_12B_R);
-  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, triangle_data_table_3600, TRIANGLE_DATA_SIZE, DAC_ALIGN_12B_R);
-
+  // send trigger input out to dac
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
 
 #ifndef DISABLE_ALL_TIMERS
@@ -193,7 +186,7 @@ int main(void)
   HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin5
 //#define ADC_TRIGGER_MODE
 //#define COMP_TRIGGER_MODE
-#define TIM_TRIGGER_MODE
+//#define TIM_TRIGGER_MODE
 #ifdef ADC_TRIGGER_MODE
   // start trigger input capture on in ADC
 
@@ -307,7 +300,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
   RCC_OscInitStruct.PLL.PLLN = 42;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV25;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV4;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -331,7 +324,7 @@ void SystemClock_Config(void)
   */
   PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_RNG|RCC_PERIPHCLK_ADC12;
   PeriphClkInit.RngClockSelection = RCC_RNGCLKSOURCE_HSI48;
-  PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_SYSCLK;
+  PeriphClkInit.Adc12ClockSelection = RCC_ADC12CLKSOURCE_PLL;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
   {
     Error_Handler();
