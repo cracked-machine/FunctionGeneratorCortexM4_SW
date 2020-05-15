@@ -27,13 +27,29 @@ void EM_SetNewEvent(eSystemEvent pEvent);
 
 
 // private function prototypes
-eSystemState _FuncMenuEntryHandler();
-eSystemState _FuncMenuInputHandler();
-eSystemState _FuncMenuExitHandler();
+eSystemState _FuncMainMenuEntryHandler();
+eSystemState _FuncMainMenuInputHandler();
+eSystemState _FuncMainMenuExitHandler();
 
-eSystemState _GainMenuEntryHandler();
-eSystemState _GainMenuInputHandler();
-eSystemState _GainMenuExitHandler();
+eSystemState _FuncSignalMenuEntryHandler();
+eSystemState _FuncSignalMenuInputHandler();
+eSystemState _FuncSignalMenuExitHandler();
+
+eSystemState _FuncSyncMenuEntryHandler();
+eSystemState _FuncSyncMenuInputHandler();
+eSystemState _FuncSyncMenuExitHandler();
+
+eSystemState _GainMainMenuEntryHandler();
+eSystemState _GainMainMenuInputHandler();
+eSystemState _GainMainMenuExitHandler();
+
+eSystemState _GainSignalMenuEntryHandler();
+eSystemState _GainSignalMenuInputHandler();
+eSystemState _GainSignalMenuExitHandler();
+
+eSystemState _GainSyncMenuEntryHandler();
+eSystemState _GainSyncMenuInputHandler();
+eSystemState _GainSyncMenuExitHandler();
 
 eSystemState _FreqMainMenuEntryHandler();
 eSystemState _FreqMainMenuInputHandler();
@@ -73,6 +89,10 @@ void EM_SetLastEncoderValue(uint32_t _value)
 	last_enc_value = _value;
 }
 
+///////////////////////////////////////////////////////
+////// 			   SYSTEM STATEMACHINE			///////
+///////////////////////////////////////////////////////
+
 /*
  *
  *	@brief
@@ -86,14 +106,16 @@ void EM_ProcessEvent()
 
 	switch(eNextState)
 	{
+
+// MAIN MENU
+
 		case Idle_State:
 
-
-			TIM1->ARR = 12;
+//			TIM1->ARR = 12;
 
 			if(eNewEvent == evBlueBtn)
 			{
-				eNextState = _FuncMenuEntryHandler();
+				eNextState = _FuncMainMenuEntryHandler();
 			}
 			if(eNewEvent == evGreenBtn)
 			{
@@ -101,96 +123,133 @@ void EM_ProcessEvent()
 			}
 			if(eNewEvent == evYellowBtn)
 			{
-				eNextState = _GainMenuEntryHandler();
+				eNextState = _GainMainMenuEntryHandler();
 			}
 			if(eNewEvent == evRedBtn)
 			{
 				eNextState = _BiasMenuEntryHandler();
 			}
-			if(eNewEvent == evEncoderSet)
-			{
-/*
-				for(int i = 0; i < SINE_DATA_SIZE; i++)
-				{
-					tmpDataTable[i] = pOriginalDataTable[i];
-				}
-
-				float gain_coeff = 1;
-				if(TIM1->CNT)
-					gain_coeff = (TIM1->CNT/4);
-
-				for(int i = 0; i < SINE_DATA_SIZE; i++)
-				{
-
-					tmpDataTable[i] = tmpDataTable[i] * (0.8/gain_coeff);
-					tmpDataTable[i] = tmpDataTable[i] + (800 * gain_coeff);
-				}
-				for(int i = 0; i < SINE_DATA_SIZE; i++)
-				{
-					aModdedDataTable[i] = tmpDataTable[i];
-				}
-
-
-				//FuncO_ApplyPreset_Fast(SINE_FUNC_MODE);
-				eNewEvent = evIdle;
-*/
-			}
-
 			break;
 
-		case Func_Menu_State:
+// FUNC MENUS
+
+		case Func_Main_Menu_State:
 
 			if(eNewEvent == evEncoderSet)
 			{
-				eNextState = _FuncMenuInputHandler();
+				// No menu action
 			}
 			if(eNewEvent == evEncoderPush)
 			{
-				eNextState = _FuncMenuExitHandler();
+				eNextState = _FuncMainMenuExitHandler();
 			}
+			if(eNewEvent == evBlueBtn)
+			{
+				eNextState = _FuncSignalMenuEntryHandler();
+			}
+			if(eNewEvent == evGreenBtn)
+			{
+				eNextState = _FuncSyncMenuEntryHandler();
+			}
+
 			break;
 
-		case Gain_Menu_State:
+		case Func_Signal_Menu_State:
 
 			if(eNewEvent == evEncoderSet)
 			{
-				eNextState = _GainMenuInputHandler();
+				eNextState = _FuncSignalMenuInputHandler();
 			}
 			if(eNewEvent == evEncoderPush)
 			{
-				eNextState = _GainMenuExitHandler();
+				eNextState = _FuncSignalMenuExitHandler();
 			}
+
 			break;
+
+		case Func_Sync_Menu_State:
+
+			if(eNewEvent == evEncoderSet)
+			{
+				eNextState = _FuncSyncMenuInputHandler();
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = _FuncSyncMenuExitHandler();
+			}
+
+			break;
+
+// GAIN MENUS
+
+		case Gain_Main_Menu_State:
+
+			if(eNewEvent == evEncoderSet)
+			{
+				// No menu action
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = _GainMainMenuExitHandler();
+			}
+			if(eNewEvent == evBlueBtn)
+			{
+				eNextState = _GainSignalMenuEntryHandler();
+			}
+			if(eNewEvent == evGreenBtn)
+			{
+				eNextState = _GainSyncMenuEntryHandler();
+			}
+
+			break;
+
+		case Gain_Signal_Menu_State:
+
+			if(eNewEvent == evEncoderSet)
+			{
+				eNextState = _GainSignalMenuInputHandler();
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = _GainSignalMenuExitHandler();
+			}
+
+			break;
+
+		case Gain_Sync_Menu_State:
+
+			if(eNewEvent == evEncoderSet)
+			{
+				eNextState = _GainSyncMenuInputHandler();
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = _GainSyncMenuExitHandler();
+			}
+
+			break;
+
+// FREQ MENUS
 
 		case Freq_Main_Menu_State:
 
-			if(eNewEvent == evEncoderSet)
-			{
-//				eNextState = _FreqMainMenuSetHandler();
-			}
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = _FreqMainMenuExitHandler();
 			}
 			if(eNewEvent == evBlueBtn)
 			{
-//				FreqO_ApplyPreset(FPRESET_1HZ);
 				eNextState = _FreqPresetMenuEntryHandler();
 			}
 			if(eNewEvent == evGreenBtn)
 			{
-//				FreqO_ApplyPreset(FPRESET_100HZ);
 				eNextState = _FreqAdjustMenuEntryHandler();
 			}
 			if(eNewEvent == evYellowBtn)
 			{
-//				FreqO_ApplyPreset(FPRESET_1KHZ);
 				eNextState = _FreqSweepMenuEntryHandler();
 			}
-			if(eNewEvent == evRedBtn)
-			{
-				// No menu action
-			}
+
 			break;
 
 		case Freq_Preset_Menu_State:
@@ -216,15 +275,14 @@ void EM_ProcessEvent()
 			break;
 
 		case Freq_Sweep_Menu_State:
-			if(eNewEvent == evEncoderSet)
-			{
-//				eNextState = _FreqMainMenuSetHandler();
-			}
+
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = _FreqSweepMenuExitHandler();
 			}
 			break;
+
+// BIAS MENUS
 
 		case Bias_Menu_State:
 			if(eNewEvent == evEncoderSet)
@@ -245,18 +303,19 @@ void EM_ProcessEvent()
 }
 
 ///////////////////////////////////////////////////////
-//////		PRIVATE EVENTHANDLER FUNCTIONS		///////
+//////    "FUNCTION" EVENTHANDLER FUNCTIONS		///////
 ///////////////////////////////////////////////////////
+
 
 /*
  *
- *	@brief
+ *	@brief	_FuncMenuEntryHandler
  *
  *	@param None
- *	@retval None
+ *	@retval eSystemState enum for next system state
  *
  */
-eSystemState _FuncMenuEntryHandler(void)
+eSystemState _FuncMainMenuEntryHandler(void)
 {
 #ifdef EM_SWV_DEBUG
 	printf("FunctionMenu Event captured\n");
@@ -264,7 +323,90 @@ eSystemState _FuncMenuEntryHandler(void)
 
 	_RefreshDisplay();
 
-	DM_ShowFuncSelectMenu(ENABLE_FUNCMENU);
+	DM_ShowFuncMenu(ENABLE_FUNC_MAIN_MENU);
+
+/*	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
+	if(pFuncPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
+		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
+	}
+	else
+	{
+		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: pFuncPresetTmp null pointer");
+	}
+*/
+	eNewEvent = evIdle;
+	return Func_Main_Menu_State;
+}
+
+/*
+ *
+ *	@brief	_FuncMenuInputHandler
+ *
+ *	@param None
+ *	@retval eSystemState enum for next system state
+ *
+ */
+eSystemState _FuncMainMenuInputHandler(void)
+{
+#ifdef EM_SWV_DEBUG
+	printf("FunctionAdjust Event captured\n");
+#endif
+
+
+//	FuncO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+
+	eNewEvent = evBlueBtn;
+	return Func_Main_Menu_State;
+}
+
+/*
+ *
+ *	@brief	_FuncMenuExitHandler
+ *
+ *	@param None
+ *	@retval eSystemState enum for next system state
+ *
+ */
+eSystemState _FuncMainMenuExitHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("ExitFuncMenu Event captured\n");
+#endif
+
+	// disable the menu
+
+	DM_ShowFuncMenu(DISABLE_FUNCMENU);
+
+	// reset the encoder range
+
+//	ENCODER_TIMER->ARR = 1024;
+
+	_RefreshDisplay();
+
+	eNewEvent = evIdle;
+	return Idle_State;
+}
+
+
+/*
+ *
+ *	@brief	_FuncMenuEntryHandler
+ *
+ *	@param None
+ *	@retval eSystemState enum for next system state
+ *
+ */
+eSystemState _FuncSignalMenuEntryHandler(void)
+{
+#ifdef EM_SWV_DEBUG
+	printf("FunctionMenu Event captured\n");
+#endif
+
+	_RefreshDisplay();
+
+	DM_ShowFuncMenu(ENABLE_FUNC_SIGNAL_MENU);
 
 	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
 	if(pFuncPresetTmp)
@@ -277,19 +419,19 @@ eSystemState _FuncMenuEntryHandler(void)
 		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: pFuncPresetTmp null pointer");
 	}
 
-
-	return Func_Menu_State;
+	eNewEvent = evIdle;
+	return Func_Signal_Menu_State;
 }
 
 /*
  *
- *	@brief
+ *	@brief	_FuncMenuInputHandler
  *
  *	@param None
- *	@retval None
+ *	@retval eSystemState enum for next system state
  *
  */
-eSystemState _FuncMenuInputHandler(void)
+eSystemState _FuncSignalMenuInputHandler(void)
 {
 #ifdef EM_SWV_DEBUG
 	printf("FunctionAdjust Event captured\n");
@@ -298,18 +440,18 @@ eSystemState _FuncMenuInputHandler(void)
 
 	FuncO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 	eNewEvent = evBlueBtn;
-	return Func_Menu_State;
+	return Func_Signal_Menu_State;
 }
 
 /*
  *
- *	@brief
+ *	@brief	_FuncMenuExitHandler
  *
  *	@param None
- *	@retval None
+ *	@retval eSystemState enum for next system state
  *
  */
-eSystemState _FuncMenuExitHandler()
+eSystemState _FuncSignalMenuExitHandler()
 {
 #ifdef EM_SWV_DEBUG
 	printf("ExitFuncMenu Event captured\n");
@@ -317,7 +459,89 @@ eSystemState _FuncMenuExitHandler()
 
 	// disable the menu
 
-	DM_ShowFuncSelectMenu(DISABLE_FUNCMENU);
+	DM_ShowFuncMenu(ENABLE_FUNC_MAIN_MENU);
+
+	// reset the encoder range
+
+//	ENCODER_TIMER->ARR = 1024;
+
+	_RefreshDisplay();
+
+	eNewEvent = evIdle;
+	return Func_Main_Menu_State;
+}
+
+
+/*
+ *
+ *	@brief	_FuncMenuEntryHandler
+ *
+ *	@param None
+ *	@retval eSystemState enum for next system state
+ *
+ */
+eSystemState _FuncSyncMenuEntryHandler(void)
+{
+#ifdef EM_SWV_DEBUG
+	printf("FunctionMenu Event captured\n");
+#endif
+
+	_RefreshDisplay();
+
+	DM_ShowFuncMenu(ENABLE_FUNC_SYNC_MENU);
+
+	Func_Preset_Encoder_Pos_t *pFuncPresetTmp =  FuncO_GetFPresetObject();
+	if(pFuncPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pFuncPresetTmp->epos;
+		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
+	}
+	else
+	{
+		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: pFuncPresetTmp null pointer");
+	}
+
+	eNewEvent = evIdle;
+	return Func_Sync_Menu_State;
+}
+
+/*
+ *
+ *	@brief	_FuncMenuInputHandler
+ *
+ *	@param None
+ *	@retval eSystemState enum for next system state
+ *
+ */
+eSystemState _FuncSyncMenuInputHandler(void)
+{
+#ifdef EM_SWV_DEBUG
+	printf("FunctionAdjust Event captured\n");
+#endif
+
+
+	FuncO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	eNewEvent = evBlueBtn;
+	return Func_Sync_Menu_State;
+}
+
+/*
+ *
+ *	@brief	_FuncMenuExitHandler
+ *
+ *	@param None
+ *	@retval eSystemState enum for next system state
+ *
+ */
+eSystemState _FuncSyncMenuExitHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("ExitFuncMenu Event captured\n");
+#endif
+
+	// disable the menu
+
+	DM_ShowFuncMenu(ENABLE_FUNC_MAIN_MENU);
 
 	// reset the encoder range
 
@@ -326,9 +550,13 @@ eSystemState _FuncMenuExitHandler()
 	_RefreshDisplay();
 
 	eNewEvent = evIdle;
-	return Idle_State;
+	return Func_Main_Menu_State;
 }
 
+
+///////////////////////////////////////////////////////
+//////    "GAIN" EVENTHANDLER FUNCTIONS		///////
+///////////////////////////////////////////////////////
 
 /*
  *
@@ -338,7 +566,7 @@ eSystemState _FuncMenuExitHandler()
  *	@retval None
  *
  */
-eSystemState _GainMenuEntryHandler()
+eSystemState _GainMainMenuEntryHandler()
 {
 #ifdef EM_SWV_DEBUG
 	printf("GainMenu Event captured\n");
@@ -346,34 +574,10 @@ eSystemState _GainMenuEntryHandler()
 
 	_RefreshDisplay();
 
-	//DM_ShowGainSelectMenu(ENABLE_GAINMENU);
-	DM_ShowVppSelectMenu(ENABLE_VPPMENU);
+	DM_ShowGainMenu(ENABLE_GAIN_MAIN_MENU);
 
-	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject();
-	if(pVppPresetTmp)
-	{
-		ENCODER_TIMER->CNT = pVppPresetTmp->epos;
-		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
-	}
-	else
-	{
-		DM_SetErrorDebugMsg("_GainMenuEntryHandler: pVppPresetTmp null pointer");
-	}
-
-/*
-	Gain_Preset_Encoder_Pos_t *pGainPresetTmp =  GO_GetGPresetObject();
-	if(pGainPresetTmp)
-	{
-		ENCODER_TIMER->CNT = pGainPresetTmp->epos;
-		ENCODER_TIMER->ARR = GO_GetGainPresetEncoderRange();
-	}
-	else
-	{
-		DM_SetErrorDebugMsg("_GainMenuEntryHandler: pGainPresetTmp null pointer");
-	}
-*/
-
-	return Gain_Menu_State;
+	eNewEvent = evIdle;
+	return Gain_Main_Menu_State;
 }
 
 /*
@@ -384,7 +588,83 @@ eSystemState _GainMenuEntryHandler()
  *	@retval None
  *
  */
-eSystemState _GainMenuInputHandler()
+eSystemState _GainMainMenuInputHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("GainSet Event captured\n");
+#endif
+
+	//GO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	//VPP_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+
+	eNewEvent = evYellowBtn;
+	return Gain_Main_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState _GainMainMenuExitHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("ExitGainMenu Event captured\n");
+#endif
+
+	DM_ShowGainMenu(DISABLE_GAINMENU);
+
+	_RefreshDisplay();
+
+	eNewEvent = evIdle;
+	return Idle_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState _GainSignalMenuEntryHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("GainMenu Event captured\n");
+#endif
+
+	_RefreshDisplay();
+
+	DM_ShowGainMenu(ENABLE_GAIN_SIGNAL_MENU);
+
+	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET);
+	if(pVppPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pVppPresetTmp->epos;
+		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
+	}
+	else
+	{
+		DM_SetErrorDebugMsg("_GainMainMenuEntryHandler: pVppPresetTmp null pointer");
+	}
+
+	eNewEvent = evIdle;
+	return Gain_Signal_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState _GainSignalMenuInputHandler()
 {
 #ifdef EM_SWV_DEBUG
 	printf("GainSet Event captured\n");
@@ -394,7 +674,7 @@ eSystemState _GainMenuInputHandler()
 	VPP_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evYellowBtn;
-	return Gain_Menu_State;
+	return Gain_Signal_Menu_State;
 }
 
 /*
@@ -405,26 +685,102 @@ eSystemState _GainMenuInputHandler()
  *	@retval None
  *
  */
-eSystemState _GainMenuExitHandler()
+eSystemState _GainSignalMenuExitHandler()
 {
 #ifdef EM_SWV_DEBUG
 	printf("ExitGainMenu Event captured\n");
 #endif
 
-
-	// disable the menu
-	//DM_ShowGainSelectMenu(DISABLE_GAINMENU);
-	DM_ShowVppSelectMenu(DISABLE_VPPMENU);
-
-	// reset the encoder range
-	//ENCODER_TIMER->CNT = 0;
-	//ENCODER_TIMER->ARR = 12;
+	DM_ShowGainMenu(ENABLE_GAIN_MAIN_MENU);
 
 	_RefreshDisplay();
 
 	eNewEvent = evIdle;
-	return Idle_State;
+	return Gain_Main_Menu_State;
 }
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState _GainSyncMenuEntryHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("GainMenu Event captured\n");
+#endif
+
+	_RefreshDisplay();
+
+	DM_ShowGainMenu(ENABLE_GAIN_SYNC_MENU);
+
+/*	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject(SYNC_OUTPUT_PRESET);
+	if(pVppPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pVppPresetTmp->epos;
+		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
+	}
+	else
+	{
+		DM_SetErrorDebugMsg("_GainMainMenuEntryHandler: pVppPresetTmp null pointer");
+	}
+*/
+	eNewEvent = evIdle;
+	return Gain_Sync_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState _GainSyncMenuInputHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("GainSet Event captured\n");
+#endif
+
+	//GO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+//	VPP_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+
+	eNewEvent = evYellowBtn;
+	return Gain_Sync_Menu_State;
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState _GainSyncMenuExitHandler()
+{
+#ifdef EM_SWV_DEBUG
+	printf("ExitGainMenu Event captured\n");
+#endif
+
+	DM_ShowGainMenu(ENABLE_GAIN_MAIN_MENU);
+
+	_RefreshDisplay();
+
+	eNewEvent = evIdle;
+	return Gain_Main_Menu_State;
+}
+
+
+///////////////////////////////////////////////////////
+//////    "BIAS" EVENTHANDLER FUNCTIONS		///////
+///////////////////////////////////////////////////////
 
 /*
  *
@@ -498,6 +854,10 @@ eSystemState _BiasMenuExitHandler()
 	eNewEvent = evIdle;
 	return Idle_State;
 }
+
+///////////////////////////////////////////////////////
+//////    "FREQUENCY" EVENTHANDLER FUNCTIONS	///////
+///////////////////////////////////////////////////////
 
 /*
  *

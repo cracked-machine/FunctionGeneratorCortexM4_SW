@@ -8,9 +8,7 @@
 #include "FreqMenus.h"
 
 #include "DisplayManager.h"
-#include "SignalManager.h"
-#include "ILI9341_STM32_Driver.h"
-#include "ILI9341_GFX.h"
+
 
 /*
  *
@@ -20,7 +18,7 @@
  *	@retval None
  *
  */
-void FreqMenu_DrawFreqMainMenu()
+void FreqMenu_DrawMainMenu()
 {
 	// main
 	ILI9341_Draw_Text("Select an option below", 	30, 165, BLACK, 2, WHITE);
@@ -40,7 +38,7 @@ void FreqMenu_DrawFreqMainMenu()
  *	@retval None
  *
  */
-void FreqMenu_DrawFreqPresetMenu()
+void FreqMenu_DrawPresetMenu()
 {
 
 	uint8_t menu_pos_y1 = 50;
@@ -311,7 +309,7 @@ void FreqMenu_DrawFreqPresetMenu()
  *	@retval None
  *
  */
-void FreqMenu_DrawFreqAdjustMenu()
+void FreqMenu_DrawAdjustMenu()
 {
 
 	ILI9341_Draw_Text("Output Signal Freq: ", 	10, 150, BLACK, 1, WHITE);
@@ -332,7 +330,7 @@ void FreqMenu_DrawFreqAdjustMenu()
  *	@retval None
  *
  */
-void FreqMenu_DrawFreqSweepMenu()
+void FreqMenu_DrawSweepMenu()
 {
 
 	ILI9341_Draw_Text("TODO: Freq Sweep Menu", 	10, 120, BLACK, 2, WHITE);

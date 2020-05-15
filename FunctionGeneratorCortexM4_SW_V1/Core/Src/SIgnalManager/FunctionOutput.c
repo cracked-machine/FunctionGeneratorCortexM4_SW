@@ -144,7 +144,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 			pOriginalDataTable = sine_data_table_3600;
 			//pOriginalDataTable = sine_data_table_1300;
 
-			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
 
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[0];
 
@@ -156,7 +156,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 			pOriginalDataTable = square_data_table_3600;
 
-			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
 
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[1];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
@@ -167,7 +167,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 			pOriginalDataTable = saw_data_table_3600;
 
-			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
 
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[2];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
@@ -178,7 +178,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 			pOriginalDataTable = saw_rev_data_table_3600;
 
-			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
 
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[3];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
@@ -189,7 +189,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 			pOriginalDataTable = triangle_data_table_3600;
 
-			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
 
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[4];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
@@ -200,7 +200,7 @@ void FuncO_ApplyPreset_Fast(eOutput_mode pPresetEnum)
 
 			pOriginalDataTable = unitimpulse_data_table_3600;
 
-			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject()->Vpp_literal);
+			VPP_ApplyPreset_Fast(VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET)->Vpp_literal);
 
 			pNewFuncPresetEncoderPos = &aFuncPresetEncoderPos[5];
 			HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);

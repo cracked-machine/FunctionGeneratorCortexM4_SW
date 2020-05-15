@@ -21,105 +21,11 @@
 #define VPP_OFFSET100 VPP_OFFSET+100
 
 
-//uint8_t last_gain_preset = 1;
-
 /*
- *	Array of objects for Function Presets and their encoder positions for func preset menu
+ * 		Array of Vpp presets
  */
 VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS] =
 {
-/*
-		{	VPP01	,	0.1	,	1	,	"+	40.0	 dBmV"	,	0.037	,	VPP_OFFSET+5	,	392	},
-		{	VPP02	,	0.2	,	1	,	"+	46.0	 dBmV"	,	0.074	,	VPP_OFFSET+5	,	388	},
-		{	VPP03	,	0.3	,	1	,	"+	49.5	 dBmV"	,	0.111	,	VPP_OFFSET+3	,	384	},
-		{	VPP04	,	0.4	,	1	,	"+	52.0	 dBmV"	,	0.148	,	VPP_OFFSET+2	,	380	},
-		{	VPP05	,	0.5	,	1	,	"+	54.0	 dBmV"	,	0.185	,	VPP_OFFSET+2	,	376	},
-		{	VPP06	,	0.6	,	1	,	"+	55.6	 dBmV"	,	0.222	,	VPP_OFFSET	,	372	},
-		{	VPP07	,	0.7	,	1	,	"+	56.9	 dBmV"	,	0.259	,	VPP_OFFSET	,	368	},
-		{	VPP08	,	0.8	,	1	,	"+	58.1	 dBmV"	,	0.296	,	VPP_OFFSET	,	364	},
-		{	VPP09	,	0.9	,	1	,	"+	59.1	 dBmV"	,	0.333	,	VPP_OFFSET	,	360	},
-		{	VPP10	,	1.0	,	1	,	"+	60.0	 dBmV"	,	0.370	,	VPP_OFFSET	,	356	},
-		{	VPP11	,	1.1	,	1	,	"+	60.8	 dBmV"	,	0.407	,	VPP_OFFSET	,	352	},
-		{	VPP12	,	1.2	,	1	,	"+	61.6	 dBmV"	,	0.444	,	VPP_OFFSET	,	348	},
-		{	VPP13	,	1.3	,	1	,	"+	62.3	 dBmV"	,	0.481	,	VPP_OFFSET	,	344	},
-		{	VPP14	,	1.4	,	1	,	"+	62.9	 dBmV"	,	0.519	,	VPP_OFFSET	,	340	},
-		{	VPP15	,	1.5	,	1	,	"+	63.5	 dBmV"	,	0.556	,	VPP_OFFSET	,	336	},
-		{	VPP16	,	1.6	,	1	,	"+	64.1	 dBmV"	,	0.593	,	VPP_OFFSET	,	332	},
-		{	VPP17	,	1.7	,	1	,	"+	64.6	 dBmV"	,	0.630	,	VPP_OFFSET	,	328	},
-		{	VPP18	,	1.8	,	1	,	"+	65.1	 dBmV"	,	0.667	,	VPP_OFFSET	,	324	},
-		{	VPP19	,	1.9	,	1	,	"+	65.6	 dBmV"	,	0.704	,	VPP_OFFSET	,	320	},
-		{	VPP20	,	2.0	,	1	,	"+	66.0	 dBmV"	,	0.741	,	VPP_OFFSET	,	316	},
-		{	VPP21	,	2.1	,	1	,	"+	66.4	 dBmV"	,	0.778	,	VPP_OFFSET	,	312	},
-		{	VPP22	,	2.2	,	1	,	"+	66.8	 dBmV"	,	0.815	,	VPP_OFFSET	,	308	},
-		{	VPP23	,	2.3	,	1	,	"+	67.2	 dBmV"	,	0.852	,	VPP_OFFSET	,	304	},
-		{	VPP24	,	2.4	,	1	,	"+	67.6	 dBmV"	,	0.889	,	VPP_OFFSET	,	300	},
-		{	VPP25	,	2.5	,	1	,	"+	68.0	 dBmV"	,	0.926	,	VPP_OFFSET	,	296	},
-		{	VPP26	,	2.6	,	1	,	"+	68.3	 dBmV"	,	0.963	,	VPP_OFFSET	,	292	},
-		{	VPP27	,	2.7	,	1	,	"+	68.6	 dBmV"	,	1.000	,	VPP_OFFSET	,	288	},
-		{	VPP28	,	2.8	,	2	,	"+	68.9	 dBmV"	,	0.519	,	VPP_OFFSET	,	284	},
-		{	VPP29	,	2.9	,	2	,	"+	69.2	 dBmV"	,	0.537	,	VPP_OFFSET	,	280	},
-		{	VPP30	,	3.0	,	2	,	"+	69.5	 dBmV"	,	0.556	,	VPP_OFFSET	,	276	},
-		{	VPP31	,	3.1	,	2	,	"+	69.8	 dBmV"	,	0.574	,	VPP_OFFSET	,	272	},
-		{	VPP32	,	3.2	,	2	,	"+	70.1	 dBmV"	,	0.593	,	VPP_OFFSET	,	268	},
-		{	VPP33	,	3.3	,	2	,	"+	70.4	 dBmV"	,	0.611	,	VPP_OFFSET	,	264	},
-		{	VPP34	,	3.4	,	2	,	"+	70.6	 dBmV"	,	0.630	,	VPP_OFFSET	,	260	},
-		{	VPP35	,	3.5	,	2	,	"+	70.9	 dBmV"	,	0.648	,	VPP_OFFSET	,	256	},
-		{	VPP36	,	3.6	,	2	,	"+	71.1	 dBmV"	,	0.667	,	VPP_OFFSET	,	252	},
-		{	VPP37	,	3.7	,	2	,	"+	71.4	 dBmV"	,	0.685	,	VPP_OFFSET	,	248	},
-		{	VPP38	,	3.8	,	2	,	"+	71.6	 dBmV"	,	0.704	,	VPP_OFFSET	,	244	},
-		{	VPP39	,	3.9	,	2	,	"+	71.8	 dBmV"	,	0.722	,	VPP_OFFSET	,	240	},
-		{	VPP40	,	4.0	,	2	,	"+	72.0	 dBmV"	,	0.741	,	VPP_OFFSET	,	236	},
-		{	VPP41	,	4.1	,	2	,	"+	72.3	 dBmV"	,	0.759	,	VPP_OFFSET	,	232	},
-		{	VPP42	,	4.2	,	2	,	"+	72.5	 dBmV"	,	0.778	,	VPP_OFFSET	,	228	},
-		{	VPP43	,	4.3	,	2	,	"+	72.7	 dBmV"	,	0.796	,	VPP_OFFSET	,	224	},
-		{	VPP44	,	4.4	,	2	,	"+	72.9	 dBmV"	,	0.815	,	VPP_OFFSET	,	220	},
-		{	VPP45	,	4.5	,	2	,	"+	73.1	 dBmV"	,	0.833	,	VPP_OFFSET	,	216	},
-		{	VPP46	,	4.6	,	2	,	"+	73.3	 dBmV"	,	0.852	,	VPP_OFFSET	,	212	},
-		{	VPP47	,	4.7	,	2	,	"+	73.4	 dBmV"	,	0.870	,	VPP_OFFSET	,	208	},
-		{	VPP48	,	4.8	,	2	,	"+	73.6	 dBmV"	,	0.889	,	VPP_OFFSET	,	204	},
-		{	VPP49	,	4.9	,	2	,	"+	73.8	 dBmV"	,	0.907	,	VPP_OFFSET	,	200	},
-		{	VPP50	,	5.0	,	2	,	"+	74.0	 dBmV"	,	0.926	,	VPP_OFFSET	,	196	},
-		{	VPP51	,	5.1	,	2	,	"+	74.2	 dBmV"	,	0.944	,	VPP_OFFSET	,	192	},
-		{	VPP52	,	5.2	,	2	,	"+	74.3	 dBmV"	,	0.963	,	VPP_OFFSET	,	188	},
-		{	VPP53	,	5.3	,	2	,	"+	74.5	 dBmV"	,	0.981	,	VPP_OFFSET	,	184	},
-		{	VPP54	,	5.4	,	2	,	"+	74.6	 dBmV"	,	1.000	,	VPP_OFFSET	,	180	},
-		{	VPP55	,	5.5	,	3	,	"+	74.8	 dBmV"	,	0.679	,	VPP_OFFSET	,	176	},
-		{	VPP56	,	5.6	,	3	,	"+	75.0	 dBmV"	,	0.691	,	VPP_OFFSET	,	172	},
-		{	VPP57	,	5.7	,	3	,	"+	75.1	 dBmV"	,	0.704	,	VPP_OFFSET	,	168	},
-		{	VPP58	,	5.8	,	3	,	"+	75.3	 dBmV"	,	0.716	,	VPP_OFFSET	,	164	},
-		{	VPP59	,	5.9	,	3	,	"+	75.4	 dBmV"	,	0.728	,	VPP_OFFSET	,	160	},
-		{	VPP60	,	6.0	,	3	,	"+	75.6	 dBmV"	,	0.741	,	VPP_OFFSET	,	156	},
-		{	VPP61	,	6.1	,	3	,	"+	75.7	 dBmV"	,	0.753	,	VPP_OFFSET	,	152	},
-		{	VPP62	,	6.2	,	3	,	"+	75.8	 dBmV"	,	0.765	,	VPP_OFFSET	,	148	},
-		{	VPP63	,	6.3	,	3	,	"+	76.0	 dBmV"	,	0.778	,	VPP_OFFSET	,	144	},
-		{	VPP64	,	6.4	,	3	,	"+	76.1	 dBmV"	,	0.790	,	VPP_OFFSET	,	140	},
-		{	VPP65	,	6.5	,	3	,	"+	76.3	 dBmV"	,	0.802	,	VPP_OFFSET	,	136	},
-		{	VPP66	,	6.6	,	3	,	"+	76.4	 dBmV"	,	0.815	,	VPP_OFFSET	,	132	},
-		{	VPP67	,	6.7	,	3	,	"+	76.5	 dBmV"	,	0.827	,	VPP_OFFSET	,	128	},
-		{	VPP68	,	6.8	,	3	,	"+	76.7	 dBmV"	,	0.840	,	VPP_OFFSET	,	124	},
-		{	VPP69	,	6.9	,	3	,	"+	76.8	 dBmV"	,	0.852	,	VPP_OFFSET	,	120	},
-		{	VPP70	,	7.0	,	3	,	"+	76.9	 dBmV"	,	0.864	,	VPP_OFFSET	,	116	},
-		{	VPP71	,	7.1	,	3	,	"+	77.0	 dBmV"	,	0.877	,	VPP_OFFSET	,	112	},
-		{	VPP72	,	7.2	,	3	,	"+	77.1	 dBmV"	,	0.889	,	VPP_OFFSET	,	108	},
-		{	VPP73	,	7.3	,	3	,	"+	77.3	 dBmV"	,	0.901	,	VPP_OFFSET	,	104	},
-		{	VPP74	,	7.4	,	3	,	"+	77.4	 dBmV"	,	0.914	,	VPP_OFFSET	,	100	},
-		{	VPP75	,	7.5	,	3	,	"+	77.5	 dBmV"	,	0.926	,	VPP_OFFSET	,	96	},
-		{	VPP76	,	7.6	,	3	,	"+	77.6	 dBmV"	,	0.938	,	VPP_OFFSET	,	92	},
-		{	VPP77	,	7.7	,	3	,	"+	77.7	 dBmV"	,	0.951	,	VPP_OFFSET	,	88	},
-		{	VPP78	,	7.8	,	3	,	"+	77.8	 dBmV"	,	0.963	,	VPP_OFFSET	,	84	},
-		{	VPP79	,	7.9	,	3	,	"+	78.0	 dBmV"	,	0.975	,	VPP_OFFSET	,	80	},
-		{	VPP80	,	8.0	,	3	,	"+	78.1	 dBmV"	,	0.988	,	VPP_OFFSET	,	76	},
-		{	VPP81	,	8.1	,	6	,	"+	78.2	 dBmV"	,	0.500	,	VPP_OFFSET50	,	72	},
-		{	VPP82	,	8.2	,	6	,	"+	78.3	 dBmV"	,	0.506	,	VPP_OFFSET50	,	68	},
-		{	VPP83	,	8.3	,	6	,	"+	78.4	 dBmV"	,	0.512	,	VPP_OFFSET50	,	64	},
-		{	VPP84	,	8.4	,	6	,	"+	78.5	 dBmV"	,	0.519	,	VPP_OFFSET50	,	60	},
-		{	VPP85	,	8.5	,	6	,	"+	78.6	 dBmV"	,	0.525	,	VPP_OFFSET50	,	56	},
-		{	VPP86	,	8.6	,	6	,	"+	78.7	 dBmV"	,	0.531	,	VPP_OFFSET60	,	52	},
-		{	VPP87	,	8.7	,	6	,	"+	78.8	 dBmV"	,	0.537	,	VPP_OFFSET60	,	48	},
-		{	VPP88	,	8.8	,	6	,	"+	78.9	 dBmV"	,	0.543	,	VPP_OFFSET60	,	44	},
-		{	VPP89	,	8.9	,	6	,	"+	79.0	 dBmV"	,	0.549	,	VPP_OFFSET70	,	40	},
-		{	VPP90	,	9.0	,	6	,	"+	79.1	 dBmV"	,	0.556	,	VPP_OFFSET70	,	36	}
-*/
 
 		{	VPP01	,	0.1	,	7	,	"+	40.0	 dBmV"	,	0.005	,	VPP_OFFSET	,	392	},
 		{	VPP02	,	0.2	,	7	,	"+	46.0	 dBmV"	,	0.011	,	VPP_OFFSET	,	388	},
@@ -221,9 +127,15 @@ VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS] =
 		{	VPP98	,	9.8	,	7	,	"+	79.8	 dBmV"	,	0.519	,	VPP_OFFSET	,	4	}
 };
 
+/*
+ * 		Pointer to active "main output" Vpp preset
+ */
+VppEncoderPreset_t* pSignalVppEncoderPreset = &aVppEncoderPresets[eDefaultVppPreset];
 
-VppEncoderPreset_t* pVppEncoderPreset = &aVppEncoderPresets[eDefaultVppPreset];
-
+/*
+ * 		Pointer to active "sync output" Vpp preset
+ */
+VppEncoderPreset_t* pSyncVppEncoderPreset = &aVppEncoderPresets[eDefaultVppPreset];
 
 /*
  * 		Function prototypes
@@ -241,19 +153,14 @@ void VPP_ApplyPreset_Fast(eVppPreset_t pPresetEnum);
  */
 void VPP_ApplyPreset_Fast(eVppPreset_t pPresetEnum)
 {
-    pVppEncoderPreset = &aVppEncoderPresets[pPresetEnum];
+    pSignalVppEncoderPreset = &aVppEncoderPresets[pPresetEnum];
     //GO_ApplyPreset_Fast((ONE_GAIN));
 
- /*   // if gain_preset is changed, lower the amplitude before changing it
-    if(last_gain_preset != pVppEncoderPreset->gain_preset)
-    	_ProcessDataTable(0.3, pVppEncoderPreset->vpp_offset , pVppEncoderPreset->epos);
-*/
-    // change the gain preset and remember this preset id
-    GO_ApplyPreset_Fast(pVppEncoderPreset->gain_preset);
-  //  last_gain_preset = pVppEncoderPreset->gain_preset;
+    // set the gain preset
+    GO_ApplyPreset_Fast(pSignalVppEncoderPreset->gain_preset);
 
-    // set the new amplitude for real
-    _ProcessDataTable(pVppEncoderPreset->neg_gain_coeff, pVppEncoderPreset->vpp_offset , pVppEncoderPreset->epos);
+    // set the amplitude
+    _ProcessDataTable(pSignalVppEncoderPreset->neg_gain_coeff, pSignalVppEncoderPreset->vpp_offset , pSignalVppEncoderPreset->epos);
 }
 
 /*
@@ -904,9 +811,12 @@ void VPP_ModifyOutput(uint16_t pEncoderValue)
  *	@retval pointer to VppEncoderPreset_t struct
  *
  */
-VppEncoderPreset_t * VPP_GetVppPresetObject()
+VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect)
 {
-	return pVppEncoderPreset;
+	if(eVppActivePresetSelect)
+		return pSyncVppEncoderPreset;
+	else
+		return pSignalVppEncoderPreset;
 }
 
 

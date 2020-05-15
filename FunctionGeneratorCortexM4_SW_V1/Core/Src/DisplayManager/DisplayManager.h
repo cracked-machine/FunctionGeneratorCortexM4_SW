@@ -10,6 +10,11 @@
 
 #define ENCODER_DEBUG
 
+#include "ILI9341_STM32_Driver.h"
+#include "ILI9341_GFX.h"
+
+#include "SignalManager.h"
+
 #include <stdint.h>
 
 /*
@@ -23,20 +28,34 @@ typedef enum
 } eDisplay_Mode;
 */
 
+
+/*
+ *  Used by DM_ShowFuncMenu()
+ */
 typedef enum
 {
 	DISABLE_FUNCMENU = 0x00U,
-	ENABLE_FUNCMENU
+	ENABLE_FUNC_MAIN_MENU,
+	ENABLE_FUNC_SIGNAL_MENU,
+	ENABLE_FUNC_SYNC_MENU,
 
 } eFuncMenu_Status;
 
+/*
+ *  Used by DM_ShowGainMenu()
+ */
 typedef enum
 {
 	DISABLE_GAINMENU = 0x00U,
-	ENABLE_GAINMENU
+	ENABLE_GAIN_MAIN_MENU,
+	ENABLE_GAIN_SIGNAL_MENU,
+	ENABLE_GAIN_SYNC_MENU,
 
 } eGainMenu_Status;
 
+/*
+ * 	Deprecated
+ */
 typedef enum
 {
 	DISABLE_VPPMENU = 0x00U,
@@ -44,6 +63,9 @@ typedef enum
 
 } eVppMenu_Status;
 
+/*
+ * 	Used by DM_ShowBiasMenu()
+ */
 typedef enum
 {
 	DISABLE_BIASMENU = 0x00U,
@@ -51,6 +73,9 @@ typedef enum
 
 } eBiasMenu_Status;
 
+/*
+ * 	Used by DM_ShowFreqMenu()
+ */
 typedef enum
 {
 	DISABLE_FREQ_MENU = 0x00U,
@@ -71,9 +96,12 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
 
 //void DM_SetDisplayMode(eDisplay_Mode pMode);
-void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue);
-void DM_ShowGainSelectMenu(eGainMenu_Status pValue);
-void DM_ShowVppSelectMenu(eVppMenu_Status pValue);
+void DM_ShowFuncMenu(eFuncMenu_Status pValue);
+
+void DM_ShowGainMenu(eGainMenu_Status pValue);
+
+
+//void DM_ShowVppSelectMenu(eVppMenu_Status pValue);
 
 
 void DM_ShowFreqMenu(eFreqMenu_Status pValue);

@@ -1,0 +1,3 @@
+FuncMenu.c:21:6:FuncMenu_DrawMainMenu	16	static
+FuncMenu.c:38:6:FuncMenu_DrawSignalMenu	24	static
+FuncMenu.c:110:6:FuncMenu_DrawSyncMenu	4	static

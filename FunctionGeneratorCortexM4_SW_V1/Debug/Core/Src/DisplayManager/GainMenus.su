@@ -1,0 +1,3 @@
+GainMenus.c:21:6:GainMenu_DrawMainMenu	16	static
+GainMenus.c:39:6:GainMenu_DrawSignalMenu	16	static
+GainMenus.c:52:6:GainMenu_DrawSyncMenu	16	static

@@ -7,14 +7,15 @@
 
 #include "DisplayManager.h"
 #include "FreqMenus.h"
+#include "GainMenus.h"
+#include "FuncMenus.h"
 
 #include "EventManager.h"
-#include "SignalManager.h"
+
 
 #include <stdint.h>
 #include <stdio.h>
-#include "ILI9341_STM32_Driver.h"
-#include "ILI9341_GFX.h"
+
 #include "rng.h"
 #include <string.h>
 #include <stdlib.h>
@@ -25,7 +26,7 @@
 //eDisplay_Mode eCurrentMode = Func_Adjust_mode;
 eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNCMENU;
 eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAINMENU;
-eGainMenu_Status eNextVppMenuStatus = 	DISABLE_VPPMENU;
+eGainMenu_Status eNextVppMenuStatus = 	DISABLE_VPPMENU;		//deprecated
 eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
 eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIASMENU;
 
@@ -50,8 +51,8 @@ void DM_RefreshBackgroundLayout();
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
 // private function prototypes
-void _DrawFuncSelectMenu();
-void _DrawGainSelectMenu();
+void FuncMenu_DrawSignalMenu();
+void _DrawGainMainMenu();
 void _DrawVppSelectMenu();
 void _DrawFreqSelectMenu();
 void _DrawBiasSelectMenu();
@@ -124,7 +125,7 @@ void _DisplayFormattedOutput()
 	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, BLACK, 3, WHITE);
 
 	// display output in volts peak-to-peak and decibels
-	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject();
+	VppEncoderPreset_t *pVppPresetTmp =  VPP_GetVppPresetObject(SIGNAL_OUTPUT_PRESET);
 	if(pVppPresetTmp)
 	{
 		snprintf(out_vpp, sizeof(out_vpp), "%2.2f Vpp", pVppPresetTmp->Vpp_target);
@@ -168,36 +169,67 @@ void DM_UpdateDisplay()
 
 	if(eNextFuncMenuStatus)		//  == ENABLE_FUNCMENU
 	{
-/*
- 		ILI9341_Draw_Text("    ", 10, 210, BLACK, 2, DARKCYAN);
-		ILI9341_Draw_Text("    ", 100, 210, BLACK, 2, DARKGREEN);
-		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
-		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
-*/
-		_DrawFuncSelectMenu();
+		switch(eNextFuncMenuStatus)
+		{
+			case ENABLE_FUNC_MAIN_MENU:
+
+				_DisplayFormattedOutput();
+
+				FuncMenu_DrawMainMenu();
+
+				break;
+
+			case ENABLE_FUNC_SIGNAL_MENU:
+
+//				_DisplayFormattedOutput();
+				FuncMenu_DrawSignalMenu();
+
+				break;
+
+			case ENABLE_FUNC_SYNC_MENU:
+
+//				_DisplayFormattedOutput();
+				FuncMenu_DrawSyncMenu();
+
+				break;
+
+			default:
+				break;
+		}
+
 	}
 	else if(eNextGainMenuStatus)		//  == ENABLE_GAINMENU
 	{
-/*
-		ILI9341_Draw_Text("    ", 10, 210, BLACK, 2, DARKCYAN);
-		ILI9341_Draw_Text("    ", 100, 210, BLACK, 2, DARKGREEN);
-		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
-		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
-*/
-		_DisplayFormattedOutput();
-		_DrawGainSelectMenu();
+
+		switch(eNextGainMenuStatus)
+		{
+			case ENABLE_GAIN_MAIN_MENU:
+
+				_DisplayFormattedOutput();
+				GainMenu_DrawMainMenu();
+
+				break;
+
+			case ENABLE_GAIN_SIGNAL_MENU:
+
+				_DisplayFormattedOutput();
+				GainMenu_DrawSignalMenu();
+
+				break;
+
+			case ENABLE_GAIN_SYNC_MENU:
+
+				_DisplayFormattedOutput();
+				GainMenu_DrawSyncMenu();
+
+				break;
+
+			default:
+				break;
+		}
+
 	}
-	else if(eNextVppMenuStatus)		//  == ENABLE_GAINMENU
-	{
-/*
-		ILI9341_Draw_Text("    ", 10, 210, BLACK, 2, DARKCYAN);
-		ILI9341_Draw_Text("    ", 100, 210, BLACK, 2, DARKGREEN);
-		ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
-		ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
-*/
-		_DisplayFormattedOutput();
-		_DrawVppSelectMenu();
-	}
+
 	else if(eNextFreqMenuStatus)		//  frequency menu enabled
 	{
 
@@ -214,24 +246,24 @@ void DM_UpdateDisplay()
 
 				_DisplayFormattedOutput();
 
-				FreqMenu_DrawFreqMainMenu();
+				FreqMenu_DrawMainMenu();
 
 				break;
 
 			case ENABLE_FREQ_PRESET_MENU:
-				FreqMenu_DrawFreqPresetMenu();
+				FreqMenu_DrawPresetMenu();
 				break;
 
 			case ENABLE_FREQ_ADJUST_MENU:
 
 				_DisplayFormattedOutput();
 
-				FreqMenu_DrawFreqAdjustMenu();
+				FreqMenu_DrawAdjustMenu();
 
 				break;
 
 			case ENABLE_FREQ_SWEEP_MENU:
-				FreqMenu_DrawFreqSweepMenu();
+				FreqMenu_DrawSweepMenu();
 				break;
 
 			default:
@@ -252,6 +284,7 @@ void DM_UpdateDisplay()
 	}
 	else
 	{
+		ILI9341_Draw_Text("SIGNAL GENERATOR", 	10, 10, WHITE, 3, BLACK);
 		_DisplayFormattedOutput();
 
 		ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
@@ -285,82 +318,11 @@ void DM_UpdateDisplay()
  *	@retval None
  *
  */
-void DM_ShowFuncSelectMenu(eFuncMenu_Status pValue)
+void DM_ShowFuncMenu(eFuncMenu_Status pValue)
 {
 	eNextFuncMenuStatus = pValue;
 }
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void _DrawFuncSelectMenu()
-{
-	ILI9341_Draw_Text("SELECT FUNCTION", 	10, 10, WHITE, 3, BLACK);
-
-	Func_Preset_Encoder_Pos_t *pFuncPresetTmp = FuncO_GetFPresetObject();
-	if(pFuncPresetTmp)
-	{
-		switch(pFuncPresetTmp->func)
-		{
-			case SINE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case SQUARE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case SAW_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case REV_SAW_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case TRIANGLE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case IMPULSE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, WHITE, 2, BLACK);
-				break;
-
-		}
-	}
-
-
-}
 
 /*
  *
@@ -370,10 +332,12 @@ void _DrawFuncSelectMenu()
  *	@retval None
  *
  */
-void DM_ShowGainSelectMenu(eGainMenu_Status pValue)
+void DM_ShowGainMenu(eGainMenu_Status pValue)
 {
 	eNextGainMenuStatus = pValue;
 }
+
+
 
 /*
  *
@@ -388,35 +352,7 @@ void DM_ShowVppSelectMenu(eVppMenu_Status pValue)
 	eNextVppMenuStatus = pValue;
 }
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void _DrawGainSelectMenu()
-{
 
-	ILI9341_Draw_Text("ADJUST GAIN", 	40, 10, WHITE, 3, BLACK);
-
-}
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void _DrawVppSelectMenu()
-{
-
-	ILI9341_Draw_Text("ADJUST VPP", 	40, 10, WHITE, 3, BLACK);
-
-}
 
 /*
  *

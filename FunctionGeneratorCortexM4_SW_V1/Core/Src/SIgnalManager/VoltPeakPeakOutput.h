@@ -46,16 +46,27 @@ typedef struct
 
 } VppEncoderPreset_t;
 
+typedef enum
+{
+	SIGNAL_OUTPUT_PRESET = 0U,
+	SYNC_OUTPUT_PRESET
+} eVppActivePresetSelect_t;
 
 
+/*
+ * 		Array of Vpp presets
+ */
 VppEncoderPreset_t aVppEncoderPresets[MAX_VPP_PRESETS];
 
 /*
- * 		The Currently Used Vpp Preset
+ * 		Pointer to active Vpp preset
  */
-VppEncoderPreset_t* pVppEncoderPreset;
+VppEncoderPreset_t* pSignalVppEncoderPreset;
 
-
+/*
+ * 		Pointer to active "sync output" Vpp preset
+ */
+VppEncoderPreset_t* pSyncVppEncoderPreset;
 
 
 /*
@@ -67,7 +78,7 @@ void VPP_ApplyPreset_Fast(eVppPreset_t pPresetEnum);
 //void VPP_ProcessDataTable(float _neg_gain_coeff, uint16_t _encoder_value);
 
 VppEncoderPreset_t * VPP_FindVppPresetObject(eVppPreset_t pEnum);
-VppEncoderPreset_t * VPP_GetVppPresetObject();
+VppEncoderPreset_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect);
 
 
 

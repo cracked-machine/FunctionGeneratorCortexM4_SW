@@ -15,9 +15,15 @@
 typedef enum
 {
 	Idle_State = 0x00U,		// main display
-	Func_Menu_State,
-	Gain_Menu_State,		// deprecated
-	Vpp_Menu_State,
+	Func_Main_Menu_State,
+	Func_Signal_Menu_State,
+	Func_Sync_Menu_State,
+
+	Gain_Main_Menu_State,
+	Gain_Signal_Menu_State,
+	Gain_Sync_Menu_State,
+
+	Vpp_Menu_State,			// deprecated
 
 	Freq_Main_Menu_State,
 	Freq_Preset_Menu_State,

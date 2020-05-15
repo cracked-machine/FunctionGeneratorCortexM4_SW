@@ -1,0 +1,15 @@
+/*
+ * GainMenus.h
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_DISPLAYMANAGER_GAINMENUS_H_
+#define SRC_DISPLAYMANAGER_GAINMENUS_H_
+
+void GainMenu_DrawGainMainMenu();
+void GainMenu_DrawGainSignalMenu();
+void GainMenu_DrawGainSyncMenu();
+
+#endif /* SRC_DISPLAYMANAGER_GAINMENUS_H_ */

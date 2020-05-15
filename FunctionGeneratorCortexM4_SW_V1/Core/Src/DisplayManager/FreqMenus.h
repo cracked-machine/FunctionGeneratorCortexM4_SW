@@ -8,9 +8,9 @@
 #ifndef SRC_DISPLAYMANAGER_FREQMENUS_H_
 #define SRC_DISPLAYMANAGER_FREQMENUS_H_
 
-void FreqMenu_DrawFreqMainMenu();
-void FreqMenu_DrawFreqPresetMenu();
-void FreqMenu_DrawFreqAdjustMenu();
-void FreqMenu_DrawFreqSweepMenu();
+void FreqMenu_DrawMainMenu();
+void FreqMenu_DrawPresetMenu();
+void FreqMenu_DrawAdjustMenu();
+void FreqMenu_DrawSweepMenu();
 
 #endif /* SRC_DISPLAYMANAGER_FREQMENUS_H_ */
