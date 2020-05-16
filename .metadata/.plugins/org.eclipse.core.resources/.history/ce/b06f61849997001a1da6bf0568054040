@@ -17,8 +17,8 @@ eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
 eFreqSweepModes active_sweep_mode = SWEEP_MODE_UP;
 
 uint16_t min_arr = 4095;
-uint32_t max_arr = 65535;
-float rate_coeff = 100;
+uint32_t max_arr = 0xFFFFFFFF;
+float rate_coeff = 500;
 
 eFreqMenu_Status FreqMenu_getStatus()
 {
@@ -274,7 +274,7 @@ eSystemState FreqSweepMenuEntryHandler()
 	ENCODER_TIMER->CNT = 670;
 	ENCODER_TIMER->ARR = 65535;
 	SWEEP_TIMER->CNT = 65535;
-	SWEEP_TIMER->ARR = 65535;
+	SWEEP_TIMER->ARR = 0xFFFFFFFF;
 	SWEEP_TIMER->PSC = 65535;
 
 	FreqSweepMenuInputHandler(evSweepSpeed);

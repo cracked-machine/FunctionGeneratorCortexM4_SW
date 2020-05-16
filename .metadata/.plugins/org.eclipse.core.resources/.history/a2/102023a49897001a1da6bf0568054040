@@ -82,8 +82,8 @@ float SM_GetOutputInHertz()
 	volatile float tim8_arr;
 
 	// safe-guard against divide by zero
-	(OUTPUT_TIMER->PSC == 0) ? (tim8_psc = 1) : (tim8_psc = OUTPUT_TIMER->PSC);
-	(OUTPUT_TIMER->ARR == 0) ? (tim8_arr = 1) : (tim8_arr = OUTPUT_TIMER->ARR);
+	(TIM8->PSC == 0) ? (tim8_psc = 1) : (tim8_psc = TIM8->PSC);
+	(TIM8->ARR == 0) ? (tim8_arr = 1) : (tim8_arr = TIM8->ARR);
 
 	float tim8_freq = SM_MCLK / (tim8_psc * tim8_arr);
 

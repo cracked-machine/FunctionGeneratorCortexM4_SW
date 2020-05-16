@@ -372,7 +372,7 @@ void FreqMenu_DrawAdjustMenu()
 void FreqMenu_DrawSweepMenu()
 {
 	ILI9341_Draw_Text("FREQUENCY SWEEP", 	10, 10, BLACK, 3, WHITE);
-	OUTPUT_TIMER->ARR = SWEEP_TIMER->CNT;
+	TIM8->ARR = SWEEP_TIMER->CNT;
 
 	// draw enabled status
 	char enabled_text[16] = "";

@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  15 .debug_ranges 00001c98  00000000  00000000  00076168  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0003350b  00000000  00000000  00077e00  2**0
+ 16 .debug_macro  00033511  00000000  00000000  00077e00  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   00029d73  00000000  00000000  000ab30b  2**0
+ 17 .debug_line   00029d73  00000000  00000000  000ab311  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    001257ed  00000000  00000000  000d507e  2**0
+ 18 .debug_str    001257ff  00000000  00000000  000d5084  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  001fa86b  2**0
+ 19 .comment      0000007b  00000000  00000000  001fa883  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00008de8  00000000  00000000  001fa8e8  2**2
+ 20 .debug_frame  00008de8  00000000  00000000  001fa900  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -4394,7 +4394,7 @@ void FreqMenu_DrawSweepMenu()
  80027f4:	210a      	movs	r1, #10
  80027f6:	487a      	ldr	r0, [pc, #488]	; (80029e0 <FreqMenu_DrawSweepMenu+0x200>)
  80027f8:	f00a fda4 	bl	800d344 <ILI9341_Draw_Text>
-	TIM8->ARR = SWEEP_TIMER->CNT;
+	OUTPUT_TIMER->ARR = SWEEP_TIMER->CNT;
  80027fc:	4b79      	ldr	r3, [pc, #484]	; (80029e4 <FreqMenu_DrawSweepMenu+0x204>)
  80027fe:	4a7a      	ldr	r2, [pc, #488]	; (80029e8 <FreqMenu_DrawSweepMenu+0x208>)
  8002800:	6a5b      	ldr	r3, [r3, #36]	; 0x24
@@ -6710,8 +6710,8 @@ void EM_SetNewEvent(eSystemEvent pEvent)
 
 08003808 <FreqMenu_getStatus>:
 uint16_t min_arr = 4095;
-uint32_t max_arr = 0xFFFFFFFF;
-float rate_coeff = 500;
+uint32_t max_arr = 65535;
+float rate_coeff = 100;
 
 eFreqMenu_Status FreqMenu_getStatus()
 {
@@ -6986,7 +6986,7 @@ eSystemState FreqAdjustMenuEntryHandler()
  800395a:	701a      	strb	r2, [r3, #0]
 
 	// set the rotary encoder limits to 0-? for this menu
-	ENCODER_TIMER->CNT = TIM8->ARR;
+	ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
  800395c:	4b08      	ldr	r3, [pc, #32]	; (8003980 <FreqAdjustMenuEntryHandler+0x38>)
  800395e:	4a09      	ldr	r2, [pc, #36]	; (8003984 <FreqAdjustMenuEntryHandler+0x3c>)
  8003960:	6adb      	ldr	r3, [r3, #44]	; 0x2c
@@ -7114,9 +7114,9 @@ eSystemState FreqSweepMenuEntryHandler()
  80039f6:	4b0e      	ldr	r3, [pc, #56]	; (8003a30 <FreqSweepMenuEntryHandler+0x58>)
  80039f8:	f64f 72ff 	movw	r2, #65535	; 0xffff
  80039fc:	625a      	str	r2, [r3, #36]	; 0x24
-	SWEEP_TIMER->ARR = 0xFFFFFFFF;
+	SWEEP_TIMER->ARR = 65535;
  80039fe:	4b0c      	ldr	r3, [pc, #48]	; (8003a30 <FreqSweepMenuEntryHandler+0x58>)
- 8003a00:	f04f 32ff 	mov.w	r2, #4294967295	; 0xffffffff
+ 8003a00:	f64f 72ff 	movw	r2, #65535	; 0xffff
  8003a04:	62da      	str	r2, [r3, #44]	; 0x2c
 	SWEEP_TIMER->PSC = 65535;
  8003a06:	4b0a      	ldr	r3, [pc, #40]	; (8003a30 <FreqSweepMenuEntryHandler+0x58>)
@@ -8876,15 +8876,15 @@ void FreqO_AdjustFreq()
 {
  80043fc:	b580      	push	{r7, lr}
  80043fe:	af00      	add	r7, sp, #0
-		//TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_HIFREQ_MAG;
-		TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD); //* FREQ_ENCODER_MIDFREQ_MAG;
+		//OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_HIFREQ_MAG;
+		OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD); //* FREQ_ENCODER_MIDFREQ_MAG;
  8004400:	2000      	movs	r0, #0
  8004402:	f000 fc8b 	bl	8004d1c <SM_GetEncoderValue>
  8004406:	4603      	mov	r3, r0
  8004408:	461a      	mov	r2, r3
  800440a:	4b02      	ldr	r3, [pc, #8]	; (8004414 <FreqO_AdjustFreq+0x18>)
  800440c:	62da      	str	r2, [r3, #44]	; 0x2c
-		//TIM8->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_LOFREQ_MAG;
+		//OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_LOFREQ_MAG;
 }
  800440e:	bf00      	nop
  8004410:	bd80      	pop	{r7, pc}
@@ -9125,12 +9125,12 @@ void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum)
  80045b6:	2b00      	cmp	r3, #0
  80045b8:	d015      	beq.n	80045e6 <FreqO_ApplyPreset+0x42>
 	{
-		TIM8->PSC = tmp->psc;
+		OUTPUT_TIMER->PSC = tmp->psc;
  80045ba:	4a0d      	ldr	r2, [pc, #52]	; (80045f0 <FreqO_ApplyPreset+0x4c>)
  80045bc:	68fb      	ldr	r3, [r7, #12]
  80045be:	689b      	ldr	r3, [r3, #8]
  80045c0:	6293      	str	r3, [r2, #40]	; 0x28
-		TIM8->ARR = tmp->arr;
+		OUTPUT_TIMER->ARR = tmp->arr;
  80045c2:	4a0b      	ldr	r2, [pc, #44]	; (80045f0 <FreqO_ApplyPreset+0x4c>)
  80045c4:	68fb      	ldr	r3, [r7, #12]
  80045c6:	68db      	ldr	r3, [r3, #12]
@@ -10297,7 +10297,7 @@ float SM_GetOutputInHertz()
 	volatile float tim8_arr;
 
 	// safe-guard against divide by zero
-	(TIM8->PSC == 0) ? (tim8_psc = 1) : (tim8_psc = TIM8->PSC);
+	(OUTPUT_TIMER->PSC == 0) ? (tim8_psc = 1) : (tim8_psc = OUTPUT_TIMER->PSC);
  8004d5a:	4b1d      	ldr	r3, [pc, #116]	; (8004dd0 <SM_GetOutputInHertz+0x7c>)
  8004d5c:	6a9b      	ldr	r3, [r3, #40]	; 0x28
  8004d5e:	2b00      	cmp	r3, #0
@@ -10310,7 +10310,7 @@ float SM_GetOutputInHertz()
  8004d6e:	ee07 3a90 	vmov	s15, r3
  8004d72:	eef8 7a67 	vcvt.f32.u32	s15, s15
  8004d76:	edc7 7a02 	vstr	s15, [r7, #8]
-	(TIM8->ARR == 0) ? (tim8_arr = 1) : (tim8_arr = TIM8->ARR);
+	(OUTPUT_TIMER->ARR == 0) ? (tim8_arr = 1) : (tim8_arr = OUTPUT_TIMER->ARR);
  8004d7a:	4b15      	ldr	r3, [pc, #84]	; (8004dd0 <SM_GetOutputInHertz+0x7c>)
  8004d7c:	6adb      	ldr	r3, [r3, #44]	; 0x2c
  8004d7e:	2b00      	cmp	r3, #0
