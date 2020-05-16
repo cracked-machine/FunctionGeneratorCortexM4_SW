@@ -1,5 +1,5 @@
-FreqMenus.c:25:6:FreqMenu_DrawMenu	16	static
-FreqMenus.c:56:6:FreqMenu_DrawMainMenu	16	static
-FreqMenus.c:76:6:FreqMenu_DrawPresetMenu	32	static
-FreqMenus.c:347:6:FreqMenu_DrawAdjustMenu	24	static
-FreqMenus.c:368:6:FreqMenu_DrawSweepMenu	32	static
+FreqMenus.c:27:6:FreqMenu_DrawMenu	16	static
+FreqMenus.c:58:6:FreqMenu_DrawMainMenu	16	static
+FreqMenus.c:79:6:FreqMenu_DrawPresetMenu	32	static
+FreqMenus.c:351:6:FreqMenu_DrawAdjustMenu	16	static
+FreqMenus.c:372:6:FreqMenu_DrawSweepMenu	96	static

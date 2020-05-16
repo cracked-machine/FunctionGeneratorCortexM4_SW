@@ -8,6 +8,7 @@
 "Core/Src/EventManager/FreqMenuStateHandler.o"
 "Core/Src/EventManager/FuncMenuStateHandler.o"
 "Core/Src/EventManager/GainMenuStateHandler.o"
+"Core/Src/InterruptManager/InterruptManager.o"
 "Core/Src/SIgnalManager/BiasOutput.o"
 "Core/Src/SIgnalManager/DacTimerRegistry.o"
 "Core/Src/SIgnalManager/FreqOutput.o"

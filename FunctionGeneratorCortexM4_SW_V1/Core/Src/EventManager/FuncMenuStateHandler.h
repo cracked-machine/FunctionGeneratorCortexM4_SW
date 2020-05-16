@@ -11,7 +11,7 @@
 #include "EventManager.h"
 
 /*
- *  Used by DM_ShowFuncMenu()
+ *  Sub menus should have their ExitHandlers set eXXXXMenu_Status to ENABLE_xxxx_MAIN_MENU
  */
 typedef enum
 {

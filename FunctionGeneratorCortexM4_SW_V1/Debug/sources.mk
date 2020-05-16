@@ -19,6 +19,7 @@ OBJCOPY_BIN :=
 SUBDIRS := \
 Core/Src/DisplayManager \
 Core/Src/EventManager \
+Core/Src/InterruptManager \
 Core/Src/SIgnalManager \
 Core/Src \
 Core/Startup \

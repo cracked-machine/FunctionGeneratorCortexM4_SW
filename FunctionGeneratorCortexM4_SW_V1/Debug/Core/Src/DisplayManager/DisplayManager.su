@@ -1,7 +1,7 @@
 DisplayManager.c:58:6:DM_Init	8	static
 DisplayManager.c:74:6:DM_PostInit	16	static
 DisplayManager.c:96:6:_DisplayFormattedOutput	112	static
-DisplayManager.c:160:6:DM_UpdateDisplay	24	static
+DisplayManager.c:160:6:DM_UpdateDisplay	72	static
 DisplayManager.c:325:5:DM_DigitCount	16	static
 DisplayManager.c:349:6:DM_RefreshScreen	24	static
 DisplayManager.c:417:5:DM_AddDigitPadding	24	static

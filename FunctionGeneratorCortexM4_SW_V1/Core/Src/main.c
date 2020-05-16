@@ -130,7 +130,6 @@ int main(void)
   MX_ADC1_Init();
   MX_COMP1_Init();
   MX_TIM2_Init();
-  MX_TIM17_Init();
   MX_SPI3_Init();
   MX_RNG_Init();
   MX_TIM1_Init();
@@ -175,7 +174,7 @@ int main(void)
 
 #ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())
-  HAL_TIM_Base_Start_IT(&htim3);
+  //HAL_TIM_Base_Start_IT(&htim3);
 #endif	//DISABLE_ALL_TIMERS
 
 
@@ -251,9 +250,11 @@ int main(void)
   // DM_UpdateDisplay()
   HAL_TIM_Base_Start_IT(&htim15);
 
-  //HAL_TIM_Base_Start_IT(&htim16);
-
   // debounce timer
+  HAL_TIM_Base_Start(&htim16);
+
+  // sweep timer
+  HAL_TIM_Base_Start(&htim3);
   HAL_TIM_Base_Start(&htim5);
 
   /* USER CODE END 2 */

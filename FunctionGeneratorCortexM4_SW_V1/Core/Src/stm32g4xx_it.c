@@ -46,6 +46,8 @@
 
 #include "EventManager.h"
 
+#include "InterruptManager.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,9 +73,6 @@
 extern char control_pressed[10];
 
 
-#define DEBOUNCE_DELAY 500
-uint16_t last_interrupt_time = 0;
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -93,8 +92,6 @@ extern DMA_HandleTypeDef hdma_dac2_ch1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim15;
-extern TIM_HandleTypeDef htim16;
-extern TIM_HandleTypeDef htim17;
 /* USER CODE BEGIN EV */
 
 
@@ -243,11 +240,8 @@ void SysTick_Handler(void)
 void EXTI0_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI0_IRQn 0 */
-	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_0))
-	{
-		EM_SetNewEvent(evRedBtn);
-		printf("'Red' BTN3_EXTI0_Pin\n");
-	}
+
+	IM_BTN3_EXTI0_Handler();
 
   /* USER CODE END EXTI0_IRQn 0 */
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_0) != RESET)
@@ -269,12 +263,7 @@ void EXTI1_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI1_IRQn 0 */
 
-	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_1))
-	{
-		EM_SetNewEvent(evGreenBtn);
-		printf("'Green' BTN4_EXTI1_Pin\n");
-	}
-
+	IM_BTN4_EXTI1_Handler();
 
   /* USER CODE END EXTI1_IRQn 0 */
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_1) != RESET)
@@ -296,12 +285,7 @@ void EXTI2_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI2_IRQn 0 */
 
-	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_2))
-	{
-		EM_SetNewEvent(evEncoderPush);
-		printf("'EncoderPush' ENC_EXTI2_Pin\n");
-	}
-
+	IM_ENC_EXTI2_Handler();
 
   /* USER CODE END EXTI2_IRQn 0 */
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_2) != RESET)
@@ -322,8 +306,7 @@ void EXTI2_IRQHandler(void)
 void DMA1_Channel1_IRQHandler(void)
 {
   /* USER CODE BEGIN DMA1_Channel1_IRQn 0 */
-	//printf("Test\n");
-	//printf("%lu\n", trigger_input[0]);
+
   /* USER CODE END DMA1_Channel1_IRQn 0 */
   HAL_DMA_IRQHandler(&hdma_adc1);
   /* USER CODE BEGIN DMA1_Channel1_IRQn 1 */
@@ -365,64 +348,17 @@ void DMA1_Channel3_IRQHandler(void)
 void TIM1_BRK_TIM15_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 0 */
-	DM_UpdateDisplay();
-	//DM_TestScreen();
-/*
-	if((TIM1->SR & TIM_SR_IDXF) == TIM_SR_IDXF)
-	{
-		printf("Encoder turned\n");
-		TIM1->SR &= ~(TIM_SR_IDXF);
-	}
-*/
-	if((TIM1->SR & TIM_SR_DIRF) == TIM_SR_DIRF)
-	{
-		EM_SetNewEvent(evEncoderSet);
-		printf("Encoder new direction\n");
-		TIM1->SR &= ~(TIM_SR_DIRF);
 
-	}
+	DM_UpdateDisplay();
+
+	IM_ENC_DIRF_Handler();
+
   /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
   HAL_TIM_IRQHandler(&htim1);
   HAL_TIM_IRQHandler(&htim15);
   /* USER CODE BEGIN TIM1_BRK_TIM15_IRQn 1 */
 
   /* USER CODE END TIM1_BRK_TIM15_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM1 update interrupt and TIM16 global interrupt.
-  */
-void TIM1_UP_TIM16_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 0 */
-	//snprintf(control_pressed, sizeof(control_pressed), " ");
-  /* USER CODE END TIM1_UP_TIM16_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  HAL_TIM_IRQHandler(&htim16);
-  /* USER CODE BEGIN TIM1_UP_TIM16_IRQn 1 */
-
-  /* USER CODE END TIM1_UP_TIM16_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM1 trigger and commutation interrupts and TIM17 global interrupt.
-  */
-void TIM1_TRG_COM_TIM17_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM17_IRQn 0 */
-	update_dc_bias_sweep();
-
-
-
-
-
-
-  /* USER CODE END TIM1_TRG_COM_TIM17_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim1);
-  HAL_TIM_IRQHandler(&htim17);
-  /* USER CODE BEGIN TIM1_TRG_COM_TIM17_IRQn 1 */
-
-  /* USER CODE END TIM1_TRG_COM_TIM17_IRQn 1 */
 }
 
 /**
@@ -446,18 +382,8 @@ void EXTI15_10_IRQHandler(void)
 {
   /* USER CODE BEGIN EXTI15_10_IRQn 0 */
 
-
-	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_14))
-	{
-
-		EM_SetNewEvent(evBlueBtn);
-		printf("'Blue' BTN1_EXTI14_Pin\n");
-	}
-	if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_15))
-	{
-		EM_SetNewEvent(evYellowBtn);
-		printf("'Yellow' BTN2_EXTI15_Pin\n");
-	}
+	IM_BTN1_EXTI14_Handler();
+	IM_BTN2_EXTI15_Handler();
 
   /* USER CODE END EXTI15_10_IRQn 0 */
   if (LL_EXTI_IsActiveFlag_0_31(LL_EXTI_LINE_14) != RESET)

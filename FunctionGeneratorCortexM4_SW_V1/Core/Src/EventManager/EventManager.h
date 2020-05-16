@@ -48,9 +48,15 @@ typedef enum
 	evEncoderSet,				// user turns rotary encoder
 	evEncoderPush,				// user presses button. return to main screen. All menus closed.
 
+	evSweepEnable,
+	evSweepMode,				// up, down, bi-direction
+
+	evSweepSpeed,
+
 	evAdjustConfirmed			// user presses rotary encoder confirmation button
 
 } eSystemEvent;
+
 
 
 

@@ -270,34 +270,39 @@ void EM_ProcessEvent()
 	  printf("Freq_Sweep_Menu_State\n");
 #endif
 
-			if(eNewEvent == evEncoderSet)
-			{
-				TIM3->ARR = TIM1->CNT;
-			}
-			if(eNewEvent == evEncoderPush)
-			{
-				eNextState = FreqSweepMenuExitHandler();
-			}
-			if(eNewEvent == evBlueBtn)
-			{
-				// enable
-				TIM3->CR1 ^= TIM_CR1_CEN;
-			}
-			if(eNewEvent == evGreenBtn)
-			{
-				// center-aligned mode
-				TIM3->CR1 ^= (TIM_CR1_CMS_0);
-			}
-			if(eNewEvent == evYellowBtn)
-			{
-				// direction
-				TIM3->CR1 ^= (TIM_CR1_DIR);
-			}
-			if(eNewEvent == evRedBtn)
-			{
+		if(eNewEvent == evBlueBtn)
+		{
+			// enable
+			eNextState = FreqSweepMenuInputHandler(evSweepEnable);
 
-			}
-			break;
+		}
+		if(eNewEvent == evGreenBtn)
+		{
+			// center-aligned mode
+			eNextState = FreqSweepMenuInputHandler(evSweepMode);
+
+		}
+		if(eNewEvent == evYellowBtn)
+		{
+			// direction
+			//eNextState = FreqSweepMenuInputHandler();
+
+		}
+		if(eNewEvent == evRedBtn)
+		{
+			// no event action
+		}
+		if(eNewEvent == evEncoderSet)
+		{
+			eNextState = FreqSweepMenuInputHandler(evSweepSpeed);
+
+		}
+		if(eNewEvent == evEncoderPush)
+		{
+			eNextState = FreqSweepMenuExitHandler();
+		}
+
+		break;
 
 // BIAS MENUS
 

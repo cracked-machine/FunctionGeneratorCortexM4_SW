@@ -1,4 +1,0 @@
-ILI9341_TextManager.c:32:5:_GetEmptyRegEntry	16	static
-ILI9341_TextManager.c:54:5:TM_FindStringRegister	24	static
-ILI9341_TextManager.c:73:5:TM_RegisterString	32	static
-ILI9341_TextManager.c:95:6:TM_DeRegisterString	16	static

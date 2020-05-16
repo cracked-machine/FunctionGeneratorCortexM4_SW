@@ -14,6 +14,7 @@ RM := rm -rf
 -include Drivers/STM32G4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/SIgnalManager/subdir.mk
+-include Core/Src/InterruptManager/subdir.mk
 -include Core/Src/EventManager/subdir.mk
 -include Core/Src/DisplayManager/subdir.mk
 -include Core/Src/subdir.mk

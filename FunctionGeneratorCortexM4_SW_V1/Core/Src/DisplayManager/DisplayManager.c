@@ -151,7 +151,7 @@ void _DisplayFormattedOutput()
 
 /*
  *
- *	@brief
+ *	@brief Called from TIM1_BRK_TIM15_IRQHandler
  *
  *	@param None
  *	@retval None
@@ -240,7 +240,7 @@ void DM_UpdateDisplay()
 	  printf("FreqMenu_DrawMenu\n");
 #endif
 
-		ILI9341_Draw_Text("FREQUENCY MENU", 	30, 10, WHITE, 3, BLACK);
+		//ILI9341_Draw_Text("FREQUENCY MENU", 	30, 10, WHITE, 3, BLACK);
 
 		switch(FreqMenu_getStatus())
 		{
@@ -302,10 +302,10 @@ void DM_UpdateDisplay()
 	}
 
 #ifdef ENCODER_DEBUG
-	char encoder_value[5] = "";
-	//snprintf(tim1tmp, sizeof(tim1tmp), "%lu", ENCODER_TIMER->CNT);
-	if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
-		ILI9341_Draw_Text(encoder_value, 280, 190, BLACK, 1, RED);
+	char encoder_value[50] = "";
+	snprintf(encoder_value, sizeof(encoder_value), "TIM5->CNT: %12lu - ENCODER: %5lu", TIM5->CNT, ENCODER_TIMER->CNT);
+	//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
+		ILI9341_Draw_Text(encoder_value, 10, 190, BLACK, 1, RED);
 #endif //ENCODER_DEBUG
 
 	if(*ErrorDebugMsg)

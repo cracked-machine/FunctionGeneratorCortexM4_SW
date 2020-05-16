@@ -10,7 +10,9 @@
 
 #include "EventManager.h"
 
-
+/*
+ * 	Sub menus should have their ExitHandlers set eXXXXMenu_Status to ENABLE_xxxx_MAIN_MENU
+ */
 typedef enum
 {
 	DISABLE_GAIN_MENU = 0x00U,

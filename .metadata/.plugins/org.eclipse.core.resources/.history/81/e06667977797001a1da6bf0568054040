@@ -1,0 +1,397 @@
+/*
+ * FreqMenuStateHandler.c
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+#include "FreqMenuStateHandler.h"
+
+#include "DisplayManager.h"
+#include "SignalManager.h"
+#include <stdio.h>
+
+eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
+
+eFreqMenu_Status FreqMenu_getStatus()
+{
+	return eNextFreqMenuStatus;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqMainMenuEntryHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqMainMenuEntryHandler Event captured\n");
+#endif
+
+	DM_RefreshScreen();
+
+	eNextFreqMenuStatus = ENABLE_FREQ_MAIN_MENU;
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Main_Menu_State;
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqMainMenuInputHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqMainMenuInputHandler Event captured\n");
+#endif
+
+
+	return Freq_Main_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqMainMenuExitHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqMainMenuExitHandler Event captured\n");
+#endif
+
+
+	// disable the menu
+	eNextFreqMenuStatus = DISABLE_FREQ_MENU;
+
+	// reset the encoder range
+
+	ENCODER_TIMER->ARR = 1024;
+
+	DM_RefreshScreen();
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("returning to Idle State\n");
+#endif
+
+	eNewEvent = evIdle;
+	return Idle_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqPresetMenuEntryHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqPresetMenuEntryHandler Event captured\n");
+#endif
+
+	DM_RefreshScreen();
+
+	eNextFreqMenuStatus = ENABLE_FREQ_PRESET_MENU;
+
+	FreqProfile_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
+	if(pFreqPresetTmp)
+	{
+		ENCODER_TIMER->CNT = pFreqPresetTmp->epos;
+		ENCODER_TIMER->ARR = FreqO_GetFreqPresetEncoderRange();
+	}
+	else
+	{
+		DM_SetErrorDebugMsg("_FreqPresetMenuEntryHandler: pFreqPresetTmp null pointer");
+	}
+
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Preset_Menu_State;
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqPresetMenuInputHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqPresetMenuInputHandler Event captured\n");
+#endif
+
+	FreqO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Preset_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqPresetMenuExitHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqPresetMenuExitHandler Event captured\n");
+#endif
+
+
+	// disable the menu
+	eNextFreqMenuStatus = DISABLE_FREQ_MENU;
+
+	// back to main freq menu
+	eNewEvent = evGreenBtn;
+	return Idle_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqAdjustMenuEntryHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqAdjustMenuEntryHandler Event captured\n");
+#endif
+
+	DM_RefreshScreen();
+
+	eNextFreqMenuStatus = ENABLE_FREQ_ADJUST_MENU;
+
+	// set the rotary encoder limits to 0-? for this menu
+	ENCODER_TIMER->CNT = TIM8->ARR;
+	ENCODER_TIMER->ARR = 65535;
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Adjust_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqAdjustMenuInputHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqAdjustMenuInputHandler Event captured\n");
+#endif
+
+	FreqO_AdjustFreq();
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Adjust_Menu_State;
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqAdjustMenuExitHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqAdjustMenuExitHandler Event captured\n");
+#endif
+
+
+	// disable the menu
+	eNextFreqMenuStatus = DISABLE_FREQ_MENU;
+
+	// back to main freq menu
+	eNewEvent = evGreenBtn;
+	return Idle_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqSweepMenuEntryHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqSweepMenuEntryHandler captured\n");
+#endif
+
+	DM_RefreshScreen();
+
+	// set the encoder limits and starting position (slowest possible)
+	//ENCODER_TIMER->CNT = 4;
+//	ENCODER_TIMER->PSC = 65535;
+//	ENCODER_TIMER->ARR = 65535;
+//	TIM3->ARR = 4095;
+
+	eNextFreqMenuStatus = ENABLE_FREQ_SWEEP_MENU;
+
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Sweep_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqAdjustMenuInputHandler Event captured\n");
+#endif
+
+	uint16_t min_arr = 4095;
+	uint16_t max_arr = 65535;
+	float rate_coeff = 0.1;
+
+	switch(pEvent)
+	{
+		case evSweepEnable:
+			// toggle enable/disable
+			TIM3->CR1 ^= TIM_CR1_CEN;
+
+#ifdef SWV_DEBUG_ENABLED
+	printf("evSweepEnable captured\n");
+#endif
+			break;
+
+		case evSweepMode:
+			// toggle bi-directional (center-alligned)
+			TIM3->CR1 ^= (TIM_CR1_CMS_0);
+
+#ifdef SWV_DEBUG_ENABLED
+	printf("evSweepMode captured\n");
+#endif
+			break;
+
+		case evSweepDir:
+			// toggle direction
+			TIM3->CR1 ^= (TIM_CR1_DIR);
+
+#ifdef SWV_DEBUG_ENABLED
+	printf("evSweepDir captured\n");
+#endif
+			break;
+
+		case evSweepSpeed:
+
+			// adjust speed to rotary encoder position
+			// clamp TIM3->ARR to:  4095 < TIM3 speed < 65535
+
+
+
+
+			if(TIM3->ARR >= min_arr)
+			{
+
+
+				//float next_tim3_value = (min_arr + (min_arr * ((float)(ENCODER_TIMER->CNT/4) * rate_coeff)));
+				//float arr_coeff = 1 + (1 / ((float)(TIM3->ARR/400) + (float)(ENCODER_TIMER->CNT)));
+				//float next_tim3_value = min_arr *= arr_coeff;
+				uint32_t next_tim3_value = min_arr + ENCODER_TIMER->CNT;
+				if((next_tim3_value) > max_arr)
+				{
+
+					TIM3->ARR = max_arr;
+				}
+				else
+				{
+					TIM3->ARR = next_tim3_value;
+				}
+
+			}
+			else
+			{
+
+				TIM3->ARR = min_arr;
+			}
+
+
+
+#ifdef SWV_DEBUG_ENABLED
+	printf("evSweepSpeed captured\n");
+#endif
+			break;
+
+		default:
+			// don't care about other eSystemEvent
+			break;
+	}
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Sweep_Menu_State;
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqSweepMenuExitHandler()
+{
+#ifdef SWV_DEBUG_ENABLED
+	printf("FreqSweepMenuExitHandler Event captured\n");
+#endif
+
+
+	// disable the menu
+	eNextFreqMenuStatus = DISABLE_FREQ_MENU;
+
+	// back to main freq menu
+	eNewEvent = evGreenBtn;
+	return Idle_State;
+}
+

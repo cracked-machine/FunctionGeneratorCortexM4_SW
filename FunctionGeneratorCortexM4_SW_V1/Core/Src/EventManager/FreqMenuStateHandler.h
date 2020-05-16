@@ -11,7 +11,7 @@
 #include "EventManager.h"
 
 /*
- * 	Used by DM_ShowFreqMenu()
+ * 	Sub menus should have their ExitHandlers set eXXXXMenu_Status to ENABLE_xxxx_MAIN_MENU
  */
 typedef enum
 {
@@ -22,6 +22,22 @@ typedef enum
 	ENABLE_FREQ_SWEEP_MENU
 
 } eFreqMenu_Status;
+
+typedef enum
+{
+	SWEEP_MODE_UP = 0U,
+	SWEEP_MODE_DOWN,
+	SWEEP_MODE_BIDIR
+
+} eFreqSweepModes;
+
+eFreqSweepModes active_sweep_mode;
+
+uint16_t min_arr;
+uint32_t max_arr;
+float rate_coeff;
+
+float calculated_sweep_in_hertz;
 
 
 
@@ -37,7 +53,7 @@ eSystemState FreqAdjustMenuEntryHandler();
 eSystemState FreqAdjustMenuInputHandler();
 eSystemState FreqAdjustMenuExitHandler();
 eSystemState FreqSweepMenuEntryHandler();
-eSystemState FreqSweepMenuInputHandler();
+eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent);
 eSystemState FreqSweepMenuExitHandler();
 
 
