@@ -42,11 +42,22 @@ typedef enum
 
 typedef struct
 {
+	// the output channel type: Signal or Aux sync
 	eOutputChannel_t channel;
+
+	// Waveform lookup table data, used to restore the waveform to its default
 	uint32_t *ref_lut_data;
+
+	// Modified version of 'ref_lut_data'. Passed to the DAC periph via DMA.
 	uint32_t dsp_lut_data[SINE_DATA_SIZE];
+
+	// object of associated function data
 	FunctionProfile_t *func_profile;
+
+	// object of associated DSP data
 	AmplitudeProfile_t* amp_profile;
+
+	// object of associated PGA
 	GainProfile_t *gain_profile;
 
 

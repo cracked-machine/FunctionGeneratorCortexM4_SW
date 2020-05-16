@@ -26,8 +26,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="select an option below"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="pNewFreqPresetEncoderPos"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -41,8 +41,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="TIM1-&gt;CNT"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="aFreqPresetEncoderPos"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -53,8 +53,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="ENCODER_TIMER-&gt;CNT"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="Freq_Preset_Encoder_Pos_t"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -65,8 +65,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Seven_Gain"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="eFreq_Preset"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -77,8 +77,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Six_Gain"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="eOutput_gain"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -89,8 +89,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Five_Gain"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="amp_ideal"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -101,8 +101,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Four_Gain"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="vpp_offset"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -113,8 +113,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Three_Gain"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="amp_literal"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -125,8 +125,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Two_Gain"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="Vpp_target"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -137,8 +137,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="One_Gain"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="Vpp_literal"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -149,8 +149,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Zero_Gain"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="eVppPreset_t"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -161,8 +161,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="RevSaw_Out_Mode"/>
-			<item key="scope" value="0"/>
+			<item key="textPattern" value="aAmplitudeProfile"/>
+			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
 			</list>
@@ -171,7 +171,7 @@
 		</section>
 	</section>
 	<section name="SearchDialog.ScopePart">
-		<item key="scope" value="0"/>
+		<item key="scope" value="3"/>
 	</section>
 	<section name="DialogBounds_SearchDialog">
 		<item key="DIALOG_X_ORIGIN" value="627"/>
@@ -191,13 +191,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
-			<item value="SEVEN_GAIN"/>
-			<item value="SIX_GAIN"/>
-			<item value="FIVE_GAIN"/>
-			<item value="FOUR_GAIN"/>
-			<item value="THREE_GAIN"/>
-			<item value="TWO_GAIN"/>
-			<item value="ONE_GAIN"/>
+			<item value="freq_profile"/>
+			<item value="theFreqProfiles"/>
+			<item value="FreqProfile_t"/>
+			<item value="eFreqSettings_t"/>
+			<item value="eGainSettings_t"/>
+			<item value="amp_value"/>
+			<item value="amp_offset"/>
 		</list>
 	</section>
 	<section name="">

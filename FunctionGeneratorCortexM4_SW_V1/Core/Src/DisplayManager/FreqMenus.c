@@ -6,7 +6,7 @@
  */
 
 #include "FreqMenus.h"
-
+#include <stdio.h>
 #include "DisplayManager.h"
 
 
@@ -34,6 +34,9 @@ void FreqMenu_DrawMenu(eFreqMenu_Status pMenu)
 			break;
 		case ENABLE_FREQ_ADJUST_MENU:
 			FreqMenu_DrawAdjustMenu();
+			break;
+		case ENABLE_FREQ_SWEEP_MENU:
+			FreqMenu_DrawSweepMenu();
 			break;
 
 		default:
@@ -365,8 +368,18 @@ void FreqMenu_DrawAdjustMenu()
 void FreqMenu_DrawSweepMenu()
 {
 
+	TIM8->ARR = TIM3->CNT;
+
+	char arr_text[10] = "";
+	snprintf(arr_text, sizeof(arr_text), "ARR: %lu", TIM3->ARR);
+	ILI9341_Draw_Text(arr_text, 10, 50, BLACK, 2, WHITE);
+
 	ILI9341_Draw_Text("TODO: Freq Sweep Menu", 	10, 120, BLACK, 2, WHITE);
 
+	ILI9341_Draw_Text("ON/OFF", 10, 210, BLACK, 2, DARKCYAN);
+	ILI9341_Draw_Text("MODE", 100, 210, BLACK, 2, DARKGREEN);
+	ILI9341_Draw_Text("DIR", 175, 210, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
 
 
 

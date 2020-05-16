@@ -84,18 +84,14 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+// redirect printf to SWV
 int _write(int file, char *ptr, int len)
 {
-  /* Implement your write code here, this is used by puts and printf for example */
   int i=0;
   for(i=0 ; i<len ; i++)
     ITM_SendChar((*ptr++));
   return len;
-}
-
-void HAL_DAC_ErrorCallbackCh1(DAC_HandleTypeDef *hdac)
-{
-	// do something
 }
 
 /* USER CODE END 0 */
@@ -142,6 +138,7 @@ int main(void)
   MX_TIM16_Init();
   MX_TIM15_Init();
   MX_TIM5_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
   DT_InitRegister();
@@ -178,7 +175,7 @@ int main(void)
 
 #ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())
-  //HAL_TIM_Base_Start_IT(&htim17);
+  HAL_TIM_Base_Start_IT(&htim3);
 #endif	//DISABLE_ALL_TIMERS
 
 

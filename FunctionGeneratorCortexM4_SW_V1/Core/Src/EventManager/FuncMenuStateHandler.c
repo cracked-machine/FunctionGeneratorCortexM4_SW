@@ -30,8 +30,8 @@ eFuncMenu_Status FuncMenu_getStatus()
  */
 eSystemState FuncMainMenuEntryHandler(void)
 {
-#ifdef EM_SWV_DEBUG
-	printf("FunctionMenu Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncMainMenuEntryHandler Event captured\n");
 #endif
 
 	DM_RefreshScreen();
@@ -63,8 +63,8 @@ eSystemState FuncMainMenuEntryHandler(void)
  */
 eSystemState FuncMainMenuInputHandler(void)
 {
-#ifdef EM_SWV_DEBUG
-	printf("FunctionAdjust Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncMainMenuInputHandler Event captured\n");
 #endif
 
 
@@ -84,8 +84,8 @@ eSystemState FuncMainMenuInputHandler(void)
  */
 eSystemState FuncMainMenuExitHandler()
 {
-#ifdef EM_SWV_DEBUG
-	printf("ExitFuncMenu Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncMainMenuExitHandler Event captured\n");
 #endif
 
 	// disable the menu
@@ -97,6 +97,10 @@ eSystemState FuncMainMenuExitHandler()
 //	ENCODER_TIMER->ARR = 1024;
 
 	DM_RefreshScreen();
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("returning to Idle State\n");
+#endif
 
 	eNewEvent = evIdle;
 	return Idle_State;
@@ -113,8 +117,8 @@ eSystemState FuncMainMenuExitHandler()
  */
 eSystemState FuncSignalMenuEntryHandler(void)
 {
-#ifdef EM_SWV_DEBUG
-	printf("FunctionMenu Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncSignalMenuEntryHandler Event captured\n");
 #endif
 
 	DM_RefreshScreen();
@@ -147,8 +151,8 @@ eSystemState FuncSignalMenuEntryHandler(void)
  */
 eSystemState FuncSignalMenuInputHandler(void)
 {
-#ifdef EM_SWV_DEBUG
-	printf("FunctionAdjust Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncSignalMenuInputHandler Event captured\n");
 #endif
 
 
@@ -167,8 +171,8 @@ eSystemState FuncSignalMenuInputHandler(void)
  */
 eSystemState FuncSignalMenuExitHandler()
 {
-#ifdef EM_SWV_DEBUG
-	printf("ExitFuncMenu Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncSignalMenuExitHandler Event captured\n");
 #endif
 
 	// disable the menu
@@ -196,8 +200,8 @@ eSystemState FuncSignalMenuExitHandler()
  */
 eSystemState FuncSyncMenuEntryHandler(void)
 {
-#ifdef EM_SWV_DEBUG
-	printf("FunctionMenu Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncSyncMenuEntryHandler Event captured\n");
 #endif
 
 	DM_RefreshScreen();
@@ -230,8 +234,8 @@ eSystemState FuncSyncMenuEntryHandler(void)
  */
 eSystemState FuncSyncMenuInputHandler(void)
 {
-#ifdef EM_SWV_DEBUG
-	printf("FunctionAdjust Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncSyncMenuInputHandler Event captured\n");
 #endif
 
 
@@ -250,8 +254,8 @@ eSystemState FuncSyncMenuInputHandler(void)
  */
 eSystemState FuncSyncMenuExitHandler()
 {
-#ifdef EM_SWV_DEBUG
-	printf("ExitFuncMenu Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("FuncSyncMenuExitHandler Event captured\n");
 #endif
 
 	// disable the menu

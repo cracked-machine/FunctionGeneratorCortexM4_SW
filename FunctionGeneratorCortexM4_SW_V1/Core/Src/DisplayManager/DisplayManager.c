@@ -78,7 +78,11 @@ void DM_PostInit()
 	  HAL_Delay(500);
 
 	  DM_RefreshScreen();
+#ifdef SWV_DEBUG_ENABLED
 	  printf("Init Completed\n");
+#endif
+
+
 }
 
 /*
@@ -159,6 +163,11 @@ void DM_UpdateDisplay()
 	// Function menus
 	if(FuncMenu_getStatus())		//  != DISABLE_FUNC_MENU
 	{
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("FuncMenu_DrawMenu\n");
+#endif
+
 		switch(FuncMenu_getStatus())
 		{
 			case ENABLE_FUNC_MAIN_MENU:
@@ -191,6 +200,9 @@ void DM_UpdateDisplay()
 	else if(GainMenu_getStatus())		//  != DISABLE_GAIN_MENU
 	{
 
+#ifdef SWV_DEBUG_ENABLED
+	  printf("GainMenu_DrawMenu\n");
+#endif
 		switch(GainMenu_getStatus())
 		{
 			case ENABLE_GAIN_MAIN_MENU:
@@ -223,6 +235,10 @@ void DM_UpdateDisplay()
 	// Frequency menus
 	else if(FreqMenu_getStatus())		//  != DISABLE_FREQ_MENU
 	{
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("FreqMenu_DrawMenu\n");
+#endif
 
 		ILI9341_Draw_Text("FREQUENCY MENU", 	30, 10, WHITE, 3, BLACK);
 
@@ -262,11 +278,19 @@ void DM_UpdateDisplay()
 	else if(BiasMenu_getStatus())		//  != DISABLE_BIAS_MENU
 	{
 
+#ifdef SWV_DEBUG_ENABLED
+	  printf("BiasMenu_DrawMenu\n");
+#endif
+
 		_DisplayFormattedOutput();
 		BiasMenu_DrawMenu(ENABLE_BIAS_MENU);
 	}
 	else
 	{
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Drawing Main screen\n");
+#endif
 		// Main screen
 		ILI9341_Draw_Text("SIGNAL GENERATOR", 	10, 10, WHITE, 3, BLACK);
 		_DisplayFormattedOutput();

@@ -29,8 +29,8 @@ eBiasMenu_Status BiasMenu_getStatus()
  */
 eSystemState BiasMenuEntryHandler()
 {
-#ifdef EM_SWV_DEBUG
-	printf("BiasMenu Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("BiasMenuEntryHandler Event captured\n");
 #endif
 
 	DM_RefreshScreen();
@@ -54,8 +54,8 @@ eSystemState BiasMenuEntryHandler()
  */
 eSystemState BiasMenuInputHandler()
 {
-#ifdef EM_SWV_DEBUG
-	printf("BiasSet Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("BiasMenuInputHandler Event captured\n");
 #endif
 
 	BO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
@@ -74,8 +74,8 @@ eSystemState BiasMenuInputHandler()
  */
 eSystemState BiasMenuExitHandler()
 {
-#ifdef EM_SWV_DEBUG
-	printf("ExitBiasMenu Event captured\n");
+#ifdef SWV_DEBUG_ENABLED
+	printf("BiasMenuExitHandler Event captured\n");
 #endif
 
 
@@ -87,6 +87,10 @@ eSystemState BiasMenuExitHandler()
 	//ENCODER_TIMER->ARR = 1024;
 
 	DM_RefreshScreen();
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("returning to Idle State\n");
+#endif
 
 	eNewEvent = evIdle;
 	return Idle_State;

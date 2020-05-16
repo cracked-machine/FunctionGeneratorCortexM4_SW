@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="VPP_OFFSET60"/>
+		<item key="selection" value="htim17"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="VPP_OFFSET60"/>
-			<item value="VPP_OFFSET50"/>
-			<item value="VPP_OFFSET+50"/>
-			<item value="VPP_OFFSET+40"/>
-			<item value="VPP_OFFSET"/>
-			<item value="&#x09; dBmV"/>
-			<item value="+&#x09;"/>
-			<item value="select an option below"/>
-			<item value="dbmV"/>
-			<item value="&#x09; dbmV"/>
-			<item value="&#x09;:"/>
-			<item value="DM_DisplayFormattedOutput"/>
-			<item value="&#x09;,"/>
-			<item value="VPP"/>
-			<item value="VoltPeakPeak"/>
+			<item value="htim17"/>
+			<item value="htim16"/>
+			<item value="pNewFreqPresetEncoderPos"/>
+			<item value="Freq_Preset_Encoder_Pos_t"/>
+			<item value="eFreq_Preset"/>
+			<item value="eFreqSettings_t"/>
+			<item value="eOutput_gain"/>
+			<item value="eGainSettings_t"/>
+			<item value="amp_offset"/>
+			<item value="Vpp_literal"/>
+			<item value="preset"/>
+			<item value="SIGNAL_OUTPUT_PRESET"/>
+			<item value="Gain_Preset_Encoder_Pos_t"/>
+			<item value="VppEncoderPreset_t"/>
+			<item value="Func_Preset_Encoder_Pos_t"/>
 		</list>
 		<list key="replacehistory">
-			<item value="VPP_OFFSET70"/>
-			<item value="VPP_OFFSET60"/>
-			<item value="VPP_OFFSET50"/>
-			<item value="VPP_OFFSET+50"/>
-			<item value="VPP_OFFSET+40"/>
+			<item value="freq_profile"/>
+			<item value="FreqProfile_t"/>
+			<item value="eFreqSettings_t"/>
+			<item value="eGainSettings_t"/>
+			<item value="AMP_OFFSET"/>
+			<item value="amp_literal"/>
+			<item value="GainProfile_t"/>
+			<item value="AmplitudeProfile_t"/>
+			<item value="FunctionProfile_t"/>
+			<item value="hdac2"/>
+			<item value="VPP_ApplyPresetToSync"/>
 			<item value=" dBmV"/>
 			<item value="+"/>
-			<item value="dBmV"/>
-			<item value=" dbmV"/>
-			<item value="&#x09;:"/>
-			<item value="_DisplayFormattedOutput"/>
-			<item value=","/>
-			<item value="Vpp"/>
-			<item value="VPP"/>
-			<item value="dc_bias_encoder_value"/>
+			<item value="pSignalFuncPresetEncoderPos"/>
+			<item value="FuncO_ApplyPresetToSync"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

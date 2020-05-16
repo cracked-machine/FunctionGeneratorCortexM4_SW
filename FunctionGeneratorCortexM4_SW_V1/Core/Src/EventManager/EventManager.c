@@ -38,7 +38,7 @@ eSystemState eNextState = Idle_State;
 eSystemEvent eNewEvent = evIdle;
 
 
-
+uint8_t mode = 0;
 
 ///////////////////////////////////////////////////////
 ////// 			   SYSTEM STATEMACHINE			///////
@@ -62,7 +62,9 @@ void EM_ProcessEvent()
 
 		case Idle_State:
 
-//			TIM1->ARR = 12;
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Idle_State\n");
+#endif
 
 			if(eNewEvent == evBlueBtn)
 			{
@@ -86,6 +88,10 @@ void EM_ProcessEvent()
 
 		case Func_Main_Menu_State:
 
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Func_Main_Menu_State\n");
+#endif
+
 			if(eNewEvent == evEncoderSet)
 			{
 				// No menu action
@@ -107,6 +113,10 @@ void EM_ProcessEvent()
 
 		case Func_Signal_Menu_State:
 
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Func_Signal_Menu_State\n");
+#endif
+
 			if(eNewEvent == evEncoderSet)
 			{
 				eNextState = FuncSignalMenuInputHandler();
@@ -119,6 +129,10 @@ void EM_ProcessEvent()
 			break;
 
 		case Func_Sync_Menu_State:
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Func_Sync_Menu_State\n");
+#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -135,6 +149,9 @@ void EM_ProcessEvent()
 
 		case Gain_Main_Menu_State:
 
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Gain_Main_Menu_State\n");
+#endif
 			if(eNewEvent == evEncoderSet)
 			{
 				// No menu action
@@ -156,6 +173,10 @@ void EM_ProcessEvent()
 
 		case Gain_Signal_Menu_State:
 
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Gain_Signal_Menu_State\n");
+#endif
+
 			if(eNewEvent == evEncoderSet)
 			{
 				eNextState = GainSignalMenuInputHandler();
@@ -168,6 +189,10 @@ void EM_ProcessEvent()
 			break;
 
 		case Gain_Sync_Menu_State:
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Gain_Sync_Menu_State\n");
+#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -183,6 +208,10 @@ void EM_ProcessEvent()
 // FREQ MENUS
 
 		case Freq_Main_Menu_State:
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Freq_Main_Menu_State\n");
+#endif
 
 			if(eNewEvent == evEncoderPush)
 			{
@@ -204,6 +233,11 @@ void EM_ProcessEvent()
 			break;
 
 		case Freq_Preset_Menu_State:
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Freq_Preset_Menu_State\n");
+#endif
+
 			if(eNewEvent == evEncoderSet)
 			{
 				eNextState = FreqPresetMenuInputHandler();
@@ -215,6 +249,11 @@ void EM_ProcessEvent()
 			break;
 
 		case Freq_Adjust_Menu_State:
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Freq_Adjust_Menu_State\n");
+#endif
+
 			if(eNewEvent == evEncoderSet)
 			{
 				eNextState = FreqAdjustMenuInputHandler();
@@ -227,15 +266,47 @@ void EM_ProcessEvent()
 
 		case Freq_Sweep_Menu_State:
 
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Freq_Sweep_Menu_State\n");
+#endif
+
+			if(eNewEvent == evEncoderSet)
+			{
+				TIM3->ARR = TIM1->CNT;
+			}
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = FreqSweepMenuExitHandler();
+			}
+			if(eNewEvent == evBlueBtn)
+			{
+				// enable
+				TIM3->CR1 ^= TIM_CR1_CEN;
+			}
+			if(eNewEvent == evGreenBtn)
+			{
+				// center-aligned mode
+				TIM3->CR1 ^= (TIM_CR1_CMS_0);
+			}
+			if(eNewEvent == evYellowBtn)
+			{
+				// direction
+				TIM3->CR1 ^= (TIM_CR1_DIR);
+			}
+			if(eNewEvent == evRedBtn)
+			{
+
 			}
 			break;
 
 // BIAS MENUS
 
 		case Bias_Menu_State:
+
+#ifdef SWV_DEBUG_ENABLED
+	  printf("Bias_Menu_State\n");
+#endif
+
 			if(eNewEvent == evEncoderSet)
 			{
 				eNextState = BiasMenuInputHandler();

@@ -7613,3 +7613,1065 @@ java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch ca
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 00:47:46.209
 !MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 00:57:33.516
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 01:26:16.876
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 01:28:41.899
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.816
+!MESSAGE Request for monitor: '435^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.816
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014800 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.817
+!MESSAGE Request for monitor: '436^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.817
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014804 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.818
+!MESSAGE Request for monitor: '437^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.818
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001480c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.818
+!MESSAGE Request for monitor: '438^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.818
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014810 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.819
+!MESSAGE Request for monitor: '439^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.819
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014818 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.819
+!MESSAGE Request for monitor: '440^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.819
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014818 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.820
+!MESSAGE Request for monitor: '441^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.820
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014820 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.821
+!MESSAGE Request for monitor: '442^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.821
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014824 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.821
+!MESSAGE Request for monitor: '443^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.821
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014828 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.822
+!MESSAGE Request for monitor: '444^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.822
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001482c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.822
+!MESSAGE Request for monitor: '445^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.822
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014830 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.822
+!MESSAGE Request for monitor: '446^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.822
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014834 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.823
+!MESSAGE Request for monitor: '447^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.823
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014844 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.823
+!MESSAGE Request for monitor: '448^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.823
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014854 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.823
+!MESSAGE Request for monitor: '449^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.823
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001485c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.824
+!MESSAGE Request for monitor: '450^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.824
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014860 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.824
+!MESSAGE Request for monitor: '451^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.824
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014864 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.824
+!MESSAGE Request for monitor: '452^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.825
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014bdc x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:31:51.825
+!MESSAGE Request for monitor: '453^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:31:51.825
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014be0 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 01:44:18.589
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 01:47:21.505
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.130
+!MESSAGE Request for monitor: '129^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.130
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000400 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.131
+!MESSAGE Request for monitor: '130^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.131
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000404 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.131
+!MESSAGE Request for monitor: '131^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.131
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000408 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.131
+!MESSAGE Request for monitor: '132^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.131
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000040c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.131
+!MESSAGE Request for monitor: '133^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.131
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000410 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.132
+!MESSAGE Request for monitor: '134^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.132
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000418 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.132
+!MESSAGE Request for monitor: '135^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.132
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000418 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.132
+!MESSAGE Request for monitor: '136^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.132
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000041c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.132
+!MESSAGE Request for monitor: '137^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.132
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000041c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.133
+!MESSAGE Request for monitor: '138^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.133
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000420 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.133
+!MESSAGE Request for monitor: '139^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.133
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000424 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.134
+!MESSAGE Request for monitor: '140^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.134
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000428 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.134
+!MESSAGE Request for monitor: '141^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.134
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000042c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.135
+!MESSAGE Request for monitor: '142^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.135
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000430 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.135
+!MESSAGE Request for monitor: '143^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.135
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000434 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.136
+!MESSAGE Request for monitor: '144^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.136
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000438 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.136
+!MESSAGE Request for monitor: '145^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.136
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000043c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.138
+!MESSAGE Request for monitor: '146^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.138
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000440 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.140
+!MESSAGE Request for monitor: '147^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.140
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000444 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.140
+!MESSAGE Request for monitor: '148^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.140
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000448 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.141
+!MESSAGE Request for monitor: '149^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.141
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000044c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.141
+!MESSAGE Request for monitor: '150^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.141
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000450 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.142
+!MESSAGE Request for monitor: '151^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.142
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000454 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.142
+!MESSAGE Request for monitor: '152^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.142
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000458 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.143
+!MESSAGE Request for monitor: '153^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.143
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000045c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.143
+!MESSAGE Request for monitor: '154^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.143
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000460 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.144
+!MESSAGE Request for monitor: '155^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.144
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000464 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.144
+!MESSAGE Request for monitor: '156^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.144
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x400007dc x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 01:51:36.146
+!MESSAGE Request for monitor: '157^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 01:51:36.146
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x400007e0 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 01:56:46.624
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 01:58:06.205
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.582
+!MESSAGE Request for monitor: '394^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.582
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000400 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.583
+!MESSAGE Request for monitor: '395^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.583
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000404 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.583
+!MESSAGE Request for monitor: '396^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.583
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000408 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.583
+!MESSAGE Request for monitor: '398^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.583
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000040c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.583
+!MESSAGE Request for monitor: '399^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.583
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000410 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.590
+!MESSAGE Request for monitor: '400^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.590
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000418 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.590
+!MESSAGE Request for monitor: '401^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.590
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000418 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.590
+!MESSAGE Request for monitor: '402^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.590
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000041c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.590
+!MESSAGE Request for monitor: '403^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.590
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000041c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.590
+!MESSAGE Request for monitor: '404^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.590
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000420 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.591
+!MESSAGE Request for monitor: '405^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.591
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000424 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.591
+!MESSAGE Request for monitor: '406^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.591
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000428 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.591
+!MESSAGE Request for monitor: '407^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.591
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000042c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.591
+!MESSAGE Request for monitor: '408^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.591
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000430 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.591
+!MESSAGE Request for monitor: '409^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.591
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000434 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.591
+!MESSAGE Request for monitor: '410^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.591
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000438 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.591
+!MESSAGE Request for monitor: '411^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.591
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000043c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.592
+!MESSAGE Request for monitor: '412^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.592
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000440 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.592
+!MESSAGE Request for monitor: '413^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.592
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000444 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.592
+!MESSAGE Request for monitor: '414^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.592
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000448 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.592
+!MESSAGE Request for monitor: '415^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.592
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000044c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.592
+!MESSAGE Request for monitor: '416^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.592
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000450 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.592
+!MESSAGE Request for monitor: '417^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.592
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000454 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.592
+!MESSAGE Request for monitor: '418^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.592
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000458 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.593
+!MESSAGE Request for monitor: '419^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.593
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4000045c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.593
+!MESSAGE Request for monitor: '420^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.593
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000460 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.593
+!MESSAGE Request for monitor: '421^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.593
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40000464 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.593
+!MESSAGE Request for monitor: '422^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.593
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x400007dc x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2020-05-16 02:01:30.593
+!MESSAGE Request for monitor: '423^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2020-05-16 02:01:30.593
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x400007e0 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SESSION 2020-05-16 07:32:15.186 -----------------------------------------------
+eclipse.buildId=Version 1.3.0
+java.version=1.8.0_202
+java.vendor=AdoptOpenJdk
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2020-05-16 07:32:27.401
+!MESSAGE Log4j initialized with config file /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2020-05-16 07:32:32.562
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2020-05-16 07:32:32.906
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:32:58.655
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:34:57.034
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:35:14.887
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:35:40.823
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:38:41.852
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:39:51.769
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:40:00.312
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:40:18.131
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.jface 2 0 2020-05-16 07:49:11.033
+!MESSAGE Ignored reentrant call while viewer is busy. This is only logged once per viewer instance, but similar calls will still be ignored.
+!STACK 0
+java.lang.RuntimeException
+	at org.eclipse.jface.viewers.ColumnViewer.checkBusy(ColumnViewer.java:764)
+	at org.eclipse.jface.viewers.ColumnViewer.update(ColumnViewer.java:543)
+	at org.eclipse.ui.navigator.CommonViewer.update(CommonViewer.java:512)
+	at org.eclipse.jface.viewers.StructuredViewer.update(StructuredViewer.java:1965)
+	at org.eclipse.ui.internal.navigator.resources.nested.NestedProjectsLabelProvider.lambda$2(NestedProjectsLabelProvider.java:87)
+	at java.util.concurrent.CompletableFuture.uniAccept(CompletableFuture.java:656)
+	at java.util.concurrent.CompletableFuture$UniAccept.tryFire(CompletableFuture.java:632)
+	at java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:474)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1595)
+	at java.util.concurrent.CompletableFuture$AsyncSupply.exec(CompletableFuture.java:1582)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:49:16.523
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:49:53.852
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:50:12.098
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2020-05-16 07:51:02.193
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.core.sourcelookup.containers.CompositeSourceContainer.getSourceContainers(CompositeSourceContainer.java:127)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:114)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:103)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:118)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 07:53:37.753
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2020-05-16 07:53:46.214
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.debug.core.sourcelookup.containers.CompositeSourceContainer.getSourceContainers(CompositeSourceContainer.java:127)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:114)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:103)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:118)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 08:03:05.328
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 08:12:28.638
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-16 08:14:25.134
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6

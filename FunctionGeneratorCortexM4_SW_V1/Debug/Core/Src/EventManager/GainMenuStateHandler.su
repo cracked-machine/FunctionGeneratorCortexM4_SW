@@ -2,9 +2,9 @@ GainMenuStateHandler.c:16:18:GainMenu_getStatus	4	static
 GainMenuStateHandler.c:29:14:GainMainMenuEntryHandler	8	static
 GainMenuStateHandler.c:51:14:GainMainMenuInputHandler	8	static
 GainMenuStateHandler.c:72:14:GainMainMenuExitHandler	8	static
-GainMenuStateHandler.c:94:14:GainSignalMenuEntryHandler	16	static
-GainMenuStateHandler.c:128:14:GainSignalMenuInputHandler	8	static
-GainMenuStateHandler.c:149:14:GainSignalMenuExitHandler	8	static
-GainMenuStateHandler.c:172:14:GainSyncMenuEntryHandler	16	static
-GainMenuStateHandler.c:206:14:GainSyncMenuInputHandler	8	static
-GainMenuStateHandler.c:228:14:GainSyncMenuExitHandler	8	static
+GainMenuStateHandler.c:98:14:GainSignalMenuEntryHandler	16	static
+GainMenuStateHandler.c:132:14:GainSignalMenuInputHandler	8	static
+GainMenuStateHandler.c:153:14:GainSignalMenuExitHandler	8	static
+GainMenuStateHandler.c:176:14:GainSyncMenuEntryHandler	16	static
+GainMenuStateHandler.c:210:14:GainSyncMenuInputHandler	8	static
+GainMenuStateHandler.c:232:14:GainSyncMenuExitHandler	8	static
