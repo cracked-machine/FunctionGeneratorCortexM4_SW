@@ -1,8 +1,8 @@
-FreqOutput.c:64:6:FreqO_AdjustFreq	8	static
-FreqOutput.c:80:6:FreqO_ModifyOutput	16	static
-FreqOutput.c:199:6:FreqO_ApplyPreset_Fast	16	static
-FreqOutput.c:314:6:FreqO_ApplyPreset	24	static
-FreqOutput.c:343:17:FreqO_GetFPresetObject	4	static
-FreqOutput.c:373:17:FreqO_FindFPresetObject	24	static
-FreqOutput.c:396:9:FreqO_GetFreqPresetEncoderRange	4	static
-FreqOutput.c:409:10:FreqO_GetOutputFreq	4	static
+FreqOutput.c:65:6:FreqO_AdjustFreq	8	static
+FreqOutput.c:81:6:FreqO_ModifyOutput	16	static
+FreqOutput.c:200:6:FreqO_ApplyPreset_Fast	16	static
+FreqOutput.c:315:6:FreqO_ApplyPreset	24	static
+FreqOutput.c:346:17:FreqO_GetFPresetObject	4	static
+FreqOutput.c:376:17:FreqO_FindFPresetObject	24	static
+FreqOutput.c:399:9:FreqO_GetFreqPresetEncoderRange	4	static
+FreqOutput.c:412:10:FreqO_GetOutputFreq	4	static

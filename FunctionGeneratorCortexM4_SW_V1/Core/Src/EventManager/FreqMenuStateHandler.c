@@ -8,17 +8,19 @@
 #include "FreqMenuStateHandler.h"
 
 #include "DisplayManager.h"
-#include "SignalManager.h"
+//#include "SignalManager.h"
 #include <stdio.h>
 
-#define SWEEP_TIMER TIM3
+
 
 eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
 eFreqSweepModes active_sweep_mode = SWEEP_MODE_UP;
 
-uint16_t min_arr = 4095;
+uint16_t min_arr = 128;
 uint32_t max_arr = 65535;
-float rate_coeff = 100;
+
+#define RATE_COEF	32	// how much the encoder increments/decrements per pulse
+#define RATE_DELTA	1.1	// how much we increment/decrement by
 
 eFreqMenu_Status FreqMenu_getStatus()
 {
@@ -267,18 +269,30 @@ eSystemState FreqSweepMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	// set the encoder limits and starting position (slowest possible)
+	// enable the sweep timer
+	//HAL_TIM_Base_Start_IT(&htim3);
+	//SWEEP_TIMER->DIER 	|= (TIM_DIER_UIE);
+	//SWEEP_TIMER->CR1 	|= (TIM_CR1_CEN);
 
+	// pause sweep, wait for user input (evSweepEnable) to restart
+	//SWEEP_TIMER->CR1 ^= TIM_CR1_CEN;
 
+	// encoder start value
+	ENCODER_TIMER->CNT = 1;
 	// encoder limit
-	ENCODER_TIMER->CNT = 670;
 	ENCODER_TIMER->ARR = 65535;
-	SWEEP_TIMER->CNT = 65535;
-	SWEEP_TIMER->ARR = 65535;
-	SWEEP_TIMER->PSC = 65535;
 
+	// reset sweep start value
+	SWEEP_TIMER->CNT = 0;
+
+	// sweep start speed
+	SWEEP_TIMER->ARR = min_arr;
+	SWEEP_TIMER->PSC = 0;
+
+	// do stuff
 	FreqSweepMenuInputHandler(evSweepSpeed);
 
+	// get ready to load menu
 	eNextFreqMenuStatus = ENABLE_FREQ_SWEEP_MENU;
 
 
@@ -312,7 +326,8 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			#endif
 
 			// toggle enable/disable
-			SWEEP_TIMER->CR1 ^= TIM_CR1_CEN;
+			SWEEP_TIMER->DIER 	^= TIM_DIER_UIE;
+			SWEEP_TIMER->CR1	^= TIM_CR1_CEN;
 			break;
 
 		case evSweepMode:
@@ -338,7 +353,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 					break;
 
 				case SWEEP_MODE_BIDIR:
-					SWEEP_TIMER->CR1 |= (TIM_CR1_CMS_0);
+//					SWEEP_TIMER->CR1 |= (TIM_CR1_CMS_0);
 					break;
 			}
 			// toggle bi-directional (center-alligned)
@@ -356,7 +371,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			// adjust speed to rotary encoder position
 			// clamp SWEEP_TIMER->ARR to:  4095 < SWEEP_TIMER speed < 65535
 
-			if(SWEEP_TIMER->ARR >= min_arr)
+/*			if(SWEEP_TIMER->ARR >= min_arr)
 			{
 				uint32_t next_SWEEP_TIMER_value = min_arr + (ENCODER_TIMER->CNT * rate_coeff);
 				if((next_SWEEP_TIMER_value) > max_arr)
@@ -372,8 +387,16 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			{
 				SWEEP_TIMER->ARR = min_arr;
 			}
+*/
 
-			calculated_sweep_in_hertz = (float)SM_MCLK / ((float)SWEEP_TIMER->PSC * (float)SWEEP_TIMER->ARR);
+			SWEEP_TIMER->PSC = min_arr + ((ENCODER_TIMER->CNT*ENCODER_TIMER->CNT*ENCODER_TIMER->CNT));
+
+
+			if(SWEEP_TIMER->PSC == 0)
+				calculated_sweep_in_hertz = (float)SM_MCLK / ((float)1 * (float)SWEEP_TIMER->ARR);
+			else
+				calculated_sweep_in_hertz = (float)SM_MCLK / ((float)SWEEP_TIMER->PSC * (float)SWEEP_TIMER->ARR);
+
 
 			break;
 
@@ -403,6 +426,12 @@ eSystemState FreqSweepMenuExitHandler()
 	#endif
 
 	DM_RefreshScreen();
+
+	// disable sweep timer and interrupts
+	SWEEP_TIMER->DIER 	&= ~(TIM_DIER_UIE);
+	SWEEP_TIMER->CR1 	&= ~(TIM_CR1_CEN);
+
+
 
 	// disable the menu
 	eNextFreqMenuStatus = ENABLE_FREQ_MAIN_MENU;

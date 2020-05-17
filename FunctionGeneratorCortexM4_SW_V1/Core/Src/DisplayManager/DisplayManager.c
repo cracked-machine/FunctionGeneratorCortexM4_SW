@@ -6,6 +6,8 @@
  */
 
 #include "DisplayManager.h"
+
+#include "SignalManager.h"
 #include "FreqMenus.h"
 #include "GainMenus.h"
 #include "FuncMenus.h"
@@ -302,8 +304,13 @@ void DM_UpdateDisplay()
 	}
 
 #ifdef ENCODER_DEBUG
+	char tim5_text[50] = "";
+	snprintf(tim5_text, sizeof(tim5_text), "OUTPUT_TIMER->ARR: %5lu", OUTPUT_TIMER->ARR);
+	//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
+		ILI9341_Draw_Text(tim5_text, 10, 180, BLACK, 1, RED);
+
 	char encoder_value[50] = "";
-	snprintf(encoder_value, sizeof(encoder_value), "TIM5->CNT: %12lu - ENCODER: %5lu", TIM5->CNT, ENCODER_TIMER->CNT);
+	snprintf(encoder_value, sizeof(encoder_value), "SWEEP_TIMER->ARR: %5lu - ENCODER: %5lu", SWEEP_TIMER->ARR, ENCODER_TIMER->CNT);
 	//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
 		ILI9341_Draw_Text(encoder_value, 10, 190, BLACK, 1, RED);
 #endif //ENCODER_DEBUG

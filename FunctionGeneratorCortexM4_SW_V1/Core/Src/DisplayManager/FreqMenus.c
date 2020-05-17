@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include "DisplayManager.h"
 
-#define SWEEP_TIMER TIM3
+
 
 void FreqMenu_DrawMainMenu();
 void FreqMenu_DrawPresetMenu();
@@ -372,7 +372,7 @@ void FreqMenu_DrawAdjustMenu()
 void FreqMenu_DrawSweepMenu()
 {
 	ILI9341_Draw_Text("FREQUENCY SWEEP", 	10, 10, BLACK, 3, WHITE);
-	OUTPUT_TIMER->ARR = SWEEP_TIMER->CNT;
+
 
 	// draw enabled status
 	char enabled_text[16] = "";
@@ -415,7 +415,7 @@ void FreqMenu_DrawSweepMenu()
 
 	// draw rate status
 	char arr_text[20] = "";
-	snprintf(arr_text, sizeof(arr_text), "RATE: %1.5f Hertz", calculated_sweep_in_hertz);
+	snprintf(arr_text, sizeof(arr_text), "RATE: %1.4f Hertz", calculated_sweep_in_hertz);
 	ILI9341_Draw_Text(arr_text, 10, 110, BLACK, 2, WHITE);
 
 	// draw output freq status
@@ -428,13 +428,13 @@ void FreqMenu_DrawSweepMenu()
 
 	// draw bottom menu button text
 	if((SWEEP_TIMER->CR1 & TIM_CR1_CEN) == TIM_CR1_CEN)
-		ILI9341_Draw_Text("PAUSE ", 10, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("PAUSE ", 6, 210, BLACK, 2, DARKCYAN);
 	else
 		ILI9341_Draw_Text("RESUME", 5, 210, BLACK, 2, DARKCYAN);
 
 	ILI9341_Draw_Text("MODE", 95, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("LOWER", 175, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("UPPER", 245, 210, BLACK, 2, RED);
+	ILI9341_Draw_Text("LOWER", 173, 210, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("UPPER", 250, 210, BLACK, 2, RED);
 
 }
 

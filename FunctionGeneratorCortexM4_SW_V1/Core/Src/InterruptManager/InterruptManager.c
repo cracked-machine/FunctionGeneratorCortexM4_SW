@@ -8,6 +8,7 @@
 #include "main.h"
 #include "InterruptManager.h"
 #include "EventManager.h"
+#include "SignalManager.h"
 
 #include <stdio.h>
 
@@ -18,6 +19,20 @@ uint16_t btn2_last_interrupt_time = 0;
 uint16_t btn3_last_interrupt_time = 0;
 uint16_t btn4_last_interrupt_time = 0;
 uint16_t encbtn_last_interrupt_time = 0;
+
+void 	IM_SWEEPINCREMENT_TIM_IRQHandler()
+{
+	if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)
+	{
+		OUTPUT_TIMER->ARR++;
+	}
+	else
+	{
+		OUTPUT_TIMER->ARR--;
+	}
+
+	//SWEEP_TIMER->ARR--;
+}
 
 
 /*

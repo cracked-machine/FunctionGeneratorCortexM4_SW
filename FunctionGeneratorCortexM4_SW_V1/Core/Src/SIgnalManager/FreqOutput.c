@@ -13,6 +13,7 @@
 #include "DisplayManager.h"
 
 #include "tim.h"
+#include "dac.h"
 
 /*
  *	Array of objects for Frequency Presets and their encoder positions for freq preset menu
@@ -318,6 +319,8 @@ void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum)
 	{
 		OUTPUT_TIMER->PSC = tmp->psc;
 		OUTPUT_TIMER->ARR = tmp->arr;
+
+
 		//eNewFreqPreset = pPresetEnum;
 		FreqProfile_t * tmp = FreqO_FindFPresetObject(pPresetEnum);
 		if(tmp)

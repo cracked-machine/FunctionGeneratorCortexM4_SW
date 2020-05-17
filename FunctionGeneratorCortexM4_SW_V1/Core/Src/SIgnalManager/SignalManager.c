@@ -78,17 +78,17 @@ uint16_t SM_GetEncoderValue(eEncoder_Direction direction)
  */
 float SM_GetOutputInHertz()
 {
-	volatile float tim8_psc;
-	volatile float tim8_arr;
+	volatile float output_tm_psc;
+	volatile float output_tm_arr;
 
 	// safe-guard against divide by zero
-	(OUTPUT_TIMER->PSC == 0) ? (tim8_psc = 1) : (tim8_psc = OUTPUT_TIMER->PSC);
-	(OUTPUT_TIMER->ARR == 0) ? (tim8_arr = 1) : (tim8_arr = OUTPUT_TIMER->ARR);
+	(OUTPUT_TIMER->PSC == 0) ? (output_tm_psc = 1) : (output_tm_psc = OUTPUT_TIMER->PSC);
+	(OUTPUT_TIMER->ARR == 0) ? (output_tm_arr = 1) : (output_tm_arr = OUTPUT_TIMER->ARR);
 
-	float tim8_freq = SM_MCLK / (tim8_psc * tim8_arr);
+	float output_tm_freq = SM_MCLK / (output_tm_psc * output_tm_arr);
 
 
-	return tim8_freq / SM_FSAMP;
+	return output_tm_freq / SM_FSAMP;
 }
 
 
