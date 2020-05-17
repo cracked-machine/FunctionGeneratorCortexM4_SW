@@ -13,6 +13,14 @@
 sOutputChannel_t SignalChannel;
 sOutputChannel_t SyncChannel;
 
+//uint16_t min_arr = 3555;		//50KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+uint16_t min_arr = 16800;		//10KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+//uint16_t min_arr = 33600;		//5KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+//uint16_t min_arr = 84000;		//2KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+//uint16_t min_arr = 16800;		//1KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+
+uint32_t max_arr = 0xFFFF;
+
 
 void SM_Init()
 {

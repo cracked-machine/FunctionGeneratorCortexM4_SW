@@ -1,4 +1,4 @@
-SignalManager.c:17:6:SM_Init	16	static
-SignalManager.c:43:20:SM_GetOutputChannel	16	static
-SignalManager.c:59:10:SM_GetEncoderValue	16	static
-SignalManager.c:79:7:SM_GetOutputInHertz	24	static
+SignalManager.c:25:6:SM_Init	16	static
+SignalManager.c:51:20:SM_GetOutputChannel	16	static
+SignalManager.c:67:10:SM_GetEncoderValue	16	static
+SignalManager.c:87:7:SM_GetOutputInHertz	24	static

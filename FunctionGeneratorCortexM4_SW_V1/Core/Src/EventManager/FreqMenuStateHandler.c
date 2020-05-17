@@ -16,8 +16,7 @@
 eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
 eFreqSweepModes active_sweep_mode = SWEEP_MODE_UP;
 
-uint16_t min_arr = 128;
-uint32_t max_arr = 65535;
+
 
 #define RATE_COEF	32	// how much the encoder increments/decrements per pulse
 #define RATE_DELTA	1.1	// how much we increment/decrement by
@@ -338,24 +337,41 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 				printf("evSweepMode captured\n");
 			#endif
 
-			active_sweep_mode++;
+			// flip between 0:Upcounter and 1:Downcounter
+			active_sweep_mode ^= 1U;
+
+/*			active_sweep_mode++;
 			if(active_sweep_mode > 3)
 				active_sweep_mode = 0;
+*/
 
 			switch(active_sweep_mode)
 			{
-				case SWEEP_MODE_UP:
-					SWEEP_TIMER->CR1 |= (TIM_CR1_DIR);
+				case SWEEP_MODE_DOWN:
+
+					// "Center-aligned" mode sets direction register to readonly,
+					// so disable "Center-aligned" mode first
 					SWEEP_TIMER->CR1 &= ~((TIM_CR1_CMS_0) | (TIM_CR1_CMS_1));
+
+					// 0: Counter used as upcounter
+					SWEEP_TIMER->CR1 |= (TIM_CR1_DIR);
+
 					break;
 
-				case SWEEP_MODE_DOWN:
-					SWEEP_TIMER->CR1 &= ~(TIM_CR1_DIR);
+				case SWEEP_MODE_UP:
+
+					// "Center-aligned" mode sets direction register to readonly,
+					// so disable "Center-aligned" mode first
 					SWEEP_TIMER->CR1 &= ~((TIM_CR1_CMS_0) | (TIM_CR1_CMS_1));
+
+					// 1: Counter used as downcounter
+					SWEEP_TIMER->CR1 &= ~(TIM_CR1_DIR);
+
 					break;
 
 				case SWEEP_MODE_BIDIR:
-//					SWEEP_TIMER->CR1 |= (TIM_CR1_CMS_0);
+					// not used
+					//SWEEP_TIMER->CR1 |= (TIM_CR1_CMS_0);
 					break;
 			}
 			// toggle bi-directional (center-alligned)
@@ -391,7 +407,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			}
 */
 
-			SWEEP_TIMER->PSC = min_arr + ((ENCODER_TIMER->CNT*ENCODER_TIMER->CNT*ENCODER_TIMER->CNT));
+			SWEEP_TIMER->ARR = min_arr + ((ENCODER_TIMER->CNT*ENCODER_TIMER->CNT*ENCODER_TIMER->CNT));
 
 
 			if(SWEEP_TIMER->PSC == 0)

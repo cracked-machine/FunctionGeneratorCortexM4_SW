@@ -1,9 +1,9 @@
 stm32g4xx_ll_exti.h:1240:26:LL_EXTI_IsActiveFlag_0_31	16	static
 InterruptManager.c:24:6:IM_Init	4	static
 InterruptManager.c:31:7:IM_SWEEPINCREMENT_TIM_IRQHandler	4	static
-InterruptManager.c:54:6:IM_BTN1_EXTI14_Handler	16	static
-InterruptManager.c:79:6:IM_BTN2_EXTI15_Handler	16	static
-InterruptManager.c:103:6:IM_BTN3_EXTI0_Handler	16	static
-InterruptManager.c:127:6:IM_BTN4_EXTI1_Handler	16	static
-InterruptManager.c:151:6:IM_ENC_EXTI2_Handler	16	static
-InterruptManager.c:175:6:IM_ENC_DIRF_Handler	8	static
+InterruptManager.c:57:6:IM_BTN1_EXTI14_Handler	16	static
+InterruptManager.c:82:6:IM_BTN2_EXTI15_Handler	16	static
+InterruptManager.c:106:6:IM_BTN3_EXTI0_Handler	16	static
+InterruptManager.c:130:6:IM_BTN4_EXTI1_Handler	16	static
+InterruptManager.c:154:6:IM_ENC_EXTI2_Handler	16	static
+InterruptManager.c:178:6:IM_ENC_DIRF_Handler	8	static

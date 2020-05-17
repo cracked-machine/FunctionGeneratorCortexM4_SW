@@ -29,6 +29,11 @@
 #define eDefaultGainPreset 	ONE_GAIN
 #define eDefaultVppPreset 	VPP90
 
+
+uint16_t min_arr;
+
+uint32_t max_arr;
+
 typedef enum
 {
 	ENCODER_FORWARD = 0U,
