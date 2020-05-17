@@ -1,4 +1,4 @@
 FuncMenus.c:25:6:FuncMenu_DrawMenu	16	static
 FuncMenus.c:54:6:FuncMenu_DrawMainMenu	16	static
-FuncMenus.c:72:6:FuncMenu_DrawSignalMenu	24	static
-FuncMenus.c:145:6:FuncMenu_DrawSyncMenu	24	static
+FuncMenus.c:75:6:FuncMenu_DrawSignalMenu	24	static
+FuncMenus.c:148:6:FuncMenu_DrawSyncMenu	24	static

@@ -93,6 +93,6 @@ eSystemState BiasMenuExitHandler()
 #endif
 
 	eNewEvent = evIdle;
-	return Idle_State;
+	return Toplevel_Output_Menu_State;
 }
 

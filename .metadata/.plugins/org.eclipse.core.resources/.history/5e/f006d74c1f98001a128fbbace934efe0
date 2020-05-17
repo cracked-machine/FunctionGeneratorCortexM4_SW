@@ -1,0 +1,91 @@
+/*
+ * ToplevelMenus.c
+ *
+ *	Defines draw functions for TopLevel menu and its sub menus: Output and Input
+ *
+ *  Created on: 15 May 2020
+ *      Author: chris
+ */
+
+
+#include "ToplevelMenus.h"
+
+#include "DisplayManager.h"
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void ToplevelMenu_DrawMenu(eToplevelMenu_Status pMenu)
+{
+	switch(pMenu)
+	{
+		case ENABLE_TOPLEVEL_MAIN_MENU:
+			ToplevelMenu_DrawMainMenu();
+			break;
+		case ENABLE_TOPLEVEL_OUTPUT_MENU:
+			ToplevelMenu_DrawOutputMenu();
+			break;
+		case ENABLE_TOPLEVEL_INPUT_MENU:
+			ToplevelMenu_DrawInputMenu();
+			break;
+
+		default:
+			break;
+
+	}
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void ToplevelMenu_DrawMainMenu()
+{
+	// Top Level screen
+	ILI9341_Draw_Text("SIGNAL GENERATOR", 	10, 10, WHITE, 3, BLACK);
+
+
+
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void ToplevelMenu_DrawOutputMenu()
+{
+	ILI9341_Draw_Text("SELECT OUTPUT OPTIONS", 10, 10, WHITE, 3, BLACK);
+
+
+	ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
+	ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
+	ILI9341_Draw_Text("GAIN", 175, 210, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("BIAS", 260, 210, BLACK, 2, RED);
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void ToplevelMenu_DrawInputMenu()
+{
+	ILI9341_Draw_Text("SELECT INPUT OPTIONS", 10, 10, WHITE, 3, BLACK);
+}

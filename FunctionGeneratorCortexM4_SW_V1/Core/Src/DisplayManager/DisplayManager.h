@@ -15,6 +15,7 @@
 
 #include "SignalManager.h"
 #include "EventManager.h"
+#include "ToplevelMenuStateHandler.h"
 #include "GainMenuStateHandler.h"
 #include "FuncMenuStateHandler.h"
 #include "FreqMenuStateHandler.h"
@@ -28,7 +29,7 @@ void DM_PostInit();
 void DM_UpdateDisplay();
 
 void DM_RefreshScreen();
-
+void DM_DisplayFormattedOutput();
 
 void DM_SetErrorDebugMsg(char* msg);
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);

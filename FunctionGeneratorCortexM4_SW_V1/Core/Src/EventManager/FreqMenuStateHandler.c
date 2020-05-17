@@ -98,7 +98,7 @@ eSystemState FreqMainMenuExitHandler()
 	#endif
 
 	eNewEvent = evIdle;
-	return Idle_State;
+	return Toplevel_Output_Menu_State;
 }
 
 /*
@@ -172,13 +172,14 @@ eSystemState FreqPresetMenuExitHandler()
 		printf("FreqPresetMenuExitHandler Event captured\n");
 	#endif
 
+	DM_RefreshScreen();
 
 	// disable the menu
 	eNextFreqMenuStatus = ENABLE_FREQ_MAIN_MENU;
 
 	// back to main freq menu
-	eNewEvent = evGreenBtn;
-	return Idle_State;
+	eNewEvent = evIdle;
+	return Freq_Main_Menu_State;
 }
 
 /*
@@ -244,13 +245,14 @@ eSystemState FreqAdjustMenuExitHandler()
 		printf("FreqAdjustMenuExitHandler Event captured\n");
 	#endif
 
+	DM_RefreshScreen();
 
 	// disable the menu
 	eNextFreqMenuStatus = ENABLE_FREQ_MAIN_MENU;
 
 	// back to main freq menu
-	eNewEvent = evGreenBtn;
-	return Idle_State;
+	eNewEvent = evIdle;
+	return Freq_Main_Menu_State;
 }
 
 /*

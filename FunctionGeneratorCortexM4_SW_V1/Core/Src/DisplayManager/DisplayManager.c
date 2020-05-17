@@ -8,6 +8,7 @@
 #include "DisplayManager.h"
 
 #include "SignalManager.h"
+#include "ToplevelMenus.h"
 #include "FreqMenus.h"
 #include "GainMenus.h"
 #include "FuncMenus.h"
@@ -43,6 +44,7 @@ uint16_t btn_x_pos[4] = { 0, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 // public function protochannels
 void DM_RefreshScreen();
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
+void _DisplayFormattedOutput();
 
 // private function protochannels
 
@@ -87,6 +89,195 @@ void DM_PostInit()
 
 }
 
+
+
+
+/*
+ *
+ *	@brief Called from TIM1_BRK_TIM15_IRQHandler
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void DM_UpdateDisplay()
+{
+
+	if(ToplevelMenu_getStatus())
+	{
+
+		#ifdef SWV_DEBUG_ENABLED
+			  printf("FuncMenu_DrawMenu\n");
+		#endif
+
+		switch(ToplevelMenu_getStatus())
+		{
+			case ENABLE_TOPLEVEL_MAIN_MENU:
+
+				ToplevelMenu_DrawMenu(ENABLE_TOPLEVEL_MAIN_MENU);
+				break;
+
+			case ENABLE_TOPLEVEL_OUTPUT_MENU:
+
+				ToplevelMenu_DrawMenu(ENABLE_TOPLEVEL_OUTPUT_MENU);
+				break;
+
+			case ENABLE_TOPLEVEL_INPUT_MENU:
+
+				ToplevelMenu_DrawMenu(ENABLE_TOPLEVEL_INPUT_MENU);
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	// Function menus
+	else if(FuncMenu_getStatus())		//  != DISABLE_FUNC_MENU
+	{
+
+		#ifdef SWV_DEBUG_ENABLED
+			  printf("FuncMenu_DrawMenu\n");
+		#endif
+
+		switch(FuncMenu_getStatus())
+		{
+			case ENABLE_FUNC_MAIN_MENU:
+
+
+				FuncMenu_DrawMenu(ENABLE_FUNC_MAIN_MENU);
+
+				break;
+
+			case ENABLE_FUNC_SIGNAL_MENU:
+
+
+				FuncMenu_DrawMenu(ENABLE_FUNC_SIGNAL_MENU);
+
+				break;
+
+			case ENABLE_FUNC_SYNC_MENU:
+
+
+				FuncMenu_DrawMenu(ENABLE_FUNC_SYNC_MENU);
+
+				break;
+
+			default:
+				break;
+		}
+
+	}
+	// Gain menus
+	else if(GainMenu_getStatus())		//  != DISABLE_GAIN_MENU
+	{
+
+		#ifdef SWV_DEBUG_ENABLED
+			  printf("GainMenu_DrawMenu\n");
+		#endif
+
+		switch(GainMenu_getStatus())
+		{
+			case ENABLE_GAIN_MAIN_MENU:
+
+
+				GainMenu_DrawMenu(ENABLE_GAIN_MAIN_MENU);
+
+				break;
+
+			case ENABLE_GAIN_SIGNAL_MENU:
+
+
+				GainMenu_DrawMenu(ENABLE_GAIN_SIGNAL_MENU);
+
+				break;
+
+			case ENABLE_GAIN_SYNC_MENU:
+
+
+				GainMenu_DrawMenu(ENABLE_GAIN_SYNC_MENU);
+
+				break;
+
+			default:
+				break;
+		}
+
+	}
+
+	// Frequency menus
+	else if(FreqMenu_getStatus())		//  != DISABLE_FREQ_MENU
+	{
+
+		#ifdef SWV_DEBUG_ENABLED
+			  printf("FreqMenu_DrawMenu\n");
+		#endif
+
+		//ILI9341_Draw_Text("FREQUENCY MENU", 	30, 10, WHITE, 3, BLACK);
+
+		switch(FreqMenu_getStatus())
+		{
+			case ENABLE_FREQ_MAIN_MENU:
+
+				FreqMenu_DrawMenu(ENABLE_FREQ_MAIN_MENU);
+
+				break;
+
+			case ENABLE_FREQ_PRESET_MENU:
+
+				FreqMenu_DrawMenu(ENABLE_FREQ_PRESET_MENU);
+				break;
+
+			case ENABLE_FREQ_ADJUST_MENU:
+
+
+				FreqMenu_DrawMenu(ENABLE_FREQ_ADJUST_MENU);
+
+				break;
+
+			case ENABLE_FREQ_SWEEP_MENU:
+
+				FreqMenu_DrawMenu(ENABLE_FREQ_SWEEP_MENU);
+				break;
+
+			default:
+				break;
+		}
+
+	}
+
+	// Bias menu
+	else if(BiasMenu_getStatus())		//  != DISABLE_BIAS_MENU
+	{
+
+		#ifdef SWV_DEBUG_ENABLED
+			  printf("BiasMenu_DrawMenu\n");
+		#endif
+
+		BiasMenu_DrawMenu(ENABLE_BIAS_MENU);
+	}
+	else
+	{
+		ILI9341_Draw_Text("DisplayManager: no menu status set!", 10, 50, BLACK, 1, RED);
+	}
+
+	#ifdef ENCODER_DEBUG
+		char tim5_text[50] = "";
+		snprintf(tim5_text, sizeof(tim5_text), "OUTPUT_TIMER->ARR: %5lu", OUTPUT_TIMER->ARR);
+		//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
+			ILI9341_Draw_Text(tim5_text, 10, 180, BLACK, 1, RED);
+
+		char encoder_value[50] = "";
+		snprintf(encoder_value, sizeof(encoder_value), "SWEEP_TIMER->ARR: %5lu - ENCODER: %5lu", SWEEP_TIMER->ARR, ENCODER_TIMER->CNT);
+		//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
+			ILI9341_Draw_Text(encoder_value, 10, 190, BLACK, 1, RED);
+	#endif //ENCODER_DEBUG
+
+	if(*ErrorDebugMsg)
+		ILI9341_Draw_Text(ErrorDebugMsg, 10, 190, BLACK, 1, RED);
+
+}
+
 /*
  *
  *	@brief
@@ -95,7 +286,7 @@ void DM_PostInit()
  *	@retval None
  *
  */
-void _DisplayFormattedOutput()
+void DM_DisplayFormattedOutput()
 {
 	char out_hertz[13] = "";
 	uint8_t out_hertz_x = 70;
@@ -149,177 +340,6 @@ void _DisplayFormattedOutput()
 	}
 
 }
-
-
-/*
- *
- *	@brief Called from TIM1_BRK_TIM15_IRQHandler
- *
- *	@param None
- *	@retval None
- *
- */
-void DM_UpdateDisplay()
-{
-
-	// Function menus
-	if(FuncMenu_getStatus())		//  != DISABLE_FUNC_MENU
-	{
-
-#ifdef SWV_DEBUG_ENABLED
-	  printf("FuncMenu_DrawMenu\n");
-#endif
-
-		switch(FuncMenu_getStatus())
-		{
-			case ENABLE_FUNC_MAIN_MENU:
-
-				_DisplayFormattedOutput();
-				FuncMenu_DrawMenu(ENABLE_FUNC_MAIN_MENU);
-
-				break;
-
-			case ENABLE_FUNC_SIGNAL_MENU:
-
-				// _DisplayFormattedOutput();
-				FuncMenu_DrawMenu(ENABLE_FUNC_SIGNAL_MENU);
-
-				break;
-
-			case ENABLE_FUNC_SYNC_MENU:
-
-				//_DisplayFormattedOutput();
-				FuncMenu_DrawMenu(ENABLE_FUNC_SYNC_MENU);
-
-				break;
-
-			default:
-				break;
-		}
-
-	}
-	// Gain menus
-	else if(GainMenu_getStatus())		//  != DISABLE_GAIN_MENU
-	{
-
-#ifdef SWV_DEBUG_ENABLED
-	  printf("GainMenu_DrawMenu\n");
-#endif
-		switch(GainMenu_getStatus())
-		{
-			case ENABLE_GAIN_MAIN_MENU:
-
-				_DisplayFormattedOutput();
-				GainMenu_DrawMenu(ENABLE_GAIN_MAIN_MENU);
-
-				break;
-
-			case ENABLE_GAIN_SIGNAL_MENU:
-
-				_DisplayFormattedOutput();
-				GainMenu_DrawMenu(ENABLE_GAIN_SIGNAL_MENU);
-
-				break;
-
-			case ENABLE_GAIN_SYNC_MENU:
-
-				_DisplayFormattedOutput();
-				GainMenu_DrawMenu(ENABLE_GAIN_SYNC_MENU);
-
-				break;
-
-			default:
-				break;
-		}
-
-	}
-
-	// Frequency menus
-	else if(FreqMenu_getStatus())		//  != DISABLE_FREQ_MENU
-	{
-
-#ifdef SWV_DEBUG_ENABLED
-	  printf("FreqMenu_DrawMenu\n");
-#endif
-
-		//ILI9341_Draw_Text("FREQUENCY MENU", 	30, 10, WHITE, 3, BLACK);
-
-		switch(FreqMenu_getStatus())
-		{
-			case ENABLE_FREQ_MAIN_MENU:
-
-				_DisplayFormattedOutput();
-				FreqMenu_DrawMenu(ENABLE_FREQ_MAIN_MENU);
-
-				break;
-
-			case ENABLE_FREQ_PRESET_MENU:
-
-				FreqMenu_DrawMenu(ENABLE_FREQ_PRESET_MENU);
-				break;
-
-			case ENABLE_FREQ_ADJUST_MENU:
-
-				_DisplayFormattedOutput();
-				FreqMenu_DrawMenu(ENABLE_FREQ_ADJUST_MENU);
-
-				break;
-
-			case ENABLE_FREQ_SWEEP_MENU:
-
-				FreqMenu_DrawMenu(ENABLE_FREQ_SWEEP_MENU);
-				break;
-
-			default:
-				break;
-		}
-
-	}
-
-	// Bias menu
-	else if(BiasMenu_getStatus())		//  != DISABLE_BIAS_MENU
-	{
-
-#ifdef SWV_DEBUG_ENABLED
-	  printf("BiasMenu_DrawMenu\n");
-#endif
-
-		_DisplayFormattedOutput();
-		BiasMenu_DrawMenu(ENABLE_BIAS_MENU);
-	}
-	else
-	{
-
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Drawing Main screen\n");
-#endif
-		// Main screen
-		ILI9341_Draw_Text("SIGNAL GENERATOR", 	10, 10, WHITE, 3, BLACK);
-		_DisplayFormattedOutput();
-
-		ILI9341_Draw_Text("FUNC", 10, 210, BLACK, 2, DARKCYAN);
-		ILI9341_Draw_Text("FREQ", 100, 210, BLACK, 2, DARKGREEN);
-		ILI9341_Draw_Text("GAIN", 175, 210, BLACK, 2, YELLOW);
-		ILI9341_Draw_Text("BIAS", 260, 210, BLACK, 2, RED);
-	}
-
-#ifdef ENCODER_DEBUG
-	char tim5_text[50] = "";
-	snprintf(tim5_text, sizeof(tim5_text), "OUTPUT_TIMER->ARR: %5lu", OUTPUT_TIMER->ARR);
-	//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
-		ILI9341_Draw_Text(tim5_text, 10, 180, BLACK, 1, RED);
-
-	char encoder_value[50] = "";
-	snprintf(encoder_value, sizeof(encoder_value), "SWEEP_TIMER->ARR: %5lu - ENCODER: %5lu", SWEEP_TIMER->ARR, ENCODER_TIMER->CNT);
-	//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
-		ILI9341_Draw_Text(encoder_value, 10, 190, BLACK, 1, RED);
-#endif //ENCODER_DEBUG
-
-	if(*ErrorDebugMsg)
-		ILI9341_Draw_Text(ErrorDebugMsg, 10, 190, BLACK, 1, RED);
-
-}
-
 
 /*
  *

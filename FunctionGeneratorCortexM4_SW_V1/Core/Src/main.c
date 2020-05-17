@@ -40,6 +40,7 @@
 #include "EventManager.h"
 #include "SignalManager.h"
 #include "DacTimerRegistry.h"
+#include "InterruptManager.h"
 
 //#include "GainOutput.h"
 
@@ -251,11 +252,9 @@ int main(void)
   DM_Init();
   DM_PostInit();
 
-  // DM_UpdateDisplay()
-  HAL_TIM_Base_Start_IT(&htim15);
+  IM_Init();
 
-  // debounce timer
-  HAL_TIM_Base_Start(&htim16);
+
 
 
 

@@ -59,38 +59,99 @@ void EM_ProcessEvent()
 	{
 
 // MAIN MENU
-
 		case Idle_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Idle_State\n");
-#endif
+
+			#ifdef SWV_DEBUG_ENABLED
+			  printf("Idle_State\n");
+			#endif
 
 			if(eNewEvent == evBlueBtn)
 			{
+				eNextState = ToplevelOutputMenuEntryHandler();
+			}
+			if(eNewEvent == evGreenBtn)
+			{
+				eNextState = ToplevelInputMenuEntryHandler();
+			}
+			if(eNewEvent == evYellowBtn)
+			{
+				// no menu action
+			}
+			if(eNewEvent == evRedBtn)
+			{
+				// no menu action
+			}
+			break;
+
+		case Toplevel_Output_Menu_State:
+
+			#ifdef SWV_DEBUG_ENABLED
+			  printf("Toplevel_Output_Menu_State\n");
+			#endif
+
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = ToplevelOutputMenuExitHandler();
+			}
+			if(eNewEvent == evBlueBtn)
+			{
+				ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 				eNextState = FuncMainMenuEntryHandler();
 			}
 			if(eNewEvent == evGreenBtn)
 			{
+				ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 				eNextState = FreqMainMenuEntryHandler();
 			}
 			if(eNewEvent == evYellowBtn)
 			{
+				ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 				eNextState = GainMainMenuEntryHandler();
 			}
 			if(eNewEvent == evRedBtn)
 			{
+				ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 				eNextState = BiasMenuEntryHandler();
 			}
 			break;
+
+		case Toplevel_Input_Menu_State:
+
+			#ifdef SWV_DEBUG_ENABLED
+			  printf("Toplevel_Input_Menu_State\n");
+			#endif
+
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = ToplevelInputMenuExitHandler();
+			}
+			if(eNewEvent == evBlueBtn)
+			{
+				//eNextState = ToplevelOutputMenuEntryHandler();
+			}
+			if(eNewEvent == evGreenBtn)
+			{
+				//eNextState = ToplevelInputMenuEntryHandler();
+			}
+			if(eNewEvent == evYellowBtn)
+			{
+				// no menu action
+			}
+			if(eNewEvent == evRedBtn)
+			{
+				// no menu action
+			}
+			break;
+
 
 // FUNC MENUS
 
 		case Func_Main_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Func_Main_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Func_Main_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -99,6 +160,7 @@ void EM_ProcessEvent()
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = FuncMainMenuExitHandler();
+				ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 			}
 			if(eNewEvent == evBlueBtn)
 			{
@@ -113,9 +175,9 @@ void EM_ProcessEvent()
 
 		case Func_Signal_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Func_Signal_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Func_Signal_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -124,15 +186,16 @@ void EM_ProcessEvent()
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = FuncSignalMenuExitHandler();
+
 			}
 
 			break;
 
 		case Func_Sync_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Func_Sync_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Func_Sync_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -149,9 +212,9 @@ void EM_ProcessEvent()
 
 		case Gain_Main_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Gain_Main_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Gain_Main_Menu_State\n");
+			#endif
 			if(eNewEvent == evEncoderSet)
 			{
 				// No menu action
@@ -159,6 +222,7 @@ void EM_ProcessEvent()
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = GainMainMenuExitHandler();
+				ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 			}
 			if(eNewEvent == evBlueBtn)
 			{
@@ -173,9 +237,9 @@ void EM_ProcessEvent()
 
 		case Gain_Signal_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Gain_Signal_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Gain_Signal_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -190,9 +254,9 @@ void EM_ProcessEvent()
 
 		case Gain_Sync_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Gain_Sync_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Gain_Sync_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -209,13 +273,14 @@ void EM_ProcessEvent()
 
 		case Freq_Main_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Freq_Main_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Freq_Main_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = FreqMainMenuExitHandler();
+				ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 			}
 			if(eNewEvent == evBlueBtn)
 			{
@@ -234,9 +299,9 @@ void EM_ProcessEvent()
 
 		case Freq_Preset_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Freq_Preset_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Freq_Preset_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -250,9 +315,9 @@ void EM_ProcessEvent()
 
 		case Freq_Adjust_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Freq_Adjust_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Freq_Adjust_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -266,51 +331,51 @@ void EM_ProcessEvent()
 
 		case Freq_Sweep_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Freq_Sweep_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Freq_Sweep_Menu_State\n");
+			#endif
 
-		if(eNewEvent == evBlueBtn)
-		{
-			// enable
-			eNextState = FreqSweepMenuInputHandler(evSweepEnable);
+			if(eNewEvent == evBlueBtn)
+			{
+				// enable
+				eNextState = FreqSweepMenuInputHandler(evSweepEnable);
 
-		}
-		if(eNewEvent == evGreenBtn)
-		{
-			// center-aligned mode
-			eNextState = FreqSweepMenuInputHandler(evSweepMode);
+			}
+			if(eNewEvent == evGreenBtn)
+			{
+				// center-aligned mode
+				eNextState = FreqSweepMenuInputHandler(evSweepMode);
 
-		}
-		if(eNewEvent == evYellowBtn)
-		{
-			// direction
-			//eNextState = FreqSweepMenuInputHandler();
+			}
+			if(eNewEvent == evYellowBtn)
+			{
+				// direction
+				//eNextState = FreqSweepMenuInputHandler();
 
-		}
-		if(eNewEvent == evRedBtn)
-		{
-			// no event action
-		}
-		if(eNewEvent == evEncoderSet)
-		{
-			eNextState = FreqSweepMenuInputHandler(evSweepSpeed);
+			}
+			if(eNewEvent == evRedBtn)
+			{
+				// no event action
+			}
+			if(eNewEvent == evEncoderSet)
+			{
+				eNextState = FreqSweepMenuInputHandler(evSweepSpeed);
 
-		}
-		if(eNewEvent == evEncoderPush)
-		{
-			eNextState = FreqSweepMenuExitHandler();
-		}
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = FreqSweepMenuExitHandler();
+			}
 
-		break;
+			break;
 
 // BIAS MENUS
 
 		case Bias_Menu_State:
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Bias_Menu_State\n");
-#endif
+			#ifdef SWV_DEBUG_ENABLED
+				  printf("Bias_Menu_State\n");
+			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
@@ -319,6 +384,7 @@ void EM_ProcessEvent()
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = BiasMenuExitHandler();
+				ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 			}
 
 			break;

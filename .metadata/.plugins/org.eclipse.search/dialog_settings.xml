@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="pNewFreqPresetEncoderPos"/>
+			<item key="textPattern" value="OUTPUT_TIMER"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -41,7 +41,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="aFreqPresetEncoderPos"/>
+			<item key="textPattern" value="tim2"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -53,7 +53,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Freq_Preset_Encoder_Pos_t"/>
+			<item key="textPattern" value="tim8"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -65,7 +65,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="eFreq_Preset"/>
+			<item key="textPattern" value="__HAL_TIM_DISABLE"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -77,7 +77,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="eOutput_gain"/>
+			<item key="textPattern" value="TIM8"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -89,7 +89,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="amp_ideal"/>
+			<item key="textPattern" value="TIM3"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -101,7 +101,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="vpp_offset"/>
+			<item key="textPattern" value="SYSTEM_DEBUG_ENABLED"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -113,7 +113,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="amp_literal"/>
+			<item key="textPattern" value="pNewFreqPresetEncoderPos"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -125,7 +125,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Vpp_target"/>
+			<item key="textPattern" value="aFreqPresetEncoderPos"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -137,7 +137,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Vpp_literal"/>
+			<item key="textPattern" value="Freq_Preset_Encoder_Pos_t"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -149,7 +149,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="eVppPreset_t"/>
+			<item key="textPattern" value="eFreq_Preset"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -161,7 +161,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="aAmplitudeProfile"/>
+			<item key="textPattern" value="eOutput_gain"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -191,13 +191,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="SWV_DEBUG_ENABLED"/>
 			<item value="freq_profile"/>
 			<item value="theFreqProfiles"/>
 			<item value="FreqProfile_t"/>
 			<item value="eFreqSettings_t"/>
 			<item value="eGainSettings_t"/>
 			<item value="amp_value"/>
-			<item value="amp_offset"/>
 		</list>
 	</section>
 	<section name="">

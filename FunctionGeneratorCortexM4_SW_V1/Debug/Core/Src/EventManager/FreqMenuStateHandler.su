@@ -5,9 +5,9 @@ FreqMenuStateHandler.c:80:14:FreqMainMenuExitHandler	8	static
 FreqMenuStateHandler.c:112:14:FreqPresetMenuEntryHandler	16	static
 FreqMenuStateHandler.c:148:14:FreqPresetMenuInputHandler	8	static
 FreqMenuStateHandler.c:169:14:FreqPresetMenuExitHandler	8	static
-FreqMenuStateHandler.c:192:14:FreqAdjustMenuEntryHandler	8	static
-FreqMenuStateHandler.c:219:14:FreqAdjustMenuInputHandler	8	static
-FreqMenuStateHandler.c:241:14:FreqAdjustMenuExitHandler	8	static
-FreqMenuStateHandler.c:264:14:FreqSweepMenuEntryHandler	8	static
-FreqMenuStateHandler.c:312:14:FreqSweepMenuInputHandler	16	static
-FreqMenuStateHandler.c:422:14:FreqSweepMenuExitHandler	8	static
+FreqMenuStateHandler.c:193:14:FreqAdjustMenuEntryHandler	8	static
+FreqMenuStateHandler.c:220:14:FreqAdjustMenuInputHandler	8	static
+FreqMenuStateHandler.c:242:14:FreqAdjustMenuExitHandler	8	static
+FreqMenuStateHandler.c:266:14:FreqSweepMenuEntryHandler	8	static
+FreqMenuStateHandler.c:314:14:FreqSweepMenuInputHandler	16	static
+FreqMenuStateHandler.c:424:14:FreqSweepMenuExitHandler	8	static

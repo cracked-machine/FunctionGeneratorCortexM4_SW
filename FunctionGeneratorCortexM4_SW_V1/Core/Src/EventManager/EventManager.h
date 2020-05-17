@@ -16,7 +16,12 @@
 
 typedef enum
 {
-	Idle_State = 0x00U,		// main display
+
+
+	Toplevel_Main_Menu_State,				// main display
+	Toplevel_Output_Menu_State,
+	Toplevel_Input_Menu_State,
+
 	Func_Main_Menu_State,
 	Func_Signal_Menu_State,
 	Func_Sync_Menu_State,
@@ -32,7 +37,9 @@ typedef enum
 	Freq_Adjust_Menu_State,
 	Freq_Sweep_Menu_State,
 
-	Bias_Menu_State
+	Bias_Menu_State,
+
+	Idle_State = Toplevel_Main_Menu_State
 
 } eSystemState;
 

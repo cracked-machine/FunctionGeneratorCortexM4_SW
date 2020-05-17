@@ -16,7 +16,9 @@ uint16_t btn4_last_interrupt_time;
 uint16_t encbtn_last_interrupt_time;
 
 #define DEBOUNCE_TIMER 		TIM16
-#define MAX_DEBOUNCE_DELAY 	400
+#define MAX_DEBOUNCE_DELAY 	1000
+
+void IM_Init();
 
 void IM_BTN1_EXTI14_Handler();
 void IM_BTN2_EXTI15_Handler();

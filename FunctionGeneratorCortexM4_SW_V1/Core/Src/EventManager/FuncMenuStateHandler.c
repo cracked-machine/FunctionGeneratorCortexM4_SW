@@ -36,6 +36,7 @@ eSystemState FuncMainMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 
+
 	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
 
 /*	FunctionProfile_t *func_profileTmp =  FuncO_GetSignalFPresetObject();
@@ -103,7 +104,7 @@ eSystemState FuncMainMenuExitHandler()
 #endif
 
 	eNewEvent = evIdle;
-	return Idle_State;
+	return Toplevel_Output_Menu_State;
 }
 
 

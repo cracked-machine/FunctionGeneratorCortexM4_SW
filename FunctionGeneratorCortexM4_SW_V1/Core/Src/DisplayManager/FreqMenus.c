@@ -58,8 +58,10 @@ void FreqMenu_DrawMenu(eFreqMenu_Status pMenu)
 void FreqMenu_DrawMainMenu()
 {
 	// main
-	ILI9341_Draw_Text("FREQUENCY MENU", 	30, 10, WHITE, 3, BLACK);
+	ILI9341_Draw_Text("OUT->FREQ", 	10, 10, WHITE, 2, BLACK);
 	ILI9341_Draw_Text("Select an option below", 	30, 165, BLACK, 2, WHITE);
+
+	DM_DisplayFormattedOutput();
 
 	// buttons
 	ILI9341_Draw_Text("PRESET", 5, 210, BLACK, 2, DARKCYAN);
@@ -79,7 +81,7 @@ void FreqMenu_DrawMainMenu()
 void FreqMenu_DrawPresetMenu()
 {
 
-	ILI9341_Draw_Text("FREQUENCY PRESET", 	30, 10, WHITE, 3, BLACK);
+	ILI9341_Draw_Text("OUT->FREQ->PRESET", 	10, 10, WHITE, 2, BLACK);
 	uint8_t menu_pos_y1 = 50;
 	uint8_t menu_pos_y2 = 70;
 	uint8_t menu_pos_y3 = 90;
@@ -350,7 +352,11 @@ void FreqMenu_DrawPresetMenu()
  */
 void FreqMenu_DrawAdjustMenu()
 {
-	ILI9341_Draw_Text("FREQUENCY ADJUST", 	30, 10, WHITE, 3, BLACK);
+	ILI9341_Draw_Text("OUT->FREQ->ADJUST", 10, 10, WHITE, 2, BLACK);
+
+	DM_DisplayFormattedOutput();
+
+
 /*	ILI9341_Draw_Text("Output Signal Freq: ", 	10, 150, BLACK, 1, WHITE);
 
 	char freq[6] = "";
@@ -371,7 +377,7 @@ void FreqMenu_DrawAdjustMenu()
  */
 void FreqMenu_DrawSweepMenu()
 {
-	ILI9341_Draw_Text("FREQUENCY SWEEP", 	10, 10, BLACK, 3, WHITE);
+	ILI9341_Draw_Text("OUT->FREQ->SWEEP", 	10, 10, WHITE, 2, BLACK);
 
 
 	// draw enabled status

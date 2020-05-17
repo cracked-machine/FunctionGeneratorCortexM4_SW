@@ -20,6 +20,14 @@ uint16_t btn3_last_interrupt_time = 0;
 uint16_t btn4_last_interrupt_time = 0;
 uint16_t encbtn_last_interrupt_time = 0;
 
+
+void IM_Init()
+{
+	  // debounce timer
+	  DEBOUNCE_TIMER->CR1 |= TIM_CR1_CEN;
+}
+
+
 void 	IM_SWEEPINCREMENT_TIM_IRQHandler()
 {
 	if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)

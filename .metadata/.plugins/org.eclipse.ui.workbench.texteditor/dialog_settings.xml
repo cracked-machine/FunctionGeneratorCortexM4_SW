@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="htim17"/>
+		<item key="selection" value="OUTPUT_TIMER"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="htim17"/>
+			<item value="OUTPUT_TIMER"/>
+			<item value="_HANDLE_"/>
+			<item value="__HANDLE__"/>
+			<item value="tim8_freq"/>
+			<item value="tim8_arr"/>
+			<item value="tim8_psc"/>
+			<item value="TIM8"/>
+			<item value="htim3"/>
+			<item value="TIM3"/>
 			<item value="htim16"/>
-			<item value="pNewFreqPresetEncoderPos"/>
-			<item value="Freq_Preset_Encoder_Pos_t"/>
-			<item value="eFreq_Preset"/>
-			<item value="eFreqSettings_t"/>
-			<item value="eOutput_gain"/>
-			<item value="eGainSettings_t"/>
-			<item value="amp_offset"/>
-			<item value="Vpp_literal"/>
-			<item value="preset"/>
-			<item value="SIGNAL_OUTPUT_PRESET"/>
-			<item value="Gain_Preset_Encoder_Pos_t"/>
-			<item value="VppEncoderPreset_t"/>
-			<item value="Func_Preset_Encoder_Pos_t"/>
+			<item value="htim5"/>
+			<item value="ENABLE_FUNC_MAIN_MENU"/>
+			<item value="ENABLE_GAIN_MAIN_MENU"/>
+			<item value="eNextFreqMenuStatus"/>
+			<item value="ENCODER_TIMER-&gt;CNT"/>
 		</list>
 		<list key="replacehistory">
+			<item value="output_tm_freq"/>
+			<item value="output_tm_arr"/>
+			<item value="output_tm_psc"/>
+			<item value="OUTPUT_TIMER"/>
+			<item value="SWEEP_TIMER"/>
+			<item value="SYSTEM_DEBUG_ENABLED"/>
 			<item value="freq_profile"/>
 			<item value="FreqProfile_t"/>
 			<item value="eFreqSettings_t"/>
@@ -34,12 +40,6 @@
 			<item value="GainProfile_t"/>
 			<item value="AmplitudeProfile_t"/>
 			<item value="FunctionProfile_t"/>
-			<item value="hdac2"/>
-			<item value="VPP_ApplyPresetToSync"/>
-			<item value=" dBmV"/>
-			<item value="+"/>
-			<item value="pSignalFuncPresetEncoderPos"/>
-			<item value="FuncO_ApplyPresetToSync"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

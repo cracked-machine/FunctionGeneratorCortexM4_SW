@@ -1,6 +1,8 @@
 /*
  * GainMenus.h
  *
+ *	Declares draw functions for Gain menu and its sub menus: GainSignal and GainSync
+ *
  *  Created on: 15 May 2020
  *      Author: chris
  */

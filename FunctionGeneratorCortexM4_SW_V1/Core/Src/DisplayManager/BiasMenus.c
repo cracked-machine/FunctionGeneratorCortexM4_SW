@@ -44,6 +44,8 @@ void BiasMenu_DrawMenu(eBiasMenu_Status pMenu)
  */
 void BiasMenu_DrawMainMenu()
 {
-	ILI9341_Draw_Text("ADJUST DC BIAS", 	30, 10, WHITE, 3, BLACK);
+	ILI9341_Draw_Text("OUT->BIAS", 	10, 10, WHITE, 2, BLACK);
+
+	DM_DisplayFormattedOutput();
 
 }
