@@ -72,7 +72,7 @@
 
 /* USER CODE BEGIN PV */
 
-uint8_t sin1_max_arr = 64;
+uint8_t sin1_MAX_OUTPUT_ARR = 64;
 uint32_t trigger_input[TRIGGER_DATA_SIZE];
 
 /* USER CODE END PV */
@@ -150,7 +150,7 @@ int main(void)
   FuncO_ApplyPresetToSignal(eDefaultFuncPreset);
   FuncO_ApplyPresetToSync(eDefaultFuncPreset);
 
-  //TIM8->ARR = sin1_max_arr;
+  //TIM8->ARR = sin1_MAX_OUTPUT_ARR;
 
   // DC bias output (internal)
   HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);

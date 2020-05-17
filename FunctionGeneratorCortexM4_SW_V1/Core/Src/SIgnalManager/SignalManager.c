@@ -13,13 +13,6 @@
 sOutputChannel_t SignalChannel;
 sOutputChannel_t SyncChannel;
 
-//uint16_t min_arr = 3555;		//50KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
-uint16_t min_arr = 16800;		//10KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
-//uint16_t min_arr = 33600;		//5KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
-//uint16_t min_arr = 84000;		//2KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
-//uint16_t min_arr = 16800;		//1KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
-
-uint32_t max_arr = 0xFFFF;
 
 
 void SM_Init()
@@ -99,4 +92,19 @@ float SM_GetOutputInHertz()
 	return output_tm_freq / SM_FSAMP;
 }
 
+
+float SM_ConvertPeriodToHertz(uint32_t period, uint16_t psc)
+{
+	(psc == 0) ? (psc = 1) : psc;
+
+	return (float)SM_MCLK / ( (float)psc * (float)period );
+}
+
+
+uint16_t SM_ConvertHertzToPeriod(float hertz, uint16_t psc)
+{
+	(psc == 0) ? (psc = 1) : psc;
+
+	return (SM_MCLK / hertz) / psc;
+}
 

@@ -288,38 +288,45 @@ void DM_UpdateDisplay()
  */
 void DM_DisplayFormattedOutput()
 {
-	char out_hertz[13] = "";
-	uint8_t out_hertz_x = 70;
+	uint8_t text_size = 2;
+
+	char out_hertz[15] = "";
+	uint8_t out_hertz_x = 150;
 	uint8_t out_hertz_y = 40;
 
-	char out_vpp[16] = "";
-	uint8_t out_vpp_x = 70;
+	char out_vpp[18] = "";
+	uint8_t out_vpp_x = 150;
 	uint8_t out_vpp_y = 70;
 
-	char out_decibels[11] = "";
-	uint8_t out_decibels_x = 70;
+	char out_decibels[13] = "";
+	uint8_t out_decibels_x = 150;
 	uint8_t out_decibels_y = 100;
 
 
 	float volts_per_thou = 0.00075;
-	char out_dcvolts[10] = "";
-	uint8_t out_dcvolts_x = 70;
+	char out_dcvolts[12] = "";
+	uint8_t out_dcvolts_x = 150;
 	uint8_t out_dcvolts_y = 130;
 
+	ILI9341_Draw_Text(" FREQ:", 10, out_hertz_y , BLACK, text_size, WHITE);
+	ILI9341_Draw_Text(" VPP:", 10, out_vpp_y, BLACK, text_size, WHITE);
+	ILI9341_Draw_Text(" GAIN:", 10, out_decibels_y, BLACK, text_size, WHITE);
+	ILI9341_Draw_Text(" OFFSET:", 10, out_dcvolts_y, BLACK, text_size, WHITE);
+
 	// display output in hertz
-	snprintf(out_hertz, sizeof(out_hertz), "%4.2f Hz", SM_GetOutputInHertz());
-	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, BLACK, 3, WHITE);
+	snprintf(out_hertz, sizeof(out_hertz), " %4.2f Hz ", SM_GetOutputInHertz());
+	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, BLACK, text_size, WHITE);
 
 	// display output in volts peak-to-peak and decibels
 	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile;
 
 	if(pTmpVppPreset)
 	{
-		snprintf(out_vpp, sizeof(out_vpp), "%2.2f Vpp", pTmpVppPreset->amp_value);
-		snprintf(out_decibels, sizeof(out_decibels), "%s", pTmpVppPreset->gain_decibels);
+		snprintf(out_vpp, sizeof(out_vpp), " %2.2f V ", pTmpVppPreset->amp_value);
+		snprintf(out_decibels, sizeof(out_decibels), " %s ", pTmpVppPreset->gain_decibels);
 	}
-	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, BLACK, 3, WHITE);
-	ILI9341_Draw_Text(out_decibels, out_decibels_x, out_decibels_y, BLACK, 3, WHITE);
+	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, BLACK, text_size, WHITE);
+	ILI9341_Draw_Text(out_decibels, out_decibels_x, out_decibels_y, BLACK, text_size, WHITE);
 
 
 
@@ -327,16 +334,16 @@ void DM_DisplayFormattedOutput()
 	float dc_volts;
 	(BO_GetOutputBias() == 0) ? (dc_volts = 0) : (dc_volts = volts_per_thou * (float)BO_GetOutputBias());
 
-	snprintf(out_dcvolts, sizeof(out_dcvolts), "%1.4f v", dc_volts);
+	snprintf(out_dcvolts, sizeof(out_dcvolts), " %1.4f v ", dc_volts);
 	if(BO_GetBiasPolarity())
 	{
-		char symbol[2] = "+\0";
-		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, 3, WHITE);
+		char symbol[3] = " +\0";
+		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, text_size, WHITE);
 	}
 	else
 	{
-		char symbol[2] = "-\0";
-		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, 3, WHITE);
+		char symbol[3] = " -\0";
+		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, text_size, WHITE);
 	}
 
 }

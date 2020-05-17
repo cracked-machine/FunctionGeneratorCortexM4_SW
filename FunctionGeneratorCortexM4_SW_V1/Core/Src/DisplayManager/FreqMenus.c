@@ -59,7 +59,7 @@ void FreqMenu_DrawMainMenu()
 {
 	// main
 	ILI9341_Draw_Text("OUT->FREQ", 	10, 10, WHITE, 2, BLACK);
-	ILI9341_Draw_Text("Select an option below", 	30, 165, BLACK, 2, WHITE);
+//	ILI9341_Draw_Text("Select an option below", 	30, 165, BLACK, 2, WHITE);
 
 	DM_DisplayFormattedOutput();
 
@@ -381,17 +381,19 @@ void FreqMenu_DrawSweepMenu()
 
 
 	// draw enabled status
-	char enabled_text[16] = "";
+
+
+	char enabled_text[20] = "";
 	if((SWEEP_TIMER->CR1 & TIM_CR1_CEN) == TIM_CR1_CEN)
 	{
-		snprintf(enabled_text, sizeof(enabled_text), "SWEEP  ENABLED");
+		snprintf(enabled_text, sizeof(enabled_text), "STATUS:  RUNNING");
 	}
 	else
 	{
-		snprintf(enabled_text, sizeof(enabled_text), "SWEEP DISABLED");
+		snprintf(enabled_text, sizeof(enabled_text), "STATUS:  STOPPED");
 	}
 
-	ILI9341_Draw_Text(enabled_text, 10, 50, BLACK, 2, WHITE);
+	ILI9341_Draw_Text(enabled_text, 10, 40, BLACK, 2, WHITE);
 
 
 
@@ -401,7 +403,7 @@ void FreqMenu_DrawSweepMenu()
 	if((SWEEP_TIMER->CR1 & TIM_CR1_CMS_0) == TIM_CR1_CMS_0)
 	{
 		// direction not relevant in center-alligned mode (bi-directional)
-		snprintf(mode_text, sizeof(mode_text), "DIRECTION: BOTH");
+		snprintf(mode_text, sizeof(mode_text), "MODE: BOTH");
 		//snprintf(dir_text, sizeof(dir_text), "DIRECTION:  N/A");
 	}
 	else
@@ -411,25 +413,59 @@ void FreqMenu_DrawSweepMenu()
 
 		// get direction
 		if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)
-			snprintf(mode_text, sizeof(mode_text), "DIRECTION: DOWN");
+			snprintf(mode_text, sizeof(mode_text), "MODE: DOWN");
 		else
-			snprintf(mode_text, sizeof(mode_text), "DIRECTION:   UP");
+			snprintf(mode_text, sizeof(mode_text), "MODE:   UP");
 
 	}
 
-	ILI9341_Draw_Text(mode_text, 10, 80, BLACK, 2, WHITE);
+	ILI9341_Draw_Text(mode_text, 10, 60, BLACK, 2, WHITE);
 
 	// draw rate status
-	char arr_text[20] = "";
-	snprintf(arr_text, sizeof(arr_text), "RATE: %1.4f Hertz", calculated_sweep_in_hertz);
-	ILI9341_Draw_Text(arr_text, 10, 110, BLACK, 2, WHITE);
+	if(theCurrentEncoderSweepFunction == ENCODER_SWEEP_SPEED_FUNCTION)
+	{
+		ILI9341_Draw_Text("SWEEP", 10, 80, WHITE, 2, BLACK);
+	}
+	else
+	{
+		ILI9341_Draw_Text("SWEEP", 10, 80, BLACK, 2, WHITE);
+	}
+	char arr_text[25] = "";
+	snprintf(arr_text, sizeof(arr_text), "   %1.2f Hz", calculated_sweep_in_hertz);
+	ILI9341_Draw_Text(arr_text, 70, 80, BLACK, 2, WHITE);
 
 	// draw output freq status
+	char out_hertz[25] = "";
+	snprintf(out_hertz, sizeof(out_hertz), "OUTPUT: %7.2f Hz", SM_GetOutputInHertz());
+	ILI9341_Draw_Text(out_hertz, 10, 100, BLACK, 2, WHITE);
 
-	char out_hertz[20] = "";
-	snprintf(out_hertz, sizeof(out_hertz), "OUT: %7.2f Hertz", SM_GetOutputInHertz());
-	ILI9341_Draw_Text(out_hertz, 10, 140, BLACK, 2, WHITE);
 
+	// draw lower sweep bounds
+	if( (theCurrentEncoderSweepFunction == ENCODER_SWEEP_LIMIT_FUNCTION) && (active_sweep_mode == SWEEP_MODE_UP) )
+	{
+		ILI9341_Draw_Text("UPPER", 10, 120, WHITE, 2, BLACK);
+	}
+	else
+	{
+		ILI9341_Draw_Text("UPPER", 10, 120, BLACK, 2, WHITE);
+	}
+	char sweep_lower_text[20] = "";
+	snprintf(sweep_lower_text, sizeof(sweep_lower_text), "   %7.2f Hz", SM_ConvertPeriodToHertz(sweep_lower_arr_bounds, OUTPUT_TIMER->PSC) /SM_FSAMP);
+	ILI9341_Draw_Text(sweep_lower_text, 70, 120, BLACK, 2, WHITE);
+
+
+	// draw upper sweep bounds
+	if( (theCurrentEncoderSweepFunction == ENCODER_SWEEP_LIMIT_FUNCTION) && (active_sweep_mode == SWEEP_MODE_DOWN) )
+	{
+		ILI9341_Draw_Text("LOWER", 10, 140, WHITE, 2, BLACK);
+	}
+	else
+	{
+		ILI9341_Draw_Text("LOWER", 10, 140, BLACK, 2, WHITE);
+	}
+	char sweep_upper_text[20] = "";
+	snprintf(sweep_upper_text, sizeof(sweep_upper_text), "   %7.2f Hz", SM_ConvertPeriodToHertz(sweep_upper_arr_bounds, OUTPUT_TIMER->PSC) /SM_FSAMP );
+	ILI9341_Draw_Text(sweep_upper_text, 70, 140, BLACK, 2, WHITE);
 
 
 	// draw bottom menu button text
@@ -439,8 +475,8 @@ void FreqMenu_DrawSweepMenu()
 		ILI9341_Draw_Text("RESUME", 5, 210, BLACK, 2, DARKCYAN);
 
 	ILI9341_Draw_Text("MODE", 95, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("LOWER", 173, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("UPPER", 250, 210, BLACK, 2, RED);
-
+	ILI9341_Draw_Text("SWEEP", 173, 210, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("UPPER", 250, 204, BLACK, 2, RED);
+	ILI9341_Draw_Text("LOWER", 250, 221, BLACK, 2, RED);
 }
 

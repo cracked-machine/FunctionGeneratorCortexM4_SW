@@ -56,7 +56,9 @@ typedef enum
 	evEncoderPush,				// user presses button. return to main screen. All menus closed.
 
 	evSweepEnable,
-	evSweepMode,				// up, down, bi-direction
+	evSweepMode,				// direction
+	evSweepSpeedBtn,
+	evSweepLimitBtn,
 
 	evSweepSpeed,
 

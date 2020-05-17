@@ -339,28 +339,25 @@ void EM_ProcessEvent()
 			{
 				// enable
 				eNextState = FreqSweepMenuInputHandler(evSweepEnable);
-
 			}
 			if(eNewEvent == evGreenBtn)
 			{
-				// center-aligned mode
+				// direction
 				eNextState = FreqSweepMenuInputHandler(evSweepMode);
-
 			}
 			if(eNewEvent == evYellowBtn)
 			{
-				// direction
-				//eNextState = FreqSweepMenuInputHandler();
-
+				// set lower bounds
+				eNextState = FreqSweepMenuInputHandler(evSweepSpeedBtn);
 			}
 			if(eNewEvent == evRedBtn)
 			{
-				// no event action
+				// set higher bounds
+				eNextState = FreqSweepMenuInputHandler(evSweepLimitBtn);
 			}
 			if(eNewEvent == evEncoderSet)
 			{
 				eNextState = FreqSweepMenuInputHandler(evSweepSpeed);
-
 			}
 			if(eNewEvent == evEncoderPush)
 			{

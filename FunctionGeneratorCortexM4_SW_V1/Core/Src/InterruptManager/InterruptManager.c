@@ -9,6 +9,7 @@
 #include "InterruptManager.h"
 #include "EventManager.h"
 #include "SignalManager.h"
+#include "FreqMenuStateHandler.h"
 
 #include <stdio.h>
 
@@ -28,18 +29,44 @@ void IM_Init()
 }
 
 
-void 	IM_SWEEPINCREMENT_TIM_IRQHandler()
+void IM_SWEEPINCREMENT_TIM_IRQHandler()
 {
+	// upcounter (decreasing freq)
 	if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)
 	{
-		OUTPUT_TIMER->ARR++;
+		// if we reach lower freq limit for sweep, reset to highest freq limit
+		if(OUTPUT_TIMER->ARR >= sweep_upper_arr_bounds)
+		{
+			OUTPUT_TIMER->ARR = sweep_lower_arr_bounds;
+		}
+		else
+		{
+			// keep decreasing freq
+			OUTPUT_TIMER->ARR++;
+		}
 	}
+	// downcounter (increasing freq)
 	else
 	{
+		// stop before reaching null ARR
 		if(OUTPUT_TIMER->ARR == 0x1U)
-			OUTPUT_TIMER->ARR = max_arr;
+		{
+			// reset to lowest freq
+			OUTPUT_TIMER->ARR = MAX_OUTPUT_ARR;
+		}
 		else
-			OUTPUT_TIMER->ARR--;
+		{
+			// if we reach higher freq limit for sweep, reset to lowest freq limit
+			if(OUTPUT_TIMER->ARR <= sweep_lower_arr_bounds)
+			{
+				OUTPUT_TIMER->ARR = sweep_upper_arr_bounds;
+			}
+			// keep increasing freq
+			else
+			{
+				OUTPUT_TIMER->ARR--;
+			}
+		}
 	}
 
 	//SWEEP_TIMER->ARR--;

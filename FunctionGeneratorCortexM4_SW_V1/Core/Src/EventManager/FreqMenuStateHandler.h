@@ -33,13 +33,24 @@ typedef enum
 
 eFreqSweepModes active_sweep_mode;
 
-uint16_t min_arr;
-uint32_t max_arr;
+
+
 float rate_coeff;
+
+// lower/upper bounds for the freq sweep
+float sweep_lower_arr_bounds;		// higher freq
+float sweep_upper_arr_bounds;		// lower freq
 
 float calculated_sweep_in_hertz;
 
+typedef enum
+{
+	ENCODER_SWEEP_SPEED_FUNCTION = 0U,
+	ENCODER_SWEEP_LIMIT_FUNCTION
+} eEncoderSweepFunctions;
 
+eFreqSweepModes active_sweep_mode;
+eEncoderSweepFunctions theCurrentEncoderSweepFunction;
 
 eFreqMenu_Status FreqMenu_getStatus();
 
@@ -55,6 +66,9 @@ eSystemState FreqAdjustMenuExitHandler();
 eSystemState FreqSweepMenuEntryHandler();
 eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent);
 eSystemState FreqSweepMenuExitHandler();
+
+void _setSweepModeUp();
+void _setSweepModeDown();
 
 
 #endif /* SRC_EVENTMANAGER_FREQMENUSTATEHANDLER_H_ */

@@ -30,9 +30,21 @@
 #define eDefaultVppPreset 	VPP90
 
 
-uint16_t min_arr;
+// shortest output period permitted
+#define MIN_OUTPUT_ARR 	13		//107KHz if SM_CLKC=168000000 and OUTPUT_TIMER->PSC=0
 
-uint32_t max_arr;
+// longest output period permitted
+#define MAX_OUTPUT_ARR 0xFFFF
+
+// shortest sweep period permitted
+//#define MIN_SWEEP_ARR = 3555		//50KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+#define MIN_SWEEP_ARR 	16800		//10KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+//#define MIN_SWEEP_ARR	33600		//5KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+//#define MIN_SWEEP_ARR	84000		//2KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+//#define MIN_SWEEP_ARR	16800		//1KHz if SM_CLKC=168000000 and SWEEP_TIMER->PSC=0
+
+// longest sweep period permitted
+#define MAX_SWEEP_ARR 0xFFFFFFF
 
 typedef enum
 {
@@ -76,6 +88,9 @@ sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel);
 
 uint16_t SM_GetEncoderValue(eEncoder_Direction direction);
 float SM_GetOutputInHertz();
+
+float SM_ConvertPeriodToHertz(uint32_t period, uint16_t psc);
+uint16_t SM_ConvertHertzToPeriod(float hertz, uint16_t psc);
 
 
 #endif /* SRC_SIGNALMANAGER_SIGNALMANAGER_H_ */

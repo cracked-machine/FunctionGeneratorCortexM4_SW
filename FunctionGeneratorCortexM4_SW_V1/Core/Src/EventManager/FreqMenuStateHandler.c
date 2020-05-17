@@ -12,14 +12,22 @@
 #include <stdio.h>
 
 
+float sweep_lower_arr_bounds = MIN_OUTPUT_ARR;		// higher freq
+float sweep_upper_arr_bounds = MAX_OUTPUT_ARR;		// lower freq
 
 eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
 eFreqSweepModes active_sweep_mode = SWEEP_MODE_UP;
-
+eEncoderSweepFunctions theCurrentEncoderSweepFunction = ENCODER_SWEEP_SPEED_FUNCTION;
 
 
 #define RATE_COEF	32	// how much the encoder increments/decrements per pulse
 #define RATE_DELTA	1.1	// how much we increment/decrement by
+
+/*
+ * 	Function prototypes
+ */
+void _setSweepModeUp();
+void _setSweepModeDown();
 
 eFreqMenu_Status FreqMenu_getStatus()
 {
@@ -270,13 +278,13 @@ eSystemState FreqSweepMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	// enable the sweep timer
-	//HAL_TIM_Base_Start_IT(&htim3);
-	//SWEEP_TIMER->DIER 	|= (TIM_DIER_UIE);
-	//SWEEP_TIMER->CR1 	|= (TIM_CR1_CEN);
+	if( sweep_upper_arr_bounds != OUTPUT_TIMER->ARR)
+		sweep_upper_arr_bounds  = OUTPUT_TIMER->ARR;
 
-	// pause sweep, wait for user input (evSweepEnable) to restart
-	//SWEEP_TIMER->CR1 ^= TIM_CR1_CEN;
+	if( sweep_upper_arr_bounds == MIN_OUTPUT_ARR)
+	{
+		_setSweepModeDown();
+	}
 
 	// encoder start value
 	ENCODER_TIMER->CNT = 1;
@@ -287,7 +295,7 @@ eSystemState FreqSweepMenuEntryHandler()
 	SWEEP_TIMER->CNT = 0;
 
 	// sweep start speed
-	SWEEP_TIMER->ARR = min_arr;
+	SWEEP_TIMER->ARR = MIN_SWEEP_ARR;
 	SWEEP_TIMER->PSC = 0;
 
 	// do stuff
@@ -340,32 +348,18 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			// flip between 0:Upcounter and 1:Downcounter
 			active_sweep_mode ^= 1U;
 
-/*			active_sweep_mode++;
-			if(active_sweep_mode > 3)
-				active_sweep_mode = 0;
-*/
-
 			switch(active_sweep_mode)
 			{
 				case SWEEP_MODE_DOWN:
 
-					// "Center-aligned" mode sets direction register to readonly,
-					// so disable "Center-aligned" mode first
-					SWEEP_TIMER->CR1 &= ~((TIM_CR1_CMS_0) | (TIM_CR1_CMS_1));
+					_setSweepModeDown();
 
-					// 0: Counter used as upcounter
-					SWEEP_TIMER->CR1 |= (TIM_CR1_DIR);
 
 					break;
 
 				case SWEEP_MODE_UP:
 
-					// "Center-aligned" mode sets direction register to readonly,
-					// so disable "Center-aligned" mode first
-					SWEEP_TIMER->CR1 &= ~((TIM_CR1_CMS_0) | (TIM_CR1_CMS_1));
-
-					// 1: Counter used as downcounter
-					SWEEP_TIMER->CR1 &= ~(TIM_CR1_DIR);
+					_setSweepModeUp();
 
 					break;
 
@@ -378,43 +372,83 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 
 			break;
 
-
-
 		case evSweepSpeed:
 
 			#ifdef SWV_DEBUG_ENABLED
 				printf("evSweepSpeed captured\n");
 			#endif
 
-			// adjust speed to rotary encoder position
-			// clamp SWEEP_TIMER->ARR to:  4095 < SWEEP_TIMER speed < 65535
-
-/*			if(SWEEP_TIMER->ARR >= min_arr)
+			switch(theCurrentEncoderSweepFunction)
 			{
-				uint32_t next_SWEEP_TIMER_value = min_arr + (ENCODER_TIMER->CNT * rate_coeff);
-				if((next_SWEEP_TIMER_value) > max_arr)
-				{
-					SWEEP_TIMER->ARR = max_arr;
-				}
-				else
-				{
-					SWEEP_TIMER->ARR = next_SWEEP_TIMER_value;
-				}
+				case ENCODER_SWEEP_SPEED_FUNCTION:
+
+					SWEEP_TIMER->ARR = MIN_SWEEP_ARR + ((ENCODER_TIMER->CNT*ENCODER_TIMER->CNT*ENCODER_TIMER->CNT));
+
+
+					if(SWEEP_TIMER->PSC == 0)
+					{
+						calculated_sweep_in_hertz = (float)SM_MCLK / ((float)1 * (float)SWEEP_TIMER->ARR);
+					}
+					else
+					{
+						calculated_sweep_in_hertz = (float)SM_MCLK / ((float)SWEEP_TIMER->PSC * (float)SWEEP_TIMER->ARR);
+					}
+
+					break;
+
+				case ENCODER_SWEEP_LIMIT_FUNCTION:
+						switch(active_sweep_mode)
+						{
+
+							case SWEEP_MODE_UP:
+									if(ENCODER_TIMER->CNT < sweep_upper_arr_bounds)
+										sweep_lower_arr_bounds = ENCODER_TIMER->CNT;
+
+
+								break;
+
+							case SWEEP_MODE_DOWN:
+									if(ENCODER_TIMER->CNT > sweep_lower_arr_bounds)
+										sweep_upper_arr_bounds = ENCODER_TIMER->CNT;
+								break;
+							default:
+								break;
+						}
+					break;
+
 			}
-			else
+
+
+
+			break;
+
+		case evSweepSpeedBtn:
+			theCurrentEncoderSweepFunction = ENCODER_SWEEP_SPEED_FUNCTION;
+			ENCODER_TIMER->CNT = 1;
+			break;
+
+		case evSweepLimitBtn:
+			theCurrentEncoderSweepFunction = ENCODER_SWEEP_LIMIT_FUNCTION;
+
+			switch(active_sweep_mode)
 			{
-				SWEEP_TIMER->ARR = min_arr;
+
+				case SWEEP_MODE_UP:
+					// if encoder position is above the lower bounds set it below it
+						if(ENCODER_TIMER->CNT > sweep_upper_arr_bounds)
+							 ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
+
+
+					break;
+
+				case SWEEP_MODE_DOWN:
+						// if encoder position is below the lower bounds set it above it
+						if(ENCODER_TIMER->CNT < sweep_lower_arr_bounds)
+							ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
+					break;
+				default:
+					break;
 			}
-*/
-
-			SWEEP_TIMER->ARR = min_arr + ((ENCODER_TIMER->CNT*ENCODER_TIMER->CNT*ENCODER_TIMER->CNT));
-
-
-			if(SWEEP_TIMER->PSC == 0)
-				calculated_sweep_in_hertz = (float)SM_MCLK / ((float)1 * (float)SWEEP_TIMER->ARR);
-			else
-				calculated_sweep_in_hertz = (float)SM_MCLK / ((float)SWEEP_TIMER->PSC * (float)SWEEP_TIMER->ARR);
-
 
 			break;
 
@@ -459,3 +493,30 @@ eSystemState FreqSweepMenuExitHandler()
 	return Freq_Main_Menu_State;
 }
 
+void _setSweepModeDown()
+{
+	// "Center-aligned" mode sets direction register to readonly,
+	// so disable "Center-aligned" mode first
+	SWEEP_TIMER->CR1 &= ~((TIM_CR1_CMS_0) | (TIM_CR1_CMS_1));
+
+	// 0: Counter used as upcounter
+	SWEEP_TIMER->CR1 |= (TIM_CR1_DIR);
+
+	sweep_lower_arr_bounds  = OUTPUT_TIMER->ARR;
+	sweep_upper_arr_bounds  = MAX_OUTPUT_ARR;
+}
+
+void _setSweepModeUp()
+{
+
+	// "Center-aligned" mode sets direction register to readonly,
+	// so disable "Center-aligned" mode first
+	SWEEP_TIMER->CR1 &= ~((TIM_CR1_CMS_0) | (TIM_CR1_CMS_1));
+
+	// 1: Counter used as downcounter
+	SWEEP_TIMER->CR1 &= ~(TIM_CR1_DIR);
+
+	sweep_upper_arr_bounds  = OUTPUT_TIMER->ARR;
+	sweep_lower_arr_bounds  = MIN_OUTPUT_ARR;
+
+}
