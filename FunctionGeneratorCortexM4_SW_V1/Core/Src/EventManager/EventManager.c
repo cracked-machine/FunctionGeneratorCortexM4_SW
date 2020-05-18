@@ -338,26 +338,26 @@ void EM_ProcessEvent()
 			if(eNewEvent == evBlueBtn)
 			{
 				// enable
-				eNextState = FreqSweepMenuInputHandler(evSweepEnable);
+				eNextState = FreqSweepMenuInputHandler(evSweepEnableBtn);
 			}
 			if(eNewEvent == evGreenBtn)
 			{
 				// direction
-				eNextState = FreqSweepMenuInputHandler(evSweepMode);
+				eNextState = FreqSweepMenuInputHandler(evSweepModeBtn);
 			}
 			if(eNewEvent == evYellowBtn)
 			{
-				// set lower bounds
+				// set sweep speed
 				eNextState = FreqSweepMenuInputHandler(evSweepSpeedBtn);
 			}
 			if(eNewEvent == evRedBtn)
 			{
-				// set higher bounds
+				// set lower/upper sweep limit
 				eNextState = FreqSweepMenuInputHandler(evSweepLimitBtn);
 			}
 			if(eNewEvent == evEncoderSet)
 			{
-				eNextState = FreqSweepMenuInputHandler(evSweepSpeed);
+				eNextState = FreqSweepMenuInputHandler(evEncoderSweep);
 			}
 			if(eNewEvent == evEncoderPush)
 			{

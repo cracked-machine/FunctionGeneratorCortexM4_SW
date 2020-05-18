@@ -412,7 +412,7 @@ void EXTI15_10_IRQHandler(void)
 void TIM5_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM5_IRQn 0 */
-	IM_SWEEPINCREMENT_TIM_IRQHandler();
+	IM_SWEEP_UPDATE_TIM_IRQHandler();
   /* USER CODE END TIM5_IRQn 0 */
   HAL_TIM_IRQHandler(&htim5);
   /* USER CODE BEGIN TIM5_IRQn 1 */

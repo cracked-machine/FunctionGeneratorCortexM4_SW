@@ -29,15 +29,34 @@ void IM_Init()
 }
 
 
-void IM_SWEEPINCREMENT_TIM_IRQHandler()
+/*
+ *
+ *	@brief Called from TIM5_IRQHandler
+ *
+ *	This function will allow the SWEEP_TIME to update the OUTPUT_TIMER frequency
+ *
+ *	Note that OUTPUT_TIMER->ARR is not set to the SWEEP_TIME->ARR.
+ *	Instead the OUTPUT_TIMER->ARR value is incremented/decremented for every SWEEP_TIMER overflow.
+ *	This allows consistent sweep speeds.
+ *
+ *	OUTPUT_TIMER->ARR is incremented if the SWEEP_TIMER is in "upcounter" mode.
+ *	OUTPUT_TIMER->ARR is decremented if the SWEEP_TIMER is in "downcounter" mode.
+ *
+ *	It has a very low end range (32-bit SWEEP_TIMER).
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void IM_SWEEP_UPDATE_TIM_IRQHandler()
 {
 	// upcounter (decreasing freq)
 	if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)
 	{
 		// if we reach lower freq limit for sweep, reset to highest freq limit
-		if(OUTPUT_TIMER->ARR >= sweep_upper_arr_bounds)
+		if(OUTPUT_TIMER->ARR >= sweep_upper_bounds_longest_output_arr)
 		{
-			OUTPUT_TIMER->ARR = sweep_lower_arr_bounds;
+			OUTPUT_TIMER->ARR = sweep_lower_bounds_shortest_output_arr;
 		}
 		else
 		{
@@ -57,9 +76,9 @@ void IM_SWEEPINCREMENT_TIM_IRQHandler()
 		else
 		{
 			// if we reach higher freq limit for sweep, reset to lowest freq limit
-			if(OUTPUT_TIMER->ARR <= sweep_lower_arr_bounds)
+			if(OUTPUT_TIMER->ARR <= sweep_lower_bounds_shortest_output_arr)
 			{
-				OUTPUT_TIMER->ARR = sweep_upper_arr_bounds;
+				OUTPUT_TIMER->ARR = sweep_upper_bounds_longest_output_arr;
 			}
 			// keep increasing freq
 			else

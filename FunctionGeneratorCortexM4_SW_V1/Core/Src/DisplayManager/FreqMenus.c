@@ -395,12 +395,16 @@ void FreqMenu_DrawSweepMenu()
 
 	ILI9341_Draw_Text(enabled_text, 10, 40, BLACK, 2, WHITE);
 
+	// draw output freq status
+	char out_hertz[25] = "";
+	snprintf(out_hertz, sizeof(out_hertz), "OUTPUT: %7.2f Hz", SM_GetOutputInHertz());
+	ILI9341_Draw_Text(out_hertz, 10, 60, BLACK, 2, WHITE);
 
 
 	// draw mode (direction) status
-	char mode_text[16] = "";
+//	char mode_text[20] = "";
 
-	if((SWEEP_TIMER->CR1 & TIM_CR1_CMS_0) == TIM_CR1_CMS_0)
+/*	if((SWEEP_TIMER->CR1 & TIM_CR1_CMS_0) == TIM_CR1_CMS_0)
 	{
 		// direction not relevant in center-alligned mode (bi-directional)
 		snprintf(mode_text, sizeof(mode_text), "MODE: BOTH");
@@ -408,75 +412,84 @@ void FreqMenu_DrawSweepMenu()
 	}
 	else
 	{
-		// center-alligned mode disabled (uni-directional)
-
+*/
+		ILI9341_Draw_Text("SWEEP MODE:", 10, 100, BLACK, 2, WHITE);
 
 		// get direction
 		if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)
-			snprintf(mode_text, sizeof(mode_text), "MODE: DOWN");
+		{
+			ILI9341_Draw_Text("UP", 170, 100, BLACK, 2, WHITE);
+			ILI9341_Draw_Text("DOWN", 200, 100, WHITE, 2, BLACK);
+		}
 		else
-			snprintf(mode_text, sizeof(mode_text), "MODE:   UP");
+		{
+			ILI9341_Draw_Text("UP", 170, 100, WHITE, 2, BLACK);
+			ILI9341_Draw_Text("DOWN", 200, 100, BLACK, 2, WHITE);
+		}
 
-	}
+//	}
 
-	ILI9341_Draw_Text(mode_text, 10, 60, BLACK, 2, WHITE);
+
+
+
 
 	// draw rate status
 	if(theCurrentEncoderSweepFunction == ENCODER_SWEEP_SPEED_FUNCTION)
 	{
-		ILI9341_Draw_Text("SWEEP", 10, 80, WHITE, 2, BLACK);
+		ILI9341_Draw_Text("SWEEP SPEED:", 10, 120, WHITE, 2, BLACK);
 	}
 	else
 	{
-		ILI9341_Draw_Text("SWEEP", 10, 80, BLACK, 2, WHITE);
+		ILI9341_Draw_Text("SWEEP SPEED:", 10, 120, BLACK, 2, WHITE);
 	}
 	char arr_text[25] = "";
-	snprintf(arr_text, sizeof(arr_text), "   %1.2f Hz", calculated_sweep_in_hertz);
-	ILI9341_Draw_Text(arr_text, 70, 80, BLACK, 2, WHITE);
-
-	// draw output freq status
-	char out_hertz[25] = "";
-	snprintf(out_hertz, sizeof(out_hertz), "OUTPUT: %7.2f Hz", SM_GetOutputInHertz());
-	ILI9341_Draw_Text(out_hertz, 10, 100, BLACK, 2, WHITE);
+	snprintf(arr_text, sizeof(arr_text), " %8.3f Hz", calculated_sweep_in_hertz);
+	ILI9341_Draw_Text(arr_text, 170, 120, BLACK, 2, WHITE);
 
 
 	// draw lower sweep bounds
 	if( (theCurrentEncoderSweepFunction == ENCODER_SWEEP_LIMIT_FUNCTION) && (active_sweep_mode == SWEEP_MODE_UP) )
 	{
-		ILI9341_Draw_Text("UPPER", 10, 120, WHITE, 2, BLACK);
+		ILI9341_Draw_Text("SWEEP UPPER:", 10, 140, WHITE, 2, BLACK);	// highlighted
+		//ILI9341_Draw_Arrow(ARROW_UP, 280, 120, 10, BLACK);
 	}
 	else
 	{
-		ILI9341_Draw_Text("UPPER", 10, 120, BLACK, 2, WHITE);
+		ILI9341_Draw_Text("SWEEP UPPER:", 10, 140, BLACK, 2, WHITE);
 	}
 	char sweep_lower_text[20] = "";
-	snprintf(sweep_lower_text, sizeof(sweep_lower_text), "   %7.2f Hz", SM_ConvertPeriodToHertz(sweep_lower_arr_bounds, OUTPUT_TIMER->PSC) /SM_FSAMP);
-	ILI9341_Draw_Text(sweep_lower_text, 70, 120, BLACK, 2, WHITE);
+	snprintf(sweep_lower_text, sizeof(sweep_lower_text), " %7.2f Hz", SM_ConvertPeriodToHertz(sweep_lower_bounds_shortest_output_arr, OUTPUT_TIMER->PSC) /SM_FSAMP);
+	ILI9341_Draw_Text(sweep_lower_text, 170, 140, BLACK, 2, WHITE);
 
 
 	// draw upper sweep bounds
 	if( (theCurrentEncoderSweepFunction == ENCODER_SWEEP_LIMIT_FUNCTION) && (active_sweep_mode == SWEEP_MODE_DOWN) )
 	{
-		ILI9341_Draw_Text("LOWER", 10, 140, WHITE, 2, BLACK);
+		ILI9341_Draw_Text("SWEEP LOWER:", 10, 160, WHITE, 2, BLACK); 	// highlighted
+		//ILI9341_Draw_Arrow(ARROW_DOWN, 280, 130, 10, BLACK);
 	}
 	else
 	{
-		ILI9341_Draw_Text("LOWER", 10, 140, BLACK, 2, WHITE);
+		ILI9341_Draw_Text("SWEEP LOWER:", 10, 160, BLACK, 2, WHITE);
 	}
 	char sweep_upper_text[20] = "";
-	snprintf(sweep_upper_text, sizeof(sweep_upper_text), "   %7.2f Hz", SM_ConvertPeriodToHertz(sweep_upper_arr_bounds, OUTPUT_TIMER->PSC) /SM_FSAMP );
-	ILI9341_Draw_Text(sweep_upper_text, 70, 140, BLACK, 2, WHITE);
+	snprintf(sweep_upper_text, sizeof(sweep_upper_text), " %7.2f Hz", SM_ConvertPeriodToHertz(sweep_upper_bounds_longest_output_arr, OUTPUT_TIMER->PSC) /SM_FSAMP );
+	ILI9341_Draw_Text(sweep_upper_text, 170, 160, BLACK, 2, WHITE);
 
 
 	// draw bottom menu button text
 	if((SWEEP_TIMER->CR1 & TIM_CR1_CEN) == TIM_CR1_CEN)
-		ILI9341_Draw_Text("PAUSE ", 6, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("PAUSE ", 6, 213, BLACK, 2, DARKCYAN);
 	else
-		ILI9341_Draw_Text("RESUME", 5, 210, BLACK, 2, DARKCYAN);
+		ILI9341_Draw_Text("RESUME", 5, 213, BLACK, 2, DARKCYAN);
 
-	ILI9341_Draw_Text("MODE", 95, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("SWEEP", 173, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("UPPER", 250, 204, BLACK, 2, RED);
-	ILI9341_Draw_Text("LOWER", 250, 221, BLACK, 2, RED);
+	ILI9341_Draw_Text("SET", 	105,	204, BLACK, 2, DARKGREEN);
+	ILI9341_Draw_Text("MODE",	98, 	222, BLACK, 2, DARKGREEN);
+
+	ILI9341_Draw_Text("SET", 	183,	204, BLACK, 2, YELLOW);
+	ILI9341_Draw_Text("SPEED",	173, 	222, BLACK, 2, YELLOW);
+
+	ILI9341_Draw_Text("SET", 	263, 	204, BLACK, 2, RED);
+	ILI9341_Draw_Text("LIMIT", 	252, 	222, BLACK, 2, RED);
 }
 

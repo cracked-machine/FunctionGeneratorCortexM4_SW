@@ -49,8 +49,19 @@
 
 #include "stm32g4xx_hal.h"
 
+typedef enum
+{
+	ARROW_DOWN = 0U,
+	ARROW_LEFT,
+	ARROW_UP,
+	ARROW_RIGHT
+} eILI9341_ArrowDirections_t;
+
+
 #define HORIZONTAL_IMAGE	0
 #define VERTICAL_IMAGE		1
+
+void ILI9341_Draw_Arrow(eILI9341_ArrowDirections_t dir, uint16_t x, uint16_t y, uint16_t len, uint16_t fcolour);
 
 void ILI9341_Draw_Hollow_Circle(uint16_t x, uint16_t Y, uint16_t Radius, uint16_t colour);
 void ILI9341_Draw_Filled_Circle(uint16_t x, uint16_t Y, uint16_t Radius, uint16_t colour);

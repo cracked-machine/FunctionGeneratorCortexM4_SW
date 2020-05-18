@@ -37,9 +37,9 @@ eFreqSweepModes active_sweep_mode;
 
 float rate_coeff;
 
-// lower/upper bounds for the freq sweep
-float sweep_lower_arr_bounds;		// higher freq
-float sweep_upper_arr_bounds;		// lower freq
+// these store shortest/longest ARR values that the sweep function will set to the OUTPUT_TIMER->ARR.
+float sweep_lower_bounds_shortest_output_arr;		// higher freq
+float sweep_upper_bounds_longest_output_arr;		// lower freq
 
 float calculated_sweep_in_hertz;
 

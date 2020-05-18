@@ -57,7 +57,69 @@
 
  extern uint16_t BURST_MAX_SIZE;
 
-/*Draw hollow circle at X,Y location with specified radius and colour. X and Y represent circles center */
+ /*
+  *
+  *	@brief Draws an arrow pointing at the x,y centre point
+  *
+  *	TODO not completed
+  *
+  *						ARROW_DOWN
+  *
+  *							|
+  *							|
+  *					       \ /
+  *						\		/
+  *	ARROW_RIGHT		-----		-----	ARROW_LEFT
+  *						/		\
+  *					       / \
+  *					        |
+  *					        |
+  *
+  *	 	      			ARROW UP
+  *
+  *	@param None
+  *	@retval None
+  *
+  */
+ void ILI9341_Draw_Arrow(eILI9341_ArrowDirections_t dir, uint16_t x, uint16_t y, uint16_t len, uint16_t fcolour)
+ {
+	 uint8_t tip_width = 6;
+
+	 switch(dir)
+	 {
+	 	 case ARROW_UP:
+	 		ILI9341_Draw_Vertical_Line(x, y, len, fcolour);
+	 		ILI9341_Draw_Horizontal_Line(x - (tip_width/2), y, tip_width, fcolour);
+	 		break;
+
+	 	 case ARROW_RIGHT:
+	 		ILI9341_Draw_Horizontal_Line(x-len, y, len, fcolour);
+	 		ILI9341_Draw_Vertical_Line(x, y - (tip_width/2), tip_width, fcolour);
+	 		break;
+
+	 	 case ARROW_DOWN:
+	 		ILI9341_Draw_Vertical_Line(x, y-len, len, fcolour);
+	 		ILI9341_Draw_Horizontal_Line(x - (tip_width/2), y, tip_width, fcolour);
+	 		break;
+
+	 	 case ARROW_LEFT:
+	 		ILI9341_Draw_Horizontal_Line(x, y, len, fcolour);
+	 		ILI9341_Draw_Vertical_Line(x, y - (tip_width/2), tip_width, fcolour);
+	 		break;
+
+	 }
+
+ }
+
+ /*
+  *
+  *	@brief Draw hollow circle at X,Y location with specified radius and colour. X and Y represent circles center
+  *
+  *	@param None
+  *	@retval None
+  *
+  */
+
 void ILI9341_Draw_Hollow_Circle(uint16_t x, uint16_t y, uint16_t Radius, uint16_t Colour)
 {
 	int tx = Radius-1;
@@ -92,7 +154,14 @@ void ILI9341_Draw_Hollow_Circle(uint16_t x, uint16_t y, uint16_t Radius, uint16_
     }
 }
 
-/*Draw filled circle at X,Y location with specified radius and colour. X and Y represent circles center */
+/*
+ *
+ *	@brief	Draw filled circle at X,Y location with specified radius and colour. X and Y represent circles center
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void ILI9341_Draw_Filled_Circle(uint16_t x, uint16_t y, uint16_t r, uint16_t Colour)
 {
 	
@@ -137,7 +206,6 @@ void ILI9341_Draw_Filled_Circle(uint16_t x, uint16_t y, uint16_t r, uint16_t Col
  *
  *
  */
-
 void ILI9341_Draw_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t colour)
 {
 
@@ -176,7 +244,6 @@ void ILI9341_Draw_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uin
  *
  *
  */
-
 void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t inner_colour, uint8_t border_weight, uint8_t border_colour)
 {
 
@@ -233,13 +300,12 @@ void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16
 
 /*
  *
+ *	@brief
  *
- *
- *
- *
+ *	@param None
+ *	@retval None
  *
  */
-
 void ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t border_weight, uint8_t border_colour)
 {
 
@@ -277,8 +343,16 @@ void ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16
 
 }
 
-/*Draws a character (fonts imported from fonts.h) at x,Y location with specified font colour, size and Background colour*/
-/*See fonts.h implementation of font on what is required for changing to a different font when switching fonts libraries*/
+/*
+ *
+ *	@brief	Draws a character (fonts imported from fonts.h) at x,Y location with specified font colour, size and Background colour
+ *			See fonts.h implementation of font on what is required for changing to a different font when switching fonts libraries
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+
 void ILI9341_Draw_Char(char character, uint16_t x, uint16_t y, uint16_t colour, uint16_t size, uint16_t bgcolour)
 {
 	uint8_t 	function_char;
@@ -337,8 +411,15 @@ void ILI9341_Draw_Char(char character, uint16_t x, uint16_t y, uint16_t colour, 
     }
 }
 
-/*Draws an array of characters (fonts imported from fonts.h) at x,Y location with specified font colour, size and Background colour*/
-/*See fonts.h implementation of font on what is required for changing to a different font when switching fonts libraries*/
+/*
+ *
+ *	@brief	Draws an array of characters (fonts imported from fonts.h) at x,Y location with specified font colour, size and Background colour
+ *			See fonts.h implementation of font on what is required for changing to a different font when switching fonts libraries
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void ILI9341_Draw_Text(const char* Text, uint16_t x, uint16_t y, uint16_t colour, uint16_t size, uint16_t bgcolour)
 {
     /*if(size & 1)
@@ -354,9 +435,16 @@ void ILI9341_Draw_Text(const char* Text, uint16_t x, uint16_t y, uint16_t colour
 
 }
 
-/*Draws a full screen picture from flash. Image converted from RGB .jpeg/other to C array using online converter*/
-//USING CONVERTER: http://www.digole.com/tools/PicturetoC_Hex_converter.php
-//65K colour (2Bytes / Pixel)
+/*
+ *
+ *	@brief	Draws a full screen picture from flash. Image converted from RGB .jpeg/other to C array using online converter
+ *			USING CONVERTER: http://www.digole.com/tools/PicturetoC_Hex_converter.php
+ *			65K colour (2Bytes / Pixel)
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void ILI9341_Draw_Image(const char* Image_Array, uint8_t Orientation)
 {
 	if(Orientation == SCREEN_HORIZONTAL_1)
@@ -445,9 +533,16 @@ void ILI9341_Draw_Image(const char* Image_Array, uint8_t Orientation)
 	}
 }
 
-/*Draws a full screen picture from flash. Image converted from RGB .jpeg/other to C array using online converter*/
-//USING CONVERTER: http://www.digole.com/tools/PicturetoC_Hex_converter.php
-//65K colour (2Bytes / Pixel)
+/*
+ *
+ *	@brief	Draws a full screen picture from flash. Image converted from RGB .jpeg/other to C array using online converter
+ *			USING CONVERTER: http://www.digole.com/tools/PicturetoC_Hex_converter.php
+ *			65K colour (2Bytes / Pixel)
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void ILI9341_Draw_ImageF(const float* Image_Array, uint8_t Orientation)
 {
 	if(Orientation == SCREEN_HORIZONTAL_1)
@@ -536,6 +631,14 @@ void ILI9341_Draw_ImageF(const float* Image_Array, uint8_t Orientation)
 	}
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void ILI9341_FillScreenGradient()
 {
 	uint16_t x = 0;
