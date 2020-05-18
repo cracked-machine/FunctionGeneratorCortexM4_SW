@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="OUTPUT_TIMER"/>
+			<item key="textPattern" value="evSweepSpeed"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -41,7 +41,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="tim2"/>
+			<item key="textPattern" value="IM_SWEEPINCREMENT_TIM_IRQHandler"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -53,7 +53,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="tim8"/>
+			<item key="textPattern" value="sweep_upper_arr_bounds"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -65,7 +65,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="__HAL_TIM_DISABLE"/>
+			<item key="textPattern" value="sweep_lower_arr_bounds"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -77,7 +77,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="TIM8"/>
+			<item key="textPattern" value="max_arr"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -89,7 +89,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="TIM3"/>
+			<item key="textPattern" value="min_arr"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -101,7 +101,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="SYSTEM_DEBUG_ENABLED"/>
+			<item key="textPattern" value="evSweepHigher"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -113,7 +113,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="pNewFreqPresetEncoderPos"/>
+			<item key="textPattern" value="OUTPUT_TIMER-&gt;ARR"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -125,7 +125,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="aFreqPresetEncoderPos"/>
+			<item key="textPattern" value="OUTPUT_TIMER"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -137,7 +137,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="Freq_Preset_Encoder_Pos_t"/>
+			<item key="textPattern" value="tim2"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -149,7 +149,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="eFreq_Preset"/>
+			<item key="textPattern" value="tim8"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -161,7 +161,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="eOutput_gain"/>
+			<item key="textPattern" value="__HAL_TIM_DISABLE"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -174,8 +174,8 @@
 		<item key="scope" value="3"/>
 	</section>
 	<section name="DialogBounds_SearchDialog">
-		<item key="DIALOG_X_ORIGIN" value="627"/>
-		<item key="DIALOG_Y_ORIGIN" value="191"/>
+		<item key="DIALOG_X_ORIGIN" value="1059"/>
+		<item key="DIALOG_Y_ORIGIN" value="222"/>
 		<item key="DIALOG_WIDTH" value="605"/>
 		<item key="DIALOG_HEIGHT" value="504"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
@@ -191,13 +191,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
-			<item value="SWV_DEBUG_ENABLED"/>
-			<item value="freq_profile"/>
-			<item value="theFreqProfiles"/>
-			<item value="FreqProfile_t"/>
-			<item value="eFreqSettings_t"/>
-			<item value="eGainSettings_t"/>
-			<item value="amp_value"/>
+			<item value="evEncoderSweep"/>
+			<item value="IM_SWEEP_UPDATE_TIM_IRQHandler"/>
+			<item value="sweep_upper_bounds_longest_output_arr"/>
+			<item value="sweep_lower_bounds_shortest_output_arr"/>
+			<item value="MAX_OUTPUT_ARR"/>
+			<item value="MIN_OUTPUT_ARR"/>
+			<item value="evSweepUpper"/>
 		</list>
 	</section>
 	<section name="">

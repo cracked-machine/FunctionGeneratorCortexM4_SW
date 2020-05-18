@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="OUTPUT_TIMER"/>
+		<item key="selection" value="calculated_sweep_in_hertz"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="OUTPUT_TIMER"/>
-			<item value="_HANDLE_"/>
-			<item value="__HANDLE__"/>
-			<item value="tim8_freq"/>
-			<item value="tim8_arr"/>
-			<item value="tim8_psc"/>
-			<item value="TIM8"/>
-			<item value="htim3"/>
-			<item value="TIM3"/>
-			<item value="htim16"/>
-			<item value="htim5"/>
-			<item value="ENABLE_FUNC_MAIN_MENU"/>
-			<item value="ENABLE_GAIN_MAIN_MENU"/>
-			<item value="eNextFreqMenuStatus"/>
-			<item value="ENCODER_TIMER-&gt;CNT"/>
+			<item value="calculated_sweep_in_hertz"/>
+			<item value="max_arr"/>
+			<item value="min_arr"/>
+			<item value="hertz"/>
+			<item value="GAIN"/>
+			<item value="SYNC"/>
+			<item value="Sync"/>
+			<item value="SIGNAL"/>
+			<item value="Signal"/>
+			<item value="Gain"/>
+			<item value="Output"/>
+			<item value="Preset"/>
+			<item value="OUTPUT"/>
+			<item value="ENABLE_OUTPUT_FUNC_MENU"/>
+			<item value="Freq"/>
 		</list>
 		<list key="replacehistory">
+			<item value="MAX_OUTPUT_ARR"/>
+			<item value="MIN_OUTPUT_ARR"/>
+			<item value="Hz"/>
+			<item value="TOPLEVEL"/>
+			<item value="INPUT"/>
+			<item value="Input"/>
+			<item value="OUTPUT"/>
+			<item value="Output"/>
+			<item value="Toplevel"/>
 			<item value="output_tm_freq"/>
 			<item value="output_tm_arr"/>
 			<item value="output_tm_psc"/>
 			<item value="OUTPUT_TIMER"/>
 			<item value="SWEEP_TIMER"/>
 			<item value="SYSTEM_DEBUG_ENABLED"/>
-			<item value="freq_profile"/>
-			<item value="FreqProfile_t"/>
-			<item value="eFreqSettings_t"/>
-			<item value="eGainSettings_t"/>
-			<item value="AMP_OFFSET"/>
-			<item value="amp_literal"/>
-			<item value="GainProfile_t"/>
-			<item value="AmplitudeProfile_t"/>
-			<item value="FunctionProfile_t"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

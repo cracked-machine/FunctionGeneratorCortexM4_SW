@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <math.h>
 
+
 // these store shortest/longest ARR values that the sweep function will set to the OUTPUT_TIMER->ARR.
 float sweep_lower_bounds_shortest_output_arr = MIN_OUTPUT_ARR;		// higher freq
 float sweep_upper_bounds_longest_output_arr = MAX_OUTPUT_ARR;		// lower freq
@@ -132,27 +133,24 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			switch(active_sweep_mode)
 			{
 				case SWEEP_MODE_DOWN:
-
 					_setSweepModeDown();
-
-
 					break;
 
 				case SWEEP_MODE_UP:
-
 					_setSweepModeUp();
-
 					break;
 
-				case SWEEP_MODE_BIDIR:
-					// not used
+				case SWEEP_MODE_BIDIR:	// not used
 					//SWEEP_TIMER->CR1 |= (TIM_CR1_CMS_0);
 					break;
 			}
 			// switch(active_sweep_mode)
+			// TODO
+			_setEncoderControlMode(theCurrentEncoderSweepFunction);
 
 			break;
 
+		// rotary encoder is turned
 		case evEncoderSweep:
 
 			#ifdef SWV_DEBUG_ENABLED
@@ -163,11 +161,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			{
 				case ENCODER_SWEEP_SPEED_FUNCTION:
 
-					// encoder limit for set speed function
-					//ENCODER_TIMER->ARR = 1600;
-
 					_setSweepTimerAutoReloadForEncoderControl(ENCODER_SWEEP_SPEED_FUNCTION);
-
 
 					calculated_sweep_in_hertz = _getCalculatedSweepFrequencyInHertz();
 
@@ -177,22 +171,45 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 
 					switch(active_sweep_mode)
 					{
-
 						case SWEEP_MODE_UP:
-							// encoder limit
-							ENCODER_TIMER->ARR = sweep_upper_bounds_longest_output_arr;
 
-							if(ENCODER_TIMER->CNT < sweep_upper_bounds_longest_output_arr)
+							// 100KHz is the max sweep upper limit
+							if(ENCODER_TIMER->CNT < MIN_OUTPUT_ARR)
+							{
+								ENCODER_TIMER->CNT = MIN_OUTPUT_ARR;
+								//
+							}
+							// the current "sweep lower" setting is the min sweep upper limit
+							else if (ENCODER_TIMER->CNT > sweep_upper_bounds_longest_output_arr)
+							{
+								ENCODER_TIMER->CNT = sweep_upper_bounds_longest_output_arr;
+							}
+							// otherwise change the sweep upper limit
+							else
+							{
 								sweep_lower_bounds_shortest_output_arr = ENCODER_TIMER->CNT;
-
+							}
 							break;
 
 						case SWEEP_MODE_DOWN:
 							// encoder limit
-							ENCODER_TIMER->ARR = sweep_lower_bounds_shortest_output_arr;
-
-							if(ENCODER_TIMER->CNT > sweep_lower_bounds_shortest_output_arr)
+							if(ENCODER_TIMER->CNT >= MAX_OUTPUT_ARR)
+							{
+								ENCODER_TIMER->CNT = MAX_OUTPUT_ARR;
+							}
+							else if (ENCODER_TIMER->CNT < sweep_lower_bounds_shortest_output_arr)
+							{
+								ENCODER_TIMER->CNT = sweep_lower_bounds_shortest_output_arr;
+							}
+							else
+							{
 								sweep_upper_bounds_longest_output_arr = ENCODER_TIMER->CNT;
+							}
+
+							//						ENCODER_TIMER->ARR = sweep_lower_bounds_shortest_output_arr;
+
+//							if(ENCODER_TIMER->CNT > sweep_lower_bounds_shortest_output_arr)
+//
 
 							break;
 
@@ -209,13 +226,16 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 
 			break;
 
+		// set sweep speed button
 		case evSweepSpeedBtn:
 			_setEncoderControlMode(ENCODER_SWEEP_SPEED_FUNCTION);
+
 			break;
 
+		// set sweep limit button
 		case evSweepLimitBtn:
 			_setEncoderControlMode(ENCODER_SWEEP_LIMIT_FUNCTION);
-			switch(active_sweep_mode)
+/*			switch(active_sweep_mode)
 			{
 
 				case SWEEP_MODE_UP:
@@ -234,6 +254,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 				default:
 					break;
 			}
+			*/
 			// switch(active_sweep_mode)
 
 			break;
@@ -529,6 +550,8 @@ void _setSweepModeDown()
 
 	sweep_lower_bounds_shortest_output_arr  = OUTPUT_TIMER->ARR;
 	sweep_upper_bounds_longest_output_arr  = MAX_OUTPUT_ARR;
+	ENCODER_TIMER->CNT = MAX_OUTPUT_ARR;
+
 }
 
 /*
@@ -552,6 +575,7 @@ void _setSweepModeUp()
 	sweep_upper_bounds_longest_output_arr  = OUTPUT_TIMER->ARR;
 	sweep_lower_bounds_shortest_output_arr  = MIN_OUTPUT_ARR;
 
+
 }
 
 void _setEncoderControlMode(eEncoderSweepFunctions pFunction)
@@ -560,6 +584,31 @@ void _setEncoderControlMode(eEncoderSweepFunctions pFunction)
 	{
 		//	ENCODER_SWEEP_LIMIT_FUNCTION
 		theCurrentEncoderSweepFunction = pFunction;
+		ENCODER_TIMER->CNT = MIN_OUTPUT_ARR;
+		ENCODER_TIMER->ARR = MAX_OUTPUT_ARR;
+
+		switch(active_sweep_mode)
+		{
+
+			case SWEEP_MODE_UP:
+
+
+				// if encoder position is above the lower bounds set it below it
+					if(ENCODER_TIMER->CNT > sweep_upper_bounds_longest_output_arr)
+						 ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
+
+
+				break;
+
+			case SWEEP_MODE_DOWN:
+					// if encoder position is below the lower bounds set it above it
+					if(ENCODER_TIMER->CNT < sweep_lower_bounds_shortest_output_arr)
+						ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
+				break;
+			default:
+				break;
+		}
+		// switch(active_sweep_mode)
 	}
 	else
 	{
