@@ -175,7 +175,7 @@ void ILI9341_Draw_Filled_Circle(uint16_t x, uint16_t y, uint16_t r, uint16_t Col
     {
         for (int i = x - tx; i <= x + tx; i++)
         {
-            ILI9341_Draw_Pixel(i, y + y,Colour);
+            ILI9341_Draw_Pixel(i, y + ty,Colour);
             ILI9341_Draw_Pixel(i, y - ty,Colour);
         }
         for (int i = x - ty; i <= x + ty; i++)
@@ -197,6 +197,7 @@ void ILI9341_Draw_Filled_Circle(uint16_t x, uint16_t y, uint16_t r, uint16_t Col
 		//Really slow implementation, will require future overhaul
 		//TODO:	https://stackoverflow.com/questions/1201200/fast-algorithm-for-drawing-filled-circles	
 }
+
 
 
 /*

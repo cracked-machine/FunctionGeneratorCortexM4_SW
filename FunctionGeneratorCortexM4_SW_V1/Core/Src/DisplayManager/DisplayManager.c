@@ -404,7 +404,8 @@ void DM_RefreshScreen()
 
 	ILI9341_Fill_Screen(SCREEN_BGCOLOUR);
 	//ILI9341_FillScreenGradient();
-
+//ILI9341_Draw_Hollow_Circle(100,  100,  50, RED);
+//ILI9341_Draw_Filled_Circle(100,  50,  50, RED);
 
 	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	0,
 													ILI9341_SCREEN_HEIGHT - BTN_HEIGHT,
