@@ -24,7 +24,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-
+#include "pysineicon.h"
 
  extern uint16_t BURST_MAX_SIZE;
 
@@ -359,6 +359,11 @@ void DM_DisplayFormattedOutput()
 		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 	}
 
+	ILI9341_Draw_Text(" OUT:", 3, 170, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Sine(80, 140, 3, BLUE, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+
+	ILI9341_Draw_Text("AUX:", 180, 170, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Sine(245, 140, 3, RED, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
 }
 
 /*
@@ -403,10 +408,23 @@ void DM_RefreshScreen()
 
 
 	ILI9341_Fill_Screen(SCREEN_BGCOLOUR);
-	//ILI9341_FillScreenGradient();
-//ILI9341_Draw_Hollow_Circle(100,  100,  50, RED);
-//ILI9341_Draw_Filled_Circle(100,  50,  50, RED);
 
+
+
+
+	//ILI9341_FillScreenGradient();
+/*	for(int q = 0; q < 10; q++)
+		ILI9341_Draw_Hollow_Circle(100 + q,  100,  50, RED);
+	//ILI9341_Draw_Filled_Circle(100,  50,  50, RED);
+
+	Point Points[]= {{20, 70}, {60, 70}, {60, 100}};
+	Point Points2[]= {{80, 70}, {120, 70}, {120, 100}};
+
+	GUI_DrawPolygon(Points, 3, RED);
+	GUI_FillPolygon(Points2, 3, BLUE);
+	GUI_DrawEllipse(250, 110, 20, 30, GREEN);
+	GUI_FillEllipse(250, 110, 20, 30, WHITE);
+*/
 	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	0,
 													ILI9341_SCREEN_HEIGHT - BTN_HEIGHT,
 													BTN_WIDTH,

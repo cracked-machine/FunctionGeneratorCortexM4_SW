@@ -57,6 +57,20 @@
 
  extern uint16_t BURST_MAX_SIZE;
 
+
+void ILI9341_Draw_Sine(uint16_t x, uint16_t y, uint8_t weight, uint16_t colour, uint8_t scale, uint32_t* data_table, uint16_t data_table_size)
+{
+	for(int w = 0; w < weight; w++ )
+	{
+		for(int i = 0; i < data_table_size; i++)
+		{
+			ILI9341_Draw_Pixel(	x + i,	(y + data_table[i] / scale) + w, colour);
+
+		}
+	}
+
+}
+
  /*
   *
   *	@brief Draws an arrow pointing at the x,y centre point

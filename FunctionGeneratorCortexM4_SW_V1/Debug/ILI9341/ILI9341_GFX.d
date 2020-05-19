@@ -38,6 +38,7 @@ ILI9341/ILI9341_GFX.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/STMBasicGui.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/5x5_font.h \
  ../Core/Inc/spi.h ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rng.h \
@@ -129,6 +130,8 @@ ILI9341/ILI9341_GFX.o: \
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/STMBasicGui.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/5x5_font.h:
 

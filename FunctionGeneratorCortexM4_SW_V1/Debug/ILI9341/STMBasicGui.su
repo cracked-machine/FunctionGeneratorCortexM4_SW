@@ -1,0 +1,7 @@
+STMBasicGui.c:45:6:GUI_DrawLine	64	static
+STMBasicGui.c:123:6:GUI_DrawPolygon	48	static
+STMBasicGui.c:151:6:GUI_DrawEllipse	56	static
+STMBasicGui.c:191:6:GUI_FillCircle	40	static
+STMBasicGui.c:251:13:FillTriangle	72	static
+STMBasicGui.c:330:6:GUI_FillPolygon	88	static
+STMBasicGui.c:434:6:GUI_FillEllipse	56	static

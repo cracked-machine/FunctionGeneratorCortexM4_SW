@@ -51,6 +51,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Core/Inc/tim.h ../Core/Inc/gpio.h ../Core/Inc/funcgen.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/STMBasicGui.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager/DisplayManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FunctionOutput.h \
@@ -195,6 +196,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_STM32_Driver.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/ILI9341_GFX.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341/STMBasicGui.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager/DisplayManager.h:
 

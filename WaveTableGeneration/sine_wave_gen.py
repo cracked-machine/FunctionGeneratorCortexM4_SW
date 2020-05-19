@@ -4,6 +4,9 @@ import numpy as np
 from createfile import write_to_header_file
 from createfile import write_to_source_file
 
+# Fs = 60
+# sample = 60
+
 Fs = 120
 freq = 1
 sample = 120
@@ -67,3 +70,6 @@ plt.show()
 
 write_to_header_file(results, "sine", "pysine.h")
 write_to_source_file(results, "sine", "pysine.c", "pysine.h")
+
+# write_to_header_file(results, "sineicon", "pysineicon.h")
+# write_to_source_file(results, "sineicon", "pysineicon.c", "pysineicon.h")
