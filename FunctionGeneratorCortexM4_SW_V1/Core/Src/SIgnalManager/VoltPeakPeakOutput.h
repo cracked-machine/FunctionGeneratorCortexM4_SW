@@ -39,7 +39,7 @@ typedef struct
 	eAmpSettings_t amp_setting;
 	float amp_value;
 	uint8_t gain_preset;
-	char* gain_decibels;
+	float gain_decibels;
 	float neg_gain_coeff;
 	float amp_offset;
 	uint16_t epos;
@@ -51,6 +51,7 @@ typedef struct
  */
 AmplitudeProfile_t theAmpProfiles[MAX_VPP_PRESETS];
 
+#define LUT_VPP 2.7		// Used to calculate AmplitudeProfile_t.neg_gain_coeff. This must be less than MCU VDD = 3.3
 
 /*
  * 		Function declarations

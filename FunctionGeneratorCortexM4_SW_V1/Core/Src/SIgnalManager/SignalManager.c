@@ -12,12 +12,49 @@
 
 sOutputChannel_t SignalChannel;
 sOutputChannel_t SyncChannel;
-
-
+void _InitOutputChannels();
+void _InitNegGainCoefficients();
+void _InitGainInDecibels();
 
 void SM_Init()
 {
 
+	_InitOutputChannels();
+	_InitNegGainCoefficients();
+	_InitGainInDecibels();
+
+}
+
+void _InitGainInDecibels()
+{
+
+	// =20*LOG10(TARGETVPP/0.001)
+	for(int i = 0; i < MAX_VPP_PRESETS; i++)
+	{
+		float decibel_mvolt_ref = 0.001;
+		float this_amp_value = theAmpProfiles[i].amp_value;
+		float new_gain_decibels = 20 * log10( this_amp_value / decibel_mvolt_ref );
+		theAmpProfiles[i].gain_decibels = new_gain_decibels;
+
+	}
+}
+
+void _InitNegGainCoefficients()
+{
+
+	// =(TARGETVPP/LUTVPP)/GAIN
+	for(int i = 0; i < MAX_VPP_PRESETS; i++)
+	{
+		float this_amp_value = theAmpProfiles[i].amp_value;
+		float this_lut_vpp = LUT_VPP;
+		float this_gain_preset = (float)theAmpProfiles[i].gain_preset;
+		float new_ngc = ( (this_amp_value / this_lut_vpp) / this_gain_preset);
+		theAmpProfiles[i].neg_gain_coeff = new_ngc;
+	}
+}
+
+void _InitOutputChannels()
+{
 	// initialise the SIGNAL output channel
 	SignalChannel.channel = SIGNAL_CHANNEL;
 	SignalChannel.ref_lut_data = theFuncProfiles[SINE_FUNC_MODE].lookup_table_data;

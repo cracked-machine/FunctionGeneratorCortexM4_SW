@@ -1,6 +1,9 @@
-SignalManager.c:18:6:SM_Init	16	static
-SignalManager.c:44:20:SM_GetOutputChannel	16	static
-SignalManager.c:60:10:SM_GetEncoderValue	16	static
-SignalManager.c:80:7:SM_GetOutputInHertz	24	static
-SignalManager.c:96:7:SM_ConvertPeriodToHertz	16	static
-SignalManager.c:104:10:SM_ConvertHertzToPeriod	16	static
+SignalManager.c:19:6:SM_Init	8	static
+SignalManager.c:28:6:_InitGainInDecibels	32	static
+SignalManager.c:42:6:_InitNegGainCoefficients	32	static
+SignalManager.c:56:6:_InitOutputChannels	16	static
+SignalManager.c:81:20:SM_GetOutputChannel	16	static
+SignalManager.c:97:10:SM_GetEncoderValue	16	static
+SignalManager.c:117:7:SM_GetOutputInHertz	24	static
+SignalManager.c:133:7:SM_ConvertPeriodToHertz	16	static
+SignalManager.c:141:10:SM_ConvertHertzToPeriod	16	static
