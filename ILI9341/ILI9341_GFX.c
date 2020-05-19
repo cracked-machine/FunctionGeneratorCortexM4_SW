@@ -244,7 +244,7 @@ void ILI9341_Draw_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uin
  *
  *
  */
-void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t inner_colour, uint8_t border_weight, uint8_t border_colour)
+void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t inner_colour, uint8_t border_weight, uint16_t border_colour)
 {
 
 	// Draw inwards (and shorter) for each level of border weight
@@ -268,25 +268,25 @@ void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16
 			}
 		}
 
-		// Horizontal lines
+		// Horizontal line - Top
 		ILI9341_Draw_Horizontal_Line(	x + b,
 										y + b,
-										w - (2*b),
+										(w - b)+1,
 										border_colour);
-
+		// Horizontal line - Bottom
 		ILI9341_Draw_Horizontal_Line(	x + b,
 										(y + h) - b,
-										w - (b),
+										(w - b)+1,
 										border_colour);
 
 
-		// Vertical lines
+		// Vertical line - left
 		ILI9341_Draw_Vertical_Line(		x + b,
 										y + b,
 										h - (2*b),
 										border_colour);
-
-		ILI9341_Draw_Vertical_Line(		(x + w) - b,
+		// Vertical line - right
+		ILI9341_Draw_Vertical_Line(		((x + w)) - (b),
 										y + b,
 										h - (2*b),
 										border_colour);
@@ -422,10 +422,8 @@ void ILI9341_Draw_Char(char character, uint16_t x, uint16_t y, uint16_t colour, 
  */
 void ILI9341_Draw_Text(const char* Text, uint16_t x, uint16_t y, uint16_t colour, uint16_t size, uint16_t bgcolour)
 {
-    /*if(size & 1)
-    {
-    	size = ((size >> 1) * 2);
-    }*/
+	ILI9341_Draw_Vertical_Line(x-1, y, CHAR_HEIGHT*size, bgcolour);
+    ILI9341_Draw_Vertical_Line(x-2, y, CHAR_HEIGHT*size, bgcolour);
 
     while (*Text) {
         ILI9341_Draw_Char(*Text++, x, y, colour, size, bgcolour);

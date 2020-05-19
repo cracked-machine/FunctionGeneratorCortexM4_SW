@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="calculated_sweep_in_hertz"/>
+		<item key="selection" value="10"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
-		<item key="wholeword" value="false"/>
+		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="10"/>
+			<item value="WHITE"/>
 			<item value="calculated_sweep_in_hertz"/>
 			<item value="max_arr"/>
 			<item value="min_arr"/>
@@ -21,10 +23,10 @@
 			<item value="Output"/>
 			<item value="Preset"/>
 			<item value="OUTPUT"/>
-			<item value="ENABLE_OUTPUT_FUNC_MENU"/>
-			<item value="Freq"/>
 		</list>
 		<list key="replacehistory">
+			<item value="5"/>
+			<item value="NORMAL_TEXT_BGCOLOUR"/>
 			<item value="MAX_OUTPUT_ARR"/>
 			<item value="MIN_OUTPUT_ARR"/>
 			<item value="Hz"/>
@@ -38,13 +40,11 @@
 			<item value="output_tm_arr"/>
 			<item value="output_tm_psc"/>
 			<item value="OUTPUT_TIMER"/>
-			<item value="SWEEP_TIMER"/>
-			<item value="SYSTEM_DEBUG_ENABLED"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1457"/>
-		<item key="DIALOG_Y_ORIGIN" value="220"/>
+		<item key="DIALOG_X_ORIGIN" value="1327"/>
+		<item key="DIALOG_Y_ORIGIN" value="125"/>
 		<item key="DIALOG_WIDTH" value="348"/>
 		<item key="DIALOG_HEIGHT" value="440"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>

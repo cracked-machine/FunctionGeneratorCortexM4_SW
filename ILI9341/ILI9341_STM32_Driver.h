@@ -116,26 +116,29 @@ typedef enum
 
 } CHUNK_Type;
 
+//https://ee-programming-notepad.blogspot.com/2016/10/16-bit-color-generator-picker.html
 #define NONE
-#define BLACK       0x0000      
-#define NAVY        0x000F      
-#define DARKGREEN   0x03E0      
-#define DARKCYAN    0x03EF      
-#define MAROON      0x7800      
-#define PURPLE      0x780F      
-#define OLIVE       0x7BE0      
-#define LIGHTGREY   0xC618      
-#define DARKGREY    0x7BEF      
-#define BLUE        0x001F      
-#define GREEN       0x07E0      
-#define CYAN        0x07FF      
-#define RED         0xF800     
-#define MAGENTA     0xF81F      
-#define YELLOW      0xFFE0      
-#define WHITE       0xFFFF
-#define ORANGE      0xFD20      
-#define GREENYELLOW 0xAFE5     
-#define PINK        0xF81F
+#define BLACK       0x0000
+#define WHITE		0xFFFF
+#define GREY		0xB5D0
+
+#define LBLUE		0x4CF6
+#define BLUE		0x02FD
+#define DBLUE		0x0ACD
+
+#define LGREEN		0x754E
+#define GREEN		0x14A2
+#define DGREEN		0x1304
+
+#define LYELLOW		0xDF4F
+#define YELLOW		0xFFE0
+#define DYELLOW		0xCCE4
+
+#define LRED		0xE596
+#define RED			0xD8C3
+#define DRED		0x9861
+
+
 
 #define SCREEN_VERTICAL_1			0
 #define SCREEN_HORIZONTAL_1		1

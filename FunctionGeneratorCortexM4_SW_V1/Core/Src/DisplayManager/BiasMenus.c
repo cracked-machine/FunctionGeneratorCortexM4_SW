@@ -44,7 +44,7 @@ void BiasMenu_DrawMenu(eBiasMenu_Status pMenu)
  */
 void BiasMenu_DrawMainMenu()
 {
-	ILI9341_Draw_Text("OUT->BIAS", 	10, 10, WHITE, 2, BLACK);
+	ILI9341_Draw_Text("OUT->BIAS", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	DM_DisplayFormattedOutput();
 

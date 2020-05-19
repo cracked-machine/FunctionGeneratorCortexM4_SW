@@ -66,7 +66,7 @@ void ILI9341_Draw_Arrow(eILI9341_ArrowDirections_t dir, uint16_t x, uint16_t y, 
 void ILI9341_Draw_Hollow_Circle(uint16_t x, uint16_t Y, uint16_t Radius, uint16_t colour);
 void ILI9341_Draw_Filled_Circle(uint16_t x, uint16_t Y, uint16_t Radius, uint16_t colour);
 void ILI9341_Draw_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t colour);
-void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t inner_colour, uint8_t border_weight, uint8_t border_colour);
+void ILI9341_Draw_Bordered_Filled_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t inner_colour, uint8_t border_weight, uint16_t border_colour);
 void ILI9341_Draw_Bordered_Hollow_Rectangle_Coord(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint8_t border_weight, uint8_t border_colour);
 void ILI9341_Draw_Char(char character, uint16_t x, uint16_t y, uint16_t colour, uint16_t size, uint16_t bgcolour);
 void ILI9341_Draw_Text(const char* Text, uint16_t x, uint16_t y, uint16_t colour, uint16_t size, uint16_t bgcolour);

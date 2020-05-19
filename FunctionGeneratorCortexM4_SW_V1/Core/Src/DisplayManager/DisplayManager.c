@@ -32,13 +32,11 @@
 
 
 #define BTN_WIDTH 				(ILI9341_SCREEN_WIDTH)/4
-#define BTN_HEIGHT				50
-#define BTN_Y_POS 				(ILI9341_SCREEN_HEIGHT)-40
+#define BTN_HEIGHT				40
 #define BORDER_SIZE				2
-#define BTN_TXT_X_POS 			(ILI9341_SCREEN_WIDTH)/8
-#define BTN_TXT_Y_POS 			(ILI9341_SCREEN_HEIGHT)-25
 
-uint16_t btn_x_pos[4] = { 0, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
+
+uint16_t btn_x_pos[4] = { 1, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 
 
 // public function protochannels
@@ -78,7 +76,7 @@ void DM_Init()
 void DM_PostInit()
 {
 
-	  ILI9341_Draw_Text("Initialising", 10, 10, BLACK, 1, WHITE);
+	  ILI9341_Draw_Text("Initialising", 10, 10, NORMAL_TEXT_FGCOLOUR, 1, NORMAL_TEXT_BGCOLOUR);
 	  HAL_Delay(500);
 
 	  DM_RefreshScreen();
@@ -102,7 +100,9 @@ void DM_PostInit()
  */
 void DM_UpdateDisplay()
 {
-
+	/*
+	 * 	Top level menu
+	 */
 	if(ToplevelMenu_getStatus())
 	{
 
@@ -132,7 +132,9 @@ void DM_UpdateDisplay()
 		}
 	}
 
-	// Function menus
+	/*
+	 * 	Function menus
+	 */
 	else if(FuncMenu_getStatus())		//  != DISABLE_FUNC_MENU
 	{
 
@@ -168,7 +170,9 @@ void DM_UpdateDisplay()
 		}
 
 	}
-	// Gain menus
+	/*
+	 * 	Gain menus
+	 */
 	else if(GainMenu_getStatus())		//  != DISABLE_GAIN_MENU
 	{
 
@@ -205,7 +209,9 @@ void DM_UpdateDisplay()
 
 	}
 
-	// Frequency menus
+	/*
+	 * 	 Frequency menus
+	 */
 	else if(FreqMenu_getStatus())		//  != DISABLE_FREQ_MENU
 	{
 
@@ -246,7 +252,9 @@ void DM_UpdateDisplay()
 
 	}
 
-	// Bias menu
+	/*
+	 * 	Bias menu
+	 */
 	else if(BiasMenu_getStatus())		//  != DISABLE_BIAS_MENU
 	{
 
@@ -256,25 +264,30 @@ void DM_UpdateDisplay()
 
 		BiasMenu_DrawMenu(ENABLE_BIAS_MENU);
 	}
+
+	/*
+	 * 		Error
+	 */
 	else
 	{
-		ILI9341_Draw_Text("DisplayManager: no menu status set!", 10, 50, BLACK, 1, RED);
+		ILI9341_Draw_Text("DisplayManager: no menu status set!", 10, 50, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
 	}
 
+	/*
+	 * 	Debug messages
+	 */
 	#ifdef ENCODER_DEBUG
 		char tim5_text[50] = "";
 		snprintf(tim5_text, sizeof(tim5_text), "OUTPUT_TIMER->ARR: %5lu", OUTPUT_TIMER->ARR);
-		//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
-			ILI9341_Draw_Text(tim5_text, 10, 180, BLACK, 1, RED);
+		ILI9341_Draw_Text(tim5_text, 10, 180, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
 
 		char encoder_value[50] = "";
 		snprintf(encoder_value, sizeof(encoder_value), "SWEEP_TIMER->ARR: %5lu - ENCODER: %5lu", SWEEP_TIMER->ARR, ENCODER_TIMER->CNT);
-		//if(DM_AddDigitPadding(ENCODER_TIMER->CNT, encoder_value, sizeof(encoder_value)) == 0)
-			ILI9341_Draw_Text(encoder_value, 10, 190, BLACK, 1, RED);
+		ILI9341_Draw_Text(encoder_value, 10, 190, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
 	#endif //ENCODER_DEBUG
 
 	if(*ErrorDebugMsg)
-		ILI9341_Draw_Text(ErrorDebugMsg, 10, 190, BLACK, 1, RED);
+		ILI9341_Draw_Text(ErrorDebugMsg, 10, 190, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
 
 }
 
@@ -291,59 +304,59 @@ void DM_DisplayFormattedOutput()
 	uint8_t text_size = 2;
 
 	char out_hertz[15] = "";
-	uint8_t out_hertz_x = 150;
+	uint8_t out_hertz_x = 140;
 	uint8_t out_hertz_y = 40;
 
 	char out_vpp[18] = "";
-	uint8_t out_vpp_x = 150;
+	uint8_t out_vpp_x = 175;
 	uint8_t out_vpp_y = 70;
 
 	char out_decibels[13] = "";
-	uint8_t out_decibels_x = 150;
+	uint8_t out_decibels_x = 140;
 	uint8_t out_decibels_y = 100;
 
 
 	float volts_per_thou = 0.00075;
 	char out_dcvolts[12] = "";
-	uint8_t out_dcvolts_x = 150;
+	uint8_t out_dcvolts_x = 152;
 	uint8_t out_dcvolts_y = 130;
 
-	ILI9341_Draw_Text(" FREQ:", 10, out_hertz_y , BLACK, text_size, WHITE);
-	ILI9341_Draw_Text(" VPP:", 10, out_vpp_y, BLACK, text_size, WHITE);
-	ILI9341_Draw_Text(" GAIN:", 10, out_decibels_y, BLACK, text_size, WHITE);
-	ILI9341_Draw_Text(" OFFSET:", 10, out_dcvolts_y, BLACK, text_size, WHITE);
+	ILI9341_Draw_Text(" FREQ   ....", 3, out_hertz_y , NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text(" VPP    ....", 3, out_vpp_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text(" GAIN   ....", 3, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text(" OFFSET ....", 3, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 
 	// display output in hertz
-	snprintf(out_hertz, sizeof(out_hertz), " %4.2f Hz ", SM_GetOutputInHertz());
-	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, BLACK, text_size, WHITE);
+	snprintf(out_hertz, sizeof(out_hertz), " %4.2f   Hz ", SM_GetOutputInHertz());
+	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 
 	// display output in volts peak-to-peak and decibels
 	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile;
 
 	if(pTmpVppPreset)
 	{
-		snprintf(out_vpp, sizeof(out_vpp), " %2.2f V ", pTmpVppPreset->amp_value);
-		snprintf(out_decibels, sizeof(out_decibels), " %s ", pTmpVppPreset->gain_decibels);
+		snprintf(out_vpp, sizeof(out_vpp), " %2.2f   V ", pTmpVppPreset->amp_value);
+		snprintf(out_decibels, sizeof(out_decibels)-4, " %s ", pTmpVppPreset->gain_decibels);
 	}
-	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, BLACK, text_size, WHITE);
-	ILI9341_Draw_Text(out_decibels, out_decibels_x, out_decibels_y, BLACK, text_size, WHITE);
-
+	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text(out_decibels, out_decibels_x, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("dBmV", out_decibels_x + 128, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 
 
 	// display output bias in +/- Volts
 	float dc_volts;
 	(BO_GetOutputBias() == 0) ? (dc_volts = 0) : (dc_volts = volts_per_thou * (float)BO_GetOutputBias());
 
-	snprintf(out_dcvolts, sizeof(out_dcvolts), " %1.4f v ", dc_volts);
+	snprintf(out_dcvolts, sizeof(out_dcvolts), "  %1.4f v ", dc_volts);
 	if(BO_GetBiasPolarity())
 	{
-		char symbol[3] = " +\0";
-		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, text_size, WHITE);
+		char symbol[3] = "+\0";
+		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 	}
 	else
 	{
-		char symbol[3] = " -\0";
-		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, BLACK, text_size, WHITE);
+		char symbol[3] = "-\0";
+		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 	}
 
 }
@@ -382,53 +395,54 @@ int DM_DigitCount(int num)
  */
 void DM_RefreshScreen()
 {
+
+
+
 	// pause display interrupts
 	HAL_TIM_Base_Stop_IT(&htim15);
 
 
-	//ILI9341_Fill_Screen(WHITE);
-	ILI9341_FillScreenGradient();
+	ILI9341_Fill_Screen(SCREEN_BGCOLOUR);
+	//ILI9341_FillScreenGradient();
 
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[0],
-													BTN_Y_POS,
+
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	0,
+													ILI9341_SCREEN_HEIGHT - BTN_HEIGHT,
 													BTN_WIDTH,
 													BTN_HEIGHT,
-													DARKCYAN,
-													BORDER_SIZE,
-													BLACK);
+													BTN1_FILL_COLOUR,
+													BTN1_BORDER_WEIGHT,
+													BTN1_BORDER_COLOUR);
 
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[1],
-													BTN_Y_POS,
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	BTN_WIDTH,
+													ILI9341_SCREEN_HEIGHT - BTN_HEIGHT,
 													BTN_WIDTH,
 													BTN_HEIGHT,
-													DARKGREEN,
-													BORDER_SIZE,
-													BLACK);
+													BTN2_FILL_COLOUR,
+													BTN2_BORDER_WEIGHT,
+													BTN2_BORDER_COLOUR);
 
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[2],
-													BTN_Y_POS,
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	BTN_WIDTH*2,
+													ILI9341_SCREEN_HEIGHT - BTN_HEIGHT,
 													BTN_WIDTH,
 													BTN_HEIGHT,
-													YELLOW,
-													BORDER_SIZE,
-													BLACK);
+													BTN3_FILL_COLOUR,
+													BTN3_BORDER_WEIGHT,
+													BTN3_BORDER_COLOUR);
 
-	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	btn_x_pos[3],
-													BTN_Y_POS,
+	ILI9341_Draw_Bordered_Filled_Rectangle_Coord(	BTN_WIDTH*3,
+													ILI9341_SCREEN_HEIGHT - BTN_HEIGHT,
 													BTN_WIDTH,
 													BTN_HEIGHT,
-													RED,
-													BORDER_SIZE,
-													BLACK);
+													BTN4_FILL_COLOUR,
+													BTN4_BORDER_WEIGHT,
+													BTN4_BORDER_COLOUR);
+
 	// resume diaplay interrupts
 	HAL_TIM_Base_Start_IT(&htim15);
+
+
 }
-
-
-
-
-
-
 
 /*
  *

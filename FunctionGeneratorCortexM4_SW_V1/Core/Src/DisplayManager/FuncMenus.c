@@ -7,12 +7,11 @@
 
 
 #include <FuncMenus.h>
-#include "DisplayManager.h"
+
 
 
 void FuncMenu_DrawMainMenu();
-void FuncMenu_DrawSignalMenu();
-void FuncMenu_DrawSyncMenu();
+void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan);
 
 /*
  *
@@ -30,10 +29,10 @@ void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
 			FuncMenu_DrawMainMenu();
 			break;
 		case ENABLE_FUNC_SIGNAL_MENU:
-			FuncMenu_DrawSignalMenu();
+			FuncMenu_DrawOutputMenu(SIGNAL_CHANNEL);
 			break;
 		case ENABLE_FUNC_SYNC_MENU:
-			FuncMenu_DrawSyncMenu();
+			FuncMenu_DrawOutputMenu(SYNC_CHANNEL);
 			break;
 
 		default:
@@ -53,15 +52,15 @@ void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
  */
 void FuncMenu_DrawMainMenu()
 {
-	ILI9341_Draw_Text("OUT->FUNC", 	10, 10, WHITE, 2, BLACK);
+	ILI9341_Draw_Text("OUT->FUNC", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	DM_DisplayFormattedOutput();
 
  	// coloured menu btn labels
-	ILI9341_Draw_Text("SIGNAL", 5, 210, BLACK, 2, DARKCYAN);
-	ILI9341_Draw_Text("SYNC", 97, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
+	ILI9341_Draw_Text("SIGNAL", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("SYNC", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 }
 
 /*
@@ -72,138 +71,67 @@ void FuncMenu_DrawMainMenu()
  *	@retval None
  *
  */
-void FuncMenu_DrawSignalMenu()
+void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 {
-	ILI9341_Draw_Text("OUT->FUNC->SIG", 	10, 10, WHITE, 2, BLACK);
+	if(SYNC_CHANNEL)
+		ILI9341_Draw_Text("OUT->FUNC->SYNC", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
+	else
+		ILI9341_Draw_Text("OUT->FUNC->SIG", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	//FunctionProfile_t *func_profileTmp = FuncO_GetSignalFPresetObject();
-	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile;
+	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(pOutChan)->func_profile;
 	if(func_profileTmp)
 	{
 		switch(func_profileTmp->func)
 		{
 			case SINE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SINE", 	10, 50,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SAW", 		10, 90,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
 			case SQUARE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SAW", 		10, 90,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
 			case SAW_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SAW", 		10, 90,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
 			case REV_SAW_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SAW", 		10, 90,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
 			case TRIANGLE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
+				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SAW", 		10, 90,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
 			case IMPULSE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, WHITE, 2, BLACK);
+				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SQUARE", 	10, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- SAW", 		10, 90,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				ILI9341_Draw_Text("- UNIT", 	10, 150, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 				break;
-
 		}
 	}
-
-
-}
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void FuncMenu_DrawSyncMenu()
-{
-	ILI9341_Draw_Text("OUT->FUNC->SYNC", 	10, 10, WHITE, 2, BLACK);
-	//FunctionProfile_t *func_profileTmp = FuncO_GetSyncFPresetObject();
-	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile;
-	if(func_profileTmp)
-	{
-		switch(func_profileTmp->func)
-		{
-			case SINE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case SQUARE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case SAW_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case REV_SAW_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case TRIANGLE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, WHITE, 2, BLACK);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, BLACK, 2, WHITE);
-				break;
-			case IMPULSE_FUNC_MODE:
-				ILI9341_Draw_Text("- SINE", 	10, 50, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SQUARE", 	10, 70, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- SAW", 		10, 90, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- REV SAW", 	10, 110, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- TRIANGLE",	10, 130, BLACK, 2, WHITE);
-				ILI9341_Draw_Text("- UNIT", 	10, 150, WHITE, 2, BLACK);
-				break;
-
-		}
-	}
-
 }

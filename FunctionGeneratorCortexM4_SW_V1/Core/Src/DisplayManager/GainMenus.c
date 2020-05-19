@@ -52,15 +52,15 @@ void GainMenu_DrawMenu(eGainMenu_Status pMenu)
 void GainMenu_DrawMainMenu()
 {
 
-	ILI9341_Draw_Text("OUT->GAIN", 	10, 10, WHITE, 2, BLACK);
+	ILI9341_Draw_Text("OUT->GAIN", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	DM_DisplayFormattedOutput();
 
 	// coloured menu btn labels
-	ILI9341_Draw_Text("SIGNAL", 5, 210, BLACK, 2, DARKCYAN);
-	ILI9341_Draw_Text("SYNC",97, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
+	ILI9341_Draw_Text("SIGNAL", 5, 	 210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("SYNC",	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 }
 
 /*
@@ -73,7 +73,7 @@ void GainMenu_DrawMainMenu()
  */
 void GainMenu_DrawSignalMenu()
 {
-	ILI9341_Draw_Text("OUT->GAIN->SIG", 10, 10, WHITE, 2, BLACK);
+	ILI9341_Draw_Text("OUT->GAIN->SIG", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	DM_DisplayFormattedOutput();
 }
@@ -88,7 +88,7 @@ void GainMenu_DrawSignalMenu()
  */
 void GainMenu_DrawSyncMenu()
 {
-	ILI9341_Draw_Text("OUT->GAIN->SYNC", 10, 10, WHITE, 2, BLACK);
+	ILI9341_Draw_Text("OUT->GAIN->SYNC", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	DM_DisplayFormattedOutput();
 }

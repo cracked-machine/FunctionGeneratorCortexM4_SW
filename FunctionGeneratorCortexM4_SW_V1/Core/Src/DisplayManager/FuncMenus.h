@@ -9,11 +9,11 @@
 #define SRC_DISPLAYMANAGER_FUNCMENUS_H_
 
 #include "FuncMenuStateHandler.h"
+#include "DisplayManager.h"
 
 void FuncMenu_DrawMenu(eFuncMenu_Status pMenu);
 
 void FuncMenu_DrawMainMenu();
-void FuncMenu_DrawSignalMenu();
-void FuncMenu_DrawSyncMenu();
+void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan);
 
 #endif /* SRC_DISPLAYMANAGER_FUNCMENUS_H_ */

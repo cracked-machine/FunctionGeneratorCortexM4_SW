@@ -63,10 +63,10 @@ void ToplevelMenu_DrawMainMenu()
 
 	DM_DisplayFormattedOutput();
 
-	ILI9341_Draw_Text("OUTPUT", 6, 210, BLACK, 2, DARKCYAN);
-	ILI9341_Draw_Text("INPUT", 95, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("    ", 175, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("    ", 260, 210, BLACK, 2, RED);
+	ILI9341_Draw_Text("OUTPUT", 6, 210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("INPUT", 93, 210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("    ", 175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("    ", 260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 
 
 }
@@ -81,14 +81,14 @@ void ToplevelMenu_DrawMainMenu()
  */
 void ToplevelMenu_DrawOutputMenu()
 {
-	ILI9341_Draw_Text("OUT->", 10, 10, WHITE, 2, BLACK);
+	ILI9341_Draw_Text("OUT->", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	DM_DisplayFormattedOutput();
 
-	ILI9341_Draw_Text("FUNC", 13, 210, BLACK, 2, DARKCYAN);
-	ILI9341_Draw_Text("FREQ", 99, 210, BLACK, 2, DARKGREEN);
-	ILI9341_Draw_Text("GAIN", 176, 210, BLACK, 2, YELLOW);
-	ILI9341_Draw_Text("BIAS", 259, 210, BLACK, 2, RED);
+	ILI9341_Draw_Text("FUNC", 13,  210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("FREQ", 99,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("GAIN", 176, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("OFFSET", 245, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 }
 
 /*
@@ -101,7 +101,7 @@ void ToplevelMenu_DrawOutputMenu()
  */
 void ToplevelMenu_DrawInputMenu()
 {
-	ILI9341_Draw_Text("IN->", 10, 10, WHITE, 2, BLACK);
+	ILI9341_Draw_Text("IN->", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	DM_DisplayFormattedOutput();
 }

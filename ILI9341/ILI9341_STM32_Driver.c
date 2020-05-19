@@ -99,6 +99,8 @@ void _SPI_SendByte(unsigned char data_buffer, uint8_t pre_frame_delay, uint8_t p
 void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, uint8_t pre_frame_delay, uint8_t post_frame_delay);
 
 
+uint16_t CYAN =	0xC702;
+
 uint16_t BURST_MAX_SIZE = 500;
 
 #define SPI_DELAY_HOLD 3
@@ -289,7 +291,31 @@ void ILI9341_Draw_Horizontal_Line(uint16_t xpos, uint16_t ypos, uint16_t width, 
 							(xpos + width) - 1,
 							ypos);
 
+	// if odd numbered rect area is requested, we round down to nearest even number
+	// to keep _LCD_Write_Frame() happy.
+
+	// Note, truncated pixel will be needed at function end.
+
+
+	uint8_t truncated = 0;
+
+	if((width & 1) && (width > 1))		// don't round down to zero!
+	{
+		truncated = 1;
+		width = ((width >> 1) * 2);
+	}
 	_LCD_Write_Frame(xpos, ypos, colour, width, LINE_CHUNK);
+	//
+//TODO
+	// add the truncated pixel now
+	if(truncated)
+	{
+		ILI9341_Draw_Pixel(	(xpos + width),
+							(ypos),
+							colour);
+	}
+
+
 }
 
 /*
@@ -301,10 +327,31 @@ void ILI9341_Draw_Vertical_Line(uint16_t xpos, uint16_t ypos, uint16_t height, u
 {
 	if((xpos >= LCD_WIDTH) || (ypos >= LCD_HEIGHT)) return;
 	if(((ypos + height) - 1) >= LCD_HEIGHT)
-		{
-			height= LCD_HEIGHT - ypos;
-		}
+	{
+		height= LCD_HEIGHT - ypos;
+	}
+
 	ILI9341_Set_Frame(xpos, ypos, xpos, (ypos + height) - 1);
+
+	uint8_t truncated = 0;
+
+	if((height & 1) && (height > 1))		// don't round down to zero!
+	{
+		truncated = 1;
+		height = ((height >> 1) * 2);
+	}
+//TODO
+
+
+	//
+
+	if(truncated)
+	{
+		ILI9341_Draw_Pixel(	(xpos),
+							(ypos + height),
+							colour);
+	}
+
 	_LCD_Write_Frame(xpos, ypos, colour, height, LINE_CHUNK);
 }
 
@@ -504,6 +551,9 @@ void ILI9341_Draw_Rectangle(uint16_t xpos, uint16_t ypos, uint16_t width, uint16
 	// add the truncated pixel now
 	if(truncated)
 	{
+		ILI9341_Draw_Pixel(	(xpos + width) - 2,
+							(ypos + height) - 1,
+							colour);
 		ILI9341_Draw_Pixel(	(xpos + width) - 1,
 							(ypos + height) - 1,
 							colour);
@@ -624,7 +674,7 @@ void _LCD_Write_Frame(uint16_t chunk_xpos, uint16_t chunk_ypos, uint16_t colour,
 	// send blocks
 	LCD_DC_PORT->ODR |= LCD_DC_PIN;
 	LCD_CS_PORT->ODR &= ~(LCD_CS_PIN);
-
+//TODO
 	if(Sending_in_Block != 0)
 	{
 		for(uint32_t j = 0; j < (Sending_in_Block); j++)

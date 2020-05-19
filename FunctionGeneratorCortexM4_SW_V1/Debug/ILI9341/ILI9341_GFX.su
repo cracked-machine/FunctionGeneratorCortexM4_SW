@@ -6,6 +6,6 @@ ILI9341_GFX.c:247:6:ILI9341_Draw_Bordered_Filled_Rectangle_Coord	40	static
 ILI9341_GFX.c:309:6:ILI9341_Draw_Bordered_Hollow_Rectangle_Coord	32	static
 ILI9341_GFX.c:356:6:ILI9341_Draw_Char	48	static
 ILI9341_GFX.c:423:6:ILI9341_Draw_Text	40	static
-ILI9341_GFX.c:448:6:ILI9341_Draw_Image	104	dynamic
-ILI9341_GFX.c:546:6:ILI9341_Draw_ImageF	112	dynamic
-ILI9341_GFX.c:642:6:ILI9341_FillScreenGradient	24	static
+ILI9341_GFX.c:446:6:ILI9341_Draw_Image	104	dynamic
+ILI9341_GFX.c:544:6:ILI9341_Draw_ImageF	112	dynamic
+ILI9341_GFX.c:640:6:ILI9341_FillScreenGradient	24	static

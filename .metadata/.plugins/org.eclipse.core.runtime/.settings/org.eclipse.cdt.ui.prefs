@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+markOccurrences=false
 scalability.contentAssistAutoActivation=true
 scalability.numberOfLines=100000
 scalability.reconciler=false
