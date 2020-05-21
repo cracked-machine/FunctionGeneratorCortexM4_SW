@@ -12,8 +12,14 @@ Core/Src/SIgnalManager/FreqOutput.o: \
  ../Core/Src/SIgnalManager/GainOutput.h \
  ../Core/Src/SIgnalManager/VoltPeakPeakOutput.h \
  ../Core/Src/SIgnalManager/BiasOutput.h \
- ../Core/Src/SIgnalManager/DacTimerRegistry.h ../Core/Inc/tim.h \
- ../Core/Inc/main.h ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
+ ../Core/Src/SIgnalManager/DacTimerRegistry.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h \
+ ../Core/Inc/tim.h ../Core/Inc/main.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h \
@@ -99,6 +105,16 @@ Core/Src/SIgnalManager/FreqOutput.o: \
 ../Core/Src/SIgnalManager/BiasOutput.h:
 
 ../Core/Src/SIgnalManager/DacTimerRegistry.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h:
 
 ../Core/Inc/tim.h:
 

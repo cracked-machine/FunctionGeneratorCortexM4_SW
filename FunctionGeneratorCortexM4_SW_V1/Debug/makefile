@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include WaveTableGeneration/icontables/subdir.mk
 -include WaveTableGeneration/subdir.mk
 -include LogSequenceGeneration/subdir.mk
 -include ILI9341/subdir.mk

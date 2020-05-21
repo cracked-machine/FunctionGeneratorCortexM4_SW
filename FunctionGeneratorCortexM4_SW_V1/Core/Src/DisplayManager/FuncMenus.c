@@ -133,5 +133,48 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("- UNIT", 	10, 150, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 				break;
 		}
+/*
+		switch(func_profileTmp->func)
+		{
+			case SINE_FUNC_MODE:
+				if(SYNC_CHANNEL)
+					ILI9341_Draw_Wave(245, 50, 3, RED, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+				else
+					ILI9341_Draw_Wave(245, 50, 3, BLUE, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+				break;
+			case SQUARE_FUNC_MODE:
+				if(SYNC_CHANNEL)
+					ILI9341_Draw_Wave(245, 50, 3, RED, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+				else
+					ILI9341_Draw_Wave(245, 50, 3, BLUE, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+				break;
+			case SAW_FUNC_MODE:
+				if(SYNC_CHANNEL)
+					ILI9341_Draw_Wave(245, 50, 3, RED, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+				else
+					ILI9341_Draw_Wave(245, 50, 3, BLUE, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+				break;
+			case REV_SAW_FUNC_MODE:
+				if(SYNC_CHANNEL)
+					ILI9341_Draw_Wave(245, 50, 3, RED, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+				else
+					ILI9341_Draw_Wave(245, 50, 3, BLUE, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+				break;
+			case TRIANGLE_FUNC_MODE:
+				if(SYNC_CHANNEL)
+					ILI9341_Draw_Wave(245, 50, 3, RED, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+				else
+					ILI9341_Draw_Wave(245, 50, 3, BLUE, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+				break;
+			case IMPULSE_FUNC_MODE:
+				if(SYNC_CHANNEL)
+					ILI9341_Draw_Wave(245, 50, 3, RED, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+				else
+					ILI9341_Draw_Wave(245, 50, 3, BLUE, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+				break;
+		}
+		*/
 	}
+
+
 }

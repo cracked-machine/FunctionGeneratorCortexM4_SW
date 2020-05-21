@@ -6,7 +6,8 @@ from createfile import write_to_source_file
 
 from scipy import signal
 
-t = np.linspace(0.25, 1.25, 120, endpoint=True)
+t = np.linspace(0.25, 1.25, 60, endpoint=True)
+# t = np.linspace(0.25, 1.25, 120, endpoint=True)
 
 offset = 3400
 amp_label = [3600]
@@ -38,9 +39,10 @@ for n in range(len(saw_results)):
 
 plt.show()
 
-write_to_header_file(saw_results, "saw", "pysaw.h")
-write_to_source_file(saw_results, "saw", "pysaw.c", "pysaw.h")
-
+# write_to_header_file(saw_results, "saw", "pysaw.h")
+# write_to_source_file(saw_results, "saw", "pysaw.c", "pysaw.h")
+write_to_header_file(saw_results, "sawicon", "pysawicon.h")
+write_to_source_file(saw_results, "sawicon", "pysawicon.c", "pysawicon.h")
 
 rsaw_results = []
 
@@ -64,10 +66,11 @@ for n in range(len(rsaw_results)):
 
 plt.show()
 
+# write_to_header_file(rsaw_results, "saw_rev", "pysaw_rev.h")
+# write_to_source_file(rsaw_results, "saw_rev", "pysaw_rev.c", "pysaw_rev.h")
 
-write_to_header_file(rsaw_results, "saw_rev", "pysaw_rev.h")
-write_to_source_file(rsaw_results, "saw_rev", "pysaw_rev.c", "pysaw_rev.h")
-
+write_to_header_file(rsaw_results, "sawicon_rev", "pysawicon_rev.h")
+write_to_source_file(rsaw_results, "sawicon_rev", "pysawicon_rev.c", "pysawicon_rev.h")
 
 tri_results = []
 
@@ -91,6 +94,8 @@ for n in range(len(tri_results)):
 
 plt.show()
 
-write_to_header_file(tri_results, "triangle", "pytriangle.h")
-write_to_source_file(tri_results, "triangle", "pytriangle.c", "pytriangle.h")
+# write_to_header_file(tri_results, "triangle", "pytriangle.h")
+# write_to_source_file(tri_results, "triangle", "pytriangle.c", "pytriangle.h")
 
+write_to_header_file(tri_results, "triangleicon", "pytriangleicon.h")
+write_to_source_file(tri_results, "triangleicon", "pytriangleicon.c", "pytriangleicon.h")

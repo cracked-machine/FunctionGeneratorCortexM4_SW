@@ -59,7 +59,13 @@ Core/Src/SIgnalManager/BiasOutput.o: \
  ../Core/Src/SIgnalManager/GainOutput.h \
  ../Core/Src/SIgnalManager/VoltPeakPeakOutput.h \
  ../Core/Src/SIgnalManager/FreqOutput.h \
- ../Core/Src/SIgnalManager/DacTimerRegistry.h ../Core/Inc/tim.h \
+ ../Core/Src/SIgnalManager/DacTimerRegistry.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h \
+ ../Core/Inc/tim.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h
 
 ../Core/Src/SIgnalManager/BiasOutput.h:
@@ -187,6 +193,16 @@ Core/Src/SIgnalManager/BiasOutput.o: \
 ../Core/Src/SIgnalManager/FreqOutput.h:
 
 ../Core/Src/SIgnalManager/DacTimerRegistry.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h:
 
 ../Core/Inc/tim.h:
 

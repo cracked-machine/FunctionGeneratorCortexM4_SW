@@ -54,6 +54,11 @@ Core/Src/EventManager/ToplevelMenuStateHandler.o: \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FreqOutput.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h \
  ../Core/Inc/tim.h ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_rng.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_system.h \
@@ -181,6 +186,16 @@ Core/Src/EventManager/ToplevelMenuStateHandler.o: \
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h:
 
 ../Core/Inc/tim.h:
 

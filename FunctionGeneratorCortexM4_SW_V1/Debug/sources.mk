@@ -26,5 +26,6 @@ Core/Startup \
 Drivers/STM32G4xx_HAL_Driver/Src \
 ILI9341 \
 LogSequenceGeneration \
+WaveTableGeneration/icontables \
 WaveTableGeneration \
 

@@ -63,7 +63,7 @@ typedef enum
 #define VERTICAL_IMAGE		1
 
 
-void ILI9341_Draw_Sine(uint16_t x, uint16_t y, uint8_t weight, uint16_t colour, uint8_t scale, uint32_t* data_table, uint16_t data_table_size);
+void ILI9341_Draw_Wave(uint16_t x, uint16_t y, uint8_t weight, uint16_t colour, uint8_t scale, uint32_t* data_table, uint16_t data_table_size);
 
 void ILI9341_Draw_Arrow(eILI9341_ArrowDirections_t dir, uint16_t x, uint16_t y, uint16_t len, uint16_t fcolour);
 

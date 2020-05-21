@@ -24,7 +24,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "pysineicon.h"
+
 
  extern uint16_t BURST_MAX_SIZE;
 
@@ -360,11 +360,60 @@ void DM_DisplayFormattedOutput()
 	}
 
 	ILI9341_Draw_Text(" OUT:", 3, 170, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	ILI9341_Draw_Sine(80, 140, 3, BLUE, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+	eOutput_mode signal_output_func = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile->func;
+	switch(signal_output_func)
+	{
+		case SINE_FUNC_MODE:
+
+			ILI9341_Draw_Wave(80, 140, 3, BLUE, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+			break;
+		case SQUARE_FUNC_MODE:
+			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+			break;
+		case SAW_FUNC_MODE:
+			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+			break;
+		case REV_SAW_FUNC_MODE:
+			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+			break;
+		case TRIANGLE_FUNC_MODE:
+			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			break;
+		case IMPULSE_FUNC_MODE:
+			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			break;
+	}
 
 	ILI9341_Draw_Text("AUX:", 180, 170, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	ILI9341_Draw_Sine(245, 140, 3, RED, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+	eOutput_mode sync_output_func = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
+	switch(sync_output_func)
+	{
+		case SINE_FUNC_MODE:
+
+			ILI9341_Draw_Wave(245, 140, 3, RED, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+			break;
+		case SQUARE_FUNC_MODE:
+			ILI9341_Draw_Wave(245, 160, 3, RED, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+			break;
+		case SAW_FUNC_MODE:
+			ILI9341_Draw_Wave(245, 160, 3, RED, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+			break;
+		case REV_SAW_FUNC_MODE:
+			ILI9341_Draw_Wave(245, 160, 3, RED, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+			break;
+		case TRIANGLE_FUNC_MODE:
+			ILI9341_Draw_Wave(245, 160, 3, RED, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			break;
+		case IMPULSE_FUNC_MODE:
+			ILI9341_Draw_Wave(245, 160, 3, RED, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			break;
+	}
+
+
+
 }
+
+
 
 /*
  *

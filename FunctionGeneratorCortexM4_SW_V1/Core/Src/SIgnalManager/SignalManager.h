@@ -15,6 +15,13 @@
 #include "FreqOutput.h"
 #include "DacTimerRegistry.h"
 
+#include "pysineicon.h"
+#include "pysquareicon.h"
+#include "pysawicon.h"
+#include "pysawicon_rev.h"
+#include "pytriangleicon.h"
+#include "pyunitimpulse.h"
+
 #include "tim.h"
 
 #define ENCODER_TIMER	TIM1

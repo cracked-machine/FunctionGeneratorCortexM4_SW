@@ -1,4 +1,4 @@
-ILI9341_GFX.c:61:6:ILI9341_Draw_Sine	32	static
+ILI9341_GFX.c:61:6:ILI9341_Draw_Wave	32	static
 ILI9341_GFX.c:98:7:ILI9341_Draw_Arrow	32	static
 ILI9341_GFX.c:137:6:ILI9341_Draw_Hollow_Circle	48	static
 ILI9341_GFX.c:179:6:ILI9341_Draw_Filled_Circle	56	static

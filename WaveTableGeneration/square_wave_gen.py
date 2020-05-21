@@ -6,7 +6,9 @@ from createfile import write_to_source_file
 
 from scipy import signal
 
-t = np.linspace(0.25, 1.25, 120, endpoint=True)
+# t = np.linspace(0.25, 1.25, 120, endpoint=True)
+t = np.linspace(0.25, 1.25, 60, endpoint=True)
+
 offset = 3400
 amp_label = [3600]
 amp_coeff = [1820]
@@ -39,6 +41,8 @@ plt.ylabel('voltage(V)')
 
 plt.show()
 
-write_to_header_file(results, "square", "pysquare.h")
-write_to_source_file(results, "square", "pysquare.c", "pysquare.h")
+# write_to_header_file(results, "square", "pysquare.h")
+# write_to_source_file(results, "square", "pysquare.c", "pysquare.h")
 
+write_to_header_file(results, "squareicon", "pysquareicon.h")
+write_to_source_file(results, "squareicon", "pysquareicon.c", "pysquareicon.h")
