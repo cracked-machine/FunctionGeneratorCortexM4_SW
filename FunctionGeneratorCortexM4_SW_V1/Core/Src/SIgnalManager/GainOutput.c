@@ -28,11 +28,14 @@ GainProfile_t theGainProfiles[MAX_NUM_GAIN_PRESETS] =
 uint8_t GainPresetEncoderRange = 28;
 
 
-
-// signal output gain
-//eGainSettings_t eNewOutGain = ONE_GAIN;
-
-
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void GO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 {
 	switch(pEncoderValue)
@@ -73,6 +76,14 @@ void GO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void GO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 {
 	switch(pEncoderValue)

@@ -30,9 +30,9 @@ eFuncMenu_Status FuncMenu_getStatus()
  */
 eSystemState FuncMainMenuEntryHandler(void)
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncMainMenuEntryHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncMainMenuEntryHandler Event captured\n");
+	#endif
 
 	DM_RefreshScreen();
 
@@ -65,9 +65,9 @@ eSystemState FuncMainMenuEntryHandler(void)
  */
 eSystemState FuncMainMenuInputHandler(void)
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncMainMenuInputHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncMainMenuInputHandler Event captured\n");
+	#endif
 
 
 //	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
@@ -86,9 +86,9 @@ eSystemState FuncMainMenuInputHandler(void)
  */
 eSystemState FuncMainMenuExitHandler()
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncMainMenuExitHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncMainMenuExitHandler Event captured\n");
+	#endif
 
 	// disable the menu
 
@@ -100,9 +100,9 @@ eSystemState FuncMainMenuExitHandler()
 
 	DM_RefreshScreen();
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("returning to Idle State\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		  printf("returning to Idle State\n");
+	#endif
 
 	eNewEvent = evIdle;
 	return Toplevel_Output_Menu_State;
@@ -119,9 +119,9 @@ eSystemState FuncMainMenuExitHandler()
  */
 eSystemState FuncSignalMenuEntryHandler(void)
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncSignalMenuEntryHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncSignalMenuEntryHandler Event captured\n");
+	#endif
 
 	DM_RefreshScreen();
 	FuncO_ResetLastEncoderValue();
@@ -154,9 +154,9 @@ eSystemState FuncSignalMenuEntryHandler(void)
  */
 eSystemState FuncSignalMenuInputHandler(void)
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncSignalMenuInputHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncSignalMenuInputHandler Event captured\n");
+	#endif
 
 
 	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
@@ -174,9 +174,9 @@ eSystemState FuncSignalMenuInputHandler(void)
  */
 eSystemState FuncSignalMenuExitHandler()
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncSignalMenuExitHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncSignalMenuExitHandler Event captured\n");
+	#endif
 
 	// disable the menu
 
@@ -203,9 +203,9 @@ eSystemState FuncSignalMenuExitHandler()
  */
 eSystemState FuncSyncMenuEntryHandler(void)
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncSyncMenuEntryHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncSyncMenuEntryHandler Event captured\n");
+	#endif
 
 	DM_RefreshScreen();
 	FuncO_ResetLastEncoderValue();
@@ -238,9 +238,9 @@ eSystemState FuncSyncMenuEntryHandler(void)
  */
 eSystemState FuncSyncMenuInputHandler(void)
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncSyncMenuInputHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncSyncMenuInputHandler Event captured\n");
+	#endif
 
 
 	FuncO_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
@@ -258,9 +258,9 @@ eSystemState FuncSyncMenuInputHandler(void)
  */
 eSystemState FuncSyncMenuExitHandler()
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("FuncSyncMenuExitHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("FuncSyncMenuExitHandler Event captured\n");
+	#endif
 
 	// disable the menu
 

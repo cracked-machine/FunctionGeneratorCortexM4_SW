@@ -1,6 +1,6 @@
-GainOutput.c:36:6:GO_MapEncoderPositionToSyncOutput	16	static
-GainOutput.c:76:6:GO_MapEncoderPositionToSignalOutput	16	static
-GainOutput.c:122:6:GO_ApplyPresetToSignal	24	static
-GainOutput.c:186:6:GO_ApplyPresetToSync	24	static
-GainOutput.c:252:17:GO_FindGPresetObject	24	static
-GainOutput.c:275:9:GO_GetGainPresetEncoderRange	4	static
+GainOutput.c:39:6:GO_MapEncoderPositionToSyncOutput	16	static
+GainOutput.c:87:6:GO_MapEncoderPositionToSignalOutput	16	static
+GainOutput.c:133:6:GO_ApplyPresetToSignal	24	static
+GainOutput.c:197:6:GO_ApplyPresetToSync	24	static
+GainOutput.c:263:17:GO_FindGPresetObject	24	static
+GainOutput.c:286:9:GO_GetGainPresetEncoderRange	4	static

@@ -148,7 +148,6 @@ int main(void)
   // main signal function output (external)
   //DAC_InitDevices()
   SM_Init();
-  FuncO_Init();
   FuncO_ApplyPresetToSignal(eDefaultFuncPreset);
   FuncO_ApplyPresetToSync(eDefaultFuncPreset);
 

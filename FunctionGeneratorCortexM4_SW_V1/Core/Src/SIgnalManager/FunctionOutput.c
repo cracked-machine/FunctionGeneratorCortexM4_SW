@@ -52,28 +52,17 @@ uint8_t FuncPresetEncoderRange = 24;
 
 uint16_t func_last_encoder_value = 0;
 
-void FuncO_ResetLastEncoderValue()
-{
-	func_last_encoder_value = 0;
-}
-
 /*
  *
- *	@brief	Initialise the
+ *	@brief
  *
- *	@param pEncoderValue rotary encoder value
+ *	@param None
  *	@retval None
  *
  */
-void FuncO_Init()
+void FuncO_ResetLastEncoderValue()
 {
-	/*
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
-		aProcessedSignalDataTable[i] = sine_data_table_3600[i];
-
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
-		aProcessedSyncDataTable[i] = sine_data_table_3600[i];
-		*/
+	func_last_encoder_value = 0;
 }
 
 
@@ -129,7 +118,14 @@ void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 	func_last_encoder_value = pEncoderValue;
 }
 
-
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FuncO_EnablePWMToSignal()
 {
 	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
@@ -140,31 +136,79 @@ void FuncO_DisablePWMToSignal()
 
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FuncO_EnableDacToSignal()
 {
 	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FuncO_DisableDacToSignal()
 {
 
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FuncO_EnablePWMToSync()
 {
 	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FuncO_DisablePWMToSync()
 {
 
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FuncO_EnableDacToSync()
 {
 	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void FuncO_DisableDacToSync()
 {
 
@@ -293,36 +337,6 @@ FunctionProfile_t * FuncO_FindFPresetObject(eOutput_mode pEnum)
 	return 0;
 }
 
-
-/*
- *
- *	@brief Get currently set function output preset
- *
- *	@param None
- *	@retval pointer to FunctionProfile_t struct
- *
- */
-/*
-FunctionProfile_t * FuncO_GetSignalFPresetObject()
-{
-	return pSignalFuncPresetEncoderPos;
-}
-*/
-
-/*
- *
- *	@brief Get currently set function output preset
- *
- *	@param None
- *	@retval pointer to FunctionProfile_t struct
- *
- */
-/*
-FunctionProfile_t * FuncO_GetSyncFPresetObject()
-{
-	return pSyncFuncPresetEncoderPos;
-}
-*/
 
 /*
  *

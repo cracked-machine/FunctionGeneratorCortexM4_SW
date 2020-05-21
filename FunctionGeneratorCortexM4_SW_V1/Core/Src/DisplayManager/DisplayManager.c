@@ -76,13 +76,14 @@ void DM_Init()
 void DM_PostInit()
 {
 
-	  ILI9341_Draw_Text("Initialising", 10, 10, NORMAL_TEXT_FGCOLOUR, 1, NORMAL_TEXT_BGCOLOUR);
-	  HAL_Delay(500);
+	ILI9341_Draw_Text("Initialising", 10, 10, NORMAL_TEXT_FGCOLOUR, 1, NORMAL_TEXT_BGCOLOUR);
+	HAL_Delay(500);
 
-	  DM_RefreshScreen();
-#ifdef SWV_DEBUG_ENABLED
-	  printf("Init Completed\n");
-#endif
+	DM_RefreshScreen();
+
+	#ifdef SWV_DEBUG_ENABLED
+		  printf("Init Completed\n");
+	#endif
 
 
 }

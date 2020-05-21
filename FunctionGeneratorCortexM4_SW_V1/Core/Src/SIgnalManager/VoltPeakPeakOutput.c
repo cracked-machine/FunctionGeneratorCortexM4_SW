@@ -21,8 +21,6 @@
 #define AMP_OFFSET100 AMP_OFFSET+100
 
 
-
-
 /*
  * 		Array of Vpp presets
  */
@@ -132,8 +130,8 @@ AmplitudeProfile_t theAmpProfiles[MAX_VPP_PRESETS] =
 
 // temp location to hold a copy of the lookup table data that is modified by dsp
 uint32_t tmpDataTable[SINE_DATA_SIZE];
-
 uint16_t amp_last_encoder_value = 0;
+
 
 /*
  * 		Function protochannels
@@ -146,7 +144,14 @@ void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum);
 
 
 
-
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 void VPP_ResetLastEncoderValue()
 {
 	amp_last_encoder_value = 0;
@@ -288,26 +293,6 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
 }
 
 
-
-/*
- *
- *	@brief Get VPP preset pointer
- *
- *	@param None
- *	@retval pointer to AmplitudeProfile_t struct
- *
- */
-/*
-AmplitudeProfile_t * VPP_GetVppPresetObject(eVppActivePresetSelect_t eVppActivePresetSelect)
-{
-	if(eVppActivePresetSelect)
-		return pSyncVppEncoderPreset;
-	else
-		return pSignalVppEncoderPreset;
-}
-*/
-
-
 /*
  *
  *	@brief Search array of structs for preset
@@ -340,15 +325,13 @@ AmplitudeProfile_t * VPP_FindVppPresetObject(eAmpSettings_t pEnum)
 }
 
 
-
-
 /*
  *
  *	@brief multiplex encoder input -> preset function
  *
  *
  *	@param Encoder position.
-
+ *
  *	@retval None
  *
  */
@@ -375,16 +358,8 @@ void VPP_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
  *
  *	@brief multiplex encoder input -> preset function
  *
- *	@param Should be one of the following:
+ *	@param Encoder position.
  *
- *	VPP01, 	VPP02,	VPP03,	VPP04,	VPP05,	VPP06,	VPP07,	VPP08,	VPP09,	VPP10,	VPP11,	VPP12,	VPP13,	VPP14,	VPP15,
-	VPP16,	VPP17,	VPP18,	VPP19,	VPP20,	VPP21,	VPP22,	VPP23,	VPP24,	VPP25,	VPP26,	VPP27,	VPP28,	VPP29,	VPP30,
-	VPP31,	VPP32,	VPP33,	VPP34,	VPP35,	VPP36,	VPP37,	VPP38,	VPP39,	VPP40,	VPP41,  VPP42,  VPP43,	VPP44,	VPP45,
-	VPP46,	VPP47,	VPP48,	VPP49,	VPP50,	VPP51,	VPP52,	VPP53,	VPP54,	VPP55,	VPP56,	VPP57,	VPP58,	VPP59,	VPP60,
-	VPP61,	VPP62,	VPP63,	VPP64,	VPP65,	VPP66,	VPP67,	VPP68,	VPP69,	VPP70,	VPP71,	VPP72,	VPP73,  VPP74,	VPP75,
-	VPP76,	VPP77,	VPP78,	VPP79,	VPP80,	VPP81,	VPP82,	VPP83,	VPP84,	VPP85,	VPP86,	VPP87,	VPP88,	VPP89,	VPP90,
-	VPP91,	VPP92,	VPP93,	VPP94,	VPP95,	VPP96,	VPP97,	VPP98,
-
  *	@retval None
  *
  */

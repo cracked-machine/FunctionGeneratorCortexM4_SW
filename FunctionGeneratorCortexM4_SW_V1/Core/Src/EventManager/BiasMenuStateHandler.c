@@ -14,6 +14,14 @@
 
 eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIAS_MENU;
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
 eBiasMenu_Status BiasMenu_getStatus()
 {
 	return eNextBiasMenuStatus;
@@ -29,9 +37,9 @@ eBiasMenu_Status BiasMenu_getStatus()
  */
 eSystemState BiasMenuEntryHandler()
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("BiasMenuEntryHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("BiasMenuEntryHandler Event captured\n");
+	#endif
 
 	DM_RefreshScreen();
 
@@ -54,9 +62,9 @@ eSystemState BiasMenuEntryHandler()
  */
 eSystemState BiasMenuInputHandler()
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("BiasMenuInputHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("BiasMenuInputHandler Event captured\n");
+	#endif
 
 	BO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
@@ -74,9 +82,9 @@ eSystemState BiasMenuInputHandler()
  */
 eSystemState BiasMenuExitHandler()
 {
-#ifdef SWV_DEBUG_ENABLED
-	printf("BiasMenuExitHandler Event captured\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		printf("BiasMenuExitHandler Event captured\n");
+	#endif
 
 
 	// disable the menu
@@ -88,9 +96,9 @@ eSystemState BiasMenuExitHandler()
 
 	DM_RefreshScreen();
 
-#ifdef SWV_DEBUG_ENABLED
-	  printf("returning to Idle State\n");
-#endif
+	#ifdef SWV_DEBUG_ENABLED
+		  printf("returning to Idle State\n");
+	#endif
 
 	eNewEvent = evIdle;
 	return Toplevel_Output_Menu_State;

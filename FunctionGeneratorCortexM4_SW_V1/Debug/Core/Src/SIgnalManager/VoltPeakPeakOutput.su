@@ -1,8 +1,8 @@
-VoltPeakPeakOutput.c:150:6:VPP_ResetLastEncoderValue	4	static
-VoltPeakPeakOutput.c:163:6:VPP_ApplyProfileToSignal	24	static
-VoltPeakPeakOutput.c:188:6:VPP_ApplyProfileToSync	24	static
-VoltPeakPeakOutput.c:214:6:_ProcessSignalDataTable	48	static
-VoltPeakPeakOutput.c:256:6:_ProcessSyncDataTable	40	static
-VoltPeakPeakOutput.c:328:22:VPP_FindVppPresetObject	24	static
-VoltPeakPeakOutput.c:362:6:VPP_MapEncoderPositionToSignalOutput	24	static
-VoltPeakPeakOutput.c:993:6:VPP_MapEncoderPositionToSyncOutput	24	static
+VoltPeakPeakOutput.c:155:6:VPP_ResetLastEncoderValue	4	static
+VoltPeakPeakOutput.c:168:6:VPP_ApplyProfileToSignal	24	static
+VoltPeakPeakOutput.c:193:6:VPP_ApplyProfileToSync	24	static
+VoltPeakPeakOutput.c:219:6:_ProcessSignalDataTable	48	static
+VoltPeakPeakOutput.c:261:6:_ProcessSyncDataTable	40	static
+VoltPeakPeakOutput.c:313:22:VPP_FindVppPresetObject	24	static
+VoltPeakPeakOutput.c:338:6:VPP_MapEncoderPositionToSignalOutput	24	static
+VoltPeakPeakOutput.c:366:6:VPP_MapEncoderPositionToSyncOutput	24	static
