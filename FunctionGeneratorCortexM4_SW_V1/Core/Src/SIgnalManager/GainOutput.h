@@ -52,6 +52,8 @@ void GO_ApplyPresetToSync(eGainSettings_t pPresetEnum);
 
 GainProfile_t * GO_FindGPresetObject(eGainSettings_t pEnum);
 
+
+
 uint8_t GO_GetGainPresetEncoderRange();
 
 #endif /* SRC_SIGNALMANAGER_GAINOUTPUT_H_ */

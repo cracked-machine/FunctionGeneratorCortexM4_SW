@@ -365,22 +365,25 @@ void DM_DisplayFormattedOutput()
 	{
 		case SINE_FUNC_MODE:
 
-			ILI9341_Draw_Wave(80, 140, 3, BLUE, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(80, 140, 3, SIGNAL_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
 			break;
 		case SQUARE_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
 			break;
 		case SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
 			break;
 		case REV_SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
 			break;
 		case TRIANGLE_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
 			break;
 		case IMPULSE_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, BLUE, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			break;
+		case PWM_FUNC_MODE:
+			ILI9341_Draw_Text("PWM", 80, 170, SIGNAL_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
 			break;
 	}
 
@@ -390,22 +393,25 @@ void DM_DisplayFormattedOutput()
 	{
 		case SINE_FUNC_MODE:
 
-			ILI9341_Draw_Wave(245, 140, 3, RED, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 140, 3, SYNC_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
 			break;
 		case SQUARE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, RED, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
 			break;
 		case SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, RED, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
 			break;
 		case REV_SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, RED, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
 			break;
 		case TRIANGLE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, RED, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
 			break;
 		case IMPULSE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, RED, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			break;
+		case PWM_FUNC_MODE:
+			ILI9341_Draw_Text("PWM", 245, 170, SYNC_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
 			break;
 	}
 

@@ -37,6 +37,7 @@ eSystemState FuncMainMenuEntryHandler(void)
 	DM_RefreshScreen();
 
 
+
 	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
 
 /*	FunctionProfile_t *func_profileTmp =  FuncO_GetSignalFPresetObject();
@@ -123,6 +124,7 @@ eSystemState FuncSignalMenuEntryHandler(void)
 #endif
 
 	DM_RefreshScreen();
+	FuncO_ResetLastEncoderValue();
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_SIGNAL_MENU;
 
@@ -206,6 +208,7 @@ eSystemState FuncSyncMenuEntryHandler(void)
 #endif
 
 	DM_RefreshScreen();
+	FuncO_ResetLastEncoderValue();
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_SYNC_MENU;
 

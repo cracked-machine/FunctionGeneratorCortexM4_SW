@@ -20,20 +20,20 @@
  */
 FreqProfile_t theFreqProfiles[MAX_NUM_FREQ_PRESETS] =
 {
-	{ FPRESET_1HZ,		53 },
-	{ FPRESET_10HZ,		49 },
-	{ FPRESET_50HZ,		45 },
-	{ FPRESET_100HZ,	41 },
-	{ FPRESET_250HZ, 	37 },
-	{ FPRESET_500HZ, 	33 },
-	{ FPRESET_750HZ,	29 },
-	{ FPRESET_1KHZ, 	25 },
-	{ FPRESET_5KHZ, 	21 },
-	{ FPRESET_10KHZ,	17 },
-	{ FPRESET_25KHZ, 	13 },
-	{ FPRESET_50KHZ, 	9  },
-	{ FPRESET_75KHZ, 	5  },
-	{ FPRESET_100KHZ, 	1  }
+	{ FPRESET_1HZ,		53, 0 },
+	{ FPRESET_10HZ,		49, 1 },
+	{ FPRESET_50HZ,		45, 2 },
+	{ FPRESET_100HZ,	41, 3 },
+	{ FPRESET_250HZ, 	37, 4 },
+	{ FPRESET_500HZ, 	33, 5 },
+	{ FPRESET_750HZ,	29, 6 },
+	{ FPRESET_1KHZ, 	25, 7 },
+	{ FPRESET_5KHZ, 	21, 8 },
+	{ FPRESET_10KHZ,	17, 9 },
+	{ FPRESET_25KHZ, 	13, 10},
+	{ FPRESET_50KHZ, 	9, 	11},
+	{ FPRESET_75KHZ, 	5, 	12},
+	{ FPRESET_100KHZ, 	1, 	13}
 
 };
 
@@ -45,13 +45,18 @@ FreqProfile_t *freq_profile = &theFreqProfiles[eDefaultFreqPreset];
 
 uint8_t FreqPresetEncoderRange = 56;
 
+uint16_t freq_last_encoder_value = 0;
 
+void FreqO_ResetLastEncoderValue()
+{
+	freq_last_encoder_value = 0;
+}
 
 /*
  * 	Function protochannels
  */
 FreqProfile_t * FreqO_GetFPresetObject();
-
+eFreqSettings_t _FindFPresetObjectByIndex(uint32_t pIndex);
 
 
 /*
@@ -169,6 +174,21 @@ void FreqO_ModifyOutput(uint16_t pEncValue)
 			break;
 	}
 
+/*	uint32_t tmpFreqIndex = freq_profile->index;
+	if(pEncValue > freq_last_encoder_value)
+	{
+		tmpFreqIndex++;
+		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = FPRESET_100KHZ;
+		FreqO_ApplyPreset_Fast(_FindFPresetObjectByIndex(tmpFreqIndex));
+	}
+	else if (pEncValue < freq_last_encoder_value)
+	{
+		tmpFreqIndex--;
+		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = FPRESET_100KHZ;
+		FreqO_ApplyPreset_Fast(_FindFPresetObjectByIndex(tmpFreqIndex));
+	}
+	freq_last_encoder_value = pEncValue;
+	*/
 }
 
 
@@ -381,6 +401,18 @@ FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum)
 		{
 			return &theFreqProfiles[i];
 		}
+	}
+	// error!
+	DM_SetErrorDebugMsg("FreqO_FindFPresetObject(): no FPreset obj found");
+	return 0;
+}
+
+eFreqSettings_t _FindFPresetObjectByIndex(uint32_t pIndex)
+{
+	for(int i = 0; i < pIndex; i++ )
+	{
+		return theFreqProfiles[i].hertz;
+
 	}
 	// error!
 	DM_SetErrorDebugMsg("FreqO_FindFPresetObject(): no FPreset obj found");

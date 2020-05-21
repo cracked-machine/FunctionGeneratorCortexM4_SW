@@ -2,8 +2,8 @@ DisplayManager.c:60:6:DM_Init	8	static
 DisplayManager.c:76:6:DM_PostInit	16	static
 DisplayManager.c:101:6:DM_UpdateDisplay	16	static
 DisplayManager.c:302:6:DM_DisplayFormattedOutput	136	static
-DisplayManager.c:426:5:DM_DigitCount	16	static
-DisplayManager.c:450:6:DM_RefreshScreen	24	static
-DisplayManager.c:533:5:DM_AddDigitPadding	24	static
-DisplayManager.c:583:6:DM_TestScreen	4	static
-DisplayManager.c:596:6:DM_SetErrorDebugMsg	16	static
+DisplayManager.c:432:5:DM_DigitCount	16	static
+DisplayManager.c:456:6:DM_RefreshScreen	24	static
+DisplayManager.c:539:5:DM_AddDigitPadding	24	static
+DisplayManager.c:589:6:DM_TestScreen	4	static
+DisplayManager.c:602:6:DM_SetErrorDebugMsg	16	static

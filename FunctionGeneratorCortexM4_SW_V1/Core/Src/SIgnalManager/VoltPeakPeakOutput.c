@@ -304,31 +304,36 @@ void VPP_ApplyPresetToSync(eAmpSettings_t pPresetEnum)
  */
 void _ProcessSignalDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value)
 {
-	// copy refer lookup datat table from SignalChannel object
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
+	sOutputChannel_t * pTmpOutputChannel = SM_GetOutputChannel(SIGNAL_CHANNEL);
+	if(pTmpOutputChannel->func_profile->func != PWM_FUNC_MODE)
 	{
-		tmpDataTable[i] = SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data[i];
+		// copy refer lookup datat table from SignalChannel object
+		for(int i = 0; i < SINE_DATA_SIZE; i++)
+		{
+			tmpDataTable[i] = pTmpOutputChannel->ref_lut_data[i];
+		}
+
+		// calculate positive offset coefficient from encoder position
+		float pos_offset_coeff = 1;
+		if(_encoder_value)
+		{
+			pos_offset_coeff = (_encoder_value/4);
+		}
+
+		// adjust amplitude and offset of lookup table copy
+		for(int i = 0; i < SINE_DATA_SIZE; i++)
+		{
+			tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
+			tmpDataTable[i] = tmpDataTable[i] + (AMP_OFFSET * pos_offset_coeff);
+		}
+
+		// restore lookup table copy to active lookup table in SignalChannel object
+		for(int i = 0; i < SINE_DATA_SIZE; i++)
+		{
+			SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
+		}
 	}
 
-	// calculate positive offset coefficient from encoder position
-	float pos_offset_coeff = 1;
-	if(_encoder_value)
-	{
-		pos_offset_coeff = (_encoder_value/4);
-	}
-
-	// adjust amplitude and offset of lookup table copy
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
-	{
-		tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
-		tmpDataTable[i] = tmpDataTable[i] + (AMP_OFFSET * pos_offset_coeff);
-	}
-
-	// restore lookup table copy to active lookup table in SignalChannel object
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
-	{
-		SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
-	}
 }
 
 /*
@@ -341,26 +346,30 @@ void _ProcessSignalDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _
  */
 void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value)
 {
-	// copy refer lookup datat table from SyncChannel object
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
+	if(SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func != PWM_FUNC_MODE)
 	{
-		tmpDataTable[i] = SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data[i];
+		// copy refer lookup datat table from SyncChannel object
+		for(int i = 0; i < SINE_DATA_SIZE; i++)
+		{
+			tmpDataTable[i] = SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data[i];
+		}
+
+		// calculate positive offset coefficient from encoder position
+		float pos_offset_coeff = 1;
+		if(_encoder_value)
+		{
+			pos_offset_coeff = (_encoder_value/4);
+		}
+
+		// adjust amplitude and offset of lookup table copy
+		for(int i = 0; i < SINE_DATA_SIZE; i++)
+		{
+
+			tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
+			tmpDataTable[i] = tmpDataTable[i] + (AMP_OFFSET * pos_offset_coeff);
+		}
 	}
 
-	// calculate positive offset coefficient from encoder position
-	float pos_offset_coeff = 1;
-	if(_encoder_value)
-	{
-		pos_offset_coeff = (_encoder_value/4);
-	}
-
-	// adjust amplitude and offset of lookup table copy
-	for(int i = 0; i < SINE_DATA_SIZE; i++)
-	{
-
-		tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
-		tmpDataTable[i] = tmpDataTable[i] + (AMP_OFFSET * pos_offset_coeff);
-	}
 
 	// restore lookup table copy to active lookup table in SignalChannel object
 	for(int i = 0; i < SINE_DATA_SIZE; i++)

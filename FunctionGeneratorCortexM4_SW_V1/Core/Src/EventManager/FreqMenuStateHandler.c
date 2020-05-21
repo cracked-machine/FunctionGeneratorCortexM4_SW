@@ -391,6 +391,7 @@ eSystemState FreqPresetMenuEntryHandler()
 	#endif
 
 	DM_RefreshScreen();
+	FreqO_ResetLastEncoderValue();
 
 	eNextFreqMenuStatus = ENABLE_FREQ_PRESET_MENU;
 

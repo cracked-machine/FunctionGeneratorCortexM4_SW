@@ -17,6 +17,18 @@
 
 
 
+void FuncO_EnablePWMToSignal();
+void FuncO_DisablePWMToSignal();
+void FuncO_EnableDacToSignal();
+void FuncO_DisableDacToSignal();
+
+void FuncO_EnablePWMToSync();
+void FuncO_DisablePWMToSync();
+void FuncO_EnableDacToSync();
+void FuncO_DisableDacToSync();
+
+// dummy lookup table for PWM_FUNC_MODE
+uint32_t empty_table[10] = {};
 
 
 /*
@@ -24,26 +36,26 @@
  */
 FunctionProfile_t theFuncProfiles[MAX_NUM_FUNC_PRESETS] =
 {
-	{ SINE_FUNC_MODE,		20, sine_data_table_3600 		},
-	{ SQUARE_FUNC_MODE,		16, square_data_table_3600 		},
-	{ SAW_FUNC_MODE,		12, saw_data_table_3600 		},
-	{ REV_SAW_FUNC_MODE,	8, 	saw_rev_data_table_3600 	},
-	{ TRIANGLE_FUNC_MODE, 	4, 	triangle_data_table_3600 	},
-	{ IMPULSE_FUNC_MODE, 	0, 	unitimpulse_data_table_3600 }
+	{ SINE_FUNC_MODE,		24, sine_data_table_3600 		},
+	{ SQUARE_FUNC_MODE,		20, square_data_table_3600 		},
+	{ SAW_FUNC_MODE,		16, saw_data_table_3600 		},
+	{ REV_SAW_FUNC_MODE,	12, saw_rev_data_table_3600 	},
+	{ TRIANGLE_FUNC_MODE, 	8, 	triangle_data_table_3600 	},
+	{ IMPULSE_FUNC_MODE, 	4, 	unitimpulse_data_table_3600 },
+	{ PWM_FUNC_MODE,		0,	empty_table					}			// no lookup table used
 
 };
 
 
-// pointer to eDefaultFuncPreset used by Signal output
-//FunctionProfile_t *pSignalFuncPresetEncoderPos = &theFuncProfiles[eDefaultFuncPreset];
 
-// pointer to eDefaultFuncPreset used by Signal output
-//FunctionProfile_t *pSyncFuncPresetEncoderPos = &theFuncProfiles[eDefaultFuncPreset];
+uint8_t FuncPresetEncoderRange = 24;
 
+uint16_t func_last_encoder_value = 0;
 
-uint8_t FuncPresetEncoderRange = 20;
-
-
+void FuncO_ResetLastEncoderValue()
+{
+	func_last_encoder_value = 0;
+}
 
 /*
  *
@@ -75,35 +87,20 @@ void FuncO_Init()
  */
 void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
 {
-
-
-	switch(pEncoderValue)
+	eOutput_mode tmpFunc = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile->func;
+	if(pEncoderValue > func_last_encoder_value)
 	{
-		case 0: case 1: case 2:
-			FuncO_ApplyPresetToSignal(SINE_FUNC_MODE);
-			break;
-
-		case 3: case 4: case 5: case 6:
-			FuncO_ApplyPresetToSignal(SQUARE_FUNC_MODE);
-			break;
-
-		case 7: case 8: case 9: case 10:
-			FuncO_ApplyPresetToSignal(SAW_FUNC_MODE);
-			break;
-
-		case 11: case 12: case 13: case 14:
-			FuncO_ApplyPresetToSignal(REV_SAW_FUNC_MODE);
-			break;
-
-		case 15: case 16: case 17: case 18:
-			FuncO_ApplyPresetToSignal(TRIANGLE_FUNC_MODE);
-			break;
-
-		case 19: case 20: case 21: case 22: case 23:
-			FuncO_ApplyPresetToSignal(IMPULSE_FUNC_MODE);
-			break;
-
+		tmpFunc++;
+		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = PWM_FUNC_MODE;
+		FuncO_ApplyPresetToSignal(tmpFunc);
 	}
+	else if (pEncoderValue < func_last_encoder_value)
+	{
+		tmpFunc--;
+		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = SINE_FUNC_MODE;
+		FuncO_ApplyPresetToSignal(tmpFunc);
+	}
+	func_last_encoder_value = pEncoderValue;
 }
 
 /*
@@ -116,37 +113,62 @@ void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
  */
 void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
 {
-
-
-	switch(pEncoderValue)
+	eOutput_mode tmpFunc = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
+	if(pEncoderValue > func_last_encoder_value)
 	{
-		case 0: case 1: case 2:
-			FuncO_ApplyPresetToSync(SINE_FUNC_MODE);
-			break;
-
-		case 3: case 4: case 5: case 6:
-			FuncO_ApplyPresetToSync(SQUARE_FUNC_MODE);
-			break;
-
-		case 7: case 8: case 9: case 10:
-			FuncO_ApplyPresetToSync(SAW_FUNC_MODE);
-			break;
-
-		case 11: case 12: case 13: case 14:
-			FuncO_ApplyPresetToSync(REV_SAW_FUNC_MODE);
-			break;
-
-		case 15: case 16: case 17: case 18:
-			FuncO_ApplyPresetToSync(TRIANGLE_FUNC_MODE);
-			break;
-
-		case 19: case 20: case 21: case 22: case 23:
-			FuncO_ApplyPresetToSync(IMPULSE_FUNC_MODE);
-			break;
-
+		tmpFunc++;
+		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = PWM_FUNC_MODE;
+		FuncO_ApplyPresetToSync(tmpFunc);
 	}
+	else if (pEncoderValue < func_last_encoder_value)
+	{
+		tmpFunc--;
+		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = SINE_FUNC_MODE;
+		FuncO_ApplyPresetToSync(tmpFunc);
+	}
+	func_last_encoder_value = pEncoderValue;
 }
 
+
+void FuncO_EnablePWMToSignal()
+{
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
+}
+
+void FuncO_DisablePWMToSignal()
+{
+
+}
+
+void FuncO_EnableDacToSignal()
+{
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
+}
+
+void FuncO_DisableDacToSignal()
+{
+
+}
+
+void FuncO_EnablePWMToSync()
+{
+	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
+}
+
+void FuncO_DisablePWMToSync()
+{
+
+}
+
+void FuncO_EnableDacToSync()
+{
+	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
+}
+
+void FuncO_DisableDacToSync()
+{
+
+}
 
 /*
  *
@@ -167,15 +189,15 @@ void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
 void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 {
 
+	// set the next function output
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
+
 	// copy the lookup table for the next output function in to SignalChannel object
 	SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
 	// set preset for PGA gain and dsp amplitude adjustment
 	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
 	VPP_ApplyPresetToSignal(eTmpVppPreset);
-
-	// set the next function output
-	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
 
 	// pause timer to resync both outputs
 	//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
@@ -212,15 +234,16 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
  */
 void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
 {
+	// set the next output function
+	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
+
+
 	// copy the lookup table for the next output function in to SyncChannel object
 	SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
 	// set preset PGA gain and dsp amplitude adjustment
 	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
 	VPP_ApplyPresetToSync(eTmpVppPreset);
-
-	// set the next output function
-	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
 
 	// pause timer to resync both outputs
 	//HAL_TIM_Base_Stop(&htim8);

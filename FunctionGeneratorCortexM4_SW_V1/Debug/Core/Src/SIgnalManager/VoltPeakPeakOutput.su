@@ -1,7 +1,7 @@
 VoltPeakPeakOutput.c:254:6:VPP_ApplyPresetToSignal	24	static
 VoltPeakPeakOutput.c:279:6:VPP_ApplyPresetToSync	24	static
-VoltPeakPeakOutput.c:305:6:_ProcessSignalDataTable	40	static
-VoltPeakPeakOutput.c:342:6:_ProcessSyncDataTable	40	static
-VoltPeakPeakOutput.c:410:22:VPP_FindVppPresetObject	24	static
-VoltPeakPeakOutput.c:444:6:VPP_ModifySignalOutput	16	static
-VoltPeakPeakOutput.c:1058:6:VPP_ModifySyncOutput	16	static
+VoltPeakPeakOutput.c:305:6:_ProcessSignalDataTable	48	static
+VoltPeakPeakOutput.c:347:6:_ProcessSyncDataTable	40	static
+VoltPeakPeakOutput.c:419:22:VPP_FindVppPresetObject	24	static
+VoltPeakPeakOutput.c:453:6:VPP_ModifySignalOutput	16	static
+VoltPeakPeakOutput.c:1067:6:VPP_ModifySyncOutput	16	static

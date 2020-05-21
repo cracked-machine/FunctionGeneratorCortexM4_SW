@@ -28,6 +28,7 @@ GainProfile_t theGainProfiles[MAX_NUM_GAIN_PRESETS] =
 uint8_t GainPresetEncoderRange = 28;
 
 
+
 // signal output gain
 //eGainSettings_t eNewOutGain = ONE_GAIN;
 
@@ -68,6 +69,8 @@ void GO_ModifyOutputSync(uint16_t pEncoderValue)
 			GO_ApplyPresetToSync(SEVEN_GAIN);
 			break;
 	}
+
+
 }
 
 void GO_ModifyOutputSignal(uint16_t pEncoderValue)

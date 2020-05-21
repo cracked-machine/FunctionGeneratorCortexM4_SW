@@ -20,17 +20,18 @@ uint8_t FuncPresetEncoderRange;
 
 typedef enum
 {
-	SINE_FUNC_MODE,
+	SINE_FUNC_MODE = 0U,
 	SQUARE_FUNC_MODE,
 	SAW_FUNC_MODE,
 	REV_SAW_FUNC_MODE,
 	TRIANGLE_FUNC_MODE,
-	IMPULSE_FUNC_MODE
+	IMPULSE_FUNC_MODE,
+	PWM_FUNC_MODE
 
 } eOutput_mode;
 
 
-#define MAX_NUM_FUNC_PRESETS 6
+#define MAX_NUM_FUNC_PRESETS 7
 
 /*
  *	object for Function Preset and its encoder position for func preset menu
@@ -47,7 +48,10 @@ typedef struct
 FunctionProfile_t theFuncProfiles[MAX_NUM_FUNC_PRESETS];
 
 
-
+void FuncO_EnablePWMToSignal();
+void FuncO_DisablePWMToSignal();
+void FuncO_EnableDacToSignal();
+void FuncO_DisableDacToSignal();
 
 //uint32_t *pOriginalSignalDataTable;
 //uint32_t aProcessedSignalDataTable[SINE_DATA_SIZE];
@@ -68,6 +72,7 @@ void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum);
 FunctionProfile_t * FuncO_FindFPresetObject(eOutput_mode pEnum);
 FunctionProfile_t * FuncO_GetSignalFPresetObject();
 FunctionProfile_t * FuncO_GetSyncFPresetObject();
+void FuncO_ResetLastEncoderValue();
 
 //void FuncO_SetNewDataTable(uint32_t * pdata_table);
 

@@ -44,6 +44,7 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths.1404843688" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/WaveTableGeneration/icontables}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/LogSequenceGeneration}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/Core/Src/InterruptManager}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/ILI9341}&quot;"/>
@@ -55,7 +56,6 @@
 									<listOptionValue builtIn="false" value="../Core/Inc"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/WaveTableGeneration}&quot;"/>
 									<listOptionValue builtIn="false" value="../Drivers/STM32G4xx_HAL_Driver/Inc"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/FunctionGeneratorCortexM4_SW_V1/WaveTableGeneration/icontables}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1625654879" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>

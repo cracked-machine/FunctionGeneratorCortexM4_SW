@@ -43,6 +43,7 @@ typedef struct
 {
 	eFreqSettings_t hertz;
 	uint8_t epos;
+	uint16_t index;
 
 } FreqProfile_t;
 
@@ -75,6 +76,8 @@ FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum);
 FreqProfile_t * FreqO_GetFPresetObject();
 
 void FreqO_AdjustFreq();
+
+void FreqO_ResetLastEncoderValue();
 
 uint8_t FreqO_GetPresetEncoderPos();
 uint8_t FreqO_GetFreqPresetEncoderRange();
