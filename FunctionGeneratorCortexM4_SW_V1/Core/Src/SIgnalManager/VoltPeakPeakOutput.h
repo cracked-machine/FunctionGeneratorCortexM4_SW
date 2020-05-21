@@ -57,12 +57,13 @@ AmplitudeProfile_t theAmpProfiles[MAX_VPP_PRESETS];
  * 		Function declarations
  */
 
-void VPP_ModifySignalOutput(uint16_t pEncoderValue);
-void VPP_ApplyPresetToSignal(eAmpSettings_t pPresetEnum);
+void VPP_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue);
+void VPP_ApplyProfileToSignal(eAmpSettings_t pPresetEnum);
 
-void VPP_ModifySyncOutput(uint16_t pEncoderValue);
-void VPP_ApplyPresetToSync(eAmpSettings_t pPresetEnum);
+void VPP_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue);
+void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum);
 
+void VPP_ResetLastEncoderValue();
 
 AmplitudeProfile_t * VPP_FindVppPresetObject(eAmpSettings_t pEnum);
 

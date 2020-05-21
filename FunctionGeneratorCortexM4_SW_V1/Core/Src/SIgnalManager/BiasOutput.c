@@ -53,7 +53,7 @@ uint16_t BO_GetDcBiasEncoderValue()
  *	@retval None
  *
  */
-void BO_ModifyOutput(uint16_t pEncoderValue)
+void BO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 {
 	// pEncoderValue is reversed for correct rotary encoder operation.
 	// However, we want to retain the forward direction value to prevent polarity flip!

@@ -197,7 +197,7 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 
 	// set preset for PGA gain and dsp amplitude adjustment
 	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
-	VPP_ApplyPresetToSignal(eTmpVppPreset);
+	VPP_ApplyProfileToSignal(eTmpVppPreset);
 
 	// pause timer to resync both outputs
 	//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
@@ -243,7 +243,7 @@ void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
 
 	// set preset PGA gain and dsp amplitude adjustment
 	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
-	VPP_ApplyPresetToSync(eTmpVppPreset);
+	VPP_ApplyProfileToSync(eTmpVppPreset);
 
 	// pause timer to resync both outputs
 	//HAL_TIM_Base_Stop(&htim8);

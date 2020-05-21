@@ -1,6 +1,6 @@
 FreqOutput.c:50:6:FreqO_ResetLastEncoderValue	4	static
 FreqOutput.c:70:6:FreqO_AdjustFreq	8	static
-FreqOutput.c:86:6:FreqO_ModifyOutput	16	static
+FreqOutput.c:86:6:FreqO_MapEncoderPositionToBothOutput	16	static
 FreqOutput.c:220:6:FreqO_ApplyPreset_Fast	16	static
 FreqOutput.c:335:6:FreqO_ApplyPreset	24	static
 FreqOutput.c:366:17:FreqO_GetFPresetObject	4	static

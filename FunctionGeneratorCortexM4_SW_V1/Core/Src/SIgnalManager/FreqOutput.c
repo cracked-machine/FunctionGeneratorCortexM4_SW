@@ -83,7 +83,7 @@ void FreqO_AdjustFreq()
  *	@retval None
  *
  */
-void FreqO_ModifyOutput(uint16_t pEncValue)
+void FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue)
 {
 
 	switch(pEncValue)

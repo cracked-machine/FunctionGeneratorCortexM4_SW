@@ -177,7 +177,7 @@ int main(void)
 
   // PGA gain
   //GO_ApplyPreset_Fast(eDefaultGainPreset);
-  VPP_ApplyPresetToSignal(eDefaultVppPreset);
+  VPP_ApplyProfileToSignal(eDefaultVppPreset);
 
 #ifndef DISABLE_ALL_TIMERS
   // start test routine (update_dc_bias_sweep())

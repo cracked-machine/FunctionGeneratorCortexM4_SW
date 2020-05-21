@@ -58,7 +58,7 @@ eSystemState BiasMenuInputHandler()
 	printf("BiasMenuInputHandler Event captured\n");
 #endif
 
-	BO_ModifyOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	BO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evIdle;
 	return Bias_Menu_State;

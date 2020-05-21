@@ -55,7 +55,7 @@ eSystemState GainMainMenuInputHandler()
 #endif
 
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	//VPP_ModifySignalOutput(SMGetEncoderValue(ENCODER_REVERSE));
+	//VPP_MapEncoderPositionToSignalOutput(SMGetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evYellowBtn;
 	return Gain_Main_Menu_State;
@@ -102,6 +102,7 @@ eSystemState GainSignalMenuEntryHandler()
 #endif
 
 	DM_RefreshScreen();
+	VPP_ResetLastEncoderValue();
 
 	eNextGainMenuStatus = ENABLE_GAIN_SIGNAL_MENU;
 
@@ -136,7 +137,7 @@ eSystemState GainSignalMenuInputHandler()
 #endif
 
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	VPP_ModifySignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evYellowBtn;
 	return Gain_Signal_Menu_State;
@@ -180,6 +181,7 @@ eSystemState GainSyncMenuEntryHandler()
 #endif
 
 	DM_RefreshScreen();
+	VPP_ResetLastEncoderValue();
 
 	eNextGainMenuStatus = ENABLE_GAIN_SYNC_MENU;
 
@@ -214,7 +216,7 @@ eSystemState GainSyncMenuInputHandler()
 #endif
 
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	VPP_ModifySyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	VPP_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evYellowBtn;
 	return Gain_Sync_Menu_State;

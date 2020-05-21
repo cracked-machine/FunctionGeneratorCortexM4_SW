@@ -65,7 +65,7 @@ FreqProfile_t *freq_profile;
 /*
  *  Function definitions
  */
-void FreqO_ModifyOutput(uint16_t pEncValue);
+void FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue);
 uint32_t FreqO_GetOutputFreq();
 
 void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum);

@@ -33,7 +33,7 @@ uint8_t GainPresetEncoderRange = 28;
 //eGainSettings_t eNewOutGain = ONE_GAIN;
 
 
-void GO_ModifyOutputSync(uint16_t pEncoderValue)
+void GO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 {
 	switch(pEncoderValue)
 	{
@@ -73,7 +73,7 @@ void GO_ModifyOutputSync(uint16_t pEncoderValue)
 
 }
 
-void GO_ModifyOutputSignal(uint16_t pEncoderValue)
+void GO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 {
 	switch(pEncoderValue)
 	{
