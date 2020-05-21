@@ -11325,12 +11325,12 @@ LOAD /home/chris/st/stm32cubeide_1.2.0/plugins/com.st.stm32cube.ide.mcu.external
                 0x000000000800539c        0xe Core/Src/SIgnalManager/FunctionOutput.o
                 0x000000000800539c                FuncO_Init
  *fill*         0x00000000080053aa        0x2 
- .text.FuncO_ModifySignalOutput
+ .text.FuncO_MapEncoderPositionToSignalOutput
                 0x00000000080053ac       0x74 Core/Src/SIgnalManager/FunctionOutput.o
-                0x00000000080053ac                FuncO_ModifySignalOutput
- .text.FuncO_ModifySyncOutput
+                0x00000000080053ac                FuncO_MapEncoderPositionToSignalOutput
+ .text.FuncO_MapEncoderPositionToSyncOutput
                 0x0000000008005420       0x74 Core/Src/SIgnalManager/FunctionOutput.o
-                0x0000000008005420                FuncO_ModifySyncOutput
+                0x0000000008005420                FuncO_MapEncoderPositionToSyncOutput
  .text.FuncO_ApplyPresetToSignal
                 0x0000000008005494       0xb4 Core/Src/SIgnalManager/FunctionOutput.o
                 0x0000000008005494                FuncO_ApplyPresetToSignal
@@ -13556,7 +13556,7 @@ OUTPUT(FunctionGeneratorCortexM4_SW_V1.elf elf32-littlearm)
  .debug_line    0x000000000002e771      0x3c3 WaveTableGeneration/pytriangle.o
  .debug_line    0x000000000002eb34      0x3c9 WaveTableGeneration/pyunitimpulse.o
 
-.debug_str      0x0000000000000000   0x12660c
+.debug_str      0x0000000000000000   0x126628
  .debug_str     0x0000000000000000   0x11b112 Core/Src/DisplayManager/BiasMenus.o
                                      0x11c48c (size before relaxing)
  .debug_str     0x000000000011b112      0x5a1 Core/Src/DisplayManager/DisplayManager.o
@@ -13589,103 +13589,103 @@ OUTPUT(FunctionGeneratorCortexM4_SW_V1.elf elf32-littlearm)
                                      0x117927 (size before relaxing)
  .debug_str     0x000000000011ce84      0x15c Core/Src/SIgnalManager/FreqOutput.o
                                      0x11c6b7 (size before relaxing)
- .debug_str     0x000000000011cfe0      0x1e2 Core/Src/SIgnalManager/FunctionOutput.o
-                                     0x11c74c (size before relaxing)
- .debug_str     0x000000000011d1c2       0xaf Core/Src/SIgnalManager/GainOutput.o
+ .debug_str     0x000000000011cfe0      0x1fe Core/Src/SIgnalManager/FunctionOutput.o
+                                     0x11c768 (size before relaxing)
+ .debug_str     0x000000000011d1de       0xaf Core/Src/SIgnalManager/GainOutput.o
                                      0x11c532 (size before relaxing)
- .debug_str     0x000000000011d271      0x1fa Core/Src/SIgnalManager/SignalManager.o
+ .debug_str     0x000000000011d28d      0x1fa Core/Src/SIgnalManager/SignalManager.o
                                      0x11b2b4 (size before relaxing)
- .debug_str     0x000000000011d46b      0x1d0 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
+ .debug_str     0x000000000011d487      0x1d0 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
                                      0x11c7b3 (size before relaxing)
- .debug_str     0x000000000011d63b      0x44b Core/Src/adc.o
+ .debug_str     0x000000000011d657      0x44b Core/Src/adc.o
                                      0x116f19 (size before relaxing)
- .debug_str     0x000000000011da86      0x17c Core/Src/comp.o
+ .debug_str     0x000000000011daa2      0x17c Core/Src/comp.o
                                      0x116a6b (size before relaxing)
- .debug_str     0x000000000011dc02      0x1a0 Core/Src/dac.o
+ .debug_str     0x000000000011dc1e      0x1a0 Core/Src/dac.o
                                      0x116e8c (size before relaxing)
- .debug_str     0x000000000011dda2      0x61f Core/Src/dma.o
+ .debug_str     0x000000000011ddbe      0x61f Core/Src/dma.o
                                      0x116e83 (size before relaxing)
- .debug_str     0x000000000011e3c1      0x220 Core/Src/gpio.o
+ .debug_str     0x000000000011e3dd      0x220 Core/Src/gpio.o
                                      0x117191 (size before relaxing)
- .debug_str     0x000000000011e5e1      0x563 Core/Src/main.o
+ .debug_str     0x000000000011e5fd      0x563 Core/Src/main.o
                                      0x11d04e (size before relaxing)
- .debug_str     0x000000000011eb44       0x3d Core/Src/rng.o
+ .debug_str     0x000000000011eb60       0x3d Core/Src/rng.o
                                      0x11689b (size before relaxing)
- .debug_str     0x000000000011eb81       0x4b Core/Src/spi.o
+ .debug_str     0x000000000011eb9d       0x4b Core/Src/spi.o
                                      0x116dca (size before relaxing)
- .debug_str     0x000000000011ebcc       0x8c Core/Src/stm32g4xx_hal_msp.o
+ .debug_str     0x000000000011ebe8       0x8c Core/Src/stm32g4xx_hal_msp.o
                                      0x1168e7 (size before relaxing)
- .debug_str     0x000000000011ec58      0x1a1 Core/Src/stm32g4xx_it.o
+ .debug_str     0x000000000011ec74      0x1a1 Core/Src/stm32g4xx_it.o
                                      0x11c70b (size before relaxing)
- .debug_str     0x000000000011edf9     0x10ed Core/Src/syscalls.o
+ .debug_str     0x000000000011ee15     0x10ed Core/Src/syscalls.o
                                        0x88e6 (size before relaxing)
- .debug_str     0x000000000011fee6       0x36 Core/Src/sysmem.o
+ .debug_str     0x000000000011ff02       0x36 Core/Src/sysmem.o
                                        0x7b3f (size before relaxing)
- .debug_str     0x000000000011ff1c       0x72 Core/Src/system_stm32g4xx.o
+ .debug_str     0x000000000011ff38       0x72 Core/Src/system_stm32g4xx.o
                                      0x10a21b (size before relaxing)
- .debug_str     0x000000000011ff8e      0x2ea Core/Src/tim.o
+ .debug_str     0x000000000011ffaa      0x2ea Core/Src/tim.o
                                      0x117816 (size before relaxing)
- .debug_str     0x0000000000120278       0x36 Core/Startup/startup_stm32g474retx.o
+ .debug_str     0x0000000000120294       0x36 Core/Startup/startup_stm32g474retx.o
                                          0x97 (size before relaxing)
- .debug_str     0x00000000001202ae      0x555 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_str     0x00000000001202ca      0x555 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
                                      0x10aeac (size before relaxing)
- .debug_str     0x0000000000120803      0xa5e Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_str     0x000000000012081f      0xa5e Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
                                      0x10b150 (size before relaxing)
- .debug_str     0x0000000000121261      0x731 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_str     0x000000000012127d      0x731 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
                                      0x10b124 (size before relaxing)
- .debug_str     0x0000000000121992      0x39a Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_comp.o
+ .debug_str     0x00000000001219ae      0x39a Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_comp.o
                                      0x10a5d4 (size before relaxing)
- .debug_str     0x0000000000121d2c      0x2f7 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_str     0x0000000000121d48      0x2f7 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
                                      0x10abb3 (size before relaxing)
- .debug_str     0x0000000000122023      0x244 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o
+ .debug_str     0x000000000012203f      0x244 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o
                                      0x10a80f (size before relaxing)
- .debug_str     0x0000000000122267      0x2ba Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac_ex.o
+ .debug_str     0x0000000000122283      0x2ba Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac_ex.o
                                      0x10a873 (size before relaxing)
- .debug_str     0x0000000000122521      0x2d3 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
+ .debug_str     0x000000000012253d      0x2d3 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
                                      0x10a5d9 (size before relaxing)
- .debug_str     0x00000000001227f4      0x1cf Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_str     0x0000000000122810      0x1cf Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
                                      0x10a488 (size before relaxing)
- .debug_str     0x00000000001229c3      0x466 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_str     0x00000000001229df      0x466 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
                                      0x10a6fe (size before relaxing)
- .debug_str     0x0000000000122e29      0x3d1 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_str     0x0000000000122e45      0x3d1 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
                                      0x10a7ba (size before relaxing)
- .debug_str     0x00000000001231fa      0x3f2 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_str     0x0000000000123216      0x3f2 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
                                      0x10a8fc (size before relaxing)
- .debug_str     0x00000000001235ec      0x56b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
+ .debug_str     0x0000000000123608      0x56b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
                                      0x10aaba (size before relaxing)
- .debug_str     0x0000000000123b57      0xd91 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_str     0x0000000000123b73      0xd91 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
                                      0x10b5d7 (size before relaxing)
- .debug_str     0x00000000001248e8      0x958 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_str     0x0000000000124904      0x958 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
                                      0x10b294 (size before relaxing)
- .debug_str     0x0000000000125240      0x278 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_exti.o
+ .debug_str     0x000000000012525c      0x278 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_exti.o
                                      0x10a517 (size before relaxing)
- .debug_str     0x00000000001254b8      0x643 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_gpio.o
+ .debug_str     0x00000000001254d4      0x643 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_gpio.o
                                      0x10bc9d (size before relaxing)
- .debug_str     0x0000000000125afb      0x424 ILI9341/ILI9341_GFX.o
+ .debug_str     0x0000000000125b17      0x424 ILI9341/ILI9341_GFX.o
                                      0x11bc8b (size before relaxing)
- .debug_str     0x0000000000125f1f      0x2c3 ILI9341/ILI9341_STM32_Driver.o
+ .debug_str     0x0000000000125f3b      0x2c3 ILI9341/ILI9341_STM32_Driver.o
                                      0x11711c (size before relaxing)
- .debug_str     0x00000000001261e2       0x66 WaveTableGeneration/icontables/pysawicon.o
+ .debug_str     0x00000000001261fe       0x66 WaveTableGeneration/icontables/pysawicon.o
                                        0x3ce3 (size before relaxing)
- .debug_str     0x0000000000126248       0x6a WaveTableGeneration/icontables/pysawicon_rev.o
+ .debug_str     0x0000000000126264       0x6a WaveTableGeneration/icontables/pysawicon_rev.o
                                        0x3cf3 (size before relaxing)
- .debug_str     0x00000000001262b2       0x67 WaveTableGeneration/icontables/pysineicon.o
+ .debug_str     0x00000000001262ce       0x67 WaveTableGeneration/icontables/pysineicon.o
                                        0x3d00 (size before relaxing)
- .debug_str     0x0000000000126319       0x69 WaveTableGeneration/icontables/pysquareicon.o
+ .debug_str     0x0000000000126335       0x69 WaveTableGeneration/icontables/pysquareicon.o
                                        0x3cef (size before relaxing)
- .debug_str     0x0000000000126382       0x6b WaveTableGeneration/icontables/pytriangleicon.o
+ .debug_str     0x000000000012639e       0x6b WaveTableGeneration/icontables/pytriangleicon.o
                                        0x3cf7 (size before relaxing)
- .debug_str     0x00000000001263ed       0x57 WaveTableGeneration/pysaw.o
+ .debug_str     0x0000000000126409       0x57 WaveTableGeneration/pysaw.o
                                        0x3cc9 (size before relaxing)
- .debug_str     0x0000000000126444       0x5b WaveTableGeneration/pysaw_rev.o
+ .debug_str     0x0000000000126460       0x5b WaveTableGeneration/pysaw_rev.o
                                        0x3cd9 (size before relaxing)
- .debug_str     0x000000000012649f       0x58 WaveTableGeneration/pysine.o
+ .debug_str     0x00000000001264bb       0x58 WaveTableGeneration/pysine.o
                                        0x3ce2 (size before relaxing)
- .debug_str     0x00000000001264f7       0x5a WaveTableGeneration/pysquare.o
+ .debug_str     0x0000000000126513       0x5a WaveTableGeneration/pysquare.o
                                        0x3cd5 (size before relaxing)
- .debug_str     0x0000000000126551       0x5c WaveTableGeneration/pytriangle.o
+ .debug_str     0x000000000012656d       0x5c WaveTableGeneration/pytriangle.o
                                        0x3cdd (size before relaxing)
- .debug_str     0x00000000001265ad       0x5f WaveTableGeneration/pyunitimpulse.o
+ .debug_str     0x00000000001265c9       0x5f WaveTableGeneration/pyunitimpulse.o
                                        0x3ce9 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b

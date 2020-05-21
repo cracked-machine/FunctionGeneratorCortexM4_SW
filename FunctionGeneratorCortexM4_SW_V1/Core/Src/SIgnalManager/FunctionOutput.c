@@ -85,7 +85,7 @@ void FuncO_Init()
  *	@retval None
  *
  */
-void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
+void FuncO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 {
 	eOutput_mode tmpFunc = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile->func;
 	if(pEncoderValue > func_last_encoder_value)
@@ -111,7 +111,7 @@ void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
  *	@retval None
  *
  */
-void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
+void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 {
 	eOutput_mode tmpFunc = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
 	if(pEncoderValue > func_last_encoder_value)

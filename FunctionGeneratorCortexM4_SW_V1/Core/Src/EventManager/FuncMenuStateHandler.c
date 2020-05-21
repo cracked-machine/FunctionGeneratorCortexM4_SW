@@ -70,7 +70,7 @@ eSystemState FuncMainMenuInputHandler(void)
 #endif
 
 
-//	FuncO_ModifySignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+//	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evBlueBtn;
 	return Func_Main_Menu_State;
@@ -159,7 +159,7 @@ eSystemState FuncSignalMenuInputHandler(void)
 #endif
 
 
-	FuncO_ModifySignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 	eNewEvent = evBlueBtn;
 	return Func_Signal_Menu_State;
 }
@@ -243,7 +243,7 @@ eSystemState FuncSyncMenuInputHandler(void)
 #endif
 
 
-	FuncO_ModifySyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	FuncO_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 	eNewEvent = evBlueBtn;
 	return Func_Sync_Menu_State;
 }

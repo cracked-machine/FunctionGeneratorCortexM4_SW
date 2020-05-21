@@ -1,7 +1,7 @@
 FunctionOutput.c:55:6:FuncO_ResetLastEncoderValue	4	static
 FunctionOutput.c:68:6:FuncO_Init	4	static
-FunctionOutput.c:88:6:FuncO_ModifySignalOutput	24	static
-FunctionOutput.c:114:6:FuncO_ModifySyncOutput	24	static
+FunctionOutput.c:88:6:FuncO_MapEncoderPositionToSignalOutput	24	static
+FunctionOutput.c:114:6:FuncO_MapEncoderPositionToSyncOutput	24	static
 FunctionOutput.c:133:6:FuncO_EnablePWMToSignal	8	static
 FunctionOutput.c:138:6:FuncO_DisablePWMToSignal	4	static
 FunctionOutput.c:143:6:FuncO_EnableDacToSignal	8	static

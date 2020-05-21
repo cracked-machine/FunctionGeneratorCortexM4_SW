@@ -63,10 +63,10 @@ void FuncO_Init();
 /*
  *  Function declarations
  */
-void FuncO_ModifySignalOutput(uint16_t pEncoderValue);
+void FuncO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue);
 void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum);
 
-void FuncO_ModifySyncOutput(uint16_t pEncoderValue);
+void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue);
 void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum);
 
 FunctionProfile_t * FuncO_FindFPresetObject(eOutput_mode pEnum);

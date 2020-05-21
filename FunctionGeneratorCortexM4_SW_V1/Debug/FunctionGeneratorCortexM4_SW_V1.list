@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  17 .debug_line   0002eefd  00000000  00000000  000b737b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0012660c  00000000  00000000  000e6278  2**0
+ 18 .debug_str    00126628  00000000  00000000  000e6278  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0020c884  2**0
+ 19 .comment      0000007b  00000000  00000000  0020c8a0  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00009618  00000000  00000000  0020c900  2**2
+ 20 .debug_frame  00009618  00000000  00000000  0020c91c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -9126,12 +9126,12 @@ eSystemState FuncSignalMenuInputHandler(void)
 #endif
 
 
-	FuncO_ModifySignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
  8004812:	2001      	movs	r0, #1
  8004814:	f001 f97c 	bl	8005b10 <SM_GetEncoderValue>
  8004818:	4603      	mov	r3, r0
  800481a:	4618      	mov	r0, r3
- 800481c:	f000 fdc6 	bl	80053ac <FuncO_ModifySignalOutput>
+ 800481c:	f000 fdc6 	bl	80053ac <FuncO_MapEncoderPositionToSignalOutput>
 	eNewEvent = evBlueBtn;
  8004820:	4b03      	ldr	r3, [pc, #12]	; (8004830 <FuncSignalMenuInputHandler+0x28>)
  8004822:	2201      	movs	r2, #1
@@ -9278,12 +9278,12 @@ eSystemState FuncSyncMenuInputHandler(void)
 #endif
 
 
-	FuncO_ModifySyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	FuncO_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
  80048da:	2001      	movs	r0, #1
  80048dc:	f001 f918 	bl	8005b10 <SM_GetEncoderValue>
  80048e0:	4603      	mov	r3, r0
  80048e2:	4618      	mov	r0, r3
- 80048e4:	f000 fd9c 	bl	8005420 <FuncO_ModifySyncOutput>
+ 80048e4:	f000 fd9c 	bl	8005420 <FuncO_MapEncoderPositionToSyncOutput>
 	eNewEvent = evBlueBtn;
  80048e8:	4b03      	ldr	r3, [pc, #12]	; (80048f8 <FuncSyncMenuInputHandler+0x28>)
  80048ea:	2201      	movs	r2, #1
@@ -11180,12 +11180,12 @@ void FuncO_Init()
  80053a8:	4770      	bx	lr
 	...
 
-080053ac <FuncO_ModifySignalOutput>:
+080053ac <FuncO_MapEncoderPositionToSignalOutput>:
  *	@param pEncoderValue rotary encoder value
  *	@retval None
  *
  */
-void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
+void FuncO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 {
  80053ac:	b580      	push	{r7, lr}
  80053ae:	b084      	sub	sp, #16
@@ -11200,11 +11200,11 @@ void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
  80053c2:	781b      	ldrb	r3, [r3, #0]
  80053c4:	73fb      	strb	r3, [r7, #15]
 	if(pEncoderValue > func_last_encoder_value)
- 80053c6:	4b15      	ldr	r3, [pc, #84]	; (800541c <FuncO_ModifySignalOutput+0x70>)
+ 80053c6:	4b15      	ldr	r3, [pc, #84]	; (800541c <FuncO_MapEncoderPositionToSignalOutput+0x70>)
  80053c8:	881b      	ldrh	r3, [r3, #0]
  80053ca:	88fa      	ldrh	r2, [r7, #6]
  80053cc:	429a      	cmp	r2, r3
- 80053ce:	d90c      	bls.n	80053ea <FuncO_ModifySignalOutput+0x3e>
+ 80053ce:	d90c      	bls.n	80053ea <FuncO_MapEncoderPositionToSignalOutput+0x3e>
 	{
 		tmpFunc++;
  80053d0:	7bfb      	ldrb	r3, [r7, #15]
@@ -11213,21 +11213,21 @@ void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = PWM_FUNC_MODE;
  80053d6:	7bfb      	ldrb	r3, [r7, #15]
  80053d8:	2b06      	cmp	r3, #6
- 80053da:	d901      	bls.n	80053e0 <FuncO_ModifySignalOutput+0x34>
+ 80053da:	d901      	bls.n	80053e0 <FuncO_MapEncoderPositionToSignalOutput+0x34>
  80053dc:	2306      	movs	r3, #6
  80053de:	73fb      	strb	r3, [r7, #15]
 		FuncO_ApplyPresetToSignal(tmpFunc);
  80053e0:	7bfb      	ldrb	r3, [r7, #15]
  80053e2:	4618      	mov	r0, r3
  80053e4:	f000 f856 	bl	8005494 <FuncO_ApplyPresetToSignal>
- 80053e8:	e010      	b.n	800540c <FuncO_ModifySignalOutput+0x60>
+ 80053e8:	e010      	b.n	800540c <FuncO_MapEncoderPositionToSignalOutput+0x60>
 	}
 	else if (pEncoderValue < func_last_encoder_value)
- 80053ea:	4b0c      	ldr	r3, [pc, #48]	; (800541c <FuncO_ModifySignalOutput+0x70>)
+ 80053ea:	4b0c      	ldr	r3, [pc, #48]	; (800541c <FuncO_MapEncoderPositionToSignalOutput+0x70>)
  80053ec:	881b      	ldrh	r3, [r3, #0]
  80053ee:	88fa      	ldrh	r2, [r7, #6]
  80053f0:	429a      	cmp	r2, r3
- 80053f2:	d20b      	bcs.n	800540c <FuncO_ModifySignalOutput+0x60>
+ 80053f2:	d20b      	bcs.n	800540c <FuncO_MapEncoderPositionToSignalOutput+0x60>
 	{
 		tmpFunc--;
  80053f4:	7bfb      	ldrb	r3, [r7, #15]
@@ -11236,7 +11236,7 @@ void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = SINE_FUNC_MODE;
  80053fa:	7bfb      	ldrb	r3, [r7, #15]
  80053fc:	2b06      	cmp	r3, #6
- 80053fe:	d901      	bls.n	8005404 <FuncO_ModifySignalOutput+0x58>
+ 80053fe:	d901      	bls.n	8005404 <FuncO_MapEncoderPositionToSignalOutput+0x58>
  8005400:	2300      	movs	r3, #0
  8005402:	73fb      	strb	r3, [r7, #15]
 		FuncO_ApplyPresetToSignal(tmpFunc);
@@ -11245,7 +11245,7 @@ void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
  8005408:	f000 f844 	bl	8005494 <FuncO_ApplyPresetToSignal>
 	}
 	func_last_encoder_value = pEncoderValue;
- 800540c:	4a03      	ldr	r2, [pc, #12]	; (800541c <FuncO_ModifySignalOutput+0x70>)
+ 800540c:	4a03      	ldr	r2, [pc, #12]	; (800541c <FuncO_MapEncoderPositionToSignalOutput+0x70>)
  800540e:	88fb      	ldrh	r3, [r7, #6]
  8005410:	8013      	strh	r3, [r2, #0]
 }
@@ -11256,12 +11256,12 @@ void FuncO_ModifySignalOutput(uint16_t pEncoderValue)
  800541a:	bf00      	nop
  800541c:	20001f08 	.word	0x20001f08
 
-08005420 <FuncO_ModifySyncOutput>:
+08005420 <FuncO_MapEncoderPositionToSyncOutput>:
  *	@param pEncoderValue rotary encoder value
  *	@retval None
  *
  */
-void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
+void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 {
  8005420:	b580      	push	{r7, lr}
  8005422:	b084      	sub	sp, #16
@@ -11276,11 +11276,11 @@ void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
  8005436:	781b      	ldrb	r3, [r3, #0]
  8005438:	73fb      	strb	r3, [r7, #15]
 	if(pEncoderValue > func_last_encoder_value)
- 800543a:	4b15      	ldr	r3, [pc, #84]	; (8005490 <FuncO_ModifySyncOutput+0x70>)
+ 800543a:	4b15      	ldr	r3, [pc, #84]	; (8005490 <FuncO_MapEncoderPositionToSyncOutput+0x70>)
  800543c:	881b      	ldrh	r3, [r3, #0]
  800543e:	88fa      	ldrh	r2, [r7, #6]
  8005440:	429a      	cmp	r2, r3
- 8005442:	d90c      	bls.n	800545e <FuncO_ModifySyncOutput+0x3e>
+ 8005442:	d90c      	bls.n	800545e <FuncO_MapEncoderPositionToSyncOutput+0x3e>
 	{
 		tmpFunc++;
  8005444:	7bfb      	ldrb	r3, [r7, #15]
@@ -11289,21 +11289,21 @@ void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = PWM_FUNC_MODE;
  800544a:	7bfb      	ldrb	r3, [r7, #15]
  800544c:	2b06      	cmp	r3, #6
- 800544e:	d901      	bls.n	8005454 <FuncO_ModifySyncOutput+0x34>
+ 800544e:	d901      	bls.n	8005454 <FuncO_MapEncoderPositionToSyncOutput+0x34>
  8005450:	2306      	movs	r3, #6
  8005452:	73fb      	strb	r3, [r7, #15]
 		FuncO_ApplyPresetToSync(tmpFunc);
  8005454:	7bfb      	ldrb	r3, [r7, #15]
  8005456:	4618      	mov	r0, r3
  8005458:	f000 f876 	bl	8005548 <FuncO_ApplyPresetToSync>
- 800545c:	e010      	b.n	8005480 <FuncO_ModifySyncOutput+0x60>
+ 800545c:	e010      	b.n	8005480 <FuncO_MapEncoderPositionToSyncOutput+0x60>
 	}
 	else if (pEncoderValue < func_last_encoder_value)
- 800545e:	4b0c      	ldr	r3, [pc, #48]	; (8005490 <FuncO_ModifySyncOutput+0x70>)
+ 800545e:	4b0c      	ldr	r3, [pc, #48]	; (8005490 <FuncO_MapEncoderPositionToSyncOutput+0x70>)
  8005460:	881b      	ldrh	r3, [r3, #0]
  8005462:	88fa      	ldrh	r2, [r7, #6]
  8005464:	429a      	cmp	r2, r3
- 8005466:	d20b      	bcs.n	8005480 <FuncO_ModifySyncOutput+0x60>
+ 8005466:	d20b      	bcs.n	8005480 <FuncO_MapEncoderPositionToSyncOutput+0x60>
 	{
 		tmpFunc--;
  8005468:	7bfb      	ldrb	r3, [r7, #15]
@@ -11312,7 +11312,7 @@ void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = SINE_FUNC_MODE;
  800546e:	7bfb      	ldrb	r3, [r7, #15]
  8005470:	2b06      	cmp	r3, #6
- 8005472:	d901      	bls.n	8005478 <FuncO_ModifySyncOutput+0x58>
+ 8005472:	d901      	bls.n	8005478 <FuncO_MapEncoderPositionToSyncOutput+0x58>
  8005474:	2300      	movs	r3, #0
  8005476:	73fb      	strb	r3, [r7, #15]
 		FuncO_ApplyPresetToSync(tmpFunc);
@@ -11321,7 +11321,7 @@ void FuncO_ModifySyncOutput(uint16_t pEncoderValue)
  800547c:	f000 f864 	bl	8005548 <FuncO_ApplyPresetToSync>
 	}
 	func_last_encoder_value = pEncoderValue;
- 8005480:	4a03      	ldr	r2, [pc, #12]	; (8005490 <FuncO_ModifySyncOutput+0x70>)
+ 8005480:	4a03      	ldr	r2, [pc, #12]	; (8005490 <FuncO_MapEncoderPositionToSyncOutput+0x70>)
  8005482:	88fb      	ldrh	r3, [r7, #6]
  8005484:	8013      	strh	r3, [r2, #0]
 }
