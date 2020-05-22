@@ -76,6 +76,7 @@ eSystemEvent eNewEvent;
 void EM_ProcessEvent();
 void EM_SetNewEvent(eSystemEvent pEvent);
 eSystemState EM_GetSystemState();
+uint8_t EM_IsDutyAdjustMode();
 
 
 #endif /* SRC_EVENTMANAGER_EVENTMANAGER_H_ */

@@ -73,7 +73,7 @@ void FuncMenu_DrawMainMenu()
  */
 void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 {
-	if(SYNC_CHANNEL)
+	if(pOutChan)
 		ILI9341_Draw_Text("OUT->FUNC->SYNC", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 	else
 		ILI9341_Draw_Text("OUT->FUNC->SIG", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
@@ -153,6 +153,8 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
+
+				ILI9341_Draw_Text("               ", 	150, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
 			case IMPULSE_FUNC_MODE:
 				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
@@ -167,6 +169,8 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
+
+				ILI9341_Draw_Text("               ", 	150, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
 			case PWM_FUNC_MODE:
 				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
@@ -181,7 +185,17 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("DUTY", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
+
+				if(EM_IsDutyAdjustMode())
+					ILI9341_Draw_Text("DUTY:", 	150, 50,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+				else
+					ILI9341_Draw_Text("DUTY:", 	150, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+
+				char duty[10] = "";
+				snprintf(duty, sizeof(duty), "%0.2f%%", ((float)TIM3->CCR2 / (float)TIM3->ARR) * 100);
+				ILI9341_Draw_Text(duty, 	220, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
+				//
 		}
 
 	}

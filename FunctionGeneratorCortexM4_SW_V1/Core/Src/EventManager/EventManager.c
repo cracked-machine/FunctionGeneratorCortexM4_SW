@@ -19,6 +19,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 uint32_t last_enc_value = 0;
 
@@ -27,7 +28,7 @@ void EM_SetNewEvent(eSystemEvent pEvent);
 
 
 
-
+uint8_t duty_adjust_mode = 0;
 
 void EM_RefreshDisplay();
 
@@ -36,6 +37,7 @@ void EM_RefreshDisplay();
 // state machine
 eSystemState eNextState = Idle_State;
 eSystemEvent eNewEvent = evIdle;
+
 
 
 uint8_t mode = 0;
@@ -181,12 +183,22 @@ void EM_ProcessEvent()
 
 			if(eNewEvent == evEncoderSet)
 			{
-				eNextState = FuncSignalMenuInputHandler();
+				if(duty_adjust_mode)
+					TIM3->CCR2 = (pow(ENCODER_TIMER->CNT, 2));
+				else
+					eNextState = FuncSignalMenuInputHandler();
 			}
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = FuncSignalMenuExitHandler();
 
+			}
+			if(eNewEvent == evYellowBtn)
+			{
+				duty_adjust_mode ^= 1U;
+				ENCODER_TIMER->ARR = 16384;
+				eNewEvent = evIdle;
+				eNextState = Func_Signal_Menu_State;
 			}
 
 			break;
@@ -390,6 +402,20 @@ void EM_ProcessEvent()
 			break;
 	}
 
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+uint8_t EM_IsDutyAdjustMode()
+{
+	return duty_adjust_mode;
 }
 
 
