@@ -1,4 +1,4 @@
-dac.c:33:6:MX_DAC1_Init	56	static
-dac.c:70:6:MX_DAC2_Init	56	static
-dac.c:99:6:HAL_DAC_MspInit	56	static
-dac.c:184:6:HAL_DAC_MspDeInit	16	static
+dac.c:32:6:MX_DAC1_Init	56	static
+dac.c:61:6:MX_DAC2_Init	56	static
+dac.c:90:6:HAL_DAC_MspInit	56	static
+dac.c:156:6:HAL_DAC_MspDeInit	16	static

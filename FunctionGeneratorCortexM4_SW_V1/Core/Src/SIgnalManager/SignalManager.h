@@ -33,7 +33,7 @@
 
 #define eDefaultFreqPreset 	FPRESET_1KHZ
 #define eDefaultFuncPreset 	SINE_FUNC_MODE
-#define eDefaultGainPreset 	ONE_GAIN
+#define eDefaultGainPreset  SEVEN_GAIN
 #define eDefaultVppPreset 	VPP90
 
 
@@ -90,6 +90,11 @@ typedef struct
 
 } sOutputChannel_t;
 
+
+DMA_HandleTypeDef hdma_dac1_ch1;
+TIM_HandleTypeDef htim3;
+
+
 void SM_Init();
 sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel);
 
@@ -99,5 +104,15 @@ float SM_GetOutputInHertz();
 float SM_ConvertPeriodToHertz(uint32_t period, uint16_t psc);
 uint16_t SM_ConvertHertzToPeriod(float hertz, uint16_t psc);
 
+
+void SM_EnablePwmToSignal();
+void SM_DisablePwmToSignal();
+void SM_EnableDacToSignal();
+void SM_DisableDacToSignal();
+
+void SM_EnablePwmToSync();
+void SM_DisablePwmToSync();
+void SM_EnableDacToSync();
+void SM_DisableDacToSync();
 
 #endif /* SRC_SIGNALMANAGER_SIGNALMANAGER_H_ */

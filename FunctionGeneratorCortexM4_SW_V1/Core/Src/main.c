@@ -141,17 +141,18 @@ int main(void)
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
 
+//  SM_EnablePwmToSignal();
 
+
+//  SM_DisablePwmToSignal();
+  SM_EnableDacToSignal();
 
   DT_InitRegister();
 
   // main signal function output (external)
-  //DAC_InitDevices()
   SM_Init();
   FuncO_ApplyPresetToSignal(eDefaultFuncPreset);
   FuncO_ApplyPresetToSync(eDefaultFuncPreset);
-
-  //TIM8->ARR = sin1_MAX_OUTPUT_ARR;
 
   // DC bias output (internal)
   HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
@@ -159,17 +160,11 @@ int main(void)
   // send trigger input out to dac
   //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
 
-#ifndef DISABLE_ALL_TIMERS
-
-  // single clock to run all DAC channels. TODO add independent clocks
-  //HAL_TIM_Base_Start(&htim8);
-  //HAL_TIM_Base_Start(&htim2);
-
   // TIM2 - DAC TIMER
   OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
   FreqO_ApplyPreset(eDefaultFreqPreset);
 
-#endif //DISABLE_ALL_TIMERS
+
 
   // DC bias inversion
   HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
@@ -177,11 +172,6 @@ int main(void)
   // PGA gain
   //GO_ApplyPreset_Fast(eDefaultGainPreset);
   VPP_ApplyProfileToSignal(eDefaultVppPreset);
-
-#ifndef DISABLE_ALL_TIMERS
-  // start test routine (update_dc_bias_sweep())
-  //HAL_TIM_Base_Start_IT(&htim3);
-#endif	//DISABLE_ALL_TIMERS
 
 
 // http://www.ti.com/lit/ds/symlink/ts5a3357.pdf
@@ -253,11 +243,16 @@ int main(void)
   DM_Init();
   DM_PostInit();
 
+  // Intialise interrupt manager
   IM_Init();
 
+  // switch output signal from DAC to PWM
+//  SM_DisableDacToSignal();
+//  SM_EnablePwmToSignal();
 
-
-
+  // switch output signal from PWM to DAC
+//  SM_DisablePwmToSignal();
+//  SM_EnableDacToSignal();
 
   /* USER CODE END 2 */
 

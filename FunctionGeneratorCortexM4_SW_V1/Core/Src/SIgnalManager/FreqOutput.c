@@ -69,9 +69,18 @@ eFreqSettings_t _FindFPresetObjectByIndex(uint32_t pIndex);
  */
 void FreqO_AdjustFreq()
 {
-		//OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_HIFREQ_MAG;
+
 		OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD); //* FREQ_ENCODER_MIDFREQ_MAG;
-		//OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD) * FREQ_ENCODER_LOFREQ_MAG;
+
+		eOutput_mode tmpOut = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile->func;
+		if(tmpOut == PWM_FUNC_MODE)
+		{
+			// duty cycle of PWM require slower settings to get the
+			// same frequency as normal output functions
+			TIM3->PSC = 256;
+			TIM3->ARR = SM_GetEncoderValue(ENCODER_FORWARD)/2;
+			TIM3->CCR2 = TIM3->ARR/2;
+		}
 }
 
 
@@ -334,23 +343,34 @@ void FreqO_ApplyPreset_Fast(eFreqSettings_t pPresetEnum)
  */
 void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum)
 {
-	DacTimeReg_t* tmp = DT_GetRegisterByEnum(pPresetEnum);
-	if(tmp)
+	DacTimeReg_t* tmpDT = DT_GetRegisterByEnum(pPresetEnum);
+	if(tmpDT)
 	{
-		OUTPUT_TIMER->PSC = tmp->psc;
-		OUTPUT_TIMER->ARR = tmp->arr;
+		OUTPUT_TIMER->PSC = tmpDT->psc;
+		OUTPUT_TIMER->ARR = tmpDT->arr;
 
+		eOutput_mode tmpOut = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile->func;
+		if(tmpOut == PWM_FUNC_MODE)
+		{
+			// duty cycle of PWM require slower settings to get the
+			// same frequency as normal output functions
+			TIM3->PSC = 256;
+			TIM3->ARR = tmpDT->arr/2;
+			TIM3->CCR2 = TIM3->ARR/2;
+		}
 
 		//eNewFreqPreset = pPresetEnum;
-		FreqProfile_t * tmp = FreqO_FindFPresetObject(pPresetEnum);
-		if(tmp)
+		FreqProfile_t * tmpFreq = FreqO_FindFPresetObject(pPresetEnum);
+		if(tmpFreq)
 		{
-			freq_profile = tmp;
+			freq_profile = tmpFreq;
 		}
 		else
 		{
 			DM_SetErrorDebugMsg("FreqO_ApplyPreset() null pointer error");
 		}
+
+
 
 	}
 }
