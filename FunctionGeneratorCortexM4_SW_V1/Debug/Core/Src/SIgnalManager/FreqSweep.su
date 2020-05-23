@@ -1,0 +1,5 @@
+FreqSweep.c:28:6:FS_SetSweepModeDown	4	static
+FreqSweep.c:51:6:FS_SetSweepModeUp	4	static
+FreqSweep.c:75:6:FS_SetEncoderControlMode	16	static
+FreqSweep.c:127:6:FS_SetSweepTimerAutoReloadForEncoderControl	32	static
+FreqSweep.c:157:7:FS_GetCalculatedSweepFrequencyInHertz	4	static

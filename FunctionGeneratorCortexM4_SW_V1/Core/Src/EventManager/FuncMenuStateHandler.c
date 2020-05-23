@@ -39,21 +39,8 @@ eSystemState FuncMainMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 
-
-
 	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
 
-/*	FunctionProfile_t *func_profileTmp =  FuncO_GetSignalFPresetObject();
-	if(func_profileTmp)
-	{
-		ENCODER_TIMER->CNT = func_profileTmp->epos;
-		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
-	}
-	else
-	{
-		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
-	}
-*/
 	eNewEvent = evIdle;
 	return Func_Main_Menu_State;
 }
@@ -71,9 +58,6 @@ eSystemState FuncMainMenuInputHandler(void)
 	#ifdef SWV_DEBUG_ENABLED
 		printf("FuncMainMenuInputHandler Event captured\n");
 	#endif
-
-
-//	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evBlueBtn;
 	return Func_Main_Menu_State;
@@ -93,13 +77,10 @@ eSystemState FuncMainMenuExitHandler()
 		printf("FuncMainMenuExitHandler Event captured\n");
 	#endif
 
-	// disable the menu
-
 	eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
 
 	// reset the encoder range
 	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
-//	ENCODER_TIMER->ARR = 1024;
 
 	DM_RefreshScreen();
 
@@ -130,8 +111,7 @@ eSystemState FuncSignalMenuEntryHandler(void)
 	FuncO_ResetLastEncoderValue();
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_SIGNAL_MENU;
-
-	//FunctionProfile_t *func_profileTmp =  FuncO_GetSignalFPresetObject();
+/*
 	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile;
 	if(func_profileTmp)
 	{
@@ -142,6 +122,10 @@ eSystemState FuncSignalMenuEntryHandler(void)
 	{
 		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
 	}
+*/
+
+	ENCODER_TIMER->CNT = 32768;
+	ENCODER_TIMER->ARR = 65535;
 
 	eNewEvent = evIdle;
 	return Func_Signal_Menu_State;
@@ -235,7 +219,7 @@ eSystemState FuncAuxMenuEntryHandler(void)
 	eNextFuncMenuStatus = 	ENABLE_FUNC_Aux_MENU;
 
 	//FunctionProfile_t *func_profileTmp =  FuncO_GetAuxFPresetObject();
-	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(Aux_CHANNEL)->func_profile;
+/*	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(Aux_CHANNEL)->func_profile;
 	if(func_profileTmp)
 	{
 		ENCODER_TIMER->CNT = func_profileTmp->epos;
@@ -245,6 +229,9 @@ eSystemState FuncAuxMenuEntryHandler(void)
 	{
 		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
 	}
+	*/
+	ENCODER_TIMER->CNT = 32768;
+	ENCODER_TIMER->ARR = 65535;
 
 	eNewEvent = evIdle;
 	return Func_Aux_Menu_State;

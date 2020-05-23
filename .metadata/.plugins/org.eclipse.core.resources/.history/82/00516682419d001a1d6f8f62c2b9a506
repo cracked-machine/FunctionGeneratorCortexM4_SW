@@ -1,0 +1,15 @@
+/*
+ * FreqSweep.h
+ *
+ *  Created on: May 23, 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_SIGNALMANAGER_FREQSWEEP_H_
+#define SRC_SIGNALMANAGER_FREQSWEEP_H_
+
+void FS_SetSweepModeDown();
+void FS_SetSweepModeUp();
+void FS_SetEncoderControlMode(eEncoderSweepFunctions pFunction);
+
+#endif /* SRC_SIGNALMANAGER_FREQSWEEP_H_ */

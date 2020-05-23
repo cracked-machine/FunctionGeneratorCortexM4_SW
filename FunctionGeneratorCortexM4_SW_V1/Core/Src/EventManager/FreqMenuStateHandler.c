@@ -8,14 +8,11 @@
 #include "FreqMenuStateHandler.h"
 
 #include "DisplayManager.h"
+
 //#include "SignalManager.h"
 #include <stdio.h>
 #include <math.h>
 
-
-// these store shortest/longest ARR values that the sweep function will set to the OUTPUT_TIMER->ARR.
-float sweep_lower_bounds_shortest_output_arr = MIN_OUTPUT_ARR;		// higher freq
-float sweep_upper_bounds_longest_output_arr = MAX_OUTPUT_ARR;		// lower freq
 
 // the displayed freq menu
 eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
@@ -30,18 +27,18 @@ eEncoderSweepFunctions theCurrentEncoderSweepFunction = ENCODER_SWEEP_SPEED_FUNC
 //#define RATE_COEF	32	// how much the encoder increments/decrements per pulse
 //#define RATE_DELTA	1.1	// how much we increment/decrement by
 
+
 /*
  * 	Function prototypes
  */
-void _setSweepModeUp();
-void _setSweepModeDown();
-void _setEncoderControlMode(eEncoderSweepFunctions pFunction);
-void _setSweepTimerAutoReloadForEncoderControl(eEncoderSweepFunctions pFunction);
-float _getCalculatedSweepFrequencyInHertz();
-
 eFreqMenu_Status FreqMenu_getStatus();
+eFreqSweepModes FMSH_GetSweepMode();
 
 
+eFreqSweepModes FMSH_GetSweepMode()
+{
+	return active_sweep_mode;
+}
 
 /*
  *
@@ -64,12 +61,12 @@ eSystemState FreqSweepMenuEntryHandler()
 
 	if( sweep_upper_bounds_longest_output_arr == MIN_OUTPUT_ARR)
 	{
-		_setSweepModeDown();
+		FS_SetSweepModeDown();
 	}
 
-	_setEncoderControlMode(ENCODER_SWEEP_SPEED_FUNCTION);
-	_setSweepTimerAutoReloadForEncoderControl(ENCODER_SWEEP_SPEED_FUNCTION);
-	calculated_sweep_in_hertz = _getCalculatedSweepFrequencyInHertz();
+	FS_SetEncoderControlMode(ENCODER_SWEEP_SPEED_FUNCTION);
+	FS_SetSweepTimerAutoReloadForEncoderControl(ENCODER_SWEEP_SPEED_FUNCTION);
+	calculated_sweep_in_hertz = FS_GetCalculatedSweepFrequencyInHertz();
 
 	// reset sweep start value
 	SWEEP_TIMER->CNT = 0;
@@ -133,11 +130,11 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			switch(active_sweep_mode)
 			{
 				case SWEEP_MODE_DOWN:
-					_setSweepModeDown();
+					FS_SetSweepModeDown();
 					break;
 
 				case SWEEP_MODE_UP:
-					_setSweepModeUp();
+					FS_SetSweepModeUp();
 					break;
 
 				case SWEEP_MODE_BIDIR:	// not used
@@ -146,7 +143,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			}
 			// switch(active_sweep_mode)
 			// TODO
-			_setEncoderControlMode(theCurrentEncoderSweepFunction);
+			FS_SetEncoderControlMode(theCurrentEncoderSweepFunction);
 
 			break;
 
@@ -161,9 +158,9 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 			{
 				case ENCODER_SWEEP_SPEED_FUNCTION:
 
-					_setSweepTimerAutoReloadForEncoderControl(ENCODER_SWEEP_SPEED_FUNCTION);
+					FS_SetSweepTimerAutoReloadForEncoderControl(ENCODER_SWEEP_SPEED_FUNCTION);
 
-					calculated_sweep_in_hertz = _getCalculatedSweepFrequencyInHertz();
+					calculated_sweep_in_hertz = FS_GetCalculatedSweepFrequencyInHertz();
 
 					break;
 
@@ -228,13 +225,13 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 
 		// set sweep speed button
 		case evSweepSpeedBtn:
-			_setEncoderControlMode(ENCODER_SWEEP_SPEED_FUNCTION);
+			FS_SetEncoderControlMode(ENCODER_SWEEP_SPEED_FUNCTION);
 
 			break;
 
 		// set sweep limit button
 		case evSweepLimitBtn:
-			_setEncoderControlMode(ENCODER_SWEEP_LIMIT_FUNCTION);
+			FS_SetEncoderControlMode(ENCODER_SWEEP_LIMIT_FUNCTION);
 /*			switch(active_sweep_mode)
 			{
 
@@ -398,8 +395,7 @@ eSystemState FreqPresetMenuEntryHandler()
 	FreqProfile_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
 	if(pFreqPresetTmp)
 	{
-		//ENCODER_TIMER->CNT = pFreqPresetTmp->epos;
-		//ENCODER_TIMER->ARR = FreqO_GetFreqPresetEncoderRange();
+		// set rotary encoder limit to full scale and set centre starting position
 		ENCODER_TIMER->CNT = 32768;
 		ENCODER_TIMER->ARR = 65535;
 	}
@@ -478,7 +474,7 @@ eSystemState FreqAdjustMenuEntryHandler()
 
 	eNextFreqMenuStatus = ENABLE_FREQ_ADJUST_MENU;
 
-	// set the rotary encoder limits to 0-? for this menu
+	// set rotary encoder limit to full scale and set OUTPUT_TIMER "TOP" starting position
 	ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
 	ENCODER_TIMER->ARR = 65535;
 
@@ -533,134 +529,6 @@ eSystemState FreqAdjustMenuExitHandler()
 	return Freq_Main_Menu_State;
 }
 
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void _setSweepModeDown()
-{
-	// "Center-aligned" mode sets direction register to readonly,
-	// so disable "Center-aligned" mode first
-	SWEEP_TIMER->CR1 &= ~((TIM_CR1_CMS_0) | (TIM_CR1_CMS_1));
-
-	// 0: Counter used as upcounter
-	SWEEP_TIMER->CR1 |= (TIM_CR1_DIR);
-
-	sweep_lower_bounds_shortest_output_arr  = OUTPUT_TIMER->ARR;
-	sweep_upper_bounds_longest_output_arr  = MAX_OUTPUT_ARR;
-	ENCODER_TIMER->CNT = MAX_OUTPUT_ARR;
-
-}
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void _setSweepModeUp()
-{
-
-	// "Center-aligned" mode sets direction register to readonly,
-	// so disable "Center-aligned" mode first
-	SWEEP_TIMER->CR1 &= ~((TIM_CR1_CMS_0) | (TIM_CR1_CMS_1));
-
-	// 1: Counter used as downcounter
-	SWEEP_TIMER->CR1 &= ~(TIM_CR1_DIR);
-
-	sweep_upper_bounds_longest_output_arr  = OUTPUT_TIMER->ARR;
-	sweep_lower_bounds_shortest_output_arr  = MIN_OUTPUT_ARR;
-
-
-}
-
-void _setEncoderControlMode(eEncoderSweepFunctions pFunction)
-{
-	if(pFunction)
-	{
-		//	ENCODER_SWEEP_LIMIT_FUNCTION
-		theCurrentEncoderSweepFunction = pFunction;
-		ENCODER_TIMER->CNT = MIN_OUTPUT_ARR;
-		ENCODER_TIMER->ARR = MAX_OUTPUT_ARR;
-
-		switch(active_sweep_mode)
-		{
-
-			case SWEEP_MODE_UP:
-
-
-				// if encoder position is above the lower bounds set it below it
-					if(ENCODER_TIMER->CNT > sweep_upper_bounds_longest_output_arr)
-						 ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
-
-
-				break;
-
-			case SWEEP_MODE_DOWN:
-					// if encoder position is below the lower bounds set it above it
-					if(ENCODER_TIMER->CNT < sweep_lower_bounds_shortest_output_arr)
-						ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
-				break;
-			default:
-				break;
-		}
-		// switch(active_sweep_mode)
-	}
-	else
-	{
-		// ENCODER_SWEEP_SPEED_FUNCTION
-		theCurrentEncoderSweepFunction = pFunction;
-		// encoder start value
-		ENCODER_TIMER->CNT = 1;
-		// encoder limit for default (set speed)
-		ENCODER_TIMER->ARR = 1600;
-	}
-
-
-
-}
-
-
-void _setSweepTimerAutoReloadForEncoderControl(eEncoderSweepFunctions pFunction)
-{
-	uint32_t next_sweep_tim_arr;
-
-	if(pFunction)
-	{
-
-	}
-	else
-	{
-		// get logarithmic curve to speed up turns at low end
-		next_sweep_tim_arr = MIN_SWEEP_ARR + (pow(ENCODER_TIMER->CNT, 3));
-
-		if(next_sweep_tim_arr < 0xFFFFFFFF)
-		{
-			SWEEP_TIMER->ARR = next_sweep_tim_arr;
-
-		}
-	}
-}
-
-float _getCalculatedSweepFrequencyInHertz()
-{
-	if(SWEEP_TIMER->PSC == 0)
-	{
-		return (float)SM_MCLK / ((float)1 * (float)SWEEP_TIMER->ARR);
-	}
-	else
-	{
-		return (float)SM_MCLK / ((float)SWEEP_TIMER->PSC * (float)SWEEP_TIMER->ARR);
-	}
-
-}
 
 
 /*

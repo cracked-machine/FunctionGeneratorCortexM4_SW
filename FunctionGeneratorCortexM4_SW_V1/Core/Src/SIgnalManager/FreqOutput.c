@@ -83,7 +83,7 @@ void FreqO_InitFreqProfiles()
 
 /*
  *
- *	@brief	select frequency output preset from rot enc value
+ *	@brief	map rotary enocder position to profile
  *
  *	@param None
  *	@retval None
@@ -134,6 +134,7 @@ void FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue)
  *	@retval None
  *
  */
+
 void FreqO_ApplyProfile(eFreqSettings_t pPresetEnum)
 {
 //	DacTimeReg_t* tmpDT = DT_GetRegisterByEnum(pPresetEnum);

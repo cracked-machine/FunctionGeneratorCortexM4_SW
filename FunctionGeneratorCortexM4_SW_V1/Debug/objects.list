@@ -13,6 +13,7 @@
 "Core/Src/InterruptManager/InterruptManager.o"
 "Core/Src/SIgnalManager/BiasOutput.o"
 "Core/Src/SIgnalManager/FreqOutput.o"
+"Core/Src/SIgnalManager/FreqSweep.o"
 "Core/Src/SIgnalManager/FunctionOutput.o"
 "Core/Src/SIgnalManager/GainOutput.o"
 "Core/Src/SIgnalManager/SignalManager.o"
