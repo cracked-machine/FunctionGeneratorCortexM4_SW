@@ -223,19 +223,19 @@ eSystemState FuncSignalMenuExitHandler()
  *	@retval eSystemState enum for next system state
  *
  */
-eSystemState FuncSyncMenuEntryHandler(void)
+eSystemState FuncAuxMenuEntryHandler(void)
 {
 	#ifdef SWV_DEBUG_ENABLED
-		printf("FuncSyncMenuEntryHandler Event captured\n");
+		printf("FuncAuxMenuEntryHandler Event captured\n");
 	#endif
 
 	DM_RefreshScreen();
 	FuncO_ResetLastEncoderValue();
 
-	eNextFuncMenuStatus = 	ENABLE_FUNC_SYNC_MENU;
+	eNextFuncMenuStatus = 	ENABLE_FUNC_Aux_MENU;
 
-	//FunctionProfile_t *func_profileTmp =  FuncO_GetSyncFPresetObject();
-	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile;
+	//FunctionProfile_t *func_profileTmp =  FuncO_GetAuxFPresetObject();
+	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(Aux_CHANNEL)->func_profile;
 	if(func_profileTmp)
 	{
 		ENCODER_TIMER->CNT = func_profileTmp->epos;
@@ -247,7 +247,7 @@ eSystemState FuncSyncMenuEntryHandler(void)
 	}
 
 	eNewEvent = evIdle;
-	return Func_Sync_Menu_State;
+	return Func_Aux_Menu_State;
 }
 
 /*
@@ -258,10 +258,10 @@ eSystemState FuncSyncMenuEntryHandler(void)
  *	@retval eSystemState enum for next system state
  *
  */
-eSystemState FuncSyncMenuInputHandler(void)
+eSystemState FuncAuxMenuInputHandler(void)
 {
 	#ifdef SWV_DEBUG_ENABLED
-		printf("FuncSyncMenuInputHandler Event captured\n");
+		printf("FuncAuxMenuInputHandler Event captured\n");
 	#endif
 
 	// PWM ADJUST
@@ -274,11 +274,11 @@ eSystemState FuncSyncMenuInputHandler(void)
 	}
 	else
 	{
-		FuncO_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+		FuncO_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 	}
 
 	eNewEvent = evIdle;
-	return Func_Sync_Menu_State;
+	return Func_Aux_Menu_State;
 }
 
 /*
@@ -289,12 +289,12 @@ eSystemState FuncSyncMenuInputHandler(void)
  *	@retval None
  *
  */
-eSystemState FuncSyncToggleDutyMode()
+eSystemState FuncAuxToggleDutyMode()
 {
 	SM_ToggleFuncPwmDutyMode();
 	ENCODER_TIMER->ARR = 16384;
 	eNewEvent = evIdle;
-	return Func_Sync_Menu_State;
+	return Func_Aux_Menu_State;
 }
 
 
@@ -306,10 +306,10 @@ eSystemState FuncSyncToggleDutyMode()
  *	@retval eSystemState enum for next system state
  *
  */
-eSystemState FuncSyncMenuExitHandler()
+eSystemState FuncAuxMenuExitHandler()
 {
 	#ifdef SWV_DEBUG_ENABLED
-		printf("FuncSyncMenuExitHandler Event captured\n");
+		printf("FuncAuxMenuExitHandler Event captured\n");
 	#endif
 
 	// disable the menu

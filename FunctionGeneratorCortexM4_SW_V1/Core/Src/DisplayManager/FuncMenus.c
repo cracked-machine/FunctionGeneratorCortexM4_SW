@@ -31,8 +31,8 @@ void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
 		case ENABLE_FUNC_SIGNAL_MENU:
 			FuncMenu_DrawOutputMenu(SIGNAL_CHANNEL);
 			break;
-		case ENABLE_FUNC_SYNC_MENU:
-			FuncMenu_DrawOutputMenu(SYNC_CHANNEL);
+		case ENABLE_FUNC_Aux_MENU:
+			FuncMenu_DrawOutputMenu(Aux_CHANNEL);
 			break;
 
 		default:
@@ -58,7 +58,7 @@ void FuncMenu_DrawMainMenu()
 
  	// coloured menu btn labels
 	ILI9341_Draw_Text("SIGNAL", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text("SYNC", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("Aux", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 }
@@ -74,7 +74,7 @@ void FuncMenu_DrawMainMenu()
 void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 {
 	if(pOutChan)
-		ILI9341_Draw_Text("OUT->FUNC->SYNC", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
+		ILI9341_Draw_Text("OUT->FUNC->Aux", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 	else
 		ILI9341_Draw_Text("OUT->FUNC->SIG", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 

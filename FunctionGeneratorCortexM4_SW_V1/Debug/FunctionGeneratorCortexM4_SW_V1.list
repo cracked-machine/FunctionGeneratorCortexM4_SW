@@ -7,23 +7,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
   1 .text         00012b2c  080001e0  080001e0  000101e0  2**4
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .rodata       000014b8  08012d10  08012d10  00022d10  2**3
+  2 .rodata       000014a8  08012d10  08012d10  00022d10  2**3
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  3 .ARM.extab    00000000  080141c8  080141c8  00031e80  2**0
+  3 .ARM.extab    00000000  080141b8  080141b8  00031e80  2**0
                   CONTENTS
-  4 .ARM          00000000  080141c8  080141c8  00031e80  2**0
+  4 .ARM          00000000  080141b8  080141b8  00031e80  2**0
                   CONTENTS
-  5 .preinit_array 00000000  080141c8  080141c8  00031e80  2**0
+  5 .preinit_array 00000000  080141b8  080141b8  00031e80  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  6 .init_array   00000004  080141c8  080141c8  000241c8  2**2
+  6 .init_array   00000004  080141b8  080141b8  000241b8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  7 .fini_array   00000004  080141cc  080141cc  000241cc  2**2
+  7 .fini_array   00000004  080141bc  080141bc  000241bc  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  8 .data         00001e80  20000000  080141d0  00030000  2**2
+  8 .data         00001e80  20000000  080141c0  00030000  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          00000ad4  20001e80  08016050  00031e80  2**2
+  9 .bss          00000ad4  20001e80  08016040  00031e80  2**2
                   ALLOC
- 10 ._user_heap_stack 00000604  20002954  08016050  00032954  2**0
+ 10 ._user_heap_stack 00000604  20002954  08016040  00032954  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00031e80  2**0
                   CONTENTS, READONLY
@@ -39,11 +39,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  17 .debug_line   0002eeec  00000000  00000000  000b8901  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    001267c9  00000000  00000000  000e77ed  2**0
+ 18 .debug_str    001265a4  00000000  00000000  000e77ed  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0020dfb6  2**0
+ 19 .comment      0000007b  00000000  00000000  0020dd91  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000096f8  00000000  00000000  0020e034  2**2
+ 20 .debug_frame  000096f8  00000000  00000000  0020de0c  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1218,7 +1218,7 @@ void DM_UpdateDisplay()
  8000dda:	d00a      	beq.n	8000df2 <DM_UpdateDisplay+0x76>
  8000ddc:	2b01      	cmp	r3, #1
  8000dde:	d000      	beq.n	8000de2 <DM_UpdateDisplay+0x66>
-				FuncMenu_DrawMenu(ENABLE_FUNC_SYNC_MENU);
+				FuncMenu_DrawMenu(ENABLE_FUNC_Aux_MENU);
 
 				break;
 
@@ -1235,7 +1235,7 @@ void DM_UpdateDisplay()
  8000dec:	f002 f930 	bl	8003050 <FuncMenu_DrawMenu>
 				break;
  8000df0:	e063      	b.n	8000eba <DM_UpdateDisplay+0x13e>
-				FuncMenu_DrawMenu(ENABLE_FUNC_SYNC_MENU);
+				FuncMenu_DrawMenu(ENABLE_FUNC_Aux_MENU);
  8000df2:	2003      	movs	r0, #3
  8000df4:	f002 f92c 	bl	8003050 <FuncMenu_DrawMenu>
 				break;
@@ -1267,7 +1267,7 @@ void DM_UpdateDisplay()
  8000e16:	d00a      	beq.n	8000e2e <DM_UpdateDisplay+0xb2>
  8000e18:	2b01      	cmp	r3, #1
  8000e1a:	d000      	beq.n	8000e1e <DM_UpdateDisplay+0xa2>
-				GainMenu_DrawMenu(ENABLE_GAIN_SYNC_MENU);
+				GainMenu_DrawMenu(ENABLE_GAIN_Aux_MENU);
 
 				break;
 
@@ -1284,7 +1284,7 @@ void DM_UpdateDisplay()
  8000e28:	f002 fdc0 	bl	80039ac <GainMenu_DrawMenu>
 				break;
  8000e2c:	e045      	b.n	8000eba <DM_UpdateDisplay+0x13e>
-				GainMenu_DrawMenu(ENABLE_GAIN_SYNC_MENU);
+				GainMenu_DrawMenu(ENABLE_GAIN_Aux_MENU);
  8000e2e:	2003      	movs	r0, #3
  8000e30:	f002 fdbc 	bl	80039ac <GainMenu_DrawMenu>
 				break;
@@ -1416,15 +1416,15 @@ void DM_UpdateDisplay()
  8000ed6:	4a23      	ldr	r2, [pc, #140]	; (8000f64 <DM_UpdateDisplay+0x1e8>)
  8000ed8:	2132      	movs	r1, #50	; 0x32
  8000eda:	f00e fca3 	bl	800f824 <sniprintf>
-		ILI9341_Draw_Text(tim5_text, 100, 180, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
+		ILI9341_Draw_Text(tim5_text, 220, 10, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
  8000ede:	f107 0034 	add.w	r0, r7, #52	; 0x34
  8000ee2:	f64d 03c3 	movw	r3, #55491	; 0xd8c3
  8000ee6:	9301      	str	r3, [sp, #4]
  8000ee8:	2301      	movs	r3, #1
  8000eea:	9300      	str	r3, [sp, #0]
  8000eec:	2300      	movs	r3, #0
- 8000eee:	22b4      	movs	r2, #180	; 0xb4
- 8000ef0:	2164      	movs	r1, #100	; 0x64
+ 8000eee:	220a      	movs	r2, #10
+ 8000ef0:	21dc      	movs	r1, #220	; 0xdc
  8000ef2:	f00d f8f3 	bl	800e0dc <ILI9341_Draw_Text>
 
 		char encoder_value[50] = "";
@@ -1442,15 +1442,15 @@ void DM_UpdateDisplay()
  8000f0c:	4a17      	ldr	r2, [pc, #92]	; (8000f6c <DM_UpdateDisplay+0x1f0>)
  8000f0e:	2132      	movs	r1, #50	; 0x32
  8000f10:	f00e fc88 	bl	800f824 <sniprintf>
-		ILI9341_Draw_Text(encoder_value, 100, 190, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
+		ILI9341_Draw_Text(encoder_value, 220, 20, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
  8000f14:	4638      	mov	r0, r7
  8000f16:	f64d 03c3 	movw	r3, #55491	; 0xd8c3
  8000f1a:	9301      	str	r3, [sp, #4]
  8000f1c:	2301      	movs	r3, #1
  8000f1e:	9300      	str	r3, [sp, #0]
  8000f20:	2300      	movs	r3, #0
- 8000f22:	22be      	movs	r2, #190	; 0xbe
- 8000f24:	2164      	movs	r1, #100	; 0x64
+ 8000f22:	2214      	movs	r2, #20
+ 8000f24:	21dc      	movs	r1, #220	; 0xdc
  8000f26:	f00d f8d9 	bl	800e0dc <ILI9341_Draw_Text>
 	#endif //ENCODER_DEBUG
 
@@ -1991,14 +1991,14 @@ void DM_DisplayFormattedOutput()
  80013c6:	21b4      	movs	r1, #180	; 0xb4
  80013c8:	4847      	ldr	r0, [pc, #284]	; (80014e8 <DM_DisplayFormattedOutput+0x574>)
  80013ca:	f00c fe87 	bl	800e0dc <ILI9341_Draw_Text>
-	eOutput_mode sync_output_func = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
+	eOutput_mode Aux_output_func = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
  80013ce:	2001      	movs	r0, #1
  80013d0:	f004 fcb8 	bl	8005d44 <SM_GetOutputChannel>
  80013d4:	4603      	mov	r3, r0
  80013d6:	f8d3 31e8 	ldr.w	r3, [r3, #488]	; 0x1e8
  80013da:	781b      	ldrb	r3, [r3, #0]
  80013dc:	f887 304e 	strb.w	r3, [r7, #78]	; 0x4e
-	switch(sync_output_func)
+	switch(Aux_output_func)
  80013e0:	f897 304e 	ldrb.w	r3, [r7, #78]	; 0x4e
  80013e4:	2b06      	cmp	r3, #6
  80013e6:	d873      	bhi.n	80014d0 <DM_DisplayFormattedOutput+0x55c>
@@ -2015,7 +2015,7 @@ void DM_DisplayFormattedOutput()
 	{
 		case SINE_FUNC_MODE:
 
-			ILI9341_Draw_Wave(245, 140, 3, SYNC_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 140, 3, Aux_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
  800140c:	233c      	movs	r3, #60	; 0x3c
  800140e:	9302      	str	r3, [sp, #8]
  8001410:	4b36      	ldr	r3, [pc, #216]	; (80014ec <DM_DisplayFormattedOutput+0x578>)
@@ -2030,7 +2030,7 @@ void DM_DisplayFormattedOutput()
 			break;
  8001426:	e053      	b.n	80014d0 <DM_DisplayFormattedOutput+0x55c>
 		case SQUARE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
  8001428:	233c      	movs	r3, #60	; 0x3c
  800142a:	9302      	str	r3, [sp, #8]
  800142c:	4b30      	ldr	r3, [pc, #192]	; (80014f0 <DM_DisplayFormattedOutput+0x57c>)
@@ -2045,7 +2045,7 @@ void DM_DisplayFormattedOutput()
 			break;
  8001442:	e045      	b.n	80014d0 <DM_DisplayFormattedOutput+0x55c>
 		case SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
  8001444:	233c      	movs	r3, #60	; 0x3c
  8001446:	9302      	str	r3, [sp, #8]
  8001448:	4b23      	ldr	r3, [pc, #140]	; (80014d8 <DM_DisplayFormattedOutput+0x564>)
@@ -2060,7 +2060,7 @@ void DM_DisplayFormattedOutput()
 			break;
  800145e:	e037      	b.n	80014d0 <DM_DisplayFormattedOutput+0x55c>
 		case REV_SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
  8001460:	233c      	movs	r3, #60	; 0x3c
  8001462:	9302      	str	r3, [sp, #8]
  8001464:	4b1d      	ldr	r3, [pc, #116]	; (80014dc <DM_DisplayFormattedOutput+0x568>)
@@ -2075,7 +2075,7 @@ void DM_DisplayFormattedOutput()
 			break;
  800147a:	e029      	b.n	80014d0 <DM_DisplayFormattedOutput+0x55c>
 		case TRIANGLE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
  800147c:	233c      	movs	r3, #60	; 0x3c
  800147e:	9302      	str	r3, [sp, #8]
  8001480:	4b17      	ldr	r3, [pc, #92]	; (80014e0 <DM_DisplayFormattedOutput+0x56c>)
@@ -2090,7 +2090,7 @@ void DM_DisplayFormattedOutput()
 			break;
  8001496:	e01b      	b.n	80014d0 <DM_DisplayFormattedOutput+0x55c>
 		case IMPULSE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
  8001498:	233c      	movs	r3, #60	; 0x3c
  800149a:	9302      	str	r3, [sp, #8]
  800149c:	4b10      	ldr	r3, [pc, #64]	; (80014e0 <DM_DisplayFormattedOutput+0x56c>)
@@ -2105,7 +2105,7 @@ void DM_DisplayFormattedOutput()
 			break;
  80014b2:	e00d      	b.n	80014d0 <DM_DisplayFormattedOutput+0x55c>
 		case PWM_FUNC_MODE:
-			ILI9341_Draw_Text("PWM", 245, 170, SYNC_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
+			ILI9341_Draw_Text("PWM", 245, 170, Aux_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
  80014b4:	f897 3063 	ldrb.w	r3, [r7, #99]	; 0x63
  80014b8:	b29b      	uxth	r3, r3
  80014ba:	2200      	movs	r2, #0
@@ -5416,8 +5416,8 @@ void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
  8003062:	d009      	beq.n	8003078 <FuncMenu_DrawMenu+0x28>
  8003064:	2b01      	cmp	r3, #1
  8003066:	d000      	beq.n	800306a <FuncMenu_DrawMenu+0x1a>
-		case ENABLE_FUNC_SYNC_MENU:
-			FuncMenu_DrawOutputMenu(SYNC_CHANNEL);
+		case ENABLE_FUNC_Aux_MENU:
+			FuncMenu_DrawOutputMenu(Aux_CHANNEL);
 			break;
 
 		default:
@@ -5432,7 +5432,7 @@ void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
  8003072:	f000 f851 	bl	8003118 <FuncMenu_DrawOutputMenu>
 			break;
  8003076:	e003      	b.n	8003080 <FuncMenu_DrawMenu+0x30>
-			FuncMenu_DrawOutputMenu(SYNC_CHANNEL);
+			FuncMenu_DrawOutputMenu(Aux_CHANNEL);
  8003078:	2001      	movs	r0, #1
  800307a:	f000 f84d 	bl	8003118 <FuncMenu_DrawOutputMenu>
 			break;
@@ -5480,7 +5480,7 @@ void FuncMenu_DrawMainMenu()
  80030b6:	2105      	movs	r1, #5
  80030b8:	4814      	ldr	r0, [pc, #80]	; (800310c <FuncMenu_DrawMainMenu+0x84>)
  80030ba:	f00b f80f 	bl	800e0dc <ILI9341_Draw_Text>
-	ILI9341_Draw_Text("SYNC", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("Aux", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
  80030be:	f241 43a2 	movw	r3, #5282	; 0x14a2
  80030c2:	9301      	str	r3, [sp, #4]
  80030c4:	2302      	movs	r3, #2
@@ -5517,7 +5517,7 @@ void FuncMenu_DrawMainMenu()
  8003108:	080130c0 	.word	0x080130c0
  800310c:	080130cc 	.word	0x080130cc
  8003110:	080130d4 	.word	0x080130d4
- 8003114:	080130dc 	.word	0x080130dc
+ 8003114:	080130d8 	.word	0x080130d8
 
 08003118 <FuncMenu_DrawOutputMenu>:
  *	@param None
@@ -5535,7 +5535,7 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
  8003122:	79fb      	ldrb	r3, [r7, #7]
  8003124:	2b00      	cmp	r3, #0
  8003126:	d00b      	beq.n	8003140 <FuncMenu_DrawOutputMenu+0x28>
-		ILI9341_Draw_Text("OUT->FUNC->SYNC", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
+		ILI9341_Draw_Text("OUT->FUNC->Aux", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
  8003128:	f64f 73ff 	movw	r3, #65535	; 0xffff
  800312c:	9301      	str	r3, [sp, #4]
  800312e:	2302      	movs	r3, #2
@@ -5815,16 +5815,16 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
  8003382:	f00a feab 	bl	800e0dc <ILI9341_Draw_Text>
 				break;
  8003386:	e2f1      	b.n	800396c <FuncMenu_DrawOutputMenu+0x854>
- 8003388:	080130e4 	.word	0x080130e4
- 800338c:	080130f4 	.word	0x080130f4
- 8003390:	08013104 	.word	0x08013104
- 8003394:	0801310c 	.word	0x0801310c
- 8003398:	08013118 	.word	0x08013118
- 800339c:	08013120 	.word	0x08013120
- 80033a0:	0801312c 	.word	0x0801312c
- 80033a4:	08013138 	.word	0x08013138
- 80033a8:	08013140 	.word	0x08013140
- 80033ac:	080130dc 	.word	0x080130dc
+ 8003388:	080130e0 	.word	0x080130e0
+ 800338c:	080130f0 	.word	0x080130f0
+ 8003390:	08013100 	.word	0x08013100
+ 8003394:	08013108 	.word	0x08013108
+ 8003398:	08013114 	.word	0x08013114
+ 800339c:	0801311c 	.word	0x0801311c
+ 80033a0:	08013128 	.word	0x08013128
+ 80033a4:	08013134 	.word	0x08013134
+ 80033a8:	0801313c 	.word	0x0801313c
+ 80033ac:	080130d8 	.word	0x080130d8
 			case SAW_FUNC_MODE:
 				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
  80033b0:	2300      	movs	r3, #0
@@ -6178,15 +6178,15 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
  80036a2:	f00a fd1b 	bl	800e0dc <ILI9341_Draw_Text>
 				break;
  80036a6:	e161      	b.n	800396c <FuncMenu_DrawOutputMenu+0x854>
- 80036a8:	08013104 	.word	0x08013104
- 80036ac:	0801310c 	.word	0x0801310c
- 80036b0:	08013118 	.word	0x08013118
- 80036b4:	08013120 	.word	0x08013120
- 80036b8:	0801312c 	.word	0x0801312c
- 80036bc:	08013138 	.word	0x08013138
- 80036c0:	08013140 	.word	0x08013140
- 80036c4:	080130dc 	.word	0x080130dc
- 80036c8:	08013148 	.word	0x08013148
+ 80036a8:	08013100 	.word	0x08013100
+ 80036ac:	08013108 	.word	0x08013108
+ 80036b0:	08013114 	.word	0x08013114
+ 80036b4:	0801311c 	.word	0x0801311c
+ 80036b8:	08013128 	.word	0x08013128
+ 80036bc:	08013134 	.word	0x08013134
+ 80036c0:	0801313c 	.word	0x0801313c
+ 80036c4:	080130d8 	.word	0x080130d8
+ 80036c8:	08013144 	.word	0x08013144
 			case IMPULSE_FUNC_MODE:
 				ILI9341_Draw_Text("- SINE", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
  80036cc:	2300      	movs	r3, #0
@@ -6503,20 +6503,20 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
  800396e:	371c      	adds	r7, #28
  8003970:	46bd      	mov	sp, r7
  8003972:	bd90      	pop	{r4, r7, pc}
- 8003974:	08013104 	.word	0x08013104
- 8003978:	0801310c 	.word	0x0801310c
- 800397c:	08013118 	.word	0x08013118
- 8003980:	08013120 	.word	0x08013120
- 8003984:	0801312c 	.word	0x0801312c
- 8003988:	08013138 	.word	0x08013138
- 800398c:	08013140 	.word	0x08013140
- 8003990:	080130dc 	.word	0x080130dc
- 8003994:	08013148 	.word	0x08013148
- 8003998:	08013158 	.word	0x08013158
- 800399c:	08013160 	.word	0x08013160
+ 8003974:	08013100 	.word	0x08013100
+ 8003978:	08013108 	.word	0x08013108
+ 800397c:	08013114 	.word	0x08013114
+ 8003980:	0801311c 	.word	0x0801311c
+ 8003984:	08013128 	.word	0x08013128
+ 8003988:	08013134 	.word	0x08013134
+ 800398c:	0801313c 	.word	0x0801313c
+ 8003990:	080130d8 	.word	0x080130d8
+ 8003994:	08013144 	.word	0x08013144
+ 8003998:	08013154 	.word	0x08013154
+ 800399c:	0801315c 	.word	0x0801315c
  80039a0:	40000400 	.word	0x40000400
  80039a4:	42c80000 	.word	0x42c80000
- 80039a8:	08013168 	.word	0x08013168
+ 80039a8:	08013164 	.word	0x08013164
 
 080039ac <GainMenu_DrawMenu>:
  *	@param None
@@ -6538,8 +6538,8 @@ void GainMenu_DrawMenu(eGainMenu_Status pMenu)
  80039be:	d008      	beq.n	80039d2 <GainMenu_DrawMenu+0x26>
  80039c0:	2b01      	cmp	r3, #1
  80039c2:	d000      	beq.n	80039c6 <GainMenu_DrawMenu+0x1a>
-		case ENABLE_GAIN_SYNC_MENU:
-			GainMenu_DrawSyncMenu();
+		case ENABLE_GAIN_Aux_MENU:
+			GainMenu_DrawAuxMenu();
 			break;
 
 		default:
@@ -6553,8 +6553,8 @@ void GainMenu_DrawMenu(eGainMenu_Status pMenu)
  80039cc:	f000 f850 	bl	8003a70 <GainMenu_DrawSignalMenu>
 			break;
  80039d0:	e002      	b.n	80039d8 <GainMenu_DrawMenu+0x2c>
-			GainMenu_DrawSyncMenu();
- 80039d2:	f000 f863 	bl	8003a9c <GainMenu_DrawSyncMenu>
+			GainMenu_DrawAuxMenu();
+ 80039d2:	f000 f863 	bl	8003a9c <GainMenu_DrawAuxMenu>
 			break;
  80039d6:	bf00      	nop
 
@@ -6601,7 +6601,7 @@ void GainMenu_DrawMainMenu()
  8003a0e:	2105      	movs	r1, #5
  8003a10:	4814      	ldr	r0, [pc, #80]	; (8003a64 <GainMenu_DrawMainMenu+0x84>)
  8003a12:	f00a fb63 	bl	800e0dc <ILI9341_Draw_Text>
-	ILI9341_Draw_Text("SYNC",	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("Aux",	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
  8003a16:	f241 43a2 	movw	r3, #5282	; 0x14a2
  8003a1a:	9301      	str	r3, [sp, #4]
  8003a1c:	2302      	movs	r3, #2
@@ -6635,10 +6635,10 @@ void GainMenu_DrawMainMenu()
  8003a5a:	bf00      	nop
  8003a5c:	46bd      	mov	sp, r7
  8003a5e:	bd80      	pop	{r7, pc}
- 8003a60:	08013170 	.word	0x08013170
- 8003a64:	0801317c 	.word	0x0801317c
- 8003a68:	08013184 	.word	0x08013184
- 8003a6c:	0801318c 	.word	0x0801318c
+ 8003a60:	0801316c 	.word	0x0801316c
+ 8003a64:	08013178 	.word	0x08013178
+ 8003a68:	08013180 	.word	0x08013180
+ 8003a6c:	08013184 	.word	0x08013184
 
 08003a70 <GainMenu_DrawSignalMenu>:
  *	@param None
@@ -6668,19 +6668,19 @@ void GainMenu_DrawSignalMenu()
  8003a92:	46bd      	mov	sp, r7
  8003a94:	bd80      	pop	{r7, pc}
  8003a96:	bf00      	nop
- 8003a98:	08013194 	.word	0x08013194
+ 8003a98:	0801318c 	.word	0x0801318c
 
-08003a9c <GainMenu_DrawSyncMenu>:
+08003a9c <GainMenu_DrawAuxMenu>:
  *	@param None
  *	@retval None
  *
  */
-void GainMenu_DrawSyncMenu()
+void GainMenu_DrawAuxMenu()
 {
  8003a9c:	b580      	push	{r7, lr}
  8003a9e:	b082      	sub	sp, #8
  8003aa0:	af02      	add	r7, sp, #8
-	ILI9341_Draw_Text("OUT->GAIN->SYNC", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
+	ILI9341_Draw_Text("OUT->GAIN->Aux", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
  8003aa2:	f64f 73ff 	movw	r3, #65535	; 0xffff
  8003aa6:	9301      	str	r3, [sp, #4]
  8003aa8:	2302      	movs	r3, #2
@@ -6688,7 +6688,7 @@ void GainMenu_DrawSyncMenu()
  8003aac:	2300      	movs	r3, #0
  8003aae:	220a      	movs	r2, #10
  8003ab0:	210a      	movs	r1, #10
- 8003ab2:	4804      	ldr	r0, [pc, #16]	; (8003ac4 <GainMenu_DrawSyncMenu+0x28>)
+ 8003ab2:	4804      	ldr	r0, [pc, #16]	; (8003ac4 <GainMenu_DrawAuxMenu+0x28>)
  8003ab4:	f00a fb12 	bl	800e0dc <ILI9341_Draw_Text>
 
 	DM_DisplayFormattedOutput();
@@ -6698,7 +6698,7 @@ void GainMenu_DrawSyncMenu()
  8003abe:	46bd      	mov	sp, r7
  8003ac0:	bd80      	pop	{r7, pc}
  8003ac2:	bf00      	nop
- 8003ac4:	080131a4 	.word	0x080131a4
+ 8003ac4:	0801319c 	.word	0x0801319c
 
 08003ac8 <ToplevelMenu_DrawMenu>:
  *	@param None
@@ -6816,10 +6816,10 @@ void ToplevelMenu_DrawMainMenu()
  8003b66:	bf00      	nop
  8003b68:	46bd      	mov	sp, r7
  8003b6a:	bd80      	pop	{r7, pc}
- 8003b6c:	080131b4 	.word	0x080131b4
- 8003b70:	080131c8 	.word	0x080131c8
- 8003b74:	080131d0 	.word	0x080131d0
- 8003b78:	080131d8 	.word	0x080131d8
+ 8003b6c:	080131ac 	.word	0x080131ac
+ 8003b70:	080131c0 	.word	0x080131c0
+ 8003b74:	080131c8 	.word	0x080131c8
+ 8003b78:	080131d0 	.word	0x080131d0
 
 08003b7c <ToplevelMenu_DrawOutputMenu>:
  *	@param None
@@ -6890,11 +6890,11 @@ void ToplevelMenu_DrawOutputMenu()
  8003bf6:	46bd      	mov	sp, r7
  8003bf8:	bd80      	pop	{r7, pc}
  8003bfa:	bf00      	nop
- 8003bfc:	080131e0 	.word	0x080131e0
- 8003c00:	080131e8 	.word	0x080131e8
- 8003c04:	080131f0 	.word	0x080131f0
- 8003c08:	080131f8 	.word	0x080131f8
- 8003c0c:	08013200 	.word	0x08013200
+ 8003bfc:	080131d8 	.word	0x080131d8
+ 8003c00:	080131e0 	.word	0x080131e0
+ 8003c04:	080131e8 	.word	0x080131e8
+ 8003c08:	080131f0 	.word	0x080131f0
+ 8003c0c:	080131f8 	.word	0x080131f8
 
 08003c10 <ToplevelMenu_DrawInputMenu>:
  *	@param None
@@ -6924,7 +6924,7 @@ void ToplevelMenu_DrawInputMenu()
  8003c32:	46bd      	mov	sp, r7
  8003c34:	bd80      	pop	{r7, pc}
  8003c36:	bf00      	nop
- 8003c38:	08013208 	.word	0x08013208
+ 8003c38:	08013200 	.word	0x08013200
 
 08003c3c <BiasMenu_getStatus>:
  *	@param None
@@ -6989,7 +6989,7 @@ eSystemState BiasMenuEntryHandler()
 }
  8003c84:	4618      	mov	r0, r3
  8003c86:	bd80      	pop	{r7, pc}
- 8003c88:	08013210 	.word	0x08013210
+ 8003c88:	08013208 	.word	0x08013208
  8003c8c:	20001ec9 	.word	0x20001ec9
  8003c90:	40012c00 	.word	0x40012c00
  8003c94:	20001ecb 	.word	0x20001ecb
@@ -7025,7 +7025,7 @@ eSystemState BiasMenuInputHandler()
 }
  8003cb8:	4618      	mov	r0, r3
  8003cba:	bd80      	pop	{r7, pc}
- 8003cbc:	08013234 	.word	0x08013234
+ 8003cbc:	0801322c 	.word	0x0801322c
  8003cc0:	20001ecb 	.word	0x20001ecb
 
 08003cc4 <BiasMenuExitHandler>:
@@ -7073,9 +7073,9 @@ eSystemState BiasMenuExitHandler()
  8003ce6:	4618      	mov	r0, r3
  8003ce8:	bd80      	pop	{r7, pc}
  8003cea:	bf00      	nop
- 8003cec:	08013258 	.word	0x08013258
+ 8003cec:	08013250 	.word	0x08013250
  8003cf0:	20001ec9 	.word	0x20001ec9
- 8003cf4:	0801327c 	.word	0x0801327c
+ 8003cf4:	08013274 	.word	0x08013274
  8003cf8:	20001ecb 	.word	0x20001ecb
 
 08003cfc <EM_ProcessEvent>:
@@ -7310,8 +7310,8 @@ void EM_ProcessEvent()
  8003e54:	2b02      	cmp	r3, #2
  8003e56:	f040 817c 	bne.w	8004152 <EM_ProcessEvent+0x456>
 			{
-				eNextState = FuncSyncMenuEntryHandler();
- 8003e5a:	f000 fdcd 	bl	80049f8 <FuncSyncMenuEntryHandler>
+				eNextState = FuncAuxMenuEntryHandler();
+ 8003e5a:	f000 fdcd 	bl	80049f8 <FuncAuxMenuEntryHandler>
  8003e5e:	4603      	mov	r3, r0
  8003e60:	461a      	mov	r2, r3
  8003e62:	4b63      	ldr	r3, [pc, #396]	; (8003ff0 <EM_ProcessEvent+0x2f4>)
@@ -7360,10 +7360,10 @@ void EM_ProcessEvent()
 			break;
  8003e98:	e15d      	b.n	8004156 <EM_ProcessEvent+0x45a>
 
-		case Func_Sync_Menu_State:
+		case Func_Aux_Menu_State:
 
 			#ifdef SWV_DEBUG_ENABLED
-				  printf("Func_Sync_Menu_State\n");
+				  printf("Func_Aux_Menu_State\n");
  8003e9a:	485c      	ldr	r0, [pc, #368]	; (800400c <EM_ProcessEvent+0x310>)
  8003e9c:	f00b fcba 	bl	800f814 <puts>
 			#endif
@@ -7374,8 +7374,8 @@ void EM_ProcessEvent()
  8003ea4:	2b05      	cmp	r3, #5
  8003ea6:	d105      	bne.n	8003eb4 <EM_ProcessEvent+0x1b8>
 			{
-				eNextState = FuncSyncMenuInputHandler();
- 8003ea8:	f000 fdde 	bl	8004a68 <FuncSyncMenuInputHandler>
+				eNextState = FuncAuxMenuInputHandler();
+ 8003ea8:	f000 fdde 	bl	8004a68 <FuncAuxMenuInputHandler>
  8003eac:	4603      	mov	r3, r0
  8003eae:	461a      	mov	r2, r3
  8003eb0:	4b4f      	ldr	r3, [pc, #316]	; (8003ff0 <EM_ProcessEvent+0x2f4>)
@@ -7387,8 +7387,8 @@ void EM_ProcessEvent()
  8003eb8:	2b06      	cmp	r3, #6
  8003eba:	d105      	bne.n	8003ec8 <EM_ProcessEvent+0x1cc>
 			{
-				eNextState = FuncSyncMenuExitHandler();
- 8003ebc:	f000 fe28 	bl	8004b10 <FuncSyncMenuExitHandler>
+				eNextState = FuncAuxMenuExitHandler();
+ 8003ebc:	f000 fe28 	bl	8004b10 <FuncAuxMenuExitHandler>
  8003ec0:	4603      	mov	r3, r0
  8003ec2:	461a      	mov	r2, r3
  8003ec4:	4b4a      	ldr	r3, [pc, #296]	; (8003ff0 <EM_ProcessEvent+0x2f4>)
@@ -7400,8 +7400,8 @@ void EM_ProcessEvent()
  8003ecc:	2b03      	cmp	r3, #3
  8003ece:	f040 8144 	bne.w	800415a <EM_ProcessEvent+0x45e>
 			{
-				eNextState = FuncSyncToggleDutyMode();
- 8003ed2:	f000 fe0b 	bl	8004aec <FuncSyncToggleDutyMode>
+				eNextState = FuncAuxToggleDutyMode();
+ 8003ed2:	f000 fe0b 	bl	8004aec <FuncAuxToggleDutyMode>
  8003ed6:	4603      	mov	r3, r0
  8003ed8:	461a      	mov	r2, r3
  8003eda:	4b45      	ldr	r3, [pc, #276]	; (8003ff0 <EM_ProcessEvent+0x2f4>)
@@ -7458,8 +7458,8 @@ void EM_ProcessEvent()
  8003f18:	2b02      	cmp	r3, #2
  8003f1a:	f040 8120 	bne.w	800415e <EM_ProcessEvent+0x462>
 			{
-				eNextState = GainSyncMenuEntryHandler();
- 8003f1e:	f000 fecb 	bl	8004cb8 <GainSyncMenuEntryHandler>
+				eNextState = GainAuxMenuEntryHandler();
+ 8003f1e:	f000 fecb 	bl	8004cb8 <GainAuxMenuEntryHandler>
  8003f22:	4603      	mov	r3, r0
  8003f24:	461a      	mov	r2, r3
  8003f26:	4b32      	ldr	r3, [pc, #200]	; (8003ff0 <EM_ProcessEvent+0x2f4>)
@@ -7507,10 +7507,10 @@ void EM_ProcessEvent()
 			break;
  8003f5c:	e101      	b.n	8004162 <EM_ProcessEvent+0x466>
 
-		case Gain_Sync_Menu_State:
+		case Gain_Aux_Menu_State:
 
 			#ifdef SWV_DEBUG_ENABLED
-				  printf("Gain_Sync_Menu_State\n");
+				  printf("Gain_Aux_Menu_State\n");
  8003f5e:	482e      	ldr	r0, [pc, #184]	; (8004018 <EM_ProcessEvent+0x31c>)
  8003f60:	f00b fc58 	bl	800f814 <puts>
 			#endif
@@ -7521,8 +7521,8 @@ void EM_ProcessEvent()
  8003f68:	2b05      	cmp	r3, #5
  8003f6a:	d105      	bne.n	8003f78 <EM_ProcessEvent+0x27c>
 			{
-				eNextState = GainSyncMenuInputHandler();
- 8003f6c:	f000 feda 	bl	8004d24 <GainSyncMenuInputHandler>
+				eNextState = GainAuxMenuInputHandler();
+ 8003f6c:	f000 feda 	bl	8004d24 <GainAuxMenuInputHandler>
  8003f70:	4603      	mov	r3, r0
  8003f72:	461a      	mov	r2, r3
  8003f74:	4b1e      	ldr	r3, [pc, #120]	; (8003ff0 <EM_ProcessEvent+0x2f4>)
@@ -7534,8 +7534,8 @@ void EM_ProcessEvent()
  8003f7c:	2b06      	cmp	r3, #6
  8003f7e:	f040 80f2 	bne.w	8004166 <EM_ProcessEvent+0x46a>
 			{
-				eNextState = GainSyncMenuExitHandler();
- 8003f82:	f000 fee5 	bl	8004d50 <GainSyncMenuExitHandler>
+				eNextState = GainAuxMenuExitHandler();
+ 8003f82:	f000 fee5 	bl	8004d50 <GainAuxMenuExitHandler>
  8003f86:	4603      	mov	r3, r0
  8003f88:	461a      	mov	r2, r3
  8003f8a:	4b19      	ldr	r3, [pc, #100]	; (8003ff0 <EM_ProcessEvent+0x2f4>)
@@ -7613,17 +7613,17 @@ void EM_ProcessEvent()
 			break;
  8003fee:	e0bc      	b.n	800416a <EM_ProcessEvent+0x46e>
  8003ff0:	20001eca 	.word	0x20001eca
- 8003ff4:	08013294 	.word	0x08013294
+ 8003ff4:	0801328c 	.word	0x0801328c
  8003ff8:	20001ecb 	.word	0x20001ecb
- 8003ffc:	080132a0 	.word	0x080132a0
- 8004000:	080132bc 	.word	0x080132bc
- 8004004:	080132d8 	.word	0x080132d8
- 8004008:	080132f0 	.word	0x080132f0
- 800400c:	08013308 	.word	0x08013308
- 8004010:	08013320 	.word	0x08013320
- 8004014:	08013338 	.word	0x08013338
- 8004018:	08013350 	.word	0x08013350
- 800401c:	08013368 	.word	0x08013368
+ 8003ffc:	08013298 	.word	0x08013298
+ 8004000:	080132b4 	.word	0x080132b4
+ 8004004:	080132d0 	.word	0x080132d0
+ 8004008:	080132e8 	.word	0x080132e8
+ 800400c:	08013300 	.word	0x08013300
+ 8004010:	08013314 	.word	0x08013314
+ 8004014:	0801332c 	.word	0x0801332c
+ 8004018:	08013344 	.word	0x08013344
+ 800401c:	08013358 	.word	0x08013358
 
 		case Freq_Preset_Menu_State:
 
@@ -7890,12 +7890,12 @@ void EM_ProcessEvent()
 }
  800417c:	bf00      	nop
  800417e:	bd80      	pop	{r7, pc}
- 8004180:	08013380 	.word	0x08013380
+ 8004180:	08013370 	.word	0x08013370
  8004184:	20001ecb 	.word	0x20001ecb
  8004188:	20001eca 	.word	0x20001eca
- 800418c:	08013398 	.word	0x08013398
- 8004190:	080133b0 	.word	0x080133b0
- 8004194:	080133c8 	.word	0x080133c8
+ 800418c:	08013388 	.word	0x08013388
+ 8004190:	080133a0 	.word	0x080133a0
+ 8004194:	080133b8 	.word	0x080133b8
 
 08004198 <EM_SetNewEvent>:
  *	@param None
@@ -8022,7 +8022,7 @@ eSystemState FreqSweepMenuEntryHandler()
  800424e:	4618      	mov	r0, r3
  8004250:	bd80      	pop	{r7, pc}
  8004252:	bf00      	nop
- 8004254:	080133d8 	.word	0x080133d8
+ 8004254:	080133c8 	.word	0x080133c8
  8004258:	40013400 	.word	0x40013400
  800425c:	20000004 	.word	0x20000004
  8004260:	20001f20 	.word	0x20001f20
@@ -8310,13 +8310,13 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
  800440a:	3708      	adds	r7, #8
  800440c:	46bd      	mov	sp, r7
  800440e:	bd80      	pop	{r7, pc}
- 8004410:	080133fc 	.word	0x080133fc
- 8004414:	08013428 	.word	0x08013428
+ 8004410:	080133ec 	.word	0x080133ec
+ 8004414:	08013418 	.word	0x08013418
  8004418:	40000c00 	.word	0x40000c00
- 800441c:	08013440 	.word	0x08013440
+ 800441c:	08013430 	.word	0x08013430
  8004420:	20001ecc 	.word	0x20001ecc
  8004424:	20001ecd 	.word	0x20001ecd
- 8004428:	08013458 	.word	0x08013458
+ 8004428:	08013448 	.word	0x08013448
  800442c:	20001f20 	.word	0x20001f20
  8004430:	40012c00 	.word	0x40012c00
  8004434:	20000004 	.word	0x20000004
@@ -8373,7 +8373,7 @@ eSystemState FreqSweepMenuExitHandler()
 }
  8004474:	4618      	mov	r0, r3
  8004476:	bd80      	pop	{r7, pc}
- 8004478:	08013470 	.word	0x08013470
+ 8004478:	08013460 	.word	0x08013460
  800447c:	40000c00 	.word	0x40000c00
  8004480:	20001ece 	.word	0x20001ece
  8004484:	20001ecb 	.word	0x20001ecb
@@ -8411,7 +8411,7 @@ eSystemState FreqMainMenuEntryHandler()
 }
  80044a4:	4618      	mov	r0, r3
  80044a6:	bd80      	pop	{r7, pc}
- 80044a8:	08013498 	.word	0x08013498
+ 80044a8:	08013488 	.word	0x08013488
  80044ac:	20001ece 	.word	0x20001ece
  80044b0:	20001ecb 	.word	0x20001ecb
 
@@ -8463,10 +8463,10 @@ eSystemState FreqMainMenuExitHandler()
  80044de:	4618      	mov	r0, r3
  80044e0:	bd80      	pop	{r7, pc}
  80044e2:	bf00      	nop
- 80044e4:	080134e8 	.word	0x080134e8
+ 80044e4:	080134d8 	.word	0x080134d8
  80044e8:	20001ece 	.word	0x20001ece
  80044ec:	40012c00 	.word	0x40012c00
- 80044f0:	08013510 	.word	0x08013510
+ 80044f0:	08013500 	.word	0x08013500
  80044f4:	20001ecb 	.word	0x20001ecb
 
 080044f8 <FreqPresetMenuEntryHandler>:
@@ -8537,10 +8537,10 @@ eSystemState FreqPresetMenuEntryHandler()
  8004546:	46bd      	mov	sp, r7
  8004548:	bd80      	pop	{r7, pc}
  800454a:	bf00      	nop
- 800454c:	08013528 	.word	0x08013528
+ 800454c:	08013518 	.word	0x08013518
  8004550:	20001ece 	.word	0x20001ece
  8004554:	40012c00 	.word	0x40012c00
- 8004558:	08013554 	.word	0x08013554
+ 8004558:	08013544 	.word	0x08013544
  800455c:	20001ecb 	.word	0x20001ecb
 
 08004560 <FreqPresetMenuInputHandler>:
@@ -8575,7 +8575,7 @@ eSystemState FreqPresetMenuInputHandler()
 }
  8004580:	4618      	mov	r0, r3
  8004582:	bd80      	pop	{r7, pc}
- 8004584:	08013590 	.word	0x08013590
+ 8004584:	08013580 	.word	0x08013580
  8004588:	20001ecb 	.word	0x20001ecb
 
 0800458c <FreqPresetMenuExitHandler>:
@@ -8612,7 +8612,7 @@ eSystemState FreqPresetMenuExitHandler()
 }
  80045a8:	4618      	mov	r0, r3
  80045aa:	bd80      	pop	{r7, pc}
- 80045ac:	080135bc 	.word	0x080135bc
+ 80045ac:	080135ac 	.word	0x080135ac
  80045b0:	20001ece 	.word	0x20001ece
  80045b4:	20001ecb 	.word	0x20001ecb
 
@@ -8660,7 +8660,7 @@ eSystemState FreqAdjustMenuEntryHandler()
 }
  80045e4:	4618      	mov	r0, r3
  80045e6:	bd80      	pop	{r7, pc}
- 80045e8:	080135e8 	.word	0x080135e8
+ 80045e8:	080135d8 	.word	0x080135d8
  80045ec:	20001ece 	.word	0x20001ece
  80045f0:	40013400 	.word	0x40013400
  80045f4:	40012c00 	.word	0x40012c00
@@ -8695,7 +8695,7 @@ eSystemState FreqAdjustMenuInputHandler()
  8004612:	4618      	mov	r0, r3
  8004614:	bd80      	pop	{r7, pc}
  8004616:	bf00      	nop
- 8004618:	080133fc 	.word	0x080133fc
+ 8004618:	080133ec 	.word	0x080133ec
  800461c:	20001ecb 	.word	0x20001ecb
 
 08004620 <FreqAdjustMenuExitHandler>:
@@ -8732,7 +8732,7 @@ eSystemState FreqAdjustMenuExitHandler()
 }
  800463c:	4618      	mov	r0, r3
  800463e:	bd80      	pop	{r7, pc}
- 8004640:	08013614 	.word	0x08013614
+ 8004640:	08013604 	.word	0x08013604
  8004644:	20001ece 	.word	0x20001ece
  8004648:	20001ecb 	.word	0x20001ecb
 
@@ -9153,7 +9153,7 @@ eSystemState FuncMainMenuEntryHandler(void)
 }
  80048e0:	4618      	mov	r0, r3
  80048e2:	bd80      	pop	{r7, pc}
- 80048e4:	08013640 	.word	0x08013640
+ 80048e4:	08013630 	.word	0x08013630
  80048e8:	20001ecf 	.word	0x20001ecf
  80048ec:	20001ecb 	.word	0x20001ecb
 
@@ -9203,9 +9203,9 @@ eSystemState FuncMainMenuExitHandler()
 }
  8004918:	4618      	mov	r0, r3
  800491a:	bd80      	pop	{r7, pc}
- 800491c:	08013690 	.word	0x08013690
+ 800491c:	08013680 	.word	0x08013680
  8004920:	20001ecf 	.word	0x20001ecf
- 8004924:	080136b8 	.word	0x080136b8
+ 8004924:	080136a8 	.word	0x080136a8
  8004928:	20001ecb 	.word	0x20001ecb
 
 0800492c <FuncSignalMenuEntryHandler>:
@@ -9278,10 +9278,10 @@ eSystemState FuncSignalMenuEntryHandler(void)
  8004982:	46bd      	mov	sp, r7
  8004984:	bd80      	pop	{r7, pc}
  8004986:	bf00      	nop
- 8004988:	080136d0 	.word	0x080136d0
+ 8004988:	080136c0 	.word	0x080136c0
  800498c:	20001ecf 	.word	0x20001ecf
  8004990:	40012c00 	.word	0x40012c00
- 8004994:	080136fc 	.word	0x080136fc
+ 8004994:	080136ec 	.word	0x080136ec
  8004998:	20001ecb 	.word	0x20001ecb
 
 0800499c <FuncSignalMenuInputHandler>:
@@ -9317,7 +9317,7 @@ eSystemState FuncSignalMenuInputHandler(void)
 }
  80049bc:	4618      	mov	r0, r3
  80049be:	bd80      	pop	{r7, pc}
- 80049c0:	08013730 	.word	0x08013730
+ 80049c0:	08013720 	.word	0x08013720
  80049c4:	20001ecb 	.word	0x20001ecb
 
 080049c8 <FuncSignalMenuExitHandler>:
@@ -9359,23 +9359,23 @@ eSystemState FuncSignalMenuExitHandler()
 }
  80049e8:	4618      	mov	r0, r3
  80049ea:	bd80      	pop	{r7, pc}
- 80049ec:	0801375c 	.word	0x0801375c
+ 80049ec:	0801374c 	.word	0x0801374c
  80049f0:	20001ecf 	.word	0x20001ecf
  80049f4:	20001ecb 	.word	0x20001ecb
 
-080049f8 <FuncSyncMenuEntryHandler>:
+080049f8 <FuncAuxMenuEntryHandler>:
  *	@param None
  *	@retval eSystemState enum for next system state
  *
  */
-eSystemState FuncSyncMenuEntryHandler(void)
+eSystemState FuncAuxMenuEntryHandler(void)
 {
  80049f8:	b580      	push	{r7, lr}
  80049fa:	b082      	sub	sp, #8
  80049fc:	af00      	add	r7, sp, #0
 	#ifdef SWV_DEBUG_ENABLED
-		printf("FuncSyncMenuEntryHandler Event captured\n");
- 80049fe:	4815      	ldr	r0, [pc, #84]	; (8004a54 <FuncSyncMenuEntryHandler+0x5c>)
+		printf("FuncAuxMenuEntryHandler Event captured\n");
+ 80049fe:	4815      	ldr	r0, [pc, #84]	; (8004a54 <FuncAuxMenuEntryHandler+0x5c>)
  8004a00:	f00a ff08 	bl	800f814 <puts>
 	#endif
 
@@ -9384,13 +9384,13 @@ eSystemState FuncSyncMenuEntryHandler(void)
 	FuncO_ResetLastEncoderValue();
  8004a08:	f000 fe22 	bl	8005650 <FuncO_ResetLastEncoderValue>
 
-	eNextFuncMenuStatus = 	ENABLE_FUNC_SYNC_MENU;
- 8004a0c:	4b12      	ldr	r3, [pc, #72]	; (8004a58 <FuncSyncMenuEntryHandler+0x60>)
+	eNextFuncMenuStatus = 	ENABLE_FUNC_Aux_MENU;
+ 8004a0c:	4b12      	ldr	r3, [pc, #72]	; (8004a58 <FuncAuxMenuEntryHandler+0x60>)
  8004a0e:	2203      	movs	r2, #3
  8004a10:	701a      	strb	r2, [r3, #0]
 
-	//FunctionProfile_t *func_profileTmp =  FuncO_GetSyncFPresetObject();
-	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile;
+	//FunctionProfile_t *func_profileTmp =  FuncO_GetAuxFPresetObject();
+	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(Aux_CHANNEL)->func_profile;
  8004a12:	2001      	movs	r0, #1
  8004a14:	f001 f996 	bl	8005d44 <SM_GetOutputChannel>
  8004a18:	4603      	mov	r3, r0
@@ -9399,33 +9399,33 @@ eSystemState FuncSyncMenuEntryHandler(void)
 	if(func_profileTmp)
  8004a20:	687b      	ldr	r3, [r7, #4]
  8004a22:	2b00      	cmp	r3, #0
- 8004a24:	d00a      	beq.n	8004a3c <FuncSyncMenuEntryHandler+0x44>
+ 8004a24:	d00a      	beq.n	8004a3c <FuncAuxMenuEntryHandler+0x44>
 	{
 		ENCODER_TIMER->CNT = func_profileTmp->epos;
  8004a26:	687b      	ldr	r3, [r7, #4]
  8004a28:	785a      	ldrb	r2, [r3, #1]
- 8004a2a:	4b0c      	ldr	r3, [pc, #48]	; (8004a5c <FuncSyncMenuEntryHandler+0x64>)
+ 8004a2a:	4b0c      	ldr	r3, [pc, #48]	; (8004a5c <FuncAuxMenuEntryHandler+0x64>)
  8004a2c:	625a      	str	r2, [r3, #36]	; 0x24
 		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
  8004a2e:	f000 ff87 	bl	8005940 <FuncO_GetFuncPresetEncoderRange>
  8004a32:	4603      	mov	r3, r0
  8004a34:	461a      	mov	r2, r3
- 8004a36:	4b09      	ldr	r3, [pc, #36]	; (8004a5c <FuncSyncMenuEntryHandler+0x64>)
+ 8004a36:	4b09      	ldr	r3, [pc, #36]	; (8004a5c <FuncAuxMenuEntryHandler+0x64>)
  8004a38:	62da      	str	r2, [r3, #44]	; 0x2c
- 8004a3a:	e002      	b.n	8004a42 <FuncSyncMenuEntryHandler+0x4a>
+ 8004a3a:	e002      	b.n	8004a42 <FuncAuxMenuEntryHandler+0x4a>
 	}
 	else
 	{
 		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
- 8004a3c:	4808      	ldr	r0, [pc, #32]	; (8004a60 <FuncSyncMenuEntryHandler+0x68>)
+ 8004a3c:	4808      	ldr	r0, [pc, #32]	; (8004a60 <FuncAuxMenuEntryHandler+0x68>)
  8004a3e:	f7fc fd9f 	bl	8001580 <DM_SetErrorDebugMsg>
 	}
 
 	eNewEvent = evIdle;
- 8004a42:	4b08      	ldr	r3, [pc, #32]	; (8004a64 <FuncSyncMenuEntryHandler+0x6c>)
+ 8004a42:	4b08      	ldr	r3, [pc, #32]	; (8004a64 <FuncAuxMenuEntryHandler+0x6c>)
  8004a44:	2200      	movs	r2, #0
  8004a46:	701a      	strb	r2, [r3, #0]
-	return Func_Sync_Menu_State;
+	return Func_Aux_Menu_State;
  8004a48:	2305      	movs	r3, #5
 }
  8004a4a:	4618      	mov	r0, r3
@@ -9433,25 +9433,25 @@ eSystemState FuncSyncMenuEntryHandler(void)
  8004a4e:	46bd      	mov	sp, r7
  8004a50:	bd80      	pop	{r7, pc}
  8004a52:	bf00      	nop
- 8004a54:	08013788 	.word	0x08013788
+ 8004a54:	08013778 	.word	0x08013778
  8004a58:	20001ecf 	.word	0x20001ecf
  8004a5c:	40012c00 	.word	0x40012c00
- 8004a60:	080136fc 	.word	0x080136fc
+ 8004a60:	080136ec 	.word	0x080136ec
  8004a64:	20001ecb 	.word	0x20001ecb
 
-08004a68 <FuncSyncMenuInputHandler>:
+08004a68 <FuncAuxMenuInputHandler>:
  *	@param None
  *	@retval eSystemState enum for next system state
  *
  */
-eSystemState FuncSyncMenuInputHandler(void)
+eSystemState FuncAuxMenuInputHandler(void)
 {
  8004a68:	b590      	push	{r4, r7, lr}
  8004a6a:	b083      	sub	sp, #12
  8004a6c:	af00      	add	r7, sp, #0
 	#ifdef SWV_DEBUG_ENABLED
-		printf("FuncSyncMenuInputHandler Event captured\n");
- 8004a6e:	481c      	ldr	r0, [pc, #112]	; (8004ae0 <FuncSyncMenuInputHandler+0x78>)
+		printf("FuncAuxMenuInputHandler Event captured\n");
+ 8004a6e:	481c      	ldr	r0, [pc, #112]	; (8004ae0 <FuncAuxMenuInputHandler+0x78>)
  8004a70:	f00a fed0 	bl	800f814 <puts>
 	#endif
 
@@ -9460,7 +9460,7 @@ eSystemState FuncSyncMenuInputHandler(void)
  8004a74:	f001 fb78 	bl	8006168 <SM_IsFuncPwmDutyMode>
  8004a78:	4603      	mov	r3, r0
  8004a7a:	2b00      	cmp	r3, #0
- 8004a7c:	d01a      	beq.n	8004ab4 <FuncSyncMenuInputHandler+0x4c>
+ 8004a7c:	d01a      	beq.n	8004ab4 <FuncAuxMenuInputHandler+0x4c>
 	{
 		uint16_t enc_value = SM_GetEncoderValue(ENCODER_FORWARD);
  8004a7e:	2000      	movs	r0, #0
@@ -9473,35 +9473,35 @@ eSystemState FuncSyncMenuInputHandler(void)
  8004a8c:	f7fb fd62 	bl	8000554 <__aeabi_ui2d>
  8004a90:	4603      	mov	r3, r0
  8004a92:	460c      	mov	r4, r1
- 8004a94:	ed9f 1b10 	vldr	d1, [pc, #64]	; 8004ad8 <FuncSyncMenuInputHandler+0x70>
+ 8004a94:	ed9f 1b10 	vldr	d1, [pc, #64]	; 8004ad8 <FuncAuxMenuInputHandler+0x70>
  8004a98:	ec44 3b10 	vmov	d0, r3, r4
  8004a9c:	f00c fe94 	bl	80117c8 <pow>
  8004aa0:	ec53 2b10 	vmov	r2, r3, d0
- 8004aa4:	4c0f      	ldr	r4, [pc, #60]	; (8004ae4 <FuncSyncMenuInputHandler+0x7c>)
+ 8004aa4:	4c0f      	ldr	r4, [pc, #60]	; (8004ae4 <FuncAuxMenuInputHandler+0x7c>)
  8004aa6:	4610      	mov	r0, r2
  8004aa8:	4619      	mov	r1, r3
  8004aaa:	f7fc f8a5 	bl	8000bf8 <__aeabi_d2uiz>
  8004aae:	4603      	mov	r3, r0
  8004ab0:	6363      	str	r3, [r4, #52]	; 0x34
- 8004ab2:	e006      	b.n	8004ac2 <FuncSyncMenuInputHandler+0x5a>
+ 8004ab2:	e006      	b.n	8004ac2 <FuncAuxMenuInputHandler+0x5a>
 		//BO_SetPwmSignalOffsetForDuty(BO_GetOutputBias() + SM_GetEncoderValue(ENCODER_FORWARD));
 
 	}
 	else
 	{
-		FuncO_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+		FuncO_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_REVERSE));
  8004ab4:	2001      	movs	r0, #1
  8004ab6:	f001 fad1 	bl	800605c <SM_GetEncoderValue>
  8004aba:	4603      	mov	r3, r0
  8004abc:	4618      	mov	r0, r3
- 8004abe:	f000 fe0d 	bl	80056dc <FuncO_MapEncoderPositionToSyncOutput>
+ 8004abe:	f000 fe0d 	bl	80056dc <FuncO_MapEncoderPositionToAuxOutput>
 	}
 
 	eNewEvent = evIdle;
- 8004ac2:	4b09      	ldr	r3, [pc, #36]	; (8004ae8 <FuncSyncMenuInputHandler+0x80>)
+ 8004ac2:	4b09      	ldr	r3, [pc, #36]	; (8004ae8 <FuncAuxMenuInputHandler+0x80>)
  8004ac4:	2200      	movs	r2, #0
  8004ac6:	701a      	strb	r2, [r3, #0]
-	return Func_Sync_Menu_State;
+	return Func_Aux_Menu_State;
  8004ac8:	2305      	movs	r3, #5
 }
  8004aca:	4618      	mov	r0, r3
@@ -9512,30 +9512,30 @@ eSystemState FuncSyncMenuInputHandler(void)
  8004ad4:	f3af 8000 	nop.w
  8004ad8:	00000000 	.word	0x00000000
  8004adc:	40000000 	.word	0x40000000
- 8004ae0:	080137b0 	.word	0x080137b0
+ 8004ae0:	080137a0 	.word	0x080137a0
  8004ae4:	40000400 	.word	0x40000400
  8004ae8:	20001ecb 	.word	0x20001ecb
 
-08004aec <FuncSyncToggleDutyMode>:
+08004aec <FuncAuxToggleDutyMode>:
  *	@param None
  *	@retval None
  *
  */
-eSystemState FuncSyncToggleDutyMode()
+eSystemState FuncAuxToggleDutyMode()
 {
  8004aec:	b580      	push	{r7, lr}
  8004aee:	af00      	add	r7, sp, #0
 	SM_ToggleFuncPwmDutyMode();
  8004af0:	f001 fb46 	bl	8006180 <SM_ToggleFuncPwmDutyMode>
 	ENCODER_TIMER->ARR = 16384;
- 8004af4:	4b04      	ldr	r3, [pc, #16]	; (8004b08 <FuncSyncToggleDutyMode+0x1c>)
+ 8004af4:	4b04      	ldr	r3, [pc, #16]	; (8004b08 <FuncAuxToggleDutyMode+0x1c>)
  8004af6:	f44f 4280 	mov.w	r2, #16384	; 0x4000
  8004afa:	62da      	str	r2, [r3, #44]	; 0x2c
 	eNewEvent = evIdle;
- 8004afc:	4b03      	ldr	r3, [pc, #12]	; (8004b0c <FuncSyncToggleDutyMode+0x20>)
+ 8004afc:	4b03      	ldr	r3, [pc, #12]	; (8004b0c <FuncAuxToggleDutyMode+0x20>)
  8004afe:	2200      	movs	r2, #0
  8004b00:	701a      	strb	r2, [r3, #0]
-	return Func_Sync_Menu_State;
+	return Func_Aux_Menu_State;
  8004b02:	2305      	movs	r3, #5
 }
  8004b04:	4618      	mov	r0, r3
@@ -9543,25 +9543,25 @@ eSystemState FuncSyncToggleDutyMode()
  8004b08:	40012c00 	.word	0x40012c00
  8004b0c:	20001ecb 	.word	0x20001ecb
 
-08004b10 <FuncSyncMenuExitHandler>:
+08004b10 <FuncAuxMenuExitHandler>:
  *	@param None
  *	@retval eSystemState enum for next system state
  *
  */
-eSystemState FuncSyncMenuExitHandler()
+eSystemState FuncAuxMenuExitHandler()
 {
  8004b10:	b580      	push	{r7, lr}
  8004b12:	af00      	add	r7, sp, #0
 	#ifdef SWV_DEBUG_ENABLED
-		printf("FuncSyncMenuExitHandler Event captured\n");
- 8004b14:	4807      	ldr	r0, [pc, #28]	; (8004b34 <FuncSyncMenuExitHandler+0x24>)
+		printf("FuncAuxMenuExitHandler Event captured\n");
+ 8004b14:	4807      	ldr	r0, [pc, #28]	; (8004b34 <FuncAuxMenuExitHandler+0x24>)
  8004b16:	f00a fe7d 	bl	800f814 <puts>
 	#endif
 
 	// disable the menu
 
 	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
- 8004b1a:	4b07      	ldr	r3, [pc, #28]	; (8004b38 <FuncSyncMenuExitHandler+0x28>)
+ 8004b1a:	4b07      	ldr	r3, [pc, #28]	; (8004b38 <FuncAuxMenuExitHandler+0x28>)
  8004b1c:	2201      	movs	r2, #1
  8004b1e:	701a      	strb	r2, [r3, #0]
 
@@ -9574,7 +9574,7 @@ eSystemState FuncSyncMenuExitHandler()
  8004b24:	f7fc fce6 	bl	80014f4 <DM_RefreshScreen>
 
 	eNewEvent = evIdle;
- 8004b28:	4b04      	ldr	r3, [pc, #16]	; (8004b3c <FuncSyncMenuExitHandler+0x2c>)
+ 8004b28:	4b04      	ldr	r3, [pc, #16]	; (8004b3c <FuncAuxMenuExitHandler+0x2c>)
  8004b2a:	2200      	movs	r2, #0
  8004b2c:	701a      	strb	r2, [r3, #0]
 	return Func_Main_Menu_State;
@@ -9582,7 +9582,7 @@ eSystemState FuncSyncMenuExitHandler()
 }
  8004b30:	4618      	mov	r0, r3
  8004b32:	bd80      	pop	{r7, pc}
- 8004b34:	080137d8 	.word	0x080137d8
+ 8004b34:	080137c8 	.word	0x080137c8
  8004b38:	20001ecf 	.word	0x20001ecf
  8004b3c:	20001ecb 	.word	0x20001ecb
 
@@ -9638,7 +9638,7 @@ eSystemState GainMainMenuEntryHandler()
 }
  8004b74:	4618      	mov	r0, r3
  8004b76:	bd80      	pop	{r7, pc}
- 8004b78:	08013800 	.word	0x08013800
+ 8004b78:	080137f0 	.word	0x080137f0
  8004b7c:	20001ed0 	.word	0x20001ed0
  8004b80:	20001ecb 	.word	0x20001ecb
 
@@ -9681,9 +9681,9 @@ eSystemState GainMainMenuExitHandler()
  8004ba6:	4618      	mov	r0, r3
  8004ba8:	bd80      	pop	{r7, pc}
  8004baa:	bf00      	nop
- 8004bac:	08013850 	.word	0x08013850
+ 8004bac:	08013840 	.word	0x08013840
  8004bb0:	20001ed0 	.word	0x20001ed0
- 8004bb4:	08013878 	.word	0x08013878
+ 8004bb4:	08013868 	.word	0x08013868
  8004bb8:	20001ecb 	.word	0x20001ecb
 
 08004bbc <GainSignalMenuEntryHandler>:
@@ -9756,10 +9756,10 @@ eSystemState GainSignalMenuEntryHandler()
  8004c12:	46bd      	mov	sp, r7
  8004c14:	bd80      	pop	{r7, pc}
  8004c16:	bf00      	nop
- 8004c18:	08013890 	.word	0x08013890
+ 8004c18:	08013880 	.word	0x08013880
  8004c1c:	20001ed0 	.word	0x20001ed0
  8004c20:	40012c00 	.word	0x40012c00
- 8004c24:	080138bc 	.word	0x080138bc
+ 8004c24:	080138ac 	.word	0x080138ac
  8004c28:	20001ecb 	.word	0x20001ecb
 
 08004c2c <GainSignalMenuInputHandler>:
@@ -9829,7 +9829,7 @@ eSystemState GainSignalMenuInputHandler()
  8004c7e:	46bd      	mov	sp, r7
  8004c80:	bd80      	pop	{r7, pc}
  8004c82:	bf00      	nop
- 8004c84:	080138f4 	.word	0x080138f4
+ 8004c84:	080138e4 	.word	0x080138e4
  8004c88:	20001ecb 	.word	0x20001ecb
 
 08004c8c <GainSignalMenuExitHandler>:
@@ -9864,23 +9864,23 @@ eSystemState GainSignalMenuExitHandler()
 }
  8004ca8:	4618      	mov	r0, r3
  8004caa:	bd80      	pop	{r7, pc}
- 8004cac:	08013920 	.word	0x08013920
+ 8004cac:	08013910 	.word	0x08013910
  8004cb0:	20001ed0 	.word	0x20001ed0
  8004cb4:	20001ecb 	.word	0x20001ecb
 
-08004cb8 <GainSyncMenuEntryHandler>:
+08004cb8 <GainAuxMenuEntryHandler>:
  *	@param None
  *	@retval None
  *
  */
-eSystemState GainSyncMenuEntryHandler()
+eSystemState GainAuxMenuEntryHandler()
 {
  8004cb8:	b580      	push	{r7, lr}
  8004cba:	b082      	sub	sp, #8
  8004cbc:	af00      	add	r7, sp, #0
 	#ifdef SWV_DEBUG_ENABLED
-		printf("GainSyncMenuEntryHandler Event captured\n");
- 8004cbe:	4814      	ldr	r0, [pc, #80]	; (8004d10 <GainSyncMenuEntryHandler+0x58>)
+		printf("GainAuxMenuEntryHandler Event captured\n");
+ 8004cbe:	4814      	ldr	r0, [pc, #80]	; (8004d10 <GainAuxMenuEntryHandler+0x58>)
  8004cc0:	f00a fda8 	bl	800f814 <puts>
 	#endif
 
@@ -9889,12 +9889,12 @@ eSystemState GainSyncMenuEntryHandler()
 	VPP_ResetLastEncoderValue();
  8004cc8:	f001 fa76 	bl	80061b8 <VPP_ResetLastEncoderValue>
 
-	eNextGainMenuStatus = ENABLE_GAIN_SYNC_MENU;
- 8004ccc:	4b11      	ldr	r3, [pc, #68]	; (8004d14 <GainSyncMenuEntryHandler+0x5c>)
+	eNextGainMenuStatus = ENABLE_GAIN_Aux_MENU;
+ 8004ccc:	4b11      	ldr	r3, [pc, #68]	; (8004d14 <GainAuxMenuEntryHandler+0x5c>)
  8004cce:	2203      	movs	r2, #3
  8004cd0:	701a      	strb	r2, [r3, #0]
 
-	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile;
+	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile;
  8004cd2:	2001      	movs	r0, #1
  8004cd4:	f001 f836 	bl	8005d44 <SM_GetOutputChannel>
  8004cd8:	4603      	mov	r3, r0
@@ -9904,31 +9904,31 @@ eSystemState GainSyncMenuEntryHandler()
 	if(pTmpVppPreset)
  8004ce0:	687b      	ldr	r3, [r7, #4]
  8004ce2:	2b00      	cmp	r3, #0
- 8004ce4:	d008      	beq.n	8004cf8 <GainSyncMenuEntryHandler+0x40>
+ 8004ce4:	d008      	beq.n	8004cf8 <GainAuxMenuEntryHandler+0x40>
 	{
 		ENCODER_TIMER->CNT = pTmpVppPreset->epos;
  8004ce6:	687b      	ldr	r3, [r7, #4]
  8004ce8:	8b1a      	ldrh	r2, [r3, #24]
- 8004cea:	4b0b      	ldr	r3, [pc, #44]	; (8004d18 <GainSyncMenuEntryHandler+0x60>)
+ 8004cea:	4b0b      	ldr	r3, [pc, #44]	; (8004d18 <GainAuxMenuEntryHandler+0x60>)
  8004cec:	625a      	str	r2, [r3, #36]	; 0x24
 		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
- 8004cee:	4b0a      	ldr	r3, [pc, #40]	; (8004d18 <GainSyncMenuEntryHandler+0x60>)
+ 8004cee:	4b0a      	ldr	r3, [pc, #40]	; (8004d18 <GainAuxMenuEntryHandler+0x60>)
  8004cf0:	f44f 72c7 	mov.w	r2, #398	; 0x18e
  8004cf4:	62da      	str	r2, [r3, #44]	; 0x2c
- 8004cf6:	e002      	b.n	8004cfe <GainSyncMenuEntryHandler+0x46>
+ 8004cf6:	e002      	b.n	8004cfe <GainAuxMenuEntryHandler+0x46>
 	}
 	else
 	{
 		DM_SetErrorDebugMsg("GainMainMenuEntryHandler: pVppPresetTmp null pointer");
- 8004cf8:	4808      	ldr	r0, [pc, #32]	; (8004d1c <GainSyncMenuEntryHandler+0x64>)
+ 8004cf8:	4808      	ldr	r0, [pc, #32]	; (8004d1c <GainAuxMenuEntryHandler+0x64>)
  8004cfa:	f7fc fc41 	bl	8001580 <DM_SetErrorDebugMsg>
 	}
 
 	eNewEvent = evIdle;
- 8004cfe:	4b08      	ldr	r3, [pc, #32]	; (8004d20 <GainSyncMenuEntryHandler+0x68>)
+ 8004cfe:	4b08      	ldr	r3, [pc, #32]	; (8004d20 <GainAuxMenuEntryHandler+0x68>)
  8004d00:	2200      	movs	r2, #0
  8004d02:	701a      	strb	r2, [r3, #0]
-	return Gain_Sync_Menu_State;
+	return Gain_Aux_Menu_State;
  8004d04:	2308      	movs	r3, #8
 }
  8004d06:	4618      	mov	r0, r3
@@ -9936,64 +9936,64 @@ eSystemState GainSyncMenuEntryHandler()
  8004d0a:	46bd      	mov	sp, r7
  8004d0c:	bd80      	pop	{r7, pc}
  8004d0e:	bf00      	nop
- 8004d10:	0801394c 	.word	0x0801394c
+ 8004d10:	0801393c 	.word	0x0801393c
  8004d14:	20001ed0 	.word	0x20001ed0
  8004d18:	40012c00 	.word	0x40012c00
- 8004d1c:	080138bc 	.word	0x080138bc
+ 8004d1c:	080138ac 	.word	0x080138ac
  8004d20:	20001ecb 	.word	0x20001ecb
 
-08004d24 <GainSyncMenuInputHandler>:
+08004d24 <GainAuxMenuInputHandler>:
  *	@param None
  *	@retval None
  *
  */
-eSystemState GainSyncMenuInputHandler()
+eSystemState GainAuxMenuInputHandler()
 {
  8004d24:	b580      	push	{r7, lr}
  8004d26:	af00      	add	r7, sp, #0
 	#ifdef SWV_DEBUG_ENABLED
-		printf("GainSyncMenuInputHandler Event captured\n");
- 8004d28:	4807      	ldr	r0, [pc, #28]	; (8004d48 <GainSyncMenuInputHandler+0x24>)
+		printf("GainAuxMenuInputHandler Event captured\n");
+ 8004d28:	4807      	ldr	r0, [pc, #28]	; (8004d48 <GainAuxMenuInputHandler+0x24>)
  8004d2a:	f00a fd73 	bl	800f814 <puts>
 	#endif
 
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	VPP_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	VPP_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_REVERSE));
  8004d2e:	2001      	movs	r0, #1
  8004d30:	f001 f994 	bl	800605c <SM_GetEncoderValue>
  8004d34:	4603      	mov	r3, r0
  8004d36:	4618      	mov	r0, r3
- 8004d38:	f001 fbea 	bl	8006510 <VPP_MapEncoderPositionToSyncOutput>
+ 8004d38:	f001 fbea 	bl	8006510 <VPP_MapEncoderPositionToAuxOutput>
 
 	eNewEvent = evYellowBtn;
- 8004d3c:	4b03      	ldr	r3, [pc, #12]	; (8004d4c <GainSyncMenuInputHandler+0x28>)
+ 8004d3c:	4b03      	ldr	r3, [pc, #12]	; (8004d4c <GainAuxMenuInputHandler+0x28>)
  8004d3e:	2203      	movs	r2, #3
  8004d40:	701a      	strb	r2, [r3, #0]
-	return Gain_Sync_Menu_State;
+	return Gain_Aux_Menu_State;
  8004d42:	2308      	movs	r3, #8
 }
  8004d44:	4618      	mov	r0, r3
  8004d46:	bd80      	pop	{r7, pc}
- 8004d48:	08013974 	.word	0x08013974
+ 8004d48:	08013964 	.word	0x08013964
  8004d4c:	20001ecb 	.word	0x20001ecb
 
-08004d50 <GainSyncMenuExitHandler>:
+08004d50 <GainAuxMenuExitHandler>:
  *	@param None
  *	@retval None
  *
  */
-eSystemState GainSyncMenuExitHandler()
+eSystemState GainAuxMenuExitHandler()
 {
  8004d50:	b580      	push	{r7, lr}
  8004d52:	af00      	add	r7, sp, #0
 	#ifdef SWV_DEBUG_ENABLED
-		printf("GainSyncMenuExitHandler Event captured\n");
- 8004d54:	4806      	ldr	r0, [pc, #24]	; (8004d70 <GainSyncMenuExitHandler+0x20>)
+		printf("GainAuxMenuExitHandler Event captured\n");
+ 8004d54:	4806      	ldr	r0, [pc, #24]	; (8004d70 <GainAuxMenuExitHandler+0x20>)
  8004d56:	f00a fd5d 	bl	800f814 <puts>
 	#endif
 
 	eNextGainMenuStatus = ENABLE_GAIN_MAIN_MENU;
- 8004d5a:	4b06      	ldr	r3, [pc, #24]	; (8004d74 <GainSyncMenuExitHandler+0x24>)
+ 8004d5a:	4b06      	ldr	r3, [pc, #24]	; (8004d74 <GainAuxMenuExitHandler+0x24>)
  8004d5c:	2201      	movs	r2, #1
  8004d5e:	701a      	strb	r2, [r3, #0]
 
@@ -10001,7 +10001,7 @@ eSystemState GainSyncMenuExitHandler()
  8004d60:	f7fc fbc8 	bl	80014f4 <DM_RefreshScreen>
 
 	eNewEvent = evIdle;
- 8004d64:	4b04      	ldr	r3, [pc, #16]	; (8004d78 <GainSyncMenuExitHandler+0x28>)
+ 8004d64:	4b04      	ldr	r3, [pc, #16]	; (8004d78 <GainAuxMenuExitHandler+0x28>)
  8004d66:	2200      	movs	r2, #0
  8004d68:	701a      	strb	r2, [r3, #0]
 	return Gain_Main_Menu_State;
@@ -10009,7 +10009,7 @@ eSystemState GainSyncMenuExitHandler()
 }
  8004d6c:	4618      	mov	r0, r3
  8004d6e:	bd80      	pop	{r7, pc}
- 8004d70:	0801399c 	.word	0x0801399c
+ 8004d70:	0801398c 	.word	0x0801398c
  8004d74:	20001ed0 	.word	0x20001ed0
  8004d78:	20001ecb 	.word	0x20001ecb
 
@@ -10090,7 +10090,7 @@ eSystemState ToplevelOutputMenuEntryHandler()
 }
  8004dd0:	4618      	mov	r0, r3
  8004dd2:	bd80      	pop	{r7, pc}
- 8004dd4:	08013a60 	.word	0x08013a60
+ 8004dd4:	08013a50 	.word	0x08013a50
  8004dd8:	20000008 	.word	0x20000008
  8004ddc:	20001ecb 	.word	0x20001ecb
 
@@ -10128,7 +10128,7 @@ eSystemState ToplevelOutputMenuExitHandler()
 }
  8004dfc:	4618      	mov	r0, r3
  8004dfe:	bd80      	pop	{r7, pc}
- 8004e00:	08013ac0 	.word	0x08013ac0
+ 8004e00:	08013ab0 	.word	0x08013ab0
  8004e04:	20000008 	.word	0x20000008
  8004e08:	20001ecb 	.word	0x20001ecb
 
@@ -10168,7 +10168,7 @@ eSystemState ToplevelInputMenuEntryHandler()
 }
  8004e28:	4618      	mov	r0, r3
  8004e2a:	bd80      	pop	{r7, pc}
- 8004e2c:	08013af0 	.word	0x08013af0
+ 8004e2c:	08013ae0 	.word	0x08013ae0
  8004e30:	20000008 	.word	0x20000008
  8004e34:	20001ecb 	.word	0x20001ecb
 
@@ -10206,7 +10206,7 @@ eSystemState ToplevelInputMenuExitHandler()
 }
  8004e54:	4618      	mov	r0, r3
  8004e56:	bd80      	pop	{r7, pc}
- 8004e58:	08013b50 	.word	0x08013b50
+ 8004e58:	08013b40 	.word	0x08013b40
  8004e5c:	20000008 	.word	0x20000008
  8004e60:	20001ecb 	.word	0x20001ecb
 
@@ -10412,7 +10412,7 @@ void IM_BTN1_EXTI14_Handler()
  8004fa2:	bf00      	nop
  8004fa4:	40014400 	.word	0x40014400
  8004fa8:	20001ed2 	.word	0x20001ed2
- 8004fac:	08013b7c 	.word	0x08013b7c
+ 8004fac:	08013b6c 	.word	0x08013b6c
 
 08004fb0 <IM_BTN2_EXTI15_Handler>:
  *	@param None
@@ -10465,7 +10465,7 @@ void IM_BTN2_EXTI15_Handler()
  8004ff2:	bf00      	nop
  8004ff4:	40014400 	.word	0x40014400
  8004ff8:	20001ed4 	.word	0x20001ed4
- 8004ffc:	08013b94 	.word	0x08013b94
+ 8004ffc:	08013b84 	.word	0x08013b84
 
 08005000 <IM_BTN3_EXTI0_Handler>:
  *	@param None
@@ -10517,7 +10517,7 @@ void IM_BTN3_EXTI0_Handler()
  800503e:	bd80      	pop	{r7, pc}
  8005040:	40014400 	.word	0x40014400
  8005044:	20001ed6 	.word	0x20001ed6
- 8005048:	08013bb0 	.word	0x08013bb0
+ 8005048:	08013ba0 	.word	0x08013ba0
 
 0800504c <IM_BTN4_EXTI1_Handler>:
  *	@param None
@@ -10569,7 +10569,7 @@ void IM_BTN4_EXTI1_Handler()
  800508a:	bd80      	pop	{r7, pc}
  800508c:	40014400 	.word	0x40014400
  8005090:	20001ed8 	.word	0x20001ed8
- 8005094:	08013bc8 	.word	0x08013bc8
+ 8005094:	08013bb8 	.word	0x08013bb8
 
 08005098 <IM_ENC_EXTI2_Handler>:
  *	@param None
@@ -10621,7 +10621,7 @@ void IM_ENC_EXTI2_Handler()
  80050d6:	bd80      	pop	{r7, pc}
  80050d8:	40014400 	.word	0x40014400
  80050dc:	20001eda 	.word	0x20001eda
- 80050e0:	08013be0 	.word	0x08013be0
+ 80050e0:	08013bd0 	.word	0x08013bd0
 
 080050e4 <IM_ENC_DIRF_Handler>:
  *	@param None
@@ -10659,7 +10659,7 @@ void IM_ENC_DIRF_Handler()
  8005110:	bd80      	pop	{r7, pc}
  8005112:	bf00      	nop
  8005114:	40012c00 	.word	0x40012c00
- 8005118:	08013bfc 	.word	0x08013bfc
+ 8005118:	08013bec 	.word	0x08013bec
 
 0800511c <BO_GetBiasPolarity>:
  *	@param None
@@ -11046,7 +11046,7 @@ void FreqO_AdjustFreq()
  8005370:	4b10      	ldr	r3, [pc, #64]	; (80053b4 <FreqO_AdjustFreq+0x54>)
  8005372:	62da      	str	r2, [r3, #44]	; 0x2c
 
-		eOutput_mode tmpOut = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
+		eOutput_mode tmpOut = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
  8005374:	2001      	movs	r0, #1
  8005376:	f000 fce5 	bl	8005d44 <SM_GetOutputChannel>
  800537a:	4603      	mov	r3, r0
@@ -11336,7 +11336,7 @@ void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum)
  800556a:	68db      	ldr	r3, [r3, #12]
  800556c:	62d3      	str	r3, [r2, #44]	; 0x2c
 
-		eOutput_mode tmpOut = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
+		eOutput_mode tmpOut = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
  800556e:	2001      	movs	r0, #1
  8005570:	f000 fbe8 	bl	8005d44 <SM_GetOutputChannel>
  8005574:	4603      	mov	r3, r0
@@ -11400,7 +11400,7 @@ void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum)
  80055c4:	40013400 	.word	0x40013400
  80055c8:	40000400 	.word	0x40000400
  80055cc:	20000198 	.word	0x20000198
- 80055d0:	08013c14 	.word	0x08013c14
+ 80055d0:	08013c04 	.word	0x08013c04
 
 080055d4 <FreqO_GetFPresetObject>:
  *	@param None
@@ -11474,7 +11474,7 @@ FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum)
  800562c:	bd80      	pop	{r7, pc}
  800562e:	bf00      	nop
  8005630:	20000128 	.word	0x20000128
- 8005634:	08013c3c 	.word	0x08013c3c
+ 8005634:	08013c2c 	.word	0x08013c2c
 
 08005638 <FreqO_GetFreqPresetEncoderRange>:
  *	@param None
@@ -11592,19 +11592,19 @@ void FuncO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
  80056d6:	bf00      	nop
  80056d8:	20001f0a 	.word	0x20001f0a
 
-080056dc <FuncO_MapEncoderPositionToSyncOutput>:
+080056dc <FuncO_MapEncoderPositionToAuxOutput>:
  *	@param pEncoderValue rotary encoder value
  *	@retval None
  *
  */
-void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
+void FuncO_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue)
 {
  80056dc:	b580      	push	{r7, lr}
  80056de:	b084      	sub	sp, #16
  80056e0:	af00      	add	r7, sp, #0
  80056e2:	4603      	mov	r3, r0
  80056e4:	80fb      	strh	r3, [r7, #6]
-	eOutput_mode tmpFunc = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
+	eOutput_mode tmpFunc = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
  80056e6:	2001      	movs	r0, #1
  80056e8:	f000 fb2c 	bl	8005d44 <SM_GetOutputChannel>
  80056ec:	4603      	mov	r3, r0
@@ -11612,11 +11612,11 @@ void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
  80056f2:	781b      	ldrb	r3, [r3, #0]
  80056f4:	73fb      	strb	r3, [r7, #15]
 	if(pEncoderValue > func_last_encoder_value)
- 80056f6:	4b15      	ldr	r3, [pc, #84]	; (800574c <FuncO_MapEncoderPositionToSyncOutput+0x70>)
+ 80056f6:	4b15      	ldr	r3, [pc, #84]	; (800574c <FuncO_MapEncoderPositionToAuxOutput+0x70>)
  80056f8:	881b      	ldrh	r3, [r3, #0]
  80056fa:	88fa      	ldrh	r2, [r7, #6]
  80056fc:	429a      	cmp	r2, r3
- 80056fe:	d90c      	bls.n	800571a <FuncO_MapEncoderPositionToSyncOutput+0x3e>
+ 80056fe:	d90c      	bls.n	800571a <FuncO_MapEncoderPositionToAuxOutput+0x3e>
 	{
 		tmpFunc++;
  8005700:	7bfb      	ldrb	r3, [r7, #15]
@@ -11625,21 +11625,21 @@ void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = PWM_FUNC_MODE;
  8005706:	7bfb      	ldrb	r3, [r7, #15]
  8005708:	2b06      	cmp	r3, #6
- 800570a:	d901      	bls.n	8005710 <FuncO_MapEncoderPositionToSyncOutput+0x34>
+ 800570a:	d901      	bls.n	8005710 <FuncO_MapEncoderPositionToAuxOutput+0x34>
  800570c:	2306      	movs	r3, #6
  800570e:	73fb      	strb	r3, [r7, #15]
-		FuncO_ApplyPresetToSync(tmpFunc);
+		FuncO_ApplyPresetToAux(tmpFunc);
  8005710:	7bfb      	ldrb	r3, [r7, #15]
  8005712:	4618      	mov	r0, r3
- 8005714:	f000 f87c 	bl	8005810 <FuncO_ApplyPresetToSync>
- 8005718:	e010      	b.n	800573c <FuncO_MapEncoderPositionToSyncOutput+0x60>
+ 8005714:	f000 f87c 	bl	8005810 <FuncO_ApplyPresetToAux>
+ 8005718:	e010      	b.n	800573c <FuncO_MapEncoderPositionToAuxOutput+0x60>
 	}
 	else if (pEncoderValue < func_last_encoder_value)
- 800571a:	4b0c      	ldr	r3, [pc, #48]	; (800574c <FuncO_MapEncoderPositionToSyncOutput+0x70>)
+ 800571a:	4b0c      	ldr	r3, [pc, #48]	; (800574c <FuncO_MapEncoderPositionToAuxOutput+0x70>)
  800571c:	881b      	ldrh	r3, [r3, #0]
  800571e:	88fa      	ldrh	r2, [r7, #6]
  8005720:	429a      	cmp	r2, r3
- 8005722:	d20b      	bcs.n	800573c <FuncO_MapEncoderPositionToSyncOutput+0x60>
+ 8005722:	d20b      	bcs.n	800573c <FuncO_MapEncoderPositionToAuxOutput+0x60>
 	{
 		tmpFunc--;
  8005724:	7bfb      	ldrb	r3, [r7, #15]
@@ -11648,18 +11648,18 @@ void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = SINE_FUNC_MODE;
  800572a:	7bfb      	ldrb	r3, [r7, #15]
  800572c:	2b06      	cmp	r3, #6
- 800572e:	d901      	bls.n	8005734 <FuncO_MapEncoderPositionToSyncOutput+0x58>
+ 800572e:	d901      	bls.n	8005734 <FuncO_MapEncoderPositionToAuxOutput+0x58>
  8005730:	2300      	movs	r3, #0
  8005732:	73fb      	strb	r3, [r7, #15]
-		FuncO_ApplyPresetToSync(tmpFunc);
+		FuncO_ApplyPresetToAux(tmpFunc);
  8005734:	7bfb      	ldrb	r3, [r7, #15]
  8005736:	4618      	mov	r0, r3
- 8005738:	f000 f86a 	bl	8005810 <FuncO_ApplyPresetToSync>
+ 8005738:	f000 f86a 	bl	8005810 <FuncO_ApplyPresetToAux>
 //		if(tmpFunc == SINE_FUNC_MODE)
 //			ENCODER_TIMER->CNT = 20;
 	}
 	func_last_encoder_value = pEncoderValue;
- 800573c:	4a03      	ldr	r2, [pc, #12]	; (800574c <FuncO_MapEncoderPositionToSyncOutput+0x70>)
+ 800573c:	4a03      	ldr	r2, [pc, #12]	; (800574c <FuncO_MapEncoderPositionToAuxOutput+0x70>)
  800573e:	88fb      	ldrh	r3, [r7, #6]
  8005740:	8013      	strh	r3, [r2, #0]
 }
@@ -11721,7 +11721,7 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
  8005794:	4618      	mov	r0, r3
  8005796:	f000 fd1b 	bl	80061d0 <VPP_ApplyProfileToSignal>
 
-		// pause timer to resync both outputs
+		// pause timer to reAux both outputs
 		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
  800579a:	4b1a      	ldr	r3, [pc, #104]	; (8005804 <FuncO_ApplyPresetToSignal+0xb4>)
  800579c:	681b      	ldr	r3, [r3, #0]
@@ -11752,7 +11752,7 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
  80057c8:	2100      	movs	r1, #0
  80057ca:	4810      	ldr	r0, [pc, #64]	; (800580c <FuncO_ApplyPresetToSignal+0xbc>)
  80057cc:	f004 f9f6 	bl	8009bbc <HAL_DAC_Stop_DMA>
-		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
  80057d0:	2001      	movs	r0, #1
  80057d2:	f000 fab7 	bl	8005d44 <SM_GetOutputChannel>
  80057d6:	4603      	mov	r3, r0
@@ -11764,7 +11764,7 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
  80057e4:	4809      	ldr	r0, [pc, #36]	; (800580c <FuncO_ApplyPresetToSignal+0xbc>)
  80057e6:	f004 f927 	bl	8009a38 <HAL_DAC_Start_DMA>
 
-		// resume timer to resync both outputs
+		// resume timer to reAux both outputs
 		//HAL_TIM_Base_Start(&htim8);
 		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
  80057ea:	4b06      	ldr	r3, [pc, #24]	; (8005804 <FuncO_ApplyPresetToSignal+0xb4>)
@@ -11786,12 +11786,12 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
  8005808:	200026ac 	.word	0x200026ac
  800580c:	20002698 	.word	0x20002698
 
-08005810 <FuncO_ApplyPresetToSync>:
+08005810 <FuncO_ApplyPresetToAux>:
 
  *	@retval None
  *
  */
-void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
+void FuncO_ApplyPresetToAux(eOutput_mode pPresetEnum)
 {
  8005810:	b590      	push	{r4, r7, lr}
  8005812:	b087      	sub	sp, #28
@@ -11799,77 +11799,77 @@ void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
  8005816:	4603      	mov	r3, r0
  8005818:	71fb      	strb	r3, [r7, #7]
 	// set the next output function
-	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
+	SM_GetOutputChannel(Aux_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
  800581a:	79fc      	ldrb	r4, [r7, #7]
  800581c:	2001      	movs	r0, #1
  800581e:	f000 fa91 	bl	8005d44 <SM_GetOutputChannel>
  8005822:	4601      	mov	r1, r0
  8005824:	00e3      	lsls	r3, r4, #3
- 8005826:	4a42      	ldr	r2, [pc, #264]	; (8005930 <FuncO_ApplyPresetToSync+0x120>)
+ 8005826:	4a42      	ldr	r2, [pc, #264]	; (8005930 <FuncO_ApplyPresetToAux+0x120>)
  8005828:	4413      	add	r3, r2
  800582a:	f8c1 31e8 	str.w	r3, [r1, #488]	; 0x1e8
 
 	if(pPresetEnum == PWM_FUNC_MODE)
  800582e:	79fb      	ldrb	r3, [r7, #7]
  8005830:	2b06      	cmp	r3, #6
- 8005832:	d107      	bne.n	8005844 <FuncO_ApplyPresetToSync+0x34>
+ 8005832:	d107      	bne.n	8005844 <FuncO_ApplyPresetToAux+0x34>
 	{
 		// switch output signal from DAC to PWM
-		SM_DisableDacToSync();
- 8005834:	f000 fc08 	bl	8006048 <SM_DisableDacToSync>
-		SM_EnablePwmToSync();
- 8005838:	f000 fa9a 	bl	8005d70 <SM_EnablePwmToSync>
+		SM_DisableDacToAux();
+ 8005834:	f000 fc08 	bl	8006048 <SM_DisableDacToAux>
+		SM_EnablePwmToAux();
+ 8005838:	f000 fa9a 	bl	8005d70 <SM_EnablePwmToAux>
 
 		last_output_mode_was_pwm = 1;
- 800583c:	4b3d      	ldr	r3, [pc, #244]	; (8005934 <FuncO_ApplyPresetToSync+0x124>)
+ 800583c:	4b3d      	ldr	r3, [pc, #244]	; (8005934 <FuncO_ApplyPresetToAux+0x124>)
  800583e:	2201      	movs	r2, #1
  8005840:	701a      	strb	r2, [r3, #0]
 
-		// resume timer to resync both outputs
+		// resume timer to reAux both outputs
 		//HAL_TIM_Base_Start(&htim8);
 		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 	}
 }
- 8005842:	e071      	b.n	8005928 <FuncO_ApplyPresetToSync+0x118>
+ 8005842:	e071      	b.n	8005928 <FuncO_ApplyPresetToAux+0x118>
 	else if(last_output_mode_was_pwm)
- 8005844:	4b3b      	ldr	r3, [pc, #236]	; (8005934 <FuncO_ApplyPresetToSync+0x124>)
+ 8005844:	4b3b      	ldr	r3, [pc, #236]	; (8005934 <FuncO_ApplyPresetToAux+0x124>)
  8005846:	781b      	ldrb	r3, [r3, #0]
  8005848:	2b00      	cmp	r3, #0
- 800584a:	d03a      	beq.n	80058c2 <FuncO_ApplyPresetToSync+0xb2>
-		SM_DisablePwmToSync();
- 800584c:	f000 fb50 	bl	8005ef0 <SM_DisablePwmToSync>
-		SM_EnableDacToSync();
- 8005850:	f000 fb5e 	bl	8005f10 <SM_EnableDacToSync>
-		SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
+ 800584a:	d03a      	beq.n	80058c2 <FuncO_ApplyPresetToAux+0xb2>
+		SM_DisablePwmToAux();
+ 800584c:	f000 fb50 	bl	8005ef0 <SM_DisablePwmToAux>
+		SM_EnableDacToAux();
+ 8005850:	f000 fb5e 	bl	8005f10 <SM_EnableDacToAux>
+		SM_GetOutputChannel(Aux_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
  8005854:	79fc      	ldrb	r4, [r7, #7]
  8005856:	2001      	movs	r0, #1
  8005858:	f000 fa74 	bl	8005d44 <SM_GetOutputChannel>
  800585c:	4601      	mov	r1, r0
- 800585e:	4a34      	ldr	r2, [pc, #208]	; (8005930 <FuncO_ApplyPresetToSync+0x120>)
+ 800585e:	4a34      	ldr	r2, [pc, #208]	; (8005930 <FuncO_ApplyPresetToAux+0x120>)
  8005860:	00e3      	lsls	r3, r4, #3
  8005862:	4413      	add	r3, r2
  8005864:	685b      	ldr	r3, [r3, #4]
  8005866:	604b      	str	r3, [r1, #4]
-		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
+		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile->amp_setting;
  8005868:	2001      	movs	r0, #1
  800586a:	f000 fa6b 	bl	8005d44 <SM_GetOutputChannel>
  800586e:	4603      	mov	r3, r0
  8005870:	f8d3 31ec 	ldr.w	r3, [r3, #492]	; 0x1ec
  8005874:	781b      	ldrb	r3, [r3, #0]
  8005876:	73bb      	strb	r3, [r7, #14]
-		VPP_ApplyProfileToSync(eTmpVppPreset);
+		VPP_ApplyProfileToAux(eTmpVppPreset);
  8005878:	7bbb      	ldrb	r3, [r7, #14]
  800587a:	4618      	mov	r0, r3
- 800587c:	f000 fcd6 	bl	800622c <VPP_ApplyProfileToSync>
+ 800587c:	f000 fcd6 	bl	800622c <VPP_ApplyProfileToAux>
 		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
- 8005880:	4b2d      	ldr	r3, [pc, #180]	; (8005938 <FuncO_ApplyPresetToSync+0x128>)
+ 8005880:	4b2d      	ldr	r3, [pc, #180]	; (8005938 <FuncO_ApplyPresetToAux+0x128>)
  8005882:	681b      	ldr	r3, [r3, #0]
- 8005884:	4a2c      	ldr	r2, [pc, #176]	; (8005938 <FuncO_ApplyPresetToSync+0x128>)
+ 8005884:	4a2c      	ldr	r2, [pc, #176]	; (8005938 <FuncO_ApplyPresetToAux+0x128>)
  8005886:	f023 0301 	bic.w	r3, r3, #1
  800588a:	6013      	str	r3, [r2, #0]
 		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
  800588c:	2100      	movs	r1, #0
- 800588e:	482b      	ldr	r0, [pc, #172]	; (800593c <FuncO_ApplyPresetToSync+0x12c>)
+ 800588e:	482b      	ldr	r0, [pc, #172]	; (800593c <FuncO_ApplyPresetToAux+0x12c>)
  8005890:	f004 f994 	bl	8009bbc <HAL_DAC_Stop_DMA>
 		HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
  8005894:	2000      	movs	r0, #0
@@ -11880,50 +11880,50 @@ void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
  80058a2:	9300      	str	r3, [sp, #0]
  80058a4:	2378      	movs	r3, #120	; 0x78
  80058a6:	2100      	movs	r1, #0
- 80058a8:	4824      	ldr	r0, [pc, #144]	; (800593c <FuncO_ApplyPresetToSync+0x12c>)
+ 80058a8:	4824      	ldr	r0, [pc, #144]	; (800593c <FuncO_ApplyPresetToAux+0x12c>)
  80058aa:	f004 f8c5 	bl	8009a38 <HAL_DAC_Start_DMA>
 		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
- 80058ae:	4b22      	ldr	r3, [pc, #136]	; (8005938 <FuncO_ApplyPresetToSync+0x128>)
+ 80058ae:	4b22      	ldr	r3, [pc, #136]	; (8005938 <FuncO_ApplyPresetToAux+0x128>)
  80058b0:	681b      	ldr	r3, [r3, #0]
- 80058b2:	4a21      	ldr	r2, [pc, #132]	; (8005938 <FuncO_ApplyPresetToSync+0x128>)
+ 80058b2:	4a21      	ldr	r2, [pc, #132]	; (8005938 <FuncO_ApplyPresetToAux+0x128>)
  80058b4:	f043 0301 	orr.w	r3, r3, #1
  80058b8:	6013      	str	r3, [r2, #0]
 		last_output_mode_was_pwm = 0;
- 80058ba:	4b1e      	ldr	r3, [pc, #120]	; (8005934 <FuncO_ApplyPresetToSync+0x124>)
+ 80058ba:	4b1e      	ldr	r3, [pc, #120]	; (8005934 <FuncO_ApplyPresetToAux+0x124>)
  80058bc:	2200      	movs	r2, #0
  80058be:	701a      	strb	r2, [r3, #0]
 }
- 80058c0:	e032      	b.n	8005928 <FuncO_ApplyPresetToSync+0x118>
-		SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
+ 80058c0:	e032      	b.n	8005928 <FuncO_ApplyPresetToAux+0x118>
+		SM_GetOutputChannel(Aux_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
  80058c2:	79fc      	ldrb	r4, [r7, #7]
  80058c4:	2001      	movs	r0, #1
  80058c6:	f000 fa3d 	bl	8005d44 <SM_GetOutputChannel>
  80058ca:	4601      	mov	r1, r0
- 80058cc:	4a18      	ldr	r2, [pc, #96]	; (8005930 <FuncO_ApplyPresetToSync+0x120>)
+ 80058cc:	4a18      	ldr	r2, [pc, #96]	; (8005930 <FuncO_ApplyPresetToAux+0x120>)
  80058ce:	00e3      	lsls	r3, r4, #3
  80058d0:	4413      	add	r3, r2
  80058d2:	685b      	ldr	r3, [r3, #4]
  80058d4:	604b      	str	r3, [r1, #4]
-		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
+		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile->amp_setting;
  80058d6:	2001      	movs	r0, #1
  80058d8:	f000 fa34 	bl	8005d44 <SM_GetOutputChannel>
  80058dc:	4603      	mov	r3, r0
  80058de:	f8d3 31ec 	ldr.w	r3, [r3, #492]	; 0x1ec
  80058e2:	781b      	ldrb	r3, [r3, #0]
  80058e4:	73fb      	strb	r3, [r7, #15]
-		VPP_ApplyProfileToSync(eTmpVppPreset);
+		VPP_ApplyProfileToAux(eTmpVppPreset);
  80058e6:	7bfb      	ldrb	r3, [r7, #15]
  80058e8:	4618      	mov	r0, r3
- 80058ea:	f000 fc9f 	bl	800622c <VPP_ApplyProfileToSync>
+ 80058ea:	f000 fc9f 	bl	800622c <VPP_ApplyProfileToAux>
 		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
- 80058ee:	4b12      	ldr	r3, [pc, #72]	; (8005938 <FuncO_ApplyPresetToSync+0x128>)
+ 80058ee:	4b12      	ldr	r3, [pc, #72]	; (8005938 <FuncO_ApplyPresetToAux+0x128>)
  80058f0:	681b      	ldr	r3, [r3, #0]
- 80058f2:	4a11      	ldr	r2, [pc, #68]	; (8005938 <FuncO_ApplyPresetToSync+0x128>)
+ 80058f2:	4a11      	ldr	r2, [pc, #68]	; (8005938 <FuncO_ApplyPresetToAux+0x128>)
  80058f4:	f023 0301 	bic.w	r3, r3, #1
  80058f8:	6013      	str	r3, [r2, #0]
 		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
  80058fa:	2100      	movs	r1, #0
- 80058fc:	480f      	ldr	r0, [pc, #60]	; (800593c <FuncO_ApplyPresetToSync+0x12c>)
+ 80058fc:	480f      	ldr	r0, [pc, #60]	; (800593c <FuncO_ApplyPresetToAux+0x12c>)
  80058fe:	f004 f95d 	bl	8009bbc <HAL_DAC_Stop_DMA>
 		HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
  8005902:	2000      	movs	r0, #0
@@ -11934,12 +11934,12 @@ void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
  8005910:	9300      	str	r3, [sp, #0]
  8005912:	2378      	movs	r3, #120	; 0x78
  8005914:	2100      	movs	r1, #0
- 8005916:	4809      	ldr	r0, [pc, #36]	; (800593c <FuncO_ApplyPresetToSync+0x12c>)
+ 8005916:	4809      	ldr	r0, [pc, #36]	; (800593c <FuncO_ApplyPresetToAux+0x12c>)
  8005918:	f004 f88e 	bl	8009a38 <HAL_DAC_Start_DMA>
 		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
- 800591c:	4b06      	ldr	r3, [pc, #24]	; (8005938 <FuncO_ApplyPresetToSync+0x128>)
+ 800591c:	4b06      	ldr	r3, [pc, #24]	; (8005938 <FuncO_ApplyPresetToAux+0x128>)
  800591e:	681b      	ldr	r3, [r3, #0]
- 8005920:	4a05      	ldr	r2, [pc, #20]	; (8005938 <FuncO_ApplyPresetToSync+0x128>)
+ 8005920:	4a05      	ldr	r2, [pc, #20]	; (8005938 <FuncO_ApplyPresetToAux+0x128>)
  8005922:	f043 0301 	orr.w	r3, r3, #1
  8005926:	6013      	str	r3, [r2, #0]
 }
@@ -12506,17 +12506,17 @@ void _InitOutputChannels()
  8005cce:	4a1b      	ldr	r2, [pc, #108]	; (8005d3c <_InitOutputChannels+0xb8>)
  8005cd0:	f8c3 21f0 	str.w	r2, [r3, #496]	; 0x1f0
 
-	// initialise the SYNC output channel
-	SyncChannel.channel = SYNC_CHANNEL;
+	// initialise the Aux output channel
+	AuxChannel.channel = Aux_CHANNEL;
  8005cd4:	4b1a      	ldr	r3, [pc, #104]	; (8005d40 <_InitOutputChannels+0xbc>)
  8005cd6:	2201      	movs	r2, #1
  8005cd8:	701a      	strb	r2, [r3, #0]
-	SyncChannel.ref_lut_data = theFuncProfiles[SINE_FUNC_MODE].lookup_table_data;
+	AuxChannel.ref_lut_data = theFuncProfiles[SINE_FUNC_MODE].lookup_table_data;
  8005cda:	4b15      	ldr	r3, [pc, #84]	; (8005d30 <_InitOutputChannels+0xac>)
  8005cdc:	685b      	ldr	r3, [r3, #4]
  8005cde:	4a18      	ldr	r2, [pc, #96]	; (8005d40 <_InitOutputChannels+0xbc>)
  8005ce0:	6053      	str	r3, [r2, #4]
-	SyncChannel.func_profile = &theFuncProfiles[eDefaultFuncPreset];
+	AuxChannel.func_profile = &theFuncProfiles[eDefaultFuncPreset];
  8005ce2:	4b17      	ldr	r3, [pc, #92]	; (8005d40 <_InitOutputChannels+0xbc>)
  8005ce4:	4a12      	ldr	r2, [pc, #72]	; (8005d30 <_InitOutputChannels+0xac>)
  8005ce6:	f8c3 21e8 	str.w	r2, [r3, #488]	; 0x1e8
@@ -12525,7 +12525,7 @@ void _InitOutputChannels()
  8005cea:	2300      	movs	r3, #0
  8005cec:	603b      	str	r3, [r7, #0]
  8005cee:	e00b      	b.n	8005d08 <_InitOutputChannels+0x84>
-		SyncChannel.dsp_lut_data[i] = sine_data_table_3600[i];
+		AuxChannel.dsp_lut_data[i] = sine_data_table_3600[i];
  8005cf0:	4a10      	ldr	r2, [pc, #64]	; (8005d34 <_InitOutputChannels+0xb0>)
  8005cf2:	683b      	ldr	r3, [r7, #0]
  8005cf4:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
@@ -12541,11 +12541,11 @@ void _InitOutputChannels()
  8005d0a:	2b77      	cmp	r3, #119	; 0x77
  8005d0c:	ddf0      	ble.n	8005cf0 <_InitOutputChannels+0x6c>
 
-	SyncChannel.amp_profile = &theAmpProfiles[eDefaultVppPreset];
+	AuxChannel.amp_profile = &theAmpProfiles[eDefaultVppPreset];
  8005d0e:	4b0c      	ldr	r3, [pc, #48]	; (8005d40 <_InitOutputChannels+0xbc>)
  8005d10:	4a09      	ldr	r2, [pc, #36]	; (8005d38 <_InitOutputChannels+0xb4>)
  8005d12:	f8c3 21ec 	str.w	r2, [r3, #492]	; 0x1ec
-	SyncChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
+	AuxChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
  8005d16:	4b0a      	ldr	r3, [pc, #40]	; (8005d40 <_InitOutputChannels+0xbc>)
  8005d18:	4a08      	ldr	r2, [pc, #32]	; (8005d3c <_InitOutputChannels+0xb8>)
  8005d1a:	f8c3 21f0 	str.w	r2, [r3, #496]	; 0x1f0
@@ -12556,12 +12556,12 @@ void _InitOutputChannels()
  8005d24:	f85d 7b04 	ldr.w	r7, [sp], #4
  8005d28:	4770      	bx	lr
  8005d2a:	bf00      	nop
- 8005d2c:	200021d4 	.word	0x200021d4
+ 8005d2c:	20001fe0 	.word	0x20001fe0
  8005d30:	200001a0 	.word	0x200001a0
  8005d34:	2000152c 	.word	0x2000152c
  8005d38:	20000bac 	.word	0x20000bac
  8005d3c:	200001ed 	.word	0x200001ed
- 8005d40:	20001fe0 	.word	0x20001fe0
+ 8005d40:	200021d4 	.word	0x200021d4
 
 08005d44 <SM_GetOutputChannel>:
 
@@ -12580,7 +12580,7 @@ sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
  8005d54:	4b04      	ldr	r3, [pc, #16]	; (8005d68 <SM_GetOutputChannel+0x24>)
  8005d56:	e000      	b.n	8005d5a <SM_GetOutputChannel+0x16>
 	else
-		return &SyncChannel;
+		return &AuxChannel;
  8005d58:	4b04      	ldr	r3, [pc, #16]	; (8005d6c <SM_GetOutputChannel+0x28>)
 }
  8005d5a:	4618      	mov	r0, r3
@@ -12589,15 +12589,15 @@ sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
  8005d60:	f85d 7b04 	ldr.w	r7, [sp], #4
  8005d64:	4770      	bx	lr
  8005d66:	bf00      	nop
- 8005d68:	200021d4 	.word	0x200021d4
- 8005d6c:	20001fe0 	.word	0x20001fe0
+ 8005d68:	20001fe0 	.word	0x20001fe0
+ 8005d6c:	200021d4 	.word	0x200021d4
 
-08005d70 <SM_EnablePwmToSync>:
+08005d70 <SM_EnablePwmToAux>:
  *	@param None
  *	@retval None
  *
  */
-void SM_EnablePwmToSync()
+void SM_EnablePwmToAux()
 {
  8005d70:	b580      	push	{r7, lr}
  8005d72:	b096      	sub	sp, #88	; 0x58
@@ -12636,35 +12636,35 @@ void SM_EnablePwmToSync()
 
 
 	htim3.Instance = TIM3;
- 8005db4:	4b4b      	ldr	r3, [pc, #300]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
- 8005db6:	4a4c      	ldr	r2, [pc, #304]	; (8005ee8 <SM_EnablePwmToSync+0x178>)
+ 8005db4:	4b4b      	ldr	r3, [pc, #300]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
+ 8005db6:	4a4c      	ldr	r2, [pc, #304]	; (8005ee8 <SM_EnablePwmToAux+0x178>)
  8005db8:	601a      	str	r2, [r3, #0]
 	htim3.Init.Prescaler = 0;
- 8005dba:	4b4a      	ldr	r3, [pc, #296]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005dba:	4b4a      	ldr	r3, [pc, #296]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005dbc:	2200      	movs	r2, #0
  8005dbe:	605a      	str	r2, [r3, #4]
 	htim3.Init.CounterMode = TIM_COUNTERMODE_DOWN;
- 8005dc0:	4b48      	ldr	r3, [pc, #288]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005dc0:	4b48      	ldr	r3, [pc, #288]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005dc2:	2210      	movs	r2, #16
  8005dc4:	609a      	str	r2, [r3, #8]
 	htim3.Init.Period = 1;
- 8005dc6:	4b47      	ldr	r3, [pc, #284]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005dc6:	4b47      	ldr	r3, [pc, #284]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005dc8:	2201      	movs	r2, #1
  8005dca:	60da      	str	r2, [r3, #12]
 	htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV4;
- 8005dcc:	4b45      	ldr	r3, [pc, #276]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005dcc:	4b45      	ldr	r3, [pc, #276]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005dce:	f44f 7200 	mov.w	r2, #512	; 0x200
  8005dd2:	611a      	str	r2, [r3, #16]
 	htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
- 8005dd4:	4b43      	ldr	r3, [pc, #268]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005dd4:	4b43      	ldr	r3, [pc, #268]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005dd6:	2280      	movs	r2, #128	; 0x80
  8005dd8:	619a      	str	r2, [r3, #24]
 	if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
- 8005dda:	4842      	ldr	r0, [pc, #264]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005dda:	4842      	ldr	r0, [pc, #264]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005ddc:	f005 ffa8 	bl	800bd30 <HAL_TIM_Base_Init>
  8005de0:	4603      	mov	r3, r0
  8005de2:	2b00      	cmp	r3, #0
- 8005de4:	d001      	beq.n	8005dea <SM_EnablePwmToSync+0x7a>
+ 8005de4:	d001      	beq.n	8005dea <SM_EnablePwmToAux+0x7a>
 	{
 		Error_Handler();
  8005de6:	f001 fac7 	bl	8007378 <Error_Handler>
@@ -12675,21 +12675,21 @@ void SM_EnablePwmToSync()
 	if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
  8005df0:	f107 0348 	add.w	r3, r7, #72	; 0x48
  8005df4:	4619      	mov	r1, r3
- 8005df6:	483b      	ldr	r0, [pc, #236]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005df6:	483b      	ldr	r0, [pc, #236]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005df8:	f006 fcf6 	bl	800c7e8 <HAL_TIM_ConfigClockSource>
  8005dfc:	4603      	mov	r3, r0
  8005dfe:	2b00      	cmp	r3, #0
- 8005e00:	d001      	beq.n	8005e06 <SM_EnablePwmToSync+0x96>
+ 8005e00:	d001      	beq.n	8005e06 <SM_EnablePwmToAux+0x96>
 	{
 		Error_Handler();
  8005e02:	f001 fab9 	bl	8007378 <Error_Handler>
 	}
 	if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
- 8005e06:	4837      	ldr	r0, [pc, #220]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005e06:	4837      	ldr	r0, [pc, #220]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005e08:	f006 f87d 	bl	800bf06 <HAL_TIM_PWM_Init>
  8005e0c:	4603      	mov	r3, r0
  8005e0e:	2b00      	cmp	r3, #0
- 8005e10:	d001      	beq.n	8005e16 <SM_EnablePwmToSync+0xa6>
+ 8005e10:	d001      	beq.n	8005e16 <SM_EnablePwmToAux+0xa6>
 	{
 		Error_Handler();
  8005e12:	f001 fab1 	bl	8007378 <Error_Handler>
@@ -12700,14 +12700,14 @@ void SM_EnablePwmToSync()
 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  8005e1a:	2300      	movs	r3, #0
  8005e1c:	647b      	str	r3, [r7, #68]	; 0x44
-	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+	if (HAL_TIMEx_MasterConfigAuxhronization(&htim3, &sMasterConfig) != HAL_OK)
  8005e1e:	f107 033c 	add.w	r3, r7, #60	; 0x3c
  8005e22:	4619      	mov	r1, r3
- 8005e24:	482f      	ldr	r0, [pc, #188]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
- 8005e26:	f007 fa95 	bl	800d354 <HAL_TIMEx_MasterConfigSynchronization>
+ 8005e24:	482f      	ldr	r0, [pc, #188]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
+ 8005e26:	f007 fa95 	bl	800d354 <HAL_TIMEx_MasterConfigAuxhronization>
  8005e2a:	4603      	mov	r3, r0
  8005e2c:	2b00      	cmp	r3, #0
- 8005e2e:	d001      	beq.n	8005e34 <SM_EnablePwmToSync+0xc4>
+ 8005e2e:	d001      	beq.n	8005e34 <SM_EnablePwmToAux+0xc4>
 	{
 		Error_Handler();
  8005e30:	f001 faa2 	bl	8007378 <Error_Handler>
@@ -12728,11 +12728,11 @@ void SM_EnablePwmToSync()
  8005e44:	f107 0320 	add.w	r3, r7, #32
  8005e48:	2200      	movs	r2, #0
  8005e4a:	4619      	mov	r1, r3
- 8005e4c:	4825      	ldr	r0, [pc, #148]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005e4c:	4825      	ldr	r0, [pc, #148]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005e4e:	f006 fbbb 	bl	800c5c8 <HAL_TIM_PWM_ConfigChannel>
  8005e52:	4603      	mov	r3, r0
  8005e54:	2b00      	cmp	r3, #0
- 8005e56:	d001      	beq.n	8005e5c <SM_EnablePwmToSync+0xec>
+ 8005e56:	d001      	beq.n	8005e5c <SM_EnablePwmToAux+0xec>
 	{
 		Error_Handler();
  8005e58:	f001 fa8e 	bl	8007378 <Error_Handler>
@@ -12742,12 +12742,12 @@ void SM_EnablePwmToSync()
 	// Timer Post Initialization
 
 	__HAL_RCC_GPIOA_CLK_ENABLE();
- 8005e5c:	4b23      	ldr	r3, [pc, #140]	; (8005eec <SM_EnablePwmToSync+0x17c>)
+ 8005e5c:	4b23      	ldr	r3, [pc, #140]	; (8005eec <SM_EnablePwmToAux+0x17c>)
  8005e5e:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
- 8005e60:	4a22      	ldr	r2, [pc, #136]	; (8005eec <SM_EnablePwmToSync+0x17c>)
+ 8005e60:	4a22      	ldr	r2, [pc, #136]	; (8005eec <SM_EnablePwmToAux+0x17c>)
  8005e62:	f043 0301 	orr.w	r3, r3, #1
  8005e66:	64d3      	str	r3, [r2, #76]	; 0x4c
- 8005e68:	4b20      	ldr	r3, [pc, #128]	; (8005eec <SM_EnablePwmToSync+0x17c>)
+ 8005e68:	4b20      	ldr	r3, [pc, #128]	; (8005eec <SM_EnablePwmToAux+0x17c>)
  8005e6a:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
  8005e6c:	f003 0301 	and.w	r3, r3, #1
  8005e70:	60bb      	str	r3, [r7, #8]
@@ -12781,12 +12781,12 @@ void SM_EnablePwmToSync()
 
 	/* TIM3 clock enable */
 	__HAL_RCC_TIM3_CLK_ENABLE();
- 8005e96:	4b15      	ldr	r3, [pc, #84]	; (8005eec <SM_EnablePwmToSync+0x17c>)
+ 8005e96:	4b15      	ldr	r3, [pc, #84]	; (8005eec <SM_EnablePwmToAux+0x17c>)
  8005e98:	6d9b      	ldr	r3, [r3, #88]	; 0x58
- 8005e9a:	4a14      	ldr	r2, [pc, #80]	; (8005eec <SM_EnablePwmToSync+0x17c>)
+ 8005e9a:	4a14      	ldr	r2, [pc, #80]	; (8005eec <SM_EnablePwmToAux+0x17c>)
  8005e9c:	f043 0302 	orr.w	r3, r3, #2
  8005ea0:	6593      	str	r3, [r2, #88]	; 0x58
- 8005ea2:	4b12      	ldr	r3, [pc, #72]	; (8005eec <SM_EnablePwmToSync+0x17c>)
+ 8005ea2:	4b12      	ldr	r3, [pc, #72]	; (8005eec <SM_EnablePwmToAux+0x17c>)
  8005ea4:	6d9b      	ldr	r3, [r3, #88]	; 0x58
  8005ea6:	f003 0302 	and.w	r3, r3, #2
  8005eaa:	607b      	str	r3, [r7, #4]
@@ -12807,18 +12807,18 @@ void SM_EnablePwmToSync()
 
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
  8005ebe:	2100      	movs	r1, #0
- 8005ec0:	4808      	ldr	r0, [pc, #32]	; (8005ee4 <SM_EnablePwmToSync+0x174>)
+ 8005ec0:	4808      	ldr	r0, [pc, #32]	; (8005ee4 <SM_EnablePwmToAux+0x174>)
  8005ec2:	f006 f881 	bl	800bfc8 <HAL_TIM_PWM_Start>
 	GO_ApplyPresetToSignal(eDefaultGainPreset);
  8005ec6:	2007      	movs	r0, #7
  8005ec8:	f7ff fd8c 	bl	80059e4 <GO_ApplyPresetToSignal>
 	// 50% duty cycle
 	TIM3->CCR1 = 32768;
- 8005ecc:	4b06      	ldr	r3, [pc, #24]	; (8005ee8 <SM_EnablePwmToSync+0x178>)
+ 8005ecc:	4b06      	ldr	r3, [pc, #24]	; (8005ee8 <SM_EnablePwmToAux+0x178>)
  8005ece:	f44f 4200 	mov.w	r2, #32768	; 0x8000
  8005ed2:	635a      	str	r2, [r3, #52]	; 0x34
 	TIM3->ARR = 65535;
- 8005ed4:	4b04      	ldr	r3, [pc, #16]	; (8005ee8 <SM_EnablePwmToSync+0x178>)
+ 8005ed4:	4b04      	ldr	r3, [pc, #16]	; (8005ee8 <SM_EnablePwmToAux+0x178>)
  8005ed6:	f64f 72ff 	movw	r2, #65535	; 0xffff
  8005eda:	62da      	str	r2, [r3, #44]	; 0x2c
 }
@@ -12830,12 +12830,12 @@ void SM_EnablePwmToSync()
  8005ee8:	40000400 	.word	0x40000400
  8005eec:	40021000 	.word	0x40021000
 
-08005ef0 <SM_DisablePwmToSync>:
+08005ef0 <SM_DisablePwmToAux>:
  *	@param None
  *	@retval None
  *
  */
-void SM_DisablePwmToSync()
+void SM_DisablePwmToAux()
 {
  8005ef0:	b580      	push	{r7, lr}
  8005ef2:	af00      	add	r7, sp, #0
@@ -12844,9 +12844,9 @@ void SM_DisablePwmToSync()
 	/* USER CODE END TIM3_MspDeInit 0 */
 	/* Peripheral clock disable */
 	__HAL_RCC_TIM3_CLK_DISABLE();
- 8005ef4:	4b05      	ldr	r3, [pc, #20]	; (8005f0c <SM_DisablePwmToSync+0x1c>)
+ 8005ef4:	4b05      	ldr	r3, [pc, #20]	; (8005f0c <SM_DisablePwmToAux+0x1c>)
  8005ef6:	6d9b      	ldr	r3, [r3, #88]	; 0x58
- 8005ef8:	4a04      	ldr	r2, [pc, #16]	; (8005f0c <SM_DisablePwmToSync+0x1c>)
+ 8005ef8:	4a04      	ldr	r2, [pc, #16]	; (8005f0c <SM_DisablePwmToAux+0x1c>)
  8005efa:	f023 0302 	bic.w	r3, r3, #2
  8005efe:	6593      	str	r3, [r2, #88]	; 0x58
 
@@ -12863,12 +12863,12 @@ void SM_DisablePwmToSync()
  8005f0a:	bf00      	nop
  8005f0c:	40021000 	.word	0x40021000
 
-08005f10 <SM_EnableDacToSync>:
+08005f10 <SM_EnableDacToAux>:
  *	@param None
  *	@retval None
  *
  */
-void SM_EnableDacToSync()
+void SM_EnableDacToAux()
 {
  8005f10:	b580      	push	{r7, lr}
  8005f12:	b0b0      	sub	sp, #192	; 0xc0
@@ -12892,7 +12892,7 @@ void SM_EnableDacToSync()
 	/** DAC Initialization
 	*/
 	hdac2.Instance = DAC2;
- 8005f34:	4b41      	ldr	r3, [pc, #260]	; (800603c <SM_EnableDacToSync+0x12c>)
+ 8005f34:	4b41      	ldr	r3, [pc, #260]	; (800603c <SM_EnableDacToAux+0x12c>)
  8005f36:	66bb      	str	r3, [r7, #104]	; 0x68
 	if (HAL_DAC_Init(&hdac2) != HAL_OK)
  8005f38:	f107 0368 	add.w	r3, r7, #104	; 0x68
@@ -12900,7 +12900,7 @@ void SM_EnableDacToSync()
  8005f3e:	f003 fd06 	bl	800994e <HAL_DAC_Init>
  8005f42:	4603      	mov	r3, r0
  8005f44:	2b00      	cmp	r3, #0
- 8005f46:	d001      	beq.n	8005f4c <SM_EnableDacToSync+0x3c>
+ 8005f46:	d001      	beq.n	8005f4c <SM_EnableDacToAux+0x3c>
 	{
 		Error_Handler();
  8005f48:	f001 fa16 	bl	8007378 <Error_Handler>
@@ -12942,7 +12942,7 @@ void SM_EnableDacToSync()
  8005f90:	f003 fec6 	bl	8009d20 <HAL_DAC_ConfigChannel>
  8005f94:	4603      	mov	r3, r0
  8005f96:	2b00      	cmp	r3, #0
- 8005f98:	d001      	beq.n	8005f9e <SM_EnableDacToSync+0x8e>
+ 8005f98:	d001      	beq.n	8005f9e <SM_EnableDacToAux+0x8e>
 	{
 		Error_Handler();
  8005f9a:	f001 f9ed 	bl	8007378 <Error_Handler>
@@ -12952,24 +12952,24 @@ void SM_EnableDacToSync()
 	/* USER CODE END DAC2_MspInit 0 */
 	/* DAC2 clock enable */
 	__HAL_RCC_DAC2_CLK_ENABLE();
- 8005f9e:	4b28      	ldr	r3, [pc, #160]	; (8006040 <SM_EnableDacToSync+0x130>)
+ 8005f9e:	4b28      	ldr	r3, [pc, #160]	; (8006040 <SM_EnableDacToAux+0x130>)
  8005fa0:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
- 8005fa2:	4a27      	ldr	r2, [pc, #156]	; (8006040 <SM_EnableDacToSync+0x130>)
+ 8005fa2:	4a27      	ldr	r2, [pc, #156]	; (8006040 <SM_EnableDacToAux+0x130>)
  8005fa4:	f443 3300 	orr.w	r3, r3, #131072	; 0x20000
  8005fa8:	64d3      	str	r3, [r2, #76]	; 0x4c
- 8005faa:	4b25      	ldr	r3, [pc, #148]	; (8006040 <SM_EnableDacToSync+0x130>)
+ 8005faa:	4b25      	ldr	r3, [pc, #148]	; (8006040 <SM_EnableDacToAux+0x130>)
  8005fac:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
  8005fae:	f403 3300 	and.w	r3, r3, #131072	; 0x20000
  8005fb2:	607b      	str	r3, [r7, #4]
  8005fb4:	687b      	ldr	r3, [r7, #4]
 
 	__HAL_RCC_GPIOA_CLK_ENABLE();
- 8005fb6:	4b22      	ldr	r3, [pc, #136]	; (8006040 <SM_EnableDacToSync+0x130>)
+ 8005fb6:	4b22      	ldr	r3, [pc, #136]	; (8006040 <SM_EnableDacToAux+0x130>)
  8005fb8:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
- 8005fba:	4a21      	ldr	r2, [pc, #132]	; (8006040 <SM_EnableDacToSync+0x130>)
+ 8005fba:	4a21      	ldr	r2, [pc, #132]	; (8006040 <SM_EnableDacToAux+0x130>)
  8005fbc:	f043 0301 	orr.w	r3, r3, #1
  8005fc0:	64d3      	str	r3, [r2, #76]	; 0x4c
- 8005fc2:	4b1f      	ldr	r3, [pc, #124]	; (8006040 <SM_EnableDacToSync+0x130>)
+ 8005fc2:	4b1f      	ldr	r3, [pc, #124]	; (8006040 <SM_EnableDacToAux+0x130>)
  8005fc4:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
  8005fc6:	f003 0301 	and.w	r3, r3, #1
  8005fca:	603b      	str	r3, [r7, #0]
@@ -12995,7 +12995,7 @@ void SM_EnableDacToSync()
 	/* DAC2 DMA Init */
 	/* DAC2_CH1 Init */
 	hdma_dac2_ch1.Instance = DMA1_Channel3;
- 8005fec:	4b15      	ldr	r3, [pc, #84]	; (8006044 <SM_EnableDacToSync+0x134>)
+ 8005fec:	4b15      	ldr	r3, [pc, #84]	; (8006044 <SM_EnableDacToAux+0x134>)
  8005fee:	60bb      	str	r3, [r7, #8]
 	hdma_dac2_ch1.Init.Request = DMA_REQUEST_DAC2_CHANNEL1;
  8005ff0:	2329      	movs	r3, #41	; 0x29
@@ -13027,7 +13027,7 @@ void SM_EnableDacToSync()
  800601a:	f004 f8b7 	bl	800a18c <HAL_DMA_Init>
  800601e:	4603      	mov	r3, r0
  8006020:	2b00      	cmp	r3, #0
- 8006022:	d001      	beq.n	8006028 <SM_EnableDacToSync+0x118>
+ 8006022:	d001      	beq.n	8006028 <SM_EnableDacToAux+0x118>
 	{
 	  Error_Handler();
  8006024:	f001 f9a8 	bl	8007378 <Error_Handler>
@@ -13039,7 +13039,7 @@ void SM_EnableDacToSync()
  800602e:	f107 0368 	add.w	r3, r7, #104	; 0x68
  8006032:	633b      	str	r3, [r7, #48]	; 0x30
 
-    //GO_ApplyPresetToSync(eDefaultGainPreset);
+    //GO_ApplyPresetToAux(eDefaultGainPreset);
 }
  8006034:	bf00      	nop
  8006036:	37c0      	adds	r7, #192	; 0xc0
@@ -13049,12 +13049,12 @@ void SM_EnableDacToSync()
  8006040:	40021000 	.word	0x40021000
  8006044:	40020030 	.word	0x40020030
 
-08006048 <SM_DisableDacToSync>:
+08006048 <SM_DisableDacToAux>:
  *	@param None
  *	@retval None
  *
  */
-void SM_DisableDacToSync()
+void SM_DisableDacToAux()
 {
  8006048:	b580      	push	{r7, lr}
  800604a:	af00      	add	r7, sp, #0
@@ -13354,12 +13354,12 @@ void VPP_ApplyProfileToSignal(eAmpSettings_t pPresetEnum)
  8006226:	bd80      	pop	{r7, pc}
  8006228:	200001f0 	.word	0x200001f0
 
-0800622c <VPP_ApplyProfileToSync>:
+0800622c <VPP_ApplyProfileToAux>:
  *	@param None
  *	@retval None
  *
  */
-void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum)
+void VPP_ApplyProfileToAux(eAmpSettings_t pPresetEnum)
 {
  800622c:	b580      	push	{r7, lr}
  800622e:	b084      	sub	sp, #16
@@ -13373,12 +13373,12 @@ void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum)
  800623a:	00db      	lsls	r3, r3, #3
  800623c:	1a9b      	subs	r3, r3, r2
  800623e:	009b      	lsls	r3, r3, #2
- 8006240:	4a0e      	ldr	r2, [pc, #56]	; (800627c <VPP_ApplyProfileToSync+0x50>)
+ 8006240:	4a0e      	ldr	r2, [pc, #56]	; (800627c <VPP_ApplyProfileToAux+0x50>)
  8006242:	4413      	add	r3, r2
  8006244:	60fb      	str	r3, [r7, #12]
 
-	// Set the new VPP Preset to the SyncChannel object
-	SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile = pNextEncPreset;
+	// Set the new VPP Preset to the AuxChannel object
+	SM_GetOutputChannel(Aux_CHANNEL)->amp_profile = pNextEncPreset;
  8006246:	2001      	movs	r0, #1
  8006248:	f7ff fd7c 	bl	8005d44 <SM_GetOutputChannel>
  800624c:	4602      	mov	r2, r0
@@ -13386,10 +13386,10 @@ void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum)
  8006250:	f8c2 31ec 	str.w	r3, [r2, #492]	; 0x1ec
 
 	 // set the gain preset
-	//GO_ApplyPresetToSync(pNextEncPreset->gain_preset);
+	//GO_ApplyPresetToAux(pNextEncPreset->gain_preset);
 
-	// Apply the next amplitude setting to the SyncChannel object
-	_ProcessSyncDataTable(pNextEncPreset->neg_gain_coeff, pNextEncPreset->amp_offset , pNextEncPreset->epos);
+	// Apply the next amplitude setting to the AuxChannel object
+	_ProcessAuxDataTable(pNextEncPreset->neg_gain_coeff, pNextEncPreset->amp_offset , pNextEncPreset->epos);
  8006254:	68fb      	ldr	r3, [r7, #12]
  8006256:	edd3 7a04 	vldr	s15, [r3, #16]
  800625a:	68fb      	ldr	r3, [r7, #12]
@@ -13399,7 +13399,7 @@ void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum)
  8006264:	4618      	mov	r0, r3
  8006266:	eef0 0a47 	vmov.f32	s1, s14
  800626a:	eeb0 0a67 	vmov.f32	s0, s15
- 800626e:	f000 f88d 	bl	800638c <_ProcessSyncDataTable>
+ 800626e:	f000 f88d 	bl	800638c <_ProcessAuxDataTable>
 
 
 
@@ -13556,12 +13556,12 @@ void _ProcessSignalDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _
  8006386:	bf00      	nop
  8006388:	200023c8 	.word	0x200023c8
 
-0800638c <_ProcessSyncDataTable>:
+0800638c <_ProcessAuxDataTable>:
  *	@param None
  *	@retval None
  *
  */
-void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value)
+void _ProcessAuxDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value)
 {
  800638c:	b580      	push	{r7, lr}
  800638e:	b088      	sub	sp, #32
@@ -13570,22 +13570,22 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
  8006396:	edc7 0a02 	vstr	s1, [r7, #8]
  800639a:	4603      	mov	r3, r0
  800639c:	80fb      	strh	r3, [r7, #6]
-	if(SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func != PWM_FUNC_MODE)
+	if(SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func != PWM_FUNC_MODE)
  800639e:	2001      	movs	r0, #1
  80063a0:	f7ff fcd0 	bl	8005d44 <SM_GetOutputChannel>
  80063a4:	4603      	mov	r3, r0
  80063a6:	f8d3 31e8 	ldr.w	r3, [r3, #488]	; 0x1e8
  80063aa:	781b      	ldrb	r3, [r3, #0]
  80063ac:	2b06      	cmp	r3, #6
- 80063ae:	d059      	beq.n	8006464 <_ProcessSyncDataTable+0xd8>
+ 80063ae:	d059      	beq.n	8006464 <_ProcessAuxDataTable+0xd8>
 	{
-		// copy refer lookup datat table from SyncChannel object
+		// copy refer lookup datat table from AuxChannel object
 		for(int i = 0; i < SINE_DATA_SIZE; i++)
  80063b0:	2300      	movs	r3, #0
  80063b2:	61fb      	str	r3, [r7, #28]
- 80063b4:	e00f      	b.n	80063d6 <_ProcessSyncDataTable+0x4a>
+ 80063b4:	e00f      	b.n	80063d6 <_ProcessAuxDataTable+0x4a>
 		{
-			tmpDataTable[i] = SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data[i];
+			tmpDataTable[i] = SM_GetOutputChannel(Aux_CHANNEL)->ref_lut_data[i];
  80063b6:	2001      	movs	r0, #1
  80063b8:	f7ff fcc4 	bl	8005d44 <SM_GetOutputChannel>
  80063bc:	4603      	mov	r3, r0
@@ -13594,7 +13594,7 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
  80063c2:	009b      	lsls	r3, r3, #2
  80063c4:	4413      	add	r3, r2
  80063c6:	681a      	ldr	r2, [r3, #0]
- 80063c8:	4933      	ldr	r1, [pc, #204]	; (8006498 <_ProcessSyncDataTable+0x10c>)
+ 80063c8:	4933      	ldr	r1, [pc, #204]	; (8006498 <_ProcessAuxDataTable+0x10c>)
  80063ca:	69fb      	ldr	r3, [r7, #28]
  80063cc:	f841 2023 	str.w	r2, [r1, r3, lsl #2]
 		for(int i = 0; i < SINE_DATA_SIZE; i++)
@@ -13603,7 +13603,7 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
  80063d4:	61fb      	str	r3, [r7, #28]
  80063d6:	69fb      	ldr	r3, [r7, #28]
  80063d8:	2b77      	cmp	r3, #119	; 0x77
- 80063da:	ddec      	ble.n	80063b6 <_ProcessSyncDataTable+0x2a>
+ 80063da:	ddec      	ble.n	80063b6 <_ProcessAuxDataTable+0x2a>
 		}
 
 		// calculate positive offset coefficient from encoder position
@@ -13613,7 +13613,7 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
 		if(_encoder_value)
  80063e2:	88fb      	ldrh	r3, [r7, #6]
  80063e4:	2b00      	cmp	r3, #0
- 80063e6:	d008      	beq.n	80063fa <_ProcessSyncDataTable+0x6e>
+ 80063e6:	d008      	beq.n	80063fa <_ProcessAuxDataTable+0x6e>
 		{
 			pos_offset_coeff = (_encoder_value/4);
  80063e8:	88fb      	ldrh	r3, [r7, #6]
@@ -13628,11 +13628,11 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
 		for(int i = 0; i < SINE_DATA_SIZE; i++)
  80063fa:	2300      	movs	r3, #0
  80063fc:	617b      	str	r3, [r7, #20]
- 80063fe:	e02e      	b.n	800645e <_ProcessSyncDataTable+0xd2>
+ 80063fe:	e02e      	b.n	800645e <_ProcessAuxDataTable+0xd2>
 		{
 
 			tmpDataTable[i] = tmpDataTable[i] * (_neg_gain_coeff);
- 8006400:	4a25      	ldr	r2, [pc, #148]	; (8006498 <_ProcessSyncDataTable+0x10c>)
+ 8006400:	4a25      	ldr	r2, [pc, #148]	; (8006498 <_ProcessAuxDataTable+0x10c>)
  8006402:	697b      	ldr	r3, [r7, #20]
  8006404:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
  8006408:	ee07 3a90 	vmov	s15, r3
@@ -13641,11 +13641,11 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
  8006414:	ee67 7a27 	vmul.f32	s15, s14, s15
  8006418:	eefc 7ae7 	vcvt.u32.f32	s15, s15
  800641c:	ee17 1a90 	vmov	r1, s15
- 8006420:	4a1d      	ldr	r2, [pc, #116]	; (8006498 <_ProcessSyncDataTable+0x10c>)
+ 8006420:	4a1d      	ldr	r2, [pc, #116]	; (8006498 <_ProcessAuxDataTable+0x10c>)
  8006422:	697b      	ldr	r3, [r7, #20]
  8006424:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 			tmpDataTable[i] = tmpDataTable[i] + (AMP_OFFSET * pos_offset_coeff);
- 8006428:	4a1b      	ldr	r2, [pc, #108]	; (8006498 <_ProcessSyncDataTable+0x10c>)
+ 8006428:	4a1b      	ldr	r2, [pc, #108]	; (8006498 <_ProcessAuxDataTable+0x10c>)
  800642a:	697b      	ldr	r3, [r7, #20]
  800642c:	f852 3023 	ldr.w	r3, [r2, r3, lsl #2]
  8006430:	ee07 3a90 	vmov	s15, r3
@@ -13656,7 +13656,7 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
  8006444:	ee77 7a27 	vadd.f32	s15, s14, s15
  8006448:	eefc 7ae7 	vcvt.u32.f32	s15, s15
  800644c:	ee17 1a90 	vmov	r1, s15
- 8006450:	4a11      	ldr	r2, [pc, #68]	; (8006498 <_ProcessSyncDataTable+0x10c>)
+ 8006450:	4a11      	ldr	r2, [pc, #68]	; (8006498 <_ProcessAuxDataTable+0x10c>)
  8006452:	697b      	ldr	r3, [r7, #20]
  8006454:	f842 1023 	str.w	r1, [r2, r3, lsl #2]
 		for(int i = 0; i < SINE_DATA_SIZE; i++)
@@ -13665,7 +13665,7 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
  800645c:	617b      	str	r3, [r7, #20]
  800645e:	697b      	ldr	r3, [r7, #20]
  8006460:	2b77      	cmp	r3, #119	; 0x77
- 8006462:	ddcd      	ble.n	8006400 <_ProcessSyncDataTable+0x74>
+ 8006462:	ddcd      	ble.n	8006400 <_ProcessAuxDataTable+0x74>
 		}
 	}
 
@@ -13674,13 +13674,13 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
  8006464:	2300      	movs	r3, #0
  8006466:	613b      	str	r3, [r7, #16]
- 8006468:	e00e      	b.n	8006488 <_ProcessSyncDataTable+0xfc>
+ 8006468:	e00e      	b.n	8006488 <_ProcessAuxDataTable+0xfc>
 	{
-		SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
+		SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
  800646a:	2001      	movs	r0, #1
  800646c:	f7ff fc6a 	bl	8005d44 <SM_GetOutputChannel>
  8006470:	4601      	mov	r1, r0
- 8006472:	4a09      	ldr	r2, [pc, #36]	; (8006498 <_ProcessSyncDataTable+0x10c>)
+ 8006472:	4a09      	ldr	r2, [pc, #36]	; (8006498 <_ProcessAuxDataTable+0x10c>)
  8006474:	693b      	ldr	r3, [r7, #16]
  8006476:	f852 2023 	ldr.w	r2, [r2, r3, lsl #2]
  800647a:	693b      	ldr	r3, [r7, #16]
@@ -13692,7 +13692,7 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
  8006486:	613b      	str	r3, [r7, #16]
  8006488:	693b      	ldr	r3, [r7, #16]
  800648a:	2b77      	cmp	r3, #119	; 0x77
- 800648c:	dded      	ble.n	800646a <_ProcessSyncDataTable+0xde>
+ 800648c:	dded      	ble.n	800646a <_ProcessAuxDataTable+0xde>
 	}
 }
  800648e:	bf00      	nop
@@ -13779,12 +13779,12 @@ void VPP_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
  800650a:	bf00      	nop
  800650c:	20001f10 	.word	0x20001f10
 
-08006510 <VPP_MapEncoderPositionToSyncOutput>:
+08006510 <VPP_MapEncoderPositionToAuxOutput>:
  *
  *	@retval None
  *
  */
-void VPP_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
+void VPP_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue)
 {
  8006510:	b580      	push	{r7, lr}
  8006512:	b084      	sub	sp, #16
@@ -13792,7 +13792,7 @@ void VPP_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
  8006516:	4603      	mov	r3, r0
  8006518:	80fb      	strh	r3, [r7, #6]
 
-	eAmpSettings_t tmpAmp = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
+	eAmpSettings_t tmpAmp = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile->amp_setting;
  800651a:	2001      	movs	r0, #1
  800651c:	f7ff fc12 	bl	8005d44 <SM_GetOutputChannel>
  8006520:	4603      	mov	r3, r0
@@ -13800,11 +13800,11 @@ void VPP_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
  8006526:	781b      	ldrb	r3, [r3, #0]
  8006528:	73fb      	strb	r3, [r7, #15]
 	if(pEncoderValue > amp_last_encoder_value)
- 800652a:	4b15      	ldr	r3, [pc, #84]	; (8006580 <VPP_MapEncoderPositionToSyncOutput+0x70>)
+ 800652a:	4b15      	ldr	r3, [pc, #84]	; (8006580 <VPP_MapEncoderPositionToAuxOutput+0x70>)
  800652c:	881b      	ldrh	r3, [r3, #0]
  800652e:	88fa      	ldrh	r2, [r7, #6]
  8006530:	429a      	cmp	r2, r3
- 8006532:	d90c      	bls.n	800654e <VPP_MapEncoderPositionToSyncOutput+0x3e>
+ 8006532:	d90c      	bls.n	800654e <VPP_MapEncoderPositionToAuxOutput+0x3e>
 	{
 		tmpAmp++;
  8006534:	7bfb      	ldrb	r3, [r7, #15]
@@ -13813,21 +13813,21 @@ void VPP_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 		if(tmpAmp > MAX_VPP_PRESETS-1) tmpAmp = VPP98;
  800653a:	7bfb      	ldrb	r3, [r7, #15]
  800653c:	2b61      	cmp	r3, #97	; 0x61
- 800653e:	d901      	bls.n	8006544 <VPP_MapEncoderPositionToSyncOutput+0x34>
+ 800653e:	d901      	bls.n	8006544 <VPP_MapEncoderPositionToAuxOutput+0x34>
  8006540:	2361      	movs	r3, #97	; 0x61
  8006542:	73fb      	strb	r3, [r7, #15]
-		VPP_ApplyProfileToSync(tmpAmp);
+		VPP_ApplyProfileToAux(tmpAmp);
  8006544:	7bfb      	ldrb	r3, [r7, #15]
  8006546:	4618      	mov	r0, r3
- 8006548:	f7ff fe70 	bl	800622c <VPP_ApplyProfileToSync>
- 800654c:	e010      	b.n	8006570 <VPP_MapEncoderPositionToSyncOutput+0x60>
+ 8006548:	f7ff fe70 	bl	800622c <VPP_ApplyProfileToAux>
+ 800654c:	e010      	b.n	8006570 <VPP_MapEncoderPositionToAuxOutput+0x60>
 	}
 	else if (pEncoderValue < amp_last_encoder_value)
- 800654e:	4b0c      	ldr	r3, [pc, #48]	; (8006580 <VPP_MapEncoderPositionToSyncOutput+0x70>)
+ 800654e:	4b0c      	ldr	r3, [pc, #48]	; (8006580 <VPP_MapEncoderPositionToAuxOutput+0x70>)
  8006550:	881b      	ldrh	r3, [r3, #0]
  8006552:	88fa      	ldrh	r2, [r7, #6]
  8006554:	429a      	cmp	r2, r3
- 8006556:	d20b      	bcs.n	8006570 <VPP_MapEncoderPositionToSyncOutput+0x60>
+ 8006556:	d20b      	bcs.n	8006570 <VPP_MapEncoderPositionToAuxOutput+0x60>
 	{
 		tmpAmp--;
  8006558:	7bfb      	ldrb	r3, [r7, #15]
@@ -13836,16 +13836,16 @@ void VPP_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 		if(tmpAmp > MAX_VPP_PRESETS-1) tmpAmp = VPP01;
  800655e:	7bfb      	ldrb	r3, [r7, #15]
  8006560:	2b61      	cmp	r3, #97	; 0x61
- 8006562:	d901      	bls.n	8006568 <VPP_MapEncoderPositionToSyncOutput+0x58>
+ 8006562:	d901      	bls.n	8006568 <VPP_MapEncoderPositionToAuxOutput+0x58>
  8006564:	2300      	movs	r3, #0
  8006566:	73fb      	strb	r3, [r7, #15]
-		VPP_ApplyProfileToSync(tmpAmp);
+		VPP_ApplyProfileToAux(tmpAmp);
  8006568:	7bfb      	ldrb	r3, [r7, #15]
  800656a:	4618      	mov	r0, r3
- 800656c:	f7ff fe5e 	bl	800622c <VPP_ApplyProfileToSync>
+ 800656c:	f7ff fe5e 	bl	800622c <VPP_ApplyProfileToAux>
 	}
 	amp_last_encoder_value = pEncoderValue;
- 8006570:	4a03      	ldr	r2, [pc, #12]	; (8006580 <VPP_MapEncoderPositionToSyncOutput+0x70>)
+ 8006570:	4a03      	ldr	r2, [pc, #12]	; (8006580 <VPP_MapEncoderPositionToAuxOutput+0x70>)
  8006572:	88fb      	ldrh	r3, [r7, #6]
  8006574:	8013      	strh	r3, [r2, #0]
 
@@ -13886,7 +13886,7 @@ void MX_ADC1_Init(void)
  80065a2:	4b32      	ldr	r3, [pc, #200]	; (800666c <MX_ADC1_Init+0xe8>)
  80065a4:	f04f 42a0 	mov.w	r2, #1342177280	; 0x50000000
  80065a8:	601a      	str	r2, [r3, #0]
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV4;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_AAux_DIV4;
  80065aa:	4b30      	ldr	r3, [pc, #192]	; (800666c <MX_ADC1_Init+0xe8>)
  80065ac:	f44f 2200 	mov.w	r2, #524288	; 0x80000
  80065b0:	605a      	str	r2, [r3, #4]
@@ -15931,9 +15931,9 @@ int main(void)
   FuncO_ApplyPresetToSignal(eDefaultFuncPreset);
  800720c:	2000      	movs	r0, #0
  800720e:	f7fe fa9f 	bl	8005750 <FuncO_ApplyPresetToSignal>
-  FuncO_ApplyPresetToSync(eDefaultFuncPreset);
+  FuncO_ApplyPresetToAux(eDefaultFuncPreset);
  8007212:	2000      	movs	r0, #0
- 8007214:	f7fe fafc 	bl	8005810 <FuncO_ApplyPresetToSync>
+ 8007214:	f7fe fafc 	bl	8005810 <FuncO_ApplyPresetToAux>
 
   // DC bias output (internal)
   HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
@@ -17369,11 +17369,11 @@ void MX_TIM1_Init(void)
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  80078ee:	2300      	movs	r3, #0
  80078f0:	643b      	str	r3, [r7, #64]	; 0x40
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim1, &sMasterConfig) != HAL_OK)
  80078f2:	f107 0338 	add.w	r3, r7, #56	; 0x38
  80078f6:	4619      	mov	r1, r3
  80078f8:	480c      	ldr	r0, [pc, #48]	; (800792c <MX_TIM1_Init+0xd8>)
- 80078fa:	f005 fd2b 	bl	800d354 <HAL_TIMEx_MasterConfigSynchronization>
+ 80078fa:	f005 fd2b 	bl	800d354 <HAL_TIMEx_MasterConfigAuxhronization>
  80078fe:	4603      	mov	r3, r0
  8007900:	2b00      	cmp	r3, #0
  8007902:	d001      	beq.n	8007908 <MX_TIM1_Init+0xb4>
@@ -17484,11 +17484,11 @@ void MX_TIM2_Init(void)
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  80079a8:	2300      	movs	r3, #0
  80079aa:	60fb      	str	r3, [r7, #12]
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim2, &sMasterConfig) != HAL_OK)
  80079ac:	1d3b      	adds	r3, r7, #4
  80079ae:	4619      	mov	r1, r3
  80079b0:	4805      	ldr	r0, [pc, #20]	; (80079c8 <MX_TIM2_Init+0x94>)
- 80079b2:	f005 fccf 	bl	800d354 <HAL_TIMEx_MasterConfigSynchronization>
+ 80079b2:	f005 fccf 	bl	800d354 <HAL_TIMEx_MasterConfigAuxhronization>
  80079b6:	4603      	mov	r3, r0
  80079b8:	2b00      	cmp	r3, #0
  80079ba:	d001      	beq.n	80079c0 <MX_TIM2_Init+0x8c>
@@ -17580,11 +17580,11 @@ void MX_TIM3_Init(void)
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  8007a40:	2300      	movs	r3, #0
  8007a42:	60fb      	str	r3, [r7, #12]
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim3, &sMasterConfig) != HAL_OK)
  8007a44:	1d3b      	adds	r3, r7, #4
  8007a46:	4619      	mov	r1, r3
  8007a48:	4805      	ldr	r0, [pc, #20]	; (8007a60 <MX_TIM3_Init+0x94>)
- 8007a4a:	f005 fc83 	bl	800d354 <HAL_TIMEx_MasterConfigSynchronization>
+ 8007a4a:	f005 fc83 	bl	800d354 <HAL_TIMEx_MasterConfigAuxhronization>
  8007a4e:	4603      	mov	r3, r0
  8007a50:	2b00      	cmp	r3, #0
  8007a52:	d001      	beq.n	8007a58 <MX_TIM3_Init+0x8c>
@@ -17677,11 +17677,11 @@ void MX_TIM5_Init(void)
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  8007adc:	2300      	movs	r3, #0
  8007ade:	60fb      	str	r3, [r7, #12]
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim5, &sMasterConfig) != HAL_OK)
  8007ae0:	1d3b      	adds	r3, r7, #4
  8007ae2:	4619      	mov	r1, r3
  8007ae4:	4805      	ldr	r0, [pc, #20]	; (8007afc <MX_TIM5_Init+0x94>)
- 8007ae6:	f005 fc35 	bl	800d354 <HAL_TIMEx_MasterConfigSynchronization>
+ 8007ae6:	f005 fc35 	bl	800d354 <HAL_TIMEx_MasterConfigAuxhronization>
  8007aea:	4603      	mov	r3, r0
  8007aec:	2b00      	cmp	r3, #0
  8007aee:	d001      	beq.n	8007af4 <MX_TIM5_Init+0x8c>
@@ -17787,11 +17787,11 @@ void MX_TIM8_Init(void)
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  8007b8e:	2300      	movs	r3, #0
  8007b90:	63fb      	str	r3, [r7, #60]	; 0x3c
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim8, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim8, &sMasterConfig) != HAL_OK)
  8007b92:	f107 0334 	add.w	r3, r7, #52	; 0x34
  8007b96:	4619      	mov	r1, r3
  8007b98:	480c      	ldr	r0, [pc, #48]	; (8007bcc <MX_TIM8_Init+0xc8>)
- 8007b9a:	f005 fbdb 	bl	800d354 <HAL_TIMEx_MasterConfigSynchronization>
+ 8007b9a:	f005 fbdb 	bl	800d354 <HAL_TIMEx_MasterConfigAuxhronization>
  8007b9e:	4603      	mov	r3, r0
  8007ba0:	2b00      	cmp	r3, #0
  8007ba2:	d001      	beq.n	8007ba8 <MX_TIM8_Init+0xa4>
@@ -17906,11 +17906,11 @@ void MX_TIM15_Init(void)
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
  8007c50:	2300      	movs	r3, #0
  8007c52:	60fb      	str	r3, [r7, #12]
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim15, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim15, &sMasterConfig) != HAL_OK)
  8007c54:	1d3b      	adds	r3, r7, #4
  8007c56:	4619      	mov	r1, r3
  8007c58:	4805      	ldr	r0, [pc, #20]	; (8007c70 <MX_TIM15_Init+0x9c>)
- 8007c5a:	f005 fb7b 	bl	800d354 <HAL_TIMEx_MasterConfigSynchronization>
+ 8007c5a:	f005 fb7b 	bl	800d354 <HAL_TIMEx_MasterConfigAuxhronization>
  8007c5e:	4603      	mov	r3, r0
  8007c60:	2b00      	cmp	r3, #0
  8007c62:	d001      	beq.n	8007c68 <MX_TIM15_Init+0x94>
@@ -18375,7 +18375,7 @@ LoopForever:
   ldr r1, =_edata
  8007f18:	20001e80 	.word	0x20001e80
   ldr r2, =_sidata
- 8007f1c:	080141d0 	.word	0x080141d0
+ 8007f1c:	080141c0 	.word	0x080141c0
   ldr r2, =_sbss
  8007f20:	20001e80 	.word	0x20001e80
   ldr r4, =_ebss
@@ -18628,8 +18628,8 @@ __weak void HAL_Delay(uint32_t Delay)
  800804c:	20000cb0 	.word	0x20000cb0
 
 08008050 <LL_ADC_SetCommonClock>:
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV128
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV256
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV128
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV256
   * @retval None
   */
 __STATIC_INLINE void LL_ADC_SetCommonClock(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t CommonClock)
@@ -24385,7 +24385,7 @@ HAL_StatusTypeDef HAL_DMA_Init(DMA_HandleTypeDef *hdma)
  800a258:	b2d2      	uxtb	r2, r2
  800a25a:	601a      	str	r2, [r3, #0]
 
-  /* Clear the DMAMUX synchro overrun flag */
+  /* Clear the DMAMUX Auxhro overrun flag */
   hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
  800a25c:	687b      	ldr	r3, [r7, #4]
  800a25e:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
@@ -24582,7 +24582,7 @@ HAL_StatusTypeDef HAL_DMA_Start_IT(DMA_HandleTypeDef *hdma, uint32_t SrcAddress,
  800a372:	601a      	str	r2, [r3, #0]
     }
 
-    /* Check if DMAMUX Synchronization is enabled*/
+    /* Check if DMAMUX Auxhronization is enabled*/
     if ((hdma->DMAmuxChannel->CCR & DMAMUX_CxCR_SE) != 0U)
  800a374:	68fb      	ldr	r3, [r7, #12]
  800a376:	6c9b      	ldr	r3, [r3, #72]	; 0x48
@@ -24591,7 +24591,7 @@ HAL_StatusTypeDef HAL_DMA_Start_IT(DMA_HandleTypeDef *hdma, uint32_t SrcAddress,
  800a37e:	2b00      	cmp	r3, #0
  800a380:	d007      	beq.n	800a392 <HAL_DMA_Start_IT+0xb6>
     {
-      /* Enable DMAMUX sync overrun IT*/
+      /* Enable DMAMUX Aux overrun IT*/
       hdma->DMAmuxChannel->CCR |= DMAMUX_CxCR_SOIE;
  800a382:	68fb      	ldr	r3, [r7, #12]
  800a384:	6c9b      	ldr	r3, [r3, #72]	; 0x48
@@ -24697,7 +24697,7 @@ HAL_StatusTypeDef HAL_DMA_Abort(DMA_HandleTypeDef *hdma)
  800a400:	f022 020e 	bic.w	r2, r2, #14
  800a404:	601a      	str	r2, [r3, #0]
      
-     /* disable the DMAMUX sync overrun IT*/
+     /* disable the DMAMUX Aux overrun IT*/
      hdma->DMAmuxChannel->CCR &= ~DMAMUX_CxCR_SOIE;
  800a406:	687b      	ldr	r3, [r7, #4]
  800a408:	6c9b      	ldr	r3, [r3, #72]	; 0x48
@@ -24728,7 +24728,7 @@ HAL_StatusTypeDef HAL_DMA_Abort(DMA_HandleTypeDef *hdma)
  800a434:	fa01 f202 	lsl.w	r2, r1, r2
  800a438:	605a      	str	r2, [r3, #4]
      
-     /* Clear the DMAMUX synchro overrun flag */
+     /* Clear the DMAMUX Auxhro overrun flag */
      hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
  800a43a:	687b      	ldr	r3, [r7, #4]
  800a43c:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
@@ -25041,7 +25041,7 @@ static void DMA_SetConfig(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t
  800a5ea:	60b9      	str	r1, [r7, #8]
  800a5ec:	607a      	str	r2, [r7, #4]
  800a5ee:	603b      	str	r3, [r7, #0]
-  /* Clear the DMAMUX synchro overrun flag */
+  /* Clear the DMAMUX Auxhro overrun flag */
   hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
  800a5f0:	68fb      	ldr	r3, [r7, #12]
  800a5f2:	6cdb      	ldr	r3, [r3, #76]	; 0x4c
@@ -27748,7 +27748,7 @@ HAL_StatusTypeDef HAL_RCC_ClockConfig(RCC_ClkInitTypeDef  *RCC_ClkInitStruct, ui
  800b5f4:	40022000 	.word	0x40022000
  800b5f8:	40021000 	.word	0x40021000
  800b5fc:	04c4b400 	.word	0x04c4b400
- 800b600:	08013c6c 	.word	0x08013c6c
+ 800b600:	08013c5c 	.word	0x08013c5c
  800b604:	20000ca8 	.word	0x20000ca8
  800b608:	20000cac 	.word	0x20000cac
 
@@ -32864,11 +32864,11 @@ void TIM_CCxChannelCmd(TIM_TypeDef *TIMx, uint32_t Channel, uint32_t ChannelStat
  800d350:	4770      	bx	lr
 	...
 
-0800d354 <HAL_TIMEx_MasterConfigSynchronization>:
+0800d354 <HAL_TIMEx_MasterConfigAuxhronization>:
   *         mode.
   * @retval HAL status
   */
-HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
+HAL_StatusTypeDef HAL_TIMEx_MasterConfigAuxhronization(TIM_HandleTypeDef *htim,
                                                         TIM_MasterConfigTypeDef *sMasterConfig)
 {
  800d354:	b480      	push	{r7}
@@ -32885,9 +32885,9 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
  800d35e:	687b      	ldr	r3, [r7, #4]
  800d360:	f893 303c 	ldrb.w	r3, [r3, #60]	; 0x3c
  800d364:	2b01      	cmp	r3, #1
- 800d366:	d101      	bne.n	800d36c <HAL_TIMEx_MasterConfigSynchronization+0x18>
+ 800d366:	d101      	bne.n	800d36c <HAL_TIMEx_MasterConfigAuxhronization+0x18>
  800d368:	2302      	movs	r3, #2
- 800d36a:	e074      	b.n	800d456 <HAL_TIMEx_MasterConfigSynchronization+0x102>
+ 800d36a:	e074      	b.n	800d456 <HAL_TIMEx_MasterConfigAuxhronization+0x102>
  800d36c:	687b      	ldr	r3, [r7, #4]
  800d36e:	2201      	movs	r2, #1
  800d370:	f883 203c 	strb.w	r2, [r3, #60]	; 0x3c
@@ -32912,23 +32912,23 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
  800d388:	689b      	ldr	r3, [r3, #8]
  800d38a:	60bb      	str	r3, [r7, #8]
 
-  /* If the timer supports ADC synchronization through TRGO2, set the master mode selection 2 */
+  /* If the timer supports ADC Auxhronization through TRGO2, set the master mode selection 2 */
   if (IS_TIM_TRGO2_INSTANCE(htim->Instance))
  800d38c:	687b      	ldr	r3, [r7, #4]
  800d38e:	681b      	ldr	r3, [r3, #0]
- 800d390:	4a34      	ldr	r2, [pc, #208]	; (800d464 <HAL_TIMEx_MasterConfigSynchronization+0x110>)
+ 800d390:	4a34      	ldr	r2, [pc, #208]	; (800d464 <HAL_TIMEx_MasterConfigAuxhronization+0x110>)
  800d392:	4293      	cmp	r3, r2
- 800d394:	d009      	beq.n	800d3aa <HAL_TIMEx_MasterConfigSynchronization+0x56>
+ 800d394:	d009      	beq.n	800d3aa <HAL_TIMEx_MasterConfigAuxhronization+0x56>
  800d396:	687b      	ldr	r3, [r7, #4]
  800d398:	681b      	ldr	r3, [r3, #0]
- 800d39a:	4a33      	ldr	r2, [pc, #204]	; (800d468 <HAL_TIMEx_MasterConfigSynchronization+0x114>)
+ 800d39a:	4a33      	ldr	r2, [pc, #204]	; (800d468 <HAL_TIMEx_MasterConfigAuxhronization+0x114>)
  800d39c:	4293      	cmp	r3, r2
- 800d39e:	d004      	beq.n	800d3aa <HAL_TIMEx_MasterConfigSynchronization+0x56>
+ 800d39e:	d004      	beq.n	800d3aa <HAL_TIMEx_MasterConfigAuxhronization+0x56>
  800d3a0:	687b      	ldr	r3, [r7, #4]
  800d3a2:	681b      	ldr	r3, [r3, #0]
- 800d3a4:	4a31      	ldr	r2, [pc, #196]	; (800d46c <HAL_TIMEx_MasterConfigSynchronization+0x118>)
+ 800d3a4:	4a31      	ldr	r2, [pc, #196]	; (800d46c <HAL_TIMEx_MasterConfigAuxhronization+0x118>)
  800d3a6:	4293      	cmp	r3, r2
- 800d3a8:	d108      	bne.n	800d3bc <HAL_TIMEx_MasterConfigSynchronization+0x68>
+ 800d3a8:	d108      	bne.n	800d3bc <HAL_TIMEx_MasterConfigAuxhronization+0x68>
   {
     /* Check the parameters */
     assert_param(IS_TIM_TRGO2_SOURCE(sMasterConfig->MasterOutputTrigger2));
@@ -32971,43 +32971,43 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
   if (IS_TIM_SLAVE_INSTANCE(htim->Instance))
  800d3da:	687b      	ldr	r3, [r7, #4]
  800d3dc:	681b      	ldr	r3, [r3, #0]
- 800d3de:	4a21      	ldr	r2, [pc, #132]	; (800d464 <HAL_TIMEx_MasterConfigSynchronization+0x110>)
+ 800d3de:	4a21      	ldr	r2, [pc, #132]	; (800d464 <HAL_TIMEx_MasterConfigAuxhronization+0x110>)
  800d3e0:	4293      	cmp	r3, r2
- 800d3e2:	d022      	beq.n	800d42a <HAL_TIMEx_MasterConfigSynchronization+0xd6>
+ 800d3e2:	d022      	beq.n	800d42a <HAL_TIMEx_MasterConfigAuxhronization+0xd6>
  800d3e4:	687b      	ldr	r3, [r7, #4]
  800d3e6:	681b      	ldr	r3, [r3, #0]
  800d3e8:	f1b3 4f80 	cmp.w	r3, #1073741824	; 0x40000000
- 800d3ec:	d01d      	beq.n	800d42a <HAL_TIMEx_MasterConfigSynchronization+0xd6>
+ 800d3ec:	d01d      	beq.n	800d42a <HAL_TIMEx_MasterConfigAuxhronization+0xd6>
  800d3ee:	687b      	ldr	r3, [r7, #4]
  800d3f0:	681b      	ldr	r3, [r3, #0]
- 800d3f2:	4a1f      	ldr	r2, [pc, #124]	; (800d470 <HAL_TIMEx_MasterConfigSynchronization+0x11c>)
+ 800d3f2:	4a1f      	ldr	r2, [pc, #124]	; (800d470 <HAL_TIMEx_MasterConfigAuxhronization+0x11c>)
  800d3f4:	4293      	cmp	r3, r2
- 800d3f6:	d018      	beq.n	800d42a <HAL_TIMEx_MasterConfigSynchronization+0xd6>
+ 800d3f6:	d018      	beq.n	800d42a <HAL_TIMEx_MasterConfigAuxhronization+0xd6>
  800d3f8:	687b      	ldr	r3, [r7, #4]
  800d3fa:	681b      	ldr	r3, [r3, #0]
- 800d3fc:	4a1d      	ldr	r2, [pc, #116]	; (800d474 <HAL_TIMEx_MasterConfigSynchronization+0x120>)
+ 800d3fc:	4a1d      	ldr	r2, [pc, #116]	; (800d474 <HAL_TIMEx_MasterConfigAuxhronization+0x120>)
  800d3fe:	4293      	cmp	r3, r2
- 800d400:	d013      	beq.n	800d42a <HAL_TIMEx_MasterConfigSynchronization+0xd6>
+ 800d400:	d013      	beq.n	800d42a <HAL_TIMEx_MasterConfigAuxhronization+0xd6>
  800d402:	687b      	ldr	r3, [r7, #4]
  800d404:	681b      	ldr	r3, [r3, #0]
- 800d406:	4a1c      	ldr	r2, [pc, #112]	; (800d478 <HAL_TIMEx_MasterConfigSynchronization+0x124>)
+ 800d406:	4a1c      	ldr	r2, [pc, #112]	; (800d478 <HAL_TIMEx_MasterConfigAuxhronization+0x124>)
  800d408:	4293      	cmp	r3, r2
- 800d40a:	d00e      	beq.n	800d42a <HAL_TIMEx_MasterConfigSynchronization+0xd6>
+ 800d40a:	d00e      	beq.n	800d42a <HAL_TIMEx_MasterConfigAuxhronization+0xd6>
  800d40c:	687b      	ldr	r3, [r7, #4]
  800d40e:	681b      	ldr	r3, [r3, #0]
- 800d410:	4a15      	ldr	r2, [pc, #84]	; (800d468 <HAL_TIMEx_MasterConfigSynchronization+0x114>)
+ 800d410:	4a15      	ldr	r2, [pc, #84]	; (800d468 <HAL_TIMEx_MasterConfigAuxhronization+0x114>)
  800d412:	4293      	cmp	r3, r2
- 800d414:	d009      	beq.n	800d42a <HAL_TIMEx_MasterConfigSynchronization+0xd6>
+ 800d414:	d009      	beq.n	800d42a <HAL_TIMEx_MasterConfigAuxhronization+0xd6>
  800d416:	687b      	ldr	r3, [r7, #4]
  800d418:	681b      	ldr	r3, [r3, #0]
- 800d41a:	4a18      	ldr	r2, [pc, #96]	; (800d47c <HAL_TIMEx_MasterConfigSynchronization+0x128>)
+ 800d41a:	4a18      	ldr	r2, [pc, #96]	; (800d47c <HAL_TIMEx_MasterConfigAuxhronization+0x128>)
  800d41c:	4293      	cmp	r3, r2
- 800d41e:	d004      	beq.n	800d42a <HAL_TIMEx_MasterConfigSynchronization+0xd6>
+ 800d41e:	d004      	beq.n	800d42a <HAL_TIMEx_MasterConfigAuxhronization+0xd6>
  800d420:	687b      	ldr	r3, [r7, #4]
  800d422:	681b      	ldr	r3, [r3, #0]
- 800d424:	4a11      	ldr	r2, [pc, #68]	; (800d46c <HAL_TIMEx_MasterConfigSynchronization+0x118>)
+ 800d424:	4a11      	ldr	r2, [pc, #68]	; (800d46c <HAL_TIMEx_MasterConfigAuxhronization+0x118>)
  800d426:	4293      	cmp	r3, r2
- 800d428:	d10c      	bne.n	800d444 <HAL_TIMEx_MasterConfigSynchronization+0xf0>
+ 800d428:	d10c      	bne.n	800d444 <HAL_TIMEx_MasterConfigAuxhronization+0xf0>
   {
     /* Reset the MSM Bit */
     tmpsmcr &= ~TIM_SMCR_MSM;
@@ -35129,7 +35129,7 @@ void ILI9341_Draw_Char(char character, uint16_t x, uint16_t y, uint16_t colour, 
  800e0d2:	371c      	adds	r7, #28
  800e0d4:	46bd      	mov	sp, r7
  800e0d6:	bd90      	pop	{r4, r7, pc}
- 800e0d8:	08013c7c 	.word	0x08013c7c
+ 800e0d8:	08013c6c 	.word	0x08013c6c
 
 0800e0dc <ILI9341_Draw_Text>:
  *	@param None
@@ -37304,10 +37304,10 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  800ee7e:	4798      	blx	r3
  800ee80:	3501      	adds	r5, #1
  800ee82:	e7f2      	b.n	800ee6a <__libc_init_array+0x1e>
- 800ee84:	080141c8 	.word	0x080141c8
- 800ee88:	080141c8 	.word	0x080141c8
- 800ee8c:	080141c8 	.word	0x080141c8
- 800ee90:	080141cc 	.word	0x080141cc
+ 800ee84:	080141b8 	.word	0x080141b8
+ 800ee88:	080141b8 	.word	0x080141b8
+ 800ee8c:	080141b8 	.word	0x080141b8
+ 800ee90:	080141bc 	.word	0x080141bc
 
 0800ee94 <memset>:
  800ee94:	4402      	add	r2, r0
@@ -37748,11 +37748,11 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  800f2c0:	9306      	str	r3, [sp, #24]
  800f2c2:	e015      	b.n	800f2f0 <_printf_float+0x324>
  800f2c4:	7fefffff 	.word	0x7fefffff
- 800f2c8:	08013ec4 	.word	0x08013ec4
- 800f2cc:	08013ec0 	.word	0x08013ec0
- 800f2d0:	08013ecc 	.word	0x08013ecc
- 800f2d4:	08013ec8 	.word	0x08013ec8
- 800f2d8:	0801417c 	.word	0x0801417c
+ 800f2c8:	08013eb4 	.word	0x08013eb4
+ 800f2cc:	08013eb0 	.word	0x08013eb0
+ 800f2d0:	08013ebc 	.word	0x08013ebc
+ 800f2d4:	08013eb8 	.word	0x08013eb8
+ 800f2d8:	0801416c 	.word	0x0801416c
  800f2dc:	2301      	movs	r3, #1
  800f2de:	9a06      	ldr	r2, [sp, #24]
  800f2e0:	4631      	mov	r1, r6
@@ -38232,8 +38232,8 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  800f74a:	f884 3042 	strb.w	r3, [r4, #66]	; 0x42
  800f74e:	f104 0542 	add.w	r5, r4, #66	; 0x42
  800f752:	e76c      	b.n	800f62e <_printf_i+0xf6>
- 800f754:	08013ed0 	.word	0x08013ed0
- 800f758:	08013ee1 	.word	0x08013ee1
+ 800f754:	08013ec0 	.word	0x08013ec0
+ 800f758:	08013ed1 	.word	0x08013ed1
 
 0800f75c <_puts_r>:
  800f75c:	b570      	push	{r4, r5, r6, lr}
@@ -38315,9 +38315,9 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  800f802:	7018      	strb	r0, [r3, #0]
  800f804:	e7e5      	b.n	800f7d2 <_puts_r+0x76>
  800f806:	bf00      	nop
- 800f808:	08013f20 	.word	0x08013f20
- 800f80c:	08013f40 	.word	0x08013f40
- 800f810:	08013f00 	.word	0x08013f00
+ 800f808:	08013f10 	.word	0x08013f10
+ 800f80c:	08013f30 	.word	0x08013f30
+ 800f810:	08013ef0 	.word	0x08013ef0
 
 0800f814 <puts>:
  800f814:	4b02      	ldr	r3, [pc, #8]	; (800f820 <puts+0xc>)
@@ -38460,9 +38460,9 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  800f93e:	4638      	mov	r0, r7
  800f940:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
  800f942:	bf00      	nop
- 800f944:	08013f20 	.word	0x08013f20
- 800f948:	08013f40 	.word	0x08013f40
- 800f94c:	08013f00 	.word	0x08013f00
+ 800f944:	08013f10 	.word	0x08013f10
+ 800f948:	08013f30 	.word	0x08013f30
+ 800f94c:	08013ef0 	.word	0x08013ef0
 
 0800f950 <__swsetup_r>:
  800f950:	4b32      	ldr	r3, [pc, #200]	; (800fa1c <__swsetup_r+0xcc>)
@@ -38554,9 +38554,9 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  800fa18:	e7f7      	b.n	800fa0a <__swsetup_r+0xba>
  800fa1a:	bf00      	nop
  800fa1c:	20001cac 	.word	0x20001cac
- 800fa20:	08013f20 	.word	0x08013f20
- 800fa24:	08013f40 	.word	0x08013f40
- 800fa28:	08013f00 	.word	0x08013f00
+ 800fa20:	08013f10 	.word	0x08013f10
+ 800fa24:	08013f30 	.word	0x08013f30
+ 800fa28:	08013ef0 	.word	0x08013ef0
 
 0800fa2c <quorem>:
  800fa2c:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -38960,11 +38960,11 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  800fe60:	509f79fb 	.word	0x509f79fb
  800fe64:	3fd34413 	.word	0x3fd34413
  800fe68:	7ff00000 	.word	0x7ff00000
- 800fe6c:	0801417d 	.word	0x0801417d
+ 800fe6c:	0801416d 	.word	0x0801416d
  800fe70:	3ff80000 	.word	0x3ff80000
- 800fe74:	08013f88 	.word	0x08013f88
- 800fe78:	08013f60 	.word	0x08013f60
- 800fe7c:	08013efb 	.word	0x08013efb
+ 800fe74:	08013f78 	.word	0x08013f78
+ 800fe78:	08013f50 	.word	0x08013f50
+ 800fe7c:	08013eeb 	.word	0x08013eeb
  800fe80:	07f1      	lsls	r1, r6, #31
  800fe82:	d508      	bpl.n	800fe96 <_dtoa_r+0x34e>
  800fe84:	e9dd 0108 	ldrd	r0, r1, [sp, #32]
@@ -39203,8 +39203,8 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  8010132:	f7f0 fa89 	bl	8000648 <__aeabi_dmul>
  8010136:	e9cd 0100 	strd	r0, r1, [sp]
  801013a:	e7bc      	b.n	80100b6 <_dtoa_r+0x56e>
- 801013c:	08013f88 	.word	0x08013f88
- 8010140:	08013f60 	.word	0x08013f60
+ 801013c:	08013f78 	.word	0x08013f78
+ 8010140:	08013f50 	.word	0x08013f50
  8010144:	3ff00000 	.word	0x3ff00000
  8010148:	40240000 	.word	0x40240000
  801014c:	401c0000 	.word	0x401c0000
@@ -39766,8 +39766,8 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  80106a8:	f000 fa50 	bl	8010b4c <__multadd>
  80106ac:	9004      	str	r0, [sp, #16]
  80106ae:	e7ea      	b.n	8010686 <_dtoa_r+0xb3e>
- 80106b0:	0801417c 	.word	0x0801417c
- 80106b4:	08013ef2 	.word	0x08013ef2
+ 80106b0:	0801416c 	.word	0x0801416c
+ 80106b4:	08013ee2 	.word	0x08013ee2
 
 080106b8 <__sflush_r>:
  80106b8:	898a      	ldrh	r2, [r1, #12]
@@ -39926,9 +39926,9 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  8010806:	2000      	movs	r0, #0
  8010808:	bd38      	pop	{r3, r4, r5, pc}
  801080a:	bf00      	nop
- 801080c:	08013f20 	.word	0x08013f20
- 8010810:	08013f40 	.word	0x08013f40
- 8010814:	08013f00 	.word	0x08013f00
+ 801080c:	08013f10 	.word	0x08013f10
+ 8010810:	08013f30 	.word	0x08013f30
+ 8010814:	08013ef0 	.word	0x08013ef0
 
 08010818 <std>:
  8010818:	2300      	movs	r3, #0
@@ -40024,7 +40024,7 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  80108ea:	2301      	movs	r3, #1
  80108ec:	61a3      	str	r3, [r4, #24]
  80108ee:	bd10      	pop	{r4, pc}
- 80108f0:	08013ebc 	.word	0x08013ebc
+ 80108f0:	08013eac 	.word	0x08013eac
  80108f4:	08010861 	.word	0x08010861
 
 080108f8 <__sfp>:
@@ -40073,7 +40073,7 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  8010960:	e9c4 5512 	strd	r5, r5, [r4, #72]	; 0x48
  8010964:	e7e9      	b.n	801093a <__sfp+0x42>
  8010966:	bf00      	nop
- 8010968:	08013ebc 	.word	0x08013ebc
+ 8010968:	08013eac 	.word	0x08013eac
  801096c:	ffff0001 	.word	0xffff0001
 
 08010970 <_fwalk_reent>:
@@ -40589,7 +40589,7 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  8010e2c:	4638      	mov	r0, r7
  8010e2e:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
  8010e32:	bf00      	nop
- 8010e34:	08014050 	.word	0x08014050
+ 8010e34:	08014040 	.word	0x08014040
 
 08010e38 <__lshift>:
  8010e38:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
@@ -41257,9 +41257,9 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  8011460:	f7fe f86a 	bl	800f538 <_printf_i>
  8011464:	e7ea      	b.n	801143c <_svfiprintf_r+0x1b0>
  8011466:	bf00      	nop
- 8011468:	0801405c 	.word	0x0801405c
- 801146c:	08014062 	.word	0x08014062
- 8011470:	08014066 	.word	0x08014066
+ 8011468:	0801404c 	.word	0x0801404c
+ 801146c:	08014052 	.word	0x08014052
+ 8011470:	08014056 	.word	0x08014056
  8011474:	0800efcd 	.word	0x0800efcd
  8011478:	080111d9 	.word	0x080111d9
 
@@ -41642,10 +41642,10 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  80117ae:	ecbd 8b02 	vpop	{d8}
  80117b2:	bdf0      	pop	{r4, r5, r6, r7, pc}
  80117b4:	20001e7c 	.word	0x20001e7c
- 80117b8:	08014178 	.word	0x08014178
+ 80117b8:	08014168 	.word	0x08014168
  80117bc:	c7efffff 	.word	0xc7efffff
  80117c0:	fff00000 	.word	0xfff00000
- 80117c4:	08014061 	.word	0x08014061
+ 80117c4:	08014051 	.word	0x08014051
 
 080117c8 <pow>:
  80117c8:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -41903,7 +41903,7 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  8011a80:	f47f af11 	bne.w	80118a6 <pow+0xde>
  8011a84:	e7b5      	b.n	80119f2 <pow+0x22a>
  8011a86:	bf00      	nop
- 8011a88:	0801417e 	.word	0x0801417e
+ 8011a88:	0801416e 	.word	0x0801416e
  8011a8c:	3ff00000 	.word	0x3ff00000
  8011a90:	fff00000 	.word	0xfff00000
  8011a94:	3fe00000 	.word	0x3fe00000
@@ -42202,7 +42202,7 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  8011dc0:	8800759c 	.word	0x8800759c
  8011dc4:	7e37e43c 	.word	0x7e37e43c
  8011dc8:	7ff00000 	.word	0x7ff00000
- 8011dcc:	08014061 	.word	0x08014061
+ 8011dcc:	08014051 	.word	0x08014051
  8011dd0:	433fffff 	.word	0x433fffff
  8011dd4:	3fefffff 	.word	0x3fefffff
  8011dd8:	3ff00000 	.word	0x3ff00000
@@ -42660,11 +42660,11 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  80122e0:	43400000 	.word	0x43400000
  80122e4:	0003988e 	.word	0x0003988e
  80122e8:	000bb679 	.word	0x000bb679
- 80122ec:	08014188 	.word	0x08014188
+ 80122ec:	08014178 	.word	0x08014178
  80122f0:	3ff00000 	.word	0x3ff00000
  80122f4:	40080000 	.word	0x40080000
- 80122f8:	080141a8 	.word	0x080141a8
- 80122fc:	08014198 	.word	0x08014198
+ 80122f8:	08014198 	.word	0x08014198
+ 80122fc:	08014188 	.word	0x08014188
  8012300:	a3b4      	add	r3, pc, #720	; (adr r3, 80125d4 <__ieee754_pow+0xa14>)
  8012302:	e9d3 2300 	ldrd	r2, r3, [r3]
  8012306:	4640      	mov	r0, r8
@@ -43177,7 +43177,7 @@ void _SPI_SendByteMultiByte(unsigned char *data_buffer, uint32_t buffer_size, ui
  8012872:	4134      	asrne	r4, r6
  8012874:	4314      	orrne	r4, r2
  8012876:	e7d1      	b.n	801281c <rint+0xa4>
- 8012878:	080141b8 	.word	0x080141b8
+ 8012878:	080141a8 	.word	0x080141a8
  801287c:	000fffff 	.word	0x000fffff
 
 08012880 <scalbn>:

@@ -1,7 +1,7 @@
 /*
  * GainMenus.c
  *
- *	Defines draw functions for Gain menu and its sub menus: GainSignal and GainSync
+ *	Defines draw functions for Gain menu and its sub menus: GainSignal and GainAux
  *
  *  Created on: 15 May 2020
  *      Author: chris
@@ -30,8 +30,8 @@ void GainMenu_DrawMenu(eGainMenu_Status pMenu)
 		case ENABLE_GAIN_SIGNAL_MENU:
 			GainMenu_DrawSignalMenu();
 			break;
-		case ENABLE_GAIN_SYNC_MENU:
-			GainMenu_DrawSyncMenu();
+		case ENABLE_GAIN_Aux_MENU:
+			GainMenu_DrawAuxMenu();
 			break;
 
 		default:
@@ -58,7 +58,7 @@ void GainMenu_DrawMainMenu()
 
 	// coloured menu btn labels
 	ILI9341_Draw_Text("SIGNAL", 5, 	 210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text("SYNC",	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("Aux",	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 }
@@ -86,9 +86,9 @@ void GainMenu_DrawSignalMenu()
  *	@retval None
  *
  */
-void GainMenu_DrawSyncMenu()
+void GainMenu_DrawAuxMenu()
 {
-	ILI9341_Draw_Text("OUT->GAIN->SYNC", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
+	ILI9341_Draw_Text("OUT->GAIN->Aux", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
 	DM_DisplayFormattedOutput();
 }

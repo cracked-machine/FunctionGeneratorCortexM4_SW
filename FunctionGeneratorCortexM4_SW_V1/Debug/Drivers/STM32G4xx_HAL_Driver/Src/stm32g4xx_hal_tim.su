@@ -71,8 +71,8 @@ stm32g4xx_hal_tim.c:5049:19:HAL_TIM_GenerateEvent	16	static
 stm32g4xx_hal_tim.c:5088:19:HAL_TIM_ConfigOCrefClear	24	static
 stm32g4xx_hal_tim.c:5284:19:HAL_TIM_ConfigClockSource	24	static
 stm32g4xx_hal_tim.c:5448:19:HAL_TIM_ConfigTI1Input	24	static
-stm32g4xx_hal_tim.c:5480:19:HAL_TIM_SlaveConfigSynchro	16	static
-stm32g4xx_hal_tim.c:5520:19:HAL_TIM_SlaveConfigSynchro_IT	16	static
+stm32g4xx_hal_tim.c:5480:19:HAL_TIM_SlaveConfigAuxhro	16	static
+stm32g4xx_hal_tim.c:5520:19:HAL_TIM_SlaveConfigAuxhro_IT	16	static
 stm32g4xx_hal_tim.c:5563:10:HAL_TIM_ReadCapturedValue	24	static
 stm32g4xx_hal_tim.c:5651:13:HAL_TIM_PeriodElapsedCallback	16	static
 stm32g4xx_hal_tim.c:5666:13:HAL_TIM_PeriodElapsedHalfCpltCallback	16	static

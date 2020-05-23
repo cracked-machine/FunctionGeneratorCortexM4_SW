@@ -9,11 +9,11 @@ stm32g4xx_hal_rcc_ex.c:1336:13:HAL_RCCEx_LSECSS_Callback	4	static
 stm32g4xx_hal_rcc_ex.c:1351:6:HAL_RCCEx_EnableLSCO	48	static
 stm32g4xx_hal_rcc_ex.c:1398:6:HAL_RCCEx_DisableLSCO	16	static
 stm32g4xx_hal_rcc_ex.c:1506:6:HAL_RCCEx_CRSConfig	24	static
-stm32g4xx_hal_rcc_ex.c:1548:6:HAL_RCCEx_CRSSoftwareSynchronizationGenerate	4	static
-stm32g4xx_hal_rcc_ex.c:1558:6:HAL_RCCEx_CRSGetSynchronizationInfo	16	static
-stm32g4xx_hal_rcc_ex.c:1591:10:HAL_RCCEx_CRSWaitSynchronization	24	static
+stm32g4xx_hal_rcc_ex.c:1548:6:HAL_RCCEx_CRSSoftwareAuxhronizationGenerate	4	static
+stm32g4xx_hal_rcc_ex.c:1558:6:HAL_RCCEx_CRSGetAuxhronizationInfo	16	static
+stm32g4xx_hal_rcc_ex.c:1591:10:HAL_RCCEx_CRSWaitAuxhronization	24	static
 stm32g4xx_hal_rcc_ex.c:1674:6:HAL_RCCEx_CRS_IRQHandler	24	static
-stm32g4xx_hal_rcc_ex.c:1739:13:HAL_RCCEx_CRS_SyncOkCallback	4	static
-stm32g4xx_hal_rcc_ex.c:1750:13:HAL_RCCEx_CRS_SyncWarnCallback	4	static
-stm32g4xx_hal_rcc_ex.c:1761:13:HAL_RCCEx_CRS_ExpectedSyncCallback	4	static
+stm32g4xx_hal_rcc_ex.c:1739:13:HAL_RCCEx_CRS_AuxOkCallback	4	static
+stm32g4xx_hal_rcc_ex.c:1750:13:HAL_RCCEx_CRS_AuxWarnCallback	4	static
+stm32g4xx_hal_rcc_ex.c:1761:13:HAL_RCCEx_CRS_ExpectedAuxCallback	4	static
 stm32g4xx_hal_rcc_ex.c:1777:13:HAL_RCCEx_CRS_ErrorCallback	16	static

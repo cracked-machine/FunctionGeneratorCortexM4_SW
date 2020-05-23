@@ -656,21 +656,21 @@ typedef struct
 /** @defgroup ADC_LL_EC_COMMON_CLOCK_SOURCE  ADC common - Clock source
   * @{
   */
-#define LL_ADC_CLOCK_SYNC_PCLK_DIV1        (ADC_CCR_CKMODE_0)                                    /*!< ADC synchronous clock derived from AHB clock without prescaler */
-#define LL_ADC_CLOCK_SYNC_PCLK_DIV2        (ADC_CCR_CKMODE_1                   )                 /*!< ADC synchronous clock derived from AHB clock with prescaler division by 2 */
-#define LL_ADC_CLOCK_SYNC_PCLK_DIV4        (ADC_CCR_CKMODE_1 | ADC_CCR_CKMODE_0)                 /*!< ADC synchronous clock derived from AHB clock with prescaler division by 4 */
-#define LL_ADC_CLOCK_ASYNC_DIV1            (0x00000000UL)                                        /*!< ADC asynchronous clock without prescaler */
-#define LL_ADC_CLOCK_ASYNC_DIV2            (ADC_CCR_PRESC_0)                                     /*!< ADC asynchronous clock with prescaler division by 2   */
-#define LL_ADC_CLOCK_ASYNC_DIV4            (ADC_CCR_PRESC_1                  )                   /*!< ADC asynchronous clock with prescaler division by 4   */
-#define LL_ADC_CLOCK_ASYNC_DIV6            (ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0)                   /*!< ADC asynchronous clock with prescaler division by 6   */
-#define LL_ADC_CLOCK_ASYNC_DIV8            (ADC_CCR_PRESC_2                                    ) /*!< ADC asynchronous clock with prescaler division by 8   */
-#define LL_ADC_CLOCK_ASYNC_DIV10           (ADC_CCR_PRESC_2                   | ADC_CCR_PRESC_0) /*!< ADC asynchronous clock with prescaler division by 10  */
-#define LL_ADC_CLOCK_ASYNC_DIV12           (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_1                  ) /*!< ADC asynchronous clock with prescaler division by 12  */
-#define LL_ADC_CLOCK_ASYNC_DIV16           (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0) /*!< ADC asynchronous clock with prescaler division by 16  */
-#define LL_ADC_CLOCK_ASYNC_DIV32           (ADC_CCR_PRESC_3)                                     /*!< ADC asynchronous clock with prescaler division by 32  */
-#define LL_ADC_CLOCK_ASYNC_DIV64           (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_0)                   /*!< ADC asynchronous clock with prescaler division by 64  */
-#define LL_ADC_CLOCK_ASYNC_DIV128          (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1)                   /*!< ADC asynchronous clock with prescaler division by 128 */
-#define LL_ADC_CLOCK_ASYNC_DIV256          (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0) /*!< ADC asynchronous clock with prescaler division by 256 */
+#define LL_ADC_CLOCK_Aux_PCLK_DIV1        (ADC_CCR_CKMODE_0)                                    /*!< ADC Auxhronous clock derived from AHB clock without prescaler */
+#define LL_ADC_CLOCK_Aux_PCLK_DIV2        (ADC_CCR_CKMODE_1                   )                 /*!< ADC Auxhronous clock derived from AHB clock with prescaler division by 2 */
+#define LL_ADC_CLOCK_Aux_PCLK_DIV4        (ADC_CCR_CKMODE_1 | ADC_CCR_CKMODE_0)                 /*!< ADC Auxhronous clock derived from AHB clock with prescaler division by 4 */
+#define LL_ADC_CLOCK_AAux_DIV1            (0x00000000UL)                                        /*!< ADC aAuxhronous clock without prescaler */
+#define LL_ADC_CLOCK_AAux_DIV2            (ADC_CCR_PRESC_0)                                     /*!< ADC aAuxhronous clock with prescaler division by 2   */
+#define LL_ADC_CLOCK_AAux_DIV4            (ADC_CCR_PRESC_1                  )                   /*!< ADC aAuxhronous clock with prescaler division by 4   */
+#define LL_ADC_CLOCK_AAux_DIV6            (ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0)                   /*!< ADC aAuxhronous clock with prescaler division by 6   */
+#define LL_ADC_CLOCK_AAux_DIV8            (ADC_CCR_PRESC_2                                    ) /*!< ADC aAuxhronous clock with prescaler division by 8   */
+#define LL_ADC_CLOCK_AAux_DIV10           (ADC_CCR_PRESC_2                   | ADC_CCR_PRESC_0) /*!< ADC aAuxhronous clock with prescaler division by 10  */
+#define LL_ADC_CLOCK_AAux_DIV12           (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_1                  ) /*!< ADC aAuxhronous clock with prescaler division by 12  */
+#define LL_ADC_CLOCK_AAux_DIV16           (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0) /*!< ADC aAuxhronous clock with prescaler division by 16  */
+#define LL_ADC_CLOCK_AAux_DIV32           (ADC_CCR_PRESC_3)                                     /*!< ADC aAuxhronous clock with prescaler division by 32  */
+#define LL_ADC_CLOCK_AAux_DIV64           (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_0)                   /*!< ADC aAuxhronous clock with prescaler division by 64  */
+#define LL_ADC_CLOCK_AAux_DIV128          (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1)                   /*!< ADC aAuxhronous clock with prescaler division by 128 */
+#define LL_ADC_CLOCK_AAux_DIV256          (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0) /*!< ADC aAuxhronous clock with prescaler division by 256 */
 /**
   * @}
   */
@@ -2683,21 +2683,21 @@ __STATIC_INLINE uint32_t LL_ADC_DMA_GetRegAddr(ADC_TypeDef *ADCx, uint32_t Regis
   * @param  ADCxy_COMMON ADC common instance
   *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )
   * @param  CommonClock This parameter can be one of the following values:
-  *         @arg @ref LL_ADC_CLOCK_SYNC_PCLK_DIV1
-  *         @arg @ref LL_ADC_CLOCK_SYNC_PCLK_DIV2
-  *         @arg @ref LL_ADC_CLOCK_SYNC_PCLK_DIV4
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV1
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV2
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV4
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV6
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV8
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV10
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV12
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV16
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV32
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV64
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV128
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV256
+  *         @arg @ref LL_ADC_CLOCK_Aux_PCLK_DIV1
+  *         @arg @ref LL_ADC_CLOCK_Aux_PCLK_DIV2
+  *         @arg @ref LL_ADC_CLOCK_Aux_PCLK_DIV4
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV1
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV2
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV4
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV6
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV8
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV10
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV12
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV16
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV32
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV64
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV128
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV256
   * @retval None
   */
 __STATIC_INLINE void LL_ADC_SetCommonClock(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t CommonClock)
@@ -2712,21 +2712,21 @@ __STATIC_INLINE void LL_ADC_SetCommonClock(ADC_Common_TypeDef *ADCxy_COMMON, uin
   * @param  ADCxy_COMMON ADC common instance
   *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )
   * @retval Returned value can be one of the following values:
-  *         @arg @ref LL_ADC_CLOCK_SYNC_PCLK_DIV1
-  *         @arg @ref LL_ADC_CLOCK_SYNC_PCLK_DIV2
-  *         @arg @ref LL_ADC_CLOCK_SYNC_PCLK_DIV4
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV1
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV2
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV4
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV6
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV8
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV10
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV12
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV16
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV32
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV64
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV128
-  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV256
+  *         @arg @ref LL_ADC_CLOCK_Aux_PCLK_DIV1
+  *         @arg @ref LL_ADC_CLOCK_Aux_PCLK_DIV2
+  *         @arg @ref LL_ADC_CLOCK_Aux_PCLK_DIV4
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV1
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV2
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV4
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV6
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV8
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV10
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV12
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV16
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV32
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV64
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV128
+  *         @arg @ref LL_ADC_CLOCK_AAux_DIV256
   */
 __STATIC_INLINE uint32_t LL_ADC_GetCommonClock(ADC_Common_TypeDef *ADCxy_COMMON)
 {

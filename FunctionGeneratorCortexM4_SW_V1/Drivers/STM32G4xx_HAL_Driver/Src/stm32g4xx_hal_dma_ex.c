@@ -14,7 +14,7 @@
   [..]
   The DMA Extension HAL driver can be used as follows:
 
-   (+) Configure the DMA_MUX Synchronization Block using HAL_DMAEx_ConfigMuxSync function.
+   (+) Configure the DMA_MUX Auxhronization Block using HAL_DMAEx_ConfigMuxAux function.
    (+) Configure the DMA_MUX Request Generator Block using HAL_DMAEx_ConfigMuxRequestGenerator function.
        Functions HAL_DMAEx_EnableMuxRequestGenerator and HAL_DMAEx_DisableMuxRequestGenerator can then be used
        to respectively enable/disable the request generator.
@@ -23,7 +23,7 @@
        the DMAMUX IRQ handler i.e DMAMUX1_OVR_IRQHandler.
        As only one interrupt line is available for all DMAMUX channels and request generators , HAL_DMAEx_MUX_IRQHandler should be
        called with, as parameter, the appropriate DMA handle as many as used DMAs in the user project
-      (exception done if a given DMA is not using the DMAMUX SYNC block neither a request generator)
+      (exception done if a given DMA is not using the DMAMUX Aux block neither a request generator)
 
   @endverbatim
   ******************************************************************************
@@ -76,7 +76,7 @@
  ===============================================================================
     [..]  This section provides functions allowing to:
 
-    (+) Configure the DMAMUX Synchronization Block using HAL_DMAEx_ConfigMuxSync function.
+    (+) Configure the DMAMUX Auxhronization Block using HAL_DMAEx_ConfigMuxAux function.
     (+) Configure the DMAMUX Request Generator Block using HAL_DMAEx_ConfigMuxRequestGenerator function.
        Functions HAL_DMAEx_EnableMuxRequestGenerator and HAL_DMAEx_DisableMuxRequestGenerator can then be used
        to respectively enable/disable the request generator.
@@ -87,23 +87,23 @@
 
 
 /**
-  * @brief  Configure the DMAMUX synchronization parameters for a given DMA channel (instance).
+  * @brief  Configure the DMAMUX Auxhronization parameters for a given DMA channel (instance).
   * @param  hdma:       pointer to a DMA_HandleTypeDef structure that contains
   *                     the configuration information for the specified DMA channel.
-  * @param  pSyncConfig : pointer to HAL_DMA_MuxSyncConfigTypeDef : contains the DMAMUX synchronization parameters
+  * @param  pAuxConfig : pointer to HAL_DMA_MuxAuxConfigTypeDef : contains the DMAMUX Auxhronization parameters
   * @retval HAL status
   */
-HAL_StatusTypeDef HAL_DMAEx_ConfigMuxSync(DMA_HandleTypeDef *hdma, HAL_DMA_MuxSyncConfigTypeDef *pSyncConfig)
+HAL_StatusTypeDef HAL_DMAEx_ConfigMuxAux(DMA_HandleTypeDef *hdma, HAL_DMA_MuxAuxConfigTypeDef *pAuxConfig)
 {
   /* Check the parameters */
   assert_param(IS_DMA_ALL_INSTANCE(hdma->Instance));
 
-  assert_param(IS_DMAMUX_SYNC_SIGNAL_ID(pSyncConfig->SyncSignalID));
+  assert_param(IS_DMAMUX_Aux_SIGNAL_ID(pAuxConfig->AuxSignalID));
 
-  assert_param(IS_DMAMUX_SYNC_POLARITY(pSyncConfig-> SyncPolarity));
-  assert_param(IS_DMAMUX_SYNC_STATE(pSyncConfig->SyncEnable));
-  assert_param(IS_DMAMUX_SYNC_EVENT(pSyncConfig->EventEnable));
-  assert_param(IS_DMAMUX_SYNC_REQUEST_NUMBER(pSyncConfig->RequestNumber));
+  assert_param(IS_DMAMUX_Aux_POLARITY(pAuxConfig-> AuxPolarity));
+  assert_param(IS_DMAMUX_Aux_STATE(pAuxConfig->AuxEnable));
+  assert_param(IS_DMAMUX_Aux_EVENT(pAuxConfig->EventEnable));
+  assert_param(IS_DMAMUX_Aux_REQUEST_NUMBER(pAuxConfig->RequestNumber));
 
   /*Check if the DMA state is ready */
   if (hdma->State == HAL_DMA_STATE_READY)
@@ -111,12 +111,12 @@ HAL_StatusTypeDef HAL_DMAEx_ConfigMuxSync(DMA_HandleTypeDef *hdma, HAL_DMA_MuxSy
     /* Process Locked */
     __HAL_LOCK(hdma);
 
-    /* Set the new synchronization parameters (and keep the request ID filled during the Init)*/
+    /* Set the new Auxhronization parameters (and keep the request ID filled during the Init)*/
     MODIFY_REG(hdma->DMAmuxChannel->CCR, \
                (~DMAMUX_CxCR_DMAREQ_ID), \
-               ((pSyncConfig->SyncSignalID) << DMAMUX_CxCR_SYNC_ID_Pos) | ((pSyncConfig->RequestNumber - 1U) << DMAMUX_CxCR_NBREQ_Pos) | \
-               pSyncConfig->SyncPolarity | ((uint32_t)pSyncConfig->SyncEnable << DMAMUX_CxCR_SE_Pos) | \
-               ((uint32_t)pSyncConfig->EventEnable << DMAMUX_CxCR_EGE_Pos));
+               ((pAuxConfig->AuxSignalID) << DMAMUX_CxCR_Aux_ID_Pos) | ((pAuxConfig->RequestNumber - 1U) << DMAMUX_CxCR_NBREQ_Pos) | \
+               pAuxConfig->AuxPolarity | ((uint32_t)pAuxConfig->AuxEnable << DMAMUX_CxCR_SE_Pos) | \
+               ((uint32_t)pAuxConfig->EventEnable << DMAMUX_CxCR_EGE_Pos));
 
     /* Process UnLocked */
     __HAL_UNLOCK(hdma);
@@ -237,17 +237,17 @@ HAL_StatusTypeDef HAL_DMAEx_DisableMuxRequestGenerator(DMA_HandleTypeDef *hdma)
   */
 void HAL_DMAEx_MUX_IRQHandler(DMA_HandleTypeDef *hdma)
 {
-  /* Check for DMAMUX Synchronization overrun */
+  /* Check for DMAMUX Auxhronization overrun */
   if ((hdma->DMAmuxChannelStatus->CSR & hdma->DMAmuxChannelStatusMask) != 0U)
   {
-    /* Disable the synchro overrun interrupt */
+    /* Disable the Auxhro overrun interrupt */
     hdma->DMAmuxChannel->CCR &= ~DMAMUX_CxCR_SOIE;
 
-    /* Clear the DMAMUX synchro overrun flag */
+    /* Clear the DMAMUX Auxhro overrun flag */
     hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
 
     /* Update error code */
-    hdma->ErrorCode |= HAL_DMA_ERROR_SYNC;
+    hdma->ErrorCode |= HAL_DMA_ERROR_Aux;
 
     if (hdma->XferErrorCallback != NULL)
     {

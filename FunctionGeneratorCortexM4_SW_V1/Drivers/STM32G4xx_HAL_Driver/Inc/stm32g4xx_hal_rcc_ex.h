@@ -132,17 +132,17 @@ typedef struct
   */
 typedef struct
 {
-  uint32_t Prescaler;             /*!< Specifies the division factor of the SYNC signal.
-                                       This parameter can be a value of @ref RCCEx_CRS_SynchroDivider */
+  uint32_t Prescaler;             /*!< Specifies the division factor of the Aux signal.
+                                       This parameter can be a value of @ref RCCEx_CRS_AuxhroDivider */
 
-  uint32_t Source;                /*!< Specifies the SYNC signal source.
-                                       This parameter can be a value of @ref RCCEx_CRS_SynchroSource */
+  uint32_t Source;                /*!< Specifies the Aux signal source.
+                                       This parameter can be a value of @ref RCCEx_CRS_AuxhroSource */
 
-  uint32_t Polarity;              /*!< Specifies the input polarity for the SYNC signal source.
-                                       This parameter can be a value of @ref RCCEx_CRS_SynchroPolarity */
+  uint32_t Polarity;              /*!< Specifies the input polarity for the Aux signal source.
+                                       This parameter can be a value of @ref RCCEx_CRS_AuxhroPolarity */
 
-  uint32_t ReloadValue;           /*!< Specifies the value to be loaded in the frequency error counter with each SYNC event.
-                                       It can be calculated in using macro __HAL_RCC_CRS_RELOADVALUE_CALCULATE(__FTARGET__, __FSYNC__)
+  uint32_t ReloadValue;           /*!< Specifies the value to be loaded in the frequency error counter with each Aux event.
+                                       It can be calculated in using macro __HAL_RCC_CRS_RELOADVALUE_CALCULATE(__FTARGET__, __FAux__)
                                        This parameter must be a number between 0 and 0xFFFF or a value of @ref RCCEx_CRS_ReloadValueDefault .*/
 
   uint32_t ErrorLimitValue;       /*!< Specifies the value to be used to evaluate the captured frequency error value.
@@ -154,7 +154,7 @@ typedef struct
 }RCC_CRSInitTypeDef;
 
 /**
-  * @brief RCC_CRS Synchronization structure definition
+  * @brief RCC_CRS Auxhronization structure definition
   */
 typedef struct
 {
@@ -165,15 +165,15 @@ typedef struct
                                        This parameter must be a number between 0 and 0x7F */
 
   uint32_t FreqErrorCapture;      /*!< Specifies the value loaded in the .FECAP, the frequency error counter
-                                       value latched in the time of the last SYNC event.
+                                       value latched in the time of the last Aux event.
                                        This parameter must be a number between 0 and 0xFFFF */
 
   uint32_t FreqErrorDirection;    /*!< Specifies the value loaded in the .FEDIR, the counting direction of the
-                                       frequency error counter latched in the time of the last SYNC event.
+                                       frequency error counter latched in the time of the last Aux event.
                                        It shows whether the actual frequency is below or above the target.
                                        This parameter must be a value of @ref RCCEx_CRS_FreqErrorDirection*/
 
-}RCC_CRSSynchroInfoTypeDef;
+}RCC_CRSAuxhroInfoTypeDef;
 
 /**
   * @}
@@ -454,45 +454,45 @@ typedef struct
   */
 #define RCC_CRS_NONE                   0x00000000U
 #define RCC_CRS_TIMEOUT                0x00000001U
-#define RCC_CRS_SYNCOK                 0x00000002U
-#define RCC_CRS_SYNCWARN               0x00000004U
-#define RCC_CRS_SYNCERR                0x00000008U
-#define RCC_CRS_SYNCMISS               0x00000010U
+#define RCC_CRS_AuxOK                 0x00000002U
+#define RCC_CRS_AuxWARN               0x00000004U
+#define RCC_CRS_AuxERR                0x00000008U
+#define RCC_CRS_AuxMISS               0x00000010U
 #define RCC_CRS_TRIMOVF                0x00000020U
 /**
   * @}
   */
 
-/** @defgroup RCCEx_CRS_SynchroSource RCCEx CRS SynchroSource
+/** @defgroup RCCEx_CRS_AuxhroSource RCCEx CRS AuxhroSource
   * @{
   */
-#define RCC_CRS_SYNC_SOURCE_GPIO       0x00000000U             /*!< Synchro Signal source GPIO */
-#define RCC_CRS_SYNC_SOURCE_LSE        CRS_CFGR_SYNCSRC_0      /*!< Synchro Signal source LSE */
-#define RCC_CRS_SYNC_SOURCE_USB        CRS_CFGR_SYNCSRC_1      /*!< Synchro Signal source USB SOF (default)*/
+#define RCC_CRS_Aux_SOURCE_GPIO       0x00000000U             /*!< Auxhro Signal source GPIO */
+#define RCC_CRS_Aux_SOURCE_LSE        CRS_CFGR_AuxSRC_0      /*!< Auxhro Signal source LSE */
+#define RCC_CRS_Aux_SOURCE_USB        CRS_CFGR_AuxSRC_1      /*!< Auxhro Signal source USB SOF (default)*/
 /**
   * @}
   */
 
-/** @defgroup RCCEx_CRS_SynchroDivider RCCEx CRS SynchroDivider
+/** @defgroup RCCEx_CRS_AuxhroDivider RCCEx CRS AuxhroDivider
   * @{
   */
-#define RCC_CRS_SYNC_DIV1        0x00000000U                               /*!< Synchro Signal not divided (default) */
-#define RCC_CRS_SYNC_DIV2        CRS_CFGR_SYNCDIV_0                        /*!< Synchro Signal divided by 2 */
-#define RCC_CRS_SYNC_DIV4        CRS_CFGR_SYNCDIV_1                        /*!< Synchro Signal divided by 4 */
-#define RCC_CRS_SYNC_DIV8        (CRS_CFGR_SYNCDIV_1 | CRS_CFGR_SYNCDIV_0) /*!< Synchro Signal divided by 8 */
-#define RCC_CRS_SYNC_DIV16       CRS_CFGR_SYNCDIV_2                        /*!< Synchro Signal divided by 16 */
-#define RCC_CRS_SYNC_DIV32       (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_0) /*!< Synchro Signal divided by 32 */
-#define RCC_CRS_SYNC_DIV64       (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_1) /*!< Synchro Signal divided by 64 */
-#define RCC_CRS_SYNC_DIV128      CRS_CFGR_SYNCDIV                          /*!< Synchro Signal divided by 128 */
+#define RCC_CRS_Aux_DIV1        0x00000000U                               /*!< Auxhro Signal not divided (default) */
+#define RCC_CRS_Aux_DIV2        CRS_CFGR_AuxDIV_0                        /*!< Auxhro Signal divided by 2 */
+#define RCC_CRS_Aux_DIV4        CRS_CFGR_AuxDIV_1                        /*!< Auxhro Signal divided by 4 */
+#define RCC_CRS_Aux_DIV8        (CRS_CFGR_AuxDIV_1 | CRS_CFGR_AuxDIV_0) /*!< Auxhro Signal divided by 8 */
+#define RCC_CRS_Aux_DIV16       CRS_CFGR_AuxDIV_2                        /*!< Auxhro Signal divided by 16 */
+#define RCC_CRS_Aux_DIV32       (CRS_CFGR_AuxDIV_2 | CRS_CFGR_AuxDIV_0) /*!< Auxhro Signal divided by 32 */
+#define RCC_CRS_Aux_DIV64       (CRS_CFGR_AuxDIV_2 | CRS_CFGR_AuxDIV_1) /*!< Auxhro Signal divided by 64 */
+#define RCC_CRS_Aux_DIV128      CRS_CFGR_AuxDIV                          /*!< Auxhro Signal divided by 128 */
 /**
   * @}
   */
 
-/** @defgroup RCCEx_CRS_SynchroPolarity RCCEx CRS SynchroPolarity
+/** @defgroup RCCEx_CRS_AuxhroPolarity RCCEx CRS AuxhroPolarity
   * @{
   */
-#define RCC_CRS_SYNC_POLARITY_RISING   0x00000000U             /*!< Synchro Active on rising edge (default) */
-#define RCC_CRS_SYNC_POLARITY_FALLING  CRS_CFGR_SYNCPOL        /*!< Synchro Active on falling edge */
+#define RCC_CRS_Aux_POLARITY_RISING   0x00000000U             /*!< Auxhro Active on rising edge (default) */
+#define RCC_CRS_Aux_POLARITY_FALLING  CRS_CFGR_AuxPOL        /*!< Auxhro Active on falling edge */
 /**
   * @}
   */
@@ -501,7 +501,7 @@ typedef struct
   * @{
   */
 #define RCC_CRS_RELOADVALUE_DEFAULT    0x0000BB7FU             /*!< The reset value of the RELOAD field corresponds
-                                                                    to a target frequency of 48 MHz and a synchronization signal frequency of 1 kHz (SOF signal from USB). */
+                                                                    to a target frequency of 48 MHz and a Auxhronization signal frequency of 1 kHz (SOF signal from USB). */
 /**
   * @}
   */
@@ -536,12 +536,12 @@ typedef struct
 /** @defgroup RCCEx_CRS_Interrupt_Sources RCCEx CRS Interrupt Sources
   * @{
   */
-#define RCC_CRS_IT_SYNCOK              CRS_CR_SYNCOKIE       /*!< SYNC event OK */
-#define RCC_CRS_IT_SYNCWARN            CRS_CR_SYNCWARNIE     /*!< SYNC warning */
+#define RCC_CRS_IT_AuxOK              CRS_CR_AuxOKIE       /*!< Aux event OK */
+#define RCC_CRS_IT_AuxWARN            CRS_CR_AuxWARNIE     /*!< Aux warning */
 #define RCC_CRS_IT_ERR                 CRS_CR_ERRIE          /*!< Error */
-#define RCC_CRS_IT_ESYNC               CRS_CR_ESYNCIE        /*!< Expected SYNC */
-#define RCC_CRS_IT_SYNCERR             CRS_CR_ERRIE          /*!< SYNC error */
-#define RCC_CRS_IT_SYNCMISS            CRS_CR_ERRIE          /*!< SYNC missed */
+#define RCC_CRS_IT_EAux               CRS_CR_EAuxIE        /*!< Expected Aux */
+#define RCC_CRS_IT_AuxERR             CRS_CR_ERRIE          /*!< Aux error */
+#define RCC_CRS_IT_AuxMISS            CRS_CR_ERRIE          /*!< Aux missed */
 #define RCC_CRS_IT_TRIMOVF             CRS_CR_ERRIE           /*!< Trimming overflow or underflow */
 
 /**
@@ -551,12 +551,12 @@ typedef struct
 /** @defgroup RCCEx_CRS_Flags RCCEx CRS Flags
   * @{
   */
-#define RCC_CRS_FLAG_SYNCOK            CRS_ISR_SYNCOKF       /*!< SYNC event OK flag     */
-#define RCC_CRS_FLAG_SYNCWARN          CRS_ISR_SYNCWARNF     /*!< SYNC warning flag      */
+#define RCC_CRS_FLAG_AuxOK            CRS_ISR_AuxOKF       /*!< Aux event OK flag     */
+#define RCC_CRS_FLAG_AuxWARN          CRS_ISR_AuxWARNF     /*!< Aux warning flag      */
 #define RCC_CRS_FLAG_ERR               CRS_ISR_ERRF          /*!< Error flag        */
-#define RCC_CRS_FLAG_ESYNC             CRS_ISR_ESYNCF        /*!< Expected SYNC flag     */
-#define RCC_CRS_FLAG_SYNCERR           CRS_ISR_SYNCERR       /*!< SYNC error */
-#define RCC_CRS_FLAG_SYNCMISS          CRS_ISR_SYNCMISS      /*!< SYNC missed*/
+#define RCC_CRS_FLAG_EAux             CRS_ISR_EAuxF        /*!< Expected Aux flag     */
+#define RCC_CRS_FLAG_AuxERR           CRS_ISR_AuxERR       /*!< Aux error */
+#define RCC_CRS_FLAG_AuxMISS          CRS_ISR_AuxMISS      /*!< Aux missed*/
 #define RCC_CRS_FLAG_TRIMOVF           CRS_ISR_TRIMOVF       /*!< Trimming overflow or underflow */
 
 /**
@@ -1098,10 +1098,10 @@ typedef struct
   * @brief  Enable the specified CRS interrupts.
   * @param  __INTERRUPT__ specifies the CRS interrupt sources to be enabled.
   *          This parameter can be any combination of the following values:
-  *              @arg @ref RCC_CRS_IT_SYNCOK  SYNC event OK interrupt
-  *              @arg @ref RCC_CRS_IT_SYNCWARN  SYNC warning interrupt
-  *              @arg @ref RCC_CRS_IT_ERR  Synchronization or trimming error interrupt
-  *              @arg @ref RCC_CRS_IT_ESYNC  Expected SYNC interrupt
+  *              @arg @ref RCC_CRS_IT_AuxOK  Aux event OK interrupt
+  *              @arg @ref RCC_CRS_IT_AuxWARN  Aux warning interrupt
+  *              @arg @ref RCC_CRS_IT_ERR  Auxhronization or trimming error interrupt
+  *              @arg @ref RCC_CRS_IT_EAux  Expected Aux interrupt
   * @retval None
   */
 #define __HAL_RCC_CRS_ENABLE_IT(__INTERRUPT__)   SET_BIT(CRS->CR, (__INTERRUPT__))
@@ -1110,10 +1110,10 @@ typedef struct
   * @brief  Disable the specified CRS interrupts.
   * @param  __INTERRUPT__ specifies the CRS interrupt sources to be disabled.
   *          This parameter can be any combination of the following values:
-  *              @arg @ref RCC_CRS_IT_SYNCOK  SYNC event OK interrupt
-  *              @arg @ref RCC_CRS_IT_SYNCWARN  SYNC warning interrupt
-  *              @arg @ref RCC_CRS_IT_ERR  Synchronization or trimming error interrupt
-  *              @arg @ref RCC_CRS_IT_ESYNC  Expected SYNC interrupt
+  *              @arg @ref RCC_CRS_IT_AuxOK  Aux event OK interrupt
+  *              @arg @ref RCC_CRS_IT_AuxWARN  Aux warning interrupt
+  *              @arg @ref RCC_CRS_IT_ERR  Auxhronization or trimming error interrupt
+  *              @arg @ref RCC_CRS_IT_EAux  Expected Aux interrupt
   * @retval None
   */
 #define __HAL_RCC_CRS_DISABLE_IT(__INTERRUPT__)  CLEAR_BIT(CRS->CR, (__INTERRUPT__))
@@ -1121,10 +1121,10 @@ typedef struct
 /** @brief  Check whether the CRS interrupt has occurred or not.
   * @param  __INTERRUPT__ specifies the CRS interrupt source to check.
   *         This parameter can be one of the following values:
-  *              @arg @ref RCC_CRS_IT_SYNCOK  SYNC event OK interrupt
-  *              @arg @ref RCC_CRS_IT_SYNCWARN  SYNC warning interrupt
-  *              @arg @ref RCC_CRS_IT_ERR  Synchronization or trimming error interrupt
-  *              @arg @ref RCC_CRS_IT_ESYNC  Expected SYNC interrupt
+  *              @arg @ref RCC_CRS_IT_AuxOK  Aux event OK interrupt
+  *              @arg @ref RCC_CRS_IT_AuxWARN  Aux warning interrupt
+  *              @arg @ref RCC_CRS_IT_ERR  Auxhronization or trimming error interrupt
+  *              @arg @ref RCC_CRS_IT_EAux  Expected Aux interrupt
   * @retval The new state of __INTERRUPT__ (SET or RESET).
   */
 #define __HAL_RCC_CRS_GET_IT_SOURCE(__INTERRUPT__)  ((READ_BIT(CRS->CR, (__INTERRUPT__)) != 0U) ? SET : RESET)
@@ -1132,16 +1132,16 @@ typedef struct
 /** @brief  Clear the CRS interrupt pending bits
   * @param  __INTERRUPT__ specifies the interrupt pending bit to clear.
   *         This parameter can be any combination of the following values:
-  *              @arg @ref RCC_CRS_IT_SYNCOK  SYNC event OK interrupt
-  *              @arg @ref RCC_CRS_IT_SYNCWARN  SYNC warning interrupt
-  *              @arg @ref RCC_CRS_IT_ERR  Synchronization or trimming error interrupt
-  *              @arg @ref RCC_CRS_IT_ESYNC  Expected SYNC interrupt
+  *              @arg @ref RCC_CRS_IT_AuxOK  Aux event OK interrupt
+  *              @arg @ref RCC_CRS_IT_AuxWARN  Aux warning interrupt
+  *              @arg @ref RCC_CRS_IT_ERR  Auxhronization or trimming error interrupt
+  *              @arg @ref RCC_CRS_IT_EAux  Expected Aux interrupt
   *              @arg @ref RCC_CRS_IT_TRIMOVF  Trimming overflow or underflow interrupt
-  *              @arg @ref RCC_CRS_IT_SYNCERR  SYNC error interrupt
-  *              @arg @ref RCC_CRS_IT_SYNCMISS  SYNC missed interrupt
+  *              @arg @ref RCC_CRS_IT_AuxERR  Aux error interrupt
+  *              @arg @ref RCC_CRS_IT_AuxMISS  Aux missed interrupt
   */
 /* CRS IT Error Mask */
-#define  RCC_CRS_IT_ERROR_MASK                 (RCC_CRS_IT_TRIMOVF | RCC_CRS_IT_SYNCERR | RCC_CRS_IT_SYNCMISS)
+#define  RCC_CRS_IT_ERROR_MASK                 (RCC_CRS_IT_TRIMOVF | RCC_CRS_IT_AuxERR | RCC_CRS_IT_AuxMISS)
 
 #define __HAL_RCC_CRS_CLEAR_IT(__INTERRUPT__)  do { \
                                                  if(((__INTERRUPT__) & RCC_CRS_IT_ERROR_MASK) != 0U) \
@@ -1158,13 +1158,13 @@ typedef struct
   * @brief  Check whether the specified CRS flag is set or not.
   * @param  __FLAG__ specifies the flag to check.
   *          This parameter can be one of the following values:
-  *              @arg @ref RCC_CRS_FLAG_SYNCOK  SYNC event OK
-  *              @arg @ref RCC_CRS_FLAG_SYNCWARN  SYNC warning
+  *              @arg @ref RCC_CRS_FLAG_AuxOK  Aux event OK
+  *              @arg @ref RCC_CRS_FLAG_AuxWARN  Aux warning
   *              @arg @ref RCC_CRS_FLAG_ERR  Error
-  *              @arg @ref RCC_CRS_FLAG_ESYNC  Expected SYNC
+  *              @arg @ref RCC_CRS_FLAG_EAux  Expected Aux
   *              @arg @ref RCC_CRS_FLAG_TRIMOVF  Trimming overflow or underflow
-  *              @arg @ref RCC_CRS_FLAG_SYNCERR  SYNC error
-  *              @arg @ref RCC_CRS_FLAG_SYNCMISS  SYNC missed
+  *              @arg @ref RCC_CRS_FLAG_AuxERR  Aux error
+  *              @arg @ref RCC_CRS_FLAG_AuxMISS  Aux missed
   * @retval The new state of _FLAG_ (TRUE or FALSE).
   */
 #define __HAL_RCC_CRS_GET_FLAG(__FLAG__)  (READ_BIT(CRS->ISR, (__FLAG__)) == (__FLAG__))
@@ -1173,19 +1173,19 @@ typedef struct
   * @brief  Clear the CRS specified FLAG.
   * @param __FLAG__ specifies the flag to clear.
   *          This parameter can be one of the following values:
-  *              @arg @ref RCC_CRS_FLAG_SYNCOK  SYNC event OK
-  *              @arg @ref RCC_CRS_FLAG_SYNCWARN  SYNC warning
+  *              @arg @ref RCC_CRS_FLAG_AuxOK  Aux event OK
+  *              @arg @ref RCC_CRS_FLAG_AuxWARN  Aux warning
   *              @arg @ref RCC_CRS_FLAG_ERR  Error
-  *              @arg @ref RCC_CRS_FLAG_ESYNC  Expected SYNC
+  *              @arg @ref RCC_CRS_FLAG_EAux  Expected Aux
   *              @arg @ref RCC_CRS_FLAG_TRIMOVF  Trimming overflow or underflow
-  *              @arg @ref RCC_CRS_FLAG_SYNCERR  SYNC error
-  *              @arg @ref RCC_CRS_FLAG_SYNCMISS  SYNC missed
-  * @note RCC_CRS_FLAG_ERR clears RCC_CRS_FLAG_TRIMOVF, RCC_CRS_FLAG_SYNCERR, RCC_CRS_FLAG_SYNCMISS and consequently RCC_CRS_FLAG_ERR
+  *              @arg @ref RCC_CRS_FLAG_AuxERR  Aux error
+  *              @arg @ref RCC_CRS_FLAG_AuxMISS  Aux missed
+  * @note RCC_CRS_FLAG_ERR clears RCC_CRS_FLAG_TRIMOVF, RCC_CRS_FLAG_AuxERR, RCC_CRS_FLAG_AuxMISS and consequently RCC_CRS_FLAG_ERR
   * @retval None
   */
 
 /* CRS Flag Error Mask */
-#define RCC_CRS_FLAG_ERROR_MASK                (RCC_CRS_FLAG_TRIMOVF | RCC_CRS_FLAG_SYNCERR | RCC_CRS_FLAG_SYNCMISS)
+#define RCC_CRS_FLAG_ERROR_MASK                (RCC_CRS_FLAG_TRIMOVF | RCC_CRS_FLAG_AuxERR | RCC_CRS_FLAG_AuxMISS)
 
 #define __HAL_RCC_CRS_CLEAR_FLAG(__FLAG__)     do { \
                                                  if(((__FLAG__) & RCC_CRS_FLAG_ERROR_MASK) != 0U) \
@@ -1233,16 +1233,16 @@ typedef struct
 #define __HAL_RCC_CRS_AUTOMATIC_CALIB_DISABLE()    CLEAR_BIT(CRS->CR, CRS_CR_AUTOTRIMEN)
 
 /**
-  * @brief  Macro to calculate reload value to be set in CRS register according to target and sync frequencies
+  * @brief  Macro to calculate reload value to be set in CRS register according to target and Aux frequencies
   * @note   The RELOAD value should be selected according to the ratio between the target frequency and the frequency
-  *             of the synchronization source after prescaling. It is then decreased by one in order to
-  *             reach the expected synchronization on the zero value. The formula is the following:
-  *             RELOAD = (fTARGET / fSYNC) -1
+  *             of the Auxhronization source after prescaling. It is then decreased by one in order to
+  *             reach the expected Auxhronization on the zero value. The formula is the following:
+  *             RELOAD = (fTARGET / fAux) -1
   * @param  __FTARGET__ Target frequency (value in Hz)
-  * @param  __FSYNC__ Synchronization signal frequency (value in Hz)
+  * @param  __FAux__ Auxhronization signal frequency (value in Hz)
   * @retval None
   */
-#define __HAL_RCC_CRS_RELOADVALUE_CALCULATE(__FTARGET__, __FSYNC__)  (((__FTARGET__) / (__FSYNC__)) - 1U)
+#define __HAL_RCC_CRS_RELOADVALUE_CALCULATE(__FTARGET__, __FAux__)  (((__FTARGET__) / (__FAux__)) - 1U)
 
 /**
   * @}
@@ -1290,13 +1290,13 @@ void              HAL_RCCEx_DisableLSCO(void);
   */
 
 void              HAL_RCCEx_CRSConfig(RCC_CRSInitTypeDef *pInit);
-void              HAL_RCCEx_CRSSoftwareSynchronizationGenerate(void);
-void              HAL_RCCEx_CRSGetSynchronizationInfo(RCC_CRSSynchroInfoTypeDef *pSynchroInfo);
-uint32_t          HAL_RCCEx_CRSWaitSynchronization(uint32_t Timeout);
+void              HAL_RCCEx_CRSSoftwareAuxhronizationGenerate(void);
+void              HAL_RCCEx_CRSGetAuxhronizationInfo(RCC_CRSAuxhroInfoTypeDef *pAuxhroInfo);
+uint32_t          HAL_RCCEx_CRSWaitAuxhronization(uint32_t Timeout);
 void              HAL_RCCEx_CRS_IRQHandler(void);
-void              HAL_RCCEx_CRS_SyncOkCallback(void);
-void              HAL_RCCEx_CRS_SyncWarnCallback(void);
-void              HAL_RCCEx_CRS_ExpectedSyncCallback(void);
+void              HAL_RCCEx_CRS_AuxOkCallback(void);
+void              HAL_RCCEx_CRS_AuxWarnCallback(void);
+void              HAL_RCCEx_CRS_ExpectedAuxCallback(void);
 void              HAL_RCCEx_CRS_ErrorCallback(uint32_t Error);
 
 /**
@@ -1546,17 +1546,17 @@ void              HAL_RCCEx_CRS_ErrorCallback(uint32_t Error);
 
 #endif /* QUADSPI */
 
-#define IS_RCC_CRS_SYNC_SOURCE(__SOURCE__) (((__SOURCE__) == RCC_CRS_SYNC_SOURCE_GPIO) || \
-                                            ((__SOURCE__) == RCC_CRS_SYNC_SOURCE_LSE)  || \
-                                            ((__SOURCE__) == RCC_CRS_SYNC_SOURCE_USB))
+#define IS_RCC_CRS_Aux_SOURCE(__SOURCE__) (((__SOURCE__) == RCC_CRS_Aux_SOURCE_GPIO) || \
+                                            ((__SOURCE__) == RCC_CRS_Aux_SOURCE_LSE)  || \
+                                            ((__SOURCE__) == RCC_CRS_Aux_SOURCE_USB))
 
-#define IS_RCC_CRS_SYNC_DIV(__DIV__)       (((__DIV__) == RCC_CRS_SYNC_DIV1)  || ((__DIV__) == RCC_CRS_SYNC_DIV2)  || \
-                                            ((__DIV__) == RCC_CRS_SYNC_DIV4)  || ((__DIV__) == RCC_CRS_SYNC_DIV8)  || \
-                                            ((__DIV__) == RCC_CRS_SYNC_DIV16) || ((__DIV__) == RCC_CRS_SYNC_DIV32) || \
-                                            ((__DIV__) == RCC_CRS_SYNC_DIV64) || ((__DIV__) == RCC_CRS_SYNC_DIV128))
+#define IS_RCC_CRS_Aux_DIV(__DIV__)       (((__DIV__) == RCC_CRS_Aux_DIV1)  || ((__DIV__) == RCC_CRS_Aux_DIV2)  || \
+                                            ((__DIV__) == RCC_CRS_Aux_DIV4)  || ((__DIV__) == RCC_CRS_Aux_DIV8)  || \
+                                            ((__DIV__) == RCC_CRS_Aux_DIV16) || ((__DIV__) == RCC_CRS_Aux_DIV32) || \
+                                            ((__DIV__) == RCC_CRS_Aux_DIV64) || ((__DIV__) == RCC_CRS_Aux_DIV128))
 
-#define IS_RCC_CRS_SYNC_POLARITY(__POLARITY__) (((__POLARITY__) == RCC_CRS_SYNC_POLARITY_RISING) || \
-                                                ((__POLARITY__) == RCC_CRS_SYNC_POLARITY_FALLING))
+#define IS_RCC_CRS_Aux_POLARITY(__POLARITY__) (((__POLARITY__) == RCC_CRS_Aux_POLARITY_RISING) || \
+                                                ((__POLARITY__) == RCC_CRS_Aux_POLARITY_FALLING))
 
 #define IS_RCC_CRS_RELOADVALUE(__VALUE__)  (((__VALUE__) <= 0xFFFFU))
 

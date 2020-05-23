@@ -27,7 +27,7 @@ stm32g4xx_hal_tim_ex.c:1684:19:HAL_TIMEx_OnePulseN_Stop_IT	24	static
 stm32g4xx_hal_tim_ex.c:1776:19:HAL_TIMEx_ConfigCommutEvent	24	static
 stm32g4xx_hal_tim_ex.c:1862:19:HAL_TIMEx_ConfigCommutEvent_IT	24	static
 stm32g4xx_hal_tim_ex.c:1949:19:HAL_TIMEx_ConfigCommutEvent_DMA	24	static
-stm32g4xx_hal_tim_ex.c:2017:19:HAL_TIMEx_MasterConfigSynchronization	24	static
+stm32g4xx_hal_tim_ex.c:2017:19:HAL_TIMEx_MasterConfigAuxhronization	24	static
 stm32g4xx_hal_tim_ex.c:2090:19:HAL_TIMEx_ConfigBreakDeadTime	24	static
 stm32g4xx_hal_tim_ex.c:2172:19:HAL_TIMEx_ConfigBreakInput	48	static
 stm32g4xx_hal_tim_ex.c:2434:19:HAL_TIMEx_RemapConfig	16	static

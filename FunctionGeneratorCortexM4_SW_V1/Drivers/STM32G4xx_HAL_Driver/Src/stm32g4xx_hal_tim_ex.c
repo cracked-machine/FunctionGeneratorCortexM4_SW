@@ -8,7 +8,7 @@
   *           + Time Hall Sensor Interface Initialization
   *           + Time Hall Sensor Interface Start
   *           + Time Complementary signal break and dead time configuration
-  *           + Time Master and Slave synchronization configuration
+  *           + Time Master and Slave Auxhronization configuration
   *           + Time Output Compare/PWM Channel Configuration (for channels 5 and 6)
   *           + Time OCRef clear configuration
   *           + Timer remapping capabilities configuration
@@ -23,7 +23,7 @@
         (++) Output Compare
         (++) PWM generation (Edge and Center-aligned Mode)
         (++) One-pulse mode output
-    (#) Synchronization circuit to control the timer with external signals and to
+    (#) Auxhronization circuit to control the timer with external signals and to
         interconnect several timers together.
     (#) Break input to put the timer output signals in reset state or in a known state.
     (#) Supports incremental (quadrature) encoder and hall-sensor circuitry for
@@ -1729,7 +1729,7 @@ HAL_StatusTypeDef HAL_TIMEx_OnePulseN_Stop_IT(TIM_HandleTypeDef *htim, uint32_t 
       (+) Configure Output channels for OC and PWM mode.
 
       (+) Configure Complementary channels, break features and dead time.
-      (+) Configure Master synchronization.
+      (+) Configure Master Auxhronization.
       (+) Configure timer remapping capabilities.
       (+) Select timer input source.
       (+) Enable or disable channel grouping.
@@ -2014,7 +2014,7 @@ HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent_DMA(TIM_HandleTypeDef *htim, uint3
   *         mode.
   * @retval HAL status
   */
-HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
+HAL_StatusTypeDef HAL_TIMEx_MasterConfigAuxhronization(TIM_HandleTypeDef *htim,
                                                         TIM_MasterConfigTypeDef *sMasterConfig)
 {
   uint32_t tmpcr2;
@@ -2037,7 +2037,7 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
   /* Get the TIMx SMCR register value */
   tmpsmcr = htim->Instance->SMCR;
 
-  /* If the timer supports ADC synchronization through TRGO2, set the master mode selection 2 */
+  /* If the timer supports ADC Auxhronization through TRGO2, set the master mode selection 2 */
   if (IS_TIM_TRGO2_INSTANCE(htim->Instance))
   {
     /* Check the parameters */

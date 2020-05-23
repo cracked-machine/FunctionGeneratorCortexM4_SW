@@ -159,10 +159,10 @@ void DM_UpdateDisplay()
 
 				break;
 
-			case ENABLE_FUNC_SYNC_MENU:
+			case ENABLE_FUNC_Aux_MENU:
 
 
-				FuncMenu_DrawMenu(ENABLE_FUNC_SYNC_MENU);
+				FuncMenu_DrawMenu(ENABLE_FUNC_Aux_MENU);
 
 				break;
 
@@ -197,10 +197,10 @@ void DM_UpdateDisplay()
 
 				break;
 
-			case ENABLE_GAIN_SYNC_MENU:
+			case ENABLE_GAIN_Aux_MENU:
 
 
-				GainMenu_DrawMenu(ENABLE_GAIN_SYNC_MENU);
+				GainMenu_DrawMenu(ENABLE_GAIN_Aux_MENU);
 
 				break;
 
@@ -282,11 +282,11 @@ void DM_UpdateDisplay()
 	#ifdef ENCODER_DEBUG
 		char tim5_text[50] = "";
 		snprintf(tim5_text, sizeof(tim5_text), "OFFSET: %5lu", BO_GetOutputBias());
-		ILI9341_Draw_Text(tim5_text, 100, 180, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
+		ILI9341_Draw_Text(tim5_text, 220, 10, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
 
 		char encoder_value[50] = "";
 		snprintf(encoder_value, sizeof(encoder_value), "ENCODER: %5lu", ENCODER_TIMER->CNT);
-		ILI9341_Draw_Text(encoder_value, 100, 190, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
+		ILI9341_Draw_Text(encoder_value, 220, 20, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
 	#endif //ENCODER_DEBUG
 
 	if(*ErrorDebugMsg)
@@ -391,30 +391,30 @@ void DM_DisplayFormattedOutput()
 	}
 
 	ILI9341_Draw_Text("AUX:", 180, 170, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	eOutput_mode sync_output_func = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
-	switch(sync_output_func)
+	eOutput_mode Aux_output_func = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
+	switch(Aux_output_func)
 	{
 		case SINE_FUNC_MODE:
 
-			ILI9341_Draw_Wave(245, 140, 3, SYNC_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 140, 3, Aux_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
 			break;
 		case SQUARE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
 			break;
 		case SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
 			break;
 		case REV_SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
 			break;
 		case TRIANGLE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
 			break;
 		case IMPULSE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, SYNC_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
 			break;
 		case PWM_FUNC_MODE:
-			ILI9341_Draw_Text("PWM", 245, 170, SYNC_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
+			ILI9341_Draw_Text("PWM", 245, 170, Aux_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
 			break;
 	}
 

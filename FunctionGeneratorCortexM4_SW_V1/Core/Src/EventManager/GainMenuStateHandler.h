@@ -1,7 +1,7 @@
 /*
  * GainMenuStateHandler.h
  *
- *	Defines Gain menu and its sub menus: GainSignal and GainSync
+ *	Defines Gain menu and its sub menus: GainSignal and GainAux
  *
  *  Created on: 15 May 2020
  *      Author: chris
@@ -20,7 +20,7 @@ typedef enum
 	DISABLE_GAIN_MENU = 0x00U,
 	ENABLE_GAIN_MAIN_MENU,
 	ENABLE_GAIN_SIGNAL_MENU,
-	ENABLE_GAIN_SYNC_MENU,
+	ENABLE_GAIN_Aux_MENU,
 
 } eGainMenu_Status;
 
@@ -33,8 +33,8 @@ eSystemState GainMainMenuExitHandler();
 eSystemState GainSignalMenuEntryHandler();
 eSystemState GainSignalMenuInputHandler();
 eSystemState GainSignalMenuExitHandler();
-eSystemState GainSyncMenuEntryHandler();
-eSystemState GainSyncMenuInputHandler();
-eSystemState GainSyncMenuExitHandler();
+eSystemState GainAuxMenuEntryHandler();
+eSystemState GainAuxMenuInputHandler();
+eSystemState GainAuxMenuExitHandler();
 
 #endif /* SRC_EVENTMANAGER_GAINMENUSTATEHANDLER_H_ */

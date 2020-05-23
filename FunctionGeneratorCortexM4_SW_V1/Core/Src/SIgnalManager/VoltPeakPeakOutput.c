@@ -139,8 +139,8 @@ uint16_t amp_last_encoder_value = 0;
 void _ProcessSignalDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value);
 void VPP_ApplyProfileToSignal(eAmpSettings_t pPresetEnum);
 
-void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value);
-void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum);
+void _ProcessAuxDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value);
+void VPP_ApplyProfileToAux(eAmpSettings_t pPresetEnum);
 
 
 
@@ -190,19 +190,19 @@ void VPP_ApplyProfileToSignal(eAmpSettings_t pPresetEnum)
  *	@retval None
  *
  */
-void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum)
+void VPP_ApplyProfileToAux(eAmpSettings_t pPresetEnum)
 {
 	// retrieve the next preset
 	AmplitudeProfile_t* pNextEncPreset = &theAmpProfiles[pPresetEnum];
 
-	// Set the new VPP Preset to the SyncChannel object
-	SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile = pNextEncPreset;
+	// Set the new VPP Preset to the AuxChannel object
+	SM_GetOutputChannel(Aux_CHANNEL)->amp_profile = pNextEncPreset;
 
 	 // set the gain preset
-	//GO_ApplyPresetToSync(pNextEncPreset->gain_preset);
+	//GO_ApplyPresetToAux(pNextEncPreset->gain_preset);
 
-	// Apply the next amplitude setting to the SyncChannel object
-	_ProcessSyncDataTable(pNextEncPreset->neg_gain_coeff, pNextEncPreset->amp_offset , pNextEncPreset->epos);
+	// Apply the next amplitude setting to the AuxChannel object
+	_ProcessAuxDataTable(pNextEncPreset->neg_gain_coeff, pNextEncPreset->amp_offset , pNextEncPreset->epos);
 
 
 
@@ -252,20 +252,20 @@ void _ProcessSignalDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _
 
 /*
  *
- *	@brief	amplitude/offset DSP function for Sync output
+ *	@brief	amplitude/offset DSP function for Aux output
  *
  *	@param None
  *	@retval None
  *
  */
-void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value)
+void _ProcessAuxDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value)
 {
-	if(SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func != PWM_FUNC_MODE)
+	if(SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func != PWM_FUNC_MODE)
 	{
-		// copy refer lookup datat table from SyncChannel object
+		// copy refer lookup datat table from AuxChannel object
 		for(int i = 0; i < SINE_DATA_SIZE; i++)
 		{
-			tmpDataTable[i] = SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data[i];
+			tmpDataTable[i] = SM_GetOutputChannel(Aux_CHANNEL)->ref_lut_data[i];
 		}
 
 		// calculate positive offset coefficient from encoder position
@@ -288,7 +288,7 @@ void _ProcessSyncDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _en
 	// restore lookup table copy to active lookup table in SignalChannel object
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
-		SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
+		SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
 	}
 }
 
@@ -363,21 +363,21 @@ void VPP_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
  *	@retval None
  *
  */
-void VPP_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
+void VPP_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue)
 {
 
-	eAmpSettings_t tmpAmp = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
+	eAmpSettings_t tmpAmp = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile->amp_setting;
 	if(pEncoderValue > amp_last_encoder_value)
 	{
 		tmpAmp++;
 		if(tmpAmp > MAX_VPP_PRESETS-1) tmpAmp = VPP98;
-		VPP_ApplyProfileToSync(tmpAmp);
+		VPP_ApplyProfileToAux(tmpAmp);
 	}
 	else if (pEncoderValue < amp_last_encoder_value)
 	{
 		tmpAmp--;
 		if(tmpAmp > MAX_VPP_PRESETS-1) tmpAmp = VPP01;
-		VPP_ApplyProfileToSync(tmpAmp);
+		VPP_ApplyProfileToAux(tmpAmp);
 	}
 	amp_last_encoder_value = pEncoderValue;
 

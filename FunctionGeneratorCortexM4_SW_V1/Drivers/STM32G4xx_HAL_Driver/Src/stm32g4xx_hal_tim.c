@@ -42,7 +42,7 @@
            (++) Output Compare
            (++) PWM generation (Edge and Center-aligned Mode)
            (++) One-pulse mode output
-       (#) Synchronization circuit to control the timer with external signals and to interconnect
+       (#) Auxhronization circuit to control the timer with external signals and to interconnect
             several timers together.
        (#) Supports incremental encoder for positioning purposes
 
@@ -3899,7 +3899,7 @@ void HAL_TIM_IRQHandler(TIM_HandleTypeDef *htim)
       (+) Configure The Input Output channels for OC, PWM, IC or One Pulse mode.
       (+) Configure External Clock source.
       (+) Configure Complementary channels, break features and dead time.
-      (+) Configure Master and the Slave synchronization.
+      (+) Configure Master and the Slave Auxhronization.
       (+) Configure the DMA Burst Mode.
 
 @endverbatim
@@ -5477,7 +5477,7 @@ HAL_StatusTypeDef HAL_TIM_ConfigTI1Input(TIM_HandleTypeDef *htim, uint32_t TI1_S
   *         (Disable, Reset, Gated, Trigger, External clock mode 1, Reset + Trigger, Gated + Reset).
   * @retval HAL status
   */
-HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro(TIM_HandleTypeDef *htim, TIM_SlaveConfigTypeDef *sSlaveConfig)
+HAL_StatusTypeDef HAL_TIM_SlaveConfigAuxhro(TIM_HandleTypeDef *htim, TIM_SlaveConfigTypeDef *sSlaveConfig)
 {
   /* Check the parameters */
   assert_param(IS_TIM_SLAVE_INSTANCE(htim->Instance));
@@ -5517,7 +5517,7 @@ HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro(TIM_HandleTypeDef *htim, TIM_SlaveC
   *         (Disable, Reset, Gated, Trigger, External clock mode 1, Reset + Trigger, Gated + Reset).
   * @retval HAL status
   */
-HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro_IT(TIM_HandleTypeDef *htim,
+HAL_StatusTypeDef HAL_TIM_SlaveConfigAuxhro_IT(TIM_HandleTypeDef *htim,
                                                 TIM_SlaveConfigTypeDef *sSlaveConfig)
 {
   /* Check the parameters */

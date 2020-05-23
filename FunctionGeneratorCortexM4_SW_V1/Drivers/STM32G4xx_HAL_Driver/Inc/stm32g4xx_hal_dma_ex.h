@@ -42,33 +42,33 @@ extern "C" {
   */
 
 /**
-  * @brief  HAL DMA Synchro definition
+  * @brief  HAL DMA Auxhro definition
   */
 
 
 /**
-  * @brief  HAL DMAMUX Synchronization configuration structure definition
+  * @brief  HAL DMAMUX Auxhronization configuration structure definition
   */
 typedef struct
 {
-  uint32_t SyncSignalID;  /*!< Specifies the synchronization signal gating the DMA request in periodic mode.
-                              This parameter can be a value of @ref DMAEx_DMAMUX_SyncSignalID_selection */
+  uint32_t AuxSignalID;  /*!< Specifies the Auxhronization signal gating the DMA request in periodic mode.
+                              This parameter can be a value of @ref DMAEx_DMAMUX_AuxSignalID_selection */
 
-  uint32_t SyncPolarity;  /*!< Specifies the polarity of the signal on which the DMA request is synchronized.
-                              This parameter can be a value of @ref DMAEx_DMAMUX_SyncPolarity_selection */
+  uint32_t AuxPolarity;  /*!< Specifies the polarity of the signal on which the DMA request is Auxhronized.
+                              This parameter can be a value of @ref DMAEx_DMAMUX_AuxPolarity_selection */
 
-  FunctionalState SyncEnable;  /*!< Specifies if the synchronization shall be enabled or disabled
+  FunctionalState AuxEnable;  /*!< Specifies if the Auxhronization shall be enabled or disabled
                                     This parameter can take the value ENABLE or DISABLE*/
 
 
   FunctionalState EventEnable;    /*!< Specifies if an event shall be generated once the RequestNumber is reached.
                                        This parameter can take the value ENABLE or DISABLE */
 
-  uint32_t RequestNumber; /*!< Specifies the number of DMA request that will be authorized after a sync event
+  uint32_t RequestNumber; /*!< Specifies the number of DMA request that will be authorized after a Aux event
                                This parameter must be a number between Min_Data = 1 and Max_Data = 32 */
 
 
-} HAL_DMA_MuxSyncConfigTypeDef;
+} HAL_DMA_MuxAuxConfigTypeDef;
 
 
 /**
@@ -96,42 +96,42 @@ typedef struct
   * @{
   */
 
-/** @defgroup DMAEx_DMAMUX_SyncSignalID_selection DMAMUX SyncSignalID selection
+/** @defgroup DMAEx_DMAMUX_AuxSignalID_selection DMAMUX AuxSignalID selection
   * @{
   */
-#define HAL_DMAMUX1_SYNC_EXTI0                      0U     /*!<  Synchronization Signal is EXTI0  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI1                      1U     /*!<  Synchronization Signal is EXTI1  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI2                      2U     /*!<  Synchronization Signal is EXTI2  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI3                      3U     /*!<  Synchronization Signal is EXTI3  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI4                      4U     /*!<  Synchronization Signal is EXTI4  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI5                      5U     /*!<  Synchronization Signal is EXTI5  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI6                      6U     /*!<  Synchronization Signal is EXTI6  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI7                      7U     /*!<  Synchronization Signal is EXTI7  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI8                      8U     /*!<  Synchronization Signal is EXTI8  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI9                      9U     /*!<  Synchronization Signal is EXTI9  IT   */
-#define HAL_DMAMUX1_SYNC_EXTI10                    10U     /*!<  Synchronization Signal is EXTI10 IT   */
-#define HAL_DMAMUX1_SYNC_EXTI11                    11U     /*!<  Synchronization Signal is EXTI11 IT   */
-#define HAL_DMAMUX1_SYNC_EXTI12                    12U     /*!<  Synchronization Signal is EXTI12 IT   */
-#define HAL_DMAMUX1_SYNC_EXTI13                    13U     /*!<  Synchronization Signal is EXTI13 IT   */
-#define HAL_DMAMUX1_SYNC_EXTI14                    14U     /*!<  Synchronization Signal is EXTI14 IT   */
-#define HAL_DMAMUX1_SYNC_EXTI15                    15U     /*!<  Synchronization Signal is EXTI15 IT   */
-#define HAL_DMAMUX1_SYNC_DMAMUX1_CH0_EVT           16U     /*!<  Synchronization Signal is DMAMUX1 Channel0 Event  */
-#define HAL_DMAMUX1_SYNC_DMAMUX1_CH1_EVT           17U     /*!<  Synchronization Signal is DMAMUX1 Channel1 Event  */
-#define HAL_DMAMUX1_SYNC_DMAMUX1_CH2_EVT           18U     /*!<  Synchronization Signal is DMAMUX1 Channel2 Event  */
-#define HAL_DMAMUX1_SYNC_DMAMUX1_CH3_EVT           19U     /*!<  Synchronization Signal is DMAMUX1 Channel3 Event  */
-#define HAL_DMAMUX1_SYNC_LPTIM1_OUT                20U     /*!<  Synchronization Signal is LPTIM1 OUT */
+#define HAL_DMAMUX1_Aux_EXTI0                      0U     /*!<  Auxhronization Signal is EXTI0  IT   */
+#define HAL_DMAMUX1_Aux_EXTI1                      1U     /*!<  Auxhronization Signal is EXTI1  IT   */
+#define HAL_DMAMUX1_Aux_EXTI2                      2U     /*!<  Auxhronization Signal is EXTI2  IT   */
+#define HAL_DMAMUX1_Aux_EXTI3                      3U     /*!<  Auxhronization Signal is EXTI3  IT   */
+#define HAL_DMAMUX1_Aux_EXTI4                      4U     /*!<  Auxhronization Signal is EXTI4  IT   */
+#define HAL_DMAMUX1_Aux_EXTI5                      5U     /*!<  Auxhronization Signal is EXTI5  IT   */
+#define HAL_DMAMUX1_Aux_EXTI6                      6U     /*!<  Auxhronization Signal is EXTI6  IT   */
+#define HAL_DMAMUX1_Aux_EXTI7                      7U     /*!<  Auxhronization Signal is EXTI7  IT   */
+#define HAL_DMAMUX1_Aux_EXTI8                      8U     /*!<  Auxhronization Signal is EXTI8  IT   */
+#define HAL_DMAMUX1_Aux_EXTI9                      9U     /*!<  Auxhronization Signal is EXTI9  IT   */
+#define HAL_DMAMUX1_Aux_EXTI10                    10U     /*!<  Auxhronization Signal is EXTI10 IT   */
+#define HAL_DMAMUX1_Aux_EXTI11                    11U     /*!<  Auxhronization Signal is EXTI11 IT   */
+#define HAL_DMAMUX1_Aux_EXTI12                    12U     /*!<  Auxhronization Signal is EXTI12 IT   */
+#define HAL_DMAMUX1_Aux_EXTI13                    13U     /*!<  Auxhronization Signal is EXTI13 IT   */
+#define HAL_DMAMUX1_Aux_EXTI14                    14U     /*!<  Auxhronization Signal is EXTI14 IT   */
+#define HAL_DMAMUX1_Aux_EXTI15                    15U     /*!<  Auxhronization Signal is EXTI15 IT   */
+#define HAL_DMAMUX1_Aux_DMAMUX1_CH0_EVT           16U     /*!<  Auxhronization Signal is DMAMUX1 Channel0 Event  */
+#define HAL_DMAMUX1_Aux_DMAMUX1_CH1_EVT           17U     /*!<  Auxhronization Signal is DMAMUX1 Channel1 Event  */
+#define HAL_DMAMUX1_Aux_DMAMUX1_CH2_EVT           18U     /*!<  Auxhronization Signal is DMAMUX1 Channel2 Event  */
+#define HAL_DMAMUX1_Aux_DMAMUX1_CH3_EVT           19U     /*!<  Auxhronization Signal is DMAMUX1 Channel3 Event  */
+#define HAL_DMAMUX1_Aux_LPTIM1_OUT                20U     /*!<  Auxhronization Signal is LPTIM1 OUT */
 
 /**
   * @}
   */
 
-/** @defgroup DMAEx_DMAMUX_SyncPolarity_selection DMAMUX SyncPolarity selection
+/** @defgroup DMAEx_DMAMUX_AuxPolarity_selection DMAMUX AuxPolarity selection
   * @{
   */
-#define HAL_DMAMUX_SYNC_NO_EVENT                               0U    /*!< block synchronization events        */
-#define HAL_DMAMUX_SYNC_RISING     ((uint32_t)DMAMUX_CxCR_SPOL_0)    /*!< synchronize with rising edge events */
-#define HAL_DMAMUX_SYNC_FALLING    ((uint32_t)DMAMUX_CxCR_SPOL_1)    /*!< synchronize with falling edge events */
-#define HAL_DMAMUX_SYNC_RISING_FALLING ((uint32_t)DMAMUX_CxCR_SPOL)  /*!< synchronize with rising and falling edge events */
+#define HAL_DMAMUX_Aux_NO_EVENT                               0U    /*!< block Auxhronization events        */
+#define HAL_DMAMUX_Aux_RISING     ((uint32_t)DMAMUX_CxCR_SPOL_0)    /*!< Auxhronize with rising edge events */
+#define HAL_DMAMUX_Aux_FALLING    ((uint32_t)DMAMUX_CxCR_SPOL_1)    /*!< Auxhronize with falling edge events */
+#define HAL_DMAMUX_Aux_RISING_FALLING ((uint32_t)DMAMUX_CxCR_SPOL)  /*!< Auxhronize with rising and falling edge events */
 
 /**
   * @}
@@ -201,8 +201,8 @@ HAL_StatusTypeDef HAL_DMAEx_EnableMuxRequestGenerator(DMA_HandleTypeDef *hdma);
 HAL_StatusTypeDef HAL_DMAEx_DisableMuxRequestGenerator(DMA_HandleTypeDef *hdma);
 /* -------------------------------------------------------------------------- */
 
-/* ------------------------- SYNCHRO -----------------------------------------*/
-HAL_StatusTypeDef HAL_DMAEx_ConfigMuxSync(DMA_HandleTypeDef *hdma, HAL_DMA_MuxSyncConfigTypeDef *pSyncConfig);
+/* ------------------------- AuxHRO -----------------------------------------*/
+HAL_StatusTypeDef HAL_DMAEx_ConfigMuxAux(DMA_HandleTypeDef *hdma, HAL_DMA_MuxAuxConfigTypeDef *pAuxConfig);
 /* -------------------------------------------------------------------------- */
 
 void HAL_DMAEx_MUX_IRQHandler(DMA_HandleTypeDef *hdma);
@@ -221,18 +221,18 @@ void HAL_DMAEx_MUX_IRQHandler(DMA_HandleTypeDef *hdma);
   * @{
   */
 
-#define IS_DMAMUX_SYNC_SIGNAL_ID(SIGNAL_ID) ((SIGNAL_ID) <= HAL_DMAMUX1_SYNC_LPTIM1_OUT)
+#define IS_DMAMUX_Aux_SIGNAL_ID(SIGNAL_ID) ((SIGNAL_ID) <= HAL_DMAMUX1_Aux_LPTIM1_OUT)
 
-#define IS_DMAMUX_SYNC_REQUEST_NUMBER(REQUEST_NUMBER) (((REQUEST_NUMBER) > 0U) && ((REQUEST_NUMBER) <= 32U))
+#define IS_DMAMUX_Aux_REQUEST_NUMBER(REQUEST_NUMBER) (((REQUEST_NUMBER) > 0U) && ((REQUEST_NUMBER) <= 32U))
 
-#define IS_DMAMUX_SYNC_POLARITY(POLARITY) (((POLARITY) == HAL_DMAMUX_SYNC_NO_EVENT)    || \
-                                           ((POLARITY) == HAL_DMAMUX_SYNC_RISING)   || \
-                                           ((POLARITY) == HAL_DMAMUX_SYNC_FALLING)  || \
-                                           ((POLARITY) == HAL_DMAMUX_SYNC_RISING_FALLING))
+#define IS_DMAMUX_Aux_POLARITY(POLARITY) (((POLARITY) == HAL_DMAMUX_Aux_NO_EVENT)    || \
+                                           ((POLARITY) == HAL_DMAMUX_Aux_RISING)   || \
+                                           ((POLARITY) == HAL_DMAMUX_Aux_FALLING)  || \
+                                           ((POLARITY) == HAL_DMAMUX_Aux_RISING_FALLING))
 
-#define IS_DMAMUX_SYNC_STATE(SYNC) (((SYNC) == DISABLE)   || ((SYNC) == ENABLE))
+#define IS_DMAMUX_Aux_STATE(Aux) (((Aux) == DISABLE)   || ((Aux) == ENABLE))
 
-#define IS_DMAMUX_SYNC_EVENT(EVENT) (((EVENT) == DISABLE)   || \
+#define IS_DMAMUX_Aux_EVENT(EVENT) (((EVENT) == DISABLE)   || \
                                      ((EVENT) == ENABLE))
 
 #define IS_DMAMUX_REQUEST_GEN_SIGNAL_ID(SIGNAL_ID) ((SIGNAL_ID) <= HAL_DMAMUX1_REQ_GEN_LPTIM1_OUT)

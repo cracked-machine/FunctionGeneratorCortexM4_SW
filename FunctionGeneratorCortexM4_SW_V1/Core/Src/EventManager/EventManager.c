@@ -154,7 +154,7 @@ void EM_ProcessEvent()
 			}
 			if(eNewEvent == evGreenBtn)
 			{
-				eNextState = FuncSyncMenuEntryHandler();
+				eNextState = FuncAuxMenuEntryHandler();
 			}
 
 			break;
@@ -177,23 +177,23 @@ void EM_ProcessEvent()
 
 			break;
 
-		case Func_Sync_Menu_State:
+		case Func_Aux_Menu_State:
 
 			#ifdef SWV_DEBUG_ENABLED
-				  printf("Func_Sync_Menu_State\n");
+				  printf("Func_Aux_Menu_State\n");
 			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
-				eNextState = FuncSyncMenuInputHandler();
+				eNextState = FuncAuxMenuInputHandler();
 			}
 			if(eNewEvent == evEncoderPush)
 			{
-				eNextState = FuncSyncMenuExitHandler();
+				eNextState = FuncAuxMenuExitHandler();
 			}
 			if(eNewEvent == evYellowBtn)
 			{
-				eNextState = FuncSyncToggleDutyMode();
+				eNextState = FuncAuxToggleDutyMode();
 			}
 
 			break;
@@ -220,7 +220,7 @@ void EM_ProcessEvent()
 			}
 			if(eNewEvent == evGreenBtn)
 			{
-				eNextState = GainSyncMenuEntryHandler();
+				eNextState = GainAuxMenuEntryHandler();
 			}
 
 			break;
@@ -242,19 +242,19 @@ void EM_ProcessEvent()
 
 			break;
 
-		case Gain_Sync_Menu_State:
+		case Gain_Aux_Menu_State:
 
 			#ifdef SWV_DEBUG_ENABLED
-				  printf("Gain_Sync_Menu_State\n");
+				  printf("Gain_Aux_Menu_State\n");
 			#endif
 
 			if(eNewEvent == evEncoderSet)
 			{
-				eNextState = GainSyncMenuInputHandler();
+				eNextState = GainAuxMenuInputHandler();
 			}
 			if(eNewEvent == evEncoderPush)
 			{
-				eNextState = GainSyncMenuExitHandler();
+				eNextState = GainAuxMenuExitHandler();
 			}
 
 			break;

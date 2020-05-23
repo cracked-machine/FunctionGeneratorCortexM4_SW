@@ -188,18 +188,18 @@ eSystemState GainSignalMenuExitHandler()
  *	@retval None
  *
  */
-eSystemState GainSyncMenuEntryHandler()
+eSystemState GainAuxMenuEntryHandler()
 {
 	#ifdef SWV_DEBUG_ENABLED
-		printf("GainSyncMenuEntryHandler Event captured\n");
+		printf("GainAuxMenuEntryHandler Event captured\n");
 	#endif
 
 	DM_RefreshScreen();
 	VPP_ResetLastEncoderValue();
 
-	eNextGainMenuStatus = ENABLE_GAIN_SYNC_MENU;
+	eNextGainMenuStatus = ENABLE_GAIN_Aux_MENU;
 
-	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile;
+	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile;
 
 	if(pTmpVppPreset)
 	{
@@ -212,7 +212,7 @@ eSystemState GainSyncMenuEntryHandler()
 	}
 
 	eNewEvent = evIdle;
-	return Gain_Sync_Menu_State;
+	return Gain_Aux_Menu_State;
 }
 
 /*
@@ -223,17 +223,17 @@ eSystemState GainSyncMenuEntryHandler()
  *	@retval None
  *
  */
-eSystemState GainSyncMenuInputHandler()
+eSystemState GainAuxMenuInputHandler()
 {
 	#ifdef SWV_DEBUG_ENABLED
-		printf("GainSyncMenuInputHandler Event captured\n");
+		printf("GainAuxMenuInputHandler Event captured\n");
 	#endif
 
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	VPP_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	VPP_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 	eNewEvent = evYellowBtn;
-	return Gain_Sync_Menu_State;
+	return Gain_Aux_Menu_State;
 }
 
 
@@ -245,10 +245,10 @@ eSystemState GainSyncMenuInputHandler()
  *	@retval None
  *
  */
-eSystemState GainSyncMenuExitHandler()
+eSystemState GainAuxMenuExitHandler()
 {
 	#ifdef SWV_DEBUG_ENABLED
-		printf("GainSyncMenuExitHandler Event captured\n");
+		printf("GainAuxMenuExitHandler Event captured\n");
 	#endif
 
 	eNextGainMenuStatus = ENABLE_GAIN_MAIN_MENU;

@@ -18,7 +18,7 @@ typedef enum
 	DISABLE_FUNC_MENU = 0x00U,
 	ENABLE_FUNC_MAIN_MENU,
 	ENABLE_FUNC_SIGNAL_MENU,
-	ENABLE_FUNC_SYNC_MENU,
+	ENABLE_FUNC_Aux_MENU,
 
 } eFuncMenu_Status;
 
@@ -33,10 +33,10 @@ eSystemState FuncSignalMenuInputHandler();
 eSystemState FuncSignalToggleDutyMode();
 eSystemState FuncSignalMenuExitHandler();
 
-eSystemState FuncSyncMenuEntryHandler();
-eSystemState FuncSyncMenuInputHandler();
-eSystemState FuncSyncToggleDutyMode();
-eSystemState FuncSyncMenuExitHandler();
+eSystemState FuncAuxMenuEntryHandler();
+eSystemState FuncAuxMenuInputHandler();
+eSystemState FuncAuxToggleDutyMode();
+eSystemState FuncAuxMenuExitHandler();
 
 
 

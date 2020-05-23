@@ -62,7 +62,7 @@
 #define BTN4_TEXT_BGCOLOUR			BTN4_FILL_COLOUR
 
 #define SIGNAL_OUTPUT_ICON			BLUE
-#define SYNC_OUTPUT_ICON			RED
+#define Aux_OUTPUT_ICON			RED
 
 
 void DM_Init();

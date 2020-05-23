@@ -13,7 +13,7 @@
 uint8_t duty_adjust_mode = 0;
 
 sOutputChannel_t SignalChannel;
-sOutputChannel_t SyncChannel;
+sOutputChannel_t AuxChannel;
 void _InitOutputChannels();
 void _InitNegGainCoefficients();
 void _InitGainInDecibels();
@@ -68,16 +68,16 @@ void _InitOutputChannels()
 	SignalChannel.amp_profile = &theAmpProfiles[eDefaultVppPreset];
 	SignalChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
 
-	// initialise the SYNC output channel
-	SyncChannel.channel = SYNC_CHANNEL;
-	SyncChannel.ref_lut_data = theFuncProfiles[SINE_FUNC_MODE].lookup_table_data;
-	SyncChannel.func_profile = &theFuncProfiles[eDefaultFuncPreset];
+	// initialise the Aux output channel
+	AuxChannel.channel = Aux_CHANNEL;
+	AuxChannel.ref_lut_data = theFuncProfiles[SINE_FUNC_MODE].lookup_table_data;
+	AuxChannel.func_profile = &theFuncProfiles[eDefaultFuncPreset];
 
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
-		SyncChannel.dsp_lut_data[i] = sine_data_table_3600[i];
+		AuxChannel.dsp_lut_data[i] = sine_data_table_3600[i];
 
-	SyncChannel.amp_profile = &theAmpProfiles[eDefaultVppPreset];
-	SyncChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
+	AuxChannel.amp_profile = &theAmpProfiles[eDefaultVppPreset];
+	AuxChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
 }
 
 sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
@@ -85,7 +85,7 @@ sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
 	if(!pChannel)
 		return &SignalChannel;
 	else
-		return &SyncChannel;
+		return &AuxChannel;
 }
 
 
@@ -128,7 +128,7 @@ void SM_EnablePwmToSignal()
 	}
 	sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+	if (HAL_TIMEx_MasterConfigAuxhronization(&htim3, &sMasterConfig) != HAL_OK)
 	{
 		Error_Handler();
 	}
@@ -293,7 +293,7 @@ void SM_DisableDacToSignal()
  *	@retval None
  *
  */
-void SM_EnablePwmToSync()
+void SM_EnablePwmToAux()
 {
 	TIM_ClockConfigTypeDef sClockSourceConfig = {0};
 	TIM_MasterConfigTypeDef sMasterConfig = {0};
@@ -322,7 +322,7 @@ void SM_EnablePwmToSync()
 	}
 	sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+	if (HAL_TIMEx_MasterConfigAuxhronization(&htim3, &sMasterConfig) != HAL_OK)
 	{
 		Error_Handler();
 	}
@@ -377,7 +377,7 @@ void SM_EnablePwmToSync()
  *	@retval None
  *
  */
-void SM_DisablePwmToSync()
+void SM_DisablePwmToAux()
 {
 	/* USER CODE BEGIN TIM3_MspDeInit 0 */
 
@@ -400,7 +400,7 @@ void SM_DisablePwmToSync()
  *	@retval None
  *
  */
-void SM_EnableDacToSync()
+void SM_EnableDacToAux()
 {
 	DAC_ChannelConfTypeDef sConfig = {0};
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
@@ -462,7 +462,7 @@ void SM_EnableDacToSync()
 
 	__HAL_LINKDMA(&hdac2,DMA_Handle1,hdma_dac2_ch1);
 
-    //GO_ApplyPresetToSync(eDefaultGainPreset);
+    //GO_ApplyPresetToAux(eDefaultGainPreset);
 }
 
 /*
@@ -473,7 +473,7 @@ void SM_EnableDacToSync()
  *	@retval None
  *
  */
-void SM_DisableDacToSync()
+void SM_DisableDacToAux()
 {
 
     //__HAL_RCC_DAC2_CLK_DISABLE();

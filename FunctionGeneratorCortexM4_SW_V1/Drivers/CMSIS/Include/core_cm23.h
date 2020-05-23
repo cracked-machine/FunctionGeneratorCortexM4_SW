@@ -727,13 +727,13 @@ typedef struct
   __IM  uint32_t SSPSR;                  /*!< Offset: 0x000 (R/ )  Supported Parallel Port Size Register */
   __IOM uint32_t CSPSR;                  /*!< Offset: 0x004 (R/W)  Current Parallel Port Size Register */
         uint32_t RESERVED0[2U];
-  __IOM uint32_t ACPR;                   /*!< Offset: 0x010 (R/W)  Asynchronous Clock Prescaler Register */
+  __IOM uint32_t ACPR;                   /*!< Offset: 0x010 (R/W)  AAuxhronous Clock Prescaler Register */
         uint32_t RESERVED1[55U];
   __IOM uint32_t SPPR;                   /*!< Offset: 0x0F0 (R/W)  Selected Pin Protocol Register */
         uint32_t RESERVED2[131U];
   __IM  uint32_t FFSR;                   /*!< Offset: 0x300 (R/ )  Formatter and Flush Status Register */
   __IOM uint32_t FFCR;                   /*!< Offset: 0x304 (R/W)  Formatter and Flush Control Register */
-  __IOM uint32_t PSCR;                   /*!< Offset: 0x308 (R/W)  Periodic Synchronization Control Register */
+  __IOM uint32_t PSCR;                   /*!< Offset: 0x308 (R/W)  Periodic Auxhronization Control Register */
         uint32_t RESERVED3[759U];
   __IM  uint32_t TRIGGER;                /*!< Offset: 0xEE8 (R/ )  TRIGGER Register */
   __IM  uint32_t ITFTTD0;                /*!< Offset: 0xEEC (R/ )  Integration Test FIFO Test Data 0 Register */
@@ -750,7 +750,7 @@ typedef struct
   __IM  uint32_t DEVTYPE;                /*!< Offset: 0xFCC (R/ )  Device Type Identifier Register */
 } TPI_Type;
 
-/* TPI Asynchronous Clock Prescaler Register Definitions */
+/* TPI AAuxhronous Clock Prescaler Register Definitions */
 #define TPI_ACPR_PRESCALER_Pos              0U                                         /*!< TPI ACPR: PRESCALER Position */
 #define TPI_ACPR_PRESCALER_Msk             (0x1FFFUL /*<< TPI_ACPR_PRESCALER_Pos*/)    /*!< TPI ACPR: PRESCALER Mask */
 

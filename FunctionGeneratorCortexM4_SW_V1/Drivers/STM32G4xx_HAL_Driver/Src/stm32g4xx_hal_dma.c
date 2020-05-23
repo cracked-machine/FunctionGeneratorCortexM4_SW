@@ -219,7 +219,7 @@ HAL_StatusTypeDef HAL_DMA_Init(DMA_HandleTypeDef *hdma)
   /* Set peripheral request  to DMAMUX channel */
   hdma->DMAmuxChannel->CCR = (hdma->Init.Request & DMAMUX_CxCR_DMAREQ_ID);
 
-  /* Clear the DMAMUX synchro overrun flag */
+  /* Clear the DMAMUX Auxhro overrun flag */
   hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
 
   if (((hdma->Init.Request >  0U) && (hdma->Init.Request <= DMA_REQUEST_GENERATOR3)))
@@ -303,7 +303,7 @@ HAL_StatusTypeDef HAL_DMA_DeInit(DMA_HandleTypeDef *hdma)
   /* Reset the DMAMUX channel that corresponds to the DMA channel */
   hdma->DMAmuxChannel->CCR = 0;
 
-  /* Clear the DMAMUX synchro overrun flag */
+  /* Clear the DMAMUX Auxhro overrun flag */
   hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
 
   /* Reset Request generator parameters if any */
@@ -454,10 +454,10 @@ HAL_StatusTypeDef HAL_DMA_Start_IT(DMA_HandleTypeDef *hdma, uint32_t SrcAddress,
       __HAL_DMA_ENABLE_IT(hdma, (DMA_IT_TC | DMA_IT_TE));
     }
 
-    /* Check if DMAMUX Synchronization is enabled*/
+    /* Check if DMAMUX Auxhronization is enabled*/
     if ((hdma->DMAmuxChannel->CCR & DMAMUX_CxCR_SE) != 0U)
     {
-      /* Enable DMAMUX sync overrun IT*/
+      /* Enable DMAMUX Aux overrun IT*/
       hdma->DMAmuxChannel->CCR |= DMAMUX_CxCR_SOIE;
     }
 
@@ -504,7 +504,7 @@ HAL_StatusTypeDef HAL_DMA_Abort(DMA_HandleTypeDef *hdma)
      /* Disable DMA IT */
      __HAL_DMA_DISABLE_IT(hdma, (DMA_IT_TC | DMA_IT_HT | DMA_IT_TE));
      
-     /* disable the DMAMUX sync overrun IT*/
+     /* disable the DMAMUX Aux overrun IT*/
      hdma->DMAmuxChannel->CCR &= ~DMAMUX_CxCR_SOIE;
      
      /* Disable the channel */
@@ -513,7 +513,7 @@ HAL_StatusTypeDef HAL_DMA_Abort(DMA_HandleTypeDef *hdma)
      /* Clear all flags */
      hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << (hdma->ChannelIndex & 0x1FU));
      
-     /* Clear the DMAMUX synchro overrun flag */
+     /* Clear the DMAMUX Auxhro overrun flag */
      hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
      
      if (hdma->DMAmuxRequestGen != 0U)
@@ -566,13 +566,13 @@ HAL_StatusTypeDef HAL_DMA_Abort_IT(DMA_HandleTypeDef *hdma)
     /* Disable the channel */
     __HAL_DMA_DISABLE(hdma);
 
-    /* disable the DMAMUX sync overrun IT*/
+    /* disable the DMAMUX Aux overrun IT*/
     hdma->DMAmuxChannel->CCR &= ~DMAMUX_CxCR_SOIE;
 
     /* Clear all flags */
     hdma->DmaBaseAddress->IFCR = (DMA_ISR_GIF1 << (hdma->ChannelIndex & 0x1FU));
 
-    /* Clear the DMAMUX synchro overrun flag */
+    /* Clear the DMAMUX Auxhro overrun flag */
     hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
 
     if (hdma->DMAmuxRequestGen != 0U)
@@ -701,14 +701,14 @@ HAL_StatusTypeDef HAL_DMA_PollForTransfer(DMA_HandleTypeDef *hdma, HAL_DMA_Level
     }
   }
 
-  /* Check for DMAMUX Synchronization overrun */
+  /* Check for DMAMUX Auxhronization overrun */
   if ((hdma->DMAmuxChannelStatus->CSR & hdma->DMAmuxChannelStatusMask) != 0U)
   {
-    /* Clear the DMAMUX synchro overrun flag */
+    /* Clear the DMAMUX Auxhro overrun flag */
     hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
 
     /* Update error code */
-    hdma->ErrorCode |= HAL_DMA_ERROR_SYNC;
+    hdma->ErrorCode |= HAL_DMA_ERROR_Aux;
   }
 
   if (HAL_DMA_FULL_TRANSFER == CompleteLevel)
@@ -1001,7 +1001,7 @@ uint32_t HAL_DMA_GetError(DMA_HandleTypeDef *hdma)
   */
 static void DMA_SetConfig(DMA_HandleTypeDef *hdma, uint32_t SrcAddress, uint32_t DstAddress, uint32_t DataLength)
 {
-  /* Clear the DMAMUX synchro overrun flag */
+  /* Clear the DMAMUX Auxhro overrun flag */
   hdma->DMAmuxChannelStatus->CFR = hdma->DMAmuxChannelStatusMask;
 
   if (hdma->DMAmuxRequestGen != 0U)

@@ -229,10 +229,10 @@ extern "C" {
   * @{
   */
 #define LL_DBGMCU_TRACE_NONE               0x00000000U                                     /*!< TRACE pins not assigned (default state) */
-#define LL_DBGMCU_TRACE_ASYNCH             DBGMCU_CR_TRACE_IOEN                            /*!< TRACE pin assignment for Asynchronous Mode */
-#define LL_DBGMCU_TRACE_SYNCH_SIZE1        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE_0) /*!< TRACE pin assignment for Synchronous Mode with a TRACEDATA size of 1 */
-#define LL_DBGMCU_TRACE_SYNCH_SIZE2        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE_1) /*!< TRACE pin assignment for Synchronous Mode with a TRACEDATA size of 2 */
-#define LL_DBGMCU_TRACE_SYNCH_SIZE4        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE)   /*!< TRACE pin assignment for Synchronous Mode with a TRACEDATA size of 4 */
+#define LL_DBGMCU_TRACE_AAuxH             DBGMCU_CR_TRACE_IOEN                            /*!< TRACE pin assignment for AAuxhronous Mode */
+#define LL_DBGMCU_TRACE_AuxH_SIZE1        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE_0) /*!< TRACE pin assignment for Auxhronous Mode with a TRACEDATA size of 1 */
+#define LL_DBGMCU_TRACE_AuxH_SIZE2        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE_1) /*!< TRACE pin assignment for Auxhronous Mode with a TRACEDATA size of 2 */
+#define LL_DBGMCU_TRACE_AuxH_SIZE4        (DBGMCU_CR_TRACE_IOEN | DBGMCU_CR_TRACE_MODE)   /*!< TRACE pin assignment for Auxhronous Mode with a TRACEDATA size of 4 */
 /**
   * @}
   */
@@ -999,10 +999,10 @@ __STATIC_INLINE void LL_DBGMCU_DisableDBGStandbyMode(void)
   *         DBGMCU_CR    TRACE_MODE    LL_DBGMCU_SetTracePinAssignment
   * @param  PinAssignment This parameter can be one of the following values:
   *         @arg @ref LL_DBGMCU_TRACE_NONE
-  *         @arg @ref LL_DBGMCU_TRACE_ASYNCH
-  *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE1
-  *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE2
-  *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE4
+  *         @arg @ref LL_DBGMCU_TRACE_AAuxH
+  *         @arg @ref LL_DBGMCU_TRACE_AuxH_SIZE1
+  *         @arg @ref LL_DBGMCU_TRACE_AuxH_SIZE2
+  *         @arg @ref LL_DBGMCU_TRACE_AuxH_SIZE4
   * @retval None
   */
 __STATIC_INLINE void LL_DBGMCU_SetTracePinAssignment(uint32_t PinAssignment)
@@ -1016,10 +1016,10 @@ __STATIC_INLINE void LL_DBGMCU_SetTracePinAssignment(uint32_t PinAssignment)
   *         DBGMCU_CR    TRACE_MODE    LL_DBGMCU_GetTracePinAssignment
   * @retval Returned value can be one of the following values:
   *         @arg @ref LL_DBGMCU_TRACE_NONE
-  *         @arg @ref LL_DBGMCU_TRACE_ASYNCH
-  *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE1
-  *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE2
-  *         @arg @ref LL_DBGMCU_TRACE_SYNCH_SIZE4
+  *         @arg @ref LL_DBGMCU_TRACE_AAuxH
+  *         @arg @ref LL_DBGMCU_TRACE_AuxH_SIZE1
+  *         @arg @ref LL_DBGMCU_TRACE_AuxH_SIZE2
+  *         @arg @ref LL_DBGMCU_TRACE_AuxH_SIZE4
   */
 __STATIC_INLINE uint32_t LL_DBGMCU_GetTracePinAssignment(void)
 {

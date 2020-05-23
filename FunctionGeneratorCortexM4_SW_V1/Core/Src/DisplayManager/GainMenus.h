@@ -1,7 +1,7 @@
 /*
  * GainMenus.h
  *
- *	Declares draw functions for Gain menu and its sub menus: GainSignal and GainSync
+ *	Declares draw functions for Gain menu and its sub menus: GainSignal and GainAux
  *
  *  Created on: 15 May 2020
  *      Author: chris
@@ -16,6 +16,6 @@ void GainMenu_DrawMenu(eGainMenu_Status pMenu);
 
 void GainMenu_DrawMainMenu();
 void GainMenu_DrawSignalMenu();
-void GainMenu_DrawSyncMenu();
+void GainMenu_DrawAuxMenu();
 
 #endif /* SRC_DISPLAYMANAGER_GAINMENUS_H_ */

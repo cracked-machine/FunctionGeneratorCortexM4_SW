@@ -1781,7 +1781,7 @@ HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent_IT(TIM_HandleTypeDef *htim, uint32
                                                  uint32_t  CommutationSource);
 HAL_StatusTypeDef HAL_TIMEx_ConfigCommutEvent_DMA(TIM_HandleTypeDef *htim, uint32_t  InputTrigger,
                                                   uint32_t  CommutationSource);
-HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
+HAL_StatusTypeDef HAL_TIMEx_MasterConfigAuxhronization(TIM_HandleTypeDef *htim,
                                                         TIM_MasterConfigTypeDef *sMasterConfig);
 HAL_StatusTypeDef HAL_TIMEx_ConfigBreakDeadTime(TIM_HandleTypeDef *htim,
                                                 TIM_BreakDeadTimeConfigTypeDef *sBreakDeadTimeConfig);

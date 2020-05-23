@@ -58,10 +58,10 @@
 /*       In user application, ADC timeout values should be defined with       */
 /*       temporal values, in function of device clock settings.               */
 /*       Highest ratio CPU clock frequency vs ADC clock frequency:            */
-/*        - ADC clock from synchronous clock with AHB prescaler 512,          */
+/*        - ADC clock from Auxhronous clock with AHB prescaler 512,          */
 /*          ADC prescaler 4.                                                  */
 /*           Ratio max = 512 *4 = 2048                                        */
-/*        - ADC clock from asynchronous clock (PLLP) with prescaler 256.      */
+/*        - ADC clock from aAuxhronous clock (PLLP) with prescaler 256.      */
 /*          Highest CPU clock PLL (PLLR).                                     */
 /*           Ratio max = PLLRmax /PPLPmin * 256 = (VCO/2) / (VCO/31) * 256    */
 /*                     = 3968                                                 */
@@ -83,21 +83,21 @@
 /* Check of parameters for configuration of ADC hierarchical scope:           */
 /* common to several ADC instances.                                           */
 #define IS_LL_ADC_COMMON_CLOCK(__CLOCK__)                                      \
-  (   ((__CLOCK__) == LL_ADC_CLOCK_SYNC_PCLK_DIV1)                             \
-   || ((__CLOCK__) == LL_ADC_CLOCK_SYNC_PCLK_DIV2)                             \
-   || ((__CLOCK__) == LL_ADC_CLOCK_SYNC_PCLK_DIV4)                             \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV1)                                 \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV2)                                 \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV4)                                 \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV6)                                 \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV8)                                 \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV10)                                \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV12)                                \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV16)                                \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV32)                                \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV64)                                \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV128)                               \
-   || ((__CLOCK__) == LL_ADC_CLOCK_ASYNC_DIV256)                               \
+  (   ((__CLOCK__) == LL_ADC_CLOCK_Aux_PCLK_DIV1)                             \
+   || ((__CLOCK__) == LL_ADC_CLOCK_Aux_PCLK_DIV2)                             \
+   || ((__CLOCK__) == LL_ADC_CLOCK_Aux_PCLK_DIV4)                             \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV1)                                 \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV2)                                 \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV4)                                 \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV6)                                 \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV8)                                 \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV10)                                \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV12)                                \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV16)                                \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV32)                                \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV64)                                \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV128)                               \
+   || ((__CLOCK__) == LL_ADC_CLOCK_AAux_DIV256)                               \
   )
 
 /* Check of parameters for configuration of ADC hierarchical scope:           */
@@ -703,7 +703,7 @@ void LL_ADC_CommonStructInit(LL_ADC_CommonInitTypeDef *ADC_CommonInitStruct)
   /* Set ADC_CommonInitStruct fields to default values */
   /* Set fields of ADC common */
   /* (all ADC instances belonging to the same ADC common instance) */
-  ADC_CommonInitStruct->CommonClock = LL_ADC_CLOCK_SYNC_PCLK_DIV2;
+  ADC_CommonInitStruct->CommonClock = LL_ADC_CLOCK_Aux_PCLK_DIV2;
 
 #if defined(ADC_MULTIMODE_SUPPORT)
   /* Set fields of ADC multimode */

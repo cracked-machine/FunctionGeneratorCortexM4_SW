@@ -24,11 +24,11 @@ typedef enum
 
 	Func_Main_Menu_State,
 	Func_Signal_Menu_State,
-	Func_Sync_Menu_State,
+	Func_Aux_Menu_State,
 
 	Gain_Main_Menu_State,
 	Gain_Signal_Menu_State,
-	Gain_Sync_Menu_State,
+	Gain_Aux_Menu_State,
 
 	Vpp_Menu_State,			// deprecated
 

@@ -62,7 +62,7 @@ void MX_TIM1_Init(void)
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim1, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -97,7 +97,7 @@ void MX_TIM2_Init(void)
   }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim2, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -126,7 +126,7 @@ void MX_TIM3_Init(void)
   }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim3, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -155,7 +155,7 @@ void MX_TIM5_Init(void)
   }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim5, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim5, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -187,7 +187,7 @@ void MX_TIM8_Init(void)
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
   sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim8, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim8, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -223,7 +223,7 @@ void MX_TIM15_Init(void)
   }
   sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
   sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-  if (HAL_TIMEx_MasterConfigSynchronization(&htim15, &sMasterConfig) != HAL_OK)
+  if (HAL_TIMEx_MasterConfigAuxhronization(&htim15, &sMasterConfig) != HAL_OK)
   {
     Error_Handler();
   }

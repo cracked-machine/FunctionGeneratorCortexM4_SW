@@ -154,7 +154,7 @@ int main(void)
   // main signal function output (external)
   SM_Init();
   FuncO_ApplyPresetToSignal(eDefaultFuncPreset);
-  FuncO_ApplyPresetToSync(eDefaultFuncPreset);
+  FuncO_ApplyPresetToAux(eDefaultFuncPreset);
 
   // DC bias output (internal)
   HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
@@ -257,12 +257,12 @@ int main(void)
 //  SM_EnableDacToSignal();
 
   // switch aux output from DAC to PWM
-  //SM_DisableDacToSync();
-  //SM_EnablePwmToSync();
+  //SM_DisableDacToAux();
+  //SM_EnablePwmToAux();
 
   // switch AUX output from PWM to DAC
-  //SM_DisableDacToSync();
-  //SM_EnableDacToSync();
+  //SM_DisableDacToAux();
+  //SM_EnableDacToAux();
 
   /* USER CODE END 2 */
 

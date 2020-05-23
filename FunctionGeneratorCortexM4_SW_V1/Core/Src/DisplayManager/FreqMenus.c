@@ -14,7 +14,7 @@
 
 void FreqMenu_DrawMainMenu();
 void FreqMenu_DrawPresetMenu();
-void FreqMenu_DrawSyncMenu();
+void FreqMenu_DrawAuxMenu();
 
 /*
  *

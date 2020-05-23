@@ -69,18 +69,18 @@
 #define INJECTED_CHANNELS               ADC_INJECTED_CHANNELS
 #define SYSCFG_FLAG_SENSOR_ADC          ADC_FLAG_SENSOR
 #define SYSCFG_FLAG_VREF_ADC            ADC_FLAG_VREFINT
-#define ADC_CLOCKPRESCALER_PCLK_DIV1    ADC_CLOCK_SYNC_PCLK_DIV1
-#define ADC_CLOCKPRESCALER_PCLK_DIV2    ADC_CLOCK_SYNC_PCLK_DIV2
-#define ADC_CLOCKPRESCALER_PCLK_DIV4    ADC_CLOCK_SYNC_PCLK_DIV4
-#define ADC_CLOCKPRESCALER_PCLK_DIV6    ADC_CLOCK_SYNC_PCLK_DIV6
-#define ADC_CLOCKPRESCALER_PCLK_DIV8    ADC_CLOCK_SYNC_PCLK_DIV8
+#define ADC_CLOCKPRESCALER_PCLK_DIV1    ADC_CLOCK_Aux_PCLK_DIV1
+#define ADC_CLOCKPRESCALER_PCLK_DIV2    ADC_CLOCK_Aux_PCLK_DIV2
+#define ADC_CLOCKPRESCALER_PCLK_DIV4    ADC_CLOCK_Aux_PCLK_DIV4
+#define ADC_CLOCKPRESCALER_PCLK_DIV6    ADC_CLOCK_Aux_PCLK_DIV6
+#define ADC_CLOCKPRESCALER_PCLK_DIV8    ADC_CLOCK_Aux_PCLK_DIV8
 #define ADC_EXTERNALTRIG0_T6_TRGO       ADC_EXTERNALTRIGCONV_T6_TRGO
 #define ADC_EXTERNALTRIG1_T21_CC2       ADC_EXTERNALTRIGCONV_T21_CC2
 #define ADC_EXTERNALTRIG2_T2_TRGO       ADC_EXTERNALTRIGCONV_T2_TRGO
 #define ADC_EXTERNALTRIG3_T2_CC4        ADC_EXTERNALTRIGCONV_T2_CC4
 #define ADC_EXTERNALTRIG4_T22_TRGO      ADC_EXTERNALTRIGCONV_T22_TRGO
 #define ADC_EXTERNALTRIG7_EXT_IT11      ADC_EXTERNALTRIGCONV_EXT_IT11
-#define ADC_CLOCK_ASYNC                 ADC_CLOCK_ASYNC_DIV1
+#define ADC_CLOCK_AAux                 ADC_CLOCK_AAux_DIV1
 #define ADC_EXTERNALTRIG_EDGE_NONE      ADC_EXTERNALTRIGCONVEDGE_NONE
 #define ADC_EXTERNALTRIG_EDGE_RISING    ADC_EXTERNALTRIGCONVEDGE_RISING
 #define ADC_EXTERNALTRIG_EDGE_FALLING   ADC_EXTERNALTRIGCONVEDGE_FALLING
@@ -1228,8 +1228,8 @@
 /** @defgroup HAL_TSC_Aliased_Defines HAL TSC Aliased Defines maintained for legacy purpose
   * @{
   */
-#define TSC_SYNC_POL_FALL        TSC_SYNC_POLARITY_FALLING
-#define TSC_SYNC_POL_RISE_HIGH   TSC_SYNC_POLARITY_RISING
+#define TSC_Aux_POL_FALL        TSC_Aux_POLARITY_FALLING
+#define TSC_Aux_POL_RISE_HIGH   TSC_Aux_POLARITY_RISING
 /**
   * @}
   */
@@ -1641,8 +1641,8 @@
 #define HAL_TIM_DMACaptureCplt                          TIM_DMACaptureCplt
 #define HAL_TIMEx_DMACommutationCplt                    TIMEx_DMACommutationCplt
 #if defined(STM32H7) || defined(STM32G0) || defined(STM32F0) || defined(STM32F1) || defined(STM32F2) || defined(STM32F3) || defined(STM32F4) || defined(STM32F7) || defined(STM32L0) || defined(STM32L4)
-#define HAL_TIM_SlaveConfigSynchronization              HAL_TIM_SlaveConfigSynchro
-#define HAL_TIM_SlaveConfigSynchronization_IT           HAL_TIM_SlaveConfigSynchro_IT
+#define HAL_TIM_SlaveConfigAuxhronization              HAL_TIM_SlaveConfigAuxhro
+#define HAL_TIM_SlaveConfigAuxhronization_IT           HAL_TIM_SlaveConfigAuxhro_IT
 #define HAL_TIMEx_CommutationCallback                   HAL_TIMEx_CommutCallback
 #define HAL_TIMEx_ConfigCommutationEvent                HAL_TIMEx_ConfigCommutEvent
 #define HAL_TIMEx_ConfigCommutationEvent_IT             HAL_TIMEx_ConfigCommutEvent_IT
@@ -3317,7 +3317,7 @@
 
 #define __HAL_RCC_GET_IT_SOURCE                     __HAL_RCC_GET_IT
 
-#define RCC_CRS_SYNCWARM       RCC_CRS_SYNCWARN
+#define RCC_CRS_AuxWARM       RCC_CRS_AuxWARN
 #define RCC_CRS_TRIMOV         RCC_CRS_TRIMOVF
 
 #define RCC_PERIPHCLK_CK48               RCC_PERIPHCLK_CLK48
@@ -3714,8 +3714,8 @@
 #define SAI_FIFOStatus_3QuartersFull      SAI_FIFOSTATUS_3QUARTERFULL
 #define SAI_FIFOStatus_Full               SAI_FIFOSTATUS_FULL
 #define IS_SAI_BLOCK_MONO_STREO_MODE      IS_SAI_BLOCK_MONO_STEREO_MODE
-#define SAI_SYNCHRONOUS_EXT               SAI_SYNCHRONOUS_EXT_SAI1
-#define SAI_SYNCEXT_IN_ENABLE             SAI_SYNCEXT_OUTBLOCKA_ENABLE
+#define SAI_AuxHRONOUS_EXT               SAI_AuxHRONOUS_EXT_SAI1
+#define SAI_AuxEXT_IN_ENABLE             SAI_AuxEXT_OUTBLOCKA_ENABLE
 /**
   * @}
   */

@@ -56,8 +56,8 @@ void FuncO_DisableDacToSignal();
 //uint32_t *pOriginalSignalDataTable;
 //uint32_t aProcessedSignalDataTable[SINE_DATA_SIZE];
 
-//uint32_t *pOriginalSyncDataTable;
-//uint32_t aProcessedSyncDataTable[SINE_DATA_SIZE];
+//uint32_t *pOriginalAuxDataTable;
+//uint32_t aProcessedAuxDataTable[SINE_DATA_SIZE];
 
 void FuncO_Init();
 /*
@@ -66,12 +66,12 @@ void FuncO_Init();
 void FuncO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue);
 void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum);
 
-void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue);
-void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum);
+void FuncO_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue);
+void FuncO_ApplyPresetToAux(eOutput_mode pPresetEnum);
 
 FunctionProfile_t * FuncO_FindFPresetObject(eOutput_mode pEnum);
 FunctionProfile_t * FuncO_GetSignalFPresetObject();
-FunctionProfile_t * FuncO_GetSyncFPresetObject();
+FunctionProfile_t * FuncO_GetAuxFPresetObject();
 void FuncO_ResetLastEncoderValue();
 
 //void FuncO_SetNewDataTable(uint32_t * pdata_table);

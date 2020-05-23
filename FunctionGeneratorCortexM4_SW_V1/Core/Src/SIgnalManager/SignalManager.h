@@ -63,13 +63,13 @@ typedef enum
 typedef enum
 {
 	SIGNAL_CHANNEL = 0U,
-	SYNC_CHANNEL
+	Aux_CHANNEL
 
 } eOutputChannel_t;
 
 typedef struct
 {
-	// the output channel type: Signal or Aux sync
+	// the output channel type: Signal or Aux Aux
 	eOutputChannel_t channel;
 
 	// Waveform lookup table data, used to restore the waveform to its default
@@ -110,10 +110,10 @@ void SM_DisablePwmToSignal();
 void SM_EnableDacToSignal();
 void SM_DisableDacToSignal();
 */
-void SM_EnablePwmToSync();
-void SM_DisablePwmToSync();
-void SM_EnableDacToSync();
-void SM_DisableDacToSync();
+void SM_EnablePwmToAux();
+void SM_DisablePwmToAux();
+void SM_EnableDacToAux();
+void SM_DisableDacToAux();
 
 uint8_t SM_IsFuncPwmDutyMode();
 void SM_ToggleFuncPwmDutyMode();
