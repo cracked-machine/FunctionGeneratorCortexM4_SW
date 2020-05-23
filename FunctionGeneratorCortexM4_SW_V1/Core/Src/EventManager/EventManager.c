@@ -28,7 +28,7 @@ void EM_SetNewEvent(eSystemEvent pEvent);
 
 
 
-uint8_t duty_adjust_mode = 0;
+//uint8_t duty_adjust_mode = 0;
 
 void EM_RefreshDisplay();
 
@@ -128,22 +128,6 @@ void EM_ProcessEvent()
 			{
 				eNextState = ToplevelInputMenuExitHandler();
 			}
-			if(eNewEvent == evBlueBtn)
-			{
-				//eNextState = ToplevelOutputMenuEntryHandler();
-			}
-			if(eNewEvent == evGreenBtn)
-			{
-				//eNextState = ToplevelInputMenuEntryHandler();
-			}
-			if(eNewEvent == evYellowBtn)
-			{
-				// no menu action
-			}
-			if(eNewEvent == evRedBtn)
-			{
-				// no menu action
-			}
 			break;
 
 
@@ -162,7 +146,7 @@ void EM_ProcessEvent()
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = FuncMainMenuExitHandler();
-				ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
+
 			}
 			if(eNewEvent == evBlueBtn)
 			{
@@ -183,22 +167,15 @@ void EM_ProcessEvent()
 
 			if(eNewEvent == evEncoderSet)
 			{
-				if(duty_adjust_mode)
-					TIM3->CCR2 = (pow(ENCODER_TIMER->CNT, 2));
-				else
-					eNextState = FuncSignalMenuInputHandler();
+				eNextState = FuncSignalMenuInputHandler();
 			}
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = FuncSignalMenuExitHandler();
-
 			}
 			if(eNewEvent == evYellowBtn)
 			{
-				duty_adjust_mode ^= 1U;
-				ENCODER_TIMER->ARR = 16384;
-				eNewEvent = evIdle;
-				eNextState = Func_Signal_Menu_State;
+				eNextState = FuncSignalToggleDutyMode();
 			}
 
 			break;
@@ -405,18 +382,7 @@ void EM_ProcessEvent()
 }
 
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-uint8_t EM_IsDutyAdjustMode()
-{
-	return duty_adjust_mode;
-}
+
 
 
 /*

@@ -10,6 +10,8 @@
 #include <math.h>
 #include "dac.h"
 
+uint8_t duty_adjust_mode = 0;
+
 sOutputChannel_t SignalChannel;
 sOutputChannel_t SyncChannel;
 void _InitOutputChannels();
@@ -85,6 +87,8 @@ sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
 	else
 		return &SyncChannel;
 }
+
+
 
 
 /*
@@ -407,4 +411,18 @@ uint16_t SM_ConvertHertzToPeriod(float hertz, uint16_t psc)
 }
 
 
+uint8_t SM_IsFuncPwmDutyMode()
+{
+	return duty_adjust_mode;
+}
 
+void SM_ToggleFuncPwmDutyMode()
+{
+	duty_adjust_mode ^= 1;
+}
+
+void SM_ResetFuncPwmDutyMode()
+{
+	duty_adjust_mode = 0;
+
+}

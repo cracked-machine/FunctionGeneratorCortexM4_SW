@@ -1,4 +1,6 @@
 BiasOutput.c:28:16:BO_GetBiasPolarity	4	static
 BiasOutput.c:42:10:BO_GetDcBiasEncoderValue	4	static
 BiasOutput.c:56:6:BO_MapEncoderPositionToSignalOutput	16	static
-BiasOutput.c:106:10:BO_GetOutputBias	8	static
+BiasOutput.c:97:6:BO_SetPwmSignalOffsetForGain	24	static
+BiasOutput.c:135:6:BO_SetPwmSignalOffsetForDuty	16	static
+BiasOutput.c:155:10:BO_GetOutputBias	8	static

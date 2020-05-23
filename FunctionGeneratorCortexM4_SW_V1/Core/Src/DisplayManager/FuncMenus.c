@@ -186,7 +186,7 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("DUTY", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 
-				if(EM_IsDutyAdjustMode())
+				if(SM_IsFuncPwmDutyMode())
 					ILI9341_Draw_Text("DUTY:", 	150, 50,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 				else
 					ILI9341_Draw_Text("DUTY:", 	150, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);

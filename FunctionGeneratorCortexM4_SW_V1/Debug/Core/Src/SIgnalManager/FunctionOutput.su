@@ -2,6 +2,6 @@ FunctionOutput.c:55:6:FuncO_ResetLastEncoderValue	4	static
 FunctionOutput.c:69:6:FuncO_MapEncoderPositionToSignalOutput	24	static
 FunctionOutput.c:95:6:FuncO_MapEncoderPositionToSyncOutput	24	static
 FunctionOutput.c:130:6:FuncO_ApplyPresetToSignal	40	static
-FunctionOutput.c:225:6:FuncO_ApplyPresetToSync	40	static
-FunctionOutput.c:272:21:FuncO_FindFPresetObject	24	static
-FunctionOutput.c:295:9:FuncO_GetFuncPresetEncoderRange	4	static
+FunctionOutput.c:231:6:FuncO_ApplyPresetToSync	40	static
+FunctionOutput.c:278:21:FuncO_FindFPresetObject	24	static
+FunctionOutput.c:301:9:FuncO_GetFuncPresetEncoderRange	4	static

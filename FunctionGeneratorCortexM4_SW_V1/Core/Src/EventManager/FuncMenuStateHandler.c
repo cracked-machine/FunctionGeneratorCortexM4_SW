@@ -12,8 +12,11 @@
 #include "SignalManager.h"
 
 #include <stdio.h>
+#include <math.h>
 
 eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
+
+
 
 eFuncMenu_Status FuncMenu_getStatus()
 {
@@ -95,7 +98,7 @@ eSystemState FuncMainMenuExitHandler()
 	eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
 
 	// reset the encoder range
-
+	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 //	ENCODER_TIMER->ARR = 1024;
 
 	DM_RefreshScreen();
@@ -158,11 +161,37 @@ eSystemState FuncSignalMenuInputHandler(void)
 		printf("FuncSignalMenuInputHandler Event captured\n");
 	#endif
 
+	if(SM_IsFuncPwmDutyMode())
+	{
+		uint16_t enc_value = SM_GetEncoderValue(ENCODER_FORWARD);
+		TIM3->CCR2 = (pow(enc_value, 2));
 
-	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
-	eNewEvent = evBlueBtn;
+	}
+	else
+	{
+		FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	}
+
+	eNewEvent = evIdle;
 	return Func_Signal_Menu_State;
 }
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FuncSignalToggleDutyMode()
+{
+	SM_ToggleFuncPwmDutyMode();
+	ENCODER_TIMER->ARR = 16384;
+	eNewEvent = evIdle;
+	return Func_Signal_Menu_State;
+}
+
 
 /*
  *
@@ -187,7 +216,7 @@ eSystemState FuncSignalMenuExitHandler()
 //	ENCODER_TIMER->ARR = 1024;
 
 	DM_RefreshScreen();
-
+	SM_ResetFuncPwmDutyMode();
 	eNewEvent = evIdle;
 	return Func_Main_Menu_State;
 }

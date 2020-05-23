@@ -29,9 +29,12 @@ eSystemState FuncMainMenuInputHandler();
 eSystemState FuncMainMenuExitHandler();
 eSystemState FuncSignalMenuEntryHandler();
 eSystemState FuncSignalMenuInputHandler();
+eSystemState FuncSignalToggleDutyMode();
 eSystemState FuncSignalMenuExitHandler();
 eSystemState FuncSyncMenuEntryHandler();
 eSystemState FuncSyncMenuInputHandler();
 eSystemState FuncSyncMenuExitHandler();
+
+
 
 #endif /* SRC_EVENTMANAGER_FUNCMENUSTATEHANDLER_H_ */

@@ -80,6 +80,7 @@ void FreqO_AdjustFreq()
 			TIM3->PSC = 256;
 			TIM3->ARR = SM_GetEncoderValue(ENCODER_FORWARD)/2;
 			TIM3->CCR2 = TIM3->ARR/2;
+
 		}
 }
 

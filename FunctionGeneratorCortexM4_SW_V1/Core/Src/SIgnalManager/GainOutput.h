@@ -52,6 +52,7 @@ void GO_ApplyPresetToSync(eGainSettings_t pPresetEnum);
 
 GainProfile_t * GO_FindGPresetObject(eGainSettings_t pEnum);
 
+void GO_ResetLastEncoderValue();
 
 
 uint8_t GO_GetGainPresetEncoderRange();

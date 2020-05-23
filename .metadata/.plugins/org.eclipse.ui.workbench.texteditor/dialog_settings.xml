@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="ILI9341_Draw_Horizontal_Line"/>
+		<item key="selection" value="PWM"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
-		<item key="wholeword" value="true"/>
+		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="PWM"/>
+			<item value="FuncO_"/>
+			<item value="FuncO"/>
+			<item value="Func0"/>
 			<item value="GUI_DrawHLine"/>
 			<item value="GUI_SetPixel"/>
 			<item value="LCD_WIDTH"/>
@@ -19,12 +23,11 @@
 			<item value="calculated_sweep_in_hertz"/>
 			<item value="max_arr"/>
 			<item value="min_arr"/>
-			<item value="hertz"/>
-			<item value="GAIN"/>
-			<item value="SYNC"/>
-			<item value="Sync"/>
 		</list>
 		<list key="replacehistory">
+			<item value="Pwm"/>
+			<item value="SM_"/>
+			<item value="SM"/>
 			<item value="ILI9341_Draw_Horizontal_Line"/>
 			<item value="ILI9341_Draw_Pixel"/>
 			<item value="ILI9341_SCREEN_WIDTH"/>
@@ -37,9 +40,6 @@
 			<item value="MIN_OUTPUT_ARR"/>
 			<item value="Hz"/>
 			<item value="TOPLEVEL"/>
-			<item value="INPUT"/>
-			<item value="Input"/>
-			<item value="OUTPUT"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

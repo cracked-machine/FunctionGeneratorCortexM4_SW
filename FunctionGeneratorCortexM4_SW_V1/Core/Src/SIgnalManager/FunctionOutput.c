@@ -134,17 +134,23 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 
 	if(pPresetEnum == PWM_FUNC_MODE)
 	{
-		  // set preset for PGA gain and dsp amplitude adjustment
-		  eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
-		  VPP_ApplyProfileToSignal(eTmpVppPreset);
-
-		  // switch output signal from DAC to PWM
-		  SM_DisableDacToSignal();
-		  SM_EnablePwmToSignal();
+		// set preset for PGA gain and dsp amplitude adjustment
+		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
+		VPP_ApplyProfileToSignal(eTmpVppPreset);
 
 
+		// switch output signal from DAC to PWM
+		SM_DisableDacToSignal();
+		SM_EnablePwmToSignal();
 
-		  last_output_mode_was_pwm = 1;
+		GO_ApplyPresetToSignal(ONE_GAIN);
+
+		// artifically offset PWM signal above DC
+		eGainSettings_t temp_gain = SM_GetOutputChannel(SIGNAL_CHANNEL)->gain_profile->gain;
+		BO_SetPwmSignalOffsetForGain(temp_gain);
+
+		last_output_mode_was_pwm = 1;
+
 	}
 	else if(last_output_mode_was_pwm)
 	{

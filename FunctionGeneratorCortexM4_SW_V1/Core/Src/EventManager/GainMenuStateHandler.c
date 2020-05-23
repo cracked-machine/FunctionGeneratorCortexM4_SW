@@ -102,6 +102,7 @@ eSystemState GainSignalMenuEntryHandler()
 	#endif
 
 	DM_RefreshScreen();
+	GO_ResetLastEncoderValue();
 	VPP_ResetLastEncoderValue();
 
 	eNextGainMenuStatus = ENABLE_GAIN_SIGNAL_MENU;
@@ -136,8 +137,21 @@ eSystemState GainSignalMenuInputHandler()
 		printf("GainSignalMenuInputHandler Event captured\n");
 	#endif
 
+	FunctionProfile_t *tmpFuncProfile = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile;
+	if(tmpFuncProfile)
+	{
+		if(tmpFuncProfile->func == PWM_FUNC_MODE)
+		{
+			GO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+
+		}
+		else
+		{
+			VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+		}
+	}
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	//
 
 	eNewEvent = evYellowBtn;
 	return Gain_Signal_Menu_State;

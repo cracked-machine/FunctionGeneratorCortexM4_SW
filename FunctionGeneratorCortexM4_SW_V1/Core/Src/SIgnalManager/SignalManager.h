@@ -115,4 +115,9 @@ void SM_DisablePwmToSync();
 void SM_EnableDacToSync();
 void SM_DisableDacToSync();
 
+uint8_t SM_IsFuncPwmDutyMode();
+void SM_ToggleFuncPwmDutyMode();
+void SM_ResetFuncPwmDutyMode();
+
+
 #endif /* SRC_SIGNALMANAGER_SIGNALMANAGER_H_ */

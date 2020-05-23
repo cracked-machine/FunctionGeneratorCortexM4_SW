@@ -1,7 +1,25 @@
 Core/Src/SIgnalManager/BiasOutput.o: \
  ../Core/Src/SIgnalManager/BiasOutput.c \
- ../Core/Src/SIgnalManager/BiasOutput.h ../Core/Inc/gpio.h \
- ../Core/Inc/main.h ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
+ ../Core/Src/SIgnalManager/BiasOutput.h \
+ ../Core/Src/SIgnalManager/SignalManager.h \
+ ../Core/Src/SIgnalManager/FunctionOutput.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysquare.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pyunitimpulse.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw_rev.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pytriangle.h \
+ ../Core/Src/SIgnalManager/GainOutput.h \
+ ../Core/Src/SIgnalManager/VoltPeakPeakOutput.h \
+ ../Core/Src/SIgnalManager/FreqOutput.h \
+ ../Core/Src/SIgnalManager/DacTimerRegistry.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h \
+ /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h \
+ ../Core/Inc/tim.h ../Core/Inc/main.h \
+ ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h \
  ../Core/Inc/stm32g4xx_hal_conf.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_rcc.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h \
@@ -48,29 +66,46 @@ Core/Src/SIgnalManager/BiasOutput.o: \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_pwr.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dma.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h \
- ../Core/Inc/dac.h ../Core/Src/SIgnalManager/SignalManager.h \
- ../Core/Src/SIgnalManager/FunctionOutput.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysquare.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pyunitimpulse.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw_rev.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pytriangle.h \
- ../Core/Src/SIgnalManager/GainOutput.h \
- ../Core/Src/SIgnalManager/VoltPeakPeakOutput.h \
- ../Core/Src/SIgnalManager/FreqOutput.h \
- ../Core/Src/SIgnalManager/DacTimerRegistry.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h \
- ../Core/Inc/tim.h \
+ ../Core/Inc/gpio.h ../Core/Inc/dac.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h
 
 ../Core/Src/SIgnalManager/BiasOutput.h:
 
-../Core/Inc/gpio.h:
+../Core/Src/SIgnalManager/SignalManager.h:
+
+../Core/Src/SIgnalManager/FunctionOutput.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysquare.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pyunitimpulse.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw_rev.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pytriangle.h:
+
+../Core/Src/SIgnalManager/GainOutput.h:
+
+../Core/Src/SIgnalManager/VoltPeakPeakOutput.h:
+
+../Core/Src/SIgnalManager/FreqOutput.h:
+
+../Core/Src/SIgnalManager/DacTimerRegistry.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h:
+
+/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h:
+
+../Core/Inc/tim.h:
 
 ../Core/Inc/main.h:
 
@@ -168,42 +203,8 @@ Core/Src/SIgnalManager/BiasOutput.o: \
 
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_ll_dmamux.h:
 
+../Core/Inc/gpio.h:
+
 ../Core/Inc/dac.h:
-
-../Core/Src/SIgnalManager/SignalManager.h:
-
-../Core/Src/SIgnalManager/FunctionOutput.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysine.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysquare.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pyunitimpulse.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pysaw_rev.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/pytriangle.h:
-
-../Core/Src/SIgnalManager/GainOutput.h:
-
-../Core/Src/SIgnalManager/VoltPeakPeakOutput.h:
-
-../Core/Src/SIgnalManager/FreqOutput.h:
-
-../Core/Src/SIgnalManager/DacTimerRegistry.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon_rev.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pytriangleicon.h:
-
-../Core/Inc/tim.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/EventManager.h:

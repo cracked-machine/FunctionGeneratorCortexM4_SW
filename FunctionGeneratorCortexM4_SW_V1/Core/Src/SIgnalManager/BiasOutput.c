@@ -94,6 +94,55 @@ void BO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 	}
 }
 
+void BO_SetPwmSignalOffsetForGain(eGainSettings_t temp_gain)
+{
+	// artifically offset PWM signal above DC
+	uint16_t new_bias_value;
+	switch(temp_gain)
+	{
+
+		case ONE_GAIN:
+			new_bias_value = 2500;
+			break;
+		case TWO_GAIN:
+			new_bias_value = 3000;
+			break;
+
+		case THREE_GAIN:
+		case FOUR_GAIN:
+		case FIVE_GAIN:
+		case SIX_GAIN:
+		case SEVEN_GAIN:
+			new_bias_value = 4095;
+			break;
+
+		default:
+			break;
+
+	}
+
+	HAL_DAC_SetValue(	&hdac1,
+						DAC1_CHANNEL_2,
+						DAC_ALIGN_12B_R,
+						new_bias_value);
+
+	HAL_GPIO_WritePin(	DCBIAS_INVERT_GPIO_Port,
+						DCBIAS_INVERT_Pin,
+						GPIO_PIN_RESET);
+}
+
+
+void BO_SetPwmSignalOffsetForDuty(uint32_t value)
+{
+	HAL_DAC_SetValue(	&hdac1,
+						DAC1_CHANNEL_2,
+						DAC_ALIGN_12B_R,
+						value);
+
+	HAL_GPIO_WritePin(	DCBIAS_INVERT_GPIO_Port,
+						DCBIAS_INVERT_Pin,
+						GPIO_PIN_RESET);
+}
 
 /*
  *
