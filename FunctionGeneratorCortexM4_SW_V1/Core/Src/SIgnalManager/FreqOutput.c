@@ -72,14 +72,14 @@ void FreqO_AdjustFreq()
 
 		OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD); //* FREQ_ENCODER_MIDFREQ_MAG;
 
-		eOutput_mode tmpOut = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile->func;
+		eOutput_mode tmpOut = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
 		if(tmpOut == PWM_FUNC_MODE)
 		{
 			// duty cycle of PWM require slower settings to get the
 			// same frequency as normal output functions
 			TIM3->PSC = 256;
 			TIM3->ARR = SM_GetEncoderValue(ENCODER_FORWARD)/2;
-			TIM3->CCR2 = TIM3->ARR/2;
+			TIM3->CCR1 = TIM3->ARR/2;
 
 		}
 }
@@ -350,14 +350,14 @@ void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum)
 		OUTPUT_TIMER->PSC = tmpDT->psc;
 		OUTPUT_TIMER->ARR = tmpDT->arr;
 
-		eOutput_mode tmpOut = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile->func;
+		eOutput_mode tmpOut = SM_GetOutputChannel(SYNC_CHANNEL)->func_profile->func;
 		if(tmpOut == PWM_FUNC_MODE)
 		{
 			// duty cycle of PWM require slower settings to get the
 			// same frequency as normal output functions
 			TIM3->PSC = 256;
 			TIM3->ARR = tmpDT->arr/2;
-			TIM3->CCR2 = TIM3->ARR/2;
+			TIM3->CCR1 = TIM3->ARR/2;
 		}
 
 		//eNewFreqPreset = pPresetEnum;

@@ -47,8 +47,7 @@ GainProfile_t theGainProfiles[MAX_NUM_GAIN_PRESETS];
 void GO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue);
 void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum);
 
-void GO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue);
-void GO_ApplyPresetToSync(eGainSettings_t pPresetEnum);
+
 
 GainProfile_t * GO_FindGPresetObject(eGainSettings_t pEnum);
 

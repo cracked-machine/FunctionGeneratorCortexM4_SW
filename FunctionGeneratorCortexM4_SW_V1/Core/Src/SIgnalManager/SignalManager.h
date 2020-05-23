@@ -105,11 +105,11 @@ float SM_ConvertPeriodToHertz(uint32_t period, uint16_t psc);
 uint16_t SM_ConvertHertzToPeriod(float hertz, uint16_t psc);
 
 
-void SM_EnablePwmToSignal();
+/*void SM_EnablePwmToSignal();
 void SM_DisablePwmToSignal();
 void SM_EnableDacToSignal();
 void SM_DisableDacToSignal();
-
+*/
 void SM_EnablePwmToSync();
 void SM_DisablePwmToSync();
 void SM_EnableDacToSync();

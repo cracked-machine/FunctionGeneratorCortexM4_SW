@@ -173,10 +173,7 @@ void EM_ProcessEvent()
 			{
 				eNextState = FuncSignalMenuExitHandler();
 			}
-			if(eNewEvent == evYellowBtn)
-			{
-				eNextState = FuncSignalToggleDutyMode();
-			}
+
 
 			break;
 
@@ -193,6 +190,10 @@ void EM_ProcessEvent()
 			if(eNewEvent == evEncoderPush)
 			{
 				eNextState = FuncSyncMenuExitHandler();
+			}
+			if(eNewEvent == evYellowBtn)
+			{
+				eNextState = FuncSyncToggleDutyMode();
 			}
 
 			break;

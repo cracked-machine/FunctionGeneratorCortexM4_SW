@@ -132,6 +132,7 @@ void BO_SetPwmSignalOffsetForGain(eGainSettings_t temp_gain)
 }
 
 
+
 void BO_SetPwmSignalOffsetForDuty(uint32_t value)
 {
 	HAL_DAC_SetValue(	&hdac1,

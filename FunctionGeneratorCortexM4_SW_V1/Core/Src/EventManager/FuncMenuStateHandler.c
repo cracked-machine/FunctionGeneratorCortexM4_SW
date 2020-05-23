@@ -161,18 +161,9 @@ eSystemState FuncSignalMenuInputHandler(void)
 		printf("FuncSignalMenuInputHandler Event captured\n");
 	#endif
 
-	// PWM ADJUST
-	if(SM_IsFuncPwmDutyMode())
-	{
-		uint16_t enc_value = SM_GetEncoderValue(ENCODER_FORWARD);
-		TIM3->CCR2 = (pow(enc_value, 2));
-		//BO_SetPwmSignalOffsetForDuty(BO_GetOutputBias() + SM_GetEncoderValue(ENCODER_FORWARD));
 
-	}
-	else
-	{
-		FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
-	}
+	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+
 
 	eNewEvent = evIdle;
 	return Func_Signal_Menu_State;
@@ -273,11 +264,39 @@ eSystemState FuncSyncMenuInputHandler(void)
 		printf("FuncSyncMenuInputHandler Event captured\n");
 	#endif
 
+	// PWM ADJUST
+	if(SM_IsFuncPwmDutyMode())
+	{
+		uint16_t enc_value = SM_GetEncoderValue(ENCODER_FORWARD);
+		TIM3->CCR1 = (pow(enc_value, 2));
+		//BO_SetPwmSignalOffsetForDuty(BO_GetOutputBias() + SM_GetEncoderValue(ENCODER_FORWARD));
 
-	FuncO_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
-	eNewEvent = evBlueBtn;
+	}
+	else
+	{
+		FuncO_MapEncoderPositionToSyncOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	}
+
+	eNewEvent = evIdle;
 	return Func_Sync_Menu_State;
 }
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FuncSyncToggleDutyMode()
+{
+	SM_ToggleFuncPwmDutyMode();
+	ENCODER_TIMER->ARR = 16384;
+	eNewEvent = evIdle;
+	return Func_Sync_Menu_State;
+}
+
 
 /*
  *
@@ -300,7 +319,7 @@ eSystemState FuncSyncMenuExitHandler()
 	// reset the encoder range
 
 	//ENCODER_TIMER->ARR = 1024;
-
+	SM_ResetFuncPwmDutyMode();
 	DM_RefreshScreen();
 
 	eNewEvent = evIdle;

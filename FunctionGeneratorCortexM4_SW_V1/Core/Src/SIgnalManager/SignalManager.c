@@ -279,23 +279,10 @@ void SM_EnableDacToSignal()
 void SM_DisableDacToSignal()
 {
 
-	  /* USER CODE BEGIN DAC1_MspDeInit 0 */
 
-	  /* USER CODE END DAC1_MspDeInit 0 */
-	    /* Peripheral clock disable */
-	    //__HAL_RCC_DAC1_CLK_DISABLE();
-
-	    /**DAC1 GPIO Configuration
-	    PA4     ------> DAC1_OUT1
-	    PA5     ------> DAC1_OUT2
-	    */
 	    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4);
 
-	    /* DAC1 DMA DeInit */
-	   //HAL_DMA_DeInit(hdac1.DMA_Handle1);
-	  /* USER CODE BEGIN DAC1_MspDeInit 1 */
 
-	  /* USER CODE END DAC1_MspDeInit 1 */
 }
 
 /*
@@ -475,7 +462,7 @@ void SM_EnableDacToSync()
 
 	__HAL_LINKDMA(&hdac2,DMA_Handle1,hdma_dac2_ch1);
 
-    GO_ApplyPresetToSync(eDefaultGainPreset);
+    //GO_ApplyPresetToSync(eDefaultGainPreset);
 }
 
 /*
@@ -488,7 +475,8 @@ void SM_EnableDacToSync()
  */
 void SM_DisableDacToSync()
 {
-    __HAL_RCC_DAC2_CLK_DISABLE();
+
+    //__HAL_RCC_DAC2_CLK_DISABLE();
 
     /**DAC2 GPIO Configuration
     PA6     ------> DAC2_OUT1

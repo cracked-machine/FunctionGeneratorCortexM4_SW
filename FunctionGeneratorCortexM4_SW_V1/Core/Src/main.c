@@ -145,7 +145,7 @@ int main(void)
 
 
 //  SM_DisablePwmToSignal();
-  SM_EnableDacToSignal();
+  //SM_EnableDacToSignal();
 
 
 

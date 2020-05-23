@@ -73,7 +73,7 @@ void GO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 	gain_last_encoder_value = pEncoderValue;
 
 	// artifically offset PWM signal above DC
-	BO_SetPwmSignalOffsetForGain(temp_gain);
+	//BO_SetPwmSignalOffsetForGain(temp_gain);
 
 }
 
@@ -146,70 +146,6 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
 
 }
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void GO_ApplyPresetToSync(eGainSettings_t pPresetEnum)
-{
-	SM_GetOutputChannel(SYNC_CHANNEL)->gain_profile = &theGainProfiles[pPresetEnum];
-
-	switch(pPresetEnum)
-	{
-		case ZERO_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
-			break;
-
-		case ONE_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
-			break;
-
-		case TWO_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
-			break;
-
-		case THREE_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
-			break;
-
-		case FOUR_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
-			break;
-
-		case FIVE_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
-			break;
-
-		case SIX_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
-			break;
-
-		case SEVEN_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
-			break;
-	}
-}
-
 
 
 /*
@@ -248,67 +184,3 @@ uint8_t GO_GetGainPresetEncoderRange()
 	return GainPresetEncoderRange;
 }
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void GO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
-{
-
-	GainProfile_t *p_temp_gain_profile = SM_GetOutputChannel(SYNC_CHANNEL)->gain_profile;
-	if(pEncoderValue > gain_last_encoder_value)
-	{
-		p_temp_gain_profile->gain++;
-		if(p_temp_gain_profile->gain > MAX_NUM_GAIN_PRESETS-1) p_temp_gain_profile->gain = SEVEN_GAIN;
-		GO_ApplyPresetToSync(p_temp_gain_profile->gain);
-	}
-	else if (pEncoderValue < gain_last_encoder_value)
-	{
-		p_temp_gain_profile->gain--;
-		if(p_temp_gain_profile->gain > MAX_NUM_GAIN_PRESETS-1) p_temp_gain_profile->gain = ZERO_GAIN;
-		GO_ApplyPresetToSync(p_temp_gain_profile->gain);
-	}
-	gain_last_encoder_value = pEncoderValue;
-
-	/*
-	switch(pEncoderValue)
-	{
-		case 0: case 1: case 2:
-			GO_ApplyPresetToSync(ZERO_GAIN);
-			break;
-
-		case 3: case 4: case 5: case 6:
-			GO_ApplyPresetToSync(ONE_GAIN);
-			break;
-
-		case 7: case 8: case 9: case 10:
-			GO_ApplyPresetToSync(TWO_GAIN);
-			break;
-
-		case 11: case 12: case 13: case 14:
-			GO_ApplyPresetToSync(THREE_GAIN);
-			break;
-
-		case 15: case 16: case 17: case 18:
-			GO_ApplyPresetToSync(FOUR_GAIN);
-			break;
-
-		case 19: case 20: case 21: case 22:
-			GO_ApplyPresetToSync(FIVE_GAIN);
-			break;
-
-		case 23: case 24: case 25: case 26:
-			GO_ApplyPresetToSync(SIX_GAIN);
-			break;
-
-		case 27: case 28: case 29: case 30:
-			GO_ApplyPresetToSync(SEVEN_GAIN);
-			break;
-	}
-*/
-
-}

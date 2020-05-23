@@ -27,12 +27,15 @@ eFuncMenu_Status FuncMenu_getStatus();
 eSystemState FuncMainMenuEntryHandler();
 eSystemState FuncMainMenuInputHandler();
 eSystemState FuncMainMenuExitHandler();
+
 eSystemState FuncSignalMenuEntryHandler();
 eSystemState FuncSignalMenuInputHandler();
 eSystemState FuncSignalToggleDutyMode();
 eSystemState FuncSignalMenuExitHandler();
+
 eSystemState FuncSyncMenuEntryHandler();
 eSystemState FuncSyncMenuInputHandler();
+eSystemState FuncSyncToggleDutyMode();
 eSystemState FuncSyncMenuExitHandler();
 
 

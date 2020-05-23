@@ -27,7 +27,7 @@ void BO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue);
 uint32_t BO_GetOutputBias();
 eBias_Polarity BO_GetBiasPolarity();
 uint16_t BO_GetDcBiasEncoderValue();
-void BO_SetPwmSignalOffsetForGain(eGainSettings_t temp_gain);
-void BO_SetPwmSignalOffsetForDuty(uint32_t tim3_arr);
+//void BO_SetPwmSignalOffsetForGain(eGainSettings_t temp_gain);
+//void BO_SetPwmSignalOffsetForDuty(uint32_t tim3_arr);
 
 #endif /* SRC_SIGNALMANAGER_BIASOUTPUT_H_ */

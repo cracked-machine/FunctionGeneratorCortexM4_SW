@@ -106,6 +106,8 @@ void FuncO_MapEncoderPositionToSyncOutput(uint16_t pEncoderValue)
 		tmpFunc--;
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = SINE_FUNC_MODE;
 		FuncO_ApplyPresetToSync(tmpFunc);
+//		if(tmpFunc == SINE_FUNC_MODE)
+//			ENCODER_TIMER->CNT = 20;
 	}
 	func_last_encoder_value = pEncoderValue;
 }
@@ -132,7 +134,7 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 	// set the next function output
 	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
 
-	if(pPresetEnum == PWM_FUNC_MODE)
+/*	if(pPresetEnum == PWM_FUNC_MODE)
 	{
 		// set preset for PGA gain and dsp amplitude adjustment
 		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
@@ -185,6 +187,7 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 	}
 	else
 	{
+	*/
 		// copy the lookup table for the next output function in to SignalChannel object
 		SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
@@ -208,7 +211,7 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
 		//HAL_TIM_Base_Start(&htim8);
 		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 
-	}
+	//}
 
 }
 
@@ -233,29 +236,74 @@ void FuncO_ApplyPresetToSync(eOutput_mode pPresetEnum)
 	// set the next output function
 	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
 
+	if(pPresetEnum == PWM_FUNC_MODE)
+	{
+		// switch output signal from DAC to PWM
+		SM_DisableDacToSync();
+		SM_EnablePwmToSync();
 
-	// copy the lookup table for the next output function in to SyncChannel object
-	SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
+		last_output_mode_was_pwm = 1;
 
-	// set preset PGA gain and dsp amplitude adjustment
-	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
-	VPP_ApplyProfileToSync(eTmpVppPreset);
+	}
+	else if(last_output_mode_was_pwm)
+	{
+		// switch output signal from PWM to DAC
+		SM_DisablePwmToSync();
+		SM_EnableDacToSync();
 
-	// pause timer to resync both outputs
-	//HAL_TIM_Base_Stop(&htim8);
-	OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+		// copy the lookup table for the next output function in to SyncChannel object
+		SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
-	// restart the DAC with the new data
-	HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-	HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		// set preset PGA gain and dsp amplitude adjustment
+		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
+		VPP_ApplyProfileToSync(eTmpVppPreset);
 
-	// restart the the other DAC
-	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		// pause timer to resync both outputs
+		//HAL_TIM_Base_Stop(&htim8);
+		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 
-	// resume timer to resync both outputs
-	//HAL_TIM_Base_Start(&htim8);
-	OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+		// CAN CAUSE HARDFAULT!
+		// restart the DAC with the new data
+		//HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+		//HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+
+		// restart the the other DAC
+		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+		HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+
+		// resume timer to resync both outputs
+		//HAL_TIM_Base_Start(&htim8);
+		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+
+		last_output_mode_was_pwm = 0;
+	}
+	else
+	{
+
+		// copy the lookup table for the next output function in to SyncChannel object
+		SM_GetOutputChannel(SYNC_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
+
+		// set preset PGA gain and dsp amplitude adjustment
+		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile->amp_setting;
+		VPP_ApplyProfileToSync(eTmpVppPreset);
+
+		// pause timer to resync both outputs
+		//HAL_TIM_Base_Stop(&htim8);
+		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+
+		// CAN CAUSE HARDFAULT!
+		// restart the DAC with the new data
+		//HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+		//HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SYNC_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+
+		// restart the the other DAC
+		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+		HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+
+		// resume timer to resync both outputs
+		//HAL_TIM_Base_Start(&htim8);
+		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+	}
 }
 
 

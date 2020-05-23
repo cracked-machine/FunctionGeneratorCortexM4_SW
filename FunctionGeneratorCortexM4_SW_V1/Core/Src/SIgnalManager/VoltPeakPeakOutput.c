@@ -199,7 +199,7 @@ void VPP_ApplyProfileToSync(eAmpSettings_t pPresetEnum)
 	SM_GetOutputChannel(SYNC_CHANNEL)->amp_profile = pNextEncPreset;
 
 	 // set the gain preset
-	GO_ApplyPresetToSync(pNextEncPreset->gain_preset);
+	//GO_ApplyPresetToSync(pNextEncPreset->gain_preset);
 
 	// Apply the next amplitude setting to the SyncChannel object
 	_ProcessSyncDataTable(pNextEncPreset->neg_gain_coeff, pNextEncPreset->amp_offset , pNextEncPreset->epos);
