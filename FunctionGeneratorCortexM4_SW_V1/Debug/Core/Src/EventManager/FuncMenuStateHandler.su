@@ -4,8 +4,8 @@ FuncMenuStateHandler.c:69:14:FuncMainMenuInputHandler	8	static
 FuncMenuStateHandler.c:90:14:FuncMainMenuExitHandler	8	static
 FuncMenuStateHandler.c:123:14:FuncSignalMenuEntryHandler	16	static
 FuncMenuStateHandler.c:158:14:FuncSignalMenuInputHandler	24	static
-FuncMenuStateHandler.c:187:14:FuncSignalToggleDutyMode	8	static
-FuncMenuStateHandler.c:204:14:FuncSignalMenuExitHandler	8	static
-FuncMenuStateHandler.c:233:14:FuncSyncMenuEntryHandler	16	static
-FuncMenuStateHandler.c:268:14:FuncSyncMenuInputHandler	8	static
-FuncMenuStateHandler.c:288:14:FuncSyncMenuExitHandler	8	static
+FuncMenuStateHandler.c:189:14:FuncSignalToggleDutyMode	8	static
+FuncMenuStateHandler.c:206:14:FuncSignalMenuExitHandler	8	static
+FuncMenuStateHandler.c:235:14:FuncSyncMenuEntryHandler	16	static
+FuncMenuStateHandler.c:270:14:FuncSyncMenuInputHandler	8	static
+FuncMenuStateHandler.c:290:14:FuncSyncMenuExitHandler	8	static

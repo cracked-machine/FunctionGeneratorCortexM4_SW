@@ -161,10 +161,12 @@ eSystemState FuncSignalMenuInputHandler(void)
 		printf("FuncSignalMenuInputHandler Event captured\n");
 	#endif
 
+	// PWM ADJUST
 	if(SM_IsFuncPwmDutyMode())
 	{
 		uint16_t enc_value = SM_GetEncoderValue(ENCODER_FORWARD);
 		TIM3->CCR2 = (pow(enc_value, 2));
+		//BO_SetPwmSignalOffsetForDuty(BO_GetOutputBias() + SM_GetEncoderValue(ENCODER_FORWARD));
 
 	}
 	else

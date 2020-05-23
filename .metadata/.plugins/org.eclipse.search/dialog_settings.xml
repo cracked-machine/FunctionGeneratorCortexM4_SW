@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VPP_ModifySyncOutput"/>
+			<item key="textPattern" value="BO_SetPwmSignalAboveDC"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -36,14 +36,15 @@
 			</list>
 		</section>
 		<section name="EXTENSIONS">
-			<item key="0" value="*.c,*.h"/>
-			<item key="1" value="*.c"/>
+			<item key="0" value="*.c, *.h"/>
+			<item key="1" value="*.c,*.h"/>
+			<item key="2" value="*.c"/>
 		</section>
 		<section name="HISTORY1">
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VPP_ModifySignalOutput"/>
+			<item key="textPattern" value="BO_SetSignalAboveDC"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -56,11 +57,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VPP_ApplyPresetToSync"/>
+			<item key="textPattern" value="VPP_ModifySyncOutput"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
-				<item value="*.h"/>
 				<item value="*.c"/>
+				<item value="*.h"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -69,7 +70,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VPP_ApplyPresetToSignal"/>
+			<item key="textPattern" value="VPP_ModifySignalOutput"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -82,7 +83,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="BO_ModifyOutput"/>
+			<item key="textPattern" value="VPP_ApplyPresetToSync"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -95,7 +96,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="GO_ModifyOutputSignal"/>
+			<item key="textPattern" value="VPP_ApplyPresetToSignal"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -108,9 +109,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="GO_ModifyOutputSync"/>
+			<item key="textPattern" value="BO_ModifyOutput"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -120,9 +122,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FreqO_ModifyOutput"/>
+			<item key="textPattern" value="GO_ModifyOutputSignal"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -132,7 +135,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FuncO_ModifySyncOutput"/>
+			<item key="textPattern" value="GO_ModifyOutputSync"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -144,7 +147,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FuncO_ModifySignalOutput"/>
+			<item key="textPattern" value="FreqO_ModifyOutput"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -156,7 +159,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="evSweepSpeed"/>
+			<item key="textPattern" value="FuncO_ModifySyncOutput"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -168,7 +171,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="IM_SWEEPINCREMENT_TIM_IRQHandler"/>
+			<item key="textPattern" value="FuncO_ModifySignalOutput"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
@@ -198,13 +201,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="BO_SetPwmSignalOffsetForGain"/>
+			<item value="BO_SetPwmSignalAboveDC"/>
 			<item value="VPP_MapEncoderPositionToSyncOutput"/>
 			<item value="VPP_MapEncoderPositionToSignalOutput"/>
 			<item value="VPP_ApplyProfileToSync"/>
 			<item value="VPP_ApplyProfileToSignal"/>
 			<item value="BO_MapEncoderPositionToSignalOutput"/>
-			<item value="GO_MapEncoderPositionToSignalOutput"/>
-			<item value="GO_MapEncoderPositionToSyncOutput"/>
 		</list>
 	</section>
 	<section name="">

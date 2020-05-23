@@ -15,7 +15,7 @@
 #include "BiasMenus.h"
 
 #include "EventManager.h"
-
+#define ENCODER_DEBUG
 
 #include <stdint.h>
 #include <stdio.h>
@@ -277,14 +277,16 @@ void DM_UpdateDisplay()
 	/*
 	 * 	Debug messages
 	 */
+
+	//TODO
 	#ifdef ENCODER_DEBUG
 		char tim5_text[50] = "";
-		snprintf(tim5_text, sizeof(tim5_text), "OUTPUT_TIMER->ARR: %5lu", OUTPUT_TIMER->ARR);
-		ILI9341_Draw_Text(tim5_text, 10, 180, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
+		snprintf(tim5_text, sizeof(tim5_text), "OFFSET: %5lu", BO_GetOutputBias());
+		ILI9341_Draw_Text(tim5_text, 100, 180, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
 
 		char encoder_value[50] = "";
-		snprintf(encoder_value, sizeof(encoder_value), "SWEEP_TIMER->ARR: %5lu - ENCODER: %5lu", SWEEP_TIMER->ARR, ENCODER_TIMER->CNT);
-		ILI9341_Draw_Text(encoder_value, 10, 190, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
+		snprintf(encoder_value, sizeof(encoder_value), "ENCODER: %5lu", ENCODER_TIMER->CNT);
+		ILI9341_Draw_Text(encoder_value, 100, 190, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
 	#endif //ENCODER_DEBUG
 
 	if(*ErrorDebugMsg)

@@ -127,7 +127,6 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_DAC1_Init();
-  MX_DAC2_Init();
   MX_ADC1_Init();
   MX_COMP1_Init();
   MX_TIM2_Init();
@@ -139,6 +138,7 @@ int main(void)
   MX_TIM15_Init();
   MX_TIM5_Init();
   MX_TIM3_Init();
+  MX_DAC2_Init();
   /* USER CODE BEGIN 2 */
 
 //  SM_EnablePwmToSignal();
@@ -146,6 +146,8 @@ int main(void)
 
 //  SM_DisablePwmToSignal();
   SM_EnableDacToSignal();
+
+
 
   DT_InitRegister();
 
@@ -253,6 +255,14 @@ int main(void)
   // switch output signal from PWM to DAC
 //  SM_DisablePwmToSignal();
 //  SM_EnableDacToSignal();
+
+  // switch aux output from DAC to PWM
+  //SM_DisableDacToSync();
+  //SM_EnablePwmToSync();
+
+  // switch AUX output from PWM to DAC
+  //SM_DisableDacToSync();
+  //SM_EnableDacToSync();
 
   /* USER CODE END 2 */
 

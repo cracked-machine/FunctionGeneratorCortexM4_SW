@@ -308,7 +308,78 @@ void SM_DisableDacToSignal()
  */
 void SM_EnablePwmToSync()
 {
-	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
+	TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+	TIM_MasterConfigTypeDef sMasterConfig = {0};
+	TIM_OC_InitTypeDef sConfigOC = {0};
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+
+	htim3.Instance = TIM3;
+	htim3.Init.Prescaler = 0;
+	htim3.Init.CounterMode = TIM_COUNTERMODE_DOWN;
+	htim3.Init.Period = 1;
+	htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV4;
+	htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
+	if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+	if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	sConfigOC.OCMode = TIM_OCMODE_PWM1;
+	sConfigOC.Pulse = 0;
+	sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+	sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+	if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+	{
+		Error_Handler();
+	}
+
+
+	// Timer Post Initialization
+
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	/**TIM3 GPIO Configuration
+	PA4     ------> TIM3_CH2
+	*/
+	GPIO_InitStruct.Pin = GPIO_PIN_6;
+	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+	GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+
+	// TIM3_MspInit 0
+
+	/* TIM3 clock enable */
+	__HAL_RCC_TIM3_CLK_ENABLE();
+
+	/* TIM3 interrupt Init */
+	HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
+	HAL_NVIC_EnableIRQ(TIM3_IRQn);
+	/* USER CODE BEGIN TIM3_MspInit 1 */
+
+	/* USER CODE END TIM3_MspInit 1 */
+
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+	GO_ApplyPresetToSignal(eDefaultGainPreset);
+	// 50% duty cycle
+	TIM3->CCR1 = 32768;
+	TIM3->ARR = 65535;
 }
 
 /*
@@ -321,7 +392,17 @@ void SM_EnablePwmToSync()
  */
 void SM_DisablePwmToSync()
 {
+	/* USER CODE BEGIN TIM3_MspDeInit 0 */
 
+	/* USER CODE END TIM3_MspDeInit 0 */
+	/* Peripheral clock disable */
+	__HAL_RCC_TIM3_CLK_DISABLE();
+
+	/* TIM3 interrupt Deinit */
+	HAL_NVIC_DisableIRQ(TIM3_IRQn);
+	/* USER CODE BEGIN TIM3_MspDeInit 1 */
+
+	/* USER CODE END TIM3_MspDeInit 1 */
 }
 
 /*
@@ -334,7 +415,67 @@ void SM_DisablePwmToSync()
  */
 void SM_EnableDacToSync()
 {
-	SM_GetOutputChannel(SYNC_CHANNEL)->func_profile = &theFuncProfiles[PWM_FUNC_MODE];
+	DAC_ChannelConfTypeDef sConfig = {0};
+	GPIO_InitTypeDef GPIO_InitStruct = {0};
+	DAC_HandleTypeDef hdac2;
+	DMA_HandleTypeDef hdma_dac2_ch1;
+	/** DAC Initialization
+	*/
+	hdac2.Instance = DAC2;
+	if (HAL_DAC_Init(&hdac2) != HAL_OK)
+	{
+		Error_Handler();
+	}
+	/** DAC channel OUT1 config
+	*/
+	sConfig.DAC_HighFrequency = DAC_HIGH_FREQUENCY_INTERFACE_MODE_ABOVE_80MHZ;
+	sConfig.DAC_DMADoubleDataMode = DISABLE;
+	sConfig.DAC_SignedFormat = DISABLE;
+	sConfig.DAC_SampleAndHold = DAC_SAMPLEANDHOLD_DISABLE;
+	sConfig.DAC_Trigger = DAC_TRIGGER_T8_TRGO;
+	sConfig.DAC_Trigger2 = DAC_TRIGGER_NONE;
+	sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
+	sConfig.DAC_ConnectOnChipPeripheral = DAC_CHIPCONNECT_DISABLE;
+	sConfig.DAC_UserTrimming = DAC_TRIMMING_FACTORY;
+	if (HAL_DAC_ConfigChannel(&hdac2, &sConfig, DAC_CHANNEL_1) != HAL_OK)
+	{
+		Error_Handler();
+	}
+
+	/* USER CODE BEGIN DAC2_MspInit 0 */
+
+	/* USER CODE END DAC2_MspInit 0 */
+	/* DAC2 clock enable */
+	__HAL_RCC_DAC2_CLK_ENABLE();
+
+	__HAL_RCC_GPIOA_CLK_ENABLE();
+	/**DAC2 GPIO Configuration
+	PA6     ------> DAC2_OUT1
+	*/
+	GPIO_InitStruct.Pin = GPIO_PIN_6;
+	GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+	/* DAC2 DMA Init */
+	/* DAC2_CH1 Init */
+	hdma_dac2_ch1.Instance = DMA1_Channel3;
+	hdma_dac2_ch1.Init.Request = DMA_REQUEST_DAC2_CHANNEL1;
+	hdma_dac2_ch1.Init.Direction = DMA_MEMORY_TO_PERIPH;
+	hdma_dac2_ch1.Init.PeriphInc = DMA_PINC_DISABLE;
+	hdma_dac2_ch1.Init.MemInc = DMA_MINC_ENABLE;
+	hdma_dac2_ch1.Init.PeriphDataAlignment = DMA_PDATAALIGN_WORD;
+	hdma_dac2_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
+	hdma_dac2_ch1.Init.Mode = DMA_CIRCULAR;
+	hdma_dac2_ch1.Init.Priority = DMA_PRIORITY_LOW;
+	if (HAL_DMA_Init(&hdma_dac2_ch1) != HAL_OK)
+	{
+	  Error_Handler();
+	}
+
+	__HAL_LINKDMA(&hdac2,DMA_Handle1,hdma_dac2_ch1);
+
+    GO_ApplyPresetToSync(eDefaultGainPreset);
 }
 
 /*
@@ -347,7 +488,12 @@ void SM_EnableDacToSync()
  */
 void SM_DisableDacToSync()
 {
+    __HAL_RCC_DAC2_CLK_DISABLE();
 
+    /**DAC2 GPIO Configuration
+    PA6     ------> DAC2_OUT1
+    */
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_6);
 }
 
 
