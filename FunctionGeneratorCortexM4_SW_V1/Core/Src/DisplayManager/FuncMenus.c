@@ -74,7 +74,7 @@ void FuncMenu_DrawMainMenu()
 void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 {
 	if(pOutChan)
-		ILI9341_Draw_Text("OUT->FUNC->Aux", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
+		ILI9341_Draw_Text("OUT->FUNC->AUX", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 	else
 		ILI9341_Draw_Text("OUT->FUNC->SIG", 	10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 
@@ -91,8 +91,11 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-				ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-			 	// coloured menu btn labels
+
+				if(pOutChan)
+					ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+
+				// coloured menu btn labels
 				ILI9341_Draw_Text("    ", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
@@ -105,8 +108,11 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-				ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-			 	// coloured menu btn labels
+
+				if(pOutChan)
+					ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+
+				// coloured menu btn labels
 				ILI9341_Draw_Text("    ", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
@@ -119,7 +125,8 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-				ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+				if(pOutChan)
+					ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 			 	// coloured menu btn labels
 				ILI9341_Draw_Text("    ", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
@@ -133,8 +140,11 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("- REV SAW", 	10, 110, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-				ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-			 	// coloured menu btn labels
+
+				if(pOutChan)
+					ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+
+				// coloured menu btn labels
 				ILI9341_Draw_Text("    ", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
@@ -147,8 +157,11 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- TRIANGLE",	10, 130, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-				ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-			 	// coloured menu btn labels
+
+				if(pOutChan)
+					ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+
+				// coloured menu btn labels
 				ILI9341_Draw_Text("    ", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
@@ -163,8 +176,11 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- UNIT", 	10, 150, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
-				ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-			 	// coloured menu btn labels
+
+				if(pOutChan)
+					ILI9341_Draw_Text("- PWM", 		10, 170, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+
+				// coloured menu btn labels
 				ILI9341_Draw_Text("    ", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
@@ -179,26 +195,39 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				ILI9341_Draw_Text("- REV SAW", 	10, 110, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- TRIANGLE",	10, 130, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("- UNIT", 	10, 150, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-				ILI9341_Draw_Text("- PWM", 		10, 170, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
-			 	// coloured menu btn labels
+
+				if(pOutChan)
+					ILI9341_Draw_Text("- PWM", 		10, 170, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+
+				// coloured menu btn labels
 				ILI9341_Draw_Text("    ", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
 				ILI9341_Draw_Text("    ", 	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
-				ILI9341_Draw_Text("DUTY", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
+
+				if(pOutChan)
+				{
+					ILI9341_Draw_Text("DUTY", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
+					char duty[10] = "";
+					snprintf(duty, sizeof(duty), "%0.2f%%", ((float)TIM3->CCR1 / (float)TIM3->ARR) * 100);
+					ILI9341_Draw_Text(duty, 	220, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+					if(SM_IsFuncPwmDutyMode())
+					{
+						ILI9341_Draw_Text("DUTY:", 	150, 50,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+
+					}
+					else
+					{
+						ILI9341_Draw_Text("DUTY:", 	150, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+					}
+				}
+				else
+				{
+					ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
+				}
+
 				ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 
-				if(SM_IsFuncPwmDutyMode())
-					ILI9341_Draw_Text("DUTY:", 	150, 50,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
-				else
-					ILI9341_Draw_Text("DUTY:", 	150, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-
-				char duty[10] = "";
-				snprintf(duty, sizeof(duty), "%0.2f%%", ((float)TIM3->CCR1 / (float)TIM3->ARR) * 100);
-				ILI9341_Draw_Text(duty, 	220, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 				break;
 				//
 		}
-
 	}
-
-
 }

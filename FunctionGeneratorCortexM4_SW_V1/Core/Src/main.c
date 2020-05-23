@@ -79,7 +79,10 @@ uint32_t trigger_input[TRIGGER_DATA_SIZE];
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+void HAL_DAC_ConvCpltCallbackCh1(DAC_HandleTypeDef *hdac)
+{
 
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/

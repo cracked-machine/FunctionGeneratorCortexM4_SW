@@ -58,7 +58,17 @@ void GainMenu_DrawMainMenu()
 
 	// coloured menu btn labels
 	ILI9341_Draw_Text("SIGNAL", 5, 	 210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text("Aux",	97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+
+	eOutput_mode aux_output_func = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
+	if(aux_output_func == PWM_FUNC_MODE)
+	{
+		ILI9341_Draw_Text("AUX",	100,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	}
+	else
+	{
+		ILI9341_Draw_Text("    ",	100,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
+	}
+
 	ILI9341_Draw_Text("    ", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("    ", 	260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 }

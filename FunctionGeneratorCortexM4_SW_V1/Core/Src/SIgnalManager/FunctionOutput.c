@@ -28,20 +28,17 @@ uint32_t empty_table[10] = {};
  */
 FunctionProfile_t theFuncProfiles[MAX_NUM_FUNC_PRESETS] =
 {
-	{ SINE_FUNC_MODE,		24, sine_data_table_3600 		},
-	{ SQUARE_FUNC_MODE,		20, square_data_table_3600 		},
-	{ SAW_FUNC_MODE,		16, saw_data_table_3600 		},
-	{ REV_SAW_FUNC_MODE,	12, saw_rev_data_table_3600 	},
-	{ TRIANGLE_FUNC_MODE, 	8, 	triangle_data_table_3600 	},
-	{ IMPULSE_FUNC_MODE, 	4, 	unitimpulse_data_table_3600 },
-	{ PWM_FUNC_MODE,		0,	empty_table					}			// no lookup table used
+	{ SINE_FUNC_MODE,		 sine_data_table_3600 		},
+	{ SQUARE_FUNC_MODE,		 square_data_table_3600 		},
+	{ SAW_FUNC_MODE,		 saw_data_table_3600 		},
+	{ REV_SAW_FUNC_MODE,	 saw_rev_data_table_3600 	},
+	{ TRIANGLE_FUNC_MODE, 	 triangle_data_table_3600 	},
+	{ IMPULSE_FUNC_MODE, 	 unitimpulse_data_table_3600 },
+	{ PWM_FUNC_MODE,	 	 empty_table					}			// no lookup table used
 
 };
 
 uint8_t last_output_mode_was_pwm = 0;
-
-uint8_t FuncPresetEncoderRange = 24;
-
 uint16_t func_last_encoder_value = 0;
 
 /*
@@ -72,7 +69,7 @@ void FuncO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 	if(pEncoderValue > func_last_encoder_value)
 	{
 		tmpFunc++;
-		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = PWM_FUNC_MODE;
+		if(tmpFunc > MAX_NUM_FUNC_PRESETS-2) tmpFunc = IMPULSE_FUNC_MODE;
 		FuncO_ApplyProfileToSignal(tmpFunc);
 	}
 	else if (pEncoderValue < func_last_encoder_value)
@@ -264,8 +261,8 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 
 		// CAN CAUSE HARDFAULT!
 		// restart the DAC with the new data
-		//HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-		//HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
 		// restart the the other DAC
 		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
@@ -293,8 +290,8 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 
 		// CAN CAUSE HARDFAULT!
 		// restart the DAC with the new data
-		//HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-		//HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
 		// restart the the other DAC
 		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
@@ -304,6 +301,7 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 		//HAL_TIM_Base_Start(&htim8);
 		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 	}
+
 }
 
 
@@ -338,18 +336,6 @@ FunctionProfile_t * FuncO_FindFPresetObject(eOutput_mode pEnum)
 }
 
 
-/*
- *
- *	@brief	Get range value for rotary encoder
- *
- *	@param None
- *	@retval uint8_t
- *
- */
-uint8_t FuncO_GetFuncPresetEncoderRange()
-{
-	return FuncPresetEncoderRange;
-}
 
 
 

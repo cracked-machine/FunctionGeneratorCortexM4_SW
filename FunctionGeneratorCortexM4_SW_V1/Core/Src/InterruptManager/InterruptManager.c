@@ -21,6 +21,7 @@ uint16_t btn2_last_interrupt_time = 0;
 uint16_t btn3_last_interrupt_time = 0;
 uint16_t btn4_last_interrupt_time = 0;
 uint16_t encbtn_last_interrupt_time = 0;
+uint16_t encpos_last_interrupt_time = 0;
 
 
 void IM_Init()
@@ -295,10 +296,18 @@ void IM_ENC_DIRF_Handler()
 
 	if((TIM1->SR & TIM_SR_DIRF) == TIM_SR_DIRF)
 	{
-		EM_SetNewEvent(evEncoderSet);
-		printf("Encoder new direction\n");
-		TIM1->SR &= ~(TIM_SR_DIRF);
+		uint16_t interrupt_time = DEBOUNCE_TIMER->CNT;
+		if ((interrupt_time - encpos_last_interrupt_time) > 0)
+		{
+			EM_SetNewEvent(evEncoderSet);
+			printf("Encoder new direction\n");
+			TIM1->SR &= ~(TIM_SR_DIRF);
+		}
+		encpos_last_interrupt_time = interrupt_time;
+
 
 	}
+
+
 }
 
