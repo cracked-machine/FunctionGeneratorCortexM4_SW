@@ -858,8 +858,8 @@ __STATIC_FORCEINLINE void __set_FPSCR(uint32_t fpscr)
 
 
 /**
-  \brief   Instruction Auxhronization Barrier
-  \details Instruction Auxhronization Barrier flushes the pipeline in the processor,
+  \brief   Instruction Synchronization Barrier
+  \details Instruction Synchronization Barrier flushes the pipeline in the processor,
            so that all instructions following the ISB are fetched from cache or memory,
            after the instruction has been completed.
  */
@@ -870,7 +870,7 @@ __STATIC_FORCEINLINE void __ISB(void)
 
 
 /**
-  \brief   Data Auxhronization Barrier
+  \brief   Data Synchronization Barrier
   \details Acts as a special kind of Data Memory Barrier.
            It completes when all explicit memory accesses before this instruction complete.
  */

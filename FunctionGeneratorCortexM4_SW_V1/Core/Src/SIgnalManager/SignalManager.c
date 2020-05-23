@@ -15,33 +15,40 @@ uint8_t duty_adjust_mode = 0;
 sOutputChannel_t SignalChannel;
 sOutputChannel_t AuxChannel;
 void _InitOutputChannels();
-void _InitNegGainCoefficients();
+void _InitAmpProfiles();
 void _InitGainInDecibels();
 
 void SM_Init()
 {
 
+	FreqO_InitFreqProfiles();
+
 	_InitOutputChannels();
-	_InitNegGainCoefficients();
-	_InitGainInDecibels();
+	_InitAmpProfiles();
+
+	// Start OFFSET DAC and set to positive
+	HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
+	HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
+
+	// send trigger input out to dac
+	//HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
+
+	// Start DAC trigger timer
+	OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+
+	// Set the SIGNAL function and amplitude
+	FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
+	VPP_ApplyProfileToSignal(eDefaultVppPreset);
+
+	// set the AUX function
+	FuncO_ApplyProfileToAux(eDefaultFuncPreset);
+
+	// set freq for both SIGNAL and AUX
+	FreqO_ApplyProfile(eDefaultFreqPreset);
 
 }
 
-void _InitGainInDecibels()
-{
-
-	// =20*LOG10(TARGETVPP/0.001)
-	for(int i = 0; i < MAX_VPP_PRESETS; i++)
-	{
-		float decibel_mvolt_ref = 0.001;
-		float this_amp_value = theAmpProfiles[i].amp_value;
-		float new_gain_decibels = 20 * log10( this_amp_value / decibel_mvolt_ref );
-		theAmpProfiles[i].gain_decibels = new_gain_decibels;
-
-	}
-}
-
-void _InitNegGainCoefficients()
+void _InitAmpProfiles()
 {
 
 	// =(TARGETVPP/LUTVPP)/GAIN
@@ -52,6 +59,16 @@ void _InitNegGainCoefficients()
 		float this_gain_preset = (float)theAmpProfiles[i].gain_preset;
 		float new_ngc = ( (this_amp_value / this_lut_vpp) / this_gain_preset);
 		theAmpProfiles[i].neg_gain_coeff = new_ngc;
+	}
+
+	// =20*LOG10(TARGETVPP/0.001)
+	for(int i = 0; i < MAX_VPP_PRESETS; i++)
+	{
+		float decibel_mvolt_ref = 0.001;
+		float this_amp_value = theAmpProfiles[i].amp_value;
+		float new_gain_decibels = 20 * log10( this_amp_value / decibel_mvolt_ref );
+		theAmpProfiles[i].gain_decibels = new_gain_decibels;
+
 	}
 }
 
@@ -78,6 +95,8 @@ void _InitOutputChannels()
 
 	AuxChannel.amp_profile = &theAmpProfiles[eDefaultVppPreset];
 	AuxChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
+
+
 }
 
 sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
@@ -128,7 +147,7 @@ void SM_EnablePwmToSignal()
 	}
 	sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-	if (HAL_TIMEx_MasterConfigAuxhronization(&htim3, &sMasterConfig) != HAL_OK)
+	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
 	{
 		Error_Handler();
 	}
@@ -322,7 +341,7 @@ void SM_EnablePwmToAux()
 	}
 	sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-	if (HAL_TIMEx_MasterConfigAuxhronization(&htim3, &sMasterConfig) != HAL_OK)
+	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
 	{
 		Error_Handler();
 	}

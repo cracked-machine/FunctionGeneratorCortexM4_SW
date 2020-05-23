@@ -39,7 +39,6 @@
 #include "DisplayManager.h"
 #include "EventManager.h"
 #include "SignalManager.h"
-#include "DacTimerRegistry.h"
 #include "InterruptManager.h"
 
 //#include "GainOutput.h"
@@ -141,39 +140,9 @@ int main(void)
   MX_DAC2_Init();
   /* USER CODE BEGIN 2 */
 
-//  SM_EnablePwmToSignal();
-
-
-//  SM_DisablePwmToSignal();
-  //SM_EnableDacToSignal();
-
-
-
-  DT_InitRegister();
-
-  // main signal function output (external)
   SM_Init();
-  FuncO_ApplyPresetToSignal(eDefaultFuncPreset);
-  FuncO_ApplyPresetToAux(eDefaultFuncPreset);
-
-  // DC bias output (internal)
-  HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
-
-  // send trigger input out to dac
-  //HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
-
-  // TIM2 - DAC TIMER
-  OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
-  FreqO_ApplyPreset(eDefaultFreqPreset);
 
 
-
-  // DC bias inversion
-  HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
-
-  // PGA gain
-  //GO_ApplyPreset_Fast(eDefaultGainPreset);
-  VPP_ApplyProfileToSignal(eDefaultVppPreset);
 
 
 // http://www.ti.com/lit/ds/symlink/ts5a3357.pdf

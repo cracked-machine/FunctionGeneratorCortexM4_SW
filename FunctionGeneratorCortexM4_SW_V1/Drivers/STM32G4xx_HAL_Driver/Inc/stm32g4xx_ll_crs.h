@@ -53,12 +53,12 @@ extern "C" {
   * @brief    Flags defines which can be used with LL_CRS_ReadReg function
   * @{
   */
-#define LL_CRS_ISR_AuxOKF                 CRS_ISR_AuxOKF
-#define LL_CRS_ISR_AuxWARNF               CRS_ISR_AuxWARNF
+#define LL_CRS_ISR_SYNCOKF                 CRS_ISR_SYNCOKF
+#define LL_CRS_ISR_SYNCWARNF               CRS_ISR_SYNCWARNF
 #define LL_CRS_ISR_ERRF                    CRS_ISR_ERRF
-#define LL_CRS_ISR_EAuxF                  CRS_ISR_EAuxF
-#define LL_CRS_ISR_AuxERR                 CRS_ISR_AuxERR
-#define LL_CRS_ISR_AuxMISS                CRS_ISR_AuxMISS
+#define LL_CRS_ISR_ESYNCF                  CRS_ISR_ESYNCF
+#define LL_CRS_ISR_SYNCERR                 CRS_ISR_SYNCERR
+#define LL_CRS_ISR_SYNCMISS                CRS_ISR_SYNCMISS
 #define LL_CRS_ISR_TRIMOVF                 CRS_ISR_TRIMOVF
 /**
   * @}
@@ -68,44 +68,44 @@ extern "C" {
   * @brief    IT defines which can be used with LL_CRS_ReadReg and  LL_CRS_WriteReg functions
   * @{
   */
-#define LL_CRS_CR_AuxOKIE                 CRS_CR_AuxOKIE
-#define LL_CRS_CR_AuxWARNIE               CRS_CR_AuxWARNIE
+#define LL_CRS_CR_SYNCOKIE                 CRS_CR_SYNCOKIE
+#define LL_CRS_CR_SYNCWARNIE               CRS_CR_SYNCWARNIE
 #define LL_CRS_CR_ERRIE                    CRS_CR_ERRIE
-#define LL_CRS_CR_EAuxIE                  CRS_CR_EAuxIE
+#define LL_CRS_CR_ESYNCIE                  CRS_CR_ESYNCIE
 /**
   * @}
   */
 
-/** @defgroup CRS_LL_EC_Aux_DIV Auxhronization Signal Divider
+/** @defgroup CRS_LL_EC_SYNC_DIV Synchronization Signal Divider
   * @{
   */
-#define LL_CRS_Aux_DIV_1                  ((uint32_t)0x00U)                         /*!< Auxhro Signal not divided (default) */
-#define LL_CRS_Aux_DIV_2                  CRS_CFGR_AuxDIV_0                        /*!< Auxhro Signal divided by 2 */
-#define LL_CRS_Aux_DIV_4                  CRS_CFGR_AuxDIV_1                        /*!< Auxhro Signal divided by 4 */
-#define LL_CRS_Aux_DIV_8                  (CRS_CFGR_AuxDIV_1 | CRS_CFGR_AuxDIV_0) /*!< Auxhro Signal divided by 8 */
-#define LL_CRS_Aux_DIV_16                 CRS_CFGR_AuxDIV_2                        /*!< Auxhro Signal divided by 16 */
-#define LL_CRS_Aux_DIV_32                 (CRS_CFGR_AuxDIV_2 | CRS_CFGR_AuxDIV_0) /*!< Auxhro Signal divided by 32 */
-#define LL_CRS_Aux_DIV_64                 (CRS_CFGR_AuxDIV_2 | CRS_CFGR_AuxDIV_1) /*!< Auxhro Signal divided by 64 */
-#define LL_CRS_Aux_DIV_128                CRS_CFGR_AuxDIV                          /*!< Auxhro Signal divided by 128 */
+#define LL_CRS_SYNC_DIV_1                  ((uint32_t)0x00U)                         /*!< Synchro Signal not divided (default) */
+#define LL_CRS_SYNC_DIV_2                  CRS_CFGR_SYNCDIV_0                        /*!< Synchro Signal divided by 2 */
+#define LL_CRS_SYNC_DIV_4                  CRS_CFGR_SYNCDIV_1                        /*!< Synchro Signal divided by 4 */
+#define LL_CRS_SYNC_DIV_8                  (CRS_CFGR_SYNCDIV_1 | CRS_CFGR_SYNCDIV_0) /*!< Synchro Signal divided by 8 */
+#define LL_CRS_SYNC_DIV_16                 CRS_CFGR_SYNCDIV_2                        /*!< Synchro Signal divided by 16 */
+#define LL_CRS_SYNC_DIV_32                 (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_0) /*!< Synchro Signal divided by 32 */
+#define LL_CRS_SYNC_DIV_64                 (CRS_CFGR_SYNCDIV_2 | CRS_CFGR_SYNCDIV_1) /*!< Synchro Signal divided by 64 */
+#define LL_CRS_SYNC_DIV_128                CRS_CFGR_SYNCDIV                          /*!< Synchro Signal divided by 128 */
 /**
   * @}
   */
 
-/** @defgroup CRS_LL_EC_Aux_SOURCE Auxhronization Signal Source
+/** @defgroup CRS_LL_EC_SYNC_SOURCE Synchronization Signal Source
   * @{
   */
-#define LL_CRS_Aux_SOURCE_GPIO            ((uint32_t)0x00U)       /*!< Auxhro Signal soucre GPIO */
-#define LL_CRS_Aux_SOURCE_LSE             CRS_CFGR_AuxSRC_0      /*!< Auxhro Signal source LSE */
-#define LL_CRS_Aux_SOURCE_USB             CRS_CFGR_AuxSRC_1      /*!< Auxhro Signal source USB SOF (default)*/
+#define LL_CRS_SYNC_SOURCE_GPIO            ((uint32_t)0x00U)       /*!< Synchro Signal soucre GPIO */
+#define LL_CRS_SYNC_SOURCE_LSE             CRS_CFGR_SYNCSRC_0      /*!< Synchro Signal source LSE */
+#define LL_CRS_SYNC_SOURCE_USB             CRS_CFGR_SYNCSRC_1      /*!< Synchro Signal source USB SOF (default)*/
 /**
   * @}
   */
 
-/** @defgroup CRS_LL_EC_Aux_POLARITY Auxhronization Signal Polarity
+/** @defgroup CRS_LL_EC_SYNC_POLARITY Synchronization Signal Polarity
   * @{
   */
-#define LL_CRS_Aux_POLARITY_RISING        ((uint32_t)0x00U)     /*!< Auxhro Active on rising edge (default) */
-#define LL_CRS_Aux_POLARITY_FALLING       CRS_CFGR_AuxPOL      /*!< Auxhro Active on falling edge */
+#define LL_CRS_SYNC_POLARITY_RISING        ((uint32_t)0x00U)     /*!< Synchro Active on rising edge (default) */
+#define LL_CRS_SYNC_POLARITY_FALLING       CRS_CFGR_SYNCPOL      /*!< Synchro Active on falling edge */
 /**
   * @}
   */
@@ -125,7 +125,7 @@ extern "C" {
 /**
   * @brief Reset value of the RELOAD field
   * @note The reset value of the RELOAD field corresponds to a target frequency of 48 MHz
-  *       and a Auxhronization signal frequency of 1 kHz (SOF signal from USB)
+  *       and a synchronization signal frequency of 1 kHz (SOF signal from USB)
   */
 #define LL_CRS_RELOADVALUE_DEFAULT         ((uint32_t)0xBB7FU)
 
@@ -182,17 +182,17 @@ extern "C" {
   */
 
 /**
-  * @brief  Macro to calculate reload value to be set in CRS register according to target and Aux frequencies
+  * @brief  Macro to calculate reload value to be set in CRS register according to target and sync frequencies
   * @note   The RELOAD value should be selected according to the ratio between
-  *         the target frequency and the frequency of the Auxhronization source after
+  *         the target frequency and the frequency of the synchronization source after
   *         prescaling. It is then decreased by one in order to reach the expected
-  *         Auxhronization on the zero value. The formula is the following:
-  *              RELOAD = (fTARGET / fAux) -1
+  *         synchronization on the zero value. The formula is the following:
+  *              RELOAD = (fTARGET / fSYNC) -1
   * @param  __FTARGET__ Target frequency (value in Hz)
-  * @param  __FAux__ Auxhronization signal frequency (value in Hz)
+  * @param  __FSYNC__ Synchronization signal frequency (value in Hz)
   * @retval Reload value (in Hz)
   */
-#define __LL_CRS_CALC_CALCULATE_RELOADVALUE(__FTARGET__, __FAux__) (((__FTARGET__) / (__FAux__)) - 1U)
+#define __LL_CRS_CALC_CALCULATE_RELOADVALUE(__FTARGET__, __FSYNC__) (((__FTARGET__) / (__FSYNC__)) - 1U)
 
 /**
   * @}
@@ -300,7 +300,7 @@ __STATIC_INLINE uint32_t LL_CRS_GetHSI48SmoothTrimming(void)
   * @rmtoll CFGR         RELOAD        LL_CRS_SetReloadCounter
   * @param  Value a number between Min_Data = 0 and Max_Data = 0xFFFF
   * @note   Default value can be set thanks to @ref LL_CRS_RELOADVALUE_DEFAULT
-  *         Otherwise it can be calculated in using macro @ref __LL_CRS_CALC_CALCULATE_RELOADVALUE (_FTARGET_, _FAux_)
+  *         Otherwise it can be calculated in using macro @ref __LL_CRS_CALC_CALCULATE_RELOADVALUE (_FTARGET_, _FSYNC_)
   * @retval None
   */
 __STATIC_INLINE void LL_CRS_SetReloadCounter(uint32_t Value)
@@ -341,118 +341,118 @@ __STATIC_INLINE uint32_t LL_CRS_GetFreqErrorLimit(void)
 }
 
 /**
-  * @brief  Set division factor for Aux signal
-  * @rmtoll CFGR         AuxDIV       LL_CRS_SetAuxDivider
+  * @brief  Set division factor for SYNC signal
+  * @rmtoll CFGR         SYNCDIV       LL_CRS_SetSyncDivider
   * @param  Divider This parameter can be one of the following values:
-  *         @arg @ref LL_CRS_Aux_DIV_1
-  *         @arg @ref LL_CRS_Aux_DIV_2
-  *         @arg @ref LL_CRS_Aux_DIV_4
-  *         @arg @ref LL_CRS_Aux_DIV_8
-  *         @arg @ref LL_CRS_Aux_DIV_16
-  *         @arg @ref LL_CRS_Aux_DIV_32
-  *         @arg @ref LL_CRS_Aux_DIV_64
-  *         @arg @ref LL_CRS_Aux_DIV_128
+  *         @arg @ref LL_CRS_SYNC_DIV_1
+  *         @arg @ref LL_CRS_SYNC_DIV_2
+  *         @arg @ref LL_CRS_SYNC_DIV_4
+  *         @arg @ref LL_CRS_SYNC_DIV_8
+  *         @arg @ref LL_CRS_SYNC_DIV_16
+  *         @arg @ref LL_CRS_SYNC_DIV_32
+  *         @arg @ref LL_CRS_SYNC_DIV_64
+  *         @arg @ref LL_CRS_SYNC_DIV_128
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_SetAuxDivider(uint32_t Divider)
+__STATIC_INLINE void LL_CRS_SetSyncDivider(uint32_t Divider)
 {
-  MODIFY_REG(CRS->CFGR, CRS_CFGR_AuxDIV, Divider);
+  MODIFY_REG(CRS->CFGR, CRS_CFGR_SYNCDIV, Divider);
 }
 
 /**
-  * @brief  Get division factor for Aux signal
-  * @rmtoll CFGR         AuxDIV       LL_CRS_GetAuxDivider
+  * @brief  Get division factor for SYNC signal
+  * @rmtoll CFGR         SYNCDIV       LL_CRS_GetSyncDivider
   * @retval Returned value can be one of the following values:
-  *         @arg @ref LL_CRS_Aux_DIV_1
-  *         @arg @ref LL_CRS_Aux_DIV_2
-  *         @arg @ref LL_CRS_Aux_DIV_4
-  *         @arg @ref LL_CRS_Aux_DIV_8
-  *         @arg @ref LL_CRS_Aux_DIV_16
-  *         @arg @ref LL_CRS_Aux_DIV_32
-  *         @arg @ref LL_CRS_Aux_DIV_64
-  *         @arg @ref LL_CRS_Aux_DIV_128
+  *         @arg @ref LL_CRS_SYNC_DIV_1
+  *         @arg @ref LL_CRS_SYNC_DIV_2
+  *         @arg @ref LL_CRS_SYNC_DIV_4
+  *         @arg @ref LL_CRS_SYNC_DIV_8
+  *         @arg @ref LL_CRS_SYNC_DIV_16
+  *         @arg @ref LL_CRS_SYNC_DIV_32
+  *         @arg @ref LL_CRS_SYNC_DIV_64
+  *         @arg @ref LL_CRS_SYNC_DIV_128
   */
-__STATIC_INLINE uint32_t LL_CRS_GetAuxDivider(void)
+__STATIC_INLINE uint32_t LL_CRS_GetSyncDivider(void)
 {
-  return (uint32_t)(READ_BIT(CRS->CFGR, CRS_CFGR_AuxDIV));
+  return (uint32_t)(READ_BIT(CRS->CFGR, CRS_CFGR_SYNCDIV));
 }
 
 /**
-  * @brief  Set Aux signal source
-  * @rmtoll CFGR         AuxSRC       LL_CRS_SetAuxSignalSource
+  * @brief  Set SYNC signal source
+  * @rmtoll CFGR         SYNCSRC       LL_CRS_SetSyncSignalSource
   * @param  Source This parameter can be one of the following values:
-  *         @arg @ref LL_CRS_Aux_SOURCE_GPIO
-  *         @arg @ref LL_CRS_Aux_SOURCE_LSE
-  *         @arg @ref LL_CRS_Aux_SOURCE_USB
+  *         @arg @ref LL_CRS_SYNC_SOURCE_GPIO
+  *         @arg @ref LL_CRS_SYNC_SOURCE_LSE
+  *         @arg @ref LL_CRS_SYNC_SOURCE_USB
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_SetAuxSignalSource(uint32_t Source)
+__STATIC_INLINE void LL_CRS_SetSyncSignalSource(uint32_t Source)
 {
-  MODIFY_REG(CRS->CFGR, CRS_CFGR_AuxSRC, Source);
+  MODIFY_REG(CRS->CFGR, CRS_CFGR_SYNCSRC, Source);
 }
 
 /**
-  * @brief  Get Aux signal source
-  * @rmtoll CFGR         AuxSRC       LL_CRS_GetAuxSignalSource
+  * @brief  Get SYNC signal source
+  * @rmtoll CFGR         SYNCSRC       LL_CRS_GetSyncSignalSource
   * @retval Returned value can be one of the following values:
-  *         @arg @ref LL_CRS_Aux_SOURCE_GPIO
-  *         @arg @ref LL_CRS_Aux_SOURCE_LSE
-  *         @arg @ref LL_CRS_Aux_SOURCE_USB
+  *         @arg @ref LL_CRS_SYNC_SOURCE_GPIO
+  *         @arg @ref LL_CRS_SYNC_SOURCE_LSE
+  *         @arg @ref LL_CRS_SYNC_SOURCE_USB
   */
-__STATIC_INLINE uint32_t LL_CRS_GetAuxSignalSource(void)
+__STATIC_INLINE uint32_t LL_CRS_GetSyncSignalSource(void)
 {
-  return (uint32_t)(READ_BIT(CRS->CFGR, CRS_CFGR_AuxSRC));
+  return (uint32_t)(READ_BIT(CRS->CFGR, CRS_CFGR_SYNCSRC));
 }
 
 /**
-  * @brief  Set input polarity for the Aux signal source
-  * @rmtoll CFGR         AuxPOL       LL_CRS_SetAuxPolarity
+  * @brief  Set input polarity for the SYNC signal source
+  * @rmtoll CFGR         SYNCPOL       LL_CRS_SetSyncPolarity
   * @param  Polarity This parameter can be one of the following values:
-  *         @arg @ref LL_CRS_Aux_POLARITY_RISING
-  *         @arg @ref LL_CRS_Aux_POLARITY_FALLING
+  *         @arg @ref LL_CRS_SYNC_POLARITY_RISING
+  *         @arg @ref LL_CRS_SYNC_POLARITY_FALLING
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_SetAuxPolarity(uint32_t Polarity)
+__STATIC_INLINE void LL_CRS_SetSyncPolarity(uint32_t Polarity)
 {
-  MODIFY_REG(CRS->CFGR, CRS_CFGR_AuxPOL, Polarity);
+  MODIFY_REG(CRS->CFGR, CRS_CFGR_SYNCPOL, Polarity);
 }
 
 /**
-  * @brief  Get input polarity for the Aux signal source
-  * @rmtoll CFGR         AuxPOL       LL_CRS_GetAuxPolarity
+  * @brief  Get input polarity for the SYNC signal source
+  * @rmtoll CFGR         SYNCPOL       LL_CRS_GetSyncPolarity
   * @retval Returned value can be one of the following values:
-  *         @arg @ref LL_CRS_Aux_POLARITY_RISING
-  *         @arg @ref LL_CRS_Aux_POLARITY_FALLING
+  *         @arg @ref LL_CRS_SYNC_POLARITY_RISING
+  *         @arg @ref LL_CRS_SYNC_POLARITY_FALLING
   */
-__STATIC_INLINE uint32_t LL_CRS_GetAuxPolarity(void)
+__STATIC_INLINE uint32_t LL_CRS_GetSyncPolarity(void)
 {
-  return (uint32_t)(READ_BIT(CRS->CFGR, CRS_CFGR_AuxPOL));
+  return (uint32_t)(READ_BIT(CRS->CFGR, CRS_CFGR_SYNCPOL));
 }
 
 /**
-  * @brief  Configure CRS for the Auxhronization
-  * @rmtoll CR           TRIM          LL_CRS_ConfigAuxhronization\n
-  *         CFGR         RELOAD        LL_CRS_ConfigAuxhronization\n
-  *         CFGR         FELIM         LL_CRS_ConfigAuxhronization\n
-  *         CFGR         AuxDIV       LL_CRS_ConfigAuxhronization\n
-  *         CFGR         AuxSRC       LL_CRS_ConfigAuxhronization\n
-  *         CFGR         AuxPOL       LL_CRS_ConfigAuxhronization
+  * @brief  Configure CRS for the synchronization
+  * @rmtoll CR           TRIM          LL_CRS_ConfigSynchronization\n
+  *         CFGR         RELOAD        LL_CRS_ConfigSynchronization\n
+  *         CFGR         FELIM         LL_CRS_ConfigSynchronization\n
+  *         CFGR         SYNCDIV       LL_CRS_ConfigSynchronization\n
+  *         CFGR         SYNCSRC       LL_CRS_ConfigSynchronization\n
+  *         CFGR         SYNCPOL       LL_CRS_ConfigSynchronization
   * @param  HSI48CalibrationValue a number between Min_Data = 0 and Max_Data = 63
   * @param  ErrorLimitValue a number between Min_Data = 0 and Max_Data = 0xFFFF
   * @param  ReloadValue a number between Min_Data = 0 and Max_Data = 255
   * @param  Settings This parameter can be a combination of the following values:
-  *         @arg @ref LL_CRS_Aux_DIV_1 or @ref LL_CRS_Aux_DIV_2 or @ref LL_CRS_Aux_DIV_4 or @ref LL_CRS_Aux_DIV_8
-  *              or @ref LL_CRS_Aux_DIV_16 or @ref LL_CRS_Aux_DIV_32 or @ref LL_CRS_Aux_DIV_64 or @ref LL_CRS_Aux_DIV_128
-  *         @arg @ref LL_CRS_Aux_SOURCE_GPIO or @ref LL_CRS_Aux_SOURCE_LSE or @ref LL_CRS_Aux_SOURCE_USB
-  *         @arg @ref LL_CRS_Aux_POLARITY_RISING or @ref LL_CRS_Aux_POLARITY_FALLING
+  *         @arg @ref LL_CRS_SYNC_DIV_1 or @ref LL_CRS_SYNC_DIV_2 or @ref LL_CRS_SYNC_DIV_4 or @ref LL_CRS_SYNC_DIV_8
+  *              or @ref LL_CRS_SYNC_DIV_16 or @ref LL_CRS_SYNC_DIV_32 or @ref LL_CRS_SYNC_DIV_64 or @ref LL_CRS_SYNC_DIV_128
+  *         @arg @ref LL_CRS_SYNC_SOURCE_GPIO or @ref LL_CRS_SYNC_SOURCE_LSE or @ref LL_CRS_SYNC_SOURCE_USB
+  *         @arg @ref LL_CRS_SYNC_POLARITY_RISING or @ref LL_CRS_SYNC_POLARITY_FALLING
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_ConfigAuxhronization(uint32_t HSI48CalibrationValue, uint32_t ErrorLimitValue,
+__STATIC_INLINE void LL_CRS_ConfigSynchronization(uint32_t HSI48CalibrationValue, uint32_t ErrorLimitValue,
                                                   uint32_t ReloadValue, uint32_t Settings)
 {
   MODIFY_REG(CRS->CR, CRS_CR_TRIM, HSI48CalibrationValue);
   MODIFY_REG(CRS->CFGR,
-             CRS_CFGR_RELOAD | CRS_CFGR_FELIM | CRS_CFGR_AuxDIV | CRS_CFGR_AuxSRC | CRS_CFGR_AuxPOL,
+             CRS_CFGR_RELOAD | CRS_CFGR_FELIM | CRS_CFGR_SYNCDIV | CRS_CFGR_SYNCSRC | CRS_CFGR_SYNCPOL,
              ReloadValue | (ErrorLimitValue << CRS_CFGR_FELIM_Pos) | Settings);
 }
 
@@ -465,18 +465,18 @@ __STATIC_INLINE void LL_CRS_ConfigAuxhronization(uint32_t HSI48CalibrationValue,
   */
 
 /**
-  * @brief  Generate software Aux event
-  * @rmtoll CR           SWAux        LL_CRS_GenerateEvent_SWAux
+  * @brief  Generate software SYNC event
+  * @rmtoll CR           SWSYNC        LL_CRS_GenerateEvent_SWSYNC
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_GenerateEvent_SWAux(void)
+__STATIC_INLINE void LL_CRS_GenerateEvent_SWSYNC(void)
 {
-  SET_BIT(CRS->CR, CRS_CR_SWAux);
+  SET_BIT(CRS->CR, CRS_CR_SWSYNC);
 }
 
 /**
   * @brief  Get the frequency error direction latched in the time of the last
-  * Aux event
+  * SYNC event
   * @rmtoll ISR          FEDIR         LL_CRS_GetFreqErrorDirection
   * @retval Returned value can be one of the following values:
   *         @arg @ref LL_CRS_FREQ_ERROR_DIR_UP
@@ -488,7 +488,7 @@ __STATIC_INLINE uint32_t LL_CRS_GetFreqErrorDirection(void)
 }
 
 /**
-  * @brief  Get the frequency error counter value latched in the time of the last Aux event
+  * @brief  Get the frequency error counter value latched in the time of the last SYNC event
   * @rmtoll ISR          FECAP         LL_CRS_GetFreqErrorCapture
   * @retval A number between Min_Data = 0x0000 and Max_Data = 0xFFFF
   */
@@ -506,27 +506,27 @@ __STATIC_INLINE uint32_t LL_CRS_GetFreqErrorCapture(void)
   */
 
 /**
-  * @brief  Check if Aux event OK signal occurred or not
-  * @rmtoll ISR          AuxOKF       LL_CRS_IsActiveFlag_AuxOK
+  * @brief  Check if SYNC event OK signal occurred or not
+  * @rmtoll ISR          SYNCOKF       LL_CRS_IsActiveFlag_SYNCOK
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_AuxOK(void)
+__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_SYNCOK(void)
 {
-  return ((READ_BIT(CRS->ISR, CRS_ISR_AuxOKF) == (CRS_ISR_AuxOKF)) ? 1UL : 0UL);
+  return ((READ_BIT(CRS->ISR, CRS_ISR_SYNCOKF) == (CRS_ISR_SYNCOKF)) ? 1UL : 0UL);
 }
 
 /**
-  * @brief  Check if Aux warning signal occurred or not
-  * @rmtoll ISR          AuxWARNF     LL_CRS_IsActiveFlag_AuxWARN
+  * @brief  Check if SYNC warning signal occurred or not
+  * @rmtoll ISR          SYNCWARNF     LL_CRS_IsActiveFlag_SYNCWARN
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_AuxWARN(void)
+__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_SYNCWARN(void)
 {
-  return ((READ_BIT(CRS->ISR, CRS_ISR_AuxWARNF) == (CRS_ISR_AuxWARNF)) ? 1UL : 0UL);
+  return ((READ_BIT(CRS->ISR, CRS_ISR_SYNCWARNF) == (CRS_ISR_SYNCWARNF)) ? 1UL : 0UL);
 }
 
 /**
-  * @brief  Check if Auxhronization or trimming error signal occurred or not
+  * @brief  Check if Synchronization or trimming error signal occurred or not
   * @rmtoll ISR          ERRF          LL_CRS_IsActiveFlag_ERR
   * @retval State of bit (1 or 0).
   */
@@ -536,33 +536,33 @@ __STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_ERR(void)
 }
 
 /**
-  * @brief  Check if Expected Aux signal occurred or not
-  * @rmtoll ISR          EAuxF        LL_CRS_IsActiveFlag_EAux
+  * @brief  Check if Expected SYNC signal occurred or not
+  * @rmtoll ISR          ESYNCF        LL_CRS_IsActiveFlag_ESYNC
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_EAux(void)
+__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_ESYNC(void)
 {
-  return ((READ_BIT(CRS->ISR, CRS_ISR_EAuxF) == (CRS_ISR_EAuxF)) ? 1UL : 0UL);
+  return ((READ_BIT(CRS->ISR, CRS_ISR_ESYNCF) == (CRS_ISR_ESYNCF)) ? 1UL : 0UL);
 }
 
 /**
-  * @brief  Check if Aux error signal occurred or not
-  * @rmtoll ISR          AuxERR       LL_CRS_IsActiveFlag_AuxERR
+  * @brief  Check if SYNC error signal occurred or not
+  * @rmtoll ISR          SYNCERR       LL_CRS_IsActiveFlag_SYNCERR
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_AuxERR(void)
+__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_SYNCERR(void)
 {
-  return ((READ_BIT(CRS->ISR, CRS_ISR_AuxERR) == (CRS_ISR_AuxERR)) ? 1UL : 0UL);
+  return ((READ_BIT(CRS->ISR, CRS_ISR_SYNCERR) == (CRS_ISR_SYNCERR)) ? 1UL : 0UL);
 }
 
 /**
-  * @brief  Check if Aux missed error signal occurred or not
-  * @rmtoll ISR          AuxMISS      LL_CRS_IsActiveFlag_AuxMISS
+  * @brief  Check if SYNC missed error signal occurred or not
+  * @rmtoll ISR          SYNCMISS      LL_CRS_IsActiveFlag_SYNCMISS
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_AuxMISS(void)
+__STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_SYNCMISS(void)
 {
-  return ((READ_BIT(CRS->ISR, CRS_ISR_AuxMISS) == (CRS_ISR_AuxMISS)) ? 1UL : 0UL);
+  return ((READ_BIT(CRS->ISR, CRS_ISR_SYNCMISS) == (CRS_ISR_SYNCMISS)) ? 1UL : 0UL);
 }
 
 /**
@@ -576,27 +576,27 @@ __STATIC_INLINE uint32_t LL_CRS_IsActiveFlag_TRIMOVF(void)
 }
 
 /**
-  * @brief  Clear the Aux event OK flag
-  * @rmtoll ICR          AuxOKC       LL_CRS_ClearFlag_AuxOK
+  * @brief  Clear the SYNC event OK flag
+  * @rmtoll ICR          SYNCOKC       LL_CRS_ClearFlag_SYNCOK
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_ClearFlag_AuxOK(void)
+__STATIC_INLINE void LL_CRS_ClearFlag_SYNCOK(void)
 {
-  WRITE_REG(CRS->ICR, CRS_ICR_AuxOKC);
+  WRITE_REG(CRS->ICR, CRS_ICR_SYNCOKC);
 }
 
 /**
-  * @brief  Clear the  Aux warning flag
-  * @rmtoll ICR          AuxWARNC     LL_CRS_ClearFlag_AuxWARN
+  * @brief  Clear the  SYNC warning flag
+  * @rmtoll ICR          SYNCWARNC     LL_CRS_ClearFlag_SYNCWARN
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_ClearFlag_AuxWARN(void)
+__STATIC_INLINE void LL_CRS_ClearFlag_SYNCWARN(void)
 {
-  WRITE_REG(CRS->ICR, CRS_ICR_AuxWARNC);
+  WRITE_REG(CRS->ICR, CRS_ICR_SYNCWARNC);
 }
 
 /**
-  * @brief  Clear TRIMOVF, AuxMISS and AuxERR bits and consequently also
+  * @brief  Clear TRIMOVF, SYNCMISS and SYNCERR bits and consequently also
   * the ERR flag
   * @rmtoll ICR          ERRC          LL_CRS_ClearFlag_ERR
   * @retval None
@@ -607,13 +607,13 @@ __STATIC_INLINE void LL_CRS_ClearFlag_ERR(void)
 }
 
 /**
-  * @brief  Clear Expected Aux flag
-  * @rmtoll ICR          EAuxC        LL_CRS_ClearFlag_EAux
+  * @brief  Clear Expected SYNC flag
+  * @rmtoll ICR          ESYNCC        LL_CRS_ClearFlag_ESYNC
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_ClearFlag_EAux(void)
+__STATIC_INLINE void LL_CRS_ClearFlag_ESYNC(void)
 {
-  WRITE_REG(CRS->ICR, CRS_ICR_EAuxC);
+  WRITE_REG(CRS->ICR, CRS_ICR_ESYNCC);
 }
 
 /**
@@ -625,67 +625,67 @@ __STATIC_INLINE void LL_CRS_ClearFlag_EAux(void)
   */
 
 /**
-  * @brief  Enable Aux event OK interrupt
-  * @rmtoll CR           AuxOKIE      LL_CRS_EnableIT_AuxOK
+  * @brief  Enable SYNC event OK interrupt
+  * @rmtoll CR           SYNCOKIE      LL_CRS_EnableIT_SYNCOK
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_EnableIT_AuxOK(void)
+__STATIC_INLINE void LL_CRS_EnableIT_SYNCOK(void)
 {
-  SET_BIT(CRS->CR, CRS_CR_AuxOKIE);
+  SET_BIT(CRS->CR, CRS_CR_SYNCOKIE);
 }
 
 /**
-  * @brief  Disable Aux event OK interrupt
-  * @rmtoll CR           AuxOKIE      LL_CRS_DisableIT_AuxOK
+  * @brief  Disable SYNC event OK interrupt
+  * @rmtoll CR           SYNCOKIE      LL_CRS_DisableIT_SYNCOK
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_DisableIT_AuxOK(void)
+__STATIC_INLINE void LL_CRS_DisableIT_SYNCOK(void)
 {
-  CLEAR_BIT(CRS->CR, CRS_CR_AuxOKIE);
+  CLEAR_BIT(CRS->CR, CRS_CR_SYNCOKIE);
 }
 
 /**
-  * @brief  Check if Aux event OK interrupt is enabled or not
-  * @rmtoll CR           AuxOKIE      LL_CRS_IsEnabledIT_AuxOK
+  * @brief  Check if SYNC event OK interrupt is enabled or not
+  * @rmtoll CR           SYNCOKIE      LL_CRS_IsEnabledIT_SYNCOK
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_CRS_IsEnabledIT_AuxOK(void)
+__STATIC_INLINE uint32_t LL_CRS_IsEnabledIT_SYNCOK(void)
 {
-  return ((READ_BIT(CRS->CR, CRS_CR_AuxOKIE) == (CRS_CR_AuxOKIE)) ? 1UL : 0UL);
+  return ((READ_BIT(CRS->CR, CRS_CR_SYNCOKIE) == (CRS_CR_SYNCOKIE)) ? 1UL : 0UL);
 }
 
 /**
-  * @brief  Enable Aux warning interrupt
-  * @rmtoll CR           AuxWARNIE    LL_CRS_EnableIT_AuxWARN
+  * @brief  Enable SYNC warning interrupt
+  * @rmtoll CR           SYNCWARNIE    LL_CRS_EnableIT_SYNCWARN
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_EnableIT_AuxWARN(void)
+__STATIC_INLINE void LL_CRS_EnableIT_SYNCWARN(void)
 {
-  SET_BIT(CRS->CR, CRS_CR_AuxWARNIE);
+  SET_BIT(CRS->CR, CRS_CR_SYNCWARNIE);
 }
 
 /**
-  * @brief  Disable Aux warning interrupt
-  * @rmtoll CR           AuxWARNIE    LL_CRS_DisableIT_AuxWARN
+  * @brief  Disable SYNC warning interrupt
+  * @rmtoll CR           SYNCWARNIE    LL_CRS_DisableIT_SYNCWARN
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_DisableIT_AuxWARN(void)
+__STATIC_INLINE void LL_CRS_DisableIT_SYNCWARN(void)
 {
-  CLEAR_BIT(CRS->CR, CRS_CR_AuxWARNIE);
+  CLEAR_BIT(CRS->CR, CRS_CR_SYNCWARNIE);
 }
 
 /**
-  * @brief  Check if Aux warning interrupt is enabled or not
-  * @rmtoll CR           AuxWARNIE    LL_CRS_IsEnabledIT_AuxWARN
+  * @brief  Check if SYNC warning interrupt is enabled or not
+  * @rmtoll CR           SYNCWARNIE    LL_CRS_IsEnabledIT_SYNCWARN
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_CRS_IsEnabledIT_AuxWARN(void)
+__STATIC_INLINE uint32_t LL_CRS_IsEnabledIT_SYNCWARN(void)
 {
-  return ((READ_BIT(CRS->CR, CRS_CR_AuxWARNIE) == (CRS_CR_AuxWARNIE)) ? 1UL : 0UL);
+  return ((READ_BIT(CRS->CR, CRS_CR_SYNCWARNIE) == (CRS_CR_SYNCWARNIE)) ? 1UL : 0UL);
 }
 
 /**
-  * @brief  Enable Auxhronization or trimming error interrupt
+  * @brief  Enable Synchronization or trimming error interrupt
   * @rmtoll CR           ERRIE         LL_CRS_EnableIT_ERR
   * @retval None
   */
@@ -695,7 +695,7 @@ __STATIC_INLINE void LL_CRS_EnableIT_ERR(void)
 }
 
 /**
-  * @brief  Disable Auxhronization or trimming error interrupt
+  * @brief  Disable Synchronization or trimming error interrupt
   * @rmtoll CR           ERRIE         LL_CRS_DisableIT_ERR
   * @retval None
   */
@@ -705,7 +705,7 @@ __STATIC_INLINE void LL_CRS_DisableIT_ERR(void)
 }
 
 /**
-  * @brief  Check if Auxhronization or trimming error interrupt is enabled or not
+  * @brief  Check if Synchronization or trimming error interrupt is enabled or not
   * @rmtoll CR           ERRIE         LL_CRS_IsEnabledIT_ERR
   * @retval State of bit (1 or 0).
   */
@@ -715,33 +715,33 @@ __STATIC_INLINE uint32_t LL_CRS_IsEnabledIT_ERR(void)
 }
 
 /**
-  * @brief  Enable Expected Aux interrupt
-  * @rmtoll CR           EAuxIE       LL_CRS_EnableIT_EAux
+  * @brief  Enable Expected SYNC interrupt
+  * @rmtoll CR           ESYNCIE       LL_CRS_EnableIT_ESYNC
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_EnableIT_EAux(void)
+__STATIC_INLINE void LL_CRS_EnableIT_ESYNC(void)
 {
-  SET_BIT(CRS->CR, CRS_CR_EAuxIE);
+  SET_BIT(CRS->CR, CRS_CR_ESYNCIE);
 }
 
 /**
-  * @brief  Disable Expected Aux interrupt
-  * @rmtoll CR           EAuxIE       LL_CRS_DisableIT_EAux
+  * @brief  Disable Expected SYNC interrupt
+  * @rmtoll CR           ESYNCIE       LL_CRS_DisableIT_ESYNC
   * @retval None
   */
-__STATIC_INLINE void LL_CRS_DisableIT_EAux(void)
+__STATIC_INLINE void LL_CRS_DisableIT_ESYNC(void)
 {
-  CLEAR_BIT(CRS->CR, CRS_CR_EAuxIE);
+  CLEAR_BIT(CRS->CR, CRS_CR_ESYNCIE);
 }
 
 /**
-  * @brief  Check if Expected Aux interrupt is enabled or not
-  * @rmtoll CR           EAuxIE       LL_CRS_IsEnabledIT_EAux
+  * @brief  Check if Expected SYNC interrupt is enabled or not
+  * @rmtoll CR           ESYNCIE       LL_CRS_IsEnabledIT_ESYNC
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_CRS_IsEnabledIT_EAux(void)
+__STATIC_INLINE uint32_t LL_CRS_IsEnabledIT_ESYNC(void)
 {
-  return ((READ_BIT(CRS->CR, CRS_CR_EAuxIE) == (CRS_CR_EAuxIE)) ? 1UL : 0UL);
+  return ((READ_BIT(CRS->CR, CRS_CR_ESYNCIE) == (CRS_CR_ESYNCIE)) ? 1UL : 0UL);
 }
 
 /**

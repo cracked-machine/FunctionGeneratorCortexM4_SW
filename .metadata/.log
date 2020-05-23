@@ -8394,3 +8394,145 @@ java.lang.RuntimeException
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:33:16.939
 !MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:42:04.855
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:43:25.151
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:46:23.344
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:48:02.204
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:48:56.001
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:51:39.635
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:52:54.144
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:59:01.470
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 13:59:21.093
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 14:06:09.915
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.core.jobs 4 2 2020-05-23 14:09:13.297
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:236)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1501)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:493)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:252)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:701)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:684)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:62)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 14:44:22.093
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 20:59:41.162
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:00:54.311
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:01:28.097
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:02:02.466
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:04:10.526
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:04:58.672
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:06:37.910
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:08:59.214
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:12:29.044
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:12:38.307
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:13:21.915
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:20:03.842
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:21:55.247
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:54:18.314
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 21:59:47.679
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:12:46.876
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:28:39.698
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:33:21.447
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:33:37.962
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:35:56.379
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:36:08.418
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:38:38.633
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.cdt.dsf 4 10001 2020-05-23 22:38:40.862
+!MESSAGE Target not available.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:38:48.329
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:41:41.916
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:42:40.021
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:43:09.800
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:44:11.761
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:46:26.432
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:47:49.184
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:48:58.352
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-05-23 22:51:34.117
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6

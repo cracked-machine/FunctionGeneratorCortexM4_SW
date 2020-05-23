@@ -73,13 +73,13 @@ void FuncO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 	{
 		tmpFunc++;
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = PWM_FUNC_MODE;
-		FuncO_ApplyPresetToSignal(tmpFunc);
+		FuncO_ApplyProfileToSignal(tmpFunc);
 	}
 	else if (pEncoderValue < func_last_encoder_value)
 	{
 		tmpFunc--;
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = SINE_FUNC_MODE;
-		FuncO_ApplyPresetToSignal(tmpFunc);
+		FuncO_ApplyProfileToSignal(tmpFunc);
 	}
 	func_last_encoder_value = pEncoderValue;
 }
@@ -99,13 +99,13 @@ void FuncO_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue)
 	{
 		tmpFunc++;
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = PWM_FUNC_MODE;
-		FuncO_ApplyPresetToAux(tmpFunc);
+		FuncO_ApplyProfileToAux(tmpFunc);
 	}
 	else if (pEncoderValue < func_last_encoder_value)
 	{
 		tmpFunc--;
 		if(tmpFunc > MAX_NUM_FUNC_PRESETS-1) tmpFunc = SINE_FUNC_MODE;
-		FuncO_ApplyPresetToAux(tmpFunc);
+		FuncO_ApplyProfileToAux(tmpFunc);
 //		if(tmpFunc == SINE_FUNC_MODE)
 //			ENCODER_TIMER->CNT = 20;
 	}
@@ -129,7 +129,7 @@ void FuncO_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue)
  *	@retval None
  *
  */
-void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
+void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
 {
 	// set the next function output
 	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
@@ -231,7 +231,7 @@ void FuncO_ApplyPresetToSignal(eOutput_mode pPresetEnum)
  *	@retval None
  *
  */
-void FuncO_ApplyPresetToAux(eOutput_mode pPresetEnum)
+void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 {
 	// set the next output function
 	SM_GetOutputChannel(Aux_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];

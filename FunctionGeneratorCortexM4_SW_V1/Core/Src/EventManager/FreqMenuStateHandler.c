@@ -398,8 +398,10 @@ eSystemState FreqPresetMenuEntryHandler()
 	FreqProfile_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
 	if(pFreqPresetTmp)
 	{
-		ENCODER_TIMER->CNT = pFreqPresetTmp->epos;
-		ENCODER_TIMER->ARR = FreqO_GetFreqPresetEncoderRange();
+		//ENCODER_TIMER->CNT = pFreqPresetTmp->epos;
+		//ENCODER_TIMER->ARR = FreqO_GetFreqPresetEncoderRange();
+		ENCODER_TIMER->CNT = 32768;
+		ENCODER_TIMER->ARR = 65535;
 	}
 	else
 	{

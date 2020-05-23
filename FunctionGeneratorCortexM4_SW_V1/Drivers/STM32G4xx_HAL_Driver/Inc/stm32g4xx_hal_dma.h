@@ -168,7 +168,7 @@ typedef struct __DMA_HandleTypeDef
 #define HAL_DMA_ERROR_NO_XFER          0x00000004U    /*!< Abort requested with no Xfer ongoing  */
 #define HAL_DMA_ERROR_TIMEOUT          0x00000020U    /*!< Timeout error                         */
 #define HAL_DMA_ERROR_NOT_SUPPORTED    0x00000100U    /*!< Not supported mode                    */
-#define HAL_DMA_ERROR_Aux             0x00000200U    /*!< DMAMUX Aux overrun  error              */
+#define HAL_DMA_ERROR_SYNC             0x00000200U    /*!< DMAMUX sync overrun  error              */
 #define HAL_DMA_ERROR_REQGEN           0x00000400U    /*!< DMAMUX request generator overrun  error */
 /**
   * @}

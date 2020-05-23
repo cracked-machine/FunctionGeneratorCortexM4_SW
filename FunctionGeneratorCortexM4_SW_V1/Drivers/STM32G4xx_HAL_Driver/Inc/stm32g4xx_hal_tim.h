@@ -245,9 +245,9 @@ typedef struct
                                         This parameter can be a value of @ref TIM_Master_Slave_Mode
                                         @note When the Master/slave mode is enabled, the effect of
                                         an event on the trigger input (TRGI) is delayed to allow a
-                                        perfect Auxhronization between the current timer and its
+                                        perfect synchronization between the current timer and its
                                         slaves (through TRGO). It is not mandatory in case of timer
-                                        Auxhronization mode. */
+                                        synchronization mode. */
 } TIM_MasterConfigTypeDef;
 
 /**
@@ -2477,8 +2477,8 @@ HAL_StatusTypeDef HAL_TIM_ConfigOCrefClear(TIM_HandleTypeDef *htim, TIM_ClearInp
                                            uint32_t Channel);
 HAL_StatusTypeDef HAL_TIM_ConfigClockSource(TIM_HandleTypeDef *htim, TIM_ClockConfigTypeDef *sClockSourceConfig);
 HAL_StatusTypeDef HAL_TIM_ConfigTI1Input(TIM_HandleTypeDef *htim, uint32_t TI1_Selection);
-HAL_StatusTypeDef HAL_TIM_SlaveConfigAuxhro(TIM_HandleTypeDef *htim, TIM_SlaveConfigTypeDef *sSlaveConfig);
-HAL_StatusTypeDef HAL_TIM_SlaveConfigAuxhro_IT(TIM_HandleTypeDef *htim, TIM_SlaveConfigTypeDef *sSlaveConfig);
+HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro(TIM_HandleTypeDef *htim, TIM_SlaveConfigTypeDef *sSlaveConfig);
+HAL_StatusTypeDef HAL_TIM_SlaveConfigSynchro_IT(TIM_HandleTypeDef *htim, TIM_SlaveConfigTypeDef *sSlaveConfig);
 HAL_StatusTypeDef HAL_TIM_DMABurst_WriteStart(TIM_HandleTypeDef *htim, uint32_t BurstBaseAddress,
                                               uint32_t BurstRequestSrc, uint32_t  *BurstBuffer, uint32_t  BurstLength);
 HAL_StatusTypeDef HAL_TIM_DMABurst_MultiWriteStart(TIM_HandleTypeDef *htim, uint32_t BurstBaseAddress,

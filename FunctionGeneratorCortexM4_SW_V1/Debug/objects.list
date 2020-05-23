@@ -12,7 +12,6 @@
 "Core/Src/EventManager/ToplevelMenuStateHandler.o"
 "Core/Src/InterruptManager/InterruptManager.o"
 "Core/Src/SIgnalManager/BiasOutput.o"
-"Core/Src/SIgnalManager/DacTimerRegistry.o"
 "Core/Src/SIgnalManager/FreqOutput.o"
 "Core/Src/SIgnalManager/FunctionOutput.o"
 "Core/Src/SIgnalManager/GainOutput.o"

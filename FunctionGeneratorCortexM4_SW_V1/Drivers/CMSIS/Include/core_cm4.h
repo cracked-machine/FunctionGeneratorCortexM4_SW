@@ -867,8 +867,8 @@ typedef struct
 #define ITM_TCR_DWTENA_Pos                  3U                                            /*!< ITM TCR: DWTENA Position */
 #define ITM_TCR_DWTENA_Msk                 (1UL << ITM_TCR_DWTENA_Pos)                    /*!< ITM TCR: DWTENA Mask */
 
-#define ITM_TCR_AuxENA_Pos                 2U                                            /*!< ITM TCR: AuxENA Position */
-#define ITM_TCR_AuxENA_Msk                (1UL << ITM_TCR_AuxENA_Pos)                   /*!< ITM TCR: AuxENA Mask */
+#define ITM_TCR_SYNCENA_Pos                 2U                                            /*!< ITM TCR: SYNCENA Position */
+#define ITM_TCR_SYNCENA_Msk                (1UL << ITM_TCR_SYNCENA_Pos)                   /*!< ITM TCR: SYNCENA Mask */
 
 #define ITM_TCR_TSENA_Pos                   1U                                            /*!< ITM TCR: TSENA Position */
 #define ITM_TCR_TSENA_Msk                  (1UL << ITM_TCR_TSENA_Pos)                     /*!< ITM TCR: TSENA Mask */
@@ -978,8 +978,8 @@ typedef struct
 #define DWT_CTRL_PCSAMPLENA_Pos            12U                                         /*!< DWT CTRL: PCSAMPLENA Position */
 #define DWT_CTRL_PCSAMPLENA_Msk            (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)          /*!< DWT CTRL: PCSAMPLENA Mask */
 
-#define DWT_CTRL_AuxTAP_Pos               10U                                         /*!< DWT CTRL: AuxTAP Position */
-#define DWT_CTRL_AuxTAP_Msk               (0x3UL << DWT_CTRL_AuxTAP_Pos)             /*!< DWT CTRL: AuxTAP Mask */
+#define DWT_CTRL_SYNCTAP_Pos               10U                                         /*!< DWT CTRL: SYNCTAP Position */
+#define DWT_CTRL_SYNCTAP_Msk               (0x3UL << DWT_CTRL_SYNCTAP_Pos)             /*!< DWT CTRL: SYNCTAP Mask */
 
 #define DWT_CTRL_CYCTAP_Pos                 9U                                         /*!< DWT CTRL: CYCTAP Position */
 #define DWT_CTRL_CYCTAP_Msk                (0x1UL << DWT_CTRL_CYCTAP_Pos)              /*!< DWT CTRL: CYCTAP Mask */
@@ -1063,13 +1063,13 @@ typedef struct
   __IM  uint32_t SSPSR;                  /*!< Offset: 0x000 (R/ )  Supported Parallel Port Size Register */
   __IOM uint32_t CSPSR;                  /*!< Offset: 0x004 (R/W)  Current Parallel Port Size Register */
         uint32_t RESERVED0[2U];
-  __IOM uint32_t ACPR;                   /*!< Offset: 0x010 (R/W)  AAuxhronous Clock Prescaler Register */
+  __IOM uint32_t ACPR;                   /*!< Offset: 0x010 (R/W)  Asynchronous Clock Prescaler Register */
         uint32_t RESERVED1[55U];
   __IOM uint32_t SPPR;                   /*!< Offset: 0x0F0 (R/W)  Selected Pin Protocol Register */
         uint32_t RESERVED2[131U];
   __IM  uint32_t FFSR;                   /*!< Offset: 0x300 (R/ )  Formatter and Flush Status Register */
   __IOM uint32_t FFCR;                   /*!< Offset: 0x304 (R/W)  Formatter and Flush Control Register */
-  __IM  uint32_t FSCR;                   /*!< Offset: 0x308 (R/ )  Formatter Auxhronization Counter Register */
+  __IM  uint32_t FSCR;                   /*!< Offset: 0x308 (R/ )  Formatter Synchronization Counter Register */
         uint32_t RESERVED3[759U];
   __IM  uint32_t TRIGGER;                /*!< Offset: 0xEE8 (R/ )  TRIGGER Register */
   __IM  uint32_t FIFO0;                  /*!< Offset: 0xEEC (R/ )  Integration ETM Data */
@@ -1086,7 +1086,7 @@ typedef struct
   __IM  uint32_t DEVTYPE;                /*!< Offset: 0xFCC (R/ )  TPIU_DEVTYPE */
 } TPI_Type;
 
-/* TPI AAuxhronous Clock Prescaler Register Definitions */
+/* TPI Asynchronous Clock Prescaler Register Definitions */
 #define TPI_ACPR_PRESCALER_Pos              0U                                         /*!< TPI ACPR: PRESCALER Position */
 #define TPI_ACPR_PRESCALER_Msk             (0x1FFFUL /*<< TPI_ACPR_PRESCALER_Pos*/)    /*!< TPI ACPR: PRESCALER Mask */
 
@@ -1193,8 +1193,8 @@ typedef struct
 #define TPI_DEVID_MinBufSz_Pos              6U                                         /*!< TPI DEVID: MinBufSz Position */
 #define TPI_DEVID_MinBufSz_Msk             (0x7UL << TPI_DEVID_MinBufSz_Pos)           /*!< TPI DEVID: MinBufSz Mask */
 
-#define TPI_DEVID_AAuxlkIn_Pos             5U                                         /*!< TPI DEVID: AAuxlkIn Position */
-#define TPI_DEVID_AAuxlkIn_Msk            (0x1UL << TPI_DEVID_AAuxlkIn_Pos)          /*!< TPI DEVID: AAuxlkIn Mask */
+#define TPI_DEVID_AsynClkIn_Pos             5U                                         /*!< TPI DEVID: AsynClkIn Position */
+#define TPI_DEVID_AsynClkIn_Msk            (0x1UL << TPI_DEVID_AsynClkIn_Pos)          /*!< TPI DEVID: AsynClkIn Mask */
 
 #define TPI_DEVID_NrTraceInput_Pos          0U                                         /*!< TPI DEVID: NrTraceInput Position */
 #define TPI_DEVID_NrTraceInput_Msk         (0x1FUL /*<< TPI_DEVID_NrTraceInput_Pos*/)  /*!< TPI DEVID: NrTraceInput Mask */

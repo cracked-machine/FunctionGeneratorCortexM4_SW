@@ -56,7 +56,6 @@ Core/Src/DisplayManager/GainMenus.o: \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/BiasOutput.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FreqOutput.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h \
@@ -191,8 +190,6 @@ Core/Src/DisplayManager/GainMenus.o: \
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FreqOutput.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h:
 

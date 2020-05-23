@@ -70,10 +70,10 @@
 /* maximum prescalers.                                                        */
 /* Ex of profile low frequency : f_ADC at f_CPU/3968 (minimum value           */
 /* considering both possible ADC clocking scheme:                             */
-/*        - ADC clock from Auxhronous clock with AHB prescaler 512,          */
+/*        - ADC clock from synchronous clock with AHB prescaler 512,          */
 /*          ADC prescaler 4.                                                  */
 /*           Ratio max = 512 *4 = 2048                                        */
-/*        - ADC clock from aAuxhronous clock (PLLP) with prescaler 256.      */
+/*        - ADC clock from asynchronous clock (PLLP) with prescaler 256.      */
 /*          Highest CPU clock PLL (PLLR).                                     */
 /*           Ratio max = PLLRmax /PPLPmin * 256 = (VCO/2) / (VCO/31) * 256    */
 /*                     = 3968 )                                               */

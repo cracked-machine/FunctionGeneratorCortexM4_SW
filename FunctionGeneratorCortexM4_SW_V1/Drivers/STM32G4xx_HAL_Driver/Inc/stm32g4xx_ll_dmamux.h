@@ -71,22 +71,22 @@ extern "C" {
   * @brief    Flags defines which can be used with LL_DMAMUX_WriteReg function
   * @{
   */
-#define LL_DMAMUX_CFR_CSOF0               DMAMUX_CFR_CSOF0       /*!< Auxhronization Event Overrun Flag Channel 0  */
-#define LL_DMAMUX_CFR_CSOF1               DMAMUX_CFR_CSOF1       /*!< Auxhronization Event Overrun Flag Channel 1  */
-#define LL_DMAMUX_CFR_CSOF2               DMAMUX_CFR_CSOF2       /*!< Auxhronization Event Overrun Flag Channel 2  */
-#define LL_DMAMUX_CFR_CSOF3               DMAMUX_CFR_CSOF3       /*!< Auxhronization Event Overrun Flag Channel 3  */
-#define LL_DMAMUX_CFR_CSOF4               DMAMUX_CFR_CSOF4       /*!< Auxhronization Event Overrun Flag Channel 4  */
-#define LL_DMAMUX_CFR_CSOF5               DMAMUX_CFR_CSOF5       /*!< Auxhronization Event Overrun Flag Channel 5  */
-#define LL_DMAMUX_CFR_CSOF6               DMAMUX_CFR_CSOF6       /*!< Auxhronization Event Overrun Flag Channel 6  */
-#define LL_DMAMUX_CFR_CSOF7               DMAMUX_CFR_CSOF7       /*!< Auxhronization Event Overrun Flag Channel 7  */
-#define LL_DMAMUX_CFR_CSOF8               DMAMUX_CFR_CSOF8       /*!< Auxhronization Event Overrun Flag Channel 8  */
-#define LL_DMAMUX_CFR_CSOF9               DMAMUX_CFR_CSOF9       /*!< Auxhronization Event Overrun Flag Channel 9  */
-#define LL_DMAMUX_CFR_CSOF10              DMAMUX_CFR_CSOF10      /*!< Auxhronization Event Overrun Flag Channel 10 */
-#define LL_DMAMUX_CFR_CSOF11              DMAMUX_CFR_CSOF11      /*!< Auxhronization Event Overrun Flag Channel 11 */
-#define LL_DMAMUX_CFR_CSOF12              DMAMUX_CFR_CSOF12      /*!< Auxhronization Event Overrun Flag Channel 12 */
-#define LL_DMAMUX_CFR_CSOF13              DMAMUX_CFR_CSOF13      /*!< Auxhronization Event Overrun Flag Channel 13 */
-#define LL_DMAMUX_CFR_CSOF14              DMAMUX_CFR_CSOF14      /*!< Auxhronization Event Overrun Flag Channel 14 */
-#define LL_DMAMUX_CFR_CSOF15              DMAMUX_CFR_CSOF15      /*!< Auxhronization Event Overrun Flag Channel 15 */
+#define LL_DMAMUX_CFR_CSOF0               DMAMUX_CFR_CSOF0       /*!< Synchronization Event Overrun Flag Channel 0  */
+#define LL_DMAMUX_CFR_CSOF1               DMAMUX_CFR_CSOF1       /*!< Synchronization Event Overrun Flag Channel 1  */
+#define LL_DMAMUX_CFR_CSOF2               DMAMUX_CFR_CSOF2       /*!< Synchronization Event Overrun Flag Channel 2  */
+#define LL_DMAMUX_CFR_CSOF3               DMAMUX_CFR_CSOF3       /*!< Synchronization Event Overrun Flag Channel 3  */
+#define LL_DMAMUX_CFR_CSOF4               DMAMUX_CFR_CSOF4       /*!< Synchronization Event Overrun Flag Channel 4  */
+#define LL_DMAMUX_CFR_CSOF5               DMAMUX_CFR_CSOF5       /*!< Synchronization Event Overrun Flag Channel 5  */
+#define LL_DMAMUX_CFR_CSOF6               DMAMUX_CFR_CSOF6       /*!< Synchronization Event Overrun Flag Channel 6  */
+#define LL_DMAMUX_CFR_CSOF7               DMAMUX_CFR_CSOF7       /*!< Synchronization Event Overrun Flag Channel 7  */
+#define LL_DMAMUX_CFR_CSOF8               DMAMUX_CFR_CSOF8       /*!< Synchronization Event Overrun Flag Channel 8  */
+#define LL_DMAMUX_CFR_CSOF9               DMAMUX_CFR_CSOF9       /*!< Synchronization Event Overrun Flag Channel 9  */
+#define LL_DMAMUX_CFR_CSOF10              DMAMUX_CFR_CSOF10      /*!< Synchronization Event Overrun Flag Channel 10 */
+#define LL_DMAMUX_CFR_CSOF11              DMAMUX_CFR_CSOF11      /*!< Synchronization Event Overrun Flag Channel 11 */
+#define LL_DMAMUX_CFR_CSOF12              DMAMUX_CFR_CSOF12      /*!< Synchronization Event Overrun Flag Channel 12 */
+#define LL_DMAMUX_CFR_CSOF13              DMAMUX_CFR_CSOF13      /*!< Synchronization Event Overrun Flag Channel 13 */
+#define LL_DMAMUX_CFR_CSOF14              DMAMUX_CFR_CSOF14      /*!< Synchronization Event Overrun Flag Channel 14 */
+#define LL_DMAMUX_CFR_CSOF15              DMAMUX_CFR_CSOF15      /*!< Synchronization Event Overrun Flag Channel 15 */
 #define LL_DMAMUX_RGCFR_RGCOF0            DMAMUX_RGCFR_COF0      /*!< Request Generator 0 Trigger Event Overrun Flag */
 #define LL_DMAMUX_RGCFR_RGCOF1            DMAMUX_RGCFR_COF1      /*!< Request Generator 1 Trigger Event Overrun Flag */
 #define LL_DMAMUX_RGCFR_RGCOF2            DMAMUX_RGCFR_COF2      /*!< Request Generator 2 Trigger Event Overrun Flag */
@@ -99,22 +99,22 @@ extern "C" {
   * @brief    Flags defines which can be used with LL_DMAMUX_ReadReg function
   * @{
   */
-#define LL_DMAMUX_CSR_SOF0                DMAMUX_CSR_SOF0       /*!< Auxhronization Event Overrun Flag Channel 0  */
-#define LL_DMAMUX_CSR_SOF1                DMAMUX_CSR_SOF1       /*!< Auxhronization Event Overrun Flag Channel 1  */
-#define LL_DMAMUX_CSR_SOF2                DMAMUX_CSR_SOF2       /*!< Auxhronization Event Overrun Flag Channel 2  */
-#define LL_DMAMUX_CSR_SOF3                DMAMUX_CSR_SOF3       /*!< Auxhronization Event Overrun Flag Channel 3  */
-#define LL_DMAMUX_CSR_SOF4                DMAMUX_CSR_SOF4       /*!< Auxhronization Event Overrun Flag Channel 4  */
-#define LL_DMAMUX_CSR_SOF5                DMAMUX_CSR_SOF5       /*!< Auxhronization Event Overrun Flag Channel 5  */
-#define LL_DMAMUX_CSR_SOF6                DMAMUX_CSR_SOF6       /*!< Auxhronization Event Overrun Flag Channel 6  */
-#define LL_DMAMUX_CSR_SOF7                DMAMUX_CSR_SOF7       /*!< Auxhronization Event Overrun Flag Channel 7  */
-#define LL_DMAMUX_CSR_SOF8                DMAMUX_CSR_SOF8       /*!< Auxhronization Event Overrun Flag Channel 8  */
-#define LL_DMAMUX_CSR_SOF9                DMAMUX_CSR_SOF9       /*!< Auxhronization Event Overrun Flag Channel 9  */
-#define LL_DMAMUX_CSR_SOF10               DMAMUX_CSR_SOF10      /*!< Auxhronization Event Overrun Flag Channel 10 */
-#define LL_DMAMUX_CSR_SOF11               DMAMUX_CSR_SOF11      /*!< Auxhronization Event Overrun Flag Channel 11 */
-#define LL_DMAMUX_CSR_SOF12               DMAMUX_CSR_SOF12      /*!< Auxhronization Event Overrun Flag Channel 12 */
-#define LL_DMAMUX_CSR_SOF13               DMAMUX_CSR_SOF13      /*!< Auxhronization Event Overrun Flag Channel 13 */
-#define LL_DMAMUX_CSR_SOF14               DMAMUX_CSR_SOF14      /*!< Auxhronization Event Overrun Flag Channel 14 */
-#define LL_DMAMUX_CSR_SOF15               DMAMUX_CSR_SOF15      /*!< Auxhronization Event Overrun Flag Channel 15 */
+#define LL_DMAMUX_CSR_SOF0                DMAMUX_CSR_SOF0       /*!< Synchronization Event Overrun Flag Channel 0  */
+#define LL_DMAMUX_CSR_SOF1                DMAMUX_CSR_SOF1       /*!< Synchronization Event Overrun Flag Channel 1  */
+#define LL_DMAMUX_CSR_SOF2                DMAMUX_CSR_SOF2       /*!< Synchronization Event Overrun Flag Channel 2  */
+#define LL_DMAMUX_CSR_SOF3                DMAMUX_CSR_SOF3       /*!< Synchronization Event Overrun Flag Channel 3  */
+#define LL_DMAMUX_CSR_SOF4                DMAMUX_CSR_SOF4       /*!< Synchronization Event Overrun Flag Channel 4  */
+#define LL_DMAMUX_CSR_SOF5                DMAMUX_CSR_SOF5       /*!< Synchronization Event Overrun Flag Channel 5  */
+#define LL_DMAMUX_CSR_SOF6                DMAMUX_CSR_SOF6       /*!< Synchronization Event Overrun Flag Channel 6  */
+#define LL_DMAMUX_CSR_SOF7                DMAMUX_CSR_SOF7       /*!< Synchronization Event Overrun Flag Channel 7  */
+#define LL_DMAMUX_CSR_SOF8                DMAMUX_CSR_SOF8       /*!< Synchronization Event Overrun Flag Channel 8  */
+#define LL_DMAMUX_CSR_SOF9                DMAMUX_CSR_SOF9       /*!< Synchronization Event Overrun Flag Channel 9  */
+#define LL_DMAMUX_CSR_SOF10               DMAMUX_CSR_SOF10      /*!< Synchronization Event Overrun Flag Channel 10 */
+#define LL_DMAMUX_CSR_SOF11               DMAMUX_CSR_SOF11      /*!< Synchronization Event Overrun Flag Channel 11 */
+#define LL_DMAMUX_CSR_SOF12               DMAMUX_CSR_SOF12      /*!< Synchronization Event Overrun Flag Channel 12 */
+#define LL_DMAMUX_CSR_SOF13               DMAMUX_CSR_SOF13      /*!< Synchronization Event Overrun Flag Channel 13 */
+#define LL_DMAMUX_CSR_SOF14               DMAMUX_CSR_SOF14      /*!< Synchronization Event Overrun Flag Channel 14 */
+#define LL_DMAMUX_CSR_SOF15               DMAMUX_CSR_SOF15      /*!< Synchronization Event Overrun Flag Channel 15 */
 #define LL_DMAMUX_RGSR_RGOF0              DMAMUX_RGSR_OF0       /*!< Request Generator 0 Trigger Event Overrun Flag */
 #define LL_DMAMUX_RGSR_RGOF1              DMAMUX_RGSR_OF1       /*!< Request Generator 1 Trigger Event Overrun Flag */
 #define LL_DMAMUX_RGSR_RGOF2              DMAMUX_RGSR_OF2       /*!< Request Generator 2 Trigger Event Overrun Flag */
@@ -127,7 +127,7 @@ extern "C" {
   * @brief    IT defines which can be used with LL_DMA_ReadReg and  LL_DMAMUX_WriteReg functions
   * @{
   */
-#define LL_DMAMUX_CCR_SOIE                DMAMUX_CxCR_SOIE          /*!< Auxhronization Event Overrun Interrupt */
+#define LL_DMAMUX_CCR_SOIE                DMAMUX_CxCR_SOIE          /*!< Synchronization Event Overrun Interrupt */
 #define LL_DMAMUX_RGCR_RGOIE              DMAMUX_RGxCR_OIE          /*!< Request Generation Trigger Event Overrun Interrupt    */
 /**
   * @}
@@ -280,41 +280,41 @@ extern "C" {
   * @}
   */
 
-/** @defgroup DMAMUX_LL_EC_Aux_NO Auxhronization Signal Polarity
+/** @defgroup DMAMUX_LL_EC_SYNC_NO Synchronization Signal Polarity
   * @{
   */
-#define LL_DMAMUX_Aux_NO_EVENT            0x00000000U                               /*!< All requests are blocked   */
-#define LL_DMAMUX_Aux_POL_RISING          DMAMUX_CxCR_SPOL_0                        /*!< Auxhronization on event on rising edge */
-#define LL_DMAMUX_Aux_POL_FALLING         DMAMUX_CxCR_SPOL_1                        /*!< Auxhronization on event on falling edge */
-#define LL_DMAMUX_Aux_POL_RISING_FALLING  (DMAMUX_CxCR_SPOL_0 | DMAMUX_CxCR_SPOL_1) /*!< Auxhronization on event on rising and falling edge */
+#define LL_DMAMUX_SYNC_NO_EVENT            0x00000000U                               /*!< All requests are blocked   */
+#define LL_DMAMUX_SYNC_POL_RISING          DMAMUX_CxCR_SPOL_0                        /*!< Synchronization on event on rising edge */
+#define LL_DMAMUX_SYNC_POL_FALLING         DMAMUX_CxCR_SPOL_1                        /*!< Synchronization on event on falling edge */
+#define LL_DMAMUX_SYNC_POL_RISING_FALLING  (DMAMUX_CxCR_SPOL_0 | DMAMUX_CxCR_SPOL_1) /*!< Synchronization on event on rising and falling edge */
 /**
   * @}
   */
 
-/** @defgroup DMAMUX_LL_EC_Aux_EVT Auxhronization Signal Event
+/** @defgroup DMAMUX_LL_EC_SYNC_EVT Synchronization Signal Event
   * @{
   */
-#define LL_DMAMUX_Aux_EXTI_LINE0      0x00000000U                                                                                     /*!< Auxhronization signal from EXTI Line0  */
-#define LL_DMAMUX_Aux_EXTI_LINE1      DMAMUX_CxCR_Aux_ID_0                                                                           /*!< Auxhronization signal from EXTI Line1  */
-#define LL_DMAMUX_Aux_EXTI_LINE2      DMAMUX_CxCR_Aux_ID_1                                                                           /*!< Auxhronization signal from EXTI Line2  */
-#define LL_DMAMUX_Aux_EXTI_LINE3      (DMAMUX_CxCR_Aux_ID_1 |DMAMUX_CxCR_Aux_ID_0)                                                  /*!< Auxhronization signal from EXTI Line3  */
-#define LL_DMAMUX_Aux_EXTI_LINE4      DMAMUX_CxCR_Aux_ID_2                                                                           /*!< Auxhronization signal from EXTI Line4  */
-#define LL_DMAMUX_Aux_EXTI_LINE5      (DMAMUX_CxCR_Aux_ID_2 | DMAMUX_CxCR_Aux_ID_0)                                                 /*!< Auxhronization signal from EXTI Line5  */
-#define LL_DMAMUX_Aux_EXTI_LINE6      (DMAMUX_CxCR_Aux_ID_2 | DMAMUX_CxCR_Aux_ID_1)                                                 /*!< Auxhronization signal from EXTI Line6  */
-#define LL_DMAMUX_Aux_EXTI_LINE7      (DMAMUX_CxCR_Aux_ID_2 | DMAMUX_CxCR_Aux_ID_1 | DMAMUX_CxCR_Aux_ID_0)                         /*!< Auxhronization signal from EXTI Line7  */
-#define LL_DMAMUX_Aux_EXTI_LINE8      DMAMUX_CxCR_Aux_ID_3                                                                           /*!< Auxhronization signal from EXTI Line8  */
-#define LL_DMAMUX_Aux_EXTI_LINE9      (DMAMUX_CxCR_Aux_ID_3 | DMAMUX_CxCR_Aux_ID_0)                                                 /*!< Auxhronization signal from EXTI Line9  */
-#define LL_DMAMUX_Aux_EXTI_LINE10     (DMAMUX_CxCR_Aux_ID_3 | DMAMUX_CxCR_Aux_ID_1)                                                 /*!< Auxhronization signal from EXTI Line10 */
-#define LL_DMAMUX_Aux_EXTI_LINE11     (DMAMUX_CxCR_Aux_ID_3 | DMAMUX_CxCR_Aux_ID_1 | DMAMUX_CxCR_Aux_ID_0)                         /*!< Auxhronization signal from EXTI Line11 */
-#define LL_DMAMUX_Aux_EXTI_LINE12     (DMAMUX_CxCR_Aux_ID_3 | DMAMUX_CxCR_Aux_ID_2)                                                 /*!< Auxhronization signal from EXTI Line12 */
-#define LL_DMAMUX_Aux_EXTI_LINE13     (DMAMUX_CxCR_Aux_ID_3 | DMAMUX_CxCR_Aux_ID_2 | DMAMUX_CxCR_Aux_ID_0)                         /*!< Auxhronization signal from EXTI Line13 */
-#define LL_DMAMUX_Aux_EXTI_LINE14     (DMAMUX_CxCR_Aux_ID_3 | DMAMUX_CxCR_Aux_ID_2 | DMAMUX_CxCR_Aux_ID_1)                         /*!< Auxhronization signal from EXTI Line14 */
-#define LL_DMAMUX_Aux_EXTI_LINE15     (DMAMUX_CxCR_Aux_ID_3 | DMAMUX_CxCR_Aux_ID_2 | DMAMUX_CxCR_Aux_ID_1 | DMAMUX_CxCR_Aux_ID_0) /*!< Auxhronization signal from EXTI Line15 */
-#define LL_DMAMUX_Aux_DMAMUX_CH0      DMAMUX_CxCR_Aux_ID_4                                                                           /*!< Auxhronization signal from DMAMUX channel0 Event */
-#define LL_DMAMUX_Aux_DMAMUX_CH1      (DMAMUX_CxCR_Aux_ID_4 | DMAMUX_CxCR_Aux_ID_0)                                                 /*!< Auxhronization signal from DMAMUX channel1 Event */
-#define LL_DMAMUX_Aux_DMAMUX_CH2      (DMAMUX_CxCR_Aux_ID_4 | DMAMUX_CxCR_Aux_ID_1)                                                 /*!< Auxhronization signal from DMAMUX channel2 Event */
-#define LL_DMAMUX_Aux_DMAMUX_CH3      (DMAMUX_CxCR_Aux_ID_4 | DMAMUX_CxCR_Aux_ID_1 | DMAMUX_CxCR_Aux_ID_0)                         /*!< Auxhronization signal from DMAMUX channel3 Event */
-#define LL_DMAMUX_Aux_LPTIM1_OUT      (DMAMUX_CxCR_Aux_ID_4 | DMAMUX_CxCR_Aux_ID_2)                                                 /*!< Auxhronization signal from LPTIM1 Ouput */
+#define LL_DMAMUX_SYNC_EXTI_LINE0      0x00000000U                                                                                     /*!< Synchronization signal from EXTI Line0  */
+#define LL_DMAMUX_SYNC_EXTI_LINE1      DMAMUX_CxCR_SYNC_ID_0                                                                           /*!< Synchronization signal from EXTI Line1  */
+#define LL_DMAMUX_SYNC_EXTI_LINE2      DMAMUX_CxCR_SYNC_ID_1                                                                           /*!< Synchronization signal from EXTI Line2  */
+#define LL_DMAMUX_SYNC_EXTI_LINE3      (DMAMUX_CxCR_SYNC_ID_1 |DMAMUX_CxCR_SYNC_ID_0)                                                  /*!< Synchronization signal from EXTI Line3  */
+#define LL_DMAMUX_SYNC_EXTI_LINE4      DMAMUX_CxCR_SYNC_ID_2                                                                           /*!< Synchronization signal from EXTI Line4  */
+#define LL_DMAMUX_SYNC_EXTI_LINE5      (DMAMUX_CxCR_SYNC_ID_2 | DMAMUX_CxCR_SYNC_ID_0)                                                 /*!< Synchronization signal from EXTI Line5  */
+#define LL_DMAMUX_SYNC_EXTI_LINE6      (DMAMUX_CxCR_SYNC_ID_2 | DMAMUX_CxCR_SYNC_ID_1)                                                 /*!< Synchronization signal from EXTI Line6  */
+#define LL_DMAMUX_SYNC_EXTI_LINE7      (DMAMUX_CxCR_SYNC_ID_2 | DMAMUX_CxCR_SYNC_ID_1 | DMAMUX_CxCR_SYNC_ID_0)                         /*!< Synchronization signal from EXTI Line7  */
+#define LL_DMAMUX_SYNC_EXTI_LINE8      DMAMUX_CxCR_SYNC_ID_3                                                                           /*!< Synchronization signal from EXTI Line8  */
+#define LL_DMAMUX_SYNC_EXTI_LINE9      (DMAMUX_CxCR_SYNC_ID_3 | DMAMUX_CxCR_SYNC_ID_0)                                                 /*!< Synchronization signal from EXTI Line9  */
+#define LL_DMAMUX_SYNC_EXTI_LINE10     (DMAMUX_CxCR_SYNC_ID_3 | DMAMUX_CxCR_SYNC_ID_1)                                                 /*!< Synchronization signal from EXTI Line10 */
+#define LL_DMAMUX_SYNC_EXTI_LINE11     (DMAMUX_CxCR_SYNC_ID_3 | DMAMUX_CxCR_SYNC_ID_1 | DMAMUX_CxCR_SYNC_ID_0)                         /*!< Synchronization signal from EXTI Line11 */
+#define LL_DMAMUX_SYNC_EXTI_LINE12     (DMAMUX_CxCR_SYNC_ID_3 | DMAMUX_CxCR_SYNC_ID_2)                                                 /*!< Synchronization signal from EXTI Line12 */
+#define LL_DMAMUX_SYNC_EXTI_LINE13     (DMAMUX_CxCR_SYNC_ID_3 | DMAMUX_CxCR_SYNC_ID_2 | DMAMUX_CxCR_SYNC_ID_0)                         /*!< Synchronization signal from EXTI Line13 */
+#define LL_DMAMUX_SYNC_EXTI_LINE14     (DMAMUX_CxCR_SYNC_ID_3 | DMAMUX_CxCR_SYNC_ID_2 | DMAMUX_CxCR_SYNC_ID_1)                         /*!< Synchronization signal from EXTI Line14 */
+#define LL_DMAMUX_SYNC_EXTI_LINE15     (DMAMUX_CxCR_SYNC_ID_3 | DMAMUX_CxCR_SYNC_ID_2 | DMAMUX_CxCR_SYNC_ID_1 | DMAMUX_CxCR_SYNC_ID_0) /*!< Synchronization signal from EXTI Line15 */
+#define LL_DMAMUX_SYNC_DMAMUX_CH0      DMAMUX_CxCR_SYNC_ID_4                                                                           /*!< Synchronization signal from DMAMUX channel0 Event */
+#define LL_DMAMUX_SYNC_DMAMUX_CH1      (DMAMUX_CxCR_SYNC_ID_4 | DMAMUX_CxCR_SYNC_ID_0)                                                 /*!< Synchronization signal from DMAMUX channel1 Event */
+#define LL_DMAMUX_SYNC_DMAMUX_CH2      (DMAMUX_CxCR_SYNC_ID_4 | DMAMUX_CxCR_SYNC_ID_1)                                                 /*!< Synchronization signal from DMAMUX channel2 Event */
+#define LL_DMAMUX_SYNC_DMAMUX_CH3      (DMAMUX_CxCR_SYNC_ID_4 | DMAMUX_CxCR_SYNC_ID_1 | DMAMUX_CxCR_SYNC_ID_0)                         /*!< Synchronization signal from DMAMUX channel3 Event */
+#define LL_DMAMUX_SYNC_LPTIM1_OUT      (DMAMUX_CxCR_SYNC_ID_4 | DMAMUX_CxCR_SYNC_ID_2)                                                 /*!< Synchronization signal from LPTIM1 Ouput */
 /**
   * @}
   */
@@ -712,8 +712,8 @@ __STATIC_INLINE uint32_t LL_DMAMUX_GetRequestID(DMAMUX_Channel_TypeDef *DMAMUXx,
 }
 
 /**
-  * @brief  Set the number of DMA request that will be autorized after a Auxhronization event and/or the number of DMA request needed to generate an event.
-  * @rmtoll CxCR         NBREQ         LL_DMAMUX_SetAuxRequestNb
+  * @brief  Set the number of DMA request that will be autorized after a synchronization event and/or the number of DMA request needed to generate an event.
+  * @rmtoll CxCR         NBREQ         LL_DMAMUX_SetSyncRequestNb
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -735,15 +735,15 @@ __STATIC_INLINE uint32_t LL_DMAMUX_GetRequestID(DMAMUX_Channel_TypeDef *DMAMUXx,
   * @param  RequestNb This parameter must be a value between Min_Data = 1 and Max_Data = 32.
   * @retval None
   */
-__STATIC_INLINE void LL_DMAMUX_SetAuxRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t RequestNb)
+__STATIC_INLINE void LL_DMAMUX_SetSyncRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t RequestNb)
 {
   (void)(DMAMUXx);
   MODIFY_REG((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_NBREQ, ((RequestNb - 1U) << DMAMUX_CxCR_NBREQ_Pos));
 }
 
 /**
-  * @brief  Get the number of DMA request that will be autorized after a Auxhronization event and/or the number of DMA request needed to generate an event.
-  * @rmtoll CxCR         NBREQ         LL_DMAMUX_GetAuxRequestNb
+  * @brief  Get the number of DMA request that will be autorized after a synchronization event and/or the number of DMA request needed to generate an event.
+  * @rmtoll CxCR         NBREQ         LL_DMAMUX_GetSyncRequestNb
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -764,15 +764,15 @@ __STATIC_INLINE void LL_DMAMUX_SetAuxRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, 
   *         @arg @ref LL_DMAMUX_CHANNEL_15
   * @retval Between Min_Data = 1 and Max_Data = 32
   */
-__STATIC_INLINE uint32_t LL_DMAMUX_GetAuxRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
+__STATIC_INLINE uint32_t LL_DMAMUX_GetSyncRequestNb(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return (uint32_t)(((READ_BIT((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_NBREQ)) >> DMAMUX_CxCR_NBREQ_Pos) + 1U);
 }
 
 /**
-  * @brief  Set the polarity of the signal on which the DMA request is Auxhronized.
-  * @rmtoll CxCR         SPOL          LL_DMAMUX_SetAuxPolarity
+  * @brief  Set the polarity of the signal on which the DMA request is synchronized.
+  * @rmtoll CxCR         SPOL          LL_DMAMUX_SetSyncPolarity
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -792,21 +792,21 @@ __STATIC_INLINE uint32_t LL_DMAMUX_GetAuxRequestNb(DMAMUX_Channel_TypeDef *DMAMU
   *         @arg @ref LL_DMAMUX_CHANNEL_14
   *         @arg @ref LL_DMAMUX_CHANNEL_15
   * @param  Polarity This parameter can be one of the following values:
-  *         @arg @ref LL_DMAMUX_Aux_NO_EVENT
-  *         @arg @ref LL_DMAMUX_Aux_POL_RISING
-  *         @arg @ref LL_DMAMUX_Aux_POL_FALLING
-  *         @arg @ref LL_DMAMUX_Aux_POL_RISING_FALLING
+  *         @arg @ref LL_DMAMUX_SYNC_NO_EVENT
+  *         @arg @ref LL_DMAMUX_SYNC_POL_RISING
+  *         @arg @ref LL_DMAMUX_SYNC_POL_FALLING
+  *         @arg @ref LL_DMAMUX_SYNC_POL_RISING_FALLING
   * @retval None
   */
-__STATIC_INLINE void LL_DMAMUX_SetAuxPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t Polarity)
+__STATIC_INLINE void LL_DMAMUX_SetSyncPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t Polarity)
 {
   (void)(DMAMUXx);
   MODIFY_REG((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_SPOL, Polarity);
 }
 
 /**
-  * @brief  Get the polarity of the signal on which the DMA request is Auxhronized.
-  * @rmtoll CxCR         SPOL          LL_DMAMUX_GetAuxPolarity
+  * @brief  Get the polarity of the signal on which the DMA request is synchronized.
+  * @rmtoll CxCR         SPOL          LL_DMAMUX_GetSyncPolarity
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -826,12 +826,12 @@ __STATIC_INLINE void LL_DMAMUX_SetAuxPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, u
   *         @arg @ref LL_DMAMUX_CHANNEL_14
   *         @arg @ref LL_DMAMUX_CHANNEL_15
   * @retval Returned value can be one of the following values:
-  *         @arg @ref LL_DMAMUX_Aux_NO_EVENT
-  *         @arg @ref LL_DMAMUX_Aux_POL_RISING
-  *         @arg @ref LL_DMAMUX_Aux_POL_FALLING
-  *         @arg @ref LL_DMAMUX_Aux_POL_RISING_FALLING
+  *         @arg @ref LL_DMAMUX_SYNC_NO_EVENT
+  *         @arg @ref LL_DMAMUX_SYNC_POL_RISING
+  *         @arg @ref LL_DMAMUX_SYNC_POL_FALLING
+  *         @arg @ref LL_DMAMUX_SYNC_POL_RISING_FALLING
   */
-__STATIC_INLINE uint32_t LL_DMAMUX_GetAuxPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
+__STATIC_INLINE uint32_t LL_DMAMUX_GetSyncPolarity(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return (uint32_t)(READ_BIT((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_SPOL));
@@ -925,8 +925,8 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsEnabledEventGeneration(DMAMUX_Channel_TypeD
 }
 
 /**
-  * @brief  Enable the Auxhronization mode.
-  * @rmtoll CxCR         SE            LL_DMAMUX_EnableAux
+  * @brief  Enable the synchronization mode.
+  * @rmtoll CxCR         SE            LL_DMAMUX_EnableSync
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -947,15 +947,15 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsEnabledEventGeneration(DMAMUX_Channel_TypeD
   *         @arg @ref LL_DMAMUX_CHANNEL_15
   * @retval None
   */
-__STATIC_INLINE void LL_DMAMUX_EnableAux(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
+__STATIC_INLINE void LL_DMAMUX_EnableSync(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   SET_BIT((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_SE);
 }
 
 /**
-  * @brief  Disable the Auxhronization mode.
-  * @rmtoll CxCR         SE            LL_DMAMUX_DisableAux
+  * @brief  Disable the synchronization mode.
+  * @rmtoll CxCR         SE            LL_DMAMUX_DisableSync
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -976,15 +976,15 @@ __STATIC_INLINE void LL_DMAMUX_EnableAux(DMAMUX_Channel_TypeDef *DMAMUXx, uint32
   *         @arg @ref LL_DMAMUX_CHANNEL_15
   * @retval None
   */
-__STATIC_INLINE void LL_DMAMUX_DisableAux(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
+__STATIC_INLINE void LL_DMAMUX_DisableSync(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   CLEAR_BIT((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_SE);
 }
 
 /**
-  * @brief  Check if the Auxhronization mode is enabled or disabled.
-  * @rmtoll CxCR         SE            LL_DMAMUX_IsEnabledAux
+  * @brief  Check if the synchronization mode is enabled or disabled.
+  * @rmtoll CxCR         SE            LL_DMAMUX_IsEnabledSync
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -1005,15 +1005,15 @@ __STATIC_INLINE void LL_DMAMUX_DisableAux(DMAMUX_Channel_TypeDef *DMAMUXx, uint3
   *         @arg @ref LL_DMAMUX_CHANNEL_15
   * @retval State of bit (1 or 0).
   */
-__STATIC_INLINE uint32_t LL_DMAMUX_IsEnabledAux(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
+__STATIC_INLINE uint32_t LL_DMAMUX_IsEnabledSync(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
   return ((READ_BIT((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_SE) == (DMAMUX_CxCR_SE))? 1UL : 0UL);
 }
 
 /**
-  * @brief  Set DMAMUX Auxhronization ID  on DMAMUX Channel x.
-  * @rmtoll CxCR         Aux_ID       LL_DMAMUX_SetAuxID
+  * @brief  Set DMAMUX synchronization ID  on DMAMUX Channel x.
+  * @rmtoll CxCR         SYNC_ID       LL_DMAMUX_SetSyncID
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -1032,39 +1032,39 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsEnabledAux(DMAMUX_Channel_TypeDef *DMAMUXx,
   *         @arg @ref LL_DMAMUX_CHANNEL_13
   *         @arg @ref LL_DMAMUX_CHANNEL_14
   *         @arg @ref LL_DMAMUX_CHANNEL_15
-  * @param  AuxID This parameter can be one of the following values:
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE0
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE1
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE2
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE3
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE4
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE5
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE6
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE7
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE8
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE9
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE10
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE11
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE12
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE13
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE14
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE15
-  *         @arg @ref LL_DMAMUX_Aux_DMAMUX_CH0
-  *         @arg @ref LL_DMAMUX_Aux_DMAMUX_CH1
-  *         @arg @ref LL_DMAMUX_Aux_DMAMUX_CH2
-  *         @arg @ref LL_DMAMUX_Aux_DMAMUX_CH3
-  *         @arg @ref LL_DMAMUX_Aux_LPTIM1_OUT
+  * @param  SyncID This parameter can be one of the following values:
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE0
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE1
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE2
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE3
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE4
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE5
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE6
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE7
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE8
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE9
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE10
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE11
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE12
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE13
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE14
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE15
+  *         @arg @ref LL_DMAMUX_SYNC_DMAMUX_CH0
+  *         @arg @ref LL_DMAMUX_SYNC_DMAMUX_CH1
+  *         @arg @ref LL_DMAMUX_SYNC_DMAMUX_CH2
+  *         @arg @ref LL_DMAMUX_SYNC_DMAMUX_CH3
+  *         @arg @ref LL_DMAMUX_SYNC_LPTIM1_OUT
   * @retval None
   */
-__STATIC_INLINE void LL_DMAMUX_SetAuxID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t AuxID)
+__STATIC_INLINE void LL_DMAMUX_SetSyncID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel, uint32_t SyncID)
 {
   (void)(DMAMUXx);
-  MODIFY_REG((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_Aux_ID, AuxID);
+  MODIFY_REG((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_SYNC_ID, SyncID);
 }
 
 /**
-  * @brief  Get DMAMUX Auxhronization ID  on DMAMUX Channel x.
-  * @rmtoll CxCR         Aux_ID       LL_DMAMUX_GetAuxID
+  * @brief  Get DMAMUX synchronization ID  on DMAMUX Channel x.
+  * @rmtoll CxCR         SYNC_ID       LL_DMAMUX_GetSyncID
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
   *         @arg @ref LL_DMAMUX_CHANNEL_0
@@ -1084,32 +1084,32 @@ __STATIC_INLINE void LL_DMAMUX_SetAuxID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_
   *         @arg @ref LL_DMAMUX_CHANNEL_14
   *         @arg @ref LL_DMAMUX_CHANNEL_15
   * @retval Returned value can be one of the following values:
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE0
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE1
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE2
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE3
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE4
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE5
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE6
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE7
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE8
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE9
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE10
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE11
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE12
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE13
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE14
-  *         @arg @ref LL_DMAMUX_Aux_EXTI_LINE15
-  *         @arg @ref LL_DMAMUX_Aux_DMAMUX_CH0
-  *         @arg @ref LL_DMAMUX_Aux_DMAMUX_CH1
-  *         @arg @ref LL_DMAMUX_Aux_DMAMUX_CH2
-  *         @arg @ref LL_DMAMUX_Aux_DMAMUX_CH3
-  *         @arg @ref LL_DMAMUX_Aux_LPTIM1_OUT
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE0
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE1
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE2
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE3
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE4
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE5
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE6
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE7
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE8
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE9
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE10
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE11
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE12
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE13
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE14
+  *         @arg @ref LL_DMAMUX_SYNC_EXTI_LINE15
+  *         @arg @ref LL_DMAMUX_SYNC_DMAMUX_CH0
+  *         @arg @ref LL_DMAMUX_SYNC_DMAMUX_CH1
+  *         @arg @ref LL_DMAMUX_SYNC_DMAMUX_CH2
+  *         @arg @ref LL_DMAMUX_SYNC_DMAMUX_CH3
+  *         @arg @ref LL_DMAMUX_SYNC_LPTIM1_OUT
   */
-__STATIC_INLINE uint32_t LL_DMAMUX_GetAuxID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
+__STATIC_INLINE uint32_t LL_DMAMUX_GetSyncID(DMAMUX_Channel_TypeDef *DMAMUXx, uint32_t Channel)
 {
   (void)(DMAMUXx);
-  return (uint32_t)(READ_BIT((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_Aux_ID));
+  return (uint32_t)(READ_BIT((DMAMUX1_Channel0 + Channel)->CCR, DMAMUX_CxCR_SYNC_ID));
 }
 
 /**
@@ -1337,7 +1337,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_GetRequestSignalID(DMAMUX_Channel_TypeDef *DM
   */
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 0.
+  * @brief  Get Synchronization Event Overrun Flag Channel 0.
   * @rmtoll CSR          SOF0          LL_DMAMUX_IsActiveFlag_SO0
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1349,7 +1349,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO0(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 1.
+  * @brief  Get Synchronization Event Overrun Flag Channel 1.
   * @rmtoll CSR          SOF1          LL_DMAMUX_IsActiveFlag_SO1
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1361,7 +1361,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO1(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 2.
+  * @brief  Get Synchronization Event Overrun Flag Channel 2.
   * @rmtoll CSR          SOF2          LL_DMAMUX_IsActiveFlag_SO2
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1373,7 +1373,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO2(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 3.
+  * @brief  Get Synchronization Event Overrun Flag Channel 3.
   * @rmtoll CSR          SOF3          LL_DMAMUX_IsActiveFlag_SO3
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1385,7 +1385,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO3(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 4.
+  * @brief  Get Synchronization Event Overrun Flag Channel 4.
   * @rmtoll CSR          SOF4          LL_DMAMUX_IsActiveFlag_SO4
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1397,7 +1397,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO4(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 5.
+  * @brief  Get Synchronization Event Overrun Flag Channel 5.
   * @rmtoll CSR          SOF5          LL_DMAMUX_IsActiveFlag_SO5
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1409,7 +1409,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO5(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 6.
+  * @brief  Get Synchronization Event Overrun Flag Channel 6.
   * @rmtoll CSR          SOF6          LL_DMAMUX_IsActiveFlag_SO6
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1421,7 +1421,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO6(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 7.
+  * @brief  Get Synchronization Event Overrun Flag Channel 7.
   * @rmtoll CSR          SOF7          LL_DMAMUX_IsActiveFlag_SO7
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1433,7 +1433,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO7(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 8.
+  * @brief  Get Synchronization Event Overrun Flag Channel 8.
   * @rmtoll CSR          SOF8          LL_DMAMUX_IsActiveFlag_SO8
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1445,7 +1445,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO8(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 9.
+  * @brief  Get Synchronization Event Overrun Flag Channel 9.
   * @rmtoll CSR          SOF9          LL_DMAMUX_IsActiveFlag_SO9
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1457,7 +1457,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO9(DMAMUX_Channel_TypeDef *DMAM
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 10.
+  * @brief  Get Synchronization Event Overrun Flag Channel 10.
   * @rmtoll CSR          SOF10         LL_DMAMUX_IsActiveFlag_SO10
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1469,7 +1469,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO10(DMAMUX_Channel_TypeDef *DMA
 }
 
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 11.
+  * @brief  Get Synchronization Event Overrun Flag Channel 11.
   * @rmtoll CSR          SOF11         LL_DMAMUX_IsActiveFlag_SO11
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1482,7 +1482,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO11(DMAMUX_Channel_TypeDef *DMA
 
 #if defined (DMAMUX_CSR_SOF12)
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 12.
+  * @brief  Get Synchronization Event Overrun Flag Channel 12.
   * @rmtoll CSR          SOF12         LL_DMAMUX_IsActiveFlag_SO12
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1496,7 +1496,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO12(DMAMUX_Channel_TypeDef *DMA
 
 #if defined (DMAMUX_CSR_SOF13)
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 13.
+  * @brief  Get Synchronization Event Overrun Flag Channel 13.
   * @rmtoll CSR          SOF13         LL_DMAMUX_IsActiveFlag_SO13
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1510,7 +1510,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO13(DMAMUX_Channel_TypeDef *DMA
 
 #if defined (DMAMUX_CSR_SOF14)
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 14.
+  * @brief  Get Synchronization Event Overrun Flag Channel 14.
   * @rmtoll CSR          SOF13         LL_DMAMUX_IsActiveFlag_SO14
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1524,7 +1524,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_SO14(DMAMUX_Channel_TypeDef *DMA
 
 #if defined (DMAMUX_CSR_SOF15)
 /**
-  * @brief  Get Auxhronization Event Overrun Flag Channel 15.
+  * @brief  Get Synchronization Event Overrun Flag Channel 15.
   * @rmtoll CSR          SOF13         LL_DMAMUX_IsActiveFlag_SO15
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval State of bit (1 or 0).
@@ -1585,7 +1585,7 @@ __STATIC_INLINE uint32_t LL_DMAMUX_IsActiveFlag_RGO3(DMAMUX_Channel_TypeDef *DMA
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 0.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 0.
   * @rmtoll CFR          CSOF0         LL_DMAMUX_ClearFlag_SO0
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1597,7 +1597,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO0(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 1.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 1.
   * @rmtoll CFR          CSOF1         LL_DMAMUX_ClearFlag_SO1
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1609,7 +1609,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO1(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 2.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 2.
   * @rmtoll CFR          CSOF2         LL_DMAMUX_ClearFlag_SO2
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1621,7 +1621,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO2(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 3.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 3.
   * @rmtoll CFR          CSOF3         LL_DMAMUX_ClearFlag_SO3
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1633,7 +1633,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO3(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 4.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 4.
   * @rmtoll CFR          CSOF4         LL_DMAMUX_ClearFlag_SO4
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1645,7 +1645,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO4(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 5.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 5.
   * @rmtoll CFR          CSOF5         LL_DMAMUX_ClearFlag_SO5
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1657,7 +1657,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO5(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 6.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 6.
   * @rmtoll CFR          CSOF6         LL_DMAMUX_ClearFlag_SO6
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1669,7 +1669,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO6(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 7.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 7.
   * @rmtoll CFR          CSOF7         LL_DMAMUX_ClearFlag_SO7
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1681,7 +1681,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO7(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 8.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 8.
   * @rmtoll CFR          CSOF8         LL_DMAMUX_ClearFlag_SO8
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1693,7 +1693,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO8(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 9.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 9.
   * @rmtoll CFR          CSOF9         LL_DMAMUX_ClearFlag_SO9
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1705,7 +1705,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO9(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 10.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 10.
   * @rmtoll CFR          CSOF10        LL_DMAMUX_ClearFlag_SO10
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1717,7 +1717,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO10(DMAMUX_Channel_TypeDef *DMAMUXx)
 }
 
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 11.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 11.
   * @rmtoll CFR          CSOF11        LL_DMAMUX_ClearFlag_SO11
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1730,7 +1730,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO11(DMAMUX_Channel_TypeDef *DMAMUXx)
 
 #if defined (DMAMUX_CFR_CSOF12)
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 12.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 12.
   * @rmtoll CFR          CSOF12        LL_DMAMUX_ClearFlag_SO12
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1744,7 +1744,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO12(DMAMUX_Channel_TypeDef *DMAMUXx)
 
 #if defined (DMAMUX_CFR_CSOF13)
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 13.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 13.
   * @rmtoll CFR          CSOF13        LL_DMAMUX_ClearFlag_SO13
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1758,7 +1758,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO13(DMAMUX_Channel_TypeDef *DMAMUXx)
 
 #if defined (DMAMUX_CFR_CSOF14)
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 14.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 14.
   * @rmtoll CFR          CSOF14        LL_DMAMUX_ClearFlag_SO14
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1772,7 +1772,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_SO14(DMAMUX_Channel_TypeDef *DMAMUXx)
 
 #if defined (DMAMUX_CFR_CSOF15)
 /**
-  * @brief  Clear Auxhronization Event Overrun Flag Channel 15.
+  * @brief  Clear Synchronization Event Overrun Flag Channel 15.
   * @rmtoll CFR          CSOF15        LL_DMAMUX_ClearFlag_SO15
   * @param  DMAMUXx DMAMUXx DMAMUXx Instance
   * @retval None
@@ -1841,7 +1841,7 @@ __STATIC_INLINE void LL_DMAMUX_ClearFlag_RGO3(DMAMUX_Channel_TypeDef *DMAMUXx)
   */
 
 /**
-  * @brief  Enable the Auxhronization Event Overrun Interrupt on DMAMUX channel x.
+  * @brief  Enable the Synchronization Event Overrun Interrupt on DMAMUX channel x.
   * @rmtoll CxCR         SOIE          LL_DMAMUX_EnableIT_SO
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
@@ -1870,7 +1870,7 @@ __STATIC_INLINE void LL_DMAMUX_EnableIT_SO(DMAMUX_Channel_TypeDef *DMAMUXx, uint
 }
 
 /**
-  * @brief  Disable the Auxhronization Event Overrun Interrupt on DMAMUX channel x.
+  * @brief  Disable the Synchronization Event Overrun Interrupt on DMAMUX channel x.
   * @rmtoll CxCR         SOIE          LL_DMAMUX_DisableIT_SO
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:
@@ -1899,7 +1899,7 @@ __STATIC_INLINE void LL_DMAMUX_DisableIT_SO(DMAMUX_Channel_TypeDef *DMAMUXx, uin
 }
 
 /**
-  * @brief  Check if the Auxhronization Event Overrun Interrupt on DMAMUX channel x is enabled or disabled.
+  * @brief  Check if the Synchronization Event Overrun Interrupt on DMAMUX channel x is enabled or disabled.
   * @rmtoll CxCR         SOIE          LL_DMAMUX_IsEnabledIT_SO
   * @param  DMAMUXx DMAMUXx Instance
   * @param  Channel This parameter can be one of the following values:

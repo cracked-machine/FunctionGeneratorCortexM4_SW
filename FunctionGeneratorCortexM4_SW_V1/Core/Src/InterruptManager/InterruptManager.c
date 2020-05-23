@@ -13,7 +13,8 @@
 
 #include <stdio.h>
 
-
+// TODO doesn't work correctly
+//#define ENABLE_PWM_SWEEP
 
 uint16_t btn1_last_interrupt_time = 0;
 uint16_t btn2_last_interrupt_time = 0;
@@ -50,18 +51,47 @@ void IM_Init()
  */
 void IM_SWEEP_UPDATE_TIM_IRQHandler()
 {
-	// upcounter (decreasing freq)
+
+	#ifdef ENABLE_PWM_SWEEP
+		eOutput_mode tmpOut = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
+	#endif	//ENABLE_PWM_SWEEP
+
+		// upcounter (decreasing freq)
 	if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)
 	{
 		// if we reach lower freq limit for sweep, reset to highest freq limit
 		if(OUTPUT_TIMER->ARR >= sweep_upper_bounds_longest_output_arr)
 		{
 			OUTPUT_TIMER->ARR = sweep_lower_bounds_shortest_output_arr;
+
+			#ifdef ENABLE_PWM_SWEEP
+				if(tmpOut == PWM_FUNC_MODE)
+				{
+					// duty cycle of PWM require slower settings to get the
+					// same frequency as normal output functions
+					TIM3->PSC = 256;
+					TIM3->ARR = sweep_lower_bounds_shortest_output_arr/2;
+					TIM3->CCR1 = TIM3->ARR/2;
+
+				}
+			#endif	//ENABLE_PWM_SWEEP
 		}
 		else
 		{
 			// keep decreasing freq
 			OUTPUT_TIMER->ARR++;
+
+			#ifdef ENABLE_PWM_SWEEP
+				if(tmpOut == PWM_FUNC_MODE)
+				{
+					// duty cycle of PWM require slower settings to get the
+					// same frequency as normal output functions
+
+					TIM3->ARR++;
+					TIM3->CCR1 = TIM3->ARR/2;
+				}
+			#endif	//ENABLE_PWM_SWEEP
+
 		}
 	}
 	// downcounter (increasing freq)
@@ -72,6 +102,19 @@ void IM_SWEEP_UPDATE_TIM_IRQHandler()
 		{
 			// reset to lowest freq
 			OUTPUT_TIMER->ARR = MAX_OUTPUT_ARR;
+
+
+			#ifdef ENABLE_PWM_SWEEP
+				if(tmpOut == PWM_FUNC_MODE)
+				{
+					// duty cycle of PWM require slower settings to get the
+					// same frequency as normal output functions
+
+					TIM3->ARR = MAX_OUTPUT_ARR/2;
+					TIM3->CCR1 = TIM3->ARR/2;
+
+				}
+			#endif	//ENABLE_PWM_SWEEP
 		}
 		else
 		{
@@ -79,11 +122,37 @@ void IM_SWEEP_UPDATE_TIM_IRQHandler()
 			if(OUTPUT_TIMER->ARR <= sweep_lower_bounds_shortest_output_arr)
 			{
 				OUTPUT_TIMER->ARR = sweep_upper_bounds_longest_output_arr;
+
+
+
+				#ifdef ENABLE_PWM_SWEEP
+					if(tmpOut == PWM_FUNC_MODE)
+					{
+						// duty cycle of PWM require slower settings to get the
+						// same frequency as normal output functions
+
+						TIM3->ARR = sweep_upper_bounds_longest_output_arr/2;
+						TIM3->CCR1 = TIM3->ARR/2;
+
+					}
+				#endif	//ENABLE_PWM_SWEEP
+
 			}
 			// keep increasing freq
 			else
 			{
 				OUTPUT_TIMER->ARR--;
+
+				#ifdef ENABLE_PWM_SWEEP
+					if(tmpOut == PWM_FUNC_MODE)
+					{
+						// duty cycle of PWM require slower settings to get the
+						// same frequency as normal output functions
+
+						TIM3->ARR--;
+						TIM3->CCR1 = TIM3->ARR/2;
+					}
+				#endif	//ENABLE_PWM_SWEEP
 			}
 		}
 	}

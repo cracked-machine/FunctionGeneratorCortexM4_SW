@@ -20,48 +20,154 @@
  */
 FreqProfile_t theFreqProfiles[MAX_NUM_FREQ_PRESETS] =
 {
-	{ FPRESET_1HZ,		53, 0 },
-	{ FPRESET_10HZ,		49, 1 },
-	{ FPRESET_50HZ,		45, 2 },
-	{ FPRESET_100HZ,	41, 3 },
-	{ FPRESET_250HZ, 	37, 4 },
-	{ FPRESET_500HZ, 	33, 5 },
-	{ FPRESET_750HZ,	29, 6 },
-	{ FPRESET_1KHZ, 	25, 7 },
-	{ FPRESET_5KHZ, 	21, 8 },
-	{ FPRESET_10KHZ,	17, 9 },
-	{ FPRESET_25KHZ, 	13, 10},
-	{ FPRESET_50KHZ, 	9, 	11},
-	{ FPRESET_75KHZ, 	5, 	12},
-	{ FPRESET_100KHZ, 	1, 	13}
+	{ 0, 	FPRESET_1HZ,	0x0016,	0,	1.0  },
+	{ 1, 	FPRESET_10HZ,	0x0003,	0,	1.0  },
+	{ 2, 	FPRESET_50HZ,	0x0000,	0,	1.0  },
+	{ 3, 	FPRESET_100HZ,	0x0000,	0,	1.0  },
+	{ 4, 	FPRESET_250HZ, 	0x0000,	0,	1.0  },
+	{ 5, 	FPRESET_500HZ, 	0x0000,	0,	1.0  },
+	{ 6, 	FPRESET_750HZ,	0x0000,	0,	1.0  },
+	{ 7, 	FPRESET_1KHZ, 	0x0000,	0,	1.0  },
+	{ 8, 	FPRESET_5KHZ, 	0x0000,	0,	1.0  },
+	{ 9, 	FPRESET_10KHZ,	0x0000,	0,	1.0  },
+	{ 10, 	FPRESET_25KHZ, 	0x0000,	0,	0.99 },
+	{ 11, 	FPRESET_50KHZ, 	0x0000,	0,	0.99 },
+	{ 12, 	FPRESET_75KHZ, 	0x0000,	0,	1.0  },
+	{ 13,	FPRESET_100KHZ, 0x0000,	0,	0.95 }
 
 };
 
-/*
- * 		eDefaultFreqPreset set by SignalManager
- */
+//  default startup freq profile
 FreqProfile_t *freq_profile = &theFreqProfiles[eDefaultFreqPreset];
 
-
-uint8_t FreqPresetEncoderRange = 56;
-
+// determine if next rotary encoder position should increase/decrease
 uint16_t freq_last_encoder_value = 0;
 
-void FreqO_ResetLastEncoderValue()
-{
-	freq_last_encoder_value = 0;
-}
 
 /*
- * 	Function protochannels
+ * 	Function prototypes
  */
+void 			FreqO_InitFreqProfiles();
+void 			FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue);
+void 			FreqO_ApplyProfile(eFreqSettings_t pPresetEnum);
+void 			FreqO_AdjustFreq();
+uint32_t 		FreqO_GetOutputFreq();
+void 			FreqO_ResetLastEncoderValue();
+FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum);
 FreqProfile_t * FreqO_GetFPresetObject();
-eFreqSettings_t _FindFPresetObjectByIndex(uint32_t pIndex);
+uint8_t 		FreqO_GetPresetEncoderPos();
+uint8_t 		FreqO_GetFreqPresetEncoderRange();
+FreqProfile_t* 	FreqO_GetProfileByIndex(uint32_t pIndex);
 
 
 /*
  *
- *	@brief	Increment/Decrement output frequency value
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqO_InitFreqProfiles()
+{
+	for(int i = 0; i < MAX_NUM_FREQ_PRESETS; i++)
+	{
+		// prevent divide by zero (prescaler)
+		if(theFreqProfiles[i].psc == 0)
+			theFreqProfiles[i].arr = ((SM_MCLK / theFreqProfiles[i].hertz) / SM_FSAMP) * theFreqProfiles[i].error;
+		else
+			theFreqProfiles[i].arr = (((SM_MCLK / theFreqProfiles[i].hertz) / theFreqProfiles[i].psc) / SM_FSAMP) * theFreqProfiles[i].error;
+	}
+}
+
+
+/*
+ *
+ *	@brief	select frequency output preset from rot enc value
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue)
+{
+
+	uint32_t tmpFreqIndex = freq_profile->index;
+	if(pEncValue > freq_last_encoder_value)
+	{
+		tmpFreqIndex++;
+		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = MAX_NUM_FREQ_PRESETS-1;
+		FreqO_ApplyProfile( FreqO_GetProfileByIndex(tmpFreqIndex)->hertz );
+	}
+	else if (pEncValue < freq_last_encoder_value)
+	{
+		tmpFreqIndex--;
+		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = 0;
+		FreqO_ApplyProfile( FreqO_GetProfileByIndex(tmpFreqIndex)->hertz );
+	}
+	freq_last_encoder_value = pEncValue;
+
+}
+
+
+/*
+ *
+ *	@brief Set frequency output by profile
+ *
+ *	@param pPresetEnum search criteria. Should be one of the following:
+ *
+ *	FPRESET_1HZ 	= 1U,
+	FPRESET_10HZ	= 10U,
+	FPRESET_50HZ	= 50U,
+	FPRESET_100HZ	= 100U,
+	FPRESET_250HZ	= 250U,
+	FPRESET_500HZ	= 500U,
+	FPRESET_750HZ	= 750U,
+	FPRESET_1KHZ	= 1000U,
+	FPRESET_5KHZ	= 5000U,
+	FPRESET_10KHZ	= 10000U,
+	FPRESET_25KHZ	= 25000U,
+	FPRESET_50KHZ	= 50000U,
+	FPRESET_75KHZ	= 75000U,
+	FPRESET_100KHZ	= 100000U
+
+ *	@retval None
+ *
+ */
+void FreqO_ApplyProfile(eFreqSettings_t pPresetEnum)
+{
+//	DacTimeReg_t* tmpDT = DT_GetRegisterByEnum(pPresetEnum);
+	FreqProfile_t* tmpFreqProfile = FreqO_FindFPresetObject(pPresetEnum);
+	if(tmpFreqProfile)
+	{
+
+		OUTPUT_TIMER->PSC = tmpFreqProfile->psc;
+		OUTPUT_TIMER->ARR = tmpFreqProfile->arr;
+
+		eOutput_mode tmpOut = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
+		if(tmpOut == PWM_FUNC_MODE)
+		{
+			// duty cycle of PWM require slower settings to get the
+			// same frequency as normal output functions
+			TIM3->PSC = 256;
+			TIM3->ARR = tmpFreqProfile->arr/2;
+			TIM3->CCR1 = TIM3->ARR/2;
+		}
+
+		freq_profile = tmpFreqProfile;
+
+	}
+	else
+	{
+		DM_SetErrorDebugMsg("FreqO_ApplyProfile() null pointer error");
+	}
+}
+
+
+
+/*
+ *
+ *	@brief	Increment/Decrement output frequency value by hertz
  *
  *	@param None
  *	@retval None
@@ -84,297 +190,6 @@ void FreqO_AdjustFreq()
 		}
 }
 
-
-/*
- *
- *	@brief	select frequency output preset from rot enc value
- *
- *	@param None
- *	@retval None
- *
- */
-void FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue)
-{
-
-	switch(pEncValue)
-	{
-		case 0:
-		case 1:
-		case 2:
-		case 3:
-			FreqO_ApplyPreset(FPRESET_1HZ);
-			break;
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-			FreqO_ApplyPreset(FPRESET_10HZ);
-			break;
-		case 8:
-		case 9:
-		case 10:
-		case 11:
-			FreqO_ApplyPreset(FPRESET_50HZ);
-			break;
-		case 12:
-		case 13:
-		case 14:
-		case 15:
-			FreqO_ApplyPreset(FPRESET_100HZ);
-			break;
-		case 16:
-		case 17:
-		case 18:
-		case 19:
-			FreqO_ApplyPreset(FPRESET_250HZ);
-			break;
-		case 20:
-		case 21:
-		case 22:
-		case 23:
-			FreqO_ApplyPreset(FPRESET_500HZ);
-			break;
-		case 24:
-		case 25:
-		case 26:
-		case 27:
-			FreqO_ApplyPreset(FPRESET_750HZ);
-			break;
-		case 28:
-		case 29:
-		case 30:
-		case 32:
-			FreqO_ApplyPreset(FPRESET_1KHZ);
-			break;
-		case 33:
-		case 34:
-		case 35:
-		case 36:
-			FreqO_ApplyPreset(FPRESET_5KHZ);
-			break;
-		case 37:
-		case 38:
-		case 39:
-		case 40:
-			FreqO_ApplyPreset(FPRESET_10KHZ);
-			break;
-		case 41:
-		case 42:
-		case 43:
-		case 44:
-			FreqO_ApplyPreset(FPRESET_25KHZ);
-			break;
-		case 45:
-		case 46:
-		case 47:
-		case 48:
-			FreqO_ApplyPreset(FPRESET_50KHZ);
-			break;
-		case 49:
-		case 50:
-		case 51:
-		case 52:
-			FreqO_ApplyPreset(FPRESET_75KHZ);
-			break;
-		case 53:
-		case 54:
-		case 55:
-		case 56:
-			FreqO_ApplyPreset(FPRESET_100KHZ);
-			break;
-	}
-
-/*	uint32_t tmpFreqIndex = freq_profile->index;
-	if(pEncValue > freq_last_encoder_value)
-	{
-		tmpFreqIndex++;
-		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = FPRESET_100KHZ;
-		FreqO_ApplyPreset_Fast(_FindFPresetObjectByIndex(tmpFreqIndex));
-	}
-	else if (pEncValue < freq_last_encoder_value)
-	{
-		tmpFreqIndex--;
-		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = FPRESET_100KHZ;
-		FreqO_ApplyPreset_Fast(_FindFPresetObjectByIndex(tmpFreqIndex));
-	}
-	freq_last_encoder_value = pEncValue;
-	*/
-}
-
-
-
-/*
- *
- *	@brief	Set frequency output preset by index
- *
- *	@param pPresetEnum the enum literal for the preset. Should be one of the following:
- *
- *	FPRESET_1HZ 	= 1U,
-	FPRESET_10HZ	= 10U,
-	FPRESET_50HZ	= 50U,
-	FPRESET_100HZ	= 100U,
-	FPRESET_250HZ	= 250U,
-	FPRESET_500HZ	= 500U,
-	FPRESET_750HZ	= 750U,
-	FPRESET_1KHZ	= 1000U,
-	FPRESET_5KHZ	= 5000U,
-	FPRESET_10KHZ	= 10000U,
-	FPRESET_25KHZ	= 25000U,
-	FPRESET_50KHZ	= 50000U,
-	FPRESET_75KHZ	= 75000U,
-	FPRESET_100KHZ	= 100000U
-
- *	@retval None
- *
- */
-void FreqO_ApplyPreset_Fast(eFreqSettings_t pPresetEnum)
-{
-	switch(pPresetEnum)
-	{
-		case FPRESET_1HZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(0)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(0)->arr;
-
-			freq_profile = &theFreqProfiles[0];
-			break;
-		case FPRESET_10HZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(1)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(1)->arr;
-
-			freq_profile = &theFreqProfiles[1];
-			break;
-		case FPRESET_50HZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(2)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(2)->arr;
-
-			freq_profile = &theFreqProfiles[2];
-			break;
-		case FPRESET_100HZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(3)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(3)->arr;
-
-			freq_profile = &theFreqProfiles[3];
-			break;
-		case FPRESET_250HZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(4)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(4)->arr;
-
-			freq_profile = &theFreqProfiles[4];
-			break;
-		case FPRESET_500HZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(5)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(5)->arr;
-
-			freq_profile = &theFreqProfiles[5];
-			break;
-		case FPRESET_750HZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(6)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(6)->arr;
-
-			freq_profile = &theFreqProfiles[6];
-			break;
-		case FPRESET_1KHZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(7)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(7)->arr;
-
-			freq_profile = &theFreqProfiles[7];
-			break;
-		case FPRESET_5KHZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(8)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(8)->arr;
-
-			freq_profile = &theFreqProfiles[8];
-			break;
-		case FPRESET_10KHZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(9)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(9)->arr;
-
-			freq_profile = &theFreqProfiles[9];
-			break;
-		case FPRESET_25KHZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(10)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(10)->arr;
-
-			freq_profile = &theFreqProfiles[10];
-			break;
-		case FPRESET_50KHZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(11)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(11)->arr;
-
-			freq_profile = &theFreqProfiles[11];
-			break;
-		case FPRESET_75KHZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(12)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(12)->arr;
-
-			freq_profile = &theFreqProfiles[12];
-			break;
-		case FPRESET_100KHZ:
-			OUTPUT_TIMER->PSC = DT_GetRegisterByIndex(13)->psc;
-			OUTPUT_TIMER->ARR = DT_GetRegisterByIndex(13)->arr;
-
-			freq_profile = &theFreqProfiles[13];
-			break;
-	}
-}
-
-/*
- *
- *	@brief Set frequency output preset by search
- *
- *	@param pPresetEnum search criteria. Should be one of the following:
- *
- *	FPRESET_1HZ 	= 1U,
-	FPRESET_10HZ	= 10U,
-	FPRESET_50HZ	= 50U,
-	FPRESET_100HZ	= 100U,
-	FPRESET_250HZ	= 250U,
-	FPRESET_500HZ	= 500U,
-	FPRESET_750HZ	= 750U,
-	FPRESET_1KHZ	= 1000U,
-	FPRESET_5KHZ	= 5000U,
-	FPRESET_10KHZ	= 10000U,
-	FPRESET_25KHZ	= 25000U,
-	FPRESET_50KHZ	= 50000U,
-	FPRESET_75KHZ	= 75000U,
-	FPRESET_100KHZ	= 100000U
-
- *	@retval None
- *
- */
-void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum)
-{
-	DacTimeReg_t* tmpDT = DT_GetRegisterByEnum(pPresetEnum);
-	if(tmpDT)
-	{
-		OUTPUT_TIMER->PSC = tmpDT->psc;
-		OUTPUT_TIMER->ARR = tmpDT->arr;
-
-		eOutput_mode tmpOut = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
-		if(tmpOut == PWM_FUNC_MODE)
-		{
-			// duty cycle of PWM require slower settings to get the
-			// same frequency as normal output functions
-			TIM3->PSC = 256;
-			TIM3->ARR = tmpDT->arr/2;
-			TIM3->CCR1 = TIM3->ARR/2;
-		}
-
-		//eNewFreqPreset = pPresetEnum;
-		FreqProfile_t * tmpFreq = FreqO_FindFPresetObject(pPresetEnum);
-		if(tmpFreq)
-		{
-			freq_profile = tmpFreq;
-		}
-		else
-		{
-			DM_SetErrorDebugMsg("FreqO_ApplyPreset() null pointer error");
-		}
-
-
-
-	}
-}
 
 /*
  *
@@ -428,6 +243,14 @@ FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum)
 	return 0;
 }
 
+/*
+ *
+ *	@brief	Get freq profile
+ *
+ *	@param pIndex
+ *	@retval eFreqSettings_t enum
+ *
+ */
 eFreqSettings_t _FindFPresetObjectByIndex(uint32_t pIndex)
 {
 	for(int i = 0; i < pIndex; i++ )
@@ -466,6 +289,35 @@ uint32_t FreqO_GetOutputFreq()
 {
 	return OUTPUT_TIMER->ARR;
 }
+
+
+/*
+ *
+ *	@brief	Get freq profile
+ *
+ *	@param pIndex
+ *	@retval pointer to FreqProfile_t object
+ *
+ */
+FreqProfile_t* FreqO_GetProfileByIndex(uint32_t pIndex)
+{
+	return &theFreqProfiles[pIndex];
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqO_ResetLastEncoderValue()
+{
+	freq_last_encoder_value = 0;
+}
+
+
 
 
 #endif /* SRC_SIGNALMANAGER_FREQOUTPUT_C_ */

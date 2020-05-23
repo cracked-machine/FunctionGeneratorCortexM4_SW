@@ -10,10 +10,9 @@
 
 #include <stdint.h>
 
-uint8_t FreqPresetEncoderRange;
 
 /*
- *	Frequency Preset value enumerations
+ *	Frequency Profile value enumerations
  */
 typedef enum
 {
@@ -37,50 +36,52 @@ typedef enum
 #define MAX_NUM_FREQ_PRESETS 14
 
 /*
- *	object for Frequency Preset and its encoder position for freq preset menu
+ *	Frequency Profile structure
  */
 typedef struct
 {
-	eFreqSettings_t hertz;
-	uint8_t epos;
-	uint16_t index;
+	uint8_t 		index;			// index is needed, "eFreqSettings_t" literals are mapped to value
 
+	eFreqSettings_t hertz;
+
+	uint32_t		psc;			// MCU timer prescaler. Default 0. Set higher for freq < 20Hz.
+
+	uint32_t		arr;			// MCU timer auto-reload (top). Set by FreqO_InitFreqProfiles()
+
+	float			error;			// coefficient for error correction, set to 1.0 if not required
+									// 0 < error < 1	- correction for under freq (increase)
+									// 1 < error		- correction for over freq (decrease)
 } FreqProfile_t;
 
+// array of frequency profiles, one for each eFreqSettings_t enum
 FreqProfile_t theFreqProfiles[MAX_NUM_FREQ_PRESETS];
 
-/*
- * 		The Currently Used Frequency Preset
- */
+// the active frequency profile!
 FreqProfile_t *freq_profile;
 
-/*
- *
- */
-#define FREQ_ENCODER_HIFREQ_MAG 1						// adjustment speed
-#define FREQ_ENCODER_MIDFREQ_MAG 5						// adjustment speed
-#define FREQ_ENCODER_LOFREQ_MAG 10						// adjustment speed
-#define FREQ_ENCODER_MAX 65535
+uint8_t FreqPresetEncoderRange;
 
 /*
  *  Function definitions
  */
-void FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue);
-uint32_t FreqO_GetOutputFreq();
 
-void FreqO_ApplyPreset(eFreqSettings_t pPresetEnum);
-void FreqO_ApplyPreset_Fast(eFreqSettings_t pPresetEnum);
+void 			FreqO_InitFreqProfiles();
 
+void 			FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue);
+
+
+void 			FreqO_ApplyProfile(eFreqSettings_t pPresetEnum);
+void 			FreqO_AdjustFreq();
+
+
+uint32_t 		FreqO_GetOutputFreq();
+void 			FreqO_ResetLastEncoderValue();
 
 FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum);
 FreqProfile_t * FreqO_GetFPresetObject();
-
-void FreqO_AdjustFreq();
-
-void FreqO_ResetLastEncoderValue();
-
-uint8_t FreqO_GetPresetEncoderPos();
-uint8_t FreqO_GetFreqPresetEncoderRange();
+uint8_t 		FreqO_GetPresetEncoderPos();
+uint8_t 		FreqO_GetFreqPresetEncoderRange();
+FreqProfile_t* 	FreqO_GetProfileByIndex(uint32_t pIndex);
 
 
 #endif /* SRC_SIGNALMANAGER_FREQOUTPUT_H_ */

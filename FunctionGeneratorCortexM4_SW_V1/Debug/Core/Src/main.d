@@ -66,7 +66,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/BiasOutput.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/SignalManager.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FreqOutput.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h \
@@ -79,7 +78,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/FuncMenuStateHandler.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/FreqMenuStateHandler.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/BiasMenuStateHandler.h \
- /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/InterruptManager/InterruptManager.h
 
 ../Core/Inc/main.h:
@@ -232,8 +230,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FreqOutput.h:
 
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h:
-
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h:
@@ -257,7 +253,5 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/FreqMenuStateHandler.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/BiasMenuStateHandler.h:
-
-/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/DacTimerRegistry.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/InterruptManager/InterruptManager.h:

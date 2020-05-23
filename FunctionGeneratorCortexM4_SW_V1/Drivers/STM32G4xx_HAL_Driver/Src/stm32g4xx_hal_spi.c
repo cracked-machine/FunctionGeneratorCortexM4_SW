@@ -3814,7 +3814,7 @@ static HAL_StatusTypeDef SPI_WaitFlagStateUntilTimeout(SPI_HandleTypeDef *hspi, 
       if (((HAL_GetTick() - Tickstart) >= Timeout) || (Timeout == 0U))
       {
         /* Disable the SPI and reset the CRC: the CRC value should be cleared
-        on both master and slave sides in order to reAuxhronize the master
+        on both master and slave sides in order to resynchronize the master
         and slave for their respective CRC calculation */
 
         /* Disable TXE, RXNE and ERR interrupts for the interrupt process */
@@ -3872,7 +3872,7 @@ static HAL_StatusTypeDef SPI_WaitFifoStateUntilTimeout(SPI_HandleTypeDef *hspi, 
       if (((HAL_GetTick() - Tickstart) >= Timeout) || (Timeout == 0U))
       {
         /* Disable the SPI and reset the CRC: the CRC value should be cleared
-           on both master and slave sides in order to reAuxhronize the master
+           on both master and slave sides in order to resynchronize the master
            and slave for their respective CRC calculation */
 
         /* Disable TXE, RXNE and ERR interrupts for the interrupt process */

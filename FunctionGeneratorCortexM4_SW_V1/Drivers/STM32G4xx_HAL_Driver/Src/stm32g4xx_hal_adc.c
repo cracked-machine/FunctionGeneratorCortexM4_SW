@@ -73,8 +73,8 @@
              (+++) ADC clock (core clock, also possibly conversion clock).
 
              (+++) ADC clock (conversions clock).
-                   Two possible clock sources: Auxhronous clock derived from AHB clock
-                   or aAuxhronous clock derived from system clock or PLL (output divider P)
+                   Two possible clock sources: synchronous clock derived from AHB clock
+                   or asynchronous clock derived from system clock or PLL (output divider P)
                    running up to 75MHz.
 
              (+++) Example:
@@ -82,7 +82,7 @@
                    other device clock parameters configuration:
                (+++) __HAL_RCC_ADC_CLK_ENABLE();                  (mandatory)
 
-               RCC_ADCCLKSOURCE_PLL enable:                       (optional: if aAuxhronous clock selected)
+               RCC_ADCCLKSOURCE_PLL enable:                       (optional: if asynchronous clock selected)
                (+++) RCC_PeriphClkInitTypeDef   RCC_PeriphClkInit;
                (+++) PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
                (+++) PeriphClkInit.AdcClockSelection    = RCC_ADCCLKSOURCE_PLL;

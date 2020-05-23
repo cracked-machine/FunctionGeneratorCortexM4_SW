@@ -86,15 +86,15 @@ typedef struct
   */
 typedef struct
 {
-  uint32_t ClockPrescaler;        /*!< Select ADC clock source (Auxhronous clock derived from APB clock or aAuxhronous clock derived from system clock or PLL (Refer to reference manual for list of clocks available)) and clock prescaler.
+  uint32_t ClockPrescaler;        /*!< Select ADC clock source (synchronous clock derived from APB clock or asynchronous clock derived from system clock or PLL (Refer to reference manual for list of clocks available)) and clock prescaler.
                                        This parameter can be a value of @ref ADC_HAL_EC_COMMON_CLOCK_SOURCE.
                                        Note: The ADC clock configuration is common to all ADC instances.
                                        Note: In case of usage of channels on injected group, ADC frequency should be lower than AHB clock frequency /4 for resolution 12 or 10 bits,
                                              AHB clock frequency /3 for resolution 8 bits, AHB clock frequency /2 for resolution 6 bits.
-                                       Note: In case of Auxhronous clock mode based on HCLK/1, the configuration must be enabled only
+                                       Note: In case of synchronous clock mode based on HCLK/1, the configuration must be enabled only
                                              if the system clock has a 50% duty clock cycle (APB prescaler configured inside RCC
                                              must be bypassed and PCLK clock must have 50% duty cycle). Refer to reference manual for details.
-                                       Note: In case of usage of aAuxhronous clock, the selected clock must be preliminarily enabled at RCC top level.
+                                       Note: In case of usage of asynchronous clock, the selected clock must be preliminarily enabled at RCC top level.
                                        Note: This parameter can be modified only if all ADC instances are disabled. */
 
   uint32_t Resolution;            /*!< Configure the ADC resolution.
@@ -464,22 +464,22 @@ typedef  void (*pADC_CallbackTypeDef)(ADC_HandleTypeDef *hadc); /*!< pointer to 
 /** @defgroup ADC_HAL_EC_COMMON_CLOCK_SOURCE  ADC common - Clock source
   * @{
   */
-#define ADC_CLOCK_Aux_PCLK_DIV1           (LL_ADC_CLOCK_Aux_PCLK_DIV1)  /*!< ADC Auxhronous clock derived from AHB clock without prescaler */
-#define ADC_CLOCK_Aux_PCLK_DIV2           (LL_ADC_CLOCK_Aux_PCLK_DIV2)  /*!< ADC Auxhronous clock derived from AHB clock with prescaler division by 2 */
-#define ADC_CLOCK_Aux_PCLK_DIV4           (LL_ADC_CLOCK_Aux_PCLK_DIV4)  /*!< ADC Auxhronous clock derived from AHB clock with prescaler division by 4 */
+#define ADC_CLOCK_SYNC_PCLK_DIV1           (LL_ADC_CLOCK_SYNC_PCLK_DIV1)  /*!< ADC synchronous clock derived from AHB clock without prescaler */
+#define ADC_CLOCK_SYNC_PCLK_DIV2           (LL_ADC_CLOCK_SYNC_PCLK_DIV2)  /*!< ADC synchronous clock derived from AHB clock with prescaler division by 2 */
+#define ADC_CLOCK_SYNC_PCLK_DIV4           (LL_ADC_CLOCK_SYNC_PCLK_DIV4)  /*!< ADC synchronous clock derived from AHB clock with prescaler division by 4 */
 
-#define ADC_CLOCK_AAux_DIV1               (LL_ADC_CLOCK_AAux_DIV1)      /*!< ADC aAuxhronous clock without prescaler */
-#define ADC_CLOCK_AAux_DIV2               (LL_ADC_CLOCK_AAux_DIV2)      /*!< ADC aAuxhronous clock with prescaler division by 2   */
-#define ADC_CLOCK_AAux_DIV4               (LL_ADC_CLOCK_AAux_DIV4)      /*!< ADC aAuxhronous clock with prescaler division by 4   */
-#define ADC_CLOCK_AAux_DIV6               (LL_ADC_CLOCK_AAux_DIV6)      /*!< ADC aAuxhronous clock with prescaler division by 6   */
-#define ADC_CLOCK_AAux_DIV8               (LL_ADC_CLOCK_AAux_DIV8)      /*!< ADC aAuxhronous clock with prescaler division by 8   */
-#define ADC_CLOCK_AAux_DIV10              (LL_ADC_CLOCK_AAux_DIV10)     /*!< ADC aAuxhronous clock with prescaler division by 10  */
-#define ADC_CLOCK_AAux_DIV12              (LL_ADC_CLOCK_AAux_DIV12)     /*!< ADC aAuxhronous clock with prescaler division by 12  */
-#define ADC_CLOCK_AAux_DIV16              (LL_ADC_CLOCK_AAux_DIV16)     /*!< ADC aAuxhronous clock with prescaler division by 16  */
-#define ADC_CLOCK_AAux_DIV32              (LL_ADC_CLOCK_AAux_DIV32)     /*!< ADC aAuxhronous clock with prescaler division by 32  */
-#define ADC_CLOCK_AAux_DIV64              (LL_ADC_CLOCK_AAux_DIV64)     /*!< ADC aAuxhronous clock with prescaler division by 64  */
-#define ADC_CLOCK_AAux_DIV128             (LL_ADC_CLOCK_AAux_DIV128)    /*!< ADC aAuxhronous clock with prescaler division by 128 */
-#define ADC_CLOCK_AAux_DIV256             (LL_ADC_CLOCK_AAux_DIV256)    /*!< ADC aAuxhronous clock with prescaler division by 256 */
+#define ADC_CLOCK_ASYNC_DIV1               (LL_ADC_CLOCK_ASYNC_DIV1)      /*!< ADC asynchronous clock without prescaler */
+#define ADC_CLOCK_ASYNC_DIV2               (LL_ADC_CLOCK_ASYNC_DIV2)      /*!< ADC asynchronous clock with prescaler division by 2   */
+#define ADC_CLOCK_ASYNC_DIV4               (LL_ADC_CLOCK_ASYNC_DIV4)      /*!< ADC asynchronous clock with prescaler division by 4   */
+#define ADC_CLOCK_ASYNC_DIV6               (LL_ADC_CLOCK_ASYNC_DIV6)      /*!< ADC asynchronous clock with prescaler division by 6   */
+#define ADC_CLOCK_ASYNC_DIV8               (LL_ADC_CLOCK_ASYNC_DIV8)      /*!< ADC asynchronous clock with prescaler division by 8   */
+#define ADC_CLOCK_ASYNC_DIV10              (LL_ADC_CLOCK_ASYNC_DIV10)     /*!< ADC asynchronous clock with prescaler division by 10  */
+#define ADC_CLOCK_ASYNC_DIV12              (LL_ADC_CLOCK_ASYNC_DIV12)     /*!< ADC asynchronous clock with prescaler division by 12  */
+#define ADC_CLOCK_ASYNC_DIV16              (LL_ADC_CLOCK_ASYNC_DIV16)     /*!< ADC asynchronous clock with prescaler division by 16  */
+#define ADC_CLOCK_ASYNC_DIV32              (LL_ADC_CLOCK_ASYNC_DIV32)     /*!< ADC asynchronous clock with prescaler division by 32  */
+#define ADC_CLOCK_ASYNC_DIV64              (LL_ADC_CLOCK_ASYNC_DIV64)     /*!< ADC asynchronous clock with prescaler division by 64  */
+#define ADC_CLOCK_ASYNC_DIV128             (LL_ADC_CLOCK_ASYNC_DIV128)    /*!< ADC asynchronous clock with prescaler division by 128 */
+#define ADC_CLOCK_ASYNC_DIV256             (LL_ADC_CLOCK_ASYNC_DIV256)    /*!< ADC asynchronous clock with prescaler division by 256 */
 /**
   * @}
   */
@@ -890,21 +890,21 @@ typedef  void (*pADC_CallbackTypeDef)(ADC_HandleTypeDef *hadc); /*!< pointer to 
   * @param __ADC_CLOCK__ programmed ADC clock.
   * @retval SET (__ADC_CLOCK__ is a valid value) or RESET (__ADC_CLOCK__ is invalid)
   */
-#define IS_ADC_CLOCKPRESCALER(__ADC_CLOCK__) (((__ADC_CLOCK__) == ADC_CLOCK_Aux_PCLK_DIV1) || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_Aux_PCLK_DIV2) || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_Aux_PCLK_DIV4) || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV1)     || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV2)     || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV4)     || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV6)     || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV8)     || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV10)    || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV12)    || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV16)    || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV32)    || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV64)    || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV128)   || \
-                                              ((__ADC_CLOCK__) == ADC_CLOCK_AAux_DIV256) )
+#define IS_ADC_CLOCKPRESCALER(__ADC_CLOCK__) (((__ADC_CLOCK__) == ADC_CLOCK_SYNC_PCLK_DIV1) || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_SYNC_PCLK_DIV2) || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_SYNC_PCLK_DIV4) || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV1)     || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV2)     || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV4)     || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV6)     || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV8)     || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV10)    || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV12)    || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV16)    || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV32)    || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV64)    || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV128)   || \
+                                              ((__ADC_CLOCK__) == ADC_CLOCK_ASYNC_DIV256) )
 
 /**
   * @brief Verify the ADC resolution setting.

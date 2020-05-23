@@ -7,7 +7,7 @@
   *          This file contains:
   *           - Data structures and the address mapping for all peripherals
   *           - Peripheral's registers declarations and bits definition
-  *           - Macros to access peripheralï¿½s registers hardware
+  *           - Macros to access peripheral’s registers hardware
   *
   ******************************************************************************
   * @attention
@@ -894,7 +894,7 @@ typedef struct
 } TIM_TypeDef;
 
 /**
-  * @brief Universal Auxhronous AAuxhronous Receiver Transmitter
+  * @brief Universal Synchronous Asynchronous Receiver Transmitter
   */
 typedef struct
 {
@@ -2458,13 +2458,13 @@ typedef struct {
 
 #define ADC_CCR_CKMODE_Pos             (16U)
 #define ADC_CCR_CKMODE_Msk             (0x3UL << ADC_CCR_CKMODE_Pos)           /*!< 0x00030000 */
-#define ADC_CCR_CKMODE                 ADC_CCR_CKMODE_Msk                      /*!< ADC common clock source and prescaler (prescaler only for clock source Auxhronous) */
+#define ADC_CCR_CKMODE                 ADC_CCR_CKMODE_Msk                      /*!< ADC common clock source and prescaler (prescaler only for clock source synchronous) */
 #define ADC_CCR_CKMODE_0               (0x1UL << ADC_CCR_CKMODE_Pos)           /*!< 0x00010000 */
 #define ADC_CCR_CKMODE_1               (0x2UL << ADC_CCR_CKMODE_Pos)           /*!< 0x00020000 */
 
 #define ADC_CCR_PRESC_Pos              (18U)
 #define ADC_CCR_PRESC_Msk              (0xFUL << ADC_CCR_PRESC_Pos)            /*!< 0x003C0000 */
-#define ADC_CCR_PRESC                  ADC_CCR_PRESC_Msk                       /*!< ADC common clock prescaler, only for clock source aAuxhronous */
+#define ADC_CCR_PRESC                  ADC_CCR_PRESC_Msk                       /*!< ADC common clock prescaler, only for clock source asynchronous */
 #define ADC_CCR_PRESC_0                (0x1UL << ADC_CCR_PRESC_Pos)            /*!< 0x00040000 */
 #define ADC_CCR_PRESC_1                (0x2UL << ADC_CCR_PRESC_Pos)            /*!< 0x00080000 */
 #define ADC_CCR_PRESC_2                (0x4UL << ADC_CCR_PRESC_Pos)            /*!< 0x00100000 */
@@ -2657,27 +2657,27 @@ typedef struct {
 /******************************************************************************/
 
 /*******************  Bit definition for CRS_CR register  *********************/
-#define CRS_CR_AuxOKIE_Pos       (0U)
-#define CRS_CR_AuxOKIE_Msk       (0x1UL << CRS_CR_AuxOKIE_Pos)               /*!< 0x00000001 */
-#define CRS_CR_AuxOKIE           CRS_CR_AuxOKIE_Msk                          /*!< Aux event OK interrupt enable */
-#define CRS_CR_AuxWARNIE_Pos     (1U)
-#define CRS_CR_AuxWARNIE_Msk     (0x1UL << CRS_CR_AuxWARNIE_Pos)             /*!< 0x00000002 */
-#define CRS_CR_AuxWARNIE         CRS_CR_AuxWARNIE_Msk                        /*!< Aux warning interrupt enable */
+#define CRS_CR_SYNCOKIE_Pos       (0U)
+#define CRS_CR_SYNCOKIE_Msk       (0x1UL << CRS_CR_SYNCOKIE_Pos)               /*!< 0x00000001 */
+#define CRS_CR_SYNCOKIE           CRS_CR_SYNCOKIE_Msk                          /*!< SYNC event OK interrupt enable */
+#define CRS_CR_SYNCWARNIE_Pos     (1U)
+#define CRS_CR_SYNCWARNIE_Msk     (0x1UL << CRS_CR_SYNCWARNIE_Pos)             /*!< 0x00000002 */
+#define CRS_CR_SYNCWARNIE         CRS_CR_SYNCWARNIE_Msk                        /*!< SYNC warning interrupt enable */
 #define CRS_CR_ERRIE_Pos          (2U)
 #define CRS_CR_ERRIE_Msk          (0x1UL << CRS_CR_ERRIE_Pos)                  /*!< 0x00000004 */
-#define CRS_CR_ERRIE              CRS_CR_ERRIE_Msk                             /*!< Aux error or trimming error interrupt enable */
-#define CRS_CR_EAuxIE_Pos        (3U)
-#define CRS_CR_EAuxIE_Msk        (0x1UL << CRS_CR_EAuxIE_Pos)                /*!< 0x00000008 */
-#define CRS_CR_EAuxIE            CRS_CR_EAuxIE_Msk                           /*!< Expected Aux interrupt enable */
+#define CRS_CR_ERRIE              CRS_CR_ERRIE_Msk                             /*!< SYNC error or trimming error interrupt enable */
+#define CRS_CR_ESYNCIE_Pos        (3U)
+#define CRS_CR_ESYNCIE_Msk        (0x1UL << CRS_CR_ESYNCIE_Pos)                /*!< 0x00000008 */
+#define CRS_CR_ESYNCIE            CRS_CR_ESYNCIE_Msk                           /*!< Expected SYNC interrupt enable */
 #define CRS_CR_CEN_Pos            (5U)
 #define CRS_CR_CEN_Msk            (0x1UL << CRS_CR_CEN_Pos)                    /*!< 0x00000020 */
 #define CRS_CR_CEN                CRS_CR_CEN_Msk                               /*!< Frequency error counter enable */
 #define CRS_CR_AUTOTRIMEN_Pos     (6U)
 #define CRS_CR_AUTOTRIMEN_Msk     (0x1UL << CRS_CR_AUTOTRIMEN_Pos)             /*!< 0x00000040 */
 #define CRS_CR_AUTOTRIMEN         CRS_CR_AUTOTRIMEN_Msk                        /*!< Automatic trimming enable */
-#define CRS_CR_SWAux_Pos         (7U)
-#define CRS_CR_SWAux_Msk         (0x1UL << CRS_CR_SWAux_Pos)                 /*!< 0x00000080 */
-#define CRS_CR_SWAux             CRS_CR_SWAux_Msk                            /*!< Generate software Aux event */
+#define CRS_CR_SWSYNC_Pos         (7U)
+#define CRS_CR_SWSYNC_Msk         (0x1UL << CRS_CR_SWSYNC_Pos)                 /*!< 0x00000080 */
+#define CRS_CR_SWSYNC             CRS_CR_SWSYNC_Msk                            /*!< Generate software SYNC event */
 #define CRS_CR_TRIM_Pos           (8U)
 #define CRS_CR_TRIM_Msk           (0x7FUL << CRS_CR_TRIM_Pos)                  /*!< 0x00007F00 */
 #define CRS_CR_TRIM               CRS_CR_TRIM_Msk                              /*!< HSI48 oscillator smooth trimming */
@@ -2690,42 +2690,42 @@ typedef struct {
 #define CRS_CFGR_FELIM_Msk        (0xFFUL << CRS_CFGR_FELIM_Pos)               /*!< 0x00FF0000 */
 #define CRS_CFGR_FELIM            CRS_CFGR_FELIM_Msk                           /*!< Frequency error limit */
 
-#define CRS_CFGR_AuxDIV_Pos      (24U)
-#define CRS_CFGR_AuxDIV_Msk      (0x7UL << CRS_CFGR_AuxDIV_Pos)              /*!< 0x07000000 */
-#define CRS_CFGR_AuxDIV          CRS_CFGR_AuxDIV_Msk                         /*!< Aux divider */
-#define CRS_CFGR_AuxDIV_0        (0x1UL << CRS_CFGR_AuxDIV_Pos)              /*!< 0x01000000 */
-#define CRS_CFGR_AuxDIV_1        (0x2UL << CRS_CFGR_AuxDIV_Pos)              /*!< 0x02000000 */
-#define CRS_CFGR_AuxDIV_2        (0x4UL << CRS_CFGR_AuxDIV_Pos)              /*!< 0x04000000 */
+#define CRS_CFGR_SYNCDIV_Pos      (24U)
+#define CRS_CFGR_SYNCDIV_Msk      (0x7UL << CRS_CFGR_SYNCDIV_Pos)              /*!< 0x07000000 */
+#define CRS_CFGR_SYNCDIV          CRS_CFGR_SYNCDIV_Msk                         /*!< SYNC divider */
+#define CRS_CFGR_SYNCDIV_0        (0x1UL << CRS_CFGR_SYNCDIV_Pos)              /*!< 0x01000000 */
+#define CRS_CFGR_SYNCDIV_1        (0x2UL << CRS_CFGR_SYNCDIV_Pos)              /*!< 0x02000000 */
+#define CRS_CFGR_SYNCDIV_2        (0x4UL << CRS_CFGR_SYNCDIV_Pos)              /*!< 0x04000000 */
 
-#define CRS_CFGR_AuxSRC_Pos      (28U)
-#define CRS_CFGR_AuxSRC_Msk      (0x3UL << CRS_CFGR_AuxSRC_Pos)              /*!< 0x30000000 */
-#define CRS_CFGR_AuxSRC          CRS_CFGR_AuxSRC_Msk                         /*!< Aux signal source selection */
-#define CRS_CFGR_AuxSRC_0        (0x1UL << CRS_CFGR_AuxSRC_Pos)              /*!< 0x10000000 */
-#define CRS_CFGR_AuxSRC_1        (0x2UL << CRS_CFGR_AuxSRC_Pos)              /*!< 0x20000000 */
+#define CRS_CFGR_SYNCSRC_Pos      (28U)
+#define CRS_CFGR_SYNCSRC_Msk      (0x3UL << CRS_CFGR_SYNCSRC_Pos)              /*!< 0x30000000 */
+#define CRS_CFGR_SYNCSRC          CRS_CFGR_SYNCSRC_Msk                         /*!< SYNC signal source selection */
+#define CRS_CFGR_SYNCSRC_0        (0x1UL << CRS_CFGR_SYNCSRC_Pos)              /*!< 0x10000000 */
+#define CRS_CFGR_SYNCSRC_1        (0x2UL << CRS_CFGR_SYNCSRC_Pos)              /*!< 0x20000000 */
 
-#define CRS_CFGR_AuxPOL_Pos      (31U)
-#define CRS_CFGR_AuxPOL_Msk      (0x1UL << CRS_CFGR_AuxPOL_Pos)              /*!< 0x80000000 */
-#define CRS_CFGR_AuxPOL          CRS_CFGR_AuxPOL_Msk                         /*!< Aux polarity selection */
+#define CRS_CFGR_SYNCPOL_Pos      (31U)
+#define CRS_CFGR_SYNCPOL_Msk      (0x1UL << CRS_CFGR_SYNCPOL_Pos)              /*!< 0x80000000 */
+#define CRS_CFGR_SYNCPOL          CRS_CFGR_SYNCPOL_Msk                         /*!< SYNC polarity selection */
 
 /*******************  Bit definition for CRS_ISR register  *********************/
-#define CRS_ISR_AuxOKF_Pos       (0U)
-#define CRS_ISR_AuxOKF_Msk       (0x1UL << CRS_ISR_AuxOKF_Pos)               /*!< 0x00000001 */
-#define CRS_ISR_AuxOKF           CRS_ISR_AuxOKF_Msk                          /*!< Aux event OK flag */
-#define CRS_ISR_AuxWARNF_Pos     (1U)
-#define CRS_ISR_AuxWARNF_Msk     (0x1UL << CRS_ISR_AuxWARNF_Pos)             /*!< 0x00000002 */
-#define CRS_ISR_AuxWARNF         CRS_ISR_AuxWARNF_Msk                        /*!< Aux warning flag */
+#define CRS_ISR_SYNCOKF_Pos       (0U)
+#define CRS_ISR_SYNCOKF_Msk       (0x1UL << CRS_ISR_SYNCOKF_Pos)               /*!< 0x00000001 */
+#define CRS_ISR_SYNCOKF           CRS_ISR_SYNCOKF_Msk                          /*!< SYNC event OK flag */
+#define CRS_ISR_SYNCWARNF_Pos     (1U)
+#define CRS_ISR_SYNCWARNF_Msk     (0x1UL << CRS_ISR_SYNCWARNF_Pos)             /*!< 0x00000002 */
+#define CRS_ISR_SYNCWARNF         CRS_ISR_SYNCWARNF_Msk                        /*!< SYNC warning flag */
 #define CRS_ISR_ERRF_Pos          (2U)
 #define CRS_ISR_ERRF_Msk          (0x1UL << CRS_ISR_ERRF_Pos)                  /*!< 0x00000004 */
 #define CRS_ISR_ERRF              CRS_ISR_ERRF_Msk                             /*!< Error flag */
-#define CRS_ISR_EAuxF_Pos        (3U)
-#define CRS_ISR_EAuxF_Msk        (0x1UL << CRS_ISR_EAuxF_Pos)                /*!< 0x00000008 */
-#define CRS_ISR_EAuxF            CRS_ISR_EAuxF_Msk                           /*!< Expected Aux flag */
-#define CRS_ISR_AuxERR_Pos       (8U)
-#define CRS_ISR_AuxERR_Msk       (0x1UL << CRS_ISR_AuxERR_Pos)               /*!< 0x00000100 */
-#define CRS_ISR_AuxERR           CRS_ISR_AuxERR_Msk                          /*!< Aux error */
-#define CRS_ISR_AuxMISS_Pos      (9U)
-#define CRS_ISR_AuxMISS_Msk      (0x1UL << CRS_ISR_AuxMISS_Pos)              /*!< 0x00000200 */
-#define CRS_ISR_AuxMISS          CRS_ISR_AuxMISS_Msk                         /*!< Aux missed */
+#define CRS_ISR_ESYNCF_Pos        (3U)
+#define CRS_ISR_ESYNCF_Msk        (0x1UL << CRS_ISR_ESYNCF_Pos)                /*!< 0x00000008 */
+#define CRS_ISR_ESYNCF            CRS_ISR_ESYNCF_Msk                           /*!< Expected SYNC flag */
+#define CRS_ISR_SYNCERR_Pos       (8U)
+#define CRS_ISR_SYNCERR_Msk       (0x1UL << CRS_ISR_SYNCERR_Pos)               /*!< 0x00000100 */
+#define CRS_ISR_SYNCERR           CRS_ISR_SYNCERR_Msk                          /*!< SYNC error */
+#define CRS_ISR_SYNCMISS_Pos      (9U)
+#define CRS_ISR_SYNCMISS_Msk      (0x1UL << CRS_ISR_SYNCMISS_Pos)              /*!< 0x00000200 */
+#define CRS_ISR_SYNCMISS          CRS_ISR_SYNCMISS_Msk                         /*!< SYNC missed */
 #define CRS_ISR_TRIMOVF_Pos       (10U)
 #define CRS_ISR_TRIMOVF_Msk       (0x1UL << CRS_ISR_TRIMOVF_Pos)               /*!< 0x00000400 */
 #define CRS_ISR_TRIMOVF           CRS_ISR_TRIMOVF_Msk                          /*!< Trimming overflow or underflow */
@@ -2737,18 +2737,18 @@ typedef struct {
 #define CRS_ISR_FECAP             CRS_ISR_FECAP_Msk                            /*!< Frequency error capture */
 
 /*******************  Bit definition for CRS_ICR register  *********************/
-#define CRS_ICR_AuxOKC_Pos       (0U)
-#define CRS_ICR_AuxOKC_Msk       (0x1UL << CRS_ICR_AuxOKC_Pos)               /*!< 0x00000001 */
-#define CRS_ICR_AuxOKC           CRS_ICR_AuxOKC_Msk                          /*!< Aux event OK clear flag */
-#define CRS_ICR_AuxWARNC_Pos     (1U)
-#define CRS_ICR_AuxWARNC_Msk     (0x1UL << CRS_ICR_AuxWARNC_Pos)             /*!< 0x00000002 */
-#define CRS_ICR_AuxWARNC         CRS_ICR_AuxWARNC_Msk                        /*!< Aux warning clear flag */
+#define CRS_ICR_SYNCOKC_Pos       (0U)
+#define CRS_ICR_SYNCOKC_Msk       (0x1UL << CRS_ICR_SYNCOKC_Pos)               /*!< 0x00000001 */
+#define CRS_ICR_SYNCOKC           CRS_ICR_SYNCOKC_Msk                          /*!< SYNC event OK clear flag */
+#define CRS_ICR_SYNCWARNC_Pos     (1U)
+#define CRS_ICR_SYNCWARNC_Msk     (0x1UL << CRS_ICR_SYNCWARNC_Pos)             /*!< 0x00000002 */
+#define CRS_ICR_SYNCWARNC         CRS_ICR_SYNCWARNC_Msk                        /*!< SYNC warning clear flag */
 #define CRS_ICR_ERRC_Pos          (2U)
 #define CRS_ICR_ERRC_Msk          (0x1UL << CRS_ICR_ERRC_Pos)                  /*!< 0x00000004 */
 #define CRS_ICR_ERRC              CRS_ICR_ERRC_Msk                             /*!< Error clear flag */
-#define CRS_ICR_EAuxC_Pos        (3U)
-#define CRS_ICR_EAuxC_Msk        (0x1UL << CRS_ICR_EAuxC_Pos)                /*!< 0x00000008 */
-#define CRS_ICR_EAuxC            CRS_ICR_EAuxC_Msk                           /*!< Expected Aux clear flag */
+#define CRS_ICR_ESYNCC_Pos        (3U)
+#define CRS_ICR_ESYNCC_Msk        (0x1UL << CRS_ICR_ESYNCC_Pos)                /*!< 0x00000008 */
+#define CRS_ICR_ESYNCC            CRS_ICR_ESYNCC_Msk                           /*!< Expected SYNC clear flag */
 
 /******************************************************************************/
 /*                                                                            */
@@ -3520,14 +3520,14 @@ typedef struct {
 #define DMAMUX_CxCR_NBREQ_3                          (0x08UL << DMAMUX_CxCR_NBREQ_Pos)/*!< 0x00400000 */
 #define DMAMUX_CxCR_NBREQ_4                          (0x10UL << DMAMUX_CxCR_NBREQ_Pos)/*!< 0x00800000 */
 
-#define DMAMUX_CxCR_Aux_ID_Pos                      (24U)
-#define DMAMUX_CxCR_Aux_ID_Msk                      (0x1FUL << DMAMUX_CxCR_Aux_ID_Pos)/*!< 0x1F000000 */
-#define DMAMUX_CxCR_Aux_ID                          DMAMUX_CxCR_Aux_ID_Msk
-#define DMAMUX_CxCR_Aux_ID_0                        (0x01UL << DMAMUX_CxCR_Aux_ID_Pos)/*!< 0x01000000 */
-#define DMAMUX_CxCR_Aux_ID_1                        (0x02UL << DMAMUX_CxCR_Aux_ID_Pos)/*!< 0x02000000 */
-#define DMAMUX_CxCR_Aux_ID_2                        (0x04UL << DMAMUX_CxCR_Aux_ID_Pos)/*!< 0x04000000 */
-#define DMAMUX_CxCR_Aux_ID_3                        (0x08UL << DMAMUX_CxCR_Aux_ID_Pos)/*!< 0x08000000 */
-#define DMAMUX_CxCR_Aux_ID_4                        (0x10UL << DMAMUX_CxCR_Aux_ID_Pos)/*!< 0x10000000 */
+#define DMAMUX_CxCR_SYNC_ID_Pos                      (24U)
+#define DMAMUX_CxCR_SYNC_ID_Msk                      (0x1FUL << DMAMUX_CxCR_SYNC_ID_Pos)/*!< 0x1F000000 */
+#define DMAMUX_CxCR_SYNC_ID                          DMAMUX_CxCR_SYNC_ID_Msk
+#define DMAMUX_CxCR_SYNC_ID_0                        (0x01UL << DMAMUX_CxCR_SYNC_ID_Pos)/*!< 0x01000000 */
+#define DMAMUX_CxCR_SYNC_ID_1                        (0x02UL << DMAMUX_CxCR_SYNC_ID_Pos)/*!< 0x02000000 */
+#define DMAMUX_CxCR_SYNC_ID_2                        (0x04UL << DMAMUX_CxCR_SYNC_ID_Pos)/*!< 0x04000000 */
+#define DMAMUX_CxCR_SYNC_ID_3                        (0x08UL << DMAMUX_CxCR_SYNC_ID_Pos)/*!< 0x08000000 */
+#define DMAMUX_CxCR_SYNC_ID_4                        (0x10UL << DMAMUX_CxCR_SYNC_ID_Pos)/*!< 0x10000000 */
 
 /********************  Bits definition for DMAMUX_CSR register  ****************/
 #define DMAMUX_CSR_SOF0_Pos                          (0U)
@@ -4517,7 +4517,7 @@ typedef struct {
 /*****************  Bit definition for FDCAN_DBTP register  *******************/
 #define FDCAN_DBTP_DSJW_Pos       (0U)
 #define FDCAN_DBTP_DSJW_Msk       (0xFUL << FDCAN_DBTP_DSJW_Pos)               /*!< 0x0000000F */
-#define FDCAN_DBTP_DSJW           FDCAN_DBTP_DSJW_Msk                          /*!<Auxhronization Jump Width              */
+#define FDCAN_DBTP_DSJW           FDCAN_DBTP_DSJW_Msk                          /*!<Synchronization Jump Width              */
 #define FDCAN_DBTP_DTSEG2_Pos     (4U)
 #define FDCAN_DBTP_DTSEG2_Msk     (0xFUL << FDCAN_DBTP_DTSEG2_Pos)             /*!< 0x000000F0 */
 #define FDCAN_DBTP_DTSEG2         FDCAN_DBTP_DTSEG2_Msk                        /*!<Data time segment after sample point    */
@@ -4606,7 +4606,7 @@ typedef struct {
 #define FDCAN_NBTP_NBRP           FDCAN_NBTP_NBRP_Msk                          /*!<Bit Rate Prescaler                       */
 #define FDCAN_NBTP_NSJW_Pos       (25U)
 #define FDCAN_NBTP_NSJW_Msk       (0x7FUL << FDCAN_NBTP_NSJW_Pos)              /*!< 0xFE000000 */
-#define FDCAN_NBTP_NSJW           FDCAN_NBTP_NSJW_Msk                          /*!<Nominal (Re)Auxhronization Jump Width   */
+#define FDCAN_NBTP_NSJW           FDCAN_NBTP_NSJW_Msk                          /*!<Nominal (Re)Synchronization Jump Width   */
 
 /*****************  Bit definition for FDCAN_TSCC register  ********************/
 #define FDCAN_TSCC_TSS_Pos        (0U)
@@ -5522,9 +5522,9 @@ typedef struct {
 #define FMC_BCRx_EXTMOD_Pos        (14U)
 #define FMC_BCRx_EXTMOD_Msk        (0x1UL << FMC_BCRx_EXTMOD_Pos)              /*!< 0x00004000 */
 #define FMC_BCRx_EXTMOD            FMC_BCRx_EXTMOD_Msk                         /*!<Extended mode enable       */
-#define FMC_BCRx_AAuxWAIT_Pos     (15U)
-#define FMC_BCRx_AAuxWAIT_Msk     (0x1UL << FMC_BCRx_AAuxWAIT_Pos)           /*!< 0x00008000 */
-#define FMC_BCRx_AAuxWAIT         FMC_BCRx_AAuxWAIT_Msk                      /*!<AAuxhronous wait          */
+#define FMC_BCRx_ASYNCWAIT_Pos     (15U)
+#define FMC_BCRx_ASYNCWAIT_Msk     (0x1UL << FMC_BCRx_ASYNCWAIT_Pos)           /*!< 0x00008000 */
+#define FMC_BCRx_ASYNCWAIT         FMC_BCRx_ASYNCWAIT_Msk                      /*!<Asynchronous wait          */
 
 #define FMC_BCRx_CPSIZE_Pos        (16U)
 #define FMC_BCRx_CPSIZE_Msk        (0x7UL << FMC_BCRx_CPSIZE_Pos)              /*!< 0x00070000 */
@@ -6904,27 +6904,27 @@ typedef struct {
 #define HRTIM_MCR_INTLVD              HRTIM_MCR_INTLVD_Msk                     /*!< Interleaved mode */
 #define HRTIM_MCR_INTLVD_0            (0x1UL << HRTIM_MCR_INTLVD_Pos)          /*!< 0x00000040 */
 #define HRTIM_MCR_INTLVD_1            (0x2UL << HRTIM_MCR_INTLVD_Pos)          /*!< 0x00000080 */
-#define HRTIM_MCR_Aux_IN_Pos         (8U)
-#define HRTIM_MCR_Aux_IN_Msk         (0x3UL << HRTIM_MCR_Aux_IN_Pos)         /*!< 0x00000300 */
-#define HRTIM_MCR_Aux_IN             HRTIM_MCR_Aux_IN_Msk                    /*!< Auxhronization input master */
-#define HRTIM_MCR_Aux_IN_0           (0x1UL << HRTIM_MCR_Aux_IN_Pos)         /*!< 0x00000100 */
-#define HRTIM_MCR_Aux_IN_1           (0x2UL << HRTIM_MCR_Aux_IN_Pos)         /*!< 0x00000200 */
-#define HRTIM_MCR_AuxRSTM_Pos        (10U)
-#define HRTIM_MCR_AuxRSTM_Msk        (0x1UL << HRTIM_MCR_AuxRSTM_Pos)        /*!< 0x00000400 */
-#define HRTIM_MCR_AuxRSTM            HRTIM_MCR_AuxRSTM_Msk                   /*!< Auxhronization reset master */
-#define HRTIM_MCR_AuxSTRTM_Pos       (11U)
-#define HRTIM_MCR_AuxSTRTM_Msk       (0x1UL << HRTIM_MCR_AuxSTRTM_Pos)       /*!< 0x00000800 */
-#define HRTIM_MCR_AuxSTRTM           HRTIM_MCR_AuxSTRTM_Msk                  /*!< Auxhronization start master */
-#define HRTIM_MCR_Aux_OUT_Pos        (12U)
-#define HRTIM_MCR_Aux_OUT_Msk        (0x3UL << HRTIM_MCR_Aux_OUT_Pos)        /*!< 0x00003000 */
-#define HRTIM_MCR_Aux_OUT            HRTIM_MCR_Aux_OUT_Msk                   /*!< Auxhronization output master */
-#define HRTIM_MCR_Aux_OUT_0          (0x1UL << HRTIM_MCR_Aux_OUT_Pos)        /*!< 0x00001000 */
-#define HRTIM_MCR_Aux_OUT_1          (0x2UL << HRTIM_MCR_Aux_OUT_Pos)        /*!< 0x00002000 */
-#define HRTIM_MCR_Aux_SRC_Pos        (14U)
-#define HRTIM_MCR_Aux_SRC_Msk        (0x3UL << HRTIM_MCR_Aux_SRC_Pos)        /*!< 0x0000C000 */
-#define HRTIM_MCR_Aux_SRC            HRTIM_MCR_Aux_SRC_Msk                   /*!< Auxhronization source */
-#define HRTIM_MCR_Aux_SRC_0          (0x1UL << HRTIM_MCR_Aux_SRC_Pos)        /*!< 0x00004000 */
-#define HRTIM_MCR_Aux_SRC_1          (0x2UL << HRTIM_MCR_Aux_SRC_Pos)        /*!< 0x00008000 */
+#define HRTIM_MCR_SYNC_IN_Pos         (8U)
+#define HRTIM_MCR_SYNC_IN_Msk         (0x3UL << HRTIM_MCR_SYNC_IN_Pos)         /*!< 0x00000300 */
+#define HRTIM_MCR_SYNC_IN             HRTIM_MCR_SYNC_IN_Msk                    /*!< Synchronization input master */
+#define HRTIM_MCR_SYNC_IN_0           (0x1UL << HRTIM_MCR_SYNC_IN_Pos)         /*!< 0x00000100 */
+#define HRTIM_MCR_SYNC_IN_1           (0x2UL << HRTIM_MCR_SYNC_IN_Pos)         /*!< 0x00000200 */
+#define HRTIM_MCR_SYNCRSTM_Pos        (10U)
+#define HRTIM_MCR_SYNCRSTM_Msk        (0x1UL << HRTIM_MCR_SYNCRSTM_Pos)        /*!< 0x00000400 */
+#define HRTIM_MCR_SYNCRSTM            HRTIM_MCR_SYNCRSTM_Msk                   /*!< Synchronization reset master */
+#define HRTIM_MCR_SYNCSTRTM_Pos       (11U)
+#define HRTIM_MCR_SYNCSTRTM_Msk       (0x1UL << HRTIM_MCR_SYNCSTRTM_Pos)       /*!< 0x00000800 */
+#define HRTIM_MCR_SYNCSTRTM           HRTIM_MCR_SYNCSTRTM_Msk                  /*!< Synchronization start master */
+#define HRTIM_MCR_SYNC_OUT_Pos        (12U)
+#define HRTIM_MCR_SYNC_OUT_Msk        (0x3UL << HRTIM_MCR_SYNC_OUT_Pos)        /*!< 0x00003000 */
+#define HRTIM_MCR_SYNC_OUT            HRTIM_MCR_SYNC_OUT_Msk                   /*!< Synchronization output master */
+#define HRTIM_MCR_SYNC_OUT_0          (0x1UL << HRTIM_MCR_SYNC_OUT_Pos)        /*!< 0x00001000 */
+#define HRTIM_MCR_SYNC_OUT_1          (0x2UL << HRTIM_MCR_SYNC_OUT_Pos)        /*!< 0x00002000 */
+#define HRTIM_MCR_SYNC_SRC_Pos        (14U)
+#define HRTIM_MCR_SYNC_SRC_Msk        (0x3UL << HRTIM_MCR_SYNC_SRC_Pos)        /*!< 0x0000C000 */
+#define HRTIM_MCR_SYNC_SRC            HRTIM_MCR_SYNC_SRC_Msk                   /*!< Synchronization source */
+#define HRTIM_MCR_SYNC_SRC_0          (0x1UL << HRTIM_MCR_SYNC_SRC_Pos)        /*!< 0x00004000 */
+#define HRTIM_MCR_SYNC_SRC_1          (0x2UL << HRTIM_MCR_SYNC_SRC_Pos)        /*!< 0x00008000 */
 #define HRTIM_MCR_MCEN_Pos            (16U)
 #define HRTIM_MCR_MCEN_Msk            (0x1UL << HRTIM_MCR_MCEN_Pos)            /*!< 0x00010000 */
 #define HRTIM_MCR_MCEN                HRTIM_MCR_MCEN_Msk                       /*!< Master counter enable */
@@ -6946,11 +6946,11 @@ typedef struct {
 #define HRTIM_MCR_TFCEN_Pos           (22U)
 #define HRTIM_MCR_TFCEN_Msk           (0x1UL << HRTIM_MCR_TFCEN_Pos)           /*!< 0x00400000 */
 #define HRTIM_MCR_TFCEN               HRTIM_MCR_TFCEN_Msk                      /*!< Timer F counter enable */
-#define HRTIM_MCR_DACAux_Pos         (25U)
-#define HRTIM_MCR_DACAux_Msk         (0x3UL << HRTIM_MCR_DACAux_Pos)         /*!< 0x06000000 */
-#define HRTIM_MCR_DACAux             HRTIM_MCR_DACAux_Msk                    /*!< DAC sychronization mask */
-#define HRTIM_MCR_DACAux_0           (0x1UL << HRTIM_MCR_DACAux_Pos)         /*!< 0x02000000 */
-#define HRTIM_MCR_DACAux_1           (0x2UL << HRTIM_MCR_DACAux_Pos)         /*!< 0x04000000 */
+#define HRTIM_MCR_DACSYNC_Pos         (25U)
+#define HRTIM_MCR_DACSYNC_Msk         (0x3UL << HRTIM_MCR_DACSYNC_Pos)         /*!< 0x06000000 */
+#define HRTIM_MCR_DACSYNC             HRTIM_MCR_DACSYNC_Msk                    /*!< DAC sychronization mask */
+#define HRTIM_MCR_DACSYNC_0           (0x1UL << HRTIM_MCR_DACSYNC_Pos)         /*!< 0x02000000 */
+#define HRTIM_MCR_DACSYNC_1           (0x2UL << HRTIM_MCR_DACSYNC_Pos)         /*!< 0x04000000 */
 #define HRTIM_MCR_PREEN_Pos           (27U)
 #define HRTIM_MCR_PREEN_Msk           (0x1UL << HRTIM_MCR_PREEN_Pos)           /*!< 0x08000000 */
 #define HRTIM_MCR_PREEN               HRTIM_MCR_PREEN_Msk                      /*!< Master preload enable */
@@ -6979,9 +6979,9 @@ typedef struct {
 #define HRTIM_MISR_MREP_Pos           (4U)
 #define HRTIM_MISR_MREP_Msk           (0x1UL << HRTIM_MISR_MREP_Pos)           /*!< 0x00000010 */
 #define HRTIM_MISR_MREP               HRTIM_MISR_MREP_Msk                      /*!< Master Repetition interrupt flag */
-#define HRTIM_MISR_Aux_Pos           (5U)
-#define HRTIM_MISR_Aux_Msk           (0x1UL << HRTIM_MISR_Aux_Pos)           /*!< 0x00000020 */
-#define HRTIM_MISR_Aux               HRTIM_MISR_Aux_Msk                      /*!< Auxhronization input interrupt flag */
+#define HRTIM_MISR_SYNC_Pos           (5U)
+#define HRTIM_MISR_SYNC_Msk           (0x1UL << HRTIM_MISR_SYNC_Pos)           /*!< 0x00000020 */
+#define HRTIM_MISR_SYNC               HRTIM_MISR_SYNC_Msk                      /*!< Synchronization input interrupt flag */
 #define HRTIM_MISR_MUPD_Pos           (6U)
 #define HRTIM_MISR_MUPD_Msk           (0x1UL << HRTIM_MISR_MUPD_Pos)           /*!< 0x00000040 */
 #define HRTIM_MISR_MUPD               HRTIM_MISR_MUPD_Msk                      /*!< Master update interrupt flag */
@@ -7002,9 +7002,9 @@ typedef struct {
 #define HRTIM_MICR_MREP_Pos           (4U)
 #define HRTIM_MICR_MREP_Msk           (0x1UL << HRTIM_MICR_MREP_Pos)           /*!< 0x00000010 */
 #define HRTIM_MICR_MREP               HRTIM_MICR_MREP_Msk                      /*!< Master Repetition interrupt flag clear */
-#define HRTIM_MICR_Aux_Pos           (5U)
-#define HRTIM_MICR_Aux_Msk           (0x1UL << HRTIM_MICR_Aux_Pos)           /*!< 0x00000020 */
-#define HRTIM_MICR_Aux               HRTIM_MICR_Aux_Msk                      /*!< Auxhronization input interrupt flag clear */
+#define HRTIM_MICR_SYNC_Pos           (5U)
+#define HRTIM_MICR_SYNC_Msk           (0x1UL << HRTIM_MICR_SYNC_Pos)           /*!< 0x00000020 */
+#define HRTIM_MICR_SYNC               HRTIM_MICR_SYNC_Msk                      /*!< Synchronization input interrupt flag clear */
 #define HRTIM_MICR_MUPD_Pos           (6U)
 #define HRTIM_MICR_MUPD_Msk           (0x1UL << HRTIM_MICR_MUPD_Pos)           /*!< 0x00000040 */
 #define HRTIM_MICR_MUPD               HRTIM_MICR_MUPD_Msk                      /*!< Master update interrupt flag clear */
@@ -7025,9 +7025,9 @@ typedef struct {
 #define HRTIM_MDIER_MREPIE_Pos        (4U)
 #define HRTIM_MDIER_MREPIE_Msk        (0x1UL << HRTIM_MDIER_MREPIE_Pos)        /*!< 0x00000010 */
 #define HRTIM_MDIER_MREPIE            HRTIM_MDIER_MREPIE_Msk                   /*!< Master Repetition interrupt enable */
-#define HRTIM_MDIER_AuxIE_Pos        (5U)
-#define HRTIM_MDIER_AuxIE_Msk        (0x1UL << HRTIM_MDIER_AuxIE_Pos)        /*!< 0x00000020 */
-#define HRTIM_MDIER_AuxIE            HRTIM_MDIER_AuxIE_Msk                   /*!< Auxhronization input interrupt enable */
+#define HRTIM_MDIER_SYNCIE_Pos        (5U)
+#define HRTIM_MDIER_SYNCIE_Msk        (0x1UL << HRTIM_MDIER_SYNCIE_Pos)        /*!< 0x00000020 */
+#define HRTIM_MDIER_SYNCIE            HRTIM_MDIER_SYNCIE_Msk                   /*!< Synchronization input interrupt enable */
 #define HRTIM_MDIER_MUPDIE_Pos        (6U)
 #define HRTIM_MDIER_MUPDIE_Msk        (0x1UL << HRTIM_MDIER_MUPDIE_Pos)        /*!< 0x00000040 */
 #define HRTIM_MDIER_MUPDIE            HRTIM_MDIER_MUPDIE_Msk                   /*!< Master update interrupt enable */
@@ -7046,9 +7046,9 @@ typedef struct {
 #define HRTIM_MDIER_MREPDE_Pos        (20U)
 #define HRTIM_MDIER_MREPDE_Msk        (0x1UL << HRTIM_MDIER_MREPDE_Pos)        /*!< 0x00100000 */
 #define HRTIM_MDIER_MREPDE            HRTIM_MDIER_MREPDE_Msk                   /*!< Master Repetition DMA enable */
-#define HRTIM_MDIER_AuxDE_Pos        (21U)
-#define HRTIM_MDIER_AuxDE_Msk        (0x1UL << HRTIM_MDIER_AuxDE_Pos)        /*!< 0x00200000 */
-#define HRTIM_MDIER_AuxDE            HRTIM_MDIER_AuxDE_Msk                   /*!< Auxhronization input DMA enable */
+#define HRTIM_MDIER_SYNCDE_Pos        (21U)
+#define HRTIM_MDIER_SYNCDE_Msk        (0x1UL << HRTIM_MDIER_SYNCDE_Pos)        /*!< 0x00200000 */
+#define HRTIM_MDIER_SYNCDE            HRTIM_MDIER_SYNCDE_Msk                   /*!< Synchronization input DMA enable */
 #define HRTIM_MDIER_MUPDDE_Pos        (22U)
 #define HRTIM_MDIER_MUPDDE_Msk        (0x1UL << HRTIM_MDIER_MUPDDE_Pos)        /*!< 0x00400000 */
 #define HRTIM_MDIER_MUPDDE            HRTIM_MDIER_MUPDDE_Msk                   /*!< Master update DMA enable */
@@ -7117,15 +7117,15 @@ typedef struct {
 #define HRTIM_TIMCR_INTLVD            HRTIM_TIMCR_INTLVD_Msk                   /*!< Interleaved mode */
 #define HRTIM_TIMCR_INTLVD_0          (0x1UL << HRTIM_TIMCR_INTLVD_Pos)        /*!< 0x00000080 */
 #define HRTIM_TIMCR_INTLVD_1          (0x2UL << HRTIM_TIMCR_INTLVD_Pos)        /*!< 0x00000100 */
-#define HRTIM_TIMCR_RAuxU_Pos        (9U)
-#define HRTIM_TIMCR_RAuxU_Msk        (0x1UL << HRTIM_TIMCR_RAuxU_Pos)        /*!< 0x00000200 */
-#define HRTIM_TIMCR_RAuxU            HRTIM_TIMCR_RAuxU_Msk                   /*!< ReAuxhronization update */
-#define HRTIM_TIMCR_AuxRST_Pos       (10U)
-#define HRTIM_TIMCR_AuxRST_Msk       (0x1UL << HRTIM_TIMCR_AuxRST_Pos)       /*!< 0x00000400 */
-#define HRTIM_TIMCR_AuxRST           HRTIM_TIMCR_AuxRST_Msk                  /*!< Slave Auxhronization resets */
-#define HRTIM_TIMCR_AuxSTRT_Pos      (11U)
-#define HRTIM_TIMCR_AuxSTRT_Msk      (0x1UL << HRTIM_TIMCR_AuxSTRT_Pos)      /*!< 0x00000800 */
-#define HRTIM_TIMCR_AuxSTRT          HRTIM_TIMCR_AuxSTRT_Msk                 /*!< Slave Auxhronization starts */
+#define HRTIM_TIMCR_RSYNCU_Pos        (9U)
+#define HRTIM_TIMCR_RSYNCU_Msk        (0x1UL << HRTIM_TIMCR_RSYNCU_Pos)        /*!< 0x00000200 */
+#define HRTIM_TIMCR_RSYNCU            HRTIM_TIMCR_RSYNCU_Msk                   /*!< Resynchronization update */
+#define HRTIM_TIMCR_SYNCRST_Pos       (10U)
+#define HRTIM_TIMCR_SYNCRST_Msk       (0x1UL << HRTIM_TIMCR_SYNCRST_Pos)       /*!< 0x00000400 */
+#define HRTIM_TIMCR_SYNCRST           HRTIM_TIMCR_SYNCRST_Msk                  /*!< Slave synchronization resets */
+#define HRTIM_TIMCR_SYNCSTRT_Pos      (11U)
+#define HRTIM_TIMCR_SYNCSTRT_Msk      (0x1UL << HRTIM_TIMCR_SYNCSTRT_Pos)      /*!< 0x00000800 */
+#define HRTIM_TIMCR_SYNCSTRT          HRTIM_TIMCR_SYNCSTRT_Msk                 /*!< Slave synchronization starts */
 #define HRTIM_TIMCR_DELCMP2_Pos       (12U)
 #define HRTIM_TIMCR_DELCMP2_Msk       (0x3UL << HRTIM_TIMCR_DELCMP2_Pos)       /*!< 0x00003000 */
 #define HRTIM_TIMCR_DELCMP2           HRTIM_TIMCR_DELCMP2_Msk                  /*!< Slave delayed compartor 2 mode mask */
@@ -7163,11 +7163,11 @@ typedef struct {
 #define HRTIM_TIMCR_MSTU_Pos          (24U)
 #define HRTIM_TIMCR_MSTU_Msk          (0x1UL << HRTIM_TIMCR_MSTU_Pos)          /*!< 0x02000000 */
 #define HRTIM_TIMCR_MSTU              HRTIM_TIMCR_MSTU_Msk                     /*!< Master Update */
-#define HRTIM_TIMCR_DACAux_Pos       (25U)
-#define HRTIM_TIMCR_DACAux_Msk       (0x3UL << HRTIM_TIMCR_DACAux_Pos)       /*!< 0x06000000 */
-#define HRTIM_TIMCR_DACAux           HRTIM_TIMCR_DACAux_Msk                  /*!< DAC sychronization mask */
-#define HRTIM_TIMCR_DACAux_0         (0x1UL << HRTIM_TIMCR_DACAux_Pos)       /*!< 0x02000000 */
-#define HRTIM_TIMCR_DACAux_1         (0x2UL << HRTIM_TIMCR_DACAux_Pos)       /*!< 0x04000000 */
+#define HRTIM_TIMCR_DACSYNC_Pos       (25U)
+#define HRTIM_TIMCR_DACSYNC_Msk       (0x3UL << HRTIM_TIMCR_DACSYNC_Pos)       /*!< 0x06000000 */
+#define HRTIM_TIMCR_DACSYNC           HRTIM_TIMCR_DACSYNC_Msk                  /*!< DAC sychronization mask */
+#define HRTIM_TIMCR_DACSYNC_0         (0x1UL << HRTIM_TIMCR_DACSYNC_Pos)       /*!< 0x02000000 */
+#define HRTIM_TIMCR_DACSYNC_1         (0x2UL << HRTIM_TIMCR_DACSYNC_Pos)       /*!< 0x04000000 */
 #define HRTIM_TIMCR_PREEN_Pos         (27U)
 #define HRTIM_TIMCR_PREEN_Msk         (0x1UL << HRTIM_TIMCR_PREEN_Pos)         /*!< 0x08000000 */
 #define HRTIM_TIMCR_PREEN             HRTIM_TIMCR_PREEN_Msk                    /*!< Slave preload enable */
@@ -7482,9 +7482,9 @@ typedef struct {
 #define HRTIM_SET1R_SST_Pos           (0U)
 #define HRTIM_SET1R_SST_Msk           (0x1UL << HRTIM_SET1R_SST_Pos)           /*!< 0x00000001 */
 #define HRTIM_SET1R_SST               HRTIM_SET1R_SST_Msk                      /*!< software set trigger */
-#define HRTIM_SET1R_REAux_Pos        (1U)
-#define HRTIM_SET1R_REAux_Msk        (0x1UL << HRTIM_SET1R_REAux_Pos)        /*!< 0x00000002 */
-#define HRTIM_SET1R_REAux            HRTIM_SET1R_REAux_Msk                   /*!< Timer A reAuxhronization */
+#define HRTIM_SET1R_RESYNC_Pos        (1U)
+#define HRTIM_SET1R_RESYNC_Msk        (0x1UL << HRTIM_SET1R_RESYNC_Pos)        /*!< 0x00000002 */
+#define HRTIM_SET1R_RESYNC            HRTIM_SET1R_RESYNC_Msk                   /*!< Timer A resynchronization */
 #define HRTIM_SET1R_PER_Pos           (2U)
 #define HRTIM_SET1R_PER_Msk           (0x1UL << HRTIM_SET1R_PER_Pos)           /*!< 0x00000004 */
 #define HRTIM_SET1R_PER               HRTIM_SET1R_PER_Msk                      /*!< Timer A period */
@@ -7584,9 +7584,9 @@ typedef struct {
 #define HRTIM_RST1R_SRT_Pos           (0U)
 #define HRTIM_RST1R_SRT_Msk           (0x1UL << HRTIM_RST1R_SRT_Pos)           /*!< 0x00000001 */
 #define HRTIM_RST1R_SRT               HRTIM_RST1R_SRT_Msk                      /*!< software reset trigger */
-#define HRTIM_RST1R_REAux_Pos        (1U)
-#define HRTIM_RST1R_REAux_Msk        (0x1UL << HRTIM_RST1R_REAux_Pos)        /*!< 0x00000002 */
-#define HRTIM_RST1R_REAux            HRTIM_RST1R_REAux_Msk                   /*!< Timer A reAuxhronization */
+#define HRTIM_RST1R_RESYNC_Pos        (1U)
+#define HRTIM_RST1R_RESYNC_Msk        (0x1UL << HRTIM_RST1R_RESYNC_Pos)        /*!< 0x00000002 */
+#define HRTIM_RST1R_RESYNC            HRTIM_RST1R_RESYNC_Msk                   /*!< Timer A resynchronization */
 #define HRTIM_RST1R_PER_Pos           (2U)
 #define HRTIM_RST1R_PER_Msk           (0x1UL << HRTIM_RST1R_PER_Pos)           /*!< 0x00000004 */
 #define HRTIM_RST1R_PER               HRTIM_RST1R_PER_Msk                      /*!< Timer A period */
@@ -7685,9 +7685,9 @@ typedef struct {
 #define HRTIM_SET2R_SST_Pos           (0U)
 #define HRTIM_SET2R_SST_Msk           (0x1UL << HRTIM_SET2R_SST_Pos)           /*!< 0x00000001 */
 #define HRTIM_SET2R_SST               HRTIM_SET2R_SST_Msk                      /*!< software set trigger */
-#define HRTIM_SET2R_REAux_Pos        (1U)
-#define HRTIM_SET2R_REAux_Msk        (0x1UL << HRTIM_SET2R_REAux_Pos)        /*!< 0x00000002 */
-#define HRTIM_SET2R_REAux            HRTIM_SET2R_REAux_Msk                   /*!< Timer A reAuxhronization */
+#define HRTIM_SET2R_RESYNC_Pos        (1U)
+#define HRTIM_SET2R_RESYNC_Msk        (0x1UL << HRTIM_SET2R_RESYNC_Pos)        /*!< 0x00000002 */
+#define HRTIM_SET2R_RESYNC            HRTIM_SET2R_RESYNC_Msk                   /*!< Timer A resynchronization */
 #define HRTIM_SET2R_PER_Pos           (2U)
 #define HRTIM_SET2R_PER_Msk           (0x1UL << HRTIM_SET2R_PER_Pos)           /*!< 0x00000004 */
 #define HRTIM_SET2R_PER               HRTIM_SET2R_PER_Msk                      /*!< Timer A period */
@@ -7787,9 +7787,9 @@ typedef struct {
 #define HRTIM_RST2R_SRT_Pos           (0U)
 #define HRTIM_RST2R_SRT_Msk           (0x1UL << HRTIM_RST2R_SRT_Pos)           /*!< 0x00000001 */
 #define HRTIM_RST2R_SRT               HRTIM_RST2R_SRT_Msk                      /*!< software reset trigger */
-#define HRTIM_RST2R_REAux_Pos        (1U)
-#define HRTIM_RST2R_REAux_Msk        (0x1UL << HRTIM_RST2R_REAux_Pos)        /*!< 0x00000002 */
-#define HRTIM_RST2R_REAux            HRTIM_RST2R_REAux_Msk                   /*!< Timer A reAuxhronization */
+#define HRTIM_RST2R_RESYNC_Pos        (1U)
+#define HRTIM_RST2R_RESYNC_Msk        (0x1UL << HRTIM_RST2R_RESYNC_Pos)        /*!< 0x00000002 */
+#define HRTIM_RST2R_RESYNC            HRTIM_RST2R_RESYNC_Msk                   /*!< Timer A resynchronization */
 #define HRTIM_RST2R_PER_Pos           (2U)
 #define HRTIM_RST2R_PER_Msk           (0x1UL << HRTIM_RST2R_PER_Pos)           /*!< 0x00000004 */
 #define HRTIM_RST2R_PER               HRTIM_RST2R_PER_Msk                      /*!< Timer A period */
@@ -13621,17 +13621,17 @@ typedef struct {
 /*                                                                            */
 /******************************************************************************/
 /********************  Bit definition for SAI_GCR register  *******************/
-#define SAI_GCR_AuxIN_Pos         (0U)
-#define SAI_GCR_AuxIN_Msk         (0x3UL << SAI_GCR_AuxIN_Pos)               /*!< 0x00000003 */
-#define SAI_GCR_AuxIN             SAI_GCR_AuxIN_Msk                          /*!<AuxIN[1:0] bits (Auxhronization Inputs)   */
-#define SAI_GCR_AuxIN_0           (0x1UL << SAI_GCR_AuxIN_Pos)               /*!< 0x00000001 */
-#define SAI_GCR_AuxIN_1           (0x2UL << SAI_GCR_AuxIN_Pos)               /*!< 0x00000002 */
+#define SAI_GCR_SYNCIN_Pos         (0U)
+#define SAI_GCR_SYNCIN_Msk         (0x3UL << SAI_GCR_SYNCIN_Pos)               /*!< 0x00000003 */
+#define SAI_GCR_SYNCIN             SAI_GCR_SYNCIN_Msk                          /*!<SYNCIN[1:0] bits (Synchronization Inputs)   */
+#define SAI_GCR_SYNCIN_0           (0x1UL << SAI_GCR_SYNCIN_Pos)               /*!< 0x00000001 */
+#define SAI_GCR_SYNCIN_1           (0x2UL << SAI_GCR_SYNCIN_Pos)               /*!< 0x00000002 */
 
-#define SAI_GCR_AuxOUT_Pos        (4U)
-#define SAI_GCR_AuxOUT_Msk        (0x3UL << SAI_GCR_AuxOUT_Pos)              /*!< 0x00000030 */
-#define SAI_GCR_AuxOUT            SAI_GCR_AuxOUT_Msk                         /*!<AuxOUT[1:0] bits (Auxhronization Outputs) */
-#define SAI_GCR_AuxOUT_0          (0x1UL << SAI_GCR_AuxOUT_Pos)              /*!< 0x00000010 */
-#define SAI_GCR_AuxOUT_1          (0x2UL << SAI_GCR_AuxOUT_Pos)              /*!< 0x00000020 */
+#define SAI_GCR_SYNCOUT_Pos        (4U)
+#define SAI_GCR_SYNCOUT_Msk        (0x3UL << SAI_GCR_SYNCOUT_Pos)              /*!< 0x00000030 */
+#define SAI_GCR_SYNCOUT            SAI_GCR_SYNCOUT_Msk                         /*!<SYNCOUT[1:0] bits (Synchronization Outputs) */
+#define SAI_GCR_SYNCOUT_0          (0x1UL << SAI_GCR_SYNCOUT_Pos)              /*!< 0x00000010 */
+#define SAI_GCR_SYNCOUT_1          (0x2UL << SAI_GCR_SYNCOUT_Pos)              /*!< 0x00000020 */
 
 /*******************  Bit definition for SAI_xCR1 register  *******************/
 #define SAI_xCR1_MODE_Pos          (0U)
@@ -13660,11 +13660,11 @@ typedef struct {
 #define SAI_xCR1_CKSTR_Msk         (0x1UL << SAI_xCR1_CKSTR_Pos)               /*!< 0x00000200 */
 #define SAI_xCR1_CKSTR             SAI_xCR1_CKSTR_Msk                          /*!<ClocK STRobing edge      */
 
-#define SAI_xCR1_AuxEN_Pos        (10U)
-#define SAI_xCR1_AuxEN_Msk        (0x3UL << SAI_xCR1_AuxEN_Pos)              /*!< 0x00000C00 */
-#define SAI_xCR1_AuxEN            SAI_xCR1_AuxEN_Msk                         /*!<AuxEN[1:0](Auxhronization ENable) */
-#define SAI_xCR1_AuxEN_0          (0x1UL << SAI_xCR1_AuxEN_Pos)              /*!< 0x00000400 */
-#define SAI_xCR1_AuxEN_1          (0x2UL << SAI_xCR1_AuxEN_Pos)              /*!< 0x00000800 */
+#define SAI_xCR1_SYNCEN_Pos        (10U)
+#define SAI_xCR1_SYNCEN_Msk        (0x3UL << SAI_xCR1_SYNCEN_Pos)              /*!< 0x00000C00 */
+#define SAI_xCR1_SYNCEN            SAI_xCR1_SYNCEN_Msk                         /*!<SYNCEN[1:0](SYNChronization ENable) */
+#define SAI_xCR1_SYNCEN_0          (0x1UL << SAI_xCR1_SYNCEN_Pos)              /*!< 0x00000400 */
+#define SAI_xCR1_SYNCEN_1          (0x2UL << SAI_xCR1_SYNCEN_Pos)              /*!< 0x00000800 */
 
 #define SAI_xCR1_MONO_Pos          (12U)
 #define SAI_xCR1_MONO_Msk          (0x1UL << SAI_xCR1_MONO_Pos)                /*!< 0x00001000 */
@@ -13757,7 +13757,7 @@ typedef struct {
 
 #define SAI_xFRCR_FSALL_Pos        (8U)
 #define SAI_xFRCR_FSALL_Msk        (0x7FUL << SAI_xFRCR_FSALL_Pos)             /*!< 0x00007F00 */
-#define SAI_xFRCR_FSALL            SAI_xFRCR_FSALL_Msk                         /*!<FRL[6:0] (Frame Auxhronization active level length)  */
+#define SAI_xFRCR_FSALL            SAI_xFRCR_FSALL_Msk                         /*!<FRL[6:0] (Frame synchronization active level length)  */
 #define SAI_xFRCR_FSALL_0          (0x01UL << SAI_xFRCR_FSALL_Pos)             /*!< 0x00000100 */
 #define SAI_xFRCR_FSALL_1          (0x02UL << SAI_xFRCR_FSALL_Pos)             /*!< 0x00000200 */
 #define SAI_xFRCR_FSALL_2          (0x04UL << SAI_xFRCR_FSALL_Pos)             /*!< 0x00000400 */
@@ -13768,13 +13768,13 @@ typedef struct {
 
 #define SAI_xFRCR_FSDEF_Pos        (16U)
 #define SAI_xFRCR_FSDEF_Msk        (0x1UL << SAI_xFRCR_FSDEF_Pos)              /*!< 0x00010000 */
-#define SAI_xFRCR_FSDEF            SAI_xFRCR_FSDEF_Msk                         /*!< Frame Auxhronization Definition */
+#define SAI_xFRCR_FSDEF            SAI_xFRCR_FSDEF_Msk                         /*!< Frame Synchronization Definition */
 #define SAI_xFRCR_FSPOL_Pos        (17U)
 #define SAI_xFRCR_FSPOL_Msk        (0x1UL << SAI_xFRCR_FSPOL_Pos)              /*!< 0x00020000 */
-#define SAI_xFRCR_FSPOL            SAI_xFRCR_FSPOL_Msk                         /*!<Frame Auxhronization POLarity    */
+#define SAI_xFRCR_FSPOL            SAI_xFRCR_FSPOL_Msk                         /*!<Frame Synchronization POLarity    */
 #define SAI_xFRCR_FSOFF_Pos        (18U)
 #define SAI_xFRCR_FSOFF_Msk        (0x1UL << SAI_xFRCR_FSOFF_Pos)              /*!< 0x00040000 */
-#define SAI_xFRCR_FSOFF            SAI_xFRCR_FSOFF_Msk                         /*!<Frame Auxhronization OFFset      */
+#define SAI_xFRCR_FSOFF            SAI_xFRCR_FSOFF_Msk                         /*!<Frame Synchronization OFFset      */
 
 /******************  Bit definition for SAI_xSLOTR register  *******************/
 #define SAI_xSLOTR_FBOFF_Pos       (0U)
@@ -13822,10 +13822,10 @@ typedef struct {
 #define SAI_xIMR_CNRDYIE           SAI_xIMR_CNRDYIE_Msk                        /*!<Codec not ready interrupt enable                               */
 #define SAI_xIMR_AFSDETIE_Pos      (5U)
 #define SAI_xIMR_AFSDETIE_Msk      (0x1UL << SAI_xIMR_AFSDETIE_Pos)            /*!< 0x00000020 */
-#define SAI_xIMR_AFSDETIE          SAI_xIMR_AFSDETIE_Msk                       /*!<Anticipated frame Auxhronization detection interrupt enable   */
+#define SAI_xIMR_AFSDETIE          SAI_xIMR_AFSDETIE_Msk                       /*!<Anticipated frame synchronization detection interrupt enable   */
 #define SAI_xIMR_LFSDETIE_Pos      (6U)
 #define SAI_xIMR_LFSDETIE_Msk      (0x1UL << SAI_xIMR_LFSDETIE_Pos)            /*!< 0x00000040 */
-#define SAI_xIMR_LFSDETIE          SAI_xIMR_LFSDETIE_Msk                       /*!<Late frame Auxhronization detection interrupt enable          */
+#define SAI_xIMR_LFSDETIE          SAI_xIMR_LFSDETIE_Msk                       /*!<Late frame synchronization detection interrupt enable          */
 
 /********************  Bit definition for SAI_xSR register  *******************/
 #define SAI_xSR_OVRUDR_Pos         (0U)
@@ -13845,10 +13845,10 @@ typedef struct {
 #define SAI_xSR_CNRDY              SAI_xSR_CNRDY_Msk                           /*!<Codec not ready                                */
 #define SAI_xSR_AFSDET_Pos         (5U)
 #define SAI_xSR_AFSDET_Msk         (0x1UL << SAI_xSR_AFSDET_Pos)               /*!< 0x00000020 */
-#define SAI_xSR_AFSDET             SAI_xSR_AFSDET_Msk                          /*!<Anticipated frame Auxhronization detection    */
+#define SAI_xSR_AFSDET             SAI_xSR_AFSDET_Msk                          /*!<Anticipated frame synchronization detection    */
 #define SAI_xSR_LFSDET_Pos         (6U)
 #define SAI_xSR_LFSDET_Msk         (0x1UL << SAI_xSR_LFSDET_Pos)               /*!< 0x00000040 */
-#define SAI_xSR_LFSDET             SAI_xSR_LFSDET_Msk                          /*!<Late frame Auxhronization detection           */
+#define SAI_xSR_LFSDET             SAI_xSR_LFSDET_Msk                          /*!<Late frame synchronization detection           */
 
 #define SAI_xSR_FLVL_Pos           (16U)
 #define SAI_xSR_FLVL_Msk           (0x7UL << SAI_xSR_FLVL_Pos)                 /*!< 0x00070000 */
@@ -13875,10 +13875,10 @@ typedef struct {
 #define SAI_xCLRFR_CCNRDY          SAI_xCLRFR_CCNRDY_Msk                       /*!<Clear Codec not ready                                */
 #define SAI_xCLRFR_CAFSDET_Pos     (5U)
 #define SAI_xCLRFR_CAFSDET_Msk     (0x1UL << SAI_xCLRFR_CAFSDET_Pos)           /*!< 0x00000020 */
-#define SAI_xCLRFR_CAFSDET         SAI_xCLRFR_CAFSDET_Msk                      /*!<Clear Anticipated frame Auxhronization detection    */
+#define SAI_xCLRFR_CAFSDET         SAI_xCLRFR_CAFSDET_Msk                      /*!<Clear Anticipated frame synchronization detection    */
 #define SAI_xCLRFR_CLFSDET_Pos     (6U)
 #define SAI_xCLRFR_CLFSDET_Msk     (0x1UL << SAI_xCLRFR_CLFSDET_Pos)           /*!< 0x00000040 */
-#define SAI_xCLRFR_CLFSDET         SAI_xCLRFR_CLFSDET_Msk                      /*!<Clear Late frame Auxhronization detection           */
+#define SAI_xCLRFR_CLFSDET         SAI_xCLRFR_CLFSDET_Msk                      /*!<Clear Late frame synchronization detection           */
 
 /******************  Bit definition for SAI_xDR register  ******************/
 #define SAI_xDR_DATA_Pos           (0U)
@@ -14144,9 +14144,9 @@ typedef struct {
 #define SPI_I2SCFGR_I2SSTD          SPI_I2SCFGR_I2SSTD_Msk                     /*!<I2SSTD[1:0] bits (I2S standard selection) */
 #define SPI_I2SCFGR_I2SSTD_0        (0x1UL << SPI_I2SCFGR_I2SSTD_Pos)          /*!< 0x00000010 */
 #define SPI_I2SCFGR_I2SSTD_1        (0x2UL << SPI_I2SCFGR_I2SSTD_Pos)          /*!< 0x00000020 */
-#define SPI_I2SCFGR_PCMAux_Pos     (7U)
-#define SPI_I2SCFGR_PCMAux_Msk     (0x1UL << SPI_I2SCFGR_PCMAux_Pos)         /*!< 0x00000080 */
-#define SPI_I2SCFGR_PCMAux         SPI_I2SCFGR_PCMAux_Msk                    /*!<PCM frame Auxhronization */
+#define SPI_I2SCFGR_PCMSYNC_Pos     (7U)
+#define SPI_I2SCFGR_PCMSYNC_Msk     (0x1UL << SPI_I2SCFGR_PCMSYNC_Pos)         /*!< 0x00000080 */
+#define SPI_I2SCFGR_PCMSYNC         SPI_I2SCFGR_PCMSYNC_Msk                    /*!<PCM frame synchronization */
 #define SPI_I2SCFGR_I2SCFG_Pos      (8U)
 #define SPI_I2SCFGR_I2SCFG_Msk      (0x3UL << SPI_I2SCFGR_I2SCFG_Pos)          /*!< 0x00000300 */
 #define SPI_I2SCFGR_I2SCFG          SPI_I2SCFGR_I2SCFG_Msk                     /*!<I2SCFG[1:0] bits (I2S configuration mode) */
@@ -14160,7 +14160,7 @@ typedef struct {
 #define SPI_I2SCFGR_I2SMOD          SPI_I2SCFGR_I2SMOD_Msk                     /*!<I2S mode selection */
 #define SPI_I2SCFGR_ASTRTEN_Pos     (12U)
 #define SPI_I2SCFGR_ASTRTEN_Msk     (0x1UL << SPI_I2SCFGR_ASTRTEN_Pos)         /*!< 0x00001000 */
-#define SPI_I2SCFGR_ASTRTEN         SPI_I2SCFGR_ASTRTEN_Msk                    /*!<AAuxhronous start enable */
+#define SPI_I2SCFGR_ASTRTEN         SPI_I2SCFGR_ASTRTEN_Msk                    /*!<Asynchronous start enable */
 
 /******************  Bit definition for SPI_I2SPR register  *******************/
 #define SPI_I2SPR_I2SDIV_Pos        (0U)
@@ -15685,7 +15685,7 @@ typedef struct {
 #define LPTIM_OR_IN2_2               (0x10UL << LPTIM_OR_IN2_Pos)                 /*!< 0x00000020 */
 /******************************************************************************/
 /*                                                                            */
-/*      Universal Auxhronous AAuxhronous Receiver Transmitter (USART)       */
+/*      Universal Synchronous Asynchronous Receiver Transmitter (USART)       */
 /*                                                                            */
 /******************************************************************************/
 /******************  Bit definition for USART_CR1 register  *******************/
@@ -15784,7 +15784,7 @@ typedef struct {
 /******************  Bit definition for USART_CR2 register  *******************/
 #define USART_CR2_SLVEN_Pos          (0U)
 #define USART_CR2_SLVEN_Msk          (0x1UL << USART_CR2_SLVEN_Pos)            /*!< 0x00000001 */
-#define USART_CR2_SLVEN              USART_CR2_SLVEN_Msk                       /*!< Auxhronous Slave mode enable */
+#define USART_CR2_SLVEN              USART_CR2_SLVEN_Msk                       /*!< Synchronous Slave mode enable */
 #define USART_CR2_DIS_NSS_Pos        (3U)
 #define USART_CR2_DIS_NSS_Msk        (0x1UL << USART_CR2_DIS_NSS_Pos)          /*!< 0x00000008 */
 #define USART_CR2_DIS_NSS            USART_CR2_DIS_NSS_Msk                     /*!< Slave Select (NSS) pin management */
@@ -17779,12 +17779,12 @@ typedef struct {
 /****************************** HRTIM Instances *******************************/
 #define IS_HRTIM_ALL_INSTANCE(INSTANCE) (((INSTANCE) == HRTIM1))
 
-/******************** USART Instances : Auxhronous mode **********************/
+/******************** USART Instances : Synchronous mode **********************/
 #define IS_USART_INSTANCE(INSTANCE) (((INSTANCE) == USART1) || \
                                      ((INSTANCE) == USART2) || \
                                      ((INSTANCE) == USART3))
 
-/******************** UART Instances : AAuxhronous mode **********************/
+/******************** UART Instances : Asynchronous mode **********************/
 #define IS_UART_INSTANCE(INSTANCE) (((INSTANCE) == USART1) || \
                                     ((INSTANCE) == USART2) || \
                                     ((INSTANCE) == USART3) || \

@@ -13,7 +13,6 @@
 #include "VoltPeakPeakOutput.h"
 #include "BiasOutput.h"
 #include "FreqOutput.h"
-#include "DacTimerRegistry.h"
 
 #include "pysineicon.h"
 #include "pysquareicon.h"

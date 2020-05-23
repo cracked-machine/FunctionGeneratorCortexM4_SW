@@ -1154,8 +1154,8 @@ typedef struct
 #define ITM_TCR_DWTENA_Pos                  3U                                            /*!< ITM TCR: DWTENA Position */
 #define ITM_TCR_DWTENA_Msk                 (1UL << ITM_TCR_DWTENA_Pos)                    /*!< ITM TCR: DWTENA Mask */
 
-#define ITM_TCR_AuxENA_Pos                 2U                                            /*!< ITM TCR: AuxENA Position */
-#define ITM_TCR_AuxENA_Msk                (1UL << ITM_TCR_AuxENA_Pos)                   /*!< ITM TCR: AuxENA Mask */
+#define ITM_TCR_SYNCENA_Pos                 2U                                            /*!< ITM TCR: SYNCENA Position */
+#define ITM_TCR_SYNCENA_Msk                (1UL << ITM_TCR_SYNCENA_Pos)                   /*!< ITM TCR: SYNCENA Mask */
 
 #define ITM_TCR_TSENA_Pos                   1U                                            /*!< ITM TCR: TSENA Position */
 #define ITM_TCR_TSENA_Msk                  (1UL << ITM_TCR_TSENA_Pos)                     /*!< ITM TCR: TSENA Mask */
@@ -1320,8 +1320,8 @@ typedef struct
 #define DWT_CTRL_PCSAMPLENA_Pos            12U                                         /*!< DWT CTRL: PCSAMPLENA Position */
 #define DWT_CTRL_PCSAMPLENA_Msk            (0x1UL << DWT_CTRL_PCSAMPLENA_Pos)          /*!< DWT CTRL: PCSAMPLENA Mask */
 
-#define DWT_CTRL_AuxTAP_Pos               10U                                         /*!< DWT CTRL: AuxTAP Position */
-#define DWT_CTRL_AuxTAP_Msk               (0x3UL << DWT_CTRL_AuxTAP_Pos)             /*!< DWT CTRL: AuxTAP Mask */
+#define DWT_CTRL_SYNCTAP_Pos               10U                                         /*!< DWT CTRL: SYNCTAP Position */
+#define DWT_CTRL_SYNCTAP_Msk               (0x3UL << DWT_CTRL_SYNCTAP_Pos)             /*!< DWT CTRL: SYNCTAP Mask */
 
 #define DWT_CTRL_CYCTAP_Pos                 9U                                         /*!< DWT CTRL: CYCTAP Position */
 #define DWT_CTRL_CYCTAP_Msk                (0x1UL << DWT_CTRL_CYCTAP_Pos)              /*!< DWT CTRL: CYCTAP Mask */
@@ -1389,13 +1389,13 @@ typedef struct
   __IM  uint32_t SSPSR;                  /*!< Offset: 0x000 (R/ )  Supported Parallel Port Sizes Register */
   __IOM uint32_t CSPSR;                  /*!< Offset: 0x004 (R/W)  Current Parallel Port Sizes Register */
         uint32_t RESERVED0[2U];
-  __IOM uint32_t ACPR;                   /*!< Offset: 0x010 (R/W)  AAuxhronous Clock Prescaler Register */
+  __IOM uint32_t ACPR;                   /*!< Offset: 0x010 (R/W)  Asynchronous Clock Prescaler Register */
         uint32_t RESERVED1[55U];
   __IOM uint32_t SPPR;                   /*!< Offset: 0x0F0 (R/W)  Selected Pin Protocol Register */
         uint32_t RESERVED2[131U];
   __IM  uint32_t FFSR;                   /*!< Offset: 0x300 (R/ )  Formatter and Flush Status Register */
   __IOM uint32_t FFCR;                   /*!< Offset: 0x304 (R/W)  Formatter and Flush Control Register */
-  __IOM uint32_t PSCR;                   /*!< Offset: 0x308 (R/W)  Periodic Auxhronization Control Register */
+  __IOM uint32_t PSCR;                   /*!< Offset: 0x308 (R/W)  Periodic Synchronization Control Register */
         uint32_t RESERVED3[809U];
   __OM  uint32_t LAR;                    /*!< Offset: 0xFB0 ( /W)  Software Lock Access Register */
   __IM  uint32_t LSR;                    /*!< Offset: 0xFB4 (R/ )  Software Lock Status Register */
@@ -1404,7 +1404,7 @@ typedef struct
   __IM  uint32_t DEVTYPE;                /*!< Offset: 0xFCC (R/ )  Device Type Register */
 } TPI_Type;
 
-/* TPI AAuxhronous Clock Prescaler Register Definitions */
+/* TPI Asynchronous Clock Prescaler Register Definitions */
 #define TPI_ACPR_SWOSCALER_Pos              0U                                         /*!< TPI ACPR: SWOSCALER Position */
 #define TPI_ACPR_SWOSCALER_Msk             (0xFFFFUL /*<< TPI_ACPR_SWOSCALER_Pos*/)    /*!< TPI ACPR: SWOSCALER Mask */
 
@@ -1435,7 +1435,7 @@ typedef struct
 #define TPI_FFCR_EnFCont_Pos                1U                                         /*!< TPI FFCR: EnFCont Position */
 #define TPI_FFCR_EnFCont_Msk               (0x1UL << TPI_FFCR_EnFCont_Pos)             /*!< TPI FFCR: EnFCont Mask */
 
-/* TPI Periodic Auxhronization Control Register Definitions */
+/* TPI Periodic Synchronization Control Register Definitions */
 #define TPI_PSCR_PSCount_Pos                0U                                         /*!< TPI PSCR: PSCount Position */
 #define TPI_PSCR_PSCount_Msk               (0x1FUL /*<< TPI_PSCR_PSCount_Pos*/)        /*!< TPI PSCR: TPSCount Mask */
 
