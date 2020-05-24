@@ -27,9 +27,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00031e08  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000465f7  00000000  00000000  00031e38  2**0
+ 12 .debug_info   000465f6  00000000  00000000  00031e38  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00007ac3  00000000  00000000  0007842f  2**0
+ 13 .debug_abbrev 00007ac3  00000000  00000000  0007842e  2**0
                   CONTENTS, READONLY, DEBUGGING
  14 .debug_aranges 00002250  00000000  00000000  0007fef8  2**3
                   CONTENTS, READONLY, DEBUGGING
@@ -37,11 +37,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  16 .debug_macro  00035610  00000000  00000000  00083f38  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0002f22d  00000000  00000000  000b9548  2**0
+ 17 .debug_line   0002f22b  00000000  00000000  000b9548  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    001266f7  00000000  00000000  000e8775  2**0
+ 18 .debug_str    001266f7  00000000  00000000  000e8773  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0020ee6c  2**0
+ 19 .comment      0000007b  00000000  00000000  0020ee6a  2**0
                   CONTENTS, READONLY
  20 .debug_frame  000097f8  00000000  00000000  0020eee8  2**2
                   CONTENTS, READONLY, DEBUGGING
@@ -11350,15 +11350,13 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
  8005412:	4a27      	ldr	r2, [pc, #156]	; (80054b0 <FuncO_ApplyProfileToSignal+0xb4>)
  8005414:	4413      	add	r3, r2
  8005416:	f8c1 31e8 	str.w	r3, [r1, #488]	; 0x1e8
-	}
-	else
-	{
-	*/
-		// copy the lookup table for the next output function in to SignalChannel object
-		printf("SM_GetOutputChannel\n");
+
+
+	// copy the lookup table for the next output function in to SignalChannel object
+	printf("SM_GetOutputChannel\n");
  800541a:	4826      	ldr	r0, [pc, #152]	; (80054b4 <FuncO_ApplyProfileToSignal+0xb8>)
  800541c:	f00a fbf4 	bl	800fc08 <puts>
-		SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
+	SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
  8005420:	79fc      	ldrb	r4, [r7, #7]
  8005422:	2000      	movs	r0, #0
  8005424:	f000 fbb2 	bl	8005b8c <SM_GetOutputChannel>
@@ -11369,34 +11367,34 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
  8005430:	685b      	ldr	r3, [r3, #4]
  8005432:	604b      	str	r3, [r1, #4]
 
-		// set preset for PGA gain and dsp amplitude adjustment
-		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
+	// set preset for PGA gain and dsp amplitude adjustment
+	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
  8005434:	2000      	movs	r0, #0
  8005436:	f000 fba9 	bl	8005b8c <SM_GetOutputChannel>
  800543a:	4603      	mov	r3, r0
  800543c:	f8d3 31ec 	ldr.w	r3, [r3, #492]	; 0x1ec
  8005440:	781b      	ldrb	r3, [r3, #0]
  8005442:	73fb      	strb	r3, [r7, #15]
-		VPP_ApplyProfileToSignal(eTmpVppPreset);
+	VPP_ApplyProfileToSignal(eTmpVppPreset);
  8005444:	7bfb      	ldrb	r3, [r7, #15]
  8005446:	4618      	mov	r0, r3
  8005448:	f000 fed6 	bl	80061f8 <VPP_ApplyProfileToSignal>
 
-		// pause timer to reAux both outputs
-		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+	// pause timer to reAux both outputs
+	OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
  800544c:	4b1a      	ldr	r3, [pc, #104]	; (80054b8 <FuncO_ApplyProfileToSignal+0xbc>)
  800544e:	681b      	ldr	r3, [r3, #0]
  8005450:	4a19      	ldr	r2, [pc, #100]	; (80054b8 <FuncO_ApplyProfileToSignal+0xbc>)
  8005452:	f023 0301 	bic.w	r3, r3, #1
  8005456:	6013      	str	r3, [r2, #0]
-		//HAL_TIM_Base_Stop(&htim8);
+	//HAL_TIM_Base_Stop(&htim8);
 
-		// restart the DAC with the new data
-		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+	// restart the DAC with the new data
+	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
  8005458:	2100      	movs	r1, #0
  800545a:	4818      	ldr	r0, [pc, #96]	; (80054bc <FuncO_ApplyProfileToSignal+0xc0>)
  800545c:	f004 fbd8 	bl	8009c10 <HAL_DAC_Stop_DMA>
-		HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
  8005460:	2000      	movs	r0, #0
  8005462:	f000 fb93 	bl	8005b8c <SM_GetOutputChannel>
  8005466:	4603      	mov	r3, r0
@@ -11408,12 +11406,12 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
  8005474:	4811      	ldr	r0, [pc, #68]	; (80054bc <FuncO_ApplyProfileToSignal+0xc0>)
  8005476:	f004 fb09 	bl	8009a8c <HAL_DAC_Start_DMA>
 
-		// restart the the other DAC
-		HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+	// restart the the other DAC
+	HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
  800547a:	2100      	movs	r1, #0
  800547c:	4810      	ldr	r0, [pc, #64]	; (80054c0 <FuncO_ApplyProfileToSignal+0xc4>)
  800547e:	f004 fbc7 	bl	8009c10 <HAL_DAC_Stop_DMA>
-		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+	HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
  8005482:	2001      	movs	r0, #1
  8005484:	f000 fb82 	bl	8005b8c <SM_GetOutputChannel>
  8005488:	4603      	mov	r3, r0
@@ -11425,16 +11423,16 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
  8005496:	480a      	ldr	r0, [pc, #40]	; (80054c0 <FuncO_ApplyProfileToSignal+0xc4>)
  8005498:	f004 faf8 	bl	8009a8c <HAL_DAC_Start_DMA>
 
-		// resume timer to reAux both outputs
-		//HAL_TIM_Base_Start(&htim8);
-		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+	// resume timer to reAux both outputs
+	//HAL_TIM_Base_Start(&htim8);
+	OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
  800549c:	4b06      	ldr	r3, [pc, #24]	; (80054b8 <FuncO_ApplyProfileToSignal+0xbc>)
  800549e:	681b      	ldr	r3, [r3, #0]
  80054a0:	4a05      	ldr	r2, [pc, #20]	; (80054b8 <FuncO_ApplyProfileToSignal+0xbc>)
  80054a2:	f043 0301 	orr.w	r3, r3, #1
  80054a6:	6013      	str	r3, [r2, #0]
 
-	//}
+
 
 }
  80054a8:	bf00      	nop
