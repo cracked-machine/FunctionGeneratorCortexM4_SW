@@ -32,7 +32,7 @@ void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
 			FuncMenu_DrawOutputMenu(SIGNAL_CHANNEL);
 			break;
 		case ENABLE_FUNC_Aux_MENU:
-			FuncMenu_DrawOutputMenu(Aux_CHANNEL);
+			FuncMenu_DrawOutputMenu(AUX_CHANNEL);
 			break;
 
 		default:

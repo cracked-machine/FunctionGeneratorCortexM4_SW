@@ -3,7 +3,7 @@ FreqMenuStateHandler.c:51:14:FreqSweepMenuEntryHandler	8	static
 FreqMenuStateHandler.c:100:14:FreqSweepMenuInputHandler	16	static
 FreqMenuStateHandler.c:279:14:FreqSweepMenuExitHandler	8	static
 FreqMenuStateHandler.c:310:14:FreqMainMenuEntryHandler	8	static
-FreqMenuStateHandler.c:334:14:FreqMainMenuInputHandler	8	static
+FreqMenuStateHandler.c:334:14:FreqMainMenuInputHandler	4	static
 FreqMenuStateHandler.c:352:14:FreqMainMenuExitHandler	8	static
 FreqMenuStateHandler.c:384:14:FreqPresetMenuEntryHandler	16	static
 FreqMenuStateHandler.c:422:14:FreqPresetMenuInputHandler	8	static

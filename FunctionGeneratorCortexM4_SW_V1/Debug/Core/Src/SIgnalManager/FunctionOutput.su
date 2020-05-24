@@ -2,5 +2,5 @@ FunctionOutput.c:52:6:FuncO_ResetLastEncoderValue	4	static
 FunctionOutput.c:66:6:FuncO_MapEncoderPositionToSignalOutput	24	static
 FunctionOutput.c:92:6:FuncO_MapEncoderPositionToAuxOutput	24	static
 FunctionOutput.c:129:6:FuncO_ApplyProfileToSignal	40	static
-FunctionOutput.c:231:6:FuncO_ApplyProfileToAux	40	static
-FunctionOutput.c:324:21:FuncO_FindFPresetObject	24	static
+FunctionOutput.c:232:6:FuncO_ApplyProfileToAux	40	static
+FunctionOutput.c:366:21:FuncO_FindFPresetObject	24	static

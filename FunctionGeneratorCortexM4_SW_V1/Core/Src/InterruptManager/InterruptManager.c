@@ -54,7 +54,7 @@ void IM_SWEEP_UPDATE_TIM_IRQHandler()
 {
 
 	#ifdef ENABLE_PWM_SWEEP
-		eOutput_mode tmpOut = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
+		eOutput_mode tmpOut = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
 	#endif	//ENABLE_PWM_SWEEP
 
 		// upcounter (decreasing freq)

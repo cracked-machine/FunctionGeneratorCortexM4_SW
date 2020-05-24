@@ -1,30 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="PWM"/>
+		<item key="selection" value="FuncPresetEncoderRange"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="FuncPresetEncoderRange"/>
+			<item value="active_sweep_mode"/>
+			<item value="tmpDT"/>
+			<item value="DT_GetRegisterByIndex"/>
+			<item value="typedef enum"/>
+			<item value="OUTPUT_TIMER"/>
+			<item value="DUTY"/>
+			<item value="DAC1"/>
+			<item value="TIM_CHANNEL_2"/>
 			<item value="PWM"/>
 			<item value="FuncO_"/>
 			<item value="FuncO"/>
 			<item value="Func0"/>
 			<item value="GUI_DrawHLine"/>
 			<item value="GUI_SetPixel"/>
-			<item value="LCD_WIDTH"/>
-			<item value="LCD_HEIGHT"/>
-			<item value="DrawProp-&gt;GuiYsize"/>
-			<item value="DrawProp-&gt;GuiXsize"/>
-			<item value="10"/>
-			<item value="WHITE"/>
-			<item value="calculated_sweep_in_hertz"/>
-			<item value="max_arr"/>
-			<item value="min_arr"/>
 		</list>
 		<list key="replacehistory">
+			<item value="FreqO_GetProfileByIndex"/>
+			<item value="DAC2"/>
+			<item value="TIM_CHANNEL_1"/>
 			<item value="Pwm"/>
 			<item value="SM_"/>
 			<item value="SM"/>
@@ -37,9 +40,6 @@
 			<item value="5"/>
 			<item value="NORMAL_TEXT_BGCOLOUR"/>
 			<item value="MAX_OUTPUT_ARR"/>
-			<item value="MIN_OUTPUT_ARR"/>
-			<item value="Hz"/>
-			<item value="TOPLEVEL"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

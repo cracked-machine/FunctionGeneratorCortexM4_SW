@@ -91,7 +91,7 @@ void FuncO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
  */
 void FuncO_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue)
 {
-	eOutput_mode tmpFunc = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
+	eOutput_mode tmpFunc = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
 	if(pEncoderValue > func_last_encoder_value)
 	{
 		tmpFunc++;
@@ -174,7 +174,7 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
 
 		// restart the the other DAC
 		HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
 		// resume timer to reAux both outputs
 		//HAL_TIM_Base_Start(&htim8);
@@ -186,6 +186,7 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
 	{
 	*/
 		// copy the lookup table for the next output function in to SignalChannel object
+		printf("SM_GetOutputChannel\n");
 		SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
 		// set preset for PGA gain and dsp amplitude adjustment
@@ -202,7 +203,7 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
 
 		// restart the the other DAC
 		HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
 		// resume timer to reAux both outputs
 		//HAL_TIM_Base_Start(&htim8);
@@ -230,12 +231,16 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
  */
 void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 {
+	HAL_StatusTypeDef res;
+
 	// set the next output function
-	SM_GetOutputChannel(Aux_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
+	SM_GetOutputChannel(AUX_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
 
 	if(pPresetEnum == PWM_FUNC_MODE)
 	{
+		printf("FuncO_ApplyProfileToAux PWM_FUNC_MODE\n");
 		// switch output signal from DAC to PWM
+
 		SM_DisableDacToAux();
 		SM_EnablePwmToAux();
 
@@ -244,33 +249,52 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 	}
 	else if(last_output_mode_was_pwm)
 	{
+		printf("FuncO_ApplyProfileToAux NOT PWM_FUNC_MODE\n");
 		// switch output signal from PWM to DAC
 		SM_DisablePwmToAux();
 		SM_EnableDacToAux();
 
 		// copy the lookup table for the next output function in to AuxChannel object
-		SM_GetOutputChannel(Aux_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
+		printf("FuncO_ApplyProfileToAux SM_GetOutputChannel\n");
+		SM_GetOutputChannel(AUX_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
 		// set preset PGA gain and dsp amplitude adjustment
-		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile->amp_setting;
+		printf("FuncO_ApplyProfileToAux SM_GetOutputChannel\n");
+		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(AUX_CHANNEL)->amp_profile->amp_setting;
+		printf("VPP_ApplyProfileToAux");
 		VPP_ApplyProfileToAux(eTmpVppPreset);
 
 		// pause timer to reAux both outputs
-		//HAL_TIM_Base_Stop(&htim8);
-		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Stop(&htim8)\n");
+		res = HAL_TIM_Base_Stop(&htim8);
+		printf("Result:%u\n",res);
+		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 
 		// CAN CAUSE HARDFAULT!
 		// restart the DAC with the new data
-		HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		printf("FuncO_ApplyProfileToAux HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1)\n");
+		res = HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+		printf("Result:%u\n",res);
+
+		printf("FuncO_ApplyProfileToAux HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1)\n");
+		res = HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		printf("Result:%u\n",res);
+
 
 		// restart the the other DAC
-		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-		HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		printf("FuncO_ApplyProfileToAux HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1)\n");
+		res = HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+		printf("Result:%u\n",res);
+
+		printf("FuncO_ApplyProfileToAux HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1)\n");
+		res = HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		printf("Result:%u\n",res);
 
 		// resume timer to reAux both outputs
-		//HAL_TIM_Base_Start(&htim8);
-		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Start(&htim8)\n");
+		res = HAL_TIM_Base_Start(&htim8);
+		printf("Result:%u\n",res);
+		//OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 
 		last_output_mode_was_pwm = 0;
 	}
@@ -278,28 +302,46 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 	{
 
 		// copy the lookup table for the next output function in to AuxChannel object
-		SM_GetOutputChannel(Aux_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
+		printf("FuncO_ApplyProfileToAux SM_GetOutputChannel\n");
+		SM_GetOutputChannel(AUX_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
 		// set preset PGA gain and dsp amplitude adjustment
-		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile->amp_setting;
+		printf("FuncO_ApplyProfileToAux SM_GetOutputChannel\n");
+		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(AUX_CHANNEL)->amp_profile->amp_setting;
+		printf("VPP_ApplyProfileToAux");
 		VPP_ApplyProfileToAux(eTmpVppPreset);
 
 		// pause timer to reAux both outputs
-		//HAL_TIM_Base_Stop(&htim8);
-		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Stop(&htim8)\n");
+		res = HAL_TIM_Base_Stop(&htim8);
+		printf("Result:%u\n",res);
+		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 
 		// CAN CAUSE HARDFAULT!
 		// restart the DAC with the new data
-		HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		printf("FuncO_ApplyProfileToAux HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1)\n");
+		res = HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+		printf("Result:%u\n",res);
+
+		printf("FuncO_ApplyProfileToAux HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1)\n");
+		res = HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		printf("Result:%u\n",res);
+
 
 		// restart the the other DAC
-		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-		HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		printf("FuncO_ApplyProfileToAux HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1)\n");
+		res = HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+		printf("Result:%u\n",res);
+
+		printf("FuncO_ApplyProfileToAux HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1)\n");
+		res = HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		printf("Result:%u\n",res);
 
 		// resume timer to reAux both outputs
-		//HAL_TIM_Base_Start(&htim8);
-		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Start(&htim8)\n");
+		res = HAL_TIM_Base_Start(&htim8);
+		printf("Result:%u\n",res);
+		//OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 	}
 
 }

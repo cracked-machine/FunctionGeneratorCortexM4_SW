@@ -64,7 +64,7 @@ void EM_ProcessEvent()
 		case Idle_State:
 
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 			  printf("Idle_State\n");
 			#endif
 
@@ -88,7 +88,7 @@ void EM_ProcessEvent()
 
 		case Toplevel_Output_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 			  printf("Toplevel_Output_Menu_State\n");
 			#endif
 
@@ -120,7 +120,7 @@ void EM_ProcessEvent()
 
 		case Toplevel_Input_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 			  printf("Toplevel_Input_Menu_State\n");
 			#endif
 
@@ -135,7 +135,7 @@ void EM_ProcessEvent()
 
 		case Func_Main_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Func_Main_Menu_State\n");
 			#endif
 
@@ -161,7 +161,7 @@ void EM_ProcessEvent()
 
 		case Func_Signal_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Func_Signal_Menu_State\n");
 			#endif
 
@@ -179,7 +179,7 @@ void EM_ProcessEvent()
 
 		case Func_Aux_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Func_Aux_Menu_State\n");
 			#endif
 
@@ -202,7 +202,7 @@ void EM_ProcessEvent()
 
 		case Gain_Main_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Gain_Main_Menu_State\n");
 			#endif
 			if(eNewEvent == evEncoderSet)
@@ -227,7 +227,7 @@ void EM_ProcessEvent()
 
 		case Gain_Signal_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Gain_Signal_Menu_State\n");
 			#endif
 
@@ -244,7 +244,7 @@ void EM_ProcessEvent()
 
 		case Gain_Aux_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Gain_Aux_Menu_State\n");
 			#endif
 
@@ -263,7 +263,7 @@ void EM_ProcessEvent()
 
 		case Freq_Main_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Freq_Main_Menu_State\n");
 			#endif
 
@@ -289,7 +289,7 @@ void EM_ProcessEvent()
 
 		case Freq_Preset_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Freq_Preset_Menu_State\n");
 			#endif
 
@@ -305,7 +305,7 @@ void EM_ProcessEvent()
 
 		case Freq_Adjust_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Freq_Adjust_Menu_State\n");
 			#endif
 
@@ -321,7 +321,7 @@ void EM_ProcessEvent()
 
 		case Freq_Sweep_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Freq_Sweep_Menu_State\n");
 			#endif
 
@@ -360,7 +360,7 @@ void EM_ProcessEvent()
 
 		case Bias_Menu_State:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				  printf("Bias_Menu_State\n");
 			#endif
 

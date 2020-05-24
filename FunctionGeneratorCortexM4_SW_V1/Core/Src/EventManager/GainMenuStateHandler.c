@@ -28,7 +28,7 @@ eGainMenu_Status GainMenu_getStatus()
  */
 eSystemState GainMainMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainMainMenuEntryHandler Event captured\n");
 	#endif
 
@@ -50,7 +50,7 @@ eSystemState GainMainMenuEntryHandler()
  */
 eSystemState GainMainMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainMainMenuInputHandler Event captured\n");
 	#endif
 
@@ -71,7 +71,7 @@ eSystemState GainMainMenuInputHandler()
  */
 eSystemState GainMainMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainMainMenuExitHandler Event captured\n");
 	#endif
 
@@ -79,7 +79,7 @@ eSystemState GainMainMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		  printf("returning to Idle State\n");
 	#endif
 
@@ -97,7 +97,7 @@ eSystemState GainMainMenuExitHandler()
  */
 eSystemState GainSignalMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainSignalMenuEntryHandler Event captured\n");
 	#endif
 
@@ -133,7 +133,7 @@ eSystemState GainSignalMenuEntryHandler()
  */
 eSystemState GainSignalMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainSignalMenuInputHandler Event captured\n");
 	#endif
 
@@ -167,7 +167,7 @@ eSystemState GainSignalMenuInputHandler()
  */
 eSystemState GainSignalMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainSignalMenuExitHandler Event captured\n");
 	#endif
 
@@ -190,7 +190,7 @@ eSystemState GainSignalMenuExitHandler()
  */
 eSystemState GainAuxMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainAuxMenuEntryHandler Event captured\n");
 	#endif
 
@@ -199,7 +199,7 @@ eSystemState GainAuxMenuEntryHandler()
 
 	eNextGainMenuStatus = ENABLE_GAIN_Aux_MENU;
 
-	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile;
+	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(AUX_CHANNEL)->amp_profile;
 
 	if(pTmpVppPreset)
 	{
@@ -225,7 +225,7 @@ eSystemState GainAuxMenuEntryHandler()
  */
 eSystemState GainAuxMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainAuxMenuInputHandler Event captured\n");
 	#endif
 
@@ -247,7 +247,7 @@ eSystemState GainAuxMenuInputHandler()
  */
 eSystemState GainAuxMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("GainAuxMenuExitHandler Event captured\n");
 	#endif
 

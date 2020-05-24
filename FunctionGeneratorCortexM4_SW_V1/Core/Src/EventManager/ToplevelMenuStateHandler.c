@@ -36,7 +36,7 @@ void ToplevelMenu_setStatus(eToplevelMenu_Status pStatus)
  */
 eSystemState ToplevelMainMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelMainMenuEntryHandler Event captured\n");
 	#endif
 
@@ -60,7 +60,7 @@ eSystemState ToplevelMainMenuEntryHandler()
  */
 eSystemState ToplevelMainMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelMainMenuInputHandler Event captured\n");
 	#endif
 
@@ -79,7 +79,7 @@ eSystemState ToplevelMainMenuInputHandler()
  */
 eSystemState ToplevelMainMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelMainMenuExitHandler Event captured\n");
 	#endif
 
@@ -91,7 +91,7 @@ eSystemState ToplevelMainMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		  printf("returning to Idle State\n");
 	#endif
 
@@ -109,7 +109,7 @@ eSystemState ToplevelMainMenuExitHandler()
  */
 eSystemState ToplevelOutputMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelOutputMenuEntryHandler Event captured\n");
 	#endif
 
@@ -136,7 +136,7 @@ eSystemState ToplevelOutputMenuEntryHandler()
  */
 eSystemState ToplevelOutputMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelOutputMenuInputHandler Event captured\n");
 	#endif
 
@@ -156,7 +156,7 @@ eSystemState ToplevelOutputMenuInputHandler()
  */
 eSystemState ToplevelOutputMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelOutputMenuExitHandler Event captured\n");
 	#endif
 
@@ -180,7 +180,7 @@ eSystemState ToplevelOutputMenuExitHandler()
  */
 eSystemState ToplevelInputMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelInputMenuEntryHandler Event captured\n");
 	#endif
 
@@ -207,7 +207,7 @@ eSystemState ToplevelInputMenuEntryHandler()
  */
 eSystemState ToplevelInputMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelInputMenuInputHandler Event captured\n");
 	#endif
 
@@ -227,7 +227,7 @@ eSystemState ToplevelInputMenuInputHandler()
  */
 eSystemState ToplevelInputMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelInputMenuExitHandler Event captured\n");
 	#endif
 

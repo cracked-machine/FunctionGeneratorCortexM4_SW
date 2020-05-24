@@ -192,11 +192,12 @@ void VPP_ApplyProfileToSignal(eAmpSettings_t pPresetEnum)
  */
 void VPP_ApplyProfileToAux(eAmpSettings_t pPresetEnum)
 {
+
 	// retrieve the next preset
 	AmplitudeProfile_t* pNextEncPreset = &theAmpProfiles[pPresetEnum];
 
 	// Set the new VPP Preset to the AuxChannel object
-	SM_GetOutputChannel(Aux_CHANNEL)->amp_profile = pNextEncPreset;
+	SM_GetOutputChannel(AUX_CHANNEL)->amp_profile = pNextEncPreset;
 
 	 // set the gain preset
 	//GO_ApplyPresetToAux(pNextEncPreset->gain_preset);
@@ -260,12 +261,12 @@ void _ProcessSignalDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _
  */
 void _ProcessAuxDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _encoder_value)
 {
-	if(SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func != PWM_FUNC_MODE)
+	if(SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func != PWM_FUNC_MODE)
 	{
 		// copy refer lookup datat table from AuxChannel object
 		for(int i = 0; i < SINE_DATA_SIZE; i++)
 		{
-			tmpDataTable[i] = SM_GetOutputChannel(Aux_CHANNEL)->ref_lut_data[i];
+			tmpDataTable[i] = SM_GetOutputChannel(AUX_CHANNEL)->ref_lut_data[i];
 		}
 
 		// calculate positive offset coefficient from encoder position
@@ -288,7 +289,7 @@ void _ProcessAuxDataTable(float _neg_gain_coeff, float amp_offset, uint16_t _enc
 	// restore lookup table copy to active lookup table in SignalChannel object
 	for(int i = 0; i < SINE_DATA_SIZE; i++)
 	{
-		SM_GetOutputChannel(Aux_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
+		SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data[i] = tmpDataTable[i];
 	}
 }
 
@@ -366,7 +367,7 @@ void VPP_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 void VPP_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue)
 {
 
-	eAmpSettings_t tmpAmp = SM_GetOutputChannel(Aux_CHANNEL)->amp_profile->amp_setting;
+	eAmpSettings_t tmpAmp = SM_GetOutputChannel(AUX_CHANNEL)->amp_profile->amp_setting;
 	if(pEncoderValue > amp_last_encoder_value)
 	{
 		tmpAmp++;

@@ -50,7 +50,7 @@ eFreqSweepModes FMSH_GetSweepMode()
  */
 eSystemState FreqSweepMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqSweepMenuEntryHandler captured\n");
 	#endif
 
@@ -99,7 +99,7 @@ eSystemState FreqSweepMenuEntryHandler()
  */
 eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqAdjustMenuInputHandler Event captured\n");
 	#endif
 
@@ -109,7 +109,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 	{
 		case evSweepEnableBtn:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				printf("evSweepEnable captured\n");
 			#endif
 
@@ -120,7 +120,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 
 		case evSweepModeBtn:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				printf("evSweepMode captured\n");
 			#endif
 
@@ -150,7 +150,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 		// rotary encoder is turned
 		case evEncoderSweep:
 
-			#ifdef SWV_DEBUG_ENABLED
+			#ifdef EVENT_MENU_DEBUG
 				printf("evEncoderSweep captured\n");
 			#endif
 
@@ -278,7 +278,7 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
  */
 eSystemState FreqSweepMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqSweepMenuExitHandler Event captured\n");
 	#endif
 
@@ -309,7 +309,7 @@ eSystemState FreqSweepMenuExitHandler()
  */
 eSystemState FreqMainMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqMainMenuEntryHandler Event captured\n");
 	#endif
 
@@ -333,7 +333,7 @@ eSystemState FreqMainMenuEntryHandler()
  */
 eSystemState FreqMainMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqMainMenuInputHandler Event captured\n");
 	#endif
 
@@ -351,7 +351,7 @@ eSystemState FreqMainMenuInputHandler()
  */
 eSystemState FreqMainMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqMainMenuExitHandler Event captured\n");
 	#endif
 
@@ -365,7 +365,7 @@ eSystemState FreqMainMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		  printf("returning to Idle State\n");
 	#endif
 
@@ -383,7 +383,7 @@ eSystemState FreqMainMenuExitHandler()
  */
 eSystemState FreqPresetMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqPresetMenuEntryHandler Event captured\n");
 	#endif
 
@@ -421,7 +421,7 @@ eSystemState FreqPresetMenuEntryHandler()
  */
 eSystemState FreqPresetMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqPresetMenuInputHandler Event captured\n");
 	#endif
 
@@ -442,7 +442,7 @@ eSystemState FreqPresetMenuInputHandler()
  */
 eSystemState FreqPresetMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqPresetMenuExitHandler Event captured\n");
 	#endif
 
@@ -466,7 +466,7 @@ eSystemState FreqPresetMenuExitHandler()
  */
 eSystemState FreqAdjustMenuEntryHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqAdjustMenuEntryHandler Event captured\n");
 	#endif
 
@@ -493,7 +493,7 @@ eSystemState FreqAdjustMenuEntryHandler()
  */
 eSystemState FreqAdjustMenuInputHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqAdjustMenuInputHandler Event captured\n");
 	#endif
 
@@ -515,7 +515,7 @@ eSystemState FreqAdjustMenuInputHandler()
  */
 eSystemState FreqAdjustMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FreqAdjustMenuExitHandler Event captured\n");
 	#endif
 

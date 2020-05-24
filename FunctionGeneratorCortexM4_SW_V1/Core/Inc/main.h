@@ -63,8 +63,7 @@ char control_pressed[10];
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
 
-// enable printf/SWV debug messages
-#define SWV_DEBUG_ENABLED
+
 
 /* USER CODE END EM */
 

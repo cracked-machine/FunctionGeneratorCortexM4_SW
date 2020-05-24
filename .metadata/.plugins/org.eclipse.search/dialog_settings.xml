@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="BO_SetPwmSignalAboveDC"/>
+			<item key="textPattern" value="_setSweepModeDown"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -44,7 +44,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="BO_SetSignalAboveDC"/>
+			<item key="textPattern" value="FreqO_InitProfiles"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -57,11 +57,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VPP_ModifySyncOutput"/>
+			<item key="textPattern" value="DT_InitRegister"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
-				<item value="*.c"/>
 				<item value="*.h"/>
+				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -70,7 +70,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VPP_ModifySignalOutput"/>
+			<item key="textPattern" value="FreqO_ApplyPreset"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -83,7 +83,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VPP_ApplyPresetToSync"/>
+			<item key="textPattern" value="FuncO_ApplyPresetToAux"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -96,7 +96,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="VPP_ApplyPresetToSignal"/>
+			<item key="textPattern" value="FuncO_ApplyPresetToSignal"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -109,7 +109,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="BO_ModifyOutput"/>
+			<item key="textPattern" value="_InitNegGainCoefficients"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -122,8 +122,8 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="GO_ModifyOutputSignal"/>
-			<item key="scope" value="3"/>
+			<item key="textPattern" value="OUTPUT_TIMER-&gt;ARR = "/>
+			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
 				<item value="*.c"/>
@@ -135,10 +135,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="GO_ModifyOutputSync"/>
+			<item key="textPattern" value="OUTPUT_TIMER-&gt;ARR"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.c"/>
+				<item value="*.h"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -147,9 +148,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FreqO_ModifyOutput"/>
+			<item key="textPattern" value="Sync"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -159,9 +161,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FuncO_ModifySyncOutput"/>
+			<item key="textPattern" value="SyncChannel"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -171,9 +174,10 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FuncO_ModifySignalOutput"/>
-			<item key="scope" value="3"/>
+			<item key="textPattern" value="SM_EnablePwmToSync"/>
+			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
+				<item value="*.h"/>
 				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
@@ -201,13 +205,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
-			<item value="BO_SetPwmSignalOffsetForGain"/>
-			<item value="BO_SetPwmSignalAboveDC"/>
-			<item value="VPP_MapEncoderPositionToSyncOutput"/>
-			<item value="VPP_MapEncoderPositionToSignalOutput"/>
-			<item value="VPP_ApplyProfileToSync"/>
-			<item value="VPP_ApplyProfileToSignal"/>
-			<item value="BO_MapEncoderPositionToSignalOutput"/>
+			<item value="FS_SetSweepModeDown"/>
+			<item value="FreqO_InitFreqProfiles"/>
+			<item value="FreqO_InitProfiles"/>
+			<item value="FreqO_ApplyProfile"/>
+			<item value="FuncO_ApplyProfileToAux"/>
+			<item value="FuncO_ApplyProfileToSignal"/>
+			<item value="_InitAmpProfiles"/>
 		</list>
 	</section>
 	<section name="">

@@ -1,11 +1,11 @@
 ToplevelMenuStateHandler.c:19:22:ToplevelMenu_getStatus	4	static
 ToplevelMenuStateHandler.c:24:6:ToplevelMenu_setStatus	16	static
 ToplevelMenuStateHandler.c:37:14:ToplevelMainMenuEntryHandler	8	static
-ToplevelMenuStateHandler.c:61:14:ToplevelMainMenuInputHandler	8	static
+ToplevelMenuStateHandler.c:61:14:ToplevelMainMenuInputHandler	4	static
 ToplevelMenuStateHandler.c:80:14:ToplevelMainMenuExitHandler	8	static
 ToplevelMenuStateHandler.c:110:14:ToplevelOutputMenuEntryHandler	8	static
-ToplevelMenuStateHandler.c:137:14:ToplevelOutputMenuInputHandler	8	static
+ToplevelMenuStateHandler.c:137:14:ToplevelOutputMenuInputHandler	4	static
 ToplevelMenuStateHandler.c:157:14:ToplevelOutputMenuExitHandler	8	static
 ToplevelMenuStateHandler.c:181:14:ToplevelInputMenuEntryHandler	8	static
-ToplevelMenuStateHandler.c:208:14:ToplevelInputMenuInputHandler	8	static
+ToplevelMenuStateHandler.c:208:14:ToplevelInputMenuInputHandler	4	static
 ToplevelMenuStateHandler.c:228:14:ToplevelInputMenuExitHandler	8	static

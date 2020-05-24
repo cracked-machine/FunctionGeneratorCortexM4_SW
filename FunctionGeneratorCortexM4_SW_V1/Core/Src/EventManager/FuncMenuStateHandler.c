@@ -33,7 +33,7 @@ eFuncMenu_Status FuncMenu_getStatus()
  */
 eSystemState FuncMainMenuEntryHandler(void)
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncMainMenuEntryHandler Event captured\n");
 	#endif
 
@@ -55,7 +55,7 @@ eSystemState FuncMainMenuEntryHandler(void)
  */
 eSystemState FuncMainMenuInputHandler(void)
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncMainMenuInputHandler Event captured\n");
 	#endif
 
@@ -73,7 +73,7 @@ eSystemState FuncMainMenuInputHandler(void)
  */
 eSystemState FuncMainMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncMainMenuExitHandler Event captured\n");
 	#endif
 
@@ -84,7 +84,7 @@ eSystemState FuncMainMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		  printf("returning to Idle State\n");
 	#endif
 
@@ -103,7 +103,7 @@ eSystemState FuncMainMenuExitHandler()
  */
 eSystemState FuncSignalMenuEntryHandler(void)
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncSignalMenuEntryHandler Event captured\n");
 	#endif
 
@@ -141,7 +141,7 @@ eSystemState FuncSignalMenuEntryHandler(void)
  */
 eSystemState FuncSignalMenuInputHandler(void)
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncSignalMenuInputHandler Event captured\n");
 	#endif
 
@@ -180,7 +180,7 @@ eSystemState FuncSignalToggleDutyMode()
  */
 eSystemState FuncSignalMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncSignalMenuExitHandler Event captured\n");
 	#endif
 
@@ -209,7 +209,7 @@ eSystemState FuncSignalMenuExitHandler()
  */
 eSystemState FuncAuxMenuEntryHandler(void)
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncAuxMenuEntryHandler Event captured\n");
 	#endif
 
@@ -219,7 +219,7 @@ eSystemState FuncAuxMenuEntryHandler(void)
 	eNextFuncMenuStatus = 	ENABLE_FUNC_Aux_MENU;
 
 	//FunctionProfile_t *func_profileTmp =  FuncO_GetAuxFPresetObject();
-/*	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(Aux_CHANNEL)->func_profile;
+/*	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(AUX_CHANNEL)->func_profile;
 	if(func_profileTmp)
 	{
 		ENCODER_TIMER->CNT = func_profileTmp->epos;
@@ -247,7 +247,7 @@ eSystemState FuncAuxMenuEntryHandler(void)
  */
 eSystemState FuncAuxMenuInputHandler(void)
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncAuxMenuInputHandler Event captured\n");
 	#endif
 
@@ -295,7 +295,7 @@ eSystemState FuncAuxToggleDutyMode()
  */
 eSystemState FuncAuxMenuExitHandler()
 {
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		printf("FuncAuxMenuExitHandler Event captured\n");
 	#endif
 

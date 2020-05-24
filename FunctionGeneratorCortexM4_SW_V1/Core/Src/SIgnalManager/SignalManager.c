@@ -86,7 +86,7 @@ void _InitOutputChannels()
 	SignalChannel.gain_profile = &theGainProfiles[eDefaultGainPreset];
 
 	// initialise the Aux output channel
-	AuxChannel.channel = Aux_CHANNEL;
+	AuxChannel.channel = AUX_CHANNEL;
 	AuxChannel.ref_lut_data = theFuncProfiles[SINE_FUNC_MODE].lookup_table_data;
 	AuxChannel.func_profile = &theFuncProfiles[eDefaultFuncPreset];
 
@@ -101,6 +101,7 @@ void _InitOutputChannels()
 
 sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
 {
+
 	if(!pChannel)
 		return &SignalChannel;
 	else
@@ -120,6 +121,8 @@ sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel)
  */
 void SM_EnablePwmToSignal()
 {
+	printf("SM_EnablePwmToSignal\n");
+
 	TIM_ClockConfigTypeDef sClockSourceConfig = {0};
 	TIM_MasterConfigTypeDef sMasterConfig = {0};
 	TIM_OC_InitTypeDef sConfigOC = {0};
@@ -196,6 +199,7 @@ void SM_EnablePwmToSignal()
 
 void SM_DisablePwmToSignal()
 {
+	printf("SM_DisablePwmToSignal\n");
 	/* USER CODE BEGIN TIM3_MspDeInit 0 */
 
 	/* USER CODE END TIM3_MspDeInit 0 */
@@ -219,6 +223,7 @@ void SM_DisablePwmToSignal()
  */
 void SM_EnableDacToSignal()
 {
+	printf("SM_EnableDacToSignal");
 	DAC_ChannelConfTypeDef sConfig = {0};
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
@@ -297,11 +302,9 @@ void SM_EnableDacToSignal()
  */
 void SM_DisableDacToSignal()
 {
+	printf("SM_EnableDacToSignal");
 
-
-	    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4);
-
-
+	HAL_GPIO_DeInit(GPIOA, GPIO_PIN_4);
 }
 
 /*
@@ -314,6 +317,9 @@ void SM_DisableDacToSignal()
  */
 void SM_EnablePwmToAux()
 {
+	printf("SM_EnablePwmToAux\n");
+
+	HAL_StatusTypeDef res = 0;
 	TIM_ClockConfigTypeDef sClockSourceConfig = {0};
 	TIM_MasterConfigTypeDef sMasterConfig = {0};
 	TIM_OC_InitTypeDef sConfigOC = {0};
@@ -326,37 +332,42 @@ void SM_EnablePwmToAux()
 	htim3.Init.Period = 1;
 	htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV4;
 	htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
-	if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+	if ((res == HAL_TIM_Base_Init(&htim3)) != HAL_OK)
 	{
+		printf("SM_EnablePwmToAux HAL_TIM_Base_Init() Result:%u\n",res);
 		Error_Handler();
 	}
 	sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
-	if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+	if ((res == HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig)) != HAL_OK)
 	{
+		printf("SM_EnablePwmToAux HAL_TIM_ConfigClockSource() Result:%u\n",res);
 		Error_Handler();
 	}
-	if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
+	if ((res == HAL_TIM_PWM_Init(&htim3)) != HAL_OK)
 	{
+		printf("SM_EnablePwmToAux HAL_TIM_PWM_Init() Result:%u\n",res);
 		Error_Handler();
 	}
 	sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
 	sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
-	if (HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig) != HAL_OK)
+	if ((res == HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig)) != HAL_OK)
 	{
+		printf("SM_EnablePwmToAux HAL_TIMEx_MasterConfigSynchronization() Result:%u\n",res);
 		Error_Handler();
 	}
 	sConfigOC.OCMode = TIM_OCMODE_PWM1;
 	sConfigOC.Pulse = 0;
 	sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
 	sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-	if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+	if ((res == HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1)) != HAL_OK)
 	{
+		printf("SM_EnablePwmToAux HAL_TIM_PWM_ConfigChannel() Result:%u\n",res);
 		Error_Handler();
 	}
 
 
 	// Timer Post Initialization
-
+	printf("SM_EnablePwmToAux: __HAL_RCC_GPIOA_CLK_ENABLE\n");
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	/**TIM3 GPIO Configuration
 	PA4     ------> TIM3_CH2
@@ -366,25 +377,38 @@ void SM_EnablePwmToAux()
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	GPIO_InitStruct.Alternate = GPIO_AF2_TIM3;
+	printf("SM_EnablePwmToAux: HAL_GPIO_Init\n");
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 
 	// TIM3_MspInit 0
 
 	/* TIM3 clock enable */
+	printf("SM_EnablePwmToAux: __HAL_RCC_TIM3_CLK_ENABLE\n");
 	__HAL_RCC_TIM3_CLK_ENABLE();
 
 	/* TIM3 interrupt Init */
+	printf("SM_EnablePwmToAux: HAL_NVIC_SetPriority\n");
 	HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
+	printf("SM_EnablePwmToAux: HAL_NVIC_EnableIRQ\n");
 	HAL_NVIC_EnableIRQ(TIM3_IRQn);
 	/* USER CODE BEGIN TIM3_MspInit 1 */
 
 	/* USER CODE END TIM3_MspInit 1 */
+	printf("SM_EnablePwmToAux: HAL_TIM_PWM_Start\n");
+	if ((res == HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1)) != HAL_OK)
+	{
+		printf("SM_EnablePwmToAux HAL_TIM_PWM_Start() Result:%u\n",res);
+		Error_Handler();
+	}
 
-	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+	printf("SM_EnablePwmToAux: GO_ApplyPresetToSignal\n");
 	GO_ApplyPresetToSignal(eDefaultGainPreset);
+
 	// 50% duty cycle
+	printf("SM_EnablePwmToAux: TIM3->CCR1 = 32768\n");
 	TIM3->CCR1 = 32768;
+	printf("SM_EnablePwmToAux: TIM3->ARR = 65535\n");
 	TIM3->ARR = 65535;
 }
 
@@ -398,13 +422,25 @@ void SM_EnablePwmToAux()
  */
 void SM_DisablePwmToAux()
 {
-	/* USER CODE BEGIN TIM3_MspDeInit 0 */
+	printf("SM_DisablePwmToAux");
 
+	HAL_StatusTypeDef res = 0;
+
+
+	/* USER CODE BEGIN TIM3_MspDeInit 0 */
+	printf("SM_DisablePwmToAux: HAL_TIM_PWM_Stop\n");
+	if ((res == HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1)) != HAL_OK)
+	{
+		printf("SM_DisablePwmToAux HAL_TIM_PWM_Stop() Result:%u\n",res);
+		Error_Handler();
+	}
 	/* USER CODE END TIM3_MspDeInit 0 */
 	/* Peripheral clock disable */
+	printf("SM_DisablePwmToAux __HAL_RCC_TIM3_CLK_DISABLE\n");
 	__HAL_RCC_TIM3_CLK_DISABLE();
 
 	/* TIM3 interrupt Deinit */
+	printf("SM_DisablePwmToAux HAL_NVIC_DisableIRQ\n");
 	HAL_NVIC_DisableIRQ(TIM3_IRQn);
 	/* USER CODE BEGIN TIM3_MspDeInit 1 */
 
@@ -421,6 +457,9 @@ void SM_DisablePwmToAux()
  */
 void SM_EnableDacToAux()
 {
+	printf("SM_EnableDacToAux");
+
+	HAL_StatusTypeDef res = 0;
 	DAC_ChannelConfTypeDef sConfig = {0};
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 	DAC_HandleTypeDef hdac2;
@@ -428,8 +467,9 @@ void SM_EnableDacToAux()
 	/** DAC Initialization
 	*/
 	hdac2.Instance = DAC2;
-	if (HAL_DAC_Init(&hdac2) != HAL_OK)
+	if ((res == HAL_DAC_Init(&hdac2)) != HAL_OK)
 	{
+		printf("SM_EnableDacToAux HAL_DAC_Init() Result:%u\n",res);
 		Error_Handler();
 	}
 	/** DAC channel OUT1 config
@@ -443,8 +483,9 @@ void SM_EnableDacToAux()
 	sConfig.DAC_OutputBuffer = DAC_OUTPUTBUFFER_ENABLE;
 	sConfig.DAC_ConnectOnChipPeripheral = DAC_CHIPCONNECT_DISABLE;
 	sConfig.DAC_UserTrimming = DAC_TRIMMING_FACTORY;
-	if (HAL_DAC_ConfigChannel(&hdac2, &sConfig, DAC_CHANNEL_1) != HAL_OK)
+	if ((res == HAL_DAC_ConfigChannel(&hdac2, &sConfig, DAC_CHANNEL_1)) != HAL_OK)
 	{
+		printf("SM_EnableDacToAux HAL_DAC_ConfigChannel() Result:%u\n",res);
 		Error_Handler();
 	}
 
@@ -452,8 +493,10 @@ void SM_EnableDacToAux()
 
 	/* USER CODE END DAC2_MspInit 0 */
 	/* DAC2 clock enable */
+	printf("SM_EnableDacToAux __HAL_RCC_DAC2_CLK_ENABLE()\n");
 	__HAL_RCC_DAC2_CLK_ENABLE();
 
+	printf("SM_EnableDacToAux __HAL_RCC_GPIOA_CLK_ENABLE()\n");
 	__HAL_RCC_GPIOA_CLK_ENABLE();
 	/**DAC2 GPIO Configuration
 	PA6     ------> DAC2_OUT1
@@ -461,6 +504,7 @@ void SM_EnableDacToAux()
 	GPIO_InitStruct.Pin = GPIO_PIN_6;
 	GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	printf("SM_EnableDacToAux HAL_GPIO_Init()\n");
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 	/* DAC2 DMA Init */
@@ -474,11 +518,13 @@ void SM_EnableDacToAux()
 	hdma_dac2_ch1.Init.MemDataAlignment = DMA_MDATAALIGN_WORD;
 	hdma_dac2_ch1.Init.Mode = DMA_CIRCULAR;
 	hdma_dac2_ch1.Init.Priority = DMA_PRIORITY_LOW;
-	if (HAL_DMA_Init(&hdma_dac2_ch1) != HAL_OK)
+	if ((res == HAL_DMA_Init(&hdma_dac2_ch1)) != HAL_OK)
 	{
-	  Error_Handler();
+		printf("SM_EnableDacToAux HAL_DMA_Init() Result:%u\n",res);
+		Error_Handler();
 	}
 
+	printf("SM_EnableDacToAux __HAL_LINKDMA()\n");
 	__HAL_LINKDMA(&hdac2,DMA_Handle1,hdma_dac2_ch1);
 
     //GO_ApplyPresetToAux(eDefaultGainPreset);
@@ -495,12 +541,16 @@ void SM_EnableDacToAux()
 void SM_DisableDacToAux()
 {
 
+
+	printf("SM_DisableDacToAux\n");
     //__HAL_RCC_DAC2_CLK_DISABLE();
 
     /**DAC2 GPIO Configuration
     PA6     ------> DAC2_OUT1
     */
+	printf("SM_DisableDacToAux HAL_GPIO_DeInit\n");
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_6);
+
 }
 
 

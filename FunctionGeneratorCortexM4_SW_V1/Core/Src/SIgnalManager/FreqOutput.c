@@ -145,7 +145,7 @@ void FreqO_ApplyProfile(eFreqSettings_t pPresetEnum)
 		OUTPUT_TIMER->PSC = tmpFreqProfile->psc;
 		OUTPUT_TIMER->ARR = tmpFreqProfile->arr;
 
-		eOutput_mode tmpOut = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
+		eOutput_mode tmpOut = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
 		if(tmpOut == PWM_FUNC_MODE)
 		{
 			// duty cycle of PWM require slower settings to get the
@@ -179,7 +179,7 @@ void FreqO_AdjustFreq()
 
 		OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD); //* FREQ_ENCODER_MIDFREQ_MAG;
 
-		eOutput_mode tmpOut = SM_GetOutputChannel(Aux_CHANNEL)->func_profile->func;
+		eOutput_mode tmpOut = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
 		if(tmpOut == PWM_FUNC_MODE)
 		{
 			// duty cycle of PWM require slower settings to get the

@@ -1,6 +1,6 @@
 FuncMenuStateHandler.c:21:18:FuncMenu_getStatus	4	static
 FuncMenuStateHandler.c:34:14:FuncMainMenuEntryHandler	8	static
-FuncMenuStateHandler.c:56:14:FuncMainMenuInputHandler	8	static
+FuncMenuStateHandler.c:56:14:FuncMainMenuInputHandler	4	static
 FuncMenuStateHandler.c:74:14:FuncMainMenuExitHandler	8	static
 FuncMenuStateHandler.c:104:14:FuncSignalMenuEntryHandler	8	static
 FuncMenuStateHandler.c:142:14:FuncSignalMenuInputHandler	8	static

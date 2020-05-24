@@ -21,6 +21,8 @@
 #include "pytriangleicon.h"
 #include "pyunitimpulse.h"
 
+#include <stdio.h>
+
 #include "tim.h"
 
 #define ENCODER_TIMER	TIM1
@@ -35,6 +37,8 @@
 #define eDefaultGainPreset  SEVEN_GAIN
 #define eDefaultVppPreset 	VPP90
 
+// enable printf/SWV debug messages
+//#define EVENT_MENU_DEBUG
 
 // shortest output period permitted
 #define MIN_OUTPUT_ARR 	13		//107KHz if SM_CLKC=168000000 and OUTPUT_TIMER->PSC=0
@@ -62,7 +66,7 @@ typedef enum
 typedef enum
 {
 	SIGNAL_CHANNEL = 0U,
-	Aux_CHANNEL
+	AUX_CHANNEL
 
 } eOutputChannel_t;
 

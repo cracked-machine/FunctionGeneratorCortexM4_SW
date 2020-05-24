@@ -14,6 +14,8 @@
 
 #include <stdio.h>
 
+
+
 /*
  *
  *	@brief
@@ -54,7 +56,7 @@ void ToplevelMenu_DrawMenu(eToplevelMenu_Status pMenu)
 void ToplevelMenu_DrawMainMenu()
 {
 	// Top Level screen
-	#ifdef SWV_DEBUG_ENABLED
+	#ifdef EVENT_MENU_DEBUG
 		  printf("Drawing Main screen\n");
 	#endif
 
