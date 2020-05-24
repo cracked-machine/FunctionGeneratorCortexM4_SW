@@ -220,7 +220,9 @@ void EM_ProcessEvent()
 			}
 			if(eNewEvent == evGreenBtn)
 			{
-				eNextState = GainAuxMenuEntryHandler();
+				eOutput_mode aux_output_func = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
+				if(aux_output_func != PWM_FUNC_MODE)
+					eNextState = GainAuxMenuEntryHandler();
 			}
 
 			break;

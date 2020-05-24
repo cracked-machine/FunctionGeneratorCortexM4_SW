@@ -217,7 +217,7 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 		printf("Result:%u\n",res);
 		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 
-		// CAN CAUSE HARDFAULT!
+		// CAN CAUSE HARDFAULT! Add delays if hard faults occur
 		// restart the DAC with the new data
 		printf("FuncO_ApplyProfileToAux HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1)\n");
 		res = HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
@@ -264,7 +264,7 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 		printf("Result:%u\n",res);
 		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 
-		// CAN CAUSE HARDFAULT!
+		// CAN CAUSE HARDFAULT! Add delays if hard faults occur
 		// restart the DAC with the new data
 		printf("FuncO_ApplyProfileToAux HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1)\n");
 		res = HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
