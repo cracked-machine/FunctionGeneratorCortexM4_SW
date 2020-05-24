@@ -255,7 +255,7 @@ eSystemState FuncAuxMenuInputHandler(void)
 	if(SM_IsFuncPwmDutyMode())
 	{
 		uint16_t enc_value = SM_GetEncoderValue(ENCODER_FORWARD);
-		TIM3->CCR1 = (pow(enc_value, 2));
+		PWM_AUX_OUT_TIM->CCR1 = (pow(enc_value, 2));
 		//BO_SetPwmSignalOffsetForDuty(BO_GetOutputBias() + SM_GetEncoderValue(ENCODER_FORWARD));
 
 	}

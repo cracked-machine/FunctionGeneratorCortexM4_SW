@@ -70,9 +70,9 @@ void IM_SWEEP_UPDATE_TIM_IRQHandler()
 				{
 					// duty cycle of PWM require slower settings to get the
 					// same frequency as normal output functions
-					TIM3->PSC = 256;
-					TIM3->ARR = sweep_lower_bounds_shortest_output_arr/2;
-					TIM3->CCR1 = TIM3->ARR/2;
+					PWM_AUX_OUT_TIM->PSC = 256;
+					PWM_AUX_OUT_TIM->ARR = sweep_lower_bounds_shortest_output_arr/2;
+					PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 
 				}
 			#endif	//ENABLE_PWM_SWEEP
@@ -88,8 +88,8 @@ void IM_SWEEP_UPDATE_TIM_IRQHandler()
 					// duty cycle of PWM require slower settings to get the
 					// same frequency as normal output functions
 
-					TIM3->ARR++;
-					TIM3->CCR1 = TIM3->ARR/2;
+					PWM_AUX_OUT_TIM->ARR++;
+					PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 				}
 			#endif	//ENABLE_PWM_SWEEP
 
@@ -111,8 +111,8 @@ void IM_SWEEP_UPDATE_TIM_IRQHandler()
 					// duty cycle of PWM require slower settings to get the
 					// same frequency as normal output functions
 
-					TIM3->ARR = MAX_OUTPUT_ARR/2;
-					TIM3->CCR1 = TIM3->ARR/2;
+					PWM_AUX_OUT_TIM->ARR = MAX_OUTPUT_ARR/2;
+					PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 
 				}
 			#endif	//ENABLE_PWM_SWEEP
@@ -132,8 +132,8 @@ void IM_SWEEP_UPDATE_TIM_IRQHandler()
 						// duty cycle of PWM require slower settings to get the
 						// same frequency as normal output functions
 
-						TIM3->ARR = sweep_upper_bounds_longest_output_arr/2;
-						TIM3->CCR1 = TIM3->ARR/2;
+						PWM_AUX_OUT_TIM->ARR = sweep_upper_bounds_longest_output_arr/2;
+						PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 
 					}
 				#endif	//ENABLE_PWM_SWEEP
@@ -150,8 +150,8 @@ void IM_SWEEP_UPDATE_TIM_IRQHandler()
 						// duty cycle of PWM require slower settings to get the
 						// same frequency as normal output functions
 
-						TIM3->ARR--;
-						TIM3->CCR1 = TIM3->ARR/2;
+						PWM_AUX_OUT_TIM->ARR--;
+						PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 					}
 				#endif	//ENABLE_PWM_SWEEP
 			}

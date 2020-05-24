@@ -207,7 +207,7 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan)
 				{
 					ILI9341_Draw_Text("DUTY", 	175, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 					char duty[10] = "";
-					snprintf(duty, sizeof(duty), "%0.2f%%", ((float)TIM3->CCR1 / (float)TIM3->ARR) * 100);
+					snprintf(duty, sizeof(duty), "%0.2f%%", ((float)PWM_AUX_OUT_TIM->CCR1 / (float)PWM_AUX_OUT_TIM->ARR) * 100);
 					ILI9341_Draw_Text(duty, 	220, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 					if(SM_IsFuncPwmDutyMode())
 					{

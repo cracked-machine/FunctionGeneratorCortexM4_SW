@@ -129,7 +129,7 @@ void SM_EnablePwmToSignal()
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 
-	htim3.Instance = TIM3;
+	htim3.Instance = PWM_AUX_OUT_TIM;
 	htim3.Init.Prescaler = 0;
 	htim3.Init.CounterMode = TIM_COUNTERMODE_DOWN;
 	htim3.Init.Period = 1;
@@ -167,8 +167,8 @@ void SM_EnablePwmToSignal()
 	// Timer Post Initialization
 
 	__HAL_RCC_GPIOA_CLK_ENABLE();
-	/**TIM3 GPIO Configuration
-	PA4     ------> TIM3_CH2
+	/**PWM_AUX_OUT_TIM GPIO Configuration
+	PA4     ------> PWM_AUX_OUT_TIM_CH2
 	*/
 	GPIO_InitStruct.Pin = GPIO_PIN_4;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -178,39 +178,39 @@ void SM_EnablePwmToSignal()
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 
-	// TIM3_MspInit 0
+	// PWM_AUX_OUT_TIM_MspInit 0
 
-	/* TIM3 clock enable */
+	/* PWM_AUX_OUT_TIM clock enable */
 	__HAL_RCC_TIM3_CLK_ENABLE();
 
-	/* TIM3 interrupt Init */
+	/* PWM_AUX_OUT_TIM interrupt Init */
 	HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
 	HAL_NVIC_EnableIRQ(TIM3_IRQn);
-	/* USER CODE BEGIN TIM3_MspInit 1 */
+	/* USER CODE BEGIN PWM_AUX_OUT_TIM_MspInit 1 */
 
-	/* USER CODE END TIM3_MspInit 1 */
+	/* USER CODE END PWM_AUX_OUT_TIM_MspInit 1 */
 
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
 	GO_ApplyPresetToSignal(eDefaultGainPreset);
 	// 50% duty cycle
-	TIM3->CCR2 = 32768;
-	TIM3->ARR = 65535;
+	PWM_AUX_OUT_TIM->CCR2 = 32768;
+	PWM_AUX_OUT_TIM->ARR = 65535;
 }
 
 void SM_DisablePwmToSignal()
 {
 	printf("SM_DisablePwmToSignal\n");
-	/* USER CODE BEGIN TIM3_MspDeInit 0 */
+	/* USER CODE BEGIN PWM_AUX_OUT_TIM_MspDeInit 0 */
 
-	/* USER CODE END TIM3_MspDeInit 0 */
+	/* USER CODE END PWM_AUX_OUT_TIM_MspDeInit 0 */
 	/* Peripheral clock disable */
 	__HAL_RCC_TIM3_CLK_DISABLE();
 
-	/* TIM3 interrupt Deinit */
+	/* PWM_AUX_OUT_TIM interrupt Deinit */
 	HAL_NVIC_DisableIRQ(TIM3_IRQn);
-	/* USER CODE BEGIN TIM3_MspDeInit 1 */
+	/* USER CODE BEGIN PWM_AUX_OUT_TIM_MspDeInit 1 */
 
-	/* USER CODE END TIM3_MspDeInit 1 */
+	/* USER CODE END PWM_AUX_OUT_TIM_MspDeInit 1 */
 }
 
 /*
@@ -326,7 +326,7 @@ void SM_EnablePwmToAux()
 	GPIO_InitTypeDef GPIO_InitStruct = {0};
 
 
-	htim3.Instance = TIM3;
+	htim3.Instance = PWM_AUX_OUT_TIM;
 	htim3.Init.Prescaler = 0;
 	htim3.Init.CounterMode = TIM_COUNTERMODE_DOWN;
 	htim3.Init.Period = 1;
@@ -369,8 +369,8 @@ void SM_EnablePwmToAux()
 	// Timer Post Initialization
 	printf("SM_EnablePwmToAux: __HAL_RCC_GPIOA_CLK_ENABLE\n");
 	__HAL_RCC_GPIOA_CLK_ENABLE();
-	/**TIM3 GPIO Configuration
-	PA4     ------> TIM3_CH2
+	/**PWM_AUX_OUT_TIM GPIO Configuration
+	PA4     ------> PWM_AUX_OUT_TIM_CH2
 	*/
 	GPIO_InitStruct.Pin = GPIO_PIN_6;
 	GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -381,20 +381,20 @@ void SM_EnablePwmToAux()
 	HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 
-	// TIM3_MspInit 0
+	// PWM_AUX_OUT_TIM_MspInit 0
 
-	/* TIM3 clock enable */
-	printf("SM_EnablePwmToAux: __HAL_RCC_TIM3_CLK_ENABLE\n");
+	/* PWM_AUX_OUT_TIM clock enable */
+	printf("SM_EnablePwmToAux: __HAL_RCC_PWM_AUX_OUT_TIM_CLK_ENABLE\n");
 	__HAL_RCC_TIM3_CLK_ENABLE();
 
-	/* TIM3 interrupt Init */
+	/* PWM_AUX_OUT_TIM interrupt Init */
 	printf("SM_EnablePwmToAux: HAL_NVIC_SetPriority\n");
 	HAL_NVIC_SetPriority(TIM3_IRQn, 0, 0);
 	printf("SM_EnablePwmToAux: HAL_NVIC_EnableIRQ\n");
 	HAL_NVIC_EnableIRQ(TIM3_IRQn);
-	/* USER CODE BEGIN TIM3_MspInit 1 */
+	/* USER CODE BEGIN PWM_AUX_OUT_TIM_MspInit 1 */
 
-	/* USER CODE END TIM3_MspInit 1 */
+	/* USER CODE END PWM_AUX_OUT_TIM_MspInit 1 */
 	printf("SM_EnablePwmToAux: HAL_TIM_PWM_Start\n");
 	if ((res == HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1)) != HAL_OK)
 	{
@@ -406,10 +406,10 @@ void SM_EnablePwmToAux()
 	GO_ApplyPresetToSignal(eDefaultGainPreset);
 
 	// 50% duty cycle
-	printf("SM_EnablePwmToAux: TIM3->CCR1 = 32768\n");
-	TIM3->CCR1 = 32768;
-	printf("SM_EnablePwmToAux: TIM3->ARR = 65535\n");
-	TIM3->ARR = 65535;
+	printf("SM_EnablePwmToAux: PWM_AUX_OUT_TIM->CCR1 = 32768\n");
+	PWM_AUX_OUT_TIM->CCR1 = 32768;
+	printf("SM_EnablePwmToAux: PWM_AUX_OUT_TIM->ARR = 65535\n");
+	PWM_AUX_OUT_TIM->ARR = 65535;
 }
 
 /*
@@ -427,24 +427,24 @@ void SM_DisablePwmToAux()
 	HAL_StatusTypeDef res = 0;
 
 
-	/* USER CODE BEGIN TIM3_MspDeInit 0 */
+	/* USER CODE BEGIN PWM_AUX_OUT_TIM_MspDeInit 0 */
 	printf("SM_DisablePwmToAux: HAL_TIM_PWM_Stop\n");
 	if ((res == HAL_TIM_PWM_Stop(&htim3, TIM_CHANNEL_1)) != HAL_OK)
 	{
 		printf("SM_DisablePwmToAux HAL_TIM_PWM_Stop() Result:%u\n",res);
 		Error_Handler();
 	}
-	/* USER CODE END TIM3_MspDeInit 0 */
+	/* USER CODE END PWM_AUX_OUT_TIM_MspDeInit 0 */
 	/* Peripheral clock disable */
-	printf("SM_DisablePwmToAux __HAL_RCC_TIM3_CLK_DISABLE\n");
+	printf("SM_DisablePwmToAux __HAL_RCC_PWM_AUX_OUT_TIM_CLK_DISABLE\n");
 	__HAL_RCC_TIM3_CLK_DISABLE();
 
-	/* TIM3 interrupt Deinit */
+	/* PWM_AUX_OUT_TIM interrupt Deinit */
 	printf("SM_DisablePwmToAux HAL_NVIC_DisableIRQ\n");
 	HAL_NVIC_DisableIRQ(TIM3_IRQn);
-	/* USER CODE BEGIN TIM3_MspDeInit 1 */
+	/* USER CODE BEGIN PWM_AUX_OUT_TIM_MspDeInit 1 */
 
-	/* USER CODE END TIM3_MspDeInit 1 */
+	/* USER CODE END PWM_AUX_OUT_TIM_MspDeInit 1 */
 }
 
 /*

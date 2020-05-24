@@ -32,6 +32,8 @@
 #define OUTPUT_TIMER TIM8
 #define SWEEP_TIMER TIM5
 
+#define PWM_AUX_OUT_TIM	TIM3
+
 #define eDefaultFreqPreset 	FPRESET_1KHZ
 #define eDefaultFuncPreset 	SINE_FUNC_MODE
 #define eDefaultGainPreset  SEVEN_GAIN

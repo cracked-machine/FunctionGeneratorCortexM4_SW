@@ -141,11 +141,12 @@ int main(void)
   MX_TIM5_Init();
   MX_TIM3_Init();
   MX_DAC2_Init();
+  MX_TIM17_Init();
   /* USER CODE BEGIN 2 */
 
   SM_Init();
 
-
+HAL_TIM_Base_Start_IT(&htim17);
 
 
 // http://www.ti.com/lit/ds/symlink/ts5a3357.pdf
@@ -244,7 +245,7 @@ int main(void)
   {
 
 
-	EM_ProcessEvent();
+	//EM_ProcessEvent();
 
 
 

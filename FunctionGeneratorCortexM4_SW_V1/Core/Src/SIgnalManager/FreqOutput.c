@@ -150,9 +150,9 @@ void FreqO_ApplyProfile(eFreqSettings_t pPresetEnum)
 		{
 			// duty cycle of PWM require slower settings to get the
 			// same frequency as normal output functions
-			TIM3->PSC = 256;
-			TIM3->ARR = tmpFreqProfile->arr/2;
-			TIM3->CCR1 = TIM3->ARR/2;
+			PWM_AUX_OUT_TIM->PSC = 256;
+			PWM_AUX_OUT_TIM->ARR = tmpFreqProfile->arr/2;
+			PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 		}
 
 		freq_profile = tmpFreqProfile;
@@ -184,9 +184,9 @@ void FreqO_AdjustFreq()
 		{
 			// duty cycle of PWM require slower settings to get the
 			// same frequency as normal output functions
-			TIM3->PSC = 256;
-			TIM3->ARR = SM_GetEncoderValue(ENCODER_FORWARD)/2;
-			TIM3->CCR1 = TIM3->ARR/2;
+			PWM_AUX_OUT_TIM->PSC = 256;
+			PWM_AUX_OUT_TIM->ARR = SM_GetEncoderValue(ENCODER_FORWARD)/2;
+			PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 
 		}
 }
