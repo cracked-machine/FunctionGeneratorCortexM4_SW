@@ -128,6 +128,15 @@ void EM_ProcessEvent()
 			{
 				eNextState = ToplevelInputMenuExitHandler();
 			}
+			if(eNewEvent == evBlueBtn)
+			{
+				eNextState = ToplevelInputMenuInputHandler(eNewEvent);
+			}
+			if(eNewEvent == evGreenBtn)
+			{
+
+				eNextState = ToplevelInputMenuInputHandler(eNewEvent);
+			}
 			break;
 
 

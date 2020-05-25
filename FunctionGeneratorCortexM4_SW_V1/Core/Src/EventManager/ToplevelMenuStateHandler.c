@@ -10,7 +10,8 @@
 #include <stdio.h>
 #include <ToplevelMenuStateHandler.h>
 
-
+eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
+eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_TIM;
 
 eToplevelMenu_Status eNextToplevelMenuStatus = 	ENABLE_TOPLEVEL_MAIN_MENU;
 
@@ -205,13 +206,63 @@ eSystemState ToplevelInputMenuEntryHandler()
  *	@retval None
  *
  */
-eSystemState ToplevelInputMenuInputHandler()
+eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 {
 	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelInputMenuInputHandler Event captured\n");
 	#endif
 
 
+		switch(pEvent)
+		{
+
+			case evBlueBtn:
+
+				if(isTriggerInputEnabled)
+				{
+
+					OUTPUT_TIMER->SMCR &= ~(TIM_SMCR_ECE);
+					OUTPUT_TIMER->SMCR &= ~(TIM_TS_TI1FP1);
+					OUTPUT_TIMER->SMCR &= ~(TIM_SMCR_SMS_2);
+					isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
+				}
+				else
+				{
+					// enable external clock source
+					OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);
+					// enable Filtered timer input 1 (tim_ti1fp1)
+					OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);
+					//
+					OUTPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);
+
+					isTriggerInputEnabled = ENABLE_TRIGGER_INPUT;
+				}
+
+
+
+
+				break;
+
+			case evGreenBtn:
+				switch(activeInputerTriggerMode)
+				{
+					case INPUT_TRIGGER_TIM:
+						activeInputerTriggerMode = INPUT_TRIGGER_COMP;
+						break;
+					case INPUT_TRIGGER_COMP:
+						activeInputerTriggerMode = INPUT_TRIGGER_ADC;
+						break;
+
+					case INPUT_TRIGGER_ADC:
+						activeInputerTriggerMode = INPUT_TRIGGER_TIM;
+						break;
+				}
+
+				break;
+
+			default:
+				break;
+		}
 	// stay in this state
 	eNewEvent = evIdle;
 	return Toplevel_Input_Menu_State;

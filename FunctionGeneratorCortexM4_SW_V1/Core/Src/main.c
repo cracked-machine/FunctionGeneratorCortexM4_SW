@@ -131,7 +131,6 @@ int main(void)
   MX_DAC1_Init();
   MX_ADC1_Init();
   MX_COMP1_Init();
-  MX_TIM2_Init();
   MX_SPI3_Init();
   MX_RNG_Init();
   MX_TIM1_Init();
@@ -142,6 +141,7 @@ int main(void)
   MX_TIM3_Init();
   MX_DAC2_Init();
   MX_TIM17_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
   SM_Init();
@@ -154,7 +154,7 @@ HAL_TIM_Base_Start_IT(&htim17);
   HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin5
 //#define ADC_TRIGGER_MODE
 //#define COMP_TRIGGER_MODE
-//#define TIM_TRIGGER_MODE
+#define TIM_TRIGGER_MODE
 #ifdef ADC_TRIGGER_MODE
   // start trigger input capture on in ADC
 
@@ -181,16 +181,15 @@ HAL_TIM_Base_Start_IT(&htim17);
   // input capture on in TIM2 slave-mode TF1FP1
 
   // set HW switch to direct ext. trigger input to TIM pin
-  HAL_GPIO_WritePin(TRIGMODE_GPIO_Port, TRIGMODE_Pin, GPIO_PIN_SET);
-  //HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);	// TS5A3357 Pin6
-  //HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); // TS5A3357 Pin5
+  HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);	// TS5A3357 Pin6
+  HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); // TS5A3357 Pin5
 
   // clear slave mode select reg
-  TIM2->SMCR &= ~(TIM_SMCR_SMS_0 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_2);
+  //TIM2->SMCR &= ~(TIM_SMCR_SMS_0 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_2);
 
   // slave mode
   //TIM2->SMCR |= TIM_SMCR_SMS_2;						// SLAVE MODE: RESET
-  TIM2->SMCR |= TIM_SMCR_SMS_0 | TIM_SMCR_SMS_2;	// SLAVE MODE: GATED
+  //TIM2->SMCR |= TIM_SMCR_SMS_0 | TIM_SMCR_SMS_2;	// SLAVE MODE: GATED
   //TIM2->SMCR |= TIM_SMCR_SMS_1 | TIM_SMCR_SMS_2;	// SLAVE MODE: TRIGGER
 
 #ifndef DISABLE_ALL_TIMERS
