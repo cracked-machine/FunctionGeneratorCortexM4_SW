@@ -135,6 +135,7 @@ void ToplevelMenu_DrawInputMenu()
 		char comp_text[20] = "";
 		snprintf(comp_text, sizeof(comp_text), "%lu V", HAL_COMP_GetOutputLevel(&hcomp1));
 
+
 		ILI9341_Draw_Text(comp_text, 150, 100,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 	}
 	else if(activeInputerTriggerMode == INPUT_TRIGGER_ADC)

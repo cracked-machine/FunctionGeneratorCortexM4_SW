@@ -44,6 +44,8 @@
 // enable printf/SWV debug messages
 //#define EVENT_MENU_DEBUG
 
+uint32_t comp1_output_value[1];
+
 // shortest output period permitted
 #define MIN_OUTPUT_ARR 	13		//107KHz if SM_CLKC=168000000 and OUTPUT_TIMER->PSC=0
 

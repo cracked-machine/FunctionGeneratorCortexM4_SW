@@ -128,33 +128,34 @@ void FuncO_MapEncoderPositionToAuxOutput(uint16_t pEncoderValue)
  */
 void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
 {
-	// set the next function output
-	SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
+
+		// set the next function output
+		SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
 
 
-	// copy the lookup table for the next output function in to SignalChannel object
-	printf("SM_GetOutputChannel\n");
-	SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
+		// copy the lookup table for the next output function in to SignalChannel object
+		printf("SM_GetOutputChannel\n");
+		SM_GetOutputChannel(SIGNAL_CHANNEL)->ref_lut_data = theFuncProfiles[pPresetEnum].lookup_table_data;
 
-	// set preset for PGA gain and dsp amplitude adjustment
-	eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
-	VPP_ApplyProfileToSignal(eTmpVppPreset);
+		// set preset for PGA gain and dsp amplitude adjustment
+		eAmpSettings_t eTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile->amp_setting;
+		VPP_ApplyProfileToSignal(eTmpVppPreset);
 
-	// pause timer to reAux both outputs
-	OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
-	//HAL_TIM_Base_Stop(&htim8);
+		// pause timer to reAux both outputs
+		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+		//HAL_TIM_Base_Stop(&htim8);
 
-	// restart the DAC with the new data
-	HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
-	HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		// restart the DAC with the new data
+		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+		HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(SIGNAL_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
-	// restart the the other DAC
-	HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
-	HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
+		// restart the the other DAC
+		HAL_DAC_Stop_DMA(&hdac2, DAC1_CHANNEL_1);
+		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
-	// resume timer to reAux both outputs
-	//HAL_TIM_Base_Start(&htim8);
-	OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+		// resume timer to reAux both outputs
+		//HAL_TIM_Base_Start(&htim8);
+		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 
 
 
@@ -182,6 +183,7 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 
 	// set the next output function
 	SM_GetOutputChannel(AUX_CHANNEL)->func_profile = &theFuncProfiles[pPresetEnum];
+
 
 	if(pPresetEnum == PWM_FUNC_MODE)
 	{
@@ -212,10 +214,11 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 		VPP_ApplyProfileToAux(eTmpVppPreset);
 
 		// pause timer to reAux both outputs
-		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Stop(&htim8)\n");
-		res = HAL_TIM_Base_Stop(&htim8);
-		printf("Result:%u\n",res);
+		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Stop(&htim2)\n");
+		res = HAL_TIM_Base_Stop(&htim2);
 		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+		printf("Result:%u\n",res);
+
 
 		// CAN CAUSE HARDFAULT! Add delays if hard faults occur
 		// restart the DAC with the new data
@@ -238,10 +241,11 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 		printf("Result:%u\n",res);
 
 		// resume timer to reAux both outputs
-		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Start(&htim8)\n");
-		res = HAL_TIM_Base_Start(&htim8);
-		printf("Result:%u\n",res);
+		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Start(&htim2)\n");
+		res = HAL_TIM_Base_Start(&htim2);
 		//OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+		printf("Result:%u\n",res);
+
 
 		last_output_mode_was_pwm = 0;
 	}
@@ -259,8 +263,8 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 		VPP_ApplyProfileToAux(eTmpVppPreset);
 
 		// pause timer to reAux both outputs
-		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Stop(&htim8)\n");
-		res = HAL_TIM_Base_Stop(&htim8);
+		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Stop(&htim2)\n");
+		res = HAL_TIM_Base_Stop(&htim2);
 		printf("Result:%u\n",res);
 		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 
@@ -285,8 +289,8 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 		printf("Result:%u\n",res);
 
 		// resume timer to reAux both outputs
-		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Start(&htim8)\n");
-		res = HAL_TIM_Base_Start(&htim8);
+		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Start(&htim2)\n");
+		res = HAL_TIM_Base_Start(&htim2);
 		printf("Result:%u\n",res);
 		//OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 	}
