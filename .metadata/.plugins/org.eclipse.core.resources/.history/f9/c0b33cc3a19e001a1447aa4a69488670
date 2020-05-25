@@ -10,8 +10,6 @@
 #include <stdio.h>
 #include <ToplevelMenuStateHandler.h>
 
-#include "comp.h"
-
 eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
 eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_TIM;
 
@@ -229,14 +227,6 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 					// disable timer reset trigger mode
 					OUTPUT_TIMER->SMCR &= ~(TIM_SMCR_SMS_2);
 					// set status to disabled
-
-					// disable the comparator
-					HAL_COMP_Stop(&hcomp1);
-
-					GPIOA->AFR[0] &= ~(GPIO_AF1_TIM2);
-					GPIOA->AFR[0] &= ~(GPIO_AF8_COMP1);
-
-
 					isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
 				}
 				// enable the trigger input
@@ -249,9 +239,6 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); 	// TS5A3357 Pin5
 
-							// set alt pin function to TIM2 CH1
-							GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));	// reset
-							GPIOA->AFR[0] |= GPIO_AF1_TIM2;
 
 							// enable timer external clock source
 							OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);
@@ -264,19 +251,6 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 						case INPUT_TRIGGER_COMP:
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET); 		// TS5A3357 Pin5
-
-							HAL_COMP_Start(&hcomp1);
-
-							// set alt pin function to COMP1 OUT
-							GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));	// reset
-							GPIOA->AFR[0] |= (GPIO_AF8_COMP1);
-
-							// enable timer external clock source
-							OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);
-							// enable timer "Filtered timer input 1" (tim_ti1fp1)
-							OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);
-							// enable timer reset trigger mode
-							OUTPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);
 							break;
 						case INPUT_TRIGGER_ADC:
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6

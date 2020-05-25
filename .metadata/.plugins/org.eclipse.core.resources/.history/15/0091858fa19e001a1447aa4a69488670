@@ -212,6 +212,7 @@ HAL_TIM_Base_Start_IT(&htim17);
   TIM6->ARR = 65535;
 
 
+
   // TFT lib enable
   DM_Init();
   DM_PostInit();

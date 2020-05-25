@@ -211,6 +211,7 @@ HAL_TIM_Base_Start_IT(&htim17);
   TIM6->PSC = 65535;
   TIM6->ARR = 65535;
 
+  HAL_COMP_Start(&hcomp1);
 
   // TFT lib enable
   DM_Init();

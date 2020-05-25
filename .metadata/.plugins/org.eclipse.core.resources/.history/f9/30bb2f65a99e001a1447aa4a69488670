@@ -250,7 +250,7 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); 	// TS5A3357 Pin5
 
 							// set alt pin function to TIM2 CH1
-							GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));	// reset
+							GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));
 							GPIOA->AFR[0] |= GPIO_AF1_TIM2;
 
 							// enable timer external clock source
@@ -268,7 +268,6 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 							HAL_COMP_Start(&hcomp1);
 
 							// set alt pin function to COMP1 OUT
-							GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));	// reset
 							GPIOA->AFR[0] |= (GPIO_AF8_COMP1);
 
 							// enable timer external clock source

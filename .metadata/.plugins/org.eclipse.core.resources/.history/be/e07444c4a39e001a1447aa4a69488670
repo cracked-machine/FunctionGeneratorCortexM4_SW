@@ -123,8 +123,6 @@ void ToplevelMenu_DrawInputMenu()
 		ILI9341_Draw_Text("TIM", 	150, 70,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 		ILI9341_Draw_Text("COMP", 	200, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 		ILI9341_Draw_Text("ADC", 	270, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-
-		ILI9341_Draw_Text("     ", 150, 100,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 	}
 	else if(activeInputerTriggerMode == INPUT_TRIGGER_COMP)
 	{
@@ -133,7 +131,7 @@ void ToplevelMenu_DrawInputMenu()
 		ILI9341_Draw_Text("ADC", 	270, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 
 		char comp_text[20] = "";
-		snprintf(comp_text, sizeof(comp_text), "%lu V", HAL_COMP_GetOutputLevel(&hcomp1));
+		snprintf(comp_text, sizeof(comp_text), "%lu V", HAL_COMP_GetOutputLevel(&hcomp1))
 
 		ILI9341_Draw_Text(comp_text, 150, 100,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 	}
@@ -142,8 +140,6 @@ void ToplevelMenu_DrawInputMenu()
 		ILI9341_Draw_Text("TIM", 	150, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 		ILI9341_Draw_Text("COMP", 	200, 70,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 		ILI9341_Draw_Text("ADC", 	270, 70,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
-
-		ILI9341_Draw_Text("     ", 150, 100,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 	}
 
 
