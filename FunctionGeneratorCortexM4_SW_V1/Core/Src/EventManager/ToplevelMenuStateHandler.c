@@ -217,24 +217,48 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 		{
 
 			case evBlueBtn:
-
+				// disable the trigger input
 				if(isTriggerInputEnabled)
 				{
-
+					// disable timer external clock source
 					OUTPUT_TIMER->SMCR &= ~(TIM_SMCR_ECE);
+					// disable timer enable "Filtered timer input 1" (tim_ti1fp1)
 					OUTPUT_TIMER->SMCR &= ~(TIM_TS_TI1FP1);
+					// disable timer reset trigger mode
 					OUTPUT_TIMER->SMCR &= ~(TIM_SMCR_SMS_2);
+					// set status to disabled
 					isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
 				}
+				// enable the trigger input
 				else
 				{
-					// enable external clock source
-					OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);
-					// enable Filtered timer input 1 (tim_ti1fp1)
-					OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);
-					//
-					OUTPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);
+					// select the pin to use for trigger input
+					switch(activeInputerTriggerMode)
+					{
+						case INPUT_TRIGGER_TIM:
+							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
+							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); 	// TS5A3357 Pin5
 
+
+							// enable timer external clock source
+							OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);
+							// enable timer "Filtered timer input 1" (tim_ti1fp1)
+							OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);
+							// enable timer reset trigger mode
+							OUTPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);
+
+							break;
+						case INPUT_TRIGGER_COMP:
+							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin6
+							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET); 		// TS5A3357 Pin5
+							break;
+						case INPUT_TRIGGER_ADC:
+							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
+							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET);		// TS5A3357 Pin5
+							break;
+
+					}
+					// set status to enabled
 					isTriggerInputEnabled = ENABLE_TRIGGER_INPUT;
 				}
 
@@ -244,6 +268,8 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 				break;
 
 			case evGreenBtn:
+
+				// change the trigger input mode
 				switch(activeInputerTriggerMode)
 				{
 					case INPUT_TRIGGER_TIM:
@@ -252,12 +278,15 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 					case INPUT_TRIGGER_COMP:
 						activeInputerTriggerMode = INPUT_TRIGGER_ADC;
 						break;
-
 					case INPUT_TRIGGER_ADC:
 						activeInputerTriggerMode = INPUT_TRIGGER_TIM;
 						break;
 				}
 
+				// disable and reset the trigger input
+				ToplevelInputMenuInputHandler(evBlueBtn);
+				// re-enable the trigger input for new mode
+				ToplevelInputMenuInputHandler(evBlueBtn);
 				break;
 
 			default:

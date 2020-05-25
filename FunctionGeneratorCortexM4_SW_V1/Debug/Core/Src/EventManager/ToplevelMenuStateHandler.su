@@ -8,4 +8,4 @@ ToplevelMenuStateHandler.c:138:14:ToplevelOutputMenuInputHandler	4	static
 ToplevelMenuStateHandler.c:158:14:ToplevelOutputMenuExitHandler	8	static
 ToplevelMenuStateHandler.c:182:14:ToplevelInputMenuEntryHandler	8	static
 ToplevelMenuStateHandler.c:209:14:ToplevelInputMenuInputHandler	16	static
-ToplevelMenuStateHandler.c:279:14:ToplevelInputMenuExitHandler	8	static
+ToplevelMenuStateHandler.c:308:14:ToplevelInputMenuExitHandler	8	static

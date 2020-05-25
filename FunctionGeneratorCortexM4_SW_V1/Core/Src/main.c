@@ -154,7 +154,7 @@ HAL_TIM_Base_Start_IT(&htim17);
   HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin5
 //#define ADC_TRIGGER_MODE
 //#define COMP_TRIGGER_MODE
-#define TIM_TRIGGER_MODE
+//#define TIM_TRIGGER_MODE
 #ifdef ADC_TRIGGER_MODE
   // start trigger input capture on in ADC
 
