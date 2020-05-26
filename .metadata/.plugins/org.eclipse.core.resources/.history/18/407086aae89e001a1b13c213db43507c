@@ -247,8 +247,7 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 					switch(activeInputerTriggerMode)
 					{
 						case INPUT_TRIGGER_TIM:
-
-							// TS5A3357 -> PA0
+							// set the switch to redirect ext input to PA0
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); 	// TS5A3357 Pin5
 
@@ -258,14 +257,15 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 							GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));	// reset
 							GPIOA->AFR[0] |= GPIO_AF1_TIM2;	// set alt pin function to TIM2 CH1
 
-							// TIMER SLAVE MODE INIT
-							OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);		// enable timer external clock source
-							OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);		// enable timer "Filtered timer input 1" (tim_ti1fp1)
-							OUTPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);		// enable timer reset trigger mode
+							// enable timer external clock source
+							OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);
+							// enable timer "Filtered timer input 1" (tim_ti1fp1)
+							OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);
+							// enable timer reset trigger mode
+							OUTPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);
 
 							break;
 						case INPUT_TRIGGER_COMP:
-							// TS5A3357 -> PA1
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET); 		// TS5A3357 Pin5
 
@@ -298,11 +298,9 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 
 							break;
 						case INPUT_TRIGGER_ADC:
-							// TS5A3357 -> PA2
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET);		// TS5A3357 Pin5
 
-							//TODO enable ADC trigger input
 							FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
 							break;
 

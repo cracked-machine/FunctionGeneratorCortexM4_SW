@@ -247,8 +247,7 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 					switch(activeInputerTriggerMode)
 					{
 						case INPUT_TRIGGER_TIM:
-
-							// TS5A3357 -> PA0
+							// set the switch to redirect ext input to PA0
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); 	// TS5A3357 Pin5
 
@@ -265,7 +264,6 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 
 							break;
 						case INPUT_TRIGGER_COMP:
-							// TS5A3357 -> PA1
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET); 		// TS5A3357 Pin5
 
@@ -298,11 +296,9 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 
 							break;
 						case INPUT_TRIGGER_ADC:
-							// TS5A3357 -> PA2
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET);		// TS5A3357 Pin5
 
-							//TODO enable ADC trigger input
 							FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
 							break;
 

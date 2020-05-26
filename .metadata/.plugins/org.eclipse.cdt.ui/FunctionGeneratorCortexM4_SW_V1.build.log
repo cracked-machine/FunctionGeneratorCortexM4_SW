@@ -1,10 +1,20 @@
-00:46:55 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+01:36:22 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
 make -j4 all 
+arm-none-eabi-gcc "../Core/Src/EventManager/ToplevelMenuStateHandler.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_ILI9341_SPIDMA -DUSE_HAL_DRIVER -DSTM32G474xx -DUSE_FULL_LL_DRIVER -DDEBUG -c -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager" -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables" -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/LogSequenceGeneration" -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/InterruptManager" -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/ILI9341" -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager" -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager" -I../Core/Inc -I"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration" -I../Drivers/STM32G4xx_HAL_Driver/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/EventManager/ToplevelMenuStateHandler.d" -MT"Core/Src/EventManager/ToplevelMenuStateHandler.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/EventManager/ToplevelMenuStateHandler.o"
+arm-none-eabi-gcc -o "FunctionGeneratorCortexM4_SW_V1.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FunctionGeneratorCortexM4_SW_V1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: FunctionGeneratorCortexM4_SW_V1.elf
+ 
+arm-none-eabi-objdump -h -S  FunctionGeneratorCortexM4_SW_V1.elf  > "FunctionGeneratorCortexM4_SW_V1.list"
+arm-none-eabi-objcopy  -O binary  FunctionGeneratorCortexM4_SW_V1.elf  "FunctionGeneratorCortexM4_SW_V1.bin"
 arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
    text	   data	    bss	    dec	    hex	filename
-  85188	   7696	   4400	  97284	  17c04	FunctionGeneratorCortexM4_SW_V1.elf
+  85148	   7696	   4400	  97244	  17bdc	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: FunctionGeneratorCortexM4_SW_V1.bin
 Finished building: default.size.stdout
  
+ 
+Finished building: FunctionGeneratorCortexM4_SW_V1.list
+ 
 
-00:46:56 Build Finished. 0 errors, 0 warnings. (took 623ms)
+01:36:24 Build Finished. 0 errors, 0 warnings. (took 1s.427ms)
 
