@@ -146,7 +146,7 @@ eSystemState FuncSignalMenuInputHandler(void)
 	#endif
 
 
-	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
 
 
 	eNewEvent = evIdle;

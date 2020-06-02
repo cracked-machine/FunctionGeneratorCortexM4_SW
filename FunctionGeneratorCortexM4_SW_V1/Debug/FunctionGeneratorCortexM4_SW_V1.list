@@ -9178,8 +9178,8 @@ eSystemState FuncSignalMenuInputHandler(void)
 	#endif
 
 
-	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
- 80048bc:	2001      	movs	r0, #1
+	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+ 80048bc:	2000      	movs	r0, #0
  80048be:	f001 fe57 	bl	8006570 <SM_GetEncoderValue>
  80048c2:	4603      	mov	r3, r0
  80048c4:	4618      	mov	r0, r3
