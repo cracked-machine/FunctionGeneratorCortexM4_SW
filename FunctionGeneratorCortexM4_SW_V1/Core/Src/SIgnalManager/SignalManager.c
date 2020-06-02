@@ -562,7 +562,7 @@ void SM_DisableDacToAux()
  *	@retval None
  *
  */
-uint16_t SM_GetEncoderValue(eEncoder_Direction direction)
+uint16_t SM_GetEncoderValue(eEncoder_Inversion direction)
 {
 	if(direction)
 	{

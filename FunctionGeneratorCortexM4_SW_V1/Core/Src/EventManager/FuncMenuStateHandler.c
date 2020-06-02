@@ -146,7 +146,7 @@ eSystemState FuncSignalMenuInputHandler(void)
 	#endif
 
 
-	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_NORMAL));
 
 
 	eNewEvent = evIdle;
@@ -254,14 +254,14 @@ eSystemState FuncAuxMenuInputHandler(void)
 	// PWM ADJUST
 	if(SM_IsFuncPwmDutyMode())
 	{
-		uint16_t enc_value = SM_GetEncoderValue(ENCODER_FORWARD);
+		uint16_t enc_value = SM_GetEncoderValue(ENCODER_NORMAL);
 		PWM_AUX_OUT_TIM->CCR1 = (pow(enc_value, 2));
-		//BO_SetPwmSignalOffsetForDuty(BO_GetOutputBias() + SM_GetEncoderValue(ENCODER_FORWARD));
+		//BO_SetPwmSignalOffsetForDuty(BO_GetOutputBias() + SM_GetEncoderValue(ENCODER_NORMAL));
 
 	}
 	else
 	{
-		FuncO_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+		FuncO_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_NORMAL));
 	}
 
 	eNewEvent = evIdle;

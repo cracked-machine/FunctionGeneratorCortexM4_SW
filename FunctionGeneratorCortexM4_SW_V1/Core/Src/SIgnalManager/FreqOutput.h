@@ -67,8 +67,8 @@ uint8_t FreqPresetEncoderRange;
 
 void 			FreqO_InitFreqProfiles();
 
-void 			FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue);
-
+void 			FreqO_MapEncoderPositionCoarse(uint16_t pEncValue);
+void 			FreqO_MapEncoderPositionFine(uint16_t pEncValue);
 
 void 			FreqO_ApplyProfile(eFreqSettings_t pPresetEnum);
 void 			FreqO_AdjustFreq();

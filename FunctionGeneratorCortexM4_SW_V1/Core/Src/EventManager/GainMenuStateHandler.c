@@ -54,8 +54,8 @@ eSystemState GainMainMenuInputHandler()
 		printf("GainMainMenuInputHandler Event captured\n");
 	#endif
 
-	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	//VPP_MapEncoderPositionToSignalOutput(SMGetEncoderValue(ENCODER_REVERSE));
+	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_INVERSE));
+	//VPP_MapEncoderPositionToSignalOutput(SMGetEncoderValue(ENCODER_INVERSE));
 
 	eNewEvent = evYellowBtn;
 	return Gain_Main_Menu_State;
@@ -146,15 +146,15 @@ eSystemState GainSignalMenuInputHandler()
 	{
 		if(tmpFuncProfile->func == PWM_FUNC_MODE)
 		{
-			GO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+			GO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_INVERSE));
 
 		}
 		else
 		{
-			VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+			VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_NORMAL));
 		}
 	}
-	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
+	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_INVERSE));
 	//
 
 	eNewEvent = evYellowBtn;
@@ -237,8 +237,8 @@ eSystemState GainAuxMenuInputHandler()
 		printf("GainAuxMenuInputHandler Event captured\n");
 	#endif
 
-	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	VPP_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_INVERSE));
+	VPP_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_NORMAL));
 
 	eNewEvent = evYellowBtn;
 	return Gain_Aux_Menu_State;

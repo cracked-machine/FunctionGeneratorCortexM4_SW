@@ -64,10 +64,10 @@ uint32_t comp1_output_value[1];
 
 typedef enum
 {
-	ENCODER_FORWARD = 0U,
-	ENCODER_REVERSE
+	ENCODER_NORMAL = 0U,
+	ENCODER_INVERSE
 
-} eEncoder_Direction;
+} eEncoder_Inversion;
 
 typedef enum
 {
@@ -107,7 +107,7 @@ TIM_HandleTypeDef htim3;
 void SM_Init();
 sOutputChannel_t * SM_GetOutputChannel(eOutputChannel_t pChannel);
 
-uint16_t SM_GetEncoderValue(eEncoder_Direction direction);
+uint16_t SM_GetEncoderValue(eEncoder_Inversion direction);
 float SM_GetOutputInHertz();
 
 float SM_ConvertPeriodToHertz(uint32_t period, uint16_t psc);

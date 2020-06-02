@@ -57,7 +57,7 @@ void BO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 {
 	// pEncoderValue is reversed for correct rotary encoder operation.
 	// However, we want to retain the forward direction value to prevent polarity flip!
-	dc_bias_encoder_value = SM_GetEncoderValue(ENCODER_FORWARD);
+	dc_bias_encoder_value = SM_GetEncoderValue(ENCODER_NORMAL);
 
 	// apply negative dc bias
 	if(pEncoderValue < BIAS_CENTER) {

@@ -48,7 +48,7 @@ uint16_t freq_last_encoder_value = 0;
  * 	Function prototypes
  */
 void 			FreqO_InitFreqProfiles();
-void 			FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue);
+void 			FreqO_MapEncoderPositionCoarse(uint16_t pEncValue);
 void 			FreqO_ApplyProfile(eFreqSettings_t pPresetEnum);
 void 			FreqO_AdjustFreq();
 uint32_t 		FreqO_GetOutputFreq();
@@ -89,7 +89,7 @@ void FreqO_InitFreqProfiles()
  *	@retval None
  *
  */
-void FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue)
+void FreqO_MapEncoderPositionCoarse(uint16_t pEncValue)
 {
 
 	uint32_t tmpFreqIndex = freq_profile->index;
@@ -108,6 +108,37 @@ void FreqO_MapEncoderPositionToBothOutput(uint16_t pEncValue)
 	freq_last_encoder_value = pEncValue;
 
 }
+
+/*
+ *
+ *	@brief	map rotary enocder position to profile
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqO_MapEncoderPositionFine(uint16_t pEncValue)
+{
+
+//	uint32_t tmpFreqIndex = freq_profile->index;
+	if(pEncValue > freq_last_encoder_value)
+	{
+		OUTPUT_TIMER->ARR++;
+//		tmpFreqIndex++;
+//		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = MAX_NUM_FREQ_PRESETS-1;
+//		FreqO_ApplyProfile( FreqO_GetProfileByIndex(tmpFreqIndex)->hertz );
+	}
+	else if (pEncValue < freq_last_encoder_value)
+	{
+		OUTPUT_TIMER->ARR--;
+//		tmpFreqIndex--;
+//		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = 0;
+//		FreqO_ApplyProfile( FreqO_GetProfileByIndex(tmpFreqIndex)->hertz );
+	}
+	freq_last_encoder_value = pEncValue;
+
+}
+
 
 
 /*
@@ -176,19 +207,19 @@ void FreqO_ApplyProfile(eFreqSettings_t pPresetEnum)
  */
 void FreqO_AdjustFreq()
 {
+	FreqO_MapEncoderPositionFine(SM_GetEncoderValue(ENCODER_NORMAL));
 
-		OUTPUT_TIMER->ARR = SM_GetEncoderValue(ENCODER_FORWARD); //* FREQ_ENCODER_MIDFREQ_MAG;
 
-		eOutput_mode tmpOut = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
-		if(tmpOut == PWM_FUNC_MODE)
-		{
-			// duty cycle of PWM require slower settings to get the
-			// same frequency as normal output functions
-			PWM_AUX_OUT_TIM->PSC = 256;
-			PWM_AUX_OUT_TIM->ARR = SM_GetEncoderValue(ENCODER_FORWARD)/2;
-			PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
+	eOutput_mode tmpOut = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
+	if(tmpOut == PWM_FUNC_MODE)
+	{
+		// duty cycle of PWM require slower settings to get the
+		// same frequency as normal output functions
+		PWM_AUX_OUT_TIM->PSC = 256;
+		PWM_AUX_OUT_TIM->ARR = SM_GetEncoderValue(ENCODER_NORMAL)/2;
+		PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 
-		}
+	}
 }
 
 
