@@ -22,7 +22,6 @@
 "Core/Src/comp.o"
 "Core/Src/dac.o"
 "Core/Src/dma.o"
-"Core/Src/funcgen.o"
 "Core/Src/gpio.o"
 "Core/Src/main.o"
 "Core/Src/rng.o"

@@ -1,2 +1,0 @@
-stm32g4xx_ll_bus.h:245:22:LL_AHB1_GRP1_EnableClock	24	static
-cordic.c:28:6:MX_CORDIC_Init	8	static

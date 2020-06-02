@@ -72,8 +72,8 @@ void BO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 							DAC_ALIGN_12B_R,
 							((BIAS_CENTER - pEncoderValue) * BIAS_MAG));
 
-		HAL_GPIO_WritePin(	DCBIAS_INVERT_GPIO_Port,
-							DCBIAS_INVERT_Pin,
+		HAL_GPIO_WritePin(	OFFSET_ENABLE_GPIO_Port,
+							OFFSET_ENABLE_Pin,
 							GPIO_PIN_SET);
 	}
 	// apply positive dc bias
@@ -88,8 +88,8 @@ void BO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
 							DAC_ALIGN_12B_R,
 							((pEncoderValue - BIAS_CENTER) * BIAS_MAG));
 
-		HAL_GPIO_WritePin(	DCBIAS_INVERT_GPIO_Port,
-							DCBIAS_INVERT_Pin,
+		HAL_GPIO_WritePin(	OFFSET_ENABLE_GPIO_Port,
+							OFFSET_ENABLE_Pin,
 							GPIO_PIN_RESET);
 	}
 }
@@ -126,8 +126,8 @@ void BO_SetPwmSignalOffsetForGain(eGainSettings_t temp_gain)
 						DAC_ALIGN_12B_R,
 						new_bias_value);
 
-	HAL_GPIO_WritePin(	DCBIAS_INVERT_GPIO_Port,
-						DCBIAS_INVERT_Pin,
+	HAL_GPIO_WritePin(	OFFSET_ENABLE_GPIO_Port,
+						OFFSET_ENABLE_Pin,
 						GPIO_PIN_RESET);
 }
 
@@ -140,8 +140,8 @@ void BO_SetPwmSignalOffsetForDuty(uint32_t value)
 						DAC_ALIGN_12B_R,
 						value);
 
-	HAL_GPIO_WritePin(	DCBIAS_INVERT_GPIO_Port,
-						DCBIAS_INVERT_Pin,
+	HAL_GPIO_WritePin(	OFFSET_ENABLE_GPIO_Port,
+						OFFSET_ENABLE_Pin,
 						GPIO_PIN_RESET);
 }
 

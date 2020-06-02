@@ -504,7 +504,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/DisplayManager/DisplayManager.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/DisplayManager/DisplayManager.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/DisplayManager/DisplayManager.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/DisplayManager/DisplayManager.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/DisplayManager/DisplayManager.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/DisplayManager/DisplayManager.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/DisplayManager/DisplayManager.o
  .group         0x0000000000000000        0xc Core/Src/DisplayManager/FreqMenus.o
@@ -701,7 +701,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/DisplayManager/FreqMenus.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/DisplayManager/FreqMenus.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/DisplayManager/FreqMenus.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/DisplayManager/FreqMenus.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/DisplayManager/FreqMenus.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/DisplayManager/FreqMenus.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/DisplayManager/FreqMenus.o
  .group         0x0000000000000000        0xc Core/Src/DisplayManager/FuncMenus.o
@@ -904,7 +904,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/DisplayManager/FuncMenus.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/DisplayManager/FuncMenus.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/DisplayManager/FuncMenus.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/DisplayManager/FuncMenus.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/DisplayManager/FuncMenus.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/DisplayManager/FuncMenus.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/DisplayManager/FuncMenus.o
  .group         0x0000000000000000        0xc Core/Src/DisplayManager/GainMenus.o
@@ -1107,7 +1107,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/DisplayManager/GainMenus.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/DisplayManager/GainMenus.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/DisplayManager/GainMenus.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/DisplayManager/GainMenus.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/DisplayManager/GainMenus.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/DisplayManager/GainMenus.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/DisplayManager/GainMenus.o
  .group         0x0000000000000000        0xc Core/Src/DisplayManager/ToplevelMenus.o
@@ -1310,7 +1310,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/DisplayManager/ToplevelMenus.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/DisplayManager/ToplevelMenus.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/DisplayManager/ToplevelMenus.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/DisplayManager/ToplevelMenus.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/DisplayManager/ToplevelMenus.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/DisplayManager/ToplevelMenus.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/DisplayManager/ToplevelMenus.o
  .group         0x0000000000000000        0xc Core/Src/EventManager/BiasMenuStateHandler.o
@@ -1513,7 +1513,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/EventManager/BiasMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/EventManager/BiasMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/EventManager/BiasMenuStateHandler.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/EventManager/BiasMenuStateHandler.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/EventManager/BiasMenuStateHandler.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/EventManager/BiasMenuStateHandler.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/EventManager/BiasMenuStateHandler.o
  .group         0x0000000000000000        0xc Core/Src/EventManager/EventManager.o
@@ -1724,7 +1724,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/EventManager/EventManager.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/EventManager/EventManager.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/EventManager/EventManager.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/EventManager/EventManager.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/EventManager/EventManager.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/EventManager/EventManager.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/EventManager/EventManager.o
  .debug_macro   0x0000000000000000       0x16 Core/Src/EventManager/EventManager.o
@@ -1934,7 +1934,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/EventManager/FreqMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/EventManager/FreqMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/EventManager/FreqMenuStateHandler.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/EventManager/FreqMenuStateHandler.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/EventManager/FreqMenuStateHandler.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/EventManager/FreqMenuStateHandler.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/EventManager/FreqMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x1e1 Core/Src/EventManager/FreqMenuStateHandler.o
@@ -2143,7 +2143,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/EventManager/FuncMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/EventManager/FuncMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/EventManager/FuncMenuStateHandler.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/EventManager/FuncMenuStateHandler.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/EventManager/FuncMenuStateHandler.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/EventManager/FuncMenuStateHandler.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/EventManager/FuncMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x1e1 Core/Src/EventManager/FuncMenuStateHandler.o
@@ -2349,7 +2349,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/EventManager/GainMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/EventManager/GainMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/EventManager/GainMenuStateHandler.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/EventManager/GainMenuStateHandler.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/EventManager/GainMenuStateHandler.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/EventManager/GainMenuStateHandler.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/EventManager/GainMenuStateHandler.o
  .group         0x0000000000000000        0xc Core/Src/EventManager/ToplevelMenuStateHandler.o
@@ -2560,7 +2560,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/EventManager/ToplevelMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/EventManager/ToplevelMenuStateHandler.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/EventManager/ToplevelMenuStateHandler.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/EventManager/ToplevelMenuStateHandler.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/EventManager/ToplevelMenuStateHandler.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/EventManager/ToplevelMenuStateHandler.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/EventManager/ToplevelMenuStateHandler.o
  .group         0x0000000000000000        0xc Core/Src/InterruptManager/InterruptManager.o
@@ -2718,7 +2718,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/InterruptManager/InterruptManager.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/InterruptManager/InterruptManager.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/InterruptManager/InterruptManager.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/InterruptManager/InterruptManager.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/InterruptManager/InterruptManager.o
  .debug_macro   0x0000000000000000       0x10 Core/Src/InterruptManager/InterruptManager.o
  .debug_macro   0x0000000000000000       0x10 Core/Src/InterruptManager/InterruptManager.o
  .debug_macro   0x0000000000000000       0x10 Core/Src/InterruptManager/InterruptManager.o
@@ -2955,7 +2955,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/SIgnalManager/BiasOutput.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/SIgnalManager/BiasOutput.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/SIgnalManager/BiasOutput.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/SIgnalManager/BiasOutput.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/SIgnalManager/BiasOutput.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/SIgnalManager/BiasOutput.o
  .debug_macro   0x0000000000000000       0x16 Core/Src/SIgnalManager/BiasOutput.o
  .group         0x0000000000000000        0xc Core/Src/SIgnalManager/FreqOutput.o
@@ -3159,7 +3159,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/SIgnalManager/FreqOutput.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/SIgnalManager/FreqOutput.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/SIgnalManager/FreqOutput.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/SIgnalManager/FreqOutput.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/SIgnalManager/FreqOutput.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/SIgnalManager/FreqOutput.o
  .debug_macro   0x0000000000000000       0x1c Core/Src/SIgnalManager/FreqOutput.o
  .debug_macro   0x0000000000000000       0x10 Core/Src/SIgnalManager/FreqOutput.o
@@ -3355,7 +3355,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/SIgnalManager/FreqSweep.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/SIgnalManager/FreqSweep.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/SIgnalManager/FreqSweep.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/SIgnalManager/FreqSweep.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/SIgnalManager/FreqSweep.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/SIgnalManager/FreqSweep.o
  .group         0x0000000000000000        0xc Core/Src/SIgnalManager/FunctionOutput.o
  .group         0x0000000000000000        0xc Core/Src/SIgnalManager/FunctionOutput.o
@@ -3559,7 +3559,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/SIgnalManager/FunctionOutput.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/SIgnalManager/FunctionOutput.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/SIgnalManager/FunctionOutput.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/SIgnalManager/FunctionOutput.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/SIgnalManager/FunctionOutput.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/SIgnalManager/FunctionOutput.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/SIgnalManager/FunctionOutput.o
  .group         0x0000000000000000        0xc Core/Src/SIgnalManager/GainOutput.o
@@ -3767,7 +3767,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/SIgnalManager/GainOutput.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/SIgnalManager/GainOutput.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/SIgnalManager/GainOutput.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/SIgnalManager/GainOutput.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/SIgnalManager/GainOutput.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/SIgnalManager/GainOutput.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/SIgnalManager/GainOutput.o
  .group         0x0000000000000000        0xc Core/Src/SIgnalManager/SignalManager.o
@@ -3974,7 +3974,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/SIgnalManager/SignalManager.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/SIgnalManager/SignalManager.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/SIgnalManager/SignalManager.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/SIgnalManager/SignalManager.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/SIgnalManager/SignalManager.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/SIgnalManager/SignalManager.o
  .debug_macro   0x0000000000000000      0x1e1 Core/Src/SIgnalManager/SignalManager.o
  .group         0x0000000000000000        0xc Core/Src/SIgnalManager/VoltPeakPeakOutput.o
@@ -4179,7 +4179,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/SIgnalManager/VoltPeakPeakOutput.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/SIgnalManager/VoltPeakPeakOutput.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/SIgnalManager/VoltPeakPeakOutput.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/SIgnalManager/VoltPeakPeakOutput.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
  .debug_macro   0x0000000000000000       0x5e Core/Src/SIgnalManager/VoltPeakPeakOutput.o
  .debug_macro   0x0000000000000000       0xbe Core/Src/SIgnalManager/VoltPeakPeakOutput.o
  .group         0x0000000000000000        0xc Core/Src/adc.o
@@ -4298,7 +4298,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/adc.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/adc.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/adc.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/adc.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/adc.o
  .group         0x0000000000000000        0xc Core/Src/comp.o
  .group         0x0000000000000000        0xc Core/Src/comp.o
  .group         0x0000000000000000        0xc Core/Src/comp.o
@@ -4415,7 +4415,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/comp.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/comp.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/comp.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/comp.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/comp.o
  .group         0x0000000000000000        0xc Core/Src/dac.o
  .group         0x0000000000000000        0xc Core/Src/dac.o
  .group         0x0000000000000000        0xc Core/Src/dac.o
@@ -4532,7 +4532,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/dac.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/dac.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/dac.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/dac.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/dac.o
  .group         0x0000000000000000        0xc Core/Src/dma.o
  .group         0x0000000000000000        0xc Core/Src/dma.o
  .group         0x0000000000000000        0xc Core/Src/dma.o
@@ -4647,141 +4647,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/dma.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/dma.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/dma.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/dma.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .group         0x0000000000000000        0xc Core/Src/funcgen.o
- .text          0x0000000000000000        0x0 Core/Src/funcgen.o
- .data          0x0000000000000000        0x0 Core/Src/funcgen.o
- .bss           0x0000000000000000        0x0 Core/Src/funcgen.o
- .rodata.CHANNEL_OFFSET_TAB
-                0x0000000000000000        0x8 Core/Src/funcgen.o
- .bss.dcbias    0x0000000000000000        0x2 Core/Src/funcgen.o
- .data.dcbias_dir
-                0x0000000000000000        0x4 Core/Src/funcgen.o
- .bss.dcinverted
-                0x0000000000000000        0x4 Core/Src/funcgen.o
- .text.update_dc_bias_sweep
-                0x0000000000000000       0x98 Core/Src/funcgen.o
- .debug_info    0x0000000000000000      0x8b2 Core/Src/funcgen.o
- .debug_abbrev  0x0000000000000000      0x14f Core/Src/funcgen.o
- .debug_aranges
-                0x0000000000000000       0x20 Core/Src/funcgen.o
- .debug_ranges  0x0000000000000000       0x10 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x2b0 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0xa66 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x22 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x8e Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x51 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0xef Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x6a Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x1df Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x16d Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x2e Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x28 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x1c Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x22 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0xdf Core/Src/funcgen.o
- .debug_macro   0x0000000000000000     0x102d Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x11f Core/Src/funcgen.o
- .debug_macro   0x0000000000000000    0x185f0 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x43 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000     0x34d1 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x174 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x5a Core/Src/funcgen.o
- .debug_macro   0x0000000000000000     0x16e0 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x600 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x137 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x34b Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x53c Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x18b Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x43 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x23d Core/Src/funcgen.o
- .debug_macro   0x0000000000000000     0x10fd Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x72e Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x391 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x179 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x527 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x202 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x107 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x212 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x45c Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x11c Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x122 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x3d1 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x2fe Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0xbef Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x71a Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x359 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x47 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x34f Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x16a Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x1d1 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x1a7 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x652 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0x84 Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x20e Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x63e Core/Src/funcgen.o
- .debug_macro   0x0000000000000000      0x2cc Core/Src/funcgen.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/funcgen.o
- .debug_line    0x0000000000000000      0x8a1 Core/Src/funcgen.o
- .debug_str     0x0000000000000000   0x116b5f Core/Src/funcgen.o
- .comment       0x0000000000000000       0x7c Core/Src/funcgen.o
- .debug_frame   0x0000000000000000       0x2c Core/Src/funcgen.o
- .ARM.attributes
-                0x0000000000000000       0x39 Core/Src/funcgen.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/dma.o
  .group         0x0000000000000000        0xc Core/Src/gpio.o
  .group         0x0000000000000000        0xc Core/Src/gpio.o
  .group         0x0000000000000000        0xc Core/Src/gpio.o
@@ -4896,7 +4762,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/gpio.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/gpio.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/gpio.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/gpio.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/gpio.o
  .group         0x0000000000000000        0xc Core/Src/main.o
  .group         0x0000000000000000        0xc Core/Src/main.o
  .group         0x0000000000000000        0xc Core/Src/main.o
@@ -5058,7 +4924,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/main.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/main.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/main.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/main.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/main.o
  .debug_macro   0x0000000000000000       0x46 Core/Src/main.o
  .debug_macro   0x0000000000000000       0x18 Core/Src/main.o
  .debug_macro   0x0000000000000000       0x3c Core/Src/main.o
@@ -5219,7 +5085,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/rng.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/rng.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/rng.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/rng.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/rng.o
  .group         0x0000000000000000        0xc Core/Src/spi.o
  .group         0x0000000000000000        0xc Core/Src/spi.o
  .group         0x0000000000000000        0xc Core/Src/spi.o
@@ -5336,7 +5202,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/spi.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/spi.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/spi.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/spi.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/spi.o
  .group         0x0000000000000000        0xc Core/Src/stm32g4xx_hal_msp.o
  .group         0x0000000000000000        0xc Core/Src/stm32g4xx_hal_msp.o
  .group         0x0000000000000000        0xc Core/Src/stm32g4xx_hal_msp.o
@@ -5451,7 +5317,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/stm32g4xx_hal_msp.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/stm32g4xx_hal_msp.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/stm32g4xx_hal_msp.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/stm32g4xx_hal_msp.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/stm32g4xx_hal_msp.o
  .group         0x0000000000000000        0xc Core/Src/stm32g4xx_it.o
  .group         0x0000000000000000        0xc Core/Src/stm32g4xx_it.o
  .group         0x0000000000000000        0xc Core/Src/stm32g4xx_it.o
@@ -5611,7 +5477,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/stm32g4xx_it.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/stm32g4xx_it.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/stm32g4xx_it.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/stm32g4xx_it.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/stm32g4xx_it.o
  .debug_macro   0x0000000000000000       0x46 Core/Src/stm32g4xx_it.o
  .debug_macro   0x0000000000000000       0x18 Core/Src/stm32g4xx_it.o
  .debug_macro   0x0000000000000000       0x3c Core/Src/stm32g4xx_it.o
@@ -6032,7 +5898,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e Core/Src/tim.o
  .debug_macro   0x0000000000000000      0x63e Core/Src/tim.o
  .debug_macro   0x0000000000000000      0x2cc Core/Src/tim.o
- .debug_macro   0x0000000000000000       0xdc Core/Src/tim.o
+ .debug_macro   0x0000000000000000       0xf4 Core/Src/tim.o
  .text          0x0000000000000000       0x14 Core/Startup/startup_stm32g474retx.o
  .data          0x0000000000000000        0x0 Core/Startup/startup_stm32g474retx.o
  .bss           0x0000000000000000        0x0 Core/Startup/startup_stm32g474retx.o
@@ -10125,7 +9991,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e ILI9341/ILI9341_GFX.o
  .debug_macro   0x0000000000000000      0x63e ILI9341/ILI9341_GFX.o
  .debug_macro   0x0000000000000000      0x2cc ILI9341/ILI9341_GFX.o
- .debug_macro   0x0000000000000000       0xdc ILI9341/ILI9341_GFX.o
+ .debug_macro   0x0000000000000000       0xf4 ILI9341/ILI9341_GFX.o
  .debug_macro   0x0000000000000000      0x1e1 ILI9341/ILI9341_GFX.o
  COMMON         0x0000000000000000        0x0 ILI9341/ILI9341_GFX.o
  .group         0x0000000000000000        0xc ILI9341/ILI9341_STM32_Driver.o
@@ -10245,7 +10111,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x20e ILI9341/ILI9341_STM32_Driver.o
  .debug_macro   0x0000000000000000      0x63e ILI9341/ILI9341_STM32_Driver.o
  .debug_macro   0x0000000000000000      0x2cc ILI9341/ILI9341_STM32_Driver.o
- .debug_macro   0x0000000000000000       0xdc ILI9341/ILI9341_STM32_Driver.o
+ .debug_macro   0x0000000000000000       0xf4 ILI9341/ILI9341_STM32_Driver.o
  .group         0x0000000000000000        0xc ILI9341/STMBasicGui.o
  .group         0x0000000000000000        0xc ILI9341/STMBasicGui.o
  .group         0x0000000000000000        0xc ILI9341/STMBasicGui.o
@@ -10992,7 +10858,6 @@ LOAD Core/Src/adc.o
 LOAD Core/Src/comp.o
 LOAD Core/Src/dac.o
 LOAD Core/Src/dma.o
-LOAD Core/Src/funcgen.o
 LOAD Core/Src/gpio.o
 LOAD Core/Src/main.o
 LOAD Core/Src/rng.o
@@ -13503,7 +13368,7 @@ OUTPUT(FunctionGeneratorCortexM4_SW_V1.elf elf32-littlearm)
  .debug_ranges  0x0000000000001d20       0x68 ILI9341/ILI9341_GFX.o
  .debug_ranges  0x0000000000001d88       0x88 ILI9341/ILI9341_STM32_Driver.o
 
-.debug_macro    0x0000000000000000    0x3563a
+.debug_macro    0x0000000000000000    0x35652
  .debug_macro   0x0000000000000000      0x532 Core/Src/DisplayManager/BiasMenus.o
  .debug_macro   0x0000000000000532      0xa66 Core/Src/DisplayManager/BiasMenus.o
  .debug_macro   0x0000000000000f98       0x22 Core/Src/DisplayManager/BiasMenus.o
@@ -13601,109 +13466,109 @@ OUTPUT(FunctionGeneratorCortexM4_SW_V1.elf elf32-littlearm)
  .debug_macro   0x0000000000027658      0x20e Core/Src/DisplayManager/BiasMenus.o
  .debug_macro   0x0000000000027866      0x63e Core/Src/DisplayManager/BiasMenus.o
  .debug_macro   0x0000000000027ea4      0x2cc Core/Src/DisplayManager/BiasMenus.o
- .debug_macro   0x0000000000028170       0xdc Core/Src/DisplayManager/BiasMenus.o
- .debug_macro   0x000000000002824c       0x5e Core/Src/DisplayManager/BiasMenus.o
- .debug_macro   0x00000000000282aa       0xbe Core/Src/DisplayManager/BiasMenus.o
- .debug_macro   0x0000000000028368      0x5e0 Core/Src/DisplayManager/DisplayManager.o
- .debug_macro   0x0000000000028948       0x16 Core/Src/DisplayManager/DisplayManager.o
- .debug_macro   0x000000000002895e       0x20 Core/Src/DisplayManager/DisplayManager.o
- .debug_macro   0x000000000002897e       0x16 Core/Src/DisplayManager/DisplayManager.o
- .debug_macro   0x0000000000028994       0x16 Core/Src/DisplayManager/DisplayManager.o
- .debug_macro   0x00000000000289aa       0x29 Core/Src/DisplayManager/DisplayManager.o
- .debug_macro   0x00000000000289d3      0x52c Core/Src/DisplayManager/FreqMenus.o
- .debug_macro   0x0000000000028eff       0x97 Core/Src/DisplayManager/FreqMenus.o
- .debug_macro   0x0000000000028f96      0x330 Core/Src/DisplayManager/FreqMenus.o
- .debug_macro   0x00000000000292c6       0xfd Core/Src/DisplayManager/FreqMenus.o
- .debug_macro   0x00000000000293c3       0xd9 Core/Src/DisplayManager/FreqMenus.o
- .debug_macro   0x000000000002949c       0x54 Core/Src/DisplayManager/FreqMenus.o
- .debug_macro   0x00000000000294f0       0x1c Core/Src/DisplayManager/FreqMenus.o
- .debug_macro   0x000000000002950c      0x532 Core/Src/DisplayManager/FuncMenus.o
- .debug_macro   0x0000000000029a3e      0x532 Core/Src/DisplayManager/GainMenus.o
- .debug_macro   0x0000000000029f70      0x53c Core/Src/DisplayManager/ToplevelMenus.o
- .debug_macro   0x000000000002a4ac      0x530 Core/Src/EventManager/BiasMenuStateHandler.o
- .debug_macro   0x000000000002a9dc      0x579 Core/Src/EventManager/EventManager.o
- .debug_macro   0x000000000002af55      0x1e1 Core/Src/EventManager/EventManager.o
- .debug_macro   0x000000000002b136      0x543 Core/Src/EventManager/FreqMenuStateHandler.o
- .debug_macro   0x000000000002b679      0x543 Core/Src/EventManager/FuncMenuStateHandler.o
- .debug_macro   0x000000000002bbbc      0x530 Core/Src/EventManager/GainMenuStateHandler.o
- .debug_macro   0x000000000002c0ec      0x53c Core/Src/EventManager/ToplevelMenuStateHandler.o
- .debug_macro   0x000000000002c628      0x4d1 Core/Src/InterruptManager/InterruptManager.o
- .debug_macro   0x000000000002caf9       0x16 Core/Src/InterruptManager/InterruptManager.o
- .debug_macro   0x000000000002cb0f      0x4c0 Core/Src/SIgnalManager/BiasOutput.o
- .debug_macro   0x000000000002cfcf      0x537 Core/Src/SIgnalManager/FreqOutput.o
- .debug_macro   0x000000000002d506       0xcb Core/Src/SIgnalManager/FreqOutput.o
- .debug_macro   0x000000000002d5d1      0x4b3 Core/Src/SIgnalManager/FreqSweep.o
- .debug_macro   0x000000000002da84       0x40 Core/Src/SIgnalManager/FreqSweep.o
- .debug_macro   0x000000000002dac4       0x94 Core/Src/SIgnalManager/FreqSweep.o
- .debug_macro   0x000000000002db58       0x57 Core/Src/SIgnalManager/FreqSweep.o
- .debug_macro   0x000000000002dbaf       0x1c Core/Src/SIgnalManager/FreqSweep.o
- .debug_macro   0x000000000002dbcb      0x53a Core/Src/SIgnalManager/FunctionOutput.o
- .debug_macro   0x000000000002e105      0x53d Core/Src/SIgnalManager/GainOutput.o
- .debug_macro   0x000000000002e642      0x4bf Core/Src/SIgnalManager/SignalManager.o
- .debug_macro   0x000000000002eb01      0x566 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
- .debug_macro   0x000000000002f067       0x16 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
- .debug_macro   0x000000000002f07d      0x29c Core/Src/adc.o
- .debug_macro   0x000000000002f319      0x29c Core/Src/comp.o
- .debug_macro   0x000000000002f5b5      0x29c Core/Src/dac.o
- .debug_macro   0x000000000002f851      0x29c Core/Src/dma.o
- .debug_macro   0x000000000002faed      0x29c Core/Src/gpio.o
- .debug_macro   0x000000000002fd89      0x579 Core/Src/main.o
- .debug_macro   0x0000000000030302      0x29c Core/Src/rng.o
- .debug_macro   0x000000000003059e      0x29c Core/Src/spi.o
- .debug_macro   0x000000000003083a      0x292 Core/Src/stm32g4xx_hal_msp.o
- .debug_macro   0x0000000000030acc      0x547 Core/Src/stm32g4xx_it.o
- .debug_macro   0x0000000000031013      0x243 Core/Src/syscalls.o
- .debug_macro   0x0000000000031256       0x10 Core/Src/syscalls.o
- .debug_macro   0x0000000000031266       0x10 Core/Src/syscalls.o
- .debug_macro   0x0000000000031276       0x10 Core/Src/syscalls.o
- .debug_macro   0x0000000000031286       0x35 Core/Src/syscalls.o
- .debug_macro   0x00000000000312bb      0x122 Core/Src/syscalls.o
- .debug_macro   0x00000000000313dd       0x10 Core/Src/syscalls.o
- .debug_macro   0x00000000000313ed      0x241 Core/Src/syscalls.o
- .debug_macro   0x000000000003162e       0x10 Core/Src/syscalls.o
- .debug_macro   0x000000000003163e      0x189 Core/Src/syscalls.o
- .debug_macro   0x00000000000317c7       0x16 Core/Src/syscalls.o
- .debug_macro   0x00000000000317dd       0x88 Core/Src/syscalls.o
- .debug_macro   0x0000000000031865      0x1ae Core/Src/sysmem.o
- .debug_macro   0x0000000000031a13      0x23b Core/Src/sysmem.o
- .debug_macro   0x0000000000031c4e      0x225 Core/Src/system_stm32g4xx.o
- .debug_macro   0x0000000000031e73      0x29c Core/Src/tim.o
- .debug_macro   0x000000000003210f      0x26d Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
- .debug_macro   0x000000000003237c      0x23c Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
- .debug_macro   0x00000000000325b8      0x22b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
- .debug_macro   0x00000000000327e3      0x235 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_comp.o
- .debug_macro   0x0000000000032a18      0x21f Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
- .debug_macro   0x0000000000032c37      0x235 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o
- .debug_macro   0x0000000000032e6c      0x21f Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac_ex.o
- .debug_macro   0x000000000003308b      0x21f Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
- .debug_macro   0x00000000000332aa      0x257 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
- .debug_macro   0x0000000000033501      0x249 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
- .debug_macro   0x000000000003374a      0x25b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
- .debug_macro   0x00000000000339a5      0x249 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
- .debug_macro   0x0000000000033bee      0x227 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
- .debug_macro   0x0000000000033e15      0x227 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
- .debug_macro   0x000000000003403c      0x225 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
- .debug_macro   0x0000000000034261      0x247 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_exti.o
- .debug_macro   0x00000000000344a8      0x173 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_exti.o
- .debug_macro   0x000000000003461b      0x261 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_gpio.o
- .debug_macro   0x000000000003487c      0x164 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_gpio.o
- .debug_macro   0x00000000000349e0      0x456 ILI9341/ILI9341_GFX.o
- .debug_macro   0x0000000000034e36       0x16 ILI9341/ILI9341_GFX.o
- .debug_macro   0x0000000000034e4c       0x1c ILI9341/ILI9341_GFX.o
- .debug_macro   0x0000000000034e68       0x10 ILI9341/ILI9341_GFX.o
- .debug_macro   0x0000000000034e78       0x10 ILI9341/ILI9341_GFX.o
- .debug_macro   0x0000000000034e88      0x2c1 ILI9341/ILI9341_STM32_Driver.o
- .debug_macro   0x0000000000035149       0x73 WaveTableGeneration/icontables/pysawicon.o
- .debug_macro   0x00000000000351bc       0x73 WaveTableGeneration/icontables/pysawicon_rev.o
- .debug_macro   0x000000000003522f       0x73 WaveTableGeneration/icontables/pysineicon.o
- .debug_macro   0x00000000000352a2       0x73 WaveTableGeneration/icontables/pysquareicon.o
- .debug_macro   0x0000000000035315       0x73 WaveTableGeneration/icontables/pytriangleicon.o
- .debug_macro   0x0000000000035388       0x73 WaveTableGeneration/pysaw.o
- .debug_macro   0x00000000000353fb       0x73 WaveTableGeneration/pysaw_rev.o
- .debug_macro   0x000000000003546e       0x73 WaveTableGeneration/pysine.o
- .debug_macro   0x00000000000354e1       0x73 WaveTableGeneration/pysquare.o
- .debug_macro   0x0000000000035554       0x73 WaveTableGeneration/pytriangle.o
- .debug_macro   0x00000000000355c7       0x73 WaveTableGeneration/pyunitimpulse.o
+ .debug_macro   0x0000000000028170       0xf4 Core/Src/DisplayManager/BiasMenus.o
+ .debug_macro   0x0000000000028264       0x5e Core/Src/DisplayManager/BiasMenus.o
+ .debug_macro   0x00000000000282c2       0xbe Core/Src/DisplayManager/BiasMenus.o
+ .debug_macro   0x0000000000028380      0x5e0 Core/Src/DisplayManager/DisplayManager.o
+ .debug_macro   0x0000000000028960       0x16 Core/Src/DisplayManager/DisplayManager.o
+ .debug_macro   0x0000000000028976       0x20 Core/Src/DisplayManager/DisplayManager.o
+ .debug_macro   0x0000000000028996       0x16 Core/Src/DisplayManager/DisplayManager.o
+ .debug_macro   0x00000000000289ac       0x16 Core/Src/DisplayManager/DisplayManager.o
+ .debug_macro   0x00000000000289c2       0x29 Core/Src/DisplayManager/DisplayManager.o
+ .debug_macro   0x00000000000289eb      0x52c Core/Src/DisplayManager/FreqMenus.o
+ .debug_macro   0x0000000000028f17       0x97 Core/Src/DisplayManager/FreqMenus.o
+ .debug_macro   0x0000000000028fae      0x330 Core/Src/DisplayManager/FreqMenus.o
+ .debug_macro   0x00000000000292de       0xfd Core/Src/DisplayManager/FreqMenus.o
+ .debug_macro   0x00000000000293db       0xd9 Core/Src/DisplayManager/FreqMenus.o
+ .debug_macro   0x00000000000294b4       0x54 Core/Src/DisplayManager/FreqMenus.o
+ .debug_macro   0x0000000000029508       0x1c Core/Src/DisplayManager/FreqMenus.o
+ .debug_macro   0x0000000000029524      0x532 Core/Src/DisplayManager/FuncMenus.o
+ .debug_macro   0x0000000000029a56      0x532 Core/Src/DisplayManager/GainMenus.o
+ .debug_macro   0x0000000000029f88      0x53c Core/Src/DisplayManager/ToplevelMenus.o
+ .debug_macro   0x000000000002a4c4      0x530 Core/Src/EventManager/BiasMenuStateHandler.o
+ .debug_macro   0x000000000002a9f4      0x579 Core/Src/EventManager/EventManager.o
+ .debug_macro   0x000000000002af6d      0x1e1 Core/Src/EventManager/EventManager.o
+ .debug_macro   0x000000000002b14e      0x543 Core/Src/EventManager/FreqMenuStateHandler.o
+ .debug_macro   0x000000000002b691      0x543 Core/Src/EventManager/FuncMenuStateHandler.o
+ .debug_macro   0x000000000002bbd4      0x530 Core/Src/EventManager/GainMenuStateHandler.o
+ .debug_macro   0x000000000002c104      0x53c Core/Src/EventManager/ToplevelMenuStateHandler.o
+ .debug_macro   0x000000000002c640      0x4d1 Core/Src/InterruptManager/InterruptManager.o
+ .debug_macro   0x000000000002cb11       0x16 Core/Src/InterruptManager/InterruptManager.o
+ .debug_macro   0x000000000002cb27      0x4c0 Core/Src/SIgnalManager/BiasOutput.o
+ .debug_macro   0x000000000002cfe7      0x537 Core/Src/SIgnalManager/FreqOutput.o
+ .debug_macro   0x000000000002d51e       0xcb Core/Src/SIgnalManager/FreqOutput.o
+ .debug_macro   0x000000000002d5e9      0x4b3 Core/Src/SIgnalManager/FreqSweep.o
+ .debug_macro   0x000000000002da9c       0x40 Core/Src/SIgnalManager/FreqSweep.o
+ .debug_macro   0x000000000002dadc       0x94 Core/Src/SIgnalManager/FreqSweep.o
+ .debug_macro   0x000000000002db70       0x57 Core/Src/SIgnalManager/FreqSweep.o
+ .debug_macro   0x000000000002dbc7       0x1c Core/Src/SIgnalManager/FreqSweep.o
+ .debug_macro   0x000000000002dbe3      0x53a Core/Src/SIgnalManager/FunctionOutput.o
+ .debug_macro   0x000000000002e11d      0x53d Core/Src/SIgnalManager/GainOutput.o
+ .debug_macro   0x000000000002e65a      0x4bf Core/Src/SIgnalManager/SignalManager.o
+ .debug_macro   0x000000000002eb19      0x566 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
+ .debug_macro   0x000000000002f07f       0x16 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
+ .debug_macro   0x000000000002f095      0x29c Core/Src/adc.o
+ .debug_macro   0x000000000002f331      0x29c Core/Src/comp.o
+ .debug_macro   0x000000000002f5cd      0x29c Core/Src/dac.o
+ .debug_macro   0x000000000002f869      0x29c Core/Src/dma.o
+ .debug_macro   0x000000000002fb05      0x29c Core/Src/gpio.o
+ .debug_macro   0x000000000002fda1      0x579 Core/Src/main.o
+ .debug_macro   0x000000000003031a      0x29c Core/Src/rng.o
+ .debug_macro   0x00000000000305b6      0x29c Core/Src/spi.o
+ .debug_macro   0x0000000000030852      0x292 Core/Src/stm32g4xx_hal_msp.o
+ .debug_macro   0x0000000000030ae4      0x547 Core/Src/stm32g4xx_it.o
+ .debug_macro   0x000000000003102b      0x243 Core/Src/syscalls.o
+ .debug_macro   0x000000000003126e       0x10 Core/Src/syscalls.o
+ .debug_macro   0x000000000003127e       0x10 Core/Src/syscalls.o
+ .debug_macro   0x000000000003128e       0x10 Core/Src/syscalls.o
+ .debug_macro   0x000000000003129e       0x35 Core/Src/syscalls.o
+ .debug_macro   0x00000000000312d3      0x122 Core/Src/syscalls.o
+ .debug_macro   0x00000000000313f5       0x10 Core/Src/syscalls.o
+ .debug_macro   0x0000000000031405      0x241 Core/Src/syscalls.o
+ .debug_macro   0x0000000000031646       0x10 Core/Src/syscalls.o
+ .debug_macro   0x0000000000031656      0x189 Core/Src/syscalls.o
+ .debug_macro   0x00000000000317df       0x16 Core/Src/syscalls.o
+ .debug_macro   0x00000000000317f5       0x88 Core/Src/syscalls.o
+ .debug_macro   0x000000000003187d      0x1ae Core/Src/sysmem.o
+ .debug_macro   0x0000000000031a2b      0x23b Core/Src/sysmem.o
+ .debug_macro   0x0000000000031c66      0x225 Core/Src/system_stm32g4xx.o
+ .debug_macro   0x0000000000031e8b      0x29c Core/Src/tim.o
+ .debug_macro   0x0000000000032127      0x26d Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_macro   0x0000000000032394      0x23c Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_macro   0x00000000000325d0      0x22b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_macro   0x00000000000327fb      0x235 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_comp.o
+ .debug_macro   0x0000000000032a30      0x21f Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_macro   0x0000000000032c4f      0x235 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o
+ .debug_macro   0x0000000000032e84      0x21f Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac_ex.o
+ .debug_macro   0x00000000000330a3      0x21f Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
+ .debug_macro   0x00000000000332c2      0x257 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_macro   0x0000000000033519      0x249 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_macro   0x0000000000033762      0x25b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_macro   0x00000000000339bd      0x249 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_macro   0x0000000000033c06      0x227 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
+ .debug_macro   0x0000000000033e2d      0x227 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_macro   0x0000000000034054      0x225 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_macro   0x0000000000034279      0x247 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_exti.o
+ .debug_macro   0x00000000000344c0      0x173 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_exti.o
+ .debug_macro   0x0000000000034633      0x261 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_gpio.o
+ .debug_macro   0x0000000000034894      0x164 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_gpio.o
+ .debug_macro   0x00000000000349f8      0x456 ILI9341/ILI9341_GFX.o
+ .debug_macro   0x0000000000034e4e       0x16 ILI9341/ILI9341_GFX.o
+ .debug_macro   0x0000000000034e64       0x1c ILI9341/ILI9341_GFX.o
+ .debug_macro   0x0000000000034e80       0x10 ILI9341/ILI9341_GFX.o
+ .debug_macro   0x0000000000034e90       0x10 ILI9341/ILI9341_GFX.o
+ .debug_macro   0x0000000000034ea0      0x2c1 ILI9341/ILI9341_STM32_Driver.o
+ .debug_macro   0x0000000000035161       0x73 WaveTableGeneration/icontables/pysawicon.o
+ .debug_macro   0x00000000000351d4       0x73 WaveTableGeneration/icontables/pysawicon_rev.o
+ .debug_macro   0x0000000000035247       0x73 WaveTableGeneration/icontables/pysineicon.o
+ .debug_macro   0x00000000000352ba       0x73 WaveTableGeneration/icontables/pysquareicon.o
+ .debug_macro   0x000000000003532d       0x73 WaveTableGeneration/icontables/pytriangleicon.o
+ .debug_macro   0x00000000000353a0       0x73 WaveTableGeneration/pysaw.o
+ .debug_macro   0x0000000000035413       0x73 WaveTableGeneration/pysaw_rev.o
+ .debug_macro   0x0000000000035486       0x73 WaveTableGeneration/pysine.o
+ .debug_macro   0x00000000000354f9       0x73 WaveTableGeneration/pysquare.o
+ .debug_macro   0x000000000003556c       0x73 WaveTableGeneration/pytriangle.o
+ .debug_macro   0x00000000000355df       0x73 WaveTableGeneration/pyunitimpulse.o
 
 .debug_line     0x0000000000000000    0x2f311
  .debug_line    0x0000000000000000      0xe4a Core/Src/DisplayManager/BiasMenus.o
@@ -13772,136 +13637,136 @@ OUTPUT(FunctionGeneratorCortexM4_SW_V1.elf elf32-littlearm)
  .debug_line    0x000000000002eb85      0x3c3 WaveTableGeneration/pytriangle.o
  .debug_line    0x000000000002ef48      0x3c9 WaveTableGeneration/pyunitimpulse.o
 
-.debug_str      0x0000000000000000   0x12683b
- .debug_str     0x0000000000000000   0x11b172 Core/Src/DisplayManager/BiasMenus.o
-                                     0x11c4dc (size before relaxing)
- .debug_str     0x000000000011b172      0x5b6 Core/Src/DisplayManager/DisplayManager.o
-                                     0x11ca4f (size before relaxing)
- .debug_str     0x000000000011b728      0x155 Core/Src/DisplayManager/FreqMenus.o
-                                     0x11c612 (size before relaxing)
- .debug_str     0x000000000011b87d       0xa7 Core/Src/DisplayManager/FuncMenus.o
-                                     0x11c570 (size before relaxing)
- .debug_str     0x000000000011b924       0x9d Core/Src/DisplayManager/GainMenus.o
-                                     0x11c566 (size before relaxing)
- .debug_str     0x000000000011b9c1      0x1d1 Core/Src/DisplayManager/ToplevelMenus.o
-                                     0x11c6a1 (size before relaxing)
- .debug_str     0x000000000011bb92       0xb5 Core/Src/EventManager/BiasMenuStateHandler.o
-                                     0x11c51b (size before relaxing)
- .debug_str     0x000000000011bc47      0xa0f Core/Src/EventManager/EventManager.o
-                                     0x11cfc2 (size before relaxing)
- .debug_str     0x000000000011c656      0x1a0 Core/Src/EventManager/FreqMenuStateHandler.o
-                                     0x11cf51 (size before relaxing)
- .debug_str     0x000000000011c7f6      0x167 Core/Src/EventManager/FuncMenuStateHandler.o
-                                     0x11cf59 (size before relaxing)
- .debug_str     0x000000000011c95d      0x147 Core/Src/EventManager/GainMenuStateHandler.o
-                                     0x11c628 (size before relaxing)
- .debug_str     0x000000000011caa4      0x1db Core/Src/EventManager/ToplevelMenuStateHandler.o
-                                     0x11c908 (size before relaxing)
- .debug_str     0x000000000011cc7f      0x238 Core/Src/InterruptManager/InterruptManager.o
-                                     0x11bf1f (size before relaxing)
- .debug_str     0x000000000011ceb7      0x13d Core/Src/SIgnalManager/BiasOutput.o
-                                     0x11be56 (size before relaxing)
- .debug_str     0x000000000011cff4      0x1b7 Core/Src/SIgnalManager/FreqOutput.o
-                                     0x11c76e (size before relaxing)
- .debug_str     0x000000000011d1ab       0xca Core/Src/SIgnalManager/FreqSweep.o
-                                     0x11c3d5 (size before relaxing)
- .debug_str     0x000000000011d275      0x168 Core/Src/SIgnalManager/FunctionOutput.o
-                                     0x11c721 (size before relaxing)
- .debug_str     0x000000000011d3dd       0xc5 Core/Src/SIgnalManager/GainOutput.o
-                                     0x11c6ed (size before relaxing)
- .debug_str     0x000000000011d4a2      0xc85 Core/Src/SIgnalManager/SignalManager.o
-                                     0x11d0fe (size before relaxing)
- .debug_str     0x000000000011e127      0x223 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
-                                     0x11c855 (size before relaxing)
- .debug_str     0x000000000011e34a      0x2ae Core/Src/adc.o
-                                     0x116f06 (size before relaxing)
- .debug_str     0x000000000011e5f8       0x50 Core/Src/comp.o
-                                     0x117080 (size before relaxing)
- .debug_str     0x000000000011e648       0x58 Core/Src/dac.o
-                                     0x116e79 (size before relaxing)
- .debug_str     0x000000000011e6a0       0x27 Core/Src/dma.o
-                                     0x116e70 (size before relaxing)
- .debug_str     0x000000000011e6c7      0x220 Core/Src/gpio.o
-                                     0x11717e (size before relaxing)
- .debug_str     0x000000000011e8e7      0x5a3 Core/Src/main.o
-                                     0x11d0de (size before relaxing)
- .debug_str     0x000000000011ee8a       0x3d Core/Src/rng.o
-                                     0x116888 (size before relaxing)
- .debug_str     0x000000000011eec7       0x4b Core/Src/spi.o
-                                     0x116db7 (size before relaxing)
- .debug_str     0x000000000011ef12       0x8c Core/Src/stm32g4xx_hal_msp.o
-                                     0x1168d4 (size before relaxing)
- .debug_str     0x000000000011ef9e      0x1d4 Core/Src/stm32g4xx_it.o
-                                     0x11c8a2 (size before relaxing)
- .debug_str     0x000000000011f172     0x10e5 Core/Src/syscalls.o
+.debug_str      0x0000000000000000   0x1268b8
+ .debug_str     0x0000000000000000   0x11b1ef Core/Src/DisplayManager/BiasMenus.o
+                                     0x11c559 (size before relaxing)
+ .debug_str     0x000000000011b1ef      0x5b6 Core/Src/DisplayManager/DisplayManager.o
+                                     0x11cacc (size before relaxing)
+ .debug_str     0x000000000011b7a5      0x155 Core/Src/DisplayManager/FreqMenus.o
+                                     0x11c68f (size before relaxing)
+ .debug_str     0x000000000011b8fa       0xa7 Core/Src/DisplayManager/FuncMenus.o
+                                     0x11c5ed (size before relaxing)
+ .debug_str     0x000000000011b9a1       0x9d Core/Src/DisplayManager/GainMenus.o
+                                     0x11c5e3 (size before relaxing)
+ .debug_str     0x000000000011ba3e      0x1d1 Core/Src/DisplayManager/ToplevelMenus.o
+                                     0x11c71e (size before relaxing)
+ .debug_str     0x000000000011bc0f       0xb5 Core/Src/EventManager/BiasMenuStateHandler.o
+                                     0x11c598 (size before relaxing)
+ .debug_str     0x000000000011bcc4      0xa0f Core/Src/EventManager/EventManager.o
+                                     0x11d03f (size before relaxing)
+ .debug_str     0x000000000011c6d3      0x1a0 Core/Src/EventManager/FreqMenuStateHandler.o
+                                     0x11cfce (size before relaxing)
+ .debug_str     0x000000000011c873      0x167 Core/Src/EventManager/FuncMenuStateHandler.o
+                                     0x11cfd6 (size before relaxing)
+ .debug_str     0x000000000011c9da      0x147 Core/Src/EventManager/GainMenuStateHandler.o
+                                     0x11c6a5 (size before relaxing)
+ .debug_str     0x000000000011cb21      0x1db Core/Src/EventManager/ToplevelMenuStateHandler.o
+                                     0x11c985 (size before relaxing)
+ .debug_str     0x000000000011ccfc      0x238 Core/Src/InterruptManager/InterruptManager.o
+                                     0x11bf9c (size before relaxing)
+ .debug_str     0x000000000011cf34      0x13d Core/Src/SIgnalManager/BiasOutput.o
+                                     0x11bed3 (size before relaxing)
+ .debug_str     0x000000000011d071      0x1b7 Core/Src/SIgnalManager/FreqOutput.o
+                                     0x11c7eb (size before relaxing)
+ .debug_str     0x000000000011d228       0xca Core/Src/SIgnalManager/FreqSweep.o
+                                     0x11c452 (size before relaxing)
+ .debug_str     0x000000000011d2f2      0x168 Core/Src/SIgnalManager/FunctionOutput.o
+                                     0x11c79e (size before relaxing)
+ .debug_str     0x000000000011d45a       0xc5 Core/Src/SIgnalManager/GainOutput.o
+                                     0x11c76a (size before relaxing)
+ .debug_str     0x000000000011d51f      0xc85 Core/Src/SIgnalManager/SignalManager.o
+                                     0x11d17b (size before relaxing)
+ .debug_str     0x000000000011e1a4      0x223 Core/Src/SIgnalManager/VoltPeakPeakOutput.o
+                                     0x11c8d2 (size before relaxing)
+ .debug_str     0x000000000011e3c7      0x2ae Core/Src/adc.o
+                                     0x116f83 (size before relaxing)
+ .debug_str     0x000000000011e675       0x50 Core/Src/comp.o
+                                     0x1170fd (size before relaxing)
+ .debug_str     0x000000000011e6c5       0x58 Core/Src/dac.o
+                                     0x116ef6 (size before relaxing)
+ .debug_str     0x000000000011e71d       0x27 Core/Src/dma.o
+                                     0x116eed (size before relaxing)
+ .debug_str     0x000000000011e744      0x220 Core/Src/gpio.o
+                                     0x1171fb (size before relaxing)
+ .debug_str     0x000000000011e964      0x5a3 Core/Src/main.o
+                                     0x11d15b (size before relaxing)
+ .debug_str     0x000000000011ef07       0x3d Core/Src/rng.o
+                                     0x116905 (size before relaxing)
+ .debug_str     0x000000000011ef44       0x4b Core/Src/spi.o
+                                     0x116e34 (size before relaxing)
+ .debug_str     0x000000000011ef8f       0x8c Core/Src/stm32g4xx_hal_msp.o
+                                     0x116951 (size before relaxing)
+ .debug_str     0x000000000011f01b      0x1d4 Core/Src/stm32g4xx_it.o
+                                     0x11c91f (size before relaxing)
+ .debug_str     0x000000000011f1ef     0x10e5 Core/Src/syscalls.o
                                        0x88e6 (size before relaxing)
- .debug_str     0x0000000000120257       0x36 Core/Src/sysmem.o
+ .debug_str     0x00000000001202d4       0x36 Core/Src/sysmem.o
                                        0x7b3f (size before relaxing)
- .debug_str     0x000000000012028d       0x72 Core/Src/system_stm32g4xx.o
+ .debug_str     0x000000000012030a       0x72 Core/Src/system_stm32g4xx.o
                                      0x10a21b (size before relaxing)
- .debug_str     0x00000000001202ff      0x255 Core/Src/tim.o
-                                     0x117818 (size before relaxing)
- .debug_str     0x0000000000120554       0x36 Core/Startup/startup_stm32g474retx.o
+ .debug_str     0x000000000012037c      0x255 Core/Src/tim.o
+                                     0x117895 (size before relaxing)
+ .debug_str     0x00000000001205d1       0x36 Core/Startup/startup_stm32g474retx.o
                                          0x97 (size before relaxing)
- .debug_str     0x000000000012058a      0x543 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
+ .debug_str     0x0000000000120607      0x543 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal.o
                                      0x10aeac (size before relaxing)
- .debug_str     0x0000000000120acd      0xa5e Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
+ .debug_str     0x0000000000120b4a      0xa5e Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc.o
                                      0x10b150 (size before relaxing)
- .debug_str     0x000000000012152b      0x731 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
+ .debug_str     0x00000000001215a8      0x731 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_adc_ex.o
                                      0x10b124 (size before relaxing)
- .debug_str     0x0000000000121c5c      0x37b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_comp.o
+ .debug_str     0x0000000000121cd9      0x37b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_comp.o
                                      0x10a5d4 (size before relaxing)
- .debug_str     0x0000000000121fd7      0x2f7 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
+ .debug_str     0x0000000000122054      0x2f7 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_cortex.o
                                      0x10abb3 (size before relaxing)
- .debug_str     0x00000000001222ce      0x223 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o
+ .debug_str     0x000000000012234b      0x223 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac.o
                                      0x10a80f (size before relaxing)
- .debug_str     0x00000000001224f1      0x2ba Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac_ex.o
+ .debug_str     0x000000000012256e      0x2ba Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dac_ex.o
                                      0x10a873 (size before relaxing)
- .debug_str     0x00000000001227ab      0x2d3 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
+ .debug_str     0x0000000000122828      0x2d3 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_dma.o
                                      0x10a5d9 (size before relaxing)
- .debug_str     0x0000000000122a7e      0x1cf Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
+ .debug_str     0x0000000000122afb      0x1cf Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_gpio.o
                                      0x10a488 (size before relaxing)
- .debug_str     0x0000000000122c4d      0x466 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
+ .debug_str     0x0000000000122cca      0x466 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_pwr_ex.o
                                      0x10a6fe (size before relaxing)
- .debug_str     0x00000000001230b3      0x3d1 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
+ .debug_str     0x0000000000123130      0x3d1 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc.o
                                      0x10a7ba (size before relaxing)
- .debug_str     0x0000000000123484      0x3f2 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
+ .debug_str     0x0000000000123501      0x3f2 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_rcc_ex.o
                                      0x10a8fc (size before relaxing)
- .debug_str     0x0000000000123876      0x56b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
+ .debug_str     0x00000000001238f3      0x56b Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_spi.o
                                      0x10aaba (size before relaxing)
- .debug_str     0x0000000000123de1      0xd36 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
+ .debug_str     0x0000000000123e5e      0xd36 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim.o
                                      0x10b5d7 (size before relaxing)
- .debug_str     0x0000000000124b17      0x958 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
+ .debug_str     0x0000000000124b94      0x958 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_hal_tim_ex.o
                                      0x10b294 (size before relaxing)
- .debug_str     0x000000000012546f      0x278 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_exti.o
+ .debug_str     0x00000000001254ec      0x278 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_exti.o
                                      0x10a517 (size before relaxing)
- .debug_str     0x00000000001256e7      0x643 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_gpio.o
+ .debug_str     0x0000000000125764      0x643 Drivers/STM32G4xx_HAL_Driver/Src/stm32g4xx_ll_gpio.o
                                      0x10bc9d (size before relaxing)
- .debug_str     0x0000000000125d2a      0x424 ILI9341/ILI9341_GFX.o
-                                     0x11bc78 (size before relaxing)
- .debug_str     0x000000000012614e      0x2c3 ILI9341/ILI9341_STM32_Driver.o
-                                     0x117109 (size before relaxing)
- .debug_str     0x0000000000126411       0x66 WaveTableGeneration/icontables/pysawicon.o
+ .debug_str     0x0000000000125da7      0x424 ILI9341/ILI9341_GFX.o
+                                     0x11bcf5 (size before relaxing)
+ .debug_str     0x00000000001261cb      0x2c3 ILI9341/ILI9341_STM32_Driver.o
+                                     0x117186 (size before relaxing)
+ .debug_str     0x000000000012648e       0x66 WaveTableGeneration/icontables/pysawicon.o
                                        0x3ce3 (size before relaxing)
- .debug_str     0x0000000000126477       0x6a WaveTableGeneration/icontables/pysawicon_rev.o
+ .debug_str     0x00000000001264f4       0x6a WaveTableGeneration/icontables/pysawicon_rev.o
                                        0x3cf3 (size before relaxing)
- .debug_str     0x00000000001264e1       0x67 WaveTableGeneration/icontables/pysineicon.o
+ .debug_str     0x000000000012655e       0x67 WaveTableGeneration/icontables/pysineicon.o
                                        0x3d00 (size before relaxing)
- .debug_str     0x0000000000126548       0x69 WaveTableGeneration/icontables/pysquareicon.o
+ .debug_str     0x00000000001265c5       0x69 WaveTableGeneration/icontables/pysquareicon.o
                                        0x3cef (size before relaxing)
- .debug_str     0x00000000001265b1       0x6b WaveTableGeneration/icontables/pytriangleicon.o
+ .debug_str     0x000000000012662e       0x6b WaveTableGeneration/icontables/pytriangleicon.o
                                        0x3cf7 (size before relaxing)
- .debug_str     0x000000000012661c       0x57 WaveTableGeneration/pysaw.o
+ .debug_str     0x0000000000126699       0x57 WaveTableGeneration/pysaw.o
                                        0x3cc9 (size before relaxing)
- .debug_str     0x0000000000126673       0x5b WaveTableGeneration/pysaw_rev.o
+ .debug_str     0x00000000001266f0       0x5b WaveTableGeneration/pysaw_rev.o
                                        0x3cd9 (size before relaxing)
- .debug_str     0x00000000001266ce       0x58 WaveTableGeneration/pysine.o
+ .debug_str     0x000000000012674b       0x58 WaveTableGeneration/pysine.o
                                        0x3ce2 (size before relaxing)
- .debug_str     0x0000000000126726       0x5a WaveTableGeneration/pysquare.o
+ .debug_str     0x00000000001267a3       0x5a WaveTableGeneration/pysquare.o
                                        0x3cd5 (size before relaxing)
- .debug_str     0x0000000000126780       0x5c WaveTableGeneration/pytriangle.o
+ .debug_str     0x00000000001267fd       0x5c WaveTableGeneration/pytriangle.o
                                        0x3cdd (size before relaxing)
- .debug_str     0x00000000001267dc       0x5f WaveTableGeneration/pyunitimpulse.o
+ .debug_str     0x0000000000126859       0x5f WaveTableGeneration/pyunitimpulse.o
                                        0x3ce9 (size before relaxing)
 
 .comment        0x0000000000000000       0x7b

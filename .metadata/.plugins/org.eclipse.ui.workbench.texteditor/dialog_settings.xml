@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="FuncPresetEncoderRange"/>
+		<item key="selection" value="CH1_GAIN_C"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="SG2"/>
+			<item value="SG1"/>
+			<item value="SG0"/>
+			<item value="DCBIAS_INVERT"/>
 			<item value="FuncPresetEncoderRange"/>
 			<item value="active_sweep_mode"/>
 			<item value="tmpDT"/>
@@ -19,12 +23,12 @@
 			<item value="TIM_CHANNEL_2"/>
 			<item value="PWM"/>
 			<item value="FuncO_"/>
-			<item value="FuncO"/>
-			<item value="Func0"/>
-			<item value="GUI_DrawHLine"/>
-			<item value="GUI_SetPixel"/>
 		</list>
 		<list key="replacehistory">
+			<item value="CH1_GAIN_C"/>
+			<item value="CH1_GAIN_B"/>
+			<item value="CH1_GAIN_A"/>
+			<item value="OFFSET_ENABLE"/>
 			<item value="FreqO_GetProfileByIndex"/>
 			<item value="DAC2"/>
 			<item value="TIM_CHANNEL_1"/>
@@ -36,10 +40,6 @@
 			<item value="ILI9341_SCREEN_WIDTH"/>
 			<item value="ILI9341_SCREEN_HEIGHT"/>
 			<item value="LCD_HEIGHT"/>
-			<item value="LCD_WIDTH"/>
-			<item value="5"/>
-			<item value="NORMAL_TEXT_BGCOLOUR"/>
-			<item value="MAX_OUTPUT_ARR"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

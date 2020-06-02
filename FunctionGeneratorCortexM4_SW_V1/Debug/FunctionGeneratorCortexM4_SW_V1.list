@@ -35,15 +35,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  15 .debug_ranges 00001e10  00000000  00000000  00083598  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  0003563a  00000000  00000000  000853a8  2**0
+ 16 .debug_macro  00035652  00000000  00000000  000853a8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0002f311  00000000  00000000  000ba9e2  2**0
+ 17 .debug_line   0002f311  00000000  00000000  000ba9fa  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    0012683b  00000000  00000000  000e9cf3  2**0
+ 18 .debug_str    001268b8  00000000  00000000  000e9d0b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  0021052e  2**0
+ 19 .comment      0000007b  00000000  00000000  002105c3  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00009888  00000000  00000000  002105ac  2**2
+ 20 .debug_frame  00009888  00000000  00000000  00210640  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -10855,12 +10855,12 @@ void BO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
  8005228:	4814      	ldr	r0, [pc, #80]	; (800527c <BO_MapEncoderPositionToSignalOutput+0x8c>)
  800522a:	f005 f8ef 	bl	800a40c <HAL_DAC_SetValue>
 
-		HAL_GPIO_WritePin(	DCBIAS_INVERT_GPIO_Port,
+		HAL_GPIO_WritePin(	OFFSET_ENABLE_GPIO_Port,
  800522e:	2201      	movs	r2, #1
  8005230:	2108      	movs	r1, #8
  8005232:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
  8005236:	f006 f8a1 	bl	800b37c <HAL_GPIO_WritePin>
-							DCBIAS_INVERT_Pin,
+							OFFSET_ENABLE_Pin,
 							GPIO_PIN_SET);
 	}
 	// apply positive dc bias
@@ -10891,12 +10891,12 @@ void BO_MapEncoderPositionToSignalOutput(uint16_t pEncoderValue)
  800525a:	4808      	ldr	r0, [pc, #32]	; (800527c <BO_MapEncoderPositionToSignalOutput+0x8c>)
  800525c:	f005 f8d6 	bl	800a40c <HAL_DAC_SetValue>
 
-		HAL_GPIO_WritePin(	DCBIAS_INVERT_GPIO_Port,
+		HAL_GPIO_WritePin(	OFFSET_ENABLE_GPIO_Port,
  8005260:	2200      	movs	r2, #0
  8005262:	2108      	movs	r1, #8
  8005264:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
  8005268:	f006 f888 	bl	800b37c <HAL_GPIO_WritePin>
-							DCBIAS_INVERT_Pin,
+							OFFSET_ENABLE_Pin,
 							GPIO_PIN_RESET);
 	}
 }
@@ -12540,17 +12540,17 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
  8005d38:	08005e1d 	.word	0x08005e1d
 	{
 		case ZERO_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin, GPIO_PIN_RESET);
  8005d3c:	2200      	movs	r2, #0
  8005d3e:	2101      	movs	r1, #1
  8005d40:	4841      	ldr	r0, [pc, #260]	; (8005e48 <GO_ApplyPresetToSignal+0x15c>)
  8005d42:	f005 fb1b 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin, GPIO_PIN_RESET);
  8005d46:	2200      	movs	r2, #0
  8005d48:	2120      	movs	r1, #32
  8005d4a:	4840      	ldr	r0, [pc, #256]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
  8005d4c:	f005 fb16 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin, GPIO_PIN_RESET);
  8005d50:	2200      	movs	r2, #0
  8005d52:	2110      	movs	r1, #16
  8005d54:	483d      	ldr	r0, [pc, #244]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
@@ -12559,17 +12559,17 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
  8005d5a:	e06f      	b.n	8005e3c <GO_ApplyPresetToSignal+0x150>
 
 		case ONE_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin, GPIO_PIN_SET);
  8005d5c:	2201      	movs	r2, #1
  8005d5e:	2101      	movs	r1, #1
  8005d60:	4839      	ldr	r0, [pc, #228]	; (8005e48 <GO_ApplyPresetToSignal+0x15c>)
  8005d62:	f005 fb0b 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin, GPIO_PIN_RESET);
  8005d66:	2200      	movs	r2, #0
  8005d68:	2120      	movs	r1, #32
  8005d6a:	4838      	ldr	r0, [pc, #224]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
  8005d6c:	f005 fb06 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin, GPIO_PIN_RESET);
  8005d70:	2200      	movs	r2, #0
  8005d72:	2110      	movs	r1, #16
  8005d74:	4835      	ldr	r0, [pc, #212]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
@@ -12578,17 +12578,17 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
  8005d7a:	e05f      	b.n	8005e3c <GO_ApplyPresetToSignal+0x150>
 
 		case TWO_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin, GPIO_PIN_RESET);
  8005d7c:	2200      	movs	r2, #0
  8005d7e:	2101      	movs	r1, #1
  8005d80:	4831      	ldr	r0, [pc, #196]	; (8005e48 <GO_ApplyPresetToSignal+0x15c>)
  8005d82:	f005 fafb 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin, GPIO_PIN_SET);
  8005d86:	2201      	movs	r2, #1
  8005d88:	2120      	movs	r1, #32
  8005d8a:	4830      	ldr	r0, [pc, #192]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
  8005d8c:	f005 faf6 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin, GPIO_PIN_RESET);
  8005d90:	2200      	movs	r2, #0
  8005d92:	2110      	movs	r1, #16
  8005d94:	482d      	ldr	r0, [pc, #180]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
@@ -12597,17 +12597,17 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
  8005d9a:	e04f      	b.n	8005e3c <GO_ApplyPresetToSignal+0x150>
 
 		case THREE_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin, GPIO_PIN_SET);
  8005d9c:	2201      	movs	r2, #1
  8005d9e:	2101      	movs	r1, #1
  8005da0:	4829      	ldr	r0, [pc, #164]	; (8005e48 <GO_ApplyPresetToSignal+0x15c>)
  8005da2:	f005 faeb 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin, GPIO_PIN_SET);
  8005da6:	2201      	movs	r2, #1
  8005da8:	2120      	movs	r1, #32
  8005daa:	4828      	ldr	r0, [pc, #160]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
  8005dac:	f005 fae6 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin, GPIO_PIN_RESET);
  8005db0:	2200      	movs	r2, #0
  8005db2:	2110      	movs	r1, #16
  8005db4:	4825      	ldr	r0, [pc, #148]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
@@ -12616,17 +12616,17 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
  8005dba:	e03f      	b.n	8005e3c <GO_ApplyPresetToSignal+0x150>
 
 		case FOUR_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin, GPIO_PIN_RESET);
  8005dbc:	2200      	movs	r2, #0
  8005dbe:	2101      	movs	r1, #1
  8005dc0:	4821      	ldr	r0, [pc, #132]	; (8005e48 <GO_ApplyPresetToSignal+0x15c>)
  8005dc2:	f005 fadb 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin, GPIO_PIN_RESET);
  8005dc6:	2200      	movs	r2, #0
  8005dc8:	2120      	movs	r1, #32
  8005dca:	4820      	ldr	r0, [pc, #128]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
  8005dcc:	f005 fad6 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin, GPIO_PIN_SET);
  8005dd0:	2201      	movs	r2, #1
  8005dd2:	2110      	movs	r1, #16
  8005dd4:	481d      	ldr	r0, [pc, #116]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
@@ -12635,17 +12635,17 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
  8005dda:	e02f      	b.n	8005e3c <GO_ApplyPresetToSignal+0x150>
 
 		case FIVE_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin, GPIO_PIN_SET);
  8005ddc:	2201      	movs	r2, #1
  8005dde:	2101      	movs	r1, #1
  8005de0:	4819      	ldr	r0, [pc, #100]	; (8005e48 <GO_ApplyPresetToSignal+0x15c>)
  8005de2:	f005 facb 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin, GPIO_PIN_RESET);
  8005de6:	2200      	movs	r2, #0
  8005de8:	2120      	movs	r1, #32
  8005dea:	4818      	ldr	r0, [pc, #96]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
  8005dec:	f005 fac6 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin, GPIO_PIN_SET);
  8005df0:	2201      	movs	r2, #1
  8005df2:	2110      	movs	r1, #16
  8005df4:	4815      	ldr	r0, [pc, #84]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
@@ -12654,17 +12654,17 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
  8005dfa:	e01f      	b.n	8005e3c <GO_ApplyPresetToSignal+0x150>
 
 		case SIX_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_RESET);
+			HAL_GPIO_WritePin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin, GPIO_PIN_RESET);
  8005dfc:	2200      	movs	r2, #0
  8005dfe:	2101      	movs	r1, #1
  8005e00:	4811      	ldr	r0, [pc, #68]	; (8005e48 <GO_ApplyPresetToSignal+0x15c>)
  8005e02:	f005 fabb 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin, GPIO_PIN_SET);
  8005e06:	2201      	movs	r2, #1
  8005e08:	2120      	movs	r1, #32
  8005e0a:	4810      	ldr	r0, [pc, #64]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
  8005e0c:	f005 fab6 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin, GPIO_PIN_SET);
  8005e10:	2201      	movs	r2, #1
  8005e12:	2110      	movs	r1, #16
  8005e14:	480d      	ldr	r0, [pc, #52]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
@@ -12673,17 +12673,17 @@ void GO_ApplyPresetToSignal(eGainSettings_t pPresetEnum)
  8005e1a:	e00f      	b.n	8005e3c <GO_ApplyPresetToSignal+0x150>
 
 		case SEVEN_GAIN:
-			HAL_GPIO_WritePin(SG0_GPIO_Port, SG0_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin, GPIO_PIN_SET);
  8005e1c:	2201      	movs	r2, #1
  8005e1e:	2101      	movs	r1, #1
  8005e20:	4809      	ldr	r0, [pc, #36]	; (8005e48 <GO_ApplyPresetToSignal+0x15c>)
  8005e22:	f005 faab 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG1_GPIO_Port, SG1_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin, GPIO_PIN_SET);
  8005e26:	2201      	movs	r2, #1
  8005e28:	2120      	movs	r1, #32
  8005e2a:	4808      	ldr	r0, [pc, #32]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
  8005e2c:	f005 faa6 	bl	800b37c <HAL_GPIO_WritePin>
-			HAL_GPIO_WritePin(SG2_GPIO_Port, SG2_Pin, GPIO_PIN_SET);
+			HAL_GPIO_WritePin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin, GPIO_PIN_SET);
  8005e30:	2201      	movs	r2, #1
  8005e32:	2110      	movs	r1, #16
  8005e34:	4805      	ldr	r0, [pc, #20]	; (8005e4c <GO_ApplyPresetToSignal+0x160>)
@@ -12724,7 +12724,7 @@ void SM_Init()
  8005e60:	2110      	movs	r1, #16
  8005e62:	4810      	ldr	r0, [pc, #64]	; (8005ea4 <SM_Init+0x54>)
  8005e64:	f004 f967 	bl	800a136 <HAL_DAC_Start>
-	HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(OFFSET_ENABLE_GPIO_Port, OFFSET_ENABLE_Pin, GPIO_PIN_SET);
  8005e68:	2201      	movs	r2, #1
  8005e6a:	2108      	movs	r1, #8
  8005e6c:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
@@ -15892,25 +15892,25 @@ void MX_GPIO_Init(void)
  80072f2:	f7ff ffb9 	bl	8007268 <LL_GPIO_ResetOutputPin>
 
   /**/
-  LL_GPIO_ResetOutputPin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin);
+  LL_GPIO_ResetOutputPin(OFFSET_ENABLE_GPIO_Port, OFFSET_ENABLE_Pin);
  80072f6:	2108      	movs	r1, #8
  80072f8:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
  80072fc:	f7ff ffb4 	bl	8007268 <LL_GPIO_ResetOutputPin>
 
   /**/
-  LL_GPIO_ResetOutputPin(SG2_GPIO_Port, SG2_Pin);
+  LL_GPIO_ResetOutputPin(CH1_GAIN_C_GPIO_Port, CH1_GAIN_C_Pin);
  8007300:	2110      	movs	r1, #16
  8007302:	48cf      	ldr	r0, [pc, #828]	; (8007640 <MX_GPIO_Init+0x38c>)
  8007304:	f7ff ffb0 	bl	8007268 <LL_GPIO_ResetOutputPin>
 
   /**/
-  LL_GPIO_ResetOutputPin(SG1_GPIO_Port, SG1_Pin);
+  LL_GPIO_ResetOutputPin(CH1_GAIN_B_GPIO_Port, CH1_GAIN_B_Pin);
  8007308:	2120      	movs	r1, #32
  800730a:	48cd      	ldr	r0, [pc, #820]	; (8007640 <MX_GPIO_Init+0x38c>)
  800730c:	f7ff ffac 	bl	8007268 <LL_GPIO_ResetOutputPin>
 
   /**/
-  LL_GPIO_ResetOutputPin(SG0_GPIO_Port, SG0_Pin);
+  LL_GPIO_ResetOutputPin(CH1_GAIN_A_GPIO_Port, CH1_GAIN_A_Pin);
  8007310:	2101      	movs	r1, #1
  8007312:	48cc      	ldr	r0, [pc, #816]	; (8007644 <MX_GPIO_Init+0x390>)
  8007314:	f7ff ffa8 	bl	8007268 <LL_GPIO_ResetOutputPin>
@@ -16094,7 +16094,7 @@ void MX_GPIO_Init(void)
  8007440:	f7ff fee3 	bl	800720a <LL_GPIO_SetPinPull>
 
   /**/
-  LL_GPIO_SetPinPull(ENC_EXTI2_GPIO_Port, ENC_EXTI2_Pin, LL_GPIO_PULL_UP);
+  LL_GPIO_SetPinPull(ENC_SW_GPIO_Port, ENC_SW_Pin, LL_GPIO_PULL_UP);
  8007444:	2201      	movs	r2, #1
  8007446:	2104      	movs	r1, #4
  8007448:	487d      	ldr	r0, [pc, #500]	; (8007640 <MX_GPIO_Init+0x38c>)
@@ -16129,7 +16129,7 @@ void MX_GPIO_Init(void)
  8007476:	f7ff fe99 	bl	80071ac <LL_GPIO_SetPinMode>
 
   /**/
-  LL_GPIO_SetPinMode(ENC_EXTI2_GPIO_Port, ENC_EXTI2_Pin, LL_GPIO_MODE_INPUT);
+  LL_GPIO_SetPinMode(ENC_SW_GPIO_Port, ENC_SW_Pin, LL_GPIO_MODE_INPUT);
  800747a:	2200      	movs	r2, #0
  800747c:	2104      	movs	r1, #4
  800747e:	4870      	ldr	r0, [pc, #448]	; (8007640 <MX_GPIO_Init+0x38c>)
@@ -16158,7 +16158,7 @@ void MX_GPIO_Init(void)
  800749e:	f007 f896 	bl	800e5ce <LL_GPIO_Init>
 
   /**/
-  GPIO_InitStruct.Pin = DCBIAS_INVERT_Pin;
+  GPIO_InitStruct.Pin = OFFSET_ENABLE_Pin;
  80074a2:	2308      	movs	r3, #8
  80074a4:	607b      	str	r3, [r7, #4]
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
@@ -16173,14 +16173,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
  80074b2:	2300      	movs	r3, #0
  80074b4:	617b      	str	r3, [r7, #20]
-  LL_GPIO_Init(DCBIAS_INVERT_GPIO_Port, &GPIO_InitStruct);
+  LL_GPIO_Init(OFFSET_ENABLE_GPIO_Port, &GPIO_InitStruct);
  80074b6:	1d3b      	adds	r3, r7, #4
  80074b8:	4619      	mov	r1, r3
  80074ba:	f04f 4090 	mov.w	r0, #1207959552	; 0x48000000
  80074be:	f007 f886 	bl	800e5ce <LL_GPIO_Init>
 
   /**/
-  GPIO_InitStruct.Pin = SG2_Pin;
+  GPIO_InitStruct.Pin = CH1_GAIN_C_Pin;
  80074c2:	2310      	movs	r3, #16
  80074c4:	607b      	str	r3, [r7, #4]
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
@@ -16195,14 +16195,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
  80074d2:	2300      	movs	r3, #0
  80074d4:	617b      	str	r3, [r7, #20]
-  LL_GPIO_Init(SG2_GPIO_Port, &GPIO_InitStruct);
+  LL_GPIO_Init(CH1_GAIN_C_GPIO_Port, &GPIO_InitStruct);
  80074d6:	1d3b      	adds	r3, r7, #4
  80074d8:	4619      	mov	r1, r3
  80074da:	4859      	ldr	r0, [pc, #356]	; (8007640 <MX_GPIO_Init+0x38c>)
  80074dc:	f007 f877 	bl	800e5ce <LL_GPIO_Init>
 
   /**/
-  GPIO_InitStruct.Pin = SG1_Pin;
+  GPIO_InitStruct.Pin = CH1_GAIN_B_Pin;
  80074e0:	2320      	movs	r3, #32
  80074e2:	607b      	str	r3, [r7, #4]
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
@@ -16217,14 +16217,14 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
  80074f0:	2300      	movs	r3, #0
  80074f2:	617b      	str	r3, [r7, #20]
-  LL_GPIO_Init(SG1_GPIO_Port, &GPIO_InitStruct);
+  LL_GPIO_Init(CH1_GAIN_B_GPIO_Port, &GPIO_InitStruct);
  80074f4:	1d3b      	adds	r3, r7, #4
  80074f6:	4619      	mov	r1, r3
  80074f8:	4851      	ldr	r0, [pc, #324]	; (8007640 <MX_GPIO_Init+0x38c>)
  80074fa:	f007 f868 	bl	800e5ce <LL_GPIO_Init>
 
   /**/
-  GPIO_InitStruct.Pin = SG0_Pin;
+  GPIO_InitStruct.Pin = CH1_GAIN_A_Pin;
  80074fe:	2301      	movs	r3, #1
  8007500:	607b      	str	r3, [r7, #4]
   GPIO_InitStruct.Mode = LL_GPIO_MODE_OUTPUT;
@@ -16239,7 +16239,7 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = LL_GPIO_PULL_NO;
  800750e:	2300      	movs	r3, #0
  8007510:	617b      	str	r3, [r7, #20]
-  LL_GPIO_Init(SG0_GPIO_Port, &GPIO_InitStruct);
+  LL_GPIO_Init(CH1_GAIN_A_GPIO_Port, &GPIO_InitStruct);
  8007512:	1d3b      	adds	r3, r7, #4
  8007514:	4619      	mov	r1, r3
  8007516:	484b      	ldr	r0, [pc, #300]	; (8007644 <MX_GPIO_Init+0x390>)

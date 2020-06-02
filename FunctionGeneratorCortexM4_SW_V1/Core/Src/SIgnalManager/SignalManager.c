@@ -28,7 +28,7 @@ void SM_Init()
 
 	// Start OFFSET DAC and set to positive
 	HAL_DAC_Start(&hdac1, DAC1_CHANNEL_2);
-	HAL_GPIO_WritePin(DCBIAS_INVERT_GPIO_Port, DCBIAS_INVERT_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(OFFSET_ENABLE_GPIO_Port, OFFSET_ENABLE_Pin, GPIO_PIN_SET);
 
 	// send trigger input out to dac
 	//HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
