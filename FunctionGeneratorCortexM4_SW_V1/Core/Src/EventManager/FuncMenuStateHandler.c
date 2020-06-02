@@ -261,7 +261,7 @@ eSystemState FuncAuxMenuInputHandler(void)
 	}
 	else
 	{
-		FuncO_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+		FuncO_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_FORWARD));
 	}
 
 	eNewEvent = evIdle;
