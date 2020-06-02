@@ -7365,8 +7365,8 @@ eSystemState BiasMenuInputHandler()
 		printf("BiasMenuInputHandler Event captured\n");
 	#endif
 
-	BO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
- 8003f34:	2001      	movs	r0, #1
+	BO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+ 8003f34:	2000      	movs	r0, #0
  8003f36:	f002 fb1b 	bl	8006570 <SM_GetEncoderValue>
  8003f3a:	4603      	mov	r3, r0
  8003f3c:	4618      	mov	r0, r3
