@@ -13440,3 +13440,40 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64
 
 !ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:13:19.960
 !MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:24:25.721
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:25:26.058
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:33:23.146
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:34:34.956
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:35:46.732
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:36:56.563
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:38:53.226
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.jlink 1 0 2020-06-02 23:39:03.473
+!MESSAGE Using automatic SWV detection; base: 1440000000; minDiv: 48; maxSWO: 30000000; SWO: 28235294; CPU: 168000000; div: 6
+
+!ENTRY org.eclipse.core.jobs 4 2 2020-06-02 23:41:21.668
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:236)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1501)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:493)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:252)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:701)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:684)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:62)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
