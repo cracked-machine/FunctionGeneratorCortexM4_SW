@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00031e08  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000479a8  00000000  00000000  00031e38  2**0
+ 12 .debug_info   000479a9  00000000  00000000  00031e38  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_abbrev 00007b44  00000000  00000000  000797e0  2**0
+ 13 .debug_abbrev 00007b5c  00000000  00000000  000797e1  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_aranges 00002270  00000000  00000000  00081328  2**3
+ 14 .debug_aranges 00002270  00000000  00000000  00081340  2**3
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_ranges 00001e10  00000000  00000000  00083598  2**3
+ 15 .debug_ranges 00001e10  00000000  00000000  000835b0  2**3
                   CONTENTS, READONLY, DEBUGGING
- 16 .debug_macro  00035652  00000000  00000000  000853a8  2**0
+ 16 .debug_macro  00035652  00000000  00000000  000853c0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 17 .debug_line   0002f311  00000000  00000000  000ba9fa  2**0
+ 17 .debug_line   0002f311  00000000  00000000  000baa12  2**0
                   CONTENTS, READONLY, DEBUGGING
- 18 .debug_str    001268b8  00000000  00000000  000e9d0b  2**0
+ 18 .debug_str    001268b8  00000000  00000000  000e9d23  2**0
                   CONTENTS, READONLY, DEBUGGING
- 19 .comment      0000007b  00000000  00000000  002105c3  2**0
+ 19 .comment      0000007b  00000000  00000000  002105db  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00009888  00000000  00000000  00210640  2**2
+ 20 .debug_frame  00009888  00000000  00000000  00210658  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -9560,6 +9560,8 @@ eSystemState GainSignalMenuEntryHandler()
 	{
 		//ENCODER_TIMER->CNT = pTmpVppPreset->epos;
 		//ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
+
+		// set to full range and mid starting position
 		ENCODER_TIMER->CNT = 32768;
  8004a90:	4b0a      	ldr	r3, [pc, #40]	; (8004abc <GainSignalMenuEntryHandler+0x58>)
  8004a92:	f44f 4200 	mov.w	r2, #32768	; 0x8000
@@ -9729,14 +9731,17 @@ eSystemState GainAuxMenuEntryHandler()
  8004b64:	2b00      	cmp	r3, #0
  8004b66:	d008      	beq.n	8004b7a <GainAuxMenuEntryHandler+0x3a>
 	{
-		ENCODER_TIMER->CNT = pTmpVppPreset->epos;
- 8004b68:	687b      	ldr	r3, [r7, #4]
- 8004b6a:	8b1a      	ldrh	r2, [r3, #24]
- 8004b6c:	4b09      	ldr	r3, [pc, #36]	; (8004b94 <GainAuxMenuEntryHandler+0x54>)
+		//ENCODER_TIMER->CNT = pTmpVppPreset->epos;
+		//ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
+
+		// set to full range and mid starting position
+		ENCODER_TIMER->CNT = 32768;
+ 8004b68:	4b0a      	ldr	r3, [pc, #40]	; (8004b94 <GainAuxMenuEntryHandler+0x54>)
+ 8004b6a:	f44f 4200 	mov.w	r2, #32768	; 0x8000
  8004b6e:	625a      	str	r2, [r3, #36]	; 0x24
-		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
+		ENCODER_TIMER->ARR = 65535;
  8004b70:	4b08      	ldr	r3, [pc, #32]	; (8004b94 <GainAuxMenuEntryHandler+0x54>)
- 8004b72:	f44f 72c7 	mov.w	r2, #398	; 0x18e
+ 8004b72:	f64f 72ff 	movw	r2, #65535	; 0xffff
  8004b76:	62da      	str	r2, [r3, #44]	; 0x2c
  8004b78:	e002      	b.n	8004b80 <GainAuxMenuEntryHandler+0x40>
 	}
@@ -9777,8 +9782,8 @@ eSystemState GainAuxMenuInputHandler()
 	#endif
 
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_REVERSE));
-	VPP_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_REVERSE));
- 8004ba4:	2001      	movs	r0, #1
+	VPP_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+ 8004ba4:	2000      	movs	r0, #0
  8004ba6:	f001 fce3 	bl	8006570 <SM_GetEncoderValue>
  8004baa:	4603      	mov	r3, r0
  8004bac:	4618      	mov	r0, r3
