@@ -111,10 +111,8 @@ eSystemState GainSignalMenuEntryHandler()
 
 	if(pTmpVppPreset)
 	{
-		//ENCODER_TIMER->CNT = pTmpVppPreset->epos;
-		//ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
-		ENCODER_TIMER->CNT = 32768;
-		ENCODER_TIMER->ARR = 65535;
+		ENCODER_TIMER->CNT = pTmpVppPreset->epos;
+		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
 	}
 	else
 	{

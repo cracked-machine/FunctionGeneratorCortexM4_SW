@@ -9558,14 +9558,15 @@ eSystemState GainSignalMenuEntryHandler()
  8004a8c:	2b00      	cmp	r3, #0
  8004a8e:	d008      	beq.n	8004aa2 <GainSignalMenuEntryHandler+0x3e>
 	{
-		ENCODER_TIMER->CNT = pTmpVppPreset->epos;
- 8004a90:	687b      	ldr	r3, [r7, #4]
- 8004a92:	8b1a      	ldrh	r2, [r3, #24]
- 8004a94:	4b09      	ldr	r3, [pc, #36]	; (8004abc <GainSignalMenuEntryHandler+0x58>)
+		//ENCODER_TIMER->CNT = pTmpVppPreset->epos;
+		//ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
+		ENCODER_TIMER->CNT = 32768;
+ 8004a90:	4b0a      	ldr	r3, [pc, #40]	; (8004abc <GainSignalMenuEntryHandler+0x58>)
+ 8004a92:	f44f 4200 	mov.w	r2, #32768	; 0x8000
  8004a96:	625a      	str	r2, [r3, #36]	; 0x24
-		ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
+		ENCODER_TIMER->ARR = 65535;
  8004a98:	4b08      	ldr	r3, [pc, #32]	; (8004abc <GainSignalMenuEntryHandler+0x58>)
- 8004a9a:	f44f 72c7 	mov.w	r2, #398	; 0x18e
+ 8004a9a:	f64f 72ff 	movw	r2, #65535	; 0xffff
  8004a9e:	62da      	str	r2, [r3, #44]	; 0x2c
  8004aa0:	e002      	b.n	8004aa8 <GainSignalMenuEntryHandler+0x44>
 	}
@@ -9634,8 +9635,8 @@ eSystemState GainSignalMenuInputHandler()
 		}
 		else
 		{
-			VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_REVERSE));
- 8004afa:	2001      	movs	r0, #1
+			VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_FORWARD));
+ 8004afa:	2000      	movs	r0, #0
  8004afc:	f001 fd38 	bl	8006570 <SM_GetEncoderValue>
  8004b00:	4603      	mov	r3, r0
  8004b02:	4618      	mov	r0, r3

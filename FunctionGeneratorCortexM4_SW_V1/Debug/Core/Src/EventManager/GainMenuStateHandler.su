@@ -3,8 +3,8 @@ GainMenuStateHandler.c:29:14:GainMainMenuEntryHandler	8	static
 GainMenuStateHandler.c:51:14:GainMainMenuInputHandler	4	static
 GainMenuStateHandler.c:72:14:GainMainMenuExitHandler	8	static
 GainMenuStateHandler.c:98:14:GainSignalMenuEntryHandler	16	static
-GainMenuStateHandler.c:134:14:GainSignalMenuInputHandler	16	static
-GainMenuStateHandler.c:168:14:GainSignalMenuExitHandler	8	static
-GainMenuStateHandler.c:191:14:GainAuxMenuEntryHandler	16	static
-GainMenuStateHandler.c:226:14:GainAuxMenuInputHandler	8	static
-GainMenuStateHandler.c:248:14:GainAuxMenuExitHandler	8	static
+GainMenuStateHandler.c:136:14:GainSignalMenuInputHandler	16	static
+GainMenuStateHandler.c:170:14:GainSignalMenuExitHandler	8	static
+GainMenuStateHandler.c:193:14:GainAuxMenuEntryHandler	16	static
+GainMenuStateHandler.c:228:14:GainAuxMenuInputHandler	8	static
+GainMenuStateHandler.c:250:14:GainAuxMenuExitHandler	8	static
