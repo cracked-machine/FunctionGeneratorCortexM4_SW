@@ -425,7 +425,7 @@ eSystemState FreqPresetMenuInputHandler()
 		printf("FreqPresetMenuInputHandler Event captured\n");
 	#endif
 
-	FreqO_MapEncoderPositionToBothOutput(SM_GetEncoderValue(ENCODER_REVERSE));
+	FreqO_MapEncoderPositionToBothOutput(SM_GetEncoderValue(ENCODER_FORWARD));
 
 	// stay in this state
 	eNewEvent = evIdle;
