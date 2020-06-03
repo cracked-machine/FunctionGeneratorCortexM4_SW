@@ -11,4 +11,7 @@ FreqMenuStateHandler.c:443:14:FreqPresetMenuExitHandler	8	static
 FreqMenuStateHandler.c:467:14:FreqAdjustMenuEntryHandler	8	static
 FreqMenuStateHandler.c:494:14:FreqAdjustMenuInputHandler	8	static
 FreqMenuStateHandler.c:516:14:FreqAdjustMenuExitHandler	8	static
-FreqMenuStateHandler.c:542:18:FreqMenu_getStatus	4	static
+FreqMenuStateHandler.c:540:14:FreqPrescalerMenuEntryHandler	8	static
+FreqMenuStateHandler.c:567:14:FreqPrescalerMenuInputHandler	8	static
+FreqMenuStateHandler.c:588:14:FreqPrescalerMenuExitHandler	8	static
+FreqMenuStateHandler.c:612:18:FreqMenu_getStatus	4	static

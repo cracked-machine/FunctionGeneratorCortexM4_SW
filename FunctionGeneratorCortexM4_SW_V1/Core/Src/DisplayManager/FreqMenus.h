@@ -16,5 +16,6 @@ void FreqMenu_DrawMainMenu();
 void FreqMenu_DrawPresetMenu();
 void FreqMenu_DrawAdjustMenu();
 void FreqMenu_DrawSweepMenu();
+void FreqMenu_DrawPrescalerMenu();
 
 #endif /* SRC_DISPLAYMANAGER_FREQMENUS_H_ */

@@ -529,7 +529,77 @@ eSystemState FreqAdjustMenuExitHandler()
 	return Freq_Main_Menu_State;
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqPrescalerMenuEntryHandler()
+{
+	#ifdef EVENT_MENU_DEBUG
+		printf("FreqPrescalerMenuEntryHandler Event captured\n");
+	#endif
 
+	DM_RefreshScreen();
+
+	eNextFreqMenuStatus = ENABLE_FREQ_PRESCALER_MENU;
+
+	// set rotary encoder limit to full scale and midway starting position
+	ENCODER_TIMER->CNT = 32768;
+	ENCODER_TIMER->ARR = 65535;
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Prescaler_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqPrescalerMenuInputHandler()
+{
+	#ifdef EVENT_MENU_DEBUG
+		printf("FreqPrescalerMenuInputHandler Event captured\n");
+	#endif
+
+	FreqO_AdjustPrescaler();
+
+	// stay in this state
+	eNewEvent = evIdle;
+	return Freq_Prescaler_Menu_State;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eSystemState FreqPrescalerMenuExitHandler()
+{
+	#ifdef EVENT_MENU_DEBUG
+		printf("FreqPrescalerMenuExitHandler Event captured\n");
+	#endif
+
+	DM_RefreshScreen();
+
+	// disable the menu
+	eNextFreqMenuStatus = ENABLE_FREQ_MAIN_MENU;
+
+	// back to main freq menu
+	eNewEvent = evIdle;
+	return Freq_Main_Menu_State;
+}
 
 /*
  *

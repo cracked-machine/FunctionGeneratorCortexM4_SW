@@ -36,6 +36,7 @@ typedef enum
 	Freq_Preset_Menu_State,
 	Freq_Adjust_Menu_State,
 	Freq_Sweep_Menu_State,
+	Freq_Prescaler_Menu_State,
 
 	Bias_Menu_State,
 

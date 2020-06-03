@@ -40,7 +40,9 @@ void FreqMenu_DrawMenu(eFreqMenu_Status pMenu)
 		case ENABLE_FREQ_SWEEP_MENU:
 			FreqMenu_DrawSweepMenu();
 			break;
-
+		case ENABLE_FREQ_PRESCALER_MENU:
+			FreqMenu_DrawPrescalerMenu();
+			break;
 		default:
 			break;
 
@@ -67,7 +69,7 @@ void FreqMenu_DrawMainMenu()
 	ILI9341_Draw_Text("COARSE", 5,   210, BTN1_TEXT_FGCOLOUR, 2, BTN1_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("FINE", 97,  210, BTN2_TEXT_FGCOLOUR, 2, BTN2_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("SWEEP",  172, 210, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
-	//ILI9341_Draw_Text("    ", 260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("PSC", 260, 210, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 }
 
 /*
@@ -491,5 +493,21 @@ void FreqMenu_DrawSweepMenu()
 
 	ILI9341_Draw_Text("SET", 	263, 	204, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("LIMIT", 	252, 	222, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqMenu_DrawPrescalerMenu()
+{
+	ILI9341_Draw_Text("OUT->FREQ->PSC", 5, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
+
+	DM_DisplayFormattedOutput();
+
 }
 

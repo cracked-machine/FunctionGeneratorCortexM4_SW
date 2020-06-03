@@ -295,6 +295,10 @@ void EM_ProcessEvent()
 			{
 				eNextState = FreqSweepMenuEntryHandler();
 			}
+			if(eNewEvent == evRedBtn)
+			{
+				eNextState = FreqPrescalerMenuEntryHandler();
+			}
 
 			break;
 
@@ -329,6 +333,23 @@ void EM_ProcessEvent()
 				eNextState = FreqAdjustMenuExitHandler();
 			}
 			break;
+
+		case Freq_Prescaler_Menu_State:
+
+			#ifdef EVENT_MENU_DEBUG
+				  printf("Freq_Prescaler_Menu_State\n");
+			#endif
+
+			if(eNewEvent == evEncoderSet)
+			{
+				eNextState = FreqPrescalerMenuInputHandler();
+			}
+			if(eNewEvent == evEncoderPush)
+			{
+				eNextState = FreqPrescalerMenuExitHandler();
+			}
+			break;
+
 
 		case Freq_Sweep_Menu_State:
 

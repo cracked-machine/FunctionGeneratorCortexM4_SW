@@ -19,7 +19,8 @@ typedef enum
 	ENABLE_FREQ_MAIN_MENU,
 	ENABLE_FREQ_PRESET_MENU,
 	ENABLE_FREQ_ADJUST_MENU,
-	ENABLE_FREQ_SWEEP_MENU
+	ENABLE_FREQ_SWEEP_MENU,
+	ENABLE_FREQ_PRESCALER_MENU
 
 } eFreqMenu_Status;
 
@@ -51,6 +52,9 @@ eSystemState FreqAdjustMenuExitHandler();
 eSystemState FreqSweepMenuEntryHandler();
 eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent);
 eSystemState FreqSweepMenuExitHandler();
+eSystemState FreqPrescalerMenuEntryHandler();
+eSystemState FreqPrescalerMenuInputHandler();
+eSystemState FreqPrescalerMenuExitHandler();
 eFreqSweepModes FMSH_GetSweepMode();
 
 

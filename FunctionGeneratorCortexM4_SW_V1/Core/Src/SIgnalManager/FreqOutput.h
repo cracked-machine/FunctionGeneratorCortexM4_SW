@@ -72,7 +72,7 @@ void 			FreqO_MapEncoderPositionFine(uint16_t pEncValue);
 
 void 			FreqO_ApplyProfile(eFreqSettings_t pPresetEnum);
 void 			FreqO_AdjustFreq();
-
+void 			FreqO_AdjustPrescaler();
 
 uint32_t 		FreqO_GetOutputFreq();
 void 			FreqO_ResetLastEncoderValue();

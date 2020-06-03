@@ -51,6 +51,7 @@ void 			FreqO_InitFreqProfiles();
 void 			FreqO_MapEncoderPositionCoarse(uint16_t pEncValue);
 void 			FreqO_ApplyProfile(eFreqSettings_t pPresetEnum);
 void 			FreqO_AdjustFreq();
+void 			FreqO_AdjustPrescaler();
 uint32_t 		FreqO_GetOutputFreq();
 void 			FreqO_ResetLastEncoderValue();
 FreqProfile_t * FreqO_FindFPresetObject(eFreqSettings_t pEnum);
@@ -139,6 +140,35 @@ void FreqO_MapEncoderPositionFine(uint16_t pEncValue)
 
 }
 
+/*
+ *
+ *	@brief	map rotary enocder position to profile
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqO_MapEncoderPositionToPrescaler(uint16_t pEncValue)
+{
+
+//	uint32_t tmpFreqIndex = freq_profile->index;
+	if(pEncValue > freq_last_encoder_value)
+	{
+		OUTPUT_TIMER->PSC++;
+
+	}
+	else if (pEncValue < freq_last_encoder_value)
+	{
+		if(OUTPUT_TIMER->PSC > 0)
+			OUTPUT_TIMER->PSC--;
+//		tmpFreqIndex--;
+//		if(tmpFreqIndex > MAX_NUM_FREQ_PRESETS-1) tmpFreqIndex = 0;
+//		FreqO_ApplyProfile( FreqO_GetProfileByIndex(tmpFreqIndex)->hertz );
+	}
+	freq_last_encoder_value = pEncValue;
+
+}
+
 
 
 /*
@@ -216,6 +246,31 @@ void FreqO_AdjustFreq()
 		// duty cycle of PWM require slower settings to get the
 		// same frequency as normal output functions
 		PWM_AUX_OUT_TIM->PSC = 256;
+		PWM_AUX_OUT_TIM->ARR = SM_GetEncoderValue(ENCODER_NORMAL)/2;
+		PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
+
+	}
+}
+
+/*
+ *
+ *	@brief	Increment/Decrement output frequency value by hertz
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void FreqO_AdjustPrescaler()
+{
+	FreqO_MapEncoderPositionToPrescaler(SM_GetEncoderValue(ENCODER_NORMAL));
+
+	// not sure about this code?!?!
+	eOutput_mode tmpOut = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
+	if(tmpOut == PWM_FUNC_MODE)
+	{
+		// duty cycle of PWM require slower settings to get the
+		// same frequency as normal output functions
+		//PWM_AUX_OUT_TIM->PSC = 256;
 		PWM_AUX_OUT_TIM->ARR = SM_GetEncoderValue(ENCODER_NORMAL)/2;
 		PWM_AUX_OUT_TIM->CCR1 = PWM_AUX_OUT_TIM->ARR/2;
 

@@ -247,6 +247,11 @@ void DM_UpdateDisplay()
 				FreqMenu_DrawMenu(ENABLE_FREQ_SWEEP_MENU);
 				break;
 
+			case ENABLE_FREQ_PRESCALER_MENU:
+
+				FreqMenu_DrawMenu(ENABLE_FREQ_PRESCALER_MENU);
+				break;
+
 			default:
 				break;
 		}
