@@ -12,6 +12,7 @@
 
 #include "comp.h"
 #include "dac.h"
+#include "adc.h"
 
 eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
 eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_TIM;
@@ -234,11 +235,16 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 					// disable the comparator
 					HAL_COMP_Stop(&hcomp1);
 
+					// stop the ADC
+					HAL_ADC_Stop_DMA(&hadc1);
+
 					GPIOA->AFR[0] &= ~(GPIO_AF1_TIM2);
 					GPIOA->AFR[0] &= ~(GPIO_AF8_COMP1);
 
 
 					isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
+
+					FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
 				}
 				// enable the trigger input
 				else
@@ -302,8 +308,22 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 							HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 							HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET);		// TS5A3357 Pin5
 
+							HAL_ADC_Start_DMA(&hadc1, trigger_input, TRIGGER_DATA_SIZE);
+
+							// pause timer to reAux both outputs
+							OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+							//HAL_TIM_Base_Stop(&htim2);
+
+							// restart the DAC with the new data
+							HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
+							HAL_DAC_Start_DMA(&hdac1, DAC1_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
+
+							// resume timer to reAux both outputs
+							//HAL_TIM_Base_Start(&htim2);
+							OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+
 							//TODO enable ADC trigger input
-							FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
+
 							break;
 
 					}

@@ -78,7 +78,7 @@ Core/Src/EventManager/ToplevelMenuStateHandler.o: \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/FreqMenuStateHandler.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/SIgnalManager/FreqSweep.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/EventManager/BiasMenuStateHandler.h \
- ../Core/Inc/comp.h ../Core/Inc/dac.h
+ ../Core/Inc/comp.h ../Core/Inc/dac.h ../Core/Inc/adc.h
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/FunctionGeneratorCortexM4_SW_V1/Core/Src/DisplayManager/DisplayManager.h:
 
@@ -241,3 +241,5 @@ Core/Src/EventManager/ToplevelMenuStateHandler.o: \
 ../Core/Inc/comp.h:
 
 ../Core/Inc/dac.h:
+
+../Core/Inc/adc.h:
