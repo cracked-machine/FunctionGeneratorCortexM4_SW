@@ -13,8 +13,11 @@
 #include "dac.h"
 #include "adc.h"
 
-eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_TIM;
+eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_ADC;
 eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
+
+#define TRIGGER_DATA_SIZE 240
+uint32_t trigger_input[TRIGGER_DATA_SIZE] = {};
 
 /*
  *
@@ -114,7 +117,7 @@ void IT_ArbitrateInputTrigger()
 
 				HAL_ADC_Start_DMA(&hadc1, trigger_input, TRIGGER_DATA_SIZE);
 
-				// pause timer to reAux both outputs
+/*				// pause timer to reAux both outputs
 				OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 				//HAL_TIM_Base_Stop(&htim2);
 
@@ -127,7 +130,8 @@ void IT_ArbitrateInputTrigger()
 				OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 
 				//TODO enable ADC trigger input
-
+*/
+				FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
 				break;
 
 			default:
@@ -219,4 +223,42 @@ eTriggerInput IT_GetTriggerStatus()
 void IT_SetTriggerStatus(eTriggerInput newTriggerStatus)
 {
 	isTriggerInputEnabled = newTriggerStatus;
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void HAL_COMP_TriggerCallback(COMP_HandleTypeDef *hcomp)
+{
+	if(HAL_COMP_GetOutputLevel(&hcomp1))
+	{
+		comp1_output_value[0] = 4095;
+	}
+	else
+	{
+		comp1_output_value[0] = 0;
+	}
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+	if(trigger_input[0] == 0)
+		OUTPUT_TIMER->ARR = 1;
+	else
+		OUTPUT_TIMER->ARR = trigger_input[0];
+	printf("%lu\n", trigger_input[0]);
 }

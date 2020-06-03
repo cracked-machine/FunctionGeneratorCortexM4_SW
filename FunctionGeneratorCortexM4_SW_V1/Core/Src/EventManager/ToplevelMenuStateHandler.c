@@ -223,14 +223,15 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 		{
 
 			case evBlueBtn:
-				// disable the trigger input
 
+				// disable the trigger input
 				IT_ArbitrateInputTrigger();
 
 				break;
 
 			case evGreenBtn:
 
+				// cycle to the next mode
 				IT_CycleInputTriggerMode();
 
 				// disable and reset the trigger input
@@ -242,7 +243,7 @@ eSystemState ToplevelInputMenuInputHandler(eSystemEvent pEvent)
 			default:
 				break;
 		}
-	// stay in this state
+	// stay in this menu state
 	eNewEvent = evIdle;
 	return Toplevel_Input_Menu_State;
 }

@@ -53,8 +53,7 @@ extern "C" {
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-#define TRIGGER_DATA_SIZE 120
-extern uint32_t trigger_input[TRIGGER_DATA_SIZE];
+
 
 
 char control_pressed[10];

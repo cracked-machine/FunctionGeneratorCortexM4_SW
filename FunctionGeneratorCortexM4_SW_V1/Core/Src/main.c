@@ -72,7 +72,7 @@
 /* USER CODE BEGIN PV */
 
 uint8_t sin1_MAX_OUTPUT_ARR = 120;
-uint32_t trigger_input[TRIGGER_DATA_SIZE] = {};
+
 
 /* USER CODE END PV */
 
@@ -94,17 +94,7 @@ int _write(int file, char *ptr, int len)
   return len;
 }
 
-void HAL_COMP_TriggerCallback(COMP_HandleTypeDef *hcomp)
-{
-	if(HAL_COMP_GetOutputLevel(&hcomp1))
-	{
-		comp1_output_value[0] = 4095;
-	}
-	else
-	{
-		comp1_output_value[0] = 0;
-	}
-}
+
 
 /* USER CODE END 0 */
 
@@ -286,7 +276,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV2;
   RCC_OscInitStruct.PLL.PLLN = 42;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV30;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = RCC_PLLQ_DIV4;
   RCC_OscInitStruct.PLL.PLLR = RCC_PLLR_DIV2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
