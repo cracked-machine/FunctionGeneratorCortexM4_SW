@@ -16,6 +16,7 @@
 "Core/Src/SIgnalManager/FreqSweep.o"
 "Core/Src/SIgnalManager/FunctionOutput.o"
 "Core/Src/SIgnalManager/GainOutput.o"
+"Core/Src/SIgnalManager/InputTrigger.o"
 "Core/Src/SIgnalManager/SignalManager.o"
 "Core/Src/SIgnalManager/VoltPeakPeakOutput.o"
 "Core/Src/adc.o"

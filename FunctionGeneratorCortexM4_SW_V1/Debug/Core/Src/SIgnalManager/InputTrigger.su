@@ -1,0 +1,6 @@
+InputTrigger.c:27:6:IT_ArbitrateInputTrigger	16	static
+InputTrigger.c:151:6:IT_CycleInputTriggerMode	8	static
+InputTrigger.c:180:19:IT_GetActiveTriggerMode	4	static
+InputTrigger.c:193:6:IT_SetActiveTriggerMode	16	static
+InputTrigger.c:206:15:IT_GetTriggerStatus	4	static
+InputTrigger.c:219:6:IT_SetTriggerStatus	16	static

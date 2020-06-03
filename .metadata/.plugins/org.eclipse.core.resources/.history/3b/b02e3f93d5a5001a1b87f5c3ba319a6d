@@ -1,0 +1,20 @@
+/*
+ * InputTrigger.c
+ *
+ *  Created on: 3 Jun 2020
+ *      Author: chris
+ */
+
+#include "InputTrigger.h"
+
+eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_DISABLED;
+
+eTriggerInputMode IT_GetActiveTriggerMode()
+{
+	return activeInputerTriggerMode;
+}
+
+void IT_SetActiveTriggerMode(eTriggerInputMode newTriggerMode)
+{
+	activeInputerTriggerMode = newTriggerMode;
+}

@@ -1,0 +1,28 @@
+/*
+ * InputTrigger.h
+ *
+ *  Created on: 3 Jun 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_SIGNALMANAGER_INPUTTRIGGER_H_
+#define SRC_SIGNALMANAGER_INPUTTRIGGER_H_
+
+typedef enum
+{
+	DISABLE_TRIGGER_INPUT 	= 	0U,
+	ENABLE_TRIGGER_INPUT	= 	1U,
+} eTriggerInput;
+
+eTriggerInput isTriggerInputEnabled;
+
+typedef enum
+{
+	INPUT_TRIGGER_TIM,
+	INPUT_TRIGGER_COMP,
+	INPUT_TRIGGER_ADC
+} eTriggerInputMode;
+
+eTriggerInputMode activeInputerTriggerMode;
+
+#endif /* SRC_SIGNALMANAGER_INPUTTRIGGER_H_ */

@@ -1,0 +1,13 @@
+/*
+ * InputTrigger.h
+ *
+ *  Created on: 3 Jun 2020
+ *      Author: chris
+ */
+
+#ifndef SRC_SIGNALMANAGER_INPUTTRIGGER_H_
+#define SRC_SIGNALMANAGER_INPUTTRIGGER_H_
+
+
+
+#endif /* SRC_SIGNALMANAGER_INPUTTRIGGER_H_ */

@@ -1,0 +1,93 @@
+/*
+ * InputTrigger.c
+ *
+ *  Created on: 3 Jun 2020
+ *      Author: chris
+ */
+
+#include "InputTrigger.h"
+
+eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_DISABLED;
+eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void IT_ChangeInputTriggerMode()
+{
+	// change the trigger input mode
+	switch(IT_GetActiveTriggerMode())
+	{
+		case INPUT_TRIGGER_TIM:
+			IT_SetActiveTriggerMode(INPUT_TRIGGER_COMP);
+			break;
+		case INPUT_TRIGGER_COMP:
+			IT_SetActiveTriggerMode(INPUT_TRIGGER_ADC);
+			break;
+		case INPUT_TRIGGER_ADC:
+			IT_SetActiveTriggerMode(INPUT_TRIGGER_TIM);
+			break;
+
+		default:
+			break;
+	}
+}
+
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eTriggerInputMode IT_GetActiveTriggerMode()
+{
+	return activeInputerTriggerMode;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void IT_SetActiveTriggerMode(eTriggerInputMode newTriggerMode)
+{
+	activeInputerTriggerMode = newTriggerMode;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eTriggerInput IT_GetTriggerStatus()
+{
+	return isTriggerInputEnabled;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void IT_SetTriggerStatus(eTriggerInput newTriggerStatus)
+{
+	isTriggerInputEnabled = newTriggerStatus;
+}

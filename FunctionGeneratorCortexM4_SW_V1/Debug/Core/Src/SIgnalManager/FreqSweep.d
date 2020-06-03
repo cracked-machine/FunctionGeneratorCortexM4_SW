@@ -12,6 +12,7 @@ Core/Src/SIgnalManager/FreqSweep.o: ../Core/Src/SIgnalManager/FreqSweep.c \
  ../Core/Src/SIgnalManager/VoltPeakPeakOutput.h \
  ../Core/Src/SIgnalManager/BiasOutput.h \
  ../Core/Src/SIgnalManager/FreqOutput.h \
+ ../Core/Src/SIgnalManager/InputTrigger.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysquareicon.h \
  /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysawicon.h \
@@ -91,6 +92,8 @@ Core/Src/SIgnalManager/FreqSweep.o: ../Core/Src/SIgnalManager/FreqSweep.c \
 ../Core/Src/SIgnalManager/BiasOutput.h:
 
 ../Core/Src/SIgnalManager/FreqOutput.h:
+
+../Core/Src/SIgnalManager/InputTrigger.h:
 
 /home/chris/Projects/Embedded/FunctionGeneratorCortexM4_SW/WaveTableGeneration/icontables/pysineicon.h:
 
