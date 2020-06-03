@@ -14,5 +14,5 @@ EventManager.c:534:6:_ProcessFreqAdjustMenuState	8	static
 EventManager.c:558:6:_ProcessFreqPrescalerMenuStateEvents	8	static
 EventManager.c:582:6:_ProcessFreqSweepMenuStateEvents	8	static
 EventManager.c:628:6:_ProcessBiasMainMenuEvents	8	static
-EventManager.c:654:6:EM_SetNewEvent	16	static
-EventManager.c:668:14:EM_GetSystemState	4	static
+EventManager.c:669:6:EM_SetNewEvent	16	static
+EventManager.c:683:14:EM_GetSystemState	4	static

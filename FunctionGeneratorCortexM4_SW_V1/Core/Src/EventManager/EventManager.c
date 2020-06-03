@@ -633,12 +633,27 @@ void _ProcessBiasMainMenuEvents()
 
 	if(eNewEvent == evEncoderSet)
 	{
-		eNextState = BiasMenuInputHandler();
+		eNextState = BiasMenuInputHandler(evEncoderSet);
 	}
 	if(eNewEvent == evEncoderPush)
 	{
 		eNextState = BiasMenuExitHandler();
 		ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
+	}
+	if(eNewEvent == evBlueBtn)
+	{
+		// enable
+		eNextState = BiasMenuInputHandler(evBlueBtn);
+	}
+	if(eNewEvent == evGreenBtn)
+	{
+		// direction
+		eNextState = BiasMenuInputHandler(evGreenBtn);
+	}
+	if(eNewEvent == evYellowBtn)
+	{
+		// set sweep speed
+		eNextState = BiasMenuInputHandler(evYellowBtn);
 	}
 }
 

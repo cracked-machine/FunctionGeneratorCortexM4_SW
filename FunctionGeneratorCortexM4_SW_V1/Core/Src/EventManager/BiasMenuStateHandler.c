@@ -60,13 +60,36 @@ eSystemState BiasMenuEntryHandler()
  *	@retval None
  *
  */
-eSystemState BiasMenuInputHandler()
+eSystemState BiasMenuInputHandler(eSystemEvent pEvent)
 {
 	#ifdef EVENT_MENU_DEBUG
 		printf("BiasMenuInputHandler Event captured\n");
 	#endif
 
-	BO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_NORMAL));
+
+	switch(pEvent)
+	{
+		case evEncoderSet:
+			BO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_NORMAL));
+			break;
+		case evBlueBtn:
+			BO_MapEncoderPositionToSignalOutput(BIAS_MAX);
+			ENCODER_TIMER->CNT = BIAS_MAX;
+			break;
+		case evGreenBtn:
+			BO_MapEncoderPositionToSignalOutput(10);
+			ENCODER_TIMER->CNT = 10;
+			break;
+		case evYellowBtn:
+			// jump to zero crossing point
+			BO_MapEncoderPositionToSignalOutput(BIAS_CENTER);
+			ENCODER_TIMER->CNT = BIAS_CENTER;
+			break;
+
+		default:
+			break;
+	}
+
 
 	eNewEvent = evIdle;
 	return Bias_Menu_State;

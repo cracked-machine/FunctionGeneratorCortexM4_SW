@@ -25,7 +25,7 @@ typedef enum
 
 eBiasMenu_Status BiasMenu_getStatus();
 eSystemState BiasMenuEntryHandler();
-eSystemState BiasMenuInputHandler();
+eSystemState BiasMenuInputHandler(eSystemEvent pEvent);
 eSystemState BiasMenuExitHandler();
 
 #endif /* SRC_EVENTMANAGER_BIASMENUSTATEHANDLER_H_ */
