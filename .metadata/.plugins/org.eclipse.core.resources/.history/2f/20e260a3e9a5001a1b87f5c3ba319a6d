@@ -167,15 +167,12 @@ eSystemState GainSignalMenuInputHandler(eSystemEvent pEvent)
 			break;
 
 		case evGreenBtn:
-			VPP_ApplyProfileToSignal(VPP33);
 			break;
 
 		case evYellowBtn:
-			VPP_ApplyProfileToSignal(VPP50);
 			break;
 
 		case evRedBtn:
-			VPP_ApplyProfileToSignal(VPP90);
 			break;
 
 		default:

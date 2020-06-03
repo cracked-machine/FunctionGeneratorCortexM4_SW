@@ -141,51 +141,40 @@ eSystemState GainSignalMenuInputHandler(eSystemEvent pEvent)
 		printf("GainSignalMenuInputHandler Event captured\n");
 	#endif
 
-
-	FunctionProfile_t *tmpFuncProfile = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile;
-
 	switch(pEvent)
 	{
 		case evEncoderSet:
-
-			if(tmpFuncProfile)
-			{
-				if(tmpFuncProfile->func == PWM_FUNC_MODE)
-				{
-					GO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_INVERSE));
-
-				}
-				else
-				{
-					VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_NORMAL));
-				}
-			}
 			break;
 
 		case evBlueBtn:
-			VPP_ApplyProfileToSignal(VPP18);
 			break;
 
 		case evGreenBtn:
-			VPP_ApplyProfileToSignal(VPP33);
 			break;
 
 		case evYellowBtn:
-			VPP_ApplyProfileToSignal(VPP50);
 			break;
 
 		case evRedBtn:
-			VPP_ApplyProfileToSignal(VPP90);
-			break;
-
-		default:
 			break;
 	}
+	FunctionProfile_t *tmpFuncProfile = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile;
+	if(tmpFuncProfile)
+	{
+		if(tmpFuncProfile->func == PWM_FUNC_MODE)
+		{
+			GO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_INVERSE));
 
+		}
+		else
+		{
+			VPP_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_NORMAL));
+		}
+	}
 	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_INVERSE));
 	//
 
-	eNewEvent = evIdle;
+	eNewEvent = evYellowBtn;
 	return Gain_Signal_Menu_State;
 }
 

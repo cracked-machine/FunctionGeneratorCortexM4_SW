@@ -413,27 +413,11 @@ void _ProcessGainSignalMenuStateEvents()
 
 	if(eNewEvent == evEncoderSet)
 	{
-		eNextState = GainSignalMenuInputHandler(evEncoderSet);
+		eNextState = GainSignalMenuInputHandler();
 	}
 	if(eNewEvent == evEncoderPush)
 	{
 		eNextState = GainSignalMenuExitHandler();
-	}
-	if(eNewEvent == evBlueBtn)
-	{
-		eNextState = GainSignalMenuInputHandler(evBlueBtn);
-	}
-	if(eNewEvent == evGreenBtn)
-	{
-		eNextState = GainSignalMenuInputHandler(evGreenBtn);
-	}
-	if(eNewEvent == evYellowBtn)
-	{
-		eNextState = GainSignalMenuInputHandler(evYellowBtn);
-	}
-	if(eNewEvent == evRedBtn)
-	{
-		eNextState = GainSignalMenuInputHandler(evRedBtn);
 	}
 
 }

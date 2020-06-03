@@ -31,7 +31,7 @@ eSystemState GainMainMenuEntryHandler();
 eSystemState GainMainMenuInputHandler();
 eSystemState GainMainMenuExitHandler();
 eSystemState GainSignalMenuEntryHandler();
-eSystemState GainSignalMenuInputHandler(eSystemEvent pEvent);
+eSystemState GainSignalMenuInputHandler();
 eSystemState GainSignalMenuExitHandler();
 eSystemState GainAuxMenuEntryHandler();
 eSystemState GainAuxMenuInputHandler();
