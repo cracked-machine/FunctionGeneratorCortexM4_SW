@@ -1,4 +1,4 @@
 GainMenus.c:23:6:GainMenu_DrawMenu	16	static
 GainMenus.c:52:6:GainMenu_DrawMainMenu	24	static
 GainMenus.c:84:6:GainMenu_DrawSignalMenu	16	static
-GainMenus.c:99:6:GainMenu_DrawAuxMenu	16	static
+GainMenus.c:104:6:GainMenu_DrawAuxMenu	16	static
