@@ -1,7 +1,7 @@
 FunctionGeneratorCortexM4_SW
 
 
-T### Timer Functions
+### Timer Functions
 
 TIMER | FUNCTION
 :---: | --------
