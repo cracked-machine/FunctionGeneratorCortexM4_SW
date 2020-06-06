@@ -8,7 +8,7 @@
 #ifndef INC_DISPLAYMANAGER_DISPLAYMANAGER_H_
 #define INC_DISPLAYMANAGER_DISPLAYMANAGER_H_
 
-//#define ENCODER_DEBUG
+
 
 #include "ILI9341_STM32_Driver.h"
 #include "ILI9341_GFX.h"
@@ -71,6 +71,8 @@ void DM_UpdateDisplay();
 
 void DM_RefreshScreen();
 void DM_DisplayFormattedOutput();
+
+void DM_DisplayInputTriggerStatus();
 
 void DM_SetErrorDebugMsg(char* msg);
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);

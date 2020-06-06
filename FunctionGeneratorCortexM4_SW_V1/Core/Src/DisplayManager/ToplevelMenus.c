@@ -103,6 +103,9 @@ void ToplevelMenu_DrawOutputMenu()
  */
 void ToplevelMenu_DrawInputMenu()
 {
+
+	DM_DisplayInputTriggerStatus();
+
 	ILI9341_Draw_Text("IN->", 10, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
 	ILI9341_Draw_Text("TRIGGER:", 	10, 50,  NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 	if(IT_GetTriggerStatus())

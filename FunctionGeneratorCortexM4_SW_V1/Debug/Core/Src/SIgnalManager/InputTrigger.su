@@ -1,8 +1,8 @@
 InputTrigger.c:30:6:IT_ArbitrateInputTrigger	16	static
-InputTrigger.c:155:6:IT_CycleInputTriggerMode	8	static
-InputTrigger.c:184:19:IT_GetActiveTriggerMode	4	static
-InputTrigger.c:197:6:IT_SetActiveTriggerMode	16	static
-InputTrigger.c:210:15:IT_GetTriggerStatus	4	static
-InputTrigger.c:223:6:IT_SetTriggerStatus	16	static
-InputTrigger.c:237:6:HAL_COMP_TriggerCallback	16	static
-InputTrigger.c:257:6:HAL_ADC_ConvCpltCallback	16	static
+InputTrigger.c:161:6:IT_CycleInputTriggerMode	8	static
+InputTrigger.c:190:19:IT_GetActiveTriggerMode	4	static
+InputTrigger.c:203:6:IT_SetActiveTriggerMode	16	static
+InputTrigger.c:216:15:IT_GetTriggerStatus	4	static
+InputTrigger.c:229:6:IT_SetTriggerStatus	16	static
+InputTrigger.c:243:6:HAL_COMP_TriggerCallback	16	static
+InputTrigger.c:263:6:HAL_ADC_ConvCpltCallback	16	static

@@ -65,16 +65,22 @@ void IT_ArbitrateInputTrigger()
 				HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 				HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); 	// TS5A3357 Pin5
 
-				// ALT FUNC PIN INIT
-				GPIOA->MODER &= ~(GPIO_MODER_MODE0_0 | GPIO_MODER_MODE0_1);	// reset
+				// Init PA0 with TIM2 CH1 alt-function (AF) -
+				GPIOA->MODER &= ~(GPIO_MODER_MODE0_0 | GPIO_MODER_MODE0_1);	// reset mode registers
 				GPIOA->MODER |= (GPIO_MODER_MODE0_1);	// set port mode to AF
-				GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));	// reset
-				GPIOA->AFR[0] |= GPIO_AF1_TIM2;	// set alt pin function to TIM2 CH1
+				GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));	// reset AF registers - See Table 13 "Alternate Functions" in STM32G474 datasheet
+				//GPIOA->AFR[0] |= GPIO_AF1_TIM2;		// set AF to TIM2_CH1
+				GPIOA->AFR[0] |= GPIO_AF14_TIM2;	// set AF to TIM2_ETR
 
 				// TIMER SLAVE MODE INIT
 				OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);		// enable timer external clock source
-				OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);		// enable timer "Filtered timer input 1" (tim_ti1fp1)
+				//OUTPUT_TIMER->CCMR1 |= (TIM_CCMR1_CC1S_1);	// enable channel 1 as direct input
+				//OUTPUT_TIMER->CCMR1 |= (TIM_CCMR1_IC1PSC_0 | TIM_CCMR1_IC1PSC_1);
+				//OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);		// enable timer "Filtered timer input 1" (tim_ti1fp1)
+				OUTPUT_TIMER->SMCR |= TIM_TS_ETRF;
 				OUTPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);		// enable timer reset trigger mode
+
+
 
 				break;
 			case INPUT_TRIGGER_COMP:

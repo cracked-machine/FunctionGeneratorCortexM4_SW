@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="freq_last_encoder_value"/>
+		<item key="selection" value="activeInputerTriggerMode"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="activeInputerTriggerMode"/>
 			<item value="freq_last_encoder_value"/>
 			<item value="SG2"/>
 			<item value="SG1"/>
@@ -22,9 +23,9 @@
 			<item value="DUTY"/>
 			<item value="DAC1"/>
 			<item value="TIM_CHANNEL_2"/>
-			<item value="PWM"/>
 		</list>
 		<list key="replacehistory">
+			<item value="IT_GetActiveTriggerMode()"/>
 			<item value="CH1_GAIN_C"/>
 			<item value="CH1_GAIN_B"/>
 			<item value="CH1_GAIN_A"/>
@@ -39,7 +40,6 @@
 			<item value="ILI9341_Draw_Pixel"/>
 			<item value="ILI9341_SCREEN_WIDTH"/>
 			<item value="ILI9341_SCREEN_HEIGHT"/>
-			<item value="LCD_HEIGHT"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

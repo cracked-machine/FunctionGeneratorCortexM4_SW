@@ -83,7 +83,12 @@ void FreqMenu_DrawMainMenu()
 void FreqMenu_DrawPresetMenu()
 {
 
+
+
 	ILI9341_Draw_Text("OUT->FREQ->PRESET", 	5, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
+
+	DM_DisplayInputTriggerStatus();
+
 	uint8_t menu_pos_y1 = 40;
 	uint8_t menu_pos_y2 = 60;
 	uint8_t menu_pos_y3 = 80;
@@ -380,7 +385,7 @@ void FreqMenu_DrawAdjustMenu()
 void FreqMenu_DrawSweepMenu()
 {
 	ILI9341_Draw_Text("OUT->FREQ->SWEEP", 	5, 10, BREADTRAIL_FGCOLOUR, 2, BREADTRAIL_BGCOLOUR);
-
+	DM_DisplayInputTriggerStatus();
 
 	// draw enabled status
 

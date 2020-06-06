@@ -15,7 +15,7 @@
 #include "BiasMenus.h"
 
 #include "EventManager.h"
-#define ENCODER_DEBUG
+//#define ENCODER_DEBUG
 
 #include <stdint.h>
 #include <stdio.h>
@@ -328,10 +328,10 @@ void DM_DisplayFormattedOutput()
 	uint8_t out_dcvolts_x = 161;
 	uint8_t out_dcvolts_y = 130;
 
-	ILI9341_Draw_Text(" FREQ   ....", 3, out_hertz_y , NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text(" VPP    ....", 3, out_vpp_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text(" GAIN   ....", 3, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text(" OFFSET ....", 3, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("FREQ   ....", 2, out_hertz_y , NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("VPP    ....", 2, out_vpp_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("GAIN   ....", 2, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("OFFSET ....", 2, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 
 	// display output in hertz
 	snprintf(out_hertz, sizeof(out_hertz), " %4.2f   Hz ", SM_GetOutputInHertz());
@@ -422,10 +422,38 @@ void DM_DisplayFormattedOutput()
 			break;
 	}
 
-
+	DM_DisplayInputTriggerStatus();
 
 }
 
+void DM_DisplayInputTriggerStatus()
+{
+	uint8_t text_size = 2;
+	uint16_t text_x_pos = 230;
+	// eTriggerInputMode
+	switch(IT_GetActiveTriggerMode())
+	{
+		case INPUT_TRIGGER_TIM:
+			if(IT_GetTriggerStatus())
+				ILI9341_Draw_Text("T: TIM", text_x_pos, 10, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
+			else
+				ILI9341_Draw_Text("T: TIM", text_x_pos, 10, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
+			break;
+		case INPUT_TRIGGER_COMP:
+			if(IT_GetTriggerStatus())
+				ILI9341_Draw_Text("T: COMP", text_x_pos, 10, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
+			else
+				ILI9341_Draw_Text("T: COMP", text_x_pos, 10, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
+			break;
+		case INPUT_TRIGGER_ADC:
+			if(IT_GetTriggerStatus())
+				ILI9341_Draw_Text("T: ADC", text_x_pos, 10, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
+			else
+				ILI9341_Draw_Text("T: ADC", text_x_pos, 10, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
+			break;
+
+	}
+}
 
 
 /*
