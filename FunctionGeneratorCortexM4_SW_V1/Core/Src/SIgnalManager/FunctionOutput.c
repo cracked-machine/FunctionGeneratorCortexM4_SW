@@ -215,7 +215,7 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 
 		// pause timer to reAux both outputs
 		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Stop(&htim2)\n");
-		res = HAL_TIM_Base_Stop(&htim2);
+		res = HAL_TIM_Base_Stop(&htim8);
 		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 		printf("Result:%u\n",res);
 
@@ -242,7 +242,7 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 
 		// resume timer to reAux both outputs
 		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Start(&htim2)\n");
-		res = HAL_TIM_Base_Start(&htim2);
+		res = HAL_TIM_Base_Start(&htim8);
 		//OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 		printf("Result:%u\n",res);
 
@@ -264,7 +264,7 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 
 		// pause timer to reAux both outputs
 		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Stop(&htim2)\n");
-		res = HAL_TIM_Base_Stop(&htim2);
+		res = HAL_TIM_Base_Stop(&htim8);
 		printf("Result:%u\n",res);
 		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
 
@@ -290,7 +290,7 @@ void FuncO_ApplyProfileToAux(eOutput_mode pPresetEnum)
 
 		// resume timer to reAux both outputs
 		printf("FuncO_ApplyProfileToAux HAL_TIM_Base_Start(&htim2)\n");
-		res = HAL_TIM_Base_Start(&htim2);
+		res = HAL_TIM_Base_Start(&htim8);
 		printf("Result:%u\n",res);
 		//OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 	}

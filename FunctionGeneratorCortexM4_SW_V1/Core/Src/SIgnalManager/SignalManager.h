@@ -30,7 +30,7 @@
 #define SM_MCLK 168000000		// MCU master clock frequency
 #define SM_FSAMP 120			// sampling frequency, defined in WaveTableGeneratiom scripts
 
-#define OUTPUT_TIMER TIM2
+#define OUTPUT_TIMER TIM8
 #define SWEEP_TIMER TIM5
 
 #define PWM_AUX_OUT_TIM	TIM3
