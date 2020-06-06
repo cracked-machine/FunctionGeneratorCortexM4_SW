@@ -23,11 +23,18 @@ uint16_t btn4_last_interrupt_time = 0;
 uint16_t encbtn_last_interrupt_time = 0;
 uint16_t encpos_last_interrupt_time = 0;
 
+#define 	MAX_FREQ_COUNT_STORE	256
+uint32_t 	freq_count_value = 0;
+uint8_t 	freq_count_index = 0;
+uint32_t 	freq_count_store[MAX_FREQ_COUNT_STORE];
 
 void IM_Init()
 {
 	  // debounce timer
 	  DEBOUNCE_TIMER->CR1 |= TIM_CR1_CEN;
+
+
+
 }
 
 
@@ -311,3 +318,34 @@ void IM_ENC_DIRF_Handler()
 
 }
 
+void IM_RECIP_COUNT_Handler()
+{
+	freq_count_value++;
+}
+
+void IM_RECIP_STORE_Handler()
+{
+	// get mean average from store
+	uint32_t avg_freq_count = 0;
+	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
+	{
+		avg_freq_count += freq_count_store[x];
+	}
+
+	avg_freq_count /= MAX_FREQ_COUNT_STORE;
+
+	printf("%lu\n", avg_freq_count);
+
+	// reset the index to zero
+	if(freq_count_index > MAX_FREQ_COUNT_STORE)
+		freq_count_index = 0;
+
+	// store the current freq count
+	freq_count_store[freq_count_index] = freq_count_value;
+
+	// reset the value
+	freq_count_value = 0;
+
+	// increment the store index
+	freq_count_index++;
+}

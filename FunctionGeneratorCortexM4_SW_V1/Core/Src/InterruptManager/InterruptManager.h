@@ -15,6 +15,8 @@ uint16_t btn3_last_interrupt_time;
 uint16_t btn4_last_interrupt_time;
 uint16_t encbtn_last_interrupt_time;
 
+
+
 #define DEBOUNCE_TIMER 		TIM16
 #define MAX_DEBOUNCE_DELAY 	1000
 
@@ -26,6 +28,9 @@ void IM_BTN3_EXTI0_Handler();
 void IM_BTN4_EXTI1_Handler();
 void IM_ENC_EXTI2_Handler();
 void IM_ENC_DIRF_Handler();
+
+void IM_RECIP_COUNT_Handler();
+void IM_RECIP_STORE_Handler();
 
 void IM_SWEEP_UPDATE_TIM_IRQHandler();
 

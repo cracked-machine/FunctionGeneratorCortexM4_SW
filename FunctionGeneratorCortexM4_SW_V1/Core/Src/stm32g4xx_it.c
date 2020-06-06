@@ -93,6 +93,7 @@ extern DMA_HandleTypeDef hdma_dac2_ch1;
 extern TIM_HandleTypeDef htim1;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
+extern TIM_HandleTypeDef htim4;
 extern TIM_HandleTypeDef htim5;
 extern TIM_HandleTypeDef htim15;
 extern TIM_HandleTypeDef htim17;
@@ -355,6 +356,7 @@ void TIM1_BRK_TIM15_IRQHandler(void)
 
 	DM_UpdateDisplay();
 
+
 	IM_ENC_DIRF_Handler();
 
   /* USER CODE END TIM1_BRK_TIM15_IRQn 0 */
@@ -386,7 +388,7 @@ void TIM1_TRG_COM_TIM17_IRQHandler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
-
+	IM_RECIP_STORE_Handler();
   /* USER CODE END TIM2_IRQn 0 */
   HAL_TIM_IRQHandler(&htim2);
   /* USER CODE BEGIN TIM2_IRQn 1 */
@@ -406,6 +408,20 @@ void TIM3_IRQHandler(void)
   /* USER CODE BEGIN TIM3_IRQn 1 */
 
   /* USER CODE END TIM3_IRQn 1 */
+}
+
+/**
+  * @brief This function handles TIM4 global interrupt.
+  */
+void TIM4_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM4_IRQn 0 */
+	IM_RECIP_COUNT_Handler();
+  /* USER CODE END TIM4_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim4);
+  /* USER CODE BEGIN TIM4_IRQn 1 */
+
+  /* USER CODE END TIM4_IRQn 1 */
 }
 
 /**

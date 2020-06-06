@@ -141,6 +141,7 @@ int main(void)
   MX_DAC2_Init();
   MX_TIM17_Init();
   MX_TIM2_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
 
   SM_Init();
@@ -217,6 +218,7 @@ HAL_TIM_Base_Start_IT(&htim17);
 
   // Intialise interrupt manager
   IM_Init();
+
 
   // switch output signal from DAC to PWM
 //  SM_DisableDacToSignal();

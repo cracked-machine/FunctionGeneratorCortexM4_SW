@@ -5,10 +5,11 @@
 
 TIMER | FUNCTION
 --- | --------
-TIM1  | Rotary Encoder 
-TIM2  | DAC/Input Trigger
+TIM1  | Rotary Encoder
+TIM2  | Input Trigger
 TIM3  | PWM function - AUX output only
 TIM5  | Frequency Sweep - Both outputs
+TIM8  | DAC Trigger
 TIM15 | Display Manager - screen refresh
 TIM16 | Button debounce
 TIM17 | Event Manager - Statechart event processor

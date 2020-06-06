@@ -13,7 +13,7 @@
 #include "dac.h"
 #include "adc.h"
 
-eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_ADC;
+eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_TIM;
 eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
 
 #define TRIGGER_DATA_SIZE 240
@@ -32,12 +32,16 @@ void IT_ArbitrateInputTrigger()
 	if(IT_GetTriggerStatus())
 	{
 		// disable timer external clock source
-		OUTPUT_TIMER->SMCR &= ~(TIM_SMCR_ECE);
+/*		OUTPUT_TIMER->SMCR &= ~(TIM_SMCR_ECE);
 		// disable timer enable "Filtered timer input 1" (tim_ti1fp1)
 		OUTPUT_TIMER->SMCR &= ~(TIM_TS_TI1FP1);
 		// disable timer reset trigger mode
 		OUTPUT_TIMER->SMCR &= ~(TIM_SMCR_SMS_2);
 		// set status to disabled
+*/
+
+		TIM2->DIER &= ~TIM_DIER_UDE;
+		TIM2->CR1 &= ~TIM_CR1_CEN;
 
 		// disable the comparator
 		HAL_COMP_Stop(&hcomp1);
@@ -65,22 +69,30 @@ void IT_ArbitrateInputTrigger()
 				HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 				HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); 	// TS5A3357 Pin5
 
+				// Reciprocal counter timer
+				recip_counter = 0;
+				HAL_TIM_Base_Start_IT(&htim4);
+
+				TIM2->DIER |= TIM_DIER_UIE;
+				TIM2->CR1 |= TIM_CR1_CEN;
+				//HAL_TIM_Base_Start_IT(&htim2);
+
 				// Init PA0 with TIM2 CH1 alt-function (AF) -
-				GPIOA->MODER &= ~(GPIO_MODER_MODE0_0 | GPIO_MODER_MODE0_1);	// reset mode registers
+/*				GPIOA->MODER &= ~(GPIO_MODER_MODE0_0 | GPIO_MODER_MODE0_1);	// reset mode registers
 				GPIOA->MODER |= (GPIO_MODER_MODE0_1);	// set port mode to AF
 				GPIOA->AFR[0] &= ~((1 << 0x04) | (1 << 0x03) | (1 << 0x02) | (1 << 0x01));	// reset AF registers - See Table 13 "Alternate Functions" in STM32G474 datasheet
 				//GPIOA->AFR[0] |= GPIO_AF1_TIM2;		// set AF to TIM2_CH1
 				GPIOA->AFR[0] |= GPIO_AF14_TIM2;	// set AF to TIM2_ETR
 
 				// TIMER SLAVE MODE INIT
-				OUTPUT_TIMER->SMCR |= (TIM_SMCR_ECE);		// enable timer external clock source
-				//OUTPUT_TIMER->CCMR1 |= (TIM_CCMR1_CC1S_1);	// enable channel 1 as direct input
-				//OUTPUT_TIMER->CCMR1 |= (TIM_CCMR1_IC1PSC_0 | TIM_CCMR1_IC1PSC_1);
-				//OUTPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);		// enable timer "Filtered timer input 1" (tim_ti1fp1)
-				OUTPUT_TIMER->SMCR |= TIM_TS_ETRF;
-				OUTPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);		// enable timer reset trigger mode
+				TIM2->SMCR |= (TIM_SMCR_ECE);		// enable timer external clock source
+				//TIM2->CCMR1 |= (TIM_CCMR1_CC1S_1);	// enable channel 1 as direct input
+				//TIM2->CCMR1 |= (TIM_CCMR1_IC1PSC_0 | TIM_CCMR1_IC1PSC_1);
+				//TIM2->SMCR |= (TIM_TS_TI1FP1);		// enable timer "Filtered timer input 1" (tim_ti1fp1)
+				TIM2->SMCR |= TIM_TS_ETRF;
+				TIM2->SMCR |= (TIM_SMCR_SMS_2);		// enable timer reset trigger mode
 
-
+*/
 
 				break;
 			case INPUT_TRIGGER_COMP:
