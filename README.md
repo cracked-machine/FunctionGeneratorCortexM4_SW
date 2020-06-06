@@ -4,7 +4,7 @@
 ### Timer Functions
 
 TIMER | FUNCTION
-:---: | --------
+--- | --------
 TIM1  | Rotary Encoder 
 TIM2  | DAC/Input Trigger
 TIM3  | PWM function - AUX output only
