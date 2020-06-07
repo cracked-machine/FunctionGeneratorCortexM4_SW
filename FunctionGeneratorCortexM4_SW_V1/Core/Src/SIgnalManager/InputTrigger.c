@@ -19,7 +19,7 @@ eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
 #define TRIGGER_DATA_SIZE 240
 uint32_t trigger_input[TRIGGER_DATA_SIZE] = {};
 
-#define 	MAX_FREQ_COUNT_STORE	16
+#define 	MAX_FREQ_COUNT_STORE	8
 uint32_t 	freq_count_value = 0;
 uint8_t 	freq_count_index = 0;
 uint32_t 	freq_count_store[MAX_FREQ_COUNT_STORE];
