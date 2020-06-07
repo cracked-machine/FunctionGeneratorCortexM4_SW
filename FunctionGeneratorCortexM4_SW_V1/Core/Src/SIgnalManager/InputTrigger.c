@@ -293,7 +293,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
-/*
+
 	uint32_t avg_freq_count = 0;
 	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
 	{
@@ -301,14 +301,11 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 	}
 
 	avg_freq_count /= MAX_FREQ_COUNT_STORE;
-*/
-	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
-	{
-		printf("%lu, ", freq_count_store[x]);
-	}
-	printf("------------\n");
-}
 
+	printf("ARR %lu = %4.2fHz\n",avg_freq_count, (float)SM_MCLK / ((float)TIM2->PSC * (float)avg_freq_count));
+
+}
+/*
 void HAL_TIM_IC_CaptureHalfCpltCallback(TIM_HandleTypeDef *htim)
 {
 	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
@@ -317,3 +314,4 @@ void HAL_TIM_IC_CaptureHalfCpltCallback(TIM_HandleTypeDef *htim)
 	}
 	printf("------------\n");
 }
+*/

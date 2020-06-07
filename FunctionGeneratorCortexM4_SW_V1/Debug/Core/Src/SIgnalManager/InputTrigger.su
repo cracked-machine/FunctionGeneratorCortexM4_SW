@@ -6,5 +6,4 @@ InputTrigger.c:238:15:IT_GetTriggerStatus	4	static
 InputTrigger.c:251:6:IT_SetTriggerStatus	16	static
 InputTrigger.c:265:6:HAL_COMP_TriggerCallback	16	static
 InputTrigger.c:285:6:HAL_ADC_ConvCpltCallback	16	static
-InputTrigger.c:294:6:HAL_TIM_IC_CaptureCallback	24	static
-InputTrigger.c:312:6:HAL_TIM_IC_CaptureHalfCpltCallback	24	static
+InputTrigger.c:294:6:HAL_TIM_IC_CaptureCallback	32	static
