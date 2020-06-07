@@ -146,60 +146,11 @@ int main(void)
 
   SM_Init();
 
-HAL_TIM_Base_Start_IT(&htim17);
+  HAL_TIM_Base_Start_IT(&htim17);
 
-
-// http://www.ti.com/lit/ds/symlink/ts5a3357.pdf
+  // http://www.ti.com/lit/ds/symlink/ts5a3357.pdf
   HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin6
   HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin5
-//#define ADC_TRIGGER_MODE
-//#define COMP_TRIGGER_MODE
-//#define TIM_TRIGGER_MODE
-#ifdef ADC_TRIGGER_MODE
-  // start trigger input capture on in ADC
-
-  // set HW switch to direct ext. trigger input to ADC pin
-  HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);	// TS5A3357 Pin6
-  HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET);	// TS5A3357 Pin5
-
-  // start writing data to buffer
-  HAL_ADC_Start_DMA(&hadc1, trigger_input, TRIGGER_DATA_SIZE);
-#endif //ADC_TRIGGER_MODE
-
-#ifdef COMP_TRIGGER_MODE
-  // start trigger input capture on in COMP
-
-  // set HW switch to direct ext. trigger input to COMP pin
-  HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin6
-  HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET); // TS5A3357 Pin5
-
-  // enable comparator input
-
-#endif //COMP_TRIGGER_MODE
-
-#ifdef TIM_TRIGGER_MODE
-  // input capture on in TIM2 slave-mode TF1FP1
-
-  // set HW switch to direct ext. trigger input to TIM pin
-  HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);	// TS5A3357 Pin6
-  HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); // TS5A3357 Pin5
-
-  // clear slave mode select reg
-  //TIM2->SMCR &= ~(TIM_SMCR_SMS_0 | TIM_SMCR_SMS_1 | TIM_SMCR_SMS_2);
-
-  // slave mode
-  //TIM2->SMCR |= TIM_SMCR_SMS_2;						// SLAVE MODE: RESET
-  //TIM2->SMCR |= TIM_SMCR_SMS_0 | TIM_SMCR_SMS_2;	// SLAVE MODE: GATED
-  //TIM2->SMCR |= TIM_SMCR_SMS_1 | TIM_SMCR_SMS_2;	// SLAVE MODE: TRIGGER
-
-#ifndef DISABLE_ALL_TIMERS
-  HAL_TIM_Base_Start_IT(&htim2);
-#endif	//DISABLE_ALL_TIMERS
-
-#endif //TIM_TRIGGER_MODE
-
-
-
 
 #ifndef DISABLE_ALL_TIMERS
   // encoder input
@@ -219,35 +170,12 @@ HAL_TIM_Base_Start_IT(&htim17);
   // Intialise interrupt manager
   IM_Init();
 
-
-  // switch output signal from DAC to PWM
-//  SM_DisableDacToSignal();
-//  SM_EnablePwmToSignal();
-
-  // switch output signal from PWM to DAC
-//  SM_DisablePwmToSignal();
-//  SM_EnableDacToSignal();
-
-  // switch aux output from DAC to PWM
-  //SM_DisableDacToAux();
-  //SM_EnablePwmToAux();
-
-  // switch AUX output from PWM to DAC
-  //SM_DisableDacToAux();
-  //SM_EnableDacToAux();
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
-
-	//EM_ProcessEvent();
-
-
-
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

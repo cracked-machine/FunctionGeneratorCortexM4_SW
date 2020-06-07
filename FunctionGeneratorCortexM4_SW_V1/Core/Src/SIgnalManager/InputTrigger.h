@@ -18,10 +18,10 @@ typedef enum
 
 typedef enum
 {
-	//INPUT_TRIGGER_DISABLED = 0U,
-	INPUT_TRIGGER_TIM,
-	INPUT_TRIGGER_COMP,
-	INPUT_TRIGGER_ADC
+	//INPUT_TIMER_DISABLED = 0U,
+	INPUT_TIMER_TIM,
+	INPUT_TIMER_COMP,
+	INPUT_TIMER_ADC
 } eTriggerInputMode;
 
 
@@ -34,5 +34,8 @@ eTriggerInput 		IT_GetTriggerStatus();
 void 				IT_SetTriggerStatus(eTriggerInput newTriggerStatus);
 eTriggerInputMode 	IT_GetActiveTriggerMode();
 void 				IT_SetActiveTriggerMode(eTriggerInputMode newTriggerMode);
+
+float IT_GetAverageFreqCountPeriod();
+float IT_GetAverageFreqCountHertz();
 
 #endif /* SRC_SIGNALMANAGER_INPUTTRIGGER_H_ */

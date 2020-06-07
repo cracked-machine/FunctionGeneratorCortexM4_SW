@@ -13,16 +13,19 @@
 #include "dac.h"
 #include "adc.h"
 
-eTriggerInputMode activeInputerTriggerMode = INPUT_TRIGGER_TIM;
+eTriggerInputMode activeInputerTriggerMode = INPUT_TIMER_TIM;
 eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
 
 #define TRIGGER_DATA_SIZE 240
 uint32_t trigger_input[TRIGGER_DATA_SIZE] = {};
 
+
 #define 	MAX_FREQ_COUNT_STORE	8
 uint32_t 	freq_count_value = 0;
 uint8_t 	freq_count_index = 0;
 uint32_t 	freq_count_store[MAX_FREQ_COUNT_STORE];
+uint32_t 	avg_freq_count_period;
+float 		avg_freq_count_hertz;
 
 
 /*
@@ -48,8 +51,8 @@ void IT_ArbitrateInputTrigger()
 
 		// disable freq count timer
 		HAL_TIM_IC_Stop_DMA(&htim2, TIM_CHANNEL_1);
-//		TIM2->DIER &= ~TIM_DIER_UDE;
-//		TIM2->CR1 &= ~TIM_CR1_CEN;
+//		INPUT_TIMER->DIER &= ~TIM_DIER_UDE;
+//		INPUT_TIMER->CR1 &= ~TIM_CR1_CEN;
 
 		// disable the comparator
 		HAL_COMP_Stop(&hcomp1);
@@ -71,7 +74,7 @@ void IT_ArbitrateInputTrigger()
 		// select the pin to use for trigger input
 		switch(IT_GetActiveTriggerMode())
 		{
-			case INPUT_TRIGGER_TIM:
+			case INPUT_TIMER_TIM:
 
 				// TS5A3357 -> PA0
 				HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
@@ -81,8 +84,8 @@ void IT_ArbitrateInputTrigger()
 				//recip_counter = 0;
 				//HAL_TIM_Base_Start_IT(&htim4);
 
-//				TIM2->DIER |= TIM_DIER_UIE;
-//				TIM2->CR1 |= TIM_CR1_CEN;
+//				INPUT_TIMER->DIER |= TIM_DIER_UIE;
+//				INPUT_TIMER->CR1 |= TIM_CR1_CEN;
 
 				HAL_TIM_IC_Start_DMA(&htim2, TIM_CHANNEL_1, freq_count_store, MAX_FREQ_COUNT_STORE);
 				//HAL_TIM_Base_Start_IT(&htim2);
@@ -95,17 +98,17 @@ void IT_ArbitrateInputTrigger()
 				GPIOA->AFR[0] |= GPIO_AF14_TIM2;	// set AF to TIM2_ETR
 
 				// TIMER SLAVE MODE INIT
-				TIM2->SMCR |= (TIM_SMCR_ECE);		// enable timer external clock source
-				//TIM2->CCMR1 |= (TIM_CCMR1_CC1S_1);	// enable channel 1 as direct input
-				//TIM2->CCMR1 |= (TIM_CCMR1_IC1PSC_0 | TIM_CCMR1_IC1PSC_1);
-				//TIM2->SMCR |= (TIM_TS_TI1FP1);		// enable timer "Filtered timer input 1" (tim_ti1fp1)
-				TIM2->SMCR |= TIM_TS_ETRF;
-				TIM2->SMCR |= (TIM_SMCR_SMS_2);		// enable timer reset trigger mode
+				INPUT_TIMER->SMCR |= (TIM_SMCR_ECE);		// enable timer external clock source
+				//INPUT_TIMER->CCMR1 |= (TIM_CCMR1_CC1S_1);	// enable channel 1 as direct input
+				//INPUT_TIMER->CCMR1 |= (TIM_CCMR1_IC1PSC_0 | TIM_CCMR1_IC1PSC_1);
+				//INPUT_TIMER->SMCR |= (TIM_TS_TI1FP1);		// enable timer "Filtered timer input 1" (tim_ti1fp1)
+				INPUT_TIMER->SMCR |= TIM_TS_ETRF;
+				INPUT_TIMER->SMCR |= (TIM_SMCR_SMS_2);		// enable timer reset trigger mode
 
 */
 
 				break;
-			case INPUT_TRIGGER_COMP:
+			case INPUT_TIMER_COMP:
 				// TS5A3357 -> PA1
 				HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin6
 				HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET); 		// TS5A3357 Pin5
@@ -138,7 +141,7 @@ void IT_ArbitrateInputTrigger()
 
 
 				break;
-			case INPUT_TRIGGER_ADC:
+			case INPUT_TIMER_ADC:
 				// TS5A3357 -> PA2
 				HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 				HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET);		// TS5A3357 Pin5
@@ -185,14 +188,14 @@ void IT_CycleInputTriggerMode()
 	// change the trigger input mode
 	switch(IT_GetActiveTriggerMode())
 	{
-		case INPUT_TRIGGER_TIM:
-			IT_SetActiveTriggerMode(INPUT_TRIGGER_COMP);
+		case INPUT_TIMER_TIM:
+			IT_SetActiveTriggerMode(INPUT_TIMER_COMP);
 			break;
-		case INPUT_TRIGGER_COMP:
-			IT_SetActiveTriggerMode(INPUT_TRIGGER_ADC);
+		case INPUT_TIMER_COMP:
+			IT_SetActiveTriggerMode(INPUT_TIMER_ADC);
 			break;
-		case INPUT_TRIGGER_ADC:
-			IT_SetActiveTriggerMode(INPUT_TRIGGER_TIM);
+		case INPUT_TIMER_ADC:
+			IT_SetActiveTriggerMode(INPUT_TIMER_TIM);
 			break;
 
 		default:
@@ -294,24 +297,48 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
 
-	uint32_t avg_freq_count = 0;
+	avg_freq_count_period = 0;
 	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
 	{
-		avg_freq_count += freq_count_store[x];
+		avg_freq_count_period += freq_count_store[x];
 	}
 
-	avg_freq_count /= MAX_FREQ_COUNT_STORE;
+	avg_freq_count_period /= MAX_FREQ_COUNT_STORE;
+	avg_freq_count_hertz = (float)SM_MCLK / ((float)INPUT_TIMER->PSC * (float)avg_freq_count_period);
 
-	printf("ARR %lu = %4.2fHz\n",avg_freq_count, (float)SM_MCLK / ((float)TIM2->PSC * (float)avg_freq_count));
+	// auto toggle "LF" mode
+	if(avg_freq_count_hertz < 50)
+		INPUT_TIMER->PSC = 8000;
+	else
+		INPUT_TIMER->PSC = 128;
+
+	printf("ARR %lu = %4.2fHz\n",avg_freq_count_period, avg_freq_count_hertz);
 
 }
+
 /*
-void HAL_TIM_IC_CaptureHalfCpltCallback(TIM_HandleTypeDef *htim)
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+float IT_GetAverageFreqCountPeriod()
 {
-	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
-	{
-		printf("%lu, ", freq_count_store[x]);
-	}
-	printf("------------\n");
+	return avg_freq_count_period;
 }
-*/
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+float IT_GetAverageFreqCountHertz()
+{
+	return avg_freq_count_hertz;
+}
+

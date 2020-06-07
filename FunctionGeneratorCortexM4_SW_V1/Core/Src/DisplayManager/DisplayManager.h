@@ -71,6 +71,7 @@ void DM_UpdateDisplay();
 
 void DM_RefreshScreen();
 void DM_DisplayFormattedOutput();
+void DM_DisplayInputTriggerTimerHertz(uint16_t xpos, uint16_t ypos);
 
 void DM_DisplayInputTriggerStatus();
 

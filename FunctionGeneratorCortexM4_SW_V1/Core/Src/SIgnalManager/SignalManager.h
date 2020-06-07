@@ -32,6 +32,7 @@
 
 #define OUTPUT_TIMER TIM8
 #define SWEEP_TIMER TIM5
+#define INPUT_TIMER TIM2
 
 #define PWM_AUX_OUT_TIM	TIM3
 

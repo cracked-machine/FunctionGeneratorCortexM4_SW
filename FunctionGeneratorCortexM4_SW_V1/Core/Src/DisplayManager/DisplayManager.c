@@ -29,7 +29,7 @@
  extern uint16_t BURST_MAX_SIZE;
 
  char ErrorDebugMsg[45] = "";
-
+	uint8_t text_size = 2;
 
 #define BTN_WIDTH 				(ILI9341_SCREEN_WIDTH)/4
 #define BTN_HEIGHT				40
@@ -43,6 +43,12 @@ uint16_t btn_x_pos[4] = { 1, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 void DM_RefreshScreen();
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 void _DisplayFormattedOutput();
+void DM_DisplayInputTriggerTimerHertz(uint16_t xpos, uint16_t ypos);
+void _DisplayOutputSignalHertz(uint16_t xpos, uint16_t ypos);
+void _DisplayOutputWaveformIcons(uint16_t main_xpos, uint16_t main_ypos, uint16_t aux_xpos, uint16_t aux_ypos);
+void _DisplayOutputSignalOffset(uint16_t xpos, uint16_t ypos);
+void _DisplayOutputSignalDecibels(uint16_t xpos, uint16_t ypos);
+void _DisplayOutputSignalVpp(uint16_t xpos, uint16_t ypos);
 
 // private function protochannels
 
@@ -298,6 +304,7 @@ void DM_UpdateDisplay()
 
 }
 
+
 /*
  *
  *	@brief
@@ -308,47 +315,193 @@ void DM_UpdateDisplay()
  */
 void DM_DisplayFormattedOutput()
 {
-	uint8_t text_size = 2;
 
+	_DisplayOutputSignalHertz(140, 45);
+	_DisplayOutputSignalVpp(175, 70);
+	_DisplayOutputSignalDecibels(138, 95);
+	_DisplayOutputSignalOffset(161, 120);
+	_DisplayOutputWaveformIcons(80, 160, 245, 160);
+
+	DM_DisplayInputTriggerStatus();
+	DM_DisplayInputTriggerTimerHertz(200, 17);
+
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void DM_DisplayInputTriggerStatus()
+{
+
+	uint16_t text_x_pos = 240;
+	uint16_t text_y_pos = 1;
+	// eTriggerInputMode
+	switch(IT_GetActiveTriggerMode())
+	{
+		case INPUT_TIMER_TIM:
+			if(IT_GetTriggerStatus())
+				ILI9341_Draw_Text("T:TIM ", text_x_pos, text_y_pos, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
+			else
+				ILI9341_Draw_Text("T:TIM ", text_x_pos, text_y_pos, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
+			break;
+		case INPUT_TIMER_COMP:
+			if(IT_GetTriggerStatus())
+				ILI9341_Draw_Text("T:COMP", text_x_pos, text_y_pos, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
+			else
+				ILI9341_Draw_Text("T:COMP", text_x_pos, text_y_pos, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
+			break;
+		case INPUT_TIMER_ADC:
+			if(IT_GetTriggerStatus())
+				ILI9341_Draw_Text("T:ADC ", text_x_pos, text_y_pos, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
+			else
+				ILI9341_Draw_Text("T:ADC ", text_x_pos, text_y_pos, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
+			break;
+
+	}
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void DM_DisplayInputTriggerTimerHertz(uint16_t xpos, uint16_t ypos)
+{
+	if(IT_GetTriggerStatus())
+	{
+		if(IT_GetAverageFreqCountHertz() < 1000)
+		{
+			char avg_freq_count_hertz[13] = {};
+			snprintf(avg_freq_count_hertz, sizeof(avg_freq_count_hertz), "%7.1f Hz", IT_GetAverageFreqCountHertz());
+			ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
+		}
+		else if(IT_GetAverageFreqCountHertz() < 10000)
+		{
+			char avg_freq_count_hertz[13] = {};
+			snprintf(avg_freq_count_hertz, sizeof(avg_freq_count_hertz), "%6.1f KHz", IT_GetAverageFreqCountHertz() / 1000);
+			ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
+		}
+		else if(IT_GetAverageFreqCountHertz() < 100000)
+		{
+			char avg_freq_count_hertz[13] = {};
+			snprintf(avg_freq_count_hertz, sizeof(avg_freq_count_hertz), "%6.1f KHz", IT_GetAverageFreqCountHertz()  / 1000);
+			ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
+		}
+		else
+		{
+			char avg_freq_count_hertz[13] = {};
+			snprintf(avg_freq_count_hertz, sizeof(avg_freq_count_hertz), "%6.1f KHz", IT_GetAverageFreqCountHertz()  / 1000);
+			ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
+		}
+
+	}
+	else
+	{
+		ILI9341_Draw_Text("                   ", xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
+	}
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void _DisplayOutputSignalHertz(uint16_t xpos, uint16_t ypos)
+{
 	char out_hertz[15] = "";
-	uint8_t out_hertz_x = 140;
-	uint8_t out_hertz_y = 40;
+	uint8_t out_hertz_x = xpos;
+	uint8_t out_hertz_y = ypos;
 
-	char out_vpp[18] = "";
-	uint8_t out_vpp_x = 175;
-	uint8_t out_vpp_y = 70;
-
-	char out_decibels[20] = "";
-	uint8_t out_decibels_x = 138;
-	uint8_t out_decibels_y = 100;
-
-
-	float volts_per_thou = 0.00075;
-	char out_dcvolts[12] = "";
-	uint8_t out_dcvolts_x = 161;
-	uint8_t out_dcvolts_y = 130;
-
+	// draw row header
 	ILI9341_Draw_Text("FREQ   ....", 2, out_hertz_y , NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text("VPP    ....", 2, out_vpp_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text("GAIN   ....", 2, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
-	ILI9341_Draw_Text("OFFSET ....", 2, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 
 	// display output in hertz
 	snprintf(out_hertz, sizeof(out_hertz), " %4.2f   Hz ", SM_GetOutputInHertz());
 	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+}
 
-	// display output in volts peak-to-peak and decibels
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void _DisplayOutputSignalVpp(uint16_t xpos, uint16_t ypos)
+{
+	char out_vpp[18] = "";
+	uint8_t out_vpp_x = xpos;
+	uint8_t out_vpp_y = ypos;
+
+	// draw row header
+	ILI9341_Draw_Text("VPP    ....", 2, out_vpp_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+
 	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile;
 
 	if(pTmpVppPreset)
 	{
 		snprintf(out_vpp, sizeof(out_vpp), " %2.2f   V ", pTmpVppPreset->amp_value);
+	}
+
+	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void _DisplayOutputSignalDecibels(uint16_t xpos, uint16_t ypos)
+{
+	char out_decibels[20] = "";
+	uint8_t out_decibels_x = xpos;
+	uint8_t out_decibels_y = ypos;
+
+	// draw row header
+	ILI9341_Draw_Text("GAIN   ....", 2, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+
+	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile;
+	if(pTmpVppPreset)
+	{
 		snprintf(out_decibels, sizeof(out_decibels), " %+7.2f ", pTmpVppPreset->gain_decibels);
 	}
-	ILI9341_Draw_Text(out_vpp, out_vpp_x, out_vpp_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+
 	ILI9341_Draw_Text(out_decibels, out_decibels_x, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 	ILI9341_Draw_Text("dBmV", out_decibels_x + 128, out_decibels_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void _DisplayOutputSignalOffset(uint16_t xpos, uint16_t ypos)
+{
+	float volts_per_thou = 0.00075;
+	char out_dcvolts[12] = "";
+	uint8_t out_dcvolts_x = xpos;
+	uint8_t out_dcvolts_y = ypos;
+
+	ILI9341_Draw_Text("OFFSET ....", 2, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 
 	// display output bias in +/- Volts
 	float dc_volts;
@@ -366,95 +519,74 @@ void DM_DisplayFormattedOutput()
 		ILI9341_Draw_Text(strcat(symbol, out_dcvolts), out_dcvolts_x, out_dcvolts_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 	}
 
-	ILI9341_Draw_Text(" OUT:", 3, 170, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void _DisplayOutputWaveformIcons(uint16_t main_xpos, uint16_t main_ypos, uint16_t aux_xpos, uint16_t aux_ypos)
+{
+
+	ILI9341_Draw_Text(" OUT:", 1, main_ypos+10, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 	eOutput_mode signal_output_func = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile->func;
 	switch(signal_output_func)
 	{
 		case SINE_FUNC_MODE:
-
-			ILI9341_Draw_Wave(80, 140, 3, SIGNAL_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(main_xpos, main_ypos-20, 3, SIGNAL_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
 			break;
 		case SQUARE_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+			ILI9341_Draw_Wave(main_xpos, main_ypos, 3, SIGNAL_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
 			break;
 		case SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+			ILI9341_Draw_Wave(main_xpos, main_ypos, 3, SIGNAL_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
 			break;
 		case REV_SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+			ILI9341_Draw_Wave(main_xpos, main_ypos, 3, SIGNAL_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
 			break;
 		case TRIANGLE_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(main_xpos, main_ypos, 3, SIGNAL_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
 			break;
 		case IMPULSE_FUNC_MODE:
-			ILI9341_Draw_Wave(80, 160, 3, SIGNAL_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(main_xpos, main_ypos, 3, SIGNAL_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
 			break;
 		case PWM_FUNC_MODE:
-			ILI9341_Draw_Text("PWM", 80, 170, SIGNAL_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
+			ILI9341_Draw_Text("PWM", main_xpos, main_ypos+10, SIGNAL_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
 			break;
 	}
 
-	ILI9341_Draw_Text("AUX:", 180, 170, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("AUX:", 170, aux_ypos+10, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 	eOutput_mode Aux_output_func = SM_GetOutputChannel(AUX_CHANNEL)->func_profile->func;
 	switch(Aux_output_func)
 	{
 		case SINE_FUNC_MODE:
 
-			ILI9341_Draw_Wave(245, 140, 3, Aux_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(aux_xpos, aux_ypos-20, 3, Aux_OUTPUT_ICON, 100, sineicon_data_table_1300, SINEICON_DATA_SIZE);
 			break;
 		case SQUARE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
+			ILI9341_Draw_Wave(aux_xpos, aux_ypos, 3, Aux_OUTPUT_ICON, 200, squareicon_data_table_3600, SQUAREICON_DATA_SIZE);
 			break;
 		case SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
+			ILI9341_Draw_Wave(aux_xpos, aux_ypos, 3, Aux_OUTPUT_ICON, 200, sawicon_data_table_3600, SAWICON_DATA_SIZE);
 			break;
 		case REV_SAW_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
+			ILI9341_Draw_Wave(aux_xpos, aux_ypos, 3, Aux_OUTPUT_ICON, 200, sawicon_rev_data_table_3600, SAWICON_REV_DATA_SIZE);
 			break;
 		case TRIANGLE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(aux_xpos, aux_ypos, 3, Aux_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
 			break;
 		case IMPULSE_FUNC_MODE:
-			ILI9341_Draw_Wave(245, 160, 3, Aux_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
+			ILI9341_Draw_Wave(aux_xpos, aux_ypos, 3, Aux_OUTPUT_ICON, 200, triangleicon_data_table_3600, TRIANGLEICON_DATA_SIZE);
 			break;
 		case PWM_FUNC_MODE:
-			ILI9341_Draw_Text("PWM", 245, 170, Aux_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
+			ILI9341_Draw_Text("PWM", aux_xpos, aux_ypos+10, Aux_OUTPUT_ICON, text_size, NORMAL_TEXT_BGCOLOUR);
 			break;
 	}
-
-	DM_DisplayInputTriggerStatus();
-
 }
-
-void DM_DisplayInputTriggerStatus()
-{
-	uint8_t text_size = 2;
-	uint16_t text_x_pos = 230;
-	// eTriggerInputMode
-	switch(IT_GetActiveTriggerMode())
-	{
-		case INPUT_TRIGGER_TIM:
-			if(IT_GetTriggerStatus())
-				ILI9341_Draw_Text("T: TIM", text_x_pos, 10, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
-			else
-				ILI9341_Draw_Text("T: TIM", text_x_pos, 10, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
-			break;
-		case INPUT_TRIGGER_COMP:
-			if(IT_GetTriggerStatus())
-				ILI9341_Draw_Text("T: COMP", text_x_pos, 10, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
-			else
-				ILI9341_Draw_Text("T: COMP", text_x_pos, 10, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
-			break;
-		case INPUT_TRIGGER_ADC:
-			if(IT_GetTriggerStatus())
-				ILI9341_Draw_Text("T: ADC", text_x_pos, 10, HIGHLIGHT_TEXT_FGCOLOUR , text_size, HIGHLIGHT_TEXT_BGCOLOUR);
-			else
-				ILI9341_Draw_Text("T: ADC", text_x_pos, 10, HIGHLIGHT_TEXT_BGCOLOUR , text_size, HIGHLIGHT_TEXT_FGCOLOUR);
-			break;
-
-	}
-}
-
 
 /*
  *
@@ -623,9 +755,6 @@ int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen)
  */
 void DM_TestScreen()
 {
-
-
-
 	/*
 	for(int f=0; f<50;f++)
 		ILI9341_Draw_Pixel(f, 50, RED);
