@@ -31,7 +31,7 @@ void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
 		case ENABLE_FUNC_SIGNAL_MENU:
 			FuncMenu_DrawOutputMenu(SIGNAL_CHANNEL);
 			break;
-		case ENABLE_FUNC_Aux_MENU:
+		case ENABLE_FUNC_AUX_MENU:
 			FuncMenu_DrawOutputMenu(AUX_CHANNEL);
 			break;
 

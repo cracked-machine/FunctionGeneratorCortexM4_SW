@@ -165,10 +165,10 @@ void DM_UpdateDisplay()
 
 				break;
 
-			case ENABLE_FUNC_Aux_MENU:
+			case ENABLE_FUNC_AUX_MENU:
 
 
-				FuncMenu_DrawMenu(ENABLE_FUNC_Aux_MENU);
+				FuncMenu_DrawMenu(ENABLE_FUNC_AUX_MENU);
 
 				break;
 

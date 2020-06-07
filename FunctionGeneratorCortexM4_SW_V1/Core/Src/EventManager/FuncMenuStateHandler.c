@@ -16,12 +16,9 @@
 
 eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
 
-
-
-eFuncMenu_Status FuncMenu_getStatus()
-{
-	return eNextFuncMenuStatus;
-}
+// prototypes
+eFuncMenu_Status FuncMenu_getStatus();
+void _setFuncMenuStatus(eFuncMenu_Status newStatus);
 
 /*
  *
@@ -39,7 +36,7 @@ eSystemState FuncMainMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 
-	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
+	_setFuncMenuStatus(ENABLE_FUNC_MAIN_MENU);
 
 	eNewEvent = evIdle;
 	return Func_Main_Menu_State;
@@ -77,7 +74,7 @@ eSystemState FuncMainMenuExitHandler()
 		printf("FuncMainMenuExitHandler Event captured\n");
 	#endif
 
-	eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
+	_setFuncMenuStatus(DISABLE_FUNC_MENU);
 
 	// reset the encoder range
 	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
@@ -110,19 +107,7 @@ eSystemState FuncSignalMenuEntryHandler(void)
 	DM_RefreshScreen();
 	FuncO_ResetLastEncoderValue();
 
-	eNextFuncMenuStatus = 	ENABLE_FUNC_SIGNAL_MENU;
-/*
-	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(SIGNAL_CHANNEL)->func_profile;
-	if(func_profileTmp)
-	{
-		ENCODER_TIMER->CNT = func_profileTmp->epos;
-		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
-	}
-	else
-	{
-		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
-	}
-*/
+	_setFuncMenuStatus(ENABLE_FUNC_SIGNAL_MENU);
 
 	ENCODER_TIMER->CNT = 32768;
 	ENCODER_TIMER->ARR = 65535;
@@ -145,9 +130,7 @@ eSystemState FuncSignalMenuInputHandler(void)
 		printf("FuncSignalMenuInputHandler Event captured\n");
 	#endif
 
-
 	FuncO_MapEncoderPositionToSignalOutput(SM_GetEncoderValue(ENCODER_NORMAL));
-
 
 	eNewEvent = evIdle;
 	return Func_Signal_Menu_State;
@@ -185,12 +168,7 @@ eSystemState FuncSignalMenuExitHandler()
 	#endif
 
 	// disable the menu
-
-	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
-
-	// reset the encoder range
-
-//	ENCODER_TIMER->ARR = 1024;
+	_setFuncMenuStatus(ENABLE_FUNC_MAIN_MENU);
 
 	DM_RefreshScreen();
 	SM_ResetFuncPwmDutyMode();
@@ -216,20 +194,8 @@ eSystemState FuncAuxMenuEntryHandler(void)
 	DM_RefreshScreen();
 	FuncO_ResetLastEncoderValue();
 
-	eNextFuncMenuStatus = 	ENABLE_FUNC_Aux_MENU;
+	_setFuncMenuStatus(ENABLE_FUNC_AUX_MENU);
 
-	//FunctionProfile_t *func_profileTmp =  FuncO_GetAuxFPresetObject();
-/*	FunctionProfile_t *func_profileTmp = SM_GetOutputChannel(AUX_CHANNEL)->func_profile;
-	if(func_profileTmp)
-	{
-		ENCODER_TIMER->CNT = func_profileTmp->epos;
-		ENCODER_TIMER->ARR = FuncO_GetFuncPresetEncoderRange();
-	}
-	else
-	{
-		DM_SetErrorDebugMsg("_FuncMenuEntryHandler: func_profileTmp null pointer");
-	}
-	*/
 	ENCODER_TIMER->CNT = 32768;
 	ENCODER_TIMER->ARR = 65535;
 
@@ -300,15 +266,38 @@ eSystemState FuncAuxMenuExitHandler()
 	#endif
 
 	// disable the menu
+	_setFuncMenuStatus(ENABLE_FUNC_MAIN_MENU);
 
-	eNextFuncMenuStatus = 	ENABLE_FUNC_MAIN_MENU;
-
-	// reset the encoder range
-
-	//ENCODER_TIMER->ARR = 1024;
 	SM_ResetFuncPwmDutyMode();
 	DM_RefreshScreen();
 
 	eNewEvent = evIdle;
 	return Func_Main_Menu_State;
 }
+
+/*
+ *
+ *	@brief	FuncMenu_getStatus
+ *
+ *	@param None
+ *	@retval eFuncMenu_Status enum for current menu state
+ *
+ */
+eFuncMenu_Status FuncMenu_getStatus()
+{
+	return eNextFuncMenuStatus;
+}
+
+/*
+ *
+ *	@brief	_setStatus
+ *
+ *	@param eFuncMenu_Status enum for next menu state
+ *	@retval None
+ *
+ */
+void _setFuncMenuStatus(eFuncMenu_Status newStatus)
+{
+	eNextFuncMenuStatus = newStatus;
+}
+

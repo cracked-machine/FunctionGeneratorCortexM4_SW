@@ -6,32 +6,17 @@
  */
 
 #include "DisplayManager.h"
-//#include "SignalManager.h"
-#include <stdio.h>
-#include <ToplevelMenuStateHandler.h>
-
-
+#include "ToplevelMenuStateHandler.h"
 
 #include "comp.h"
 #include "dac.h"
 #include "adc.h"
 
-
-
-
 eToplevelMenu_Status eNextToplevelMenuStatus = 	ENABLE_TOPLEVEL_MAIN_MENU;
 
+eToplevelMenu_Status ToplevelMenu_getStatus();
+void ToplevelMenu_setStatus(eToplevelMenu_Status pStatus);
 
-
-eToplevelMenu_Status ToplevelMenu_getStatus()
-{
-	return eNextToplevelMenuStatus;
-}
-
-void ToplevelMenu_setStatus(eToplevelMenu_Status pStatus)
-{
-	eNextToplevelMenuStatus = pStatus;
-}
 
 /*
  *
@@ -49,7 +34,7 @@ eSystemState ToplevelMainMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	eNextToplevelMenuStatus = ENABLE_TOPLEVEL_MAIN_MENU;
+	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_MAIN_MENU);
 
 	// stay in this state
 	eNewEvent = evIdle;
@@ -90,11 +75,7 @@ eSystemState ToplevelMainMenuExitHandler()
 		printf("ToplevelMainMenuExitHandler Event captured\n");
 	#endif
 
-
-	// disable the menu
-	eNextToplevelMenuStatus = DISABLE_TOPLEVEL_MENU;
-
-	// reset the encoder range
+	ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 
 	DM_RefreshScreen();
 
@@ -122,7 +103,7 @@ eSystemState ToplevelOutputMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	eNextToplevelMenuStatus = ENABLE_TOPLEVEL_OUTPUT_MENU;
+	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 
 
 
@@ -170,7 +151,7 @@ eSystemState ToplevelOutputMenuExitHandler()
 	DM_RefreshScreen();
 
 	// disable the menu
-	eNextToplevelMenuStatus = ENABLE_TOPLEVEL_MAIN_MENU;
+	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_MAIN_MENU);
 
 	// back to main freq menu
 	eNewEvent = evIdle;
@@ -193,7 +174,7 @@ eSystemState ToplevelInputMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	eNextToplevelMenuStatus = ENABLE_TOPLEVEL_INPUT_MENU;
+	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_INPUT_MENU);
 
 
 
@@ -265,9 +246,37 @@ eSystemState ToplevelInputMenuExitHandler()
 	DM_RefreshScreen();
 
 	// disable the menu
-	eNextToplevelMenuStatus = ENABLE_TOPLEVEL_MAIN_MENU;
+	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_MAIN_MENU);
 
 	// back to main freq menu
 	eNewEvent = evIdle;
 	return Idle_State;
 }
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eToplevelMenu_Status ToplevelMenu_getStatus()
+{
+	return eNextToplevelMenuStatus;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void ToplevelMenu_setStatus(eToplevelMenu_Status pStatus)
+{
+	eNextToplevelMenuStatus = pStatus;
+}
+
+

@@ -1,4 +1,5 @@
-BiasMenuStateHandler.c:25:18:BiasMenu_getStatus	4	static
-BiasMenuStateHandler.c:38:14:BiasMenuEntryHandler	8	static
-BiasMenuStateHandler.c:63:14:BiasMenuInputHandler	16	static
-BiasMenuStateHandler.c:106:14:BiasMenuExitHandler	8	static
+BiasMenuStateHandler.c:30:14:BiasMenuEntryHandler	8	static
+BiasMenuStateHandler.c:55:14:BiasMenuInputHandler	16	static
+BiasMenuStateHandler.c:98:14:BiasMenuExitHandler	8	static
+BiasMenuStateHandler.c:125:18:BiasMenu_getStatus	4	static
+BiasMenuStateHandler.c:138:6:_setBiasMenuStatus	16	static

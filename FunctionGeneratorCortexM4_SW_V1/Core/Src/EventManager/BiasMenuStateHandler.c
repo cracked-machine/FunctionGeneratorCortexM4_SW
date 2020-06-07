@@ -14,18 +14,10 @@
 
 eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIAS_MENU;
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-eBiasMenu_Status BiasMenu_getStatus()
-{
-	return eNextBiasMenuStatus;
-}
+eBiasMenu_Status BiasMenu_getStatus();
+void _setBiasMenuStatus(eBiasMenu_Status newStatus);
+
+
 
 /*
  *
@@ -43,7 +35,7 @@ eSystemState BiasMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	eNextBiasMenuStatus = ENABLE_BIAS_MENU;
+	_setBiasMenuStatus(ENABLE_BIAS_MENU);
 
 	ENCODER_TIMER->ARR = BIAS_MAX;
 	ENCODER_TIMER->CNT = BO_GetDcBiasEncoderValue();
@@ -109,13 +101,8 @@ eSystemState BiasMenuExitHandler()
 		printf("BiasMenuExitHandler Event captured\n");
 	#endif
 
-
 	// disable the menu
-	eNextBiasMenuStatus = DISABLE_BIAS_MENU;
-
-	// reset the encoder range
-
-	//ENCODER_TIMER->ARR = 1024;
+	_setBiasMenuStatus(DISABLE_BIAS_MENU);
 
 	DM_RefreshScreen();
 
@@ -127,3 +114,28 @@ eSystemState BiasMenuExitHandler()
 	return Toplevel_Output_Menu_State;
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eBiasMenu_Status BiasMenu_getStatus()
+{
+	return eNextBiasMenuStatus;
+}
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+void _setBiasMenuStatus(eBiasMenu_Status newStatus)
+{
+	eNextBiasMenuStatus = newStatus;
+}

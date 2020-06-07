@@ -13,10 +13,8 @@
 
 eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAIN_MENU;
 
-eGainMenu_Status GainMenu_getStatus()
-{
-	return eNextGainMenuStatus;
-}
+eGainMenu_Status GainMenu_getStatus();
+void _setGainMenuStatus(eGainMenu_Status newStatus);
 
 /*
  *
@@ -34,7 +32,7 @@ eSystemState GainMainMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	eNextGainMenuStatus = ENABLE_GAIN_MAIN_MENU;
+	_setGainMenuStatus(ENABLE_GAIN_MAIN_MENU);
 
 	eNewEvent = evIdle;
 	return Gain_Main_Menu_State;
@@ -75,7 +73,7 @@ eSystemState GainMainMenuExitHandler()
 		printf("GainMainMenuExitHandler Event captured\n");
 	#endif
 
-	eNextGainMenuStatus = DISABLE_GAIN_MENU;
+	_setGainMenuStatus(DISABLE_GAIN_MENU);
 
 	DM_RefreshScreen();
 
@@ -105,7 +103,7 @@ eSystemState GainSignalMenuEntryHandler()
 	GO_ResetLastEncoderValue();
 	VPP_ResetLastEncoderValue();
 
-	eNextGainMenuStatus = ENABLE_GAIN_SIGNAL_MENU;
+	_setGainMenuStatus(ENABLE_GAIN_SIGNAL_MENU);
 
 	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile;
 
@@ -203,7 +201,7 @@ eSystemState GainSignalMenuExitHandler()
 		printf("GainSignalMenuExitHandler Event captured\n");
 	#endif
 
-	eNextGainMenuStatus = ENABLE_GAIN_MAIN_MENU;
+	_setGainMenuStatus(ENABLE_GAIN_MAIN_MENU);
 
 	DM_RefreshScreen();
 
@@ -229,7 +227,7 @@ eSystemState GainAuxMenuEntryHandler()
 	DM_RefreshScreen();
 	VPP_ResetLastEncoderValue();
 
-	eNextGainMenuStatus = ENABLE_GAIN_Aux_MENU;
+	_setGainMenuStatus(ENABLE_GAIN_Aux_MENU);
 
 	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(AUX_CHANNEL)->amp_profile;
 
@@ -287,7 +285,7 @@ eSystemState GainAuxMenuExitHandler()
 		printf("GainAuxMenuExitHandler Event captured\n");
 	#endif
 
-	eNextGainMenuStatus = ENABLE_GAIN_MAIN_MENU;
+	_setGainMenuStatus(ENABLE_GAIN_MAIN_MENU);
 
 	DM_RefreshScreen();
 
@@ -295,3 +293,28 @@ eSystemState GainAuxMenuExitHandler()
 	return Gain_Main_Menu_State;
 }
 
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+eGainMenu_Status GainMenu_getStatus()
+{
+	return eNextGainMenuStatus;
+}
+
+/*
+ *
+ *	@brief	_setStatus
+ *
+ *	@param eFuncMenu_Status enum for next menu state
+ *	@retval None
+ *
+ */
+void _setGainMenuStatus(eGainMenu_Status newStatus)
+{
+	eNextGainMenuStatus = newStatus;
+}
