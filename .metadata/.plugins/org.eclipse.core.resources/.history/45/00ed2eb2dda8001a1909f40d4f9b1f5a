@@ -113,7 +113,6 @@ void IT_ArbitrateInputTrigger()
 				HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_RESET);	// TS5A3357 Pin6
 				HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET); 		// TS5A3357 Pin5
 
-/*
 				//HAL_COMP_Start(&hcomp1);
 				COMP1->CSR |= COMP_CSR_EN;
 				// set alt pin function to COMP1 OUT
@@ -139,16 +138,15 @@ void IT_ArbitrateInputTrigger()
 				// resume timer to reAux both outputs
 				//HAL_TIM_Base_Start(&htim2);
 				OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
-*/
+
 
 				break;
 			case INPUT_TIMER_ADC:
 				// TS5A3357 -> PA2
-
 				HAL_GPIO_WritePin(TRIGMUX1_GPIO_Port, TRIGMUX1_Pin, GPIO_PIN_SET);		// TS5A3357 Pin6
 				HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_SET);		// TS5A3357 Pin5
 
-//				HAL_ADC_Start_DMA(&hadc1, trigger_input, TRIGGER_DATA_SIZE);
+				HAL_ADC_Start_DMA(&hadc1, trigger_input, TRIGGER_DATA_SIZE);
 
 /*				// pause timer to reAux both outputs
 				OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
@@ -164,7 +162,7 @@ void IT_ArbitrateInputTrigger()
 
 				//TODO enable ADC trigger input
 */
-//				FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
+				FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
 				break;
 
 			default:
