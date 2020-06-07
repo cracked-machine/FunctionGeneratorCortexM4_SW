@@ -19,6 +19,12 @@ eTriggerInput isTriggerInputEnabled = DISABLE_TRIGGER_INPUT;
 #define TRIGGER_DATA_SIZE 240
 uint32_t trigger_input[TRIGGER_DATA_SIZE] = {};
 
+#define 	MAX_FREQ_COUNT_STORE	16
+uint32_t 	freq_count_value = 0;
+uint8_t 	freq_count_index = 0;
+uint32_t 	freq_count_store[MAX_FREQ_COUNT_STORE];
+
+
 /*
  *
  *	@brief
@@ -40,8 +46,10 @@ void IT_ArbitrateInputTrigger()
 		// set status to disabled
 */
 
-		TIM2->DIER &= ~TIM_DIER_UDE;
-		TIM2->CR1 &= ~TIM_CR1_CEN;
+		// disable freq count timer
+		HAL_TIM_IC_Stop_DMA(&htim2, TIM_CHANNEL_1);
+//		TIM2->DIER &= ~TIM_DIER_UDE;
+//		TIM2->CR1 &= ~TIM_CR1_CEN;
 
 		// disable the comparator
 		HAL_COMP_Stop(&hcomp1);
@@ -70,11 +78,13 @@ void IT_ArbitrateInputTrigger()
 				HAL_GPIO_WritePin(TRIGMUX2_GPIO_Port, TRIGMUX2_Pin, GPIO_PIN_RESET); 	// TS5A3357 Pin5
 
 				// Reciprocal counter timer
-				recip_counter = 0;
-				HAL_TIM_Base_Start_IT(&htim4);
+				//recip_counter = 0;
+				//HAL_TIM_Base_Start_IT(&htim4);
 
-				TIM2->DIER |= TIM_DIER_UIE;
-				TIM2->CR1 |= TIM_CR1_CEN;
+//				TIM2->DIER |= TIM_DIER_UIE;
+//				TIM2->CR1 |= TIM_CR1_CEN;
+
+				HAL_TIM_IC_Start_DMA(&htim2, TIM_CHANNEL_1, freq_count_store, MAX_FREQ_COUNT_STORE);
 				//HAL_TIM_Base_Start_IT(&htim2);
 
 				// Init PA0 with TIM2 CH1 alt-function (AF) -
@@ -279,4 +289,31 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 	else
 		OUTPUT_TIMER->ARR = trigger_input[0];
 	printf("%lu\n", trigger_input[0]);
+}
+
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+/*
+	uint32_t avg_freq_count = 0;
+	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
+	{
+		avg_freq_count += freq_count_store[x];
+	}
+
+	avg_freq_count /= MAX_FREQ_COUNT_STORE;
+*/
+	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
+	{
+		printf("%lu, ", freq_count_store[x]);
+	}
+	printf("------------\n");
+}
+
+void HAL_TIM_IC_CaptureHalfCpltCallback(TIM_HandleTypeDef *htim)
+{
+	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
+	{
+		printf("%lu, ", freq_count_store[x]);
+	}
+	printf("------------\n");
 }

@@ -5,4 +5,4 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
 org.eclipse.debug.core.PREF_BREAKPOINT_MANAGER_ENABLED_STATE=true
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="theFreqProfiles"/>\n<expression enabled\="true" text\="DacTimerReg"/>\n<expression enabled\="true" text\="ENCODER_TIMER-&gt;CNT"/>\n<expression enabled\="true" text\="OUTPUT_TIMER-&gt;ARR - SM_GetEncoderValue(ENCODER_FORWARD &gt; 0)"/>\n<expression enabled\="true" text\="OUTPUT_TIMER-&gt;ARR"/>\n<expression enabled\="true" text\="trigger_input"/>\n<expression enabled\="true" text\="trigger_input[0]"/>\n<expression enabled\="true" text\="recip_freq_store"/>\n<expression enabled\="true" text\="recip_freq_value"/>\n</watchExpressions>\n
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="freq_count_store"/>\n</watchExpressions>\n

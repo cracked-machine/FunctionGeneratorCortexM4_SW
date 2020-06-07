@@ -29,9 +29,10 @@ void IM_BTN4_EXTI1_Handler();
 void IM_ENC_EXTI2_Handler();
 void IM_ENC_DIRF_Handler();
 
-void IM_RECIP_COUNT_Handler();
-void IM_RECIP_STORE_Handler();
+
 
 void IM_SWEEP_UPDATE_TIM_IRQHandler();
+
+
 
 #endif /* SRC_INTERRUPTMANAGER_H_ */

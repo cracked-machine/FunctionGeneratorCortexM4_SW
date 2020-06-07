@@ -23,10 +23,6 @@ uint16_t btn4_last_interrupt_time = 0;
 uint16_t encbtn_last_interrupt_time = 0;
 uint16_t encpos_last_interrupt_time = 0;
 
-#define 	MAX_FREQ_COUNT_STORE	256
-uint32_t 	freq_count_value = 0;
-uint8_t 	freq_count_index = 0;
-uint32_t 	freq_count_store[MAX_FREQ_COUNT_STORE];
 
 void IM_Init()
 {
@@ -317,7 +313,7 @@ void IM_ENC_DIRF_Handler()
 
 
 }
-
+/*
 void IM_RECIP_COUNT_Handler()
 {
 	freq_count_value++;
@@ -349,3 +345,4 @@ void IM_RECIP_STORE_Handler()
 	// increment the store index
 	freq_count_index++;
 }
+*/

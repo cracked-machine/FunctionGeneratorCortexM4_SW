@@ -15,9 +15,9 @@ stm32g4xx_it.c:289:6:EXTI2_IRQHandler	8	static
 stm32g4xx_it.c:311:6:DMA1_Channel1_IRQHandler	8	static
 stm32g4xx_it.c:325:6:DMA1_Channel2_IRQHandler	8	static
 stm32g4xx_it.c:339:6:DMA1_Channel3_IRQHandler	8	static
-stm32g4xx_it.c:353:6:TIM1_BRK_TIM15_IRQHandler	8	static
-stm32g4xx_it.c:373:6:TIM1_TRG_COM_TIM17_IRQHandler	8	static
-stm32g4xx_it.c:388:6:TIM2_IRQHandler	8	static
+stm32g4xx_it.c:353:6:DMA1_Channel4_IRQHandler	8	static
+stm32g4xx_it.c:367:6:TIM1_BRK_TIM15_IRQHandler	8	static
+stm32g4xx_it.c:387:6:TIM1_TRG_COM_TIM17_IRQHandler	8	static
 stm32g4xx_it.c:402:6:TIM3_IRQHandler	8	static
 stm32g4xx_it.c:416:6:TIM4_IRQHandler	8	static
 stm32g4xx_it.c:430:6:EXTI15_10_IRQHandler	8	static

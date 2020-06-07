@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="activeInputerTriggerMode"/>
+		<item key="selection" value="freq_count"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="recip_freq"/>
+			<item value="counter"/>
+			<item value="htim2"/>
+			<item value="OFFSET"/>
 			<item value="activeInputerTriggerMode"/>
 			<item value="freq_last_encoder_value"/>
 			<item value="SG2"/>
@@ -19,12 +23,10 @@
 			<item value="tmpDT"/>
 			<item value="DT_GetRegisterByIndex"/>
 			<item value="typedef enum"/>
-			<item value="OUTPUT_TIMER"/>
-			<item value="DUTY"/>
-			<item value="DAC1"/>
-			<item value="TIM_CHANNEL_2"/>
 		</list>
 		<list key="replacehistory">
+			<item value="freq_count"/>
+			<item value="freq"/>
 			<item value="IT_GetActiveTriggerMode()"/>
 			<item value="CH1_GAIN_C"/>
 			<item value="CH1_GAIN_B"/>
@@ -38,8 +40,6 @@
 			<item value="SM"/>
 			<item value="ILI9341_Draw_Horizontal_Line"/>
 			<item value="ILI9341_Draw_Pixel"/>
-			<item value="ILI9341_SCREEN_WIDTH"/>
-			<item value="ILI9341_SCREEN_HEIGHT"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
