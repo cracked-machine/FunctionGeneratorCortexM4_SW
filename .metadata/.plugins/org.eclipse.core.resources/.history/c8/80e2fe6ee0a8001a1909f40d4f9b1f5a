@@ -299,19 +299,14 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
 
-	// mean average the DMA data set
 	avg_freq_count_period = 0;
 	for(int x = 0; x < MAX_FREQ_COUNT_STORE; x++)
 	{
 		avg_freq_count_period += freq_count_store[x];
 	}
+
 	avg_freq_count_period /= MAX_FREQ_COUNT_STORE;
-
-	// convert period to hertz
 	avg_freq_count_hertz = (float)SM_MCLK / ((float)INPUT_TIMER->PSC * (float)avg_freq_count_period);
-
-	// sync the output timer (DAC) with the input timer
-	OUTPUT_TIMER->ARR = avg_freq_count_period;
 
 	// auto toggle "LF" mode
 	if(avg_freq_count_hertz < 50)
@@ -325,7 +320,9 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 		OUTPUT_TIMER->PSC = 0;
 	}
 
-	//printf("ARR %lu = %4.2fHz\n",avg_freq_count_period, avg_freq_count_hertz);
+	printf("ARR %lu = %4.2fHz\n",avg_freq_count_period, avg_freq_count_hertz);
+
+	OUTPUT_TIMER->ARR = avg_freq_count_period;
 
 }
 

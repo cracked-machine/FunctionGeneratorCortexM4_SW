@@ -7,5 +7,5 @@ InputTrigger.c:256:6:IT_SetTriggerStatus	16	static
 InputTrigger.c:270:6:HAL_COMP_TriggerCallback	16	static
 InputTrigger.c:290:6:HAL_ADC_ConvCpltCallback	16	static
 InputTrigger.c:299:6:HAL_TIM_IC_CaptureCallback	32	static
-InputTrigger.c:329:7:IT_GetAverageFreqCountPeriod	4	static
-InputTrigger.c:342:7:IT_GetAverageFreqCountHertz	4	static
+InputTrigger.c:337:7:IT_GetAverageFreqCountPeriod	4	static
+InputTrigger.c:350:7:IT_GetAverageFreqCountHertz	4	static
