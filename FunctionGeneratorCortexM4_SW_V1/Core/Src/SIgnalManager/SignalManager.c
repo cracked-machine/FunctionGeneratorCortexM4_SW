@@ -31,7 +31,7 @@ void SM_Init()
 	HAL_GPIO_WritePin(OFFSET_ENABLE_GPIO_Port, OFFSET_ENABLE_Pin, GPIO_PIN_SET);
 
 	// send trigger input out to dac
-	//HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, trigger_input, TRIGGER_DATA_SIZE, DAC_ALIGN_12B_R);
+	//HAL_DAC_Start_DMA(&hdac2, DAC2_CHANNEL_1, volt_measure_store, MAX_VOLT_MEASURE_STORE, DAC_ALIGN_12B_R);
 
 	// Start DAC trigger timer
 	OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);

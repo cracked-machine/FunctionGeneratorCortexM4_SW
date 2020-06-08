@@ -141,7 +141,6 @@ int main(void)
   MX_DAC2_Init();
   MX_TIM17_Init();
   MX_TIM2_Init();
-  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
 
   SM_Init();
