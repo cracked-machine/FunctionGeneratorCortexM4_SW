@@ -42,7 +42,7 @@ In "Time Mode" the input signal frequency is measured using reciprocal counting 
 - A rising edge detected on the input signal triggers a "tim_ti1_fp1" signal to Input Capture Channel 1 and the slave controller.
 - TIM2 is configured to reset its count on "tim_ti1_fp1" trigger signal. This sends an write request to the DMA controller and contents of CCR1 is written to memory.
 
-<img src=https://github.com/cracked-machine/FunctionGeneratorCortexM4_SW/blob/master/images/TIM2InputTriggerCapture.png.svg width=320 height=240>
+<img src=/images/TIM2InputTriggerCapture.png.svg width=320 height=240>
 
 - On timer capture callback, the frequency in hertz is then calculated:
 
