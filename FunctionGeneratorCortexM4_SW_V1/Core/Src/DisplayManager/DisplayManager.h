@@ -78,6 +78,7 @@ void DM_DisplayInputTriggerStatus();
 void DM_SetErrorDebugMsg(char* msg);
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 
+void DM_DrawGenericHertzValue(uint16_t xpos, uint16_t ypos, float output_hertz_value);
 
 // unused
 //int DM_DigitCount(int num);

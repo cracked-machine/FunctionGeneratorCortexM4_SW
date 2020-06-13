@@ -408,37 +408,28 @@ void FreqMenu_DrawSweepMenu()
 
 	// draw output freq status
 	char out_hertz[25] = "";
-	snprintf(out_hertz, sizeof(out_hertz), "OUTPUT: %7.2f Hz", SM_GetOutputInHertz());
+	snprintf(out_hertz, sizeof(out_hertz), "OUTPUT:");
 	ILI9341_Draw_Text(out_hertz, 5, 60, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 
+	DM_DrawGenericHertzValue(80, 60, SM_GetOutputInHertz());
 
-	// draw mode (direction) status
-//	char mode_text[20] = "";
 
-/*	if((SWEEP_TIMER->CR1 & TIM_CR1_CMS_0) == TIM_CR1_CMS_0)
+
+	ILI9341_Draw_Text("SWEEP MODE:", 5, 100, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+
+	// get direction
+	if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)
 	{
-		// direction not relevant in center-alligned mode (bi-directional)
-		snprintf(mode_text, sizeof(mode_text), "MODE: BOTH");
-		//snprintf(dir_text, sizeof(dir_text), "DIRECTION:  N/A");
+		ILI9341_Draw_Text("UP", 235, 100, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+		ILI9341_Draw_Text("DOWN", 265, 100, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 	}
 	else
 	{
-*/
-		ILI9341_Draw_Text("SWEEP MODE:", 5, 100, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+		ILI9341_Draw_Text("DOWN", 265, 100, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+		ILI9341_Draw_Text("UP", 235, 100, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
+	}
 
-		// get direction
-		if((SWEEP_TIMER->CR1 & TIM_CR1_DIR) == TIM_CR1_DIR)
-		{
-			ILI9341_Draw_Text("UP", 235, 100, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-			ILI9341_Draw_Text("DOWN", 265, 100, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
-		}
-		else
-		{
-			ILI9341_Draw_Text("DOWN", 265, 100, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-			ILI9341_Draw_Text("UP", 235, 100, HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
-		}
 
-//	}
 
 
 
@@ -453,9 +444,11 @@ void FreqMenu_DrawSweepMenu()
 	{
 		ILI9341_Draw_Text("SWEEP SPEED:", 5, 120, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 	}
-	char arr_text[25] = "";
+/*	char arr_text[25] = "";
 	snprintf(arr_text, sizeof(arr_text), "%8.3f Hz", calculated_sweep_in_hertz);
 	ILI9341_Draw_Text(arr_text, 182, 120, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
+*/
+	DM_DrawGenericHertzValue(158, 120, calculated_sweep_in_hertz);
 
 
 	// draw upper sweep bounds
@@ -468,10 +461,11 @@ void FreqMenu_DrawSweepMenu()
 	{
 		ILI9341_Draw_Text("SWEEP UPPER:", 5, 140, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 	}
-	char sweep_lower_text[20] = "";
+/*	char sweep_lower_text[20] = "";
 	snprintf(sweep_lower_text, sizeof(sweep_lower_text), "%9.2f  Hz", SM_ConvertPeriodToHertz(sweep_lower_bounds_shortest_output_arr, OUTPUT_TIMER->PSC) /SM_FSAMP);
 	ILI9341_Draw_Text(sweep_lower_text, 158, 140, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-
+*/
+	DM_DrawGenericHertzValue(158, 140, SM_ConvertPeriodToHertz(sweep_lower_bounds_shortest_output_arr, OUTPUT_TIMER->PSC) /SM_FSAMP);
 
 	// draw lower sweep bounds
 	if( (theCurrentEncoderSweepFunction == ENCODER_SWEEP_LIMIT_FUNCTION) && (active_sweep_mode == SWEEP_MODE_DOWN) )
@@ -483,10 +477,11 @@ void FreqMenu_DrawSweepMenu()
 	{
 		ILI9341_Draw_Text("SWEEP LOWER:", 5, 160, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
 	}
-	char sweep_upper_text[20] = "";
+/*	char sweep_upper_text[20] = "";
 	snprintf(sweep_upper_text, sizeof(sweep_upper_text), "%8.2f  Hz", SM_ConvertPeriodToHertz(sweep_upper_bounds_longest_output_arr, OUTPUT_TIMER->PSC) /SM_FSAMP );
 	ILI9341_Draw_Text(sweep_upper_text, 170, 160, NORMAL_TEXT_FGCOLOUR, 2, NORMAL_TEXT_BGCOLOUR);
-
+*/
+	DM_DrawGenericHertzValue(158, 160, SM_ConvertPeriodToHertz(sweep_upper_bounds_longest_output_arr, OUTPUT_TIMER->PSC) /SM_FSAMP );
 
 	// draw bottom menu button text
 	if((SWEEP_TIMER->CR1 & TIM_CR1_CEN) == TIM_CR1_CEN)

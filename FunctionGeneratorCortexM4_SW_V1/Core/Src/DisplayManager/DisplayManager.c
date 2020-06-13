@@ -49,6 +49,7 @@ void _DisplayOutputWaveformIcons(uint16_t main_xpos, uint16_t main_ypos, uint16_
 void _DisplayOutputSignalOffset(uint16_t xpos, uint16_t ypos);
 void _DisplayOutputSignalDecibels(uint16_t xpos, uint16_t ypos);
 void _DisplayOutputSignalVpp(uint16_t xpos, uint16_t ypos);
+void DM_DrawGenericHertzValue(uint16_t xpos, uint16_t ypos, float output_hertz_value);
 
 // private function protochannels
 
@@ -232,31 +233,26 @@ void DM_DisplayInputTriggerTimerHertz(uint16_t xpos, uint16_t ypos)
 {
 	if(IT_GetTriggerStatus())
 	{
+		char avg_freq_count_hertz[13] = {};
+
 		if(IT_GetAverageFreqCountHertz() < 1000)
 		{
-			char avg_freq_count_hertz[13] = {};
 			snprintf(avg_freq_count_hertz, sizeof(avg_freq_count_hertz), "%7.1f Hz", IT_GetAverageFreqCountHertz());
-			ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
 		}
 		else if(IT_GetAverageFreqCountHertz() < 10000)
 		{
-			char avg_freq_count_hertz[13] = {};
 			snprintf(avg_freq_count_hertz, sizeof(avg_freq_count_hertz), "%6.1f KHz", IT_GetAverageFreqCountHertz() / 1000);
-			ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
 		}
 		else if(IT_GetAverageFreqCountHertz() < 100000)
 		{
-			char avg_freq_count_hertz[13] = {};
 			snprintf(avg_freq_count_hertz, sizeof(avg_freq_count_hertz), "%6.1f KHz", IT_GetAverageFreqCountHertz()  / 1000);
-			ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
 		}
 		else
 		{
-			char avg_freq_count_hertz[13] = {};
 			snprintf(avg_freq_count_hertz, sizeof(avg_freq_count_hertz), "%6.1f KHz", IT_GetAverageFreqCountHertz()  / 1000);
-			ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
 		}
 
+		ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
 	}
 	else
 	{
@@ -274,16 +270,36 @@ void DM_DisplayInputTriggerTimerHertz(uint16_t xpos, uint16_t ypos)
  */
 void _DisplayOutputSignalHertz(uint16_t xpos, uint16_t ypos)
 {
-	char out_hertz[15] = "";
-	uint8_t out_hertz_x = xpos;
-	uint8_t out_hertz_y = ypos;
+
 
 	// draw row header
-	ILI9341_Draw_Text("FREQ   ....", 2, out_hertz_y , NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	ILI9341_Draw_Text("FREQ   ....", 2, ypos , NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 
 	// display output in hertz
-	snprintf(out_hertz, sizeof(out_hertz), " %4.2f   Hz ", SM_GetOutputInHertz());
-	ILI9341_Draw_Text(out_hertz, out_hertz_x, out_hertz_y, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
+	DM_DrawGenericHertzValue(xpos, ypos, SM_GetOutputInHertz());
+}
+
+void DM_DrawGenericHertzValue(uint16_t xpos, uint16_t ypos, float output_hertz_value)
+{
+	char out_hertz[20] = "";
+	if(output_hertz_value < 1000)
+	{
+		snprintf(out_hertz, sizeof(out_hertz), " %7.2f  Hz ", output_hertz_value);
+	}
+	else if(output_hertz_value < 10000)
+	{
+		snprintf(out_hertz, sizeof(out_hertz), " %7.2f  KHz ", output_hertz_value /1000);
+	}
+	else if(output_hertz_value < 100000)
+	{
+		snprintf(out_hertz, sizeof(out_hertz), " %7.2f  KHz ", output_hertz_value /1000);
+	}
+	else
+	{
+		snprintf(out_hertz, sizeof(out_hertz), " %7.2f  KHz ", output_hertz_value /1000);
+	}
+
+	ILI9341_Draw_Text(out_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR, text_size, NORMAL_TEXT_BGCOLOUR);
 }
 
 /*
