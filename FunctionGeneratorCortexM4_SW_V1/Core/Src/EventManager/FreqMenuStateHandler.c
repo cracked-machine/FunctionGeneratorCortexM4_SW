@@ -15,7 +15,7 @@
 
 
 // the displayed freq menu
-eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
+//eFreqMenu_Status eNextFreqMenuStatus = 	DISABLE_FREQ_MENU;
 
 // the current setting of TIM_CR1_DIR in SWEEP_TIMER
 eFreqSweepModes active_sweep_mode = SWEEP_MODE_UP;
@@ -24,11 +24,6 @@ eFreqSweepModes active_sweep_mode = SWEEP_MODE_UP;
 eEncoderSweepFunctions theCurrentEncoderSweepFunction = ENCODER_SWEEP_SPEED_FUNCTION;
 
 
-/*
- * 	Function prototypes
- */
-eFreqMenu_Status FreqMenu_getStatus();
-void _setFreqMenuStatus(eFreqMenu_Status newStatus);
 eFreqSweepModes FMSH_GetSweepMode();
 
 
@@ -85,12 +80,6 @@ eSystemState FreqSweepMenuEntryHandler()
 	// sweep start speed
 	SWEEP_TIMER->ARR = MIN_SWEEP_ARR;
 	SWEEP_TIMER->PSC = 0;
-
-
-
-	// get ready to load menu
-	_setFreqMenuStatus(ENABLE_FREQ_SWEEP_MENU);
-
 
 	// stay in this state
 	eNewEvent = evIdle;
@@ -211,11 +200,6 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 								sweep_upper_bounds_longest_output_arr = ENCODER_TIMER->CNT;
 							}
 
-							//						ENCODER_TIMER->ARR = sweep_lower_bounds_shortest_output_arr;
-
-//							if(ENCODER_TIMER->CNT > sweep_lower_bounds_shortest_output_arr)
-//
-
 							break;
 
 						default:
@@ -240,27 +224,6 @@ eSystemState FreqSweepMenuInputHandler(eSystemEvent pEvent)
 		// set sweep limit button
 		case evSweepLimitBtn:
 			FS_SetEncoderControlMode(ENCODER_SWEEP_LIMIT_FUNCTION);
-/*			switch(active_sweep_mode)
-			{
-
-				case SWEEP_MODE_UP:
-					// if encoder position is above the lower bounds set it below it
-						if(ENCODER_TIMER->CNT > sweep_upper_bounds_longest_output_arr)
-							 ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
-
-
-					break;
-
-				case SWEEP_MODE_DOWN:
-						// if encoder position is below the lower bounds set it above it
-						if(ENCODER_TIMER->CNT < sweep_lower_bounds_shortest_output_arr)
-							ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
-					break;
-				default:
-					break;
-			}
-			*/
-			// switch(active_sweep_mode)
 
 			break;
 
@@ -296,11 +259,6 @@ eSystemState FreqSweepMenuExitHandler()
 	SWEEP_TIMER->DIER 	&= ~(TIM_DIER_UIE);
 	SWEEP_TIMER->CR1 	&= ~(TIM_CR1_CEN);
 
-
-
-	// disable the menu
-	_setFreqMenuStatus(ENABLE_FREQ_MAIN_MENU);
-
 	// back to main freq menu
 	eNewEvent = evIdle;
 	return Freq_Main_Menu_State;
@@ -322,8 +280,6 @@ eSystemState FreqMainMenuEntryHandler()
 	#endif
 
 	DM_RefreshScreen();
-
-	_setFreqMenuStatus(ENABLE_FREQ_MAIN_MENU);
 
 	// stay in this state
 	eNewEvent = evIdle;
@@ -363,12 +319,6 @@ eSystemState FreqMainMenuExitHandler()
 		printf("FreqMainMenuExitHandler Event captured\n");
 	#endif
 
-
-	// disable the menu
-	_setFreqMenuStatus(DISABLE_FREQ_MENU);
-
-	// reset the encoder range
-
 	ENCODER_TIMER->ARR = 1024;
 
 	DM_RefreshScreen();
@@ -397,8 +347,6 @@ eSystemState FreqPresetMenuEntryHandler()
 
 	DM_RefreshScreen();
 	FreqO_ResetLastEncoderValue();
-
-	_setFreqMenuStatus(ENABLE_FREQ_PRESET_MENU);
 
 	FreqProfile_t *pFreqPresetTmp =  FreqO_GetFPresetObject();
 	if(pFreqPresetTmp)
@@ -456,9 +404,6 @@ eSystemState FreqPresetMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	// disable the menu
-	_setFreqMenuStatus(ENABLE_FREQ_MAIN_MENU);
-
 	// back to main freq menu
 	eNewEvent = evIdle;
 	return Freq_Main_Menu_State;
@@ -479,8 +424,6 @@ eSystemState FreqAdjustMenuEntryHandler()
 	#endif
 
 	DM_RefreshScreen();
-
-	_setFreqMenuStatus(ENABLE_FREQ_ADJUST_MENU);
 
 	// set rotary encoder limit to full scale and set OUTPUT_TIMER "TOP" starting position
 	ENCODER_TIMER->CNT = OUTPUT_TIMER->ARR;
@@ -529,9 +472,6 @@ eSystemState FreqAdjustMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	// disable the menu
-	_setFreqMenuStatus(ENABLE_FREQ_MAIN_MENU);
-
 	// back to main freq menu
 	eNewEvent = evIdle;
 	return Freq_Main_Menu_State;
@@ -552,8 +492,6 @@ eSystemState FreqPrescalerMenuEntryHandler()
 	#endif
 
 	DM_RefreshScreen();
-
-	_setFreqMenuStatus(ENABLE_FREQ_PRESCALER_MENU);
 
 	// set rotary encoder limit to full scale and midway starting position
 	ENCODER_TIMER->CNT = 32768;
@@ -601,36 +539,8 @@ eSystemState FreqPrescalerMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	// disable the menu
-	_setFreqMenuStatus(ENABLE_FREQ_MAIN_MENU);
-
 	// back to main freq menu
 	eNewEvent = evIdle;
 	return Freq_Main_Menu_State;
 }
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-eFreqMenu_Status FreqMenu_getStatus()
-{
-	return eNextFreqMenuStatus;
-}
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void _setFreqMenuStatus(eFreqMenu_Status newStatus)
-{
-	eNextFreqMenuStatus = newStatus;
-}

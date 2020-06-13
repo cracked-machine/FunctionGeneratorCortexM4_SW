@@ -13,7 +13,7 @@
 
 
 
-void BiasMenu_DrawMenu(eBiasMenu_Status pMenu);
+void BiasMenu_DrawMenu(eSystemState pMenu);
 void BiasMenu_DrawMainMenu();
 
 #endif /* SRC_DISPLAYMANAGER_BIASMENUS_H_ */

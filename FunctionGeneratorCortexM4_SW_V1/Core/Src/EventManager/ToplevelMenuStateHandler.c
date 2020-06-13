@@ -12,11 +12,6 @@
 #include "dac.h"
 #include "adc.h"
 
-eToplevelMenu_Status eNextToplevelMenuStatus = 	ENABLE_TOPLEVEL_MAIN_MENU;
-
-eToplevelMenu_Status ToplevelMenu_getStatus();
-void ToplevelMenu_setStatus(eToplevelMenu_Status pStatus);
-
 
 /*
  *
@@ -33,8 +28,6 @@ eSystemState ToplevelMainMenuEntryHandler()
 	#endif
 
 	DM_RefreshScreen();
-
-	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_MAIN_MENU);
 
 	// stay in this state
 	eNewEvent = evIdle;
@@ -75,8 +68,6 @@ eSystemState ToplevelMainMenuExitHandler()
 		printf("ToplevelMainMenuExitHandler Event captured\n");
 	#endif
 
-	ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
-
 	DM_RefreshScreen();
 
 	#ifdef EVENT_MENU_DEBUG
@@ -103,11 +94,6 @@ eSystemState ToplevelOutputMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
-
-
-
-
 	// stay in this state
 	eNewEvent = evIdle;
 	return Toplevel_Output_Menu_State;
@@ -127,7 +113,6 @@ eSystemState ToplevelOutputMenuInputHandler()
 	#ifdef EVENT_MENU_DEBUG
 		printf("ToplevelOutputMenuInputHandler Event captured\n");
 	#endif
-
 
 	// stay in this state
 	eNewEvent = evIdle;
@@ -150,9 +135,6 @@ eSystemState ToplevelOutputMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	// disable the menu
-	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_MAIN_MENU);
-
 	// back to main freq menu
 	eNewEvent = evIdle;
 	return Idle_State;
@@ -173,11 +155,6 @@ eSystemState ToplevelInputMenuEntryHandler()
 	#endif
 
 	DM_RefreshScreen();
-
-	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_INPUT_MENU);
-
-
-
 
 	// stay in this state
 	eNewEvent = evIdle;
@@ -245,38 +222,9 @@ eSystemState ToplevelInputMenuExitHandler()
 
 	DM_RefreshScreen();
 
-	// disable the menu
-	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_MAIN_MENU);
-
 	// back to main freq menu
 	eNewEvent = evIdle;
 	return Idle_State;
-}
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-eToplevelMenu_Status ToplevelMenu_getStatus()
-{
-	return eNextToplevelMenuStatus;
-}
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void ToplevelMenu_setStatus(eToplevelMenu_Status pStatus)
-{
-	eNextToplevelMenuStatus = pStatus;
 }
 
 

@@ -12,7 +12,7 @@
 
 #include "GainMenuStateHandler.h"
 
-void GainMenu_DrawMenu(eGainMenu_Status pMenu);
+void GainMenu_DrawMenu(eSystemState pMenu);
 
 void GainMenu_DrawMainMenu();
 void GainMenu_DrawSignalMenu();

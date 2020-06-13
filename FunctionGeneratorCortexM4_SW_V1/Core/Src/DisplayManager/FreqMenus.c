@@ -20,27 +20,31 @@ void FreqMenu_DrawAuxMenu();
  *
  *	@brief
  *
- *	@param None
+ *	@param 	Freq_Main_Menu_State,
+			Freq_Preset_Menu_State,
+			Freq_Adjust_Menu_State,
+			Freq_Sweep_Menu_State,
+			Freq_Prescaler_Menu_State,
  *	@retval None
  *
  */
-void FreqMenu_DrawMenu(eFreqMenu_Status pMenu)
+void FreqMenu_DrawMenu(eSystemState pMenu)
 {
 	switch(pMenu)
 	{
-		case ENABLE_FREQ_MAIN_MENU:
+		case Freq_Main_Menu_State:
 			FreqMenu_DrawMainMenu();
 			break;
-		case ENABLE_FREQ_PRESET_MENU:
+		case Freq_Preset_Menu_State:
 			FreqMenu_DrawPresetMenu();
 			break;
-		case ENABLE_FREQ_ADJUST_MENU:
+		case Freq_Adjust_Menu_State:
 			FreqMenu_DrawAdjustMenu();
 			break;
-		case ENABLE_FREQ_SWEEP_MENU:
+		case Freq_Sweep_Menu_State:
 			FreqMenu_DrawSweepMenu();
 			break;
-		case ENABLE_FREQ_PRESCALER_MENU:
+		case Freq_Prescaler_Menu_State:
 			FreqMenu_DrawPrescalerMenu();
 			break;
 		default:

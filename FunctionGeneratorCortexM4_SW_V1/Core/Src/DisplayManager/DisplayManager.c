@@ -107,189 +107,45 @@ void DM_PostInit()
  */
 void DM_UpdateDisplay()
 {
-	/*
-	 * 	Top level menu
-	 */
-	if(ToplevelMenu_getStatus())
+
+	eSystemState tempState = EM_GetSystemState();
+	switch(tempState)
 	{
+		case Toplevel_Main_Menu_State:
+		case Toplevel_Output_Menu_State:
+		case Toplevel_Input_Menu_State:
+			ToplevelMenu_DrawMenu(tempState);
+			break;
 
-		#ifdef EVENT_MENU_DEBUG
-			  printf("FuncMenu_DrawMenu\n");
-		#endif
+		case Func_Main_Menu_State:
+		case Func_Signal_Menu_State:
+		case Func_Aux_Menu_State:
+			FuncMenu_DrawMenu(tempState);
+			break;
 
-		switch(ToplevelMenu_getStatus())
-		{
-			case ENABLE_TOPLEVEL_MAIN_MENU:
+		case Gain_Main_Menu_State:
+		case Gain_Signal_Menu_State:
+		case Gain_Aux_Menu_State:
+			GainMenu_DrawMenu(tempState);
+			break;
 
-				ToplevelMenu_DrawMenu(ENABLE_TOPLEVEL_MAIN_MENU);
-				break;
+		case Freq_Main_Menu_State:
+		case Freq_Preset_Menu_State:
+		case Freq_Adjust_Menu_State:
+		case Freq_Sweep_Menu_State:
+		case Freq_Prescaler_Menu_State:
+			FreqMenu_DrawMenu(tempState);
+			break;
 
-			case ENABLE_TOPLEVEL_OUTPUT_MENU:
+		case Bias_Menu_State:
+			BiasMenu_DrawMenu(tempState);
+			break;
 
-				ToplevelMenu_DrawMenu(ENABLE_TOPLEVEL_OUTPUT_MENU);
-				break;
-
-			case ENABLE_TOPLEVEL_INPUT_MENU:
-
-				ToplevelMenu_DrawMenu(ENABLE_TOPLEVEL_INPUT_MENU);
-				break;
-
-			default:
-				break;
-		}
-	}
-
-	/*
-	 * 	Function menus
-	 */
-	else if(FuncMenu_getStatus())		//  != DISABLE_FUNC_MENU
-	{
-
-		#ifdef EVENT_MENU_DEBUG
-			  printf("FuncMenu_DrawMenu\n");
-		#endif
-
-		switch(FuncMenu_getStatus())
-		{
-			case ENABLE_FUNC_MAIN_MENU:
-
-
-				FuncMenu_DrawMenu(ENABLE_FUNC_MAIN_MENU);
-
-				break;
-
-			case ENABLE_FUNC_SIGNAL_MENU:
-
-
-				FuncMenu_DrawMenu(ENABLE_FUNC_SIGNAL_MENU);
-
-				break;
-
-			case ENABLE_FUNC_AUX_MENU:
-
-
-				FuncMenu_DrawMenu(ENABLE_FUNC_AUX_MENU);
-
-				break;
-
-			default:
-				break;
-		}
-
-	}
-	/*
-	 * 	Gain menus
-	 */
-	else if(GainMenu_getStatus())		//  != DISABLE_GAIN_MENU
-	{
-
-		#ifdef EVENT_MENU_DEBUG
-			  printf("GainMenu_DrawMenu\n");
-		#endif
-
-		switch(GainMenu_getStatus())
-		{
-			case ENABLE_GAIN_MAIN_MENU:
-
-
-				GainMenu_DrawMenu(ENABLE_GAIN_MAIN_MENU);
-
-				break;
-
-			case ENABLE_GAIN_SIGNAL_MENU:
-
-
-				GainMenu_DrawMenu(ENABLE_GAIN_SIGNAL_MENU);
-
-				break;
-
-			case ENABLE_GAIN_Aux_MENU:
-
-
-				GainMenu_DrawMenu(ENABLE_GAIN_Aux_MENU);
-
-				break;
-
-			default:
-				break;
-		}
+		default:
+			break;
 
 	}
 
-	/*
-	 * 	 Frequency menus
-	 */
-	else if(FreqMenu_getStatus())		//  != DISABLE_FREQ_MENU
-	{
-
-		#ifdef EVENT_MENU_DEBUG
-			  printf("FreqMenu_DrawMenu\n");
-		#endif
-
-		//ILI9341_Draw_Text("FREQUENCY MENU", 	30, 10, WHITE, 3, BLACK);
-
-		switch(FreqMenu_getStatus())
-		{
-			case ENABLE_FREQ_MAIN_MENU:
-
-				FreqMenu_DrawMenu(ENABLE_FREQ_MAIN_MENU);
-
-				break;
-
-			case ENABLE_FREQ_PRESET_MENU:
-
-				FreqMenu_DrawMenu(ENABLE_FREQ_PRESET_MENU);
-				break;
-
-			case ENABLE_FREQ_ADJUST_MENU:
-
-
-				FreqMenu_DrawMenu(ENABLE_FREQ_ADJUST_MENU);
-
-				break;
-
-			case ENABLE_FREQ_SWEEP_MENU:
-
-				FreqMenu_DrawMenu(ENABLE_FREQ_SWEEP_MENU);
-				break;
-
-			case ENABLE_FREQ_PRESCALER_MENU:
-
-				FreqMenu_DrawMenu(ENABLE_FREQ_PRESCALER_MENU);
-				break;
-
-			default:
-				break;
-		}
-
-	}
-
-	/*
-	 * 	Bias menu
-	 */
-	else if(BiasMenu_getStatus())		//  != DISABLE_BIAS_MENU
-	{
-
-		#ifdef EVENT_MENU_DEBUG
-			  printf("BiasMenu_DrawMenu\n");
-		#endif
-
-		BiasMenu_DrawMenu(ENABLE_BIAS_MENU);
-	}
-
-	/*
-	 * 		Error
-	 */
-	else
-	{
-		ILI9341_Draw_Text("DisplayManager: no menu status set!", 10, 50, ERR_FGCOLOUR, 1, ERR_BGCOLOUR);
-	}
-
-	/*
-	 * 	Debug messages
-	 */
-
-	//TODO
 	#ifdef ENCODER_DEBUG
 		char tim5_text[50] = "";
 		snprintf(tim5_text, sizeof(tim5_text), "OFFSET: %5lu", BO_GetOutputBias());
@@ -303,7 +159,6 @@ void DM_UpdateDisplay()
 
 
 }
-
 
 /*
  *

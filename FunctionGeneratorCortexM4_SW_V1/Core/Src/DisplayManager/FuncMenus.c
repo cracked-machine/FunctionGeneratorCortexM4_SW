@@ -17,21 +17,23 @@ void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan);
  *
  *	@brief
  *
- *	@param None
+ *	@param 	Func_Main_Menu_State,
+			Func_Signal_Menu_State,
+			Func_Aux_Menu_State,
  *	@retval None
  *
  */
-void FuncMenu_DrawMenu(eFuncMenu_Status pMenu)
+void FuncMenu_DrawMenu(eSystemState pMenu)
 {
 	switch(pMenu)
 	{
-		case ENABLE_FUNC_MAIN_MENU:
+		case Func_Main_Menu_State:
 			FuncMenu_DrawMainMenu();
 			break;
-		case ENABLE_FUNC_SIGNAL_MENU:
+		case Func_Signal_Menu_State:
 			FuncMenu_DrawOutputMenu(SIGNAL_CHANNEL);
 			break;
-		case ENABLE_FUNC_AUX_MENU:
+		case Func_Aux_Menu_State:
 			FuncMenu_DrawOutputMenu(AUX_CHANNEL);
 			break;
 

@@ -10,24 +10,8 @@
 
 #include "EventManager.h"
 #include "FreqSweep.h"
-/*
- * 	Sub menus should have their ExitHandlers set eXXXXMenu_Status to ENABLE_xxxx_MAIN_MENU
- */
-typedef enum
-{
-	DISABLE_FREQ_MENU = 0x00U,
-	ENABLE_FREQ_MAIN_MENU,
-	ENABLE_FREQ_PRESET_MENU,
-	ENABLE_FREQ_ADJUST_MENU,
-	ENABLE_FREQ_SWEEP_MENU,
-	ENABLE_FREQ_PRESCALER_MENU
-
-} eFreqMenu_Status;
-
-
 
 eFreqSweepModes active_sweep_mode;
-
 
 float rate_coeff;
 
@@ -36,9 +20,6 @@ float sweep_lower_bounds_shortest_output_arr;		// higher freq
 float sweep_upper_bounds_longest_output_arr;		// lower freq
 
 float calculated_sweep_in_hertz;
-
-
-eFreqMenu_Status FreqMenu_getStatus();
 
 eSystemState FreqMainMenuEntryHandler();
 eSystemState FreqMainMenuInputHandler();

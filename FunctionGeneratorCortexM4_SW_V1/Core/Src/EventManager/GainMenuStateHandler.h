@@ -12,21 +12,6 @@
 
 #include "EventManager.h"
 
-/*
- * 	Sub menus should have their ExitHandlers set eXXXXMenu_Status to ENABLE_xxxx_MAIN_MENU
- */
-typedef enum
-{
-	DISABLE_GAIN_MENU = 0x00U,
-	ENABLE_GAIN_MAIN_MENU,
-	ENABLE_GAIN_SIGNAL_MENU,
-	ENABLE_GAIN_Aux_MENU,
-
-} eGainMenu_Status;
-
-
-eGainMenu_Status GainMenu_getStatus();
-
 eSystemState GainMainMenuEntryHandler();
 eSystemState GainMainMenuInputHandler();
 eSystemState GainMainMenuExitHandler();

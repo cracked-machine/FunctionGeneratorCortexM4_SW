@@ -20,11 +20,11 @@
  *	@retval None
  *
  */
-void BiasMenu_DrawMenu(eBiasMenu_Status pMenu)
+void BiasMenu_DrawMenu(eSystemState pMenu)
 {
 	switch(pMenu)
 	{
-		case ENABLE_BIAS_MENU:
+		case Bias_Menu_State:
 			BiasMenu_DrawMainMenu();
 			break;
 

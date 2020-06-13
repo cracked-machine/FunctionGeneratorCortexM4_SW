@@ -12,13 +12,6 @@
 #include "SignalManager.h"
 #include <stdio.h>
 
-eBiasMenu_Status eNextBiasMenuStatus =	DISABLE_BIAS_MENU;
-
-eBiasMenu_Status BiasMenu_getStatus();
-void _setBiasMenuStatus(eBiasMenu_Status newStatus);
-
-
-
 /*
  *
  *	@brief
@@ -35,7 +28,7 @@ eSystemState BiasMenuEntryHandler()
 
 	DM_RefreshScreen();
 
-	_setBiasMenuStatus(ENABLE_BIAS_MENU);
+	//_setBiasMenuStatus(ENABLE_BIAS_MENU);
 
 	ENCODER_TIMER->ARR = BIAS_MAX;
 	ENCODER_TIMER->CNT = BO_GetDcBiasEncoderValue();
@@ -102,7 +95,7 @@ eSystemState BiasMenuExitHandler()
 	#endif
 
 	// disable the menu
-	_setBiasMenuStatus(DISABLE_BIAS_MENU);
+	//_setBiasMenuStatus(DISABLE_BIAS_MENU);
 
 	DM_RefreshScreen();
 
@@ -114,28 +107,3 @@ eSystemState BiasMenuExitHandler()
 	return Toplevel_Output_Menu_State;
 }
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-eBiasMenu_Status BiasMenu_getStatus()
-{
-	return eNextBiasMenuStatus;
-}
-
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-void _setBiasMenuStatus(eBiasMenu_Status newStatus)
-{
-	eNextBiasMenuStatus = newStatus;
-}

@@ -16,21 +16,23 @@
  *
  *	@brief
  *
- *	@param None
+ *	@param 	Gain_Main_Menu_State,
+			Gain_Signal_Menu_State,
+			Gain_Aux_Menu_State,
  *	@retval None
  *
  */
-void GainMenu_DrawMenu(eGainMenu_Status pMenu)
+void GainMenu_DrawMenu(eSystemState pMenu)
 {
 	switch(pMenu)
 	{
-		case ENABLE_GAIN_MAIN_MENU:
+		case Gain_Main_Menu_State:
 			GainMenu_DrawMainMenu();
 			break;
-		case ENABLE_GAIN_SIGNAL_MENU:
+		case Gain_Signal_Menu_State:
 			GainMenu_DrawSignalMenu();
 			break;
-		case ENABLE_GAIN_Aux_MENU:
+		case Gain_Aux_Menu_State:
 			GainMenu_DrawAuxMenu();
 			break;
 

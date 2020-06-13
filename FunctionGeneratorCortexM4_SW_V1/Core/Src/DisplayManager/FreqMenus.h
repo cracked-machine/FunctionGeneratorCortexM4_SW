@@ -10,7 +10,7 @@
 
 #include "FreqMenuStateHandler.h"
 
-void FreqMenu_DrawMenu(eFreqMenu_Status pMenu);
+void FreqMenu_DrawMenu(eSystemState pMenu);
 
 void FreqMenu_DrawMainMenu();
 void FreqMenu_DrawPresetMenu();

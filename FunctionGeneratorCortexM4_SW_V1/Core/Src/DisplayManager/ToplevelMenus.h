@@ -12,7 +12,7 @@
 
 #include "ToplevelMenuStateHandler.h"
 
-void ToplevelMenu_DrawMenu(eToplevelMenu_Status pMenu);
+void ToplevelMenu_DrawMenu(eSystemState pMenu);
 
 void ToplevelMenu_DrawMainMenu();
 void ToplevelMenu_DrawOutputMenu();

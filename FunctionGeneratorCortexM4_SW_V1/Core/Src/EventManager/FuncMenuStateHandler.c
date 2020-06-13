@@ -14,11 +14,6 @@
 #include <stdio.h>
 #include <math.h>
 
-eFuncMenu_Status eNextFuncMenuStatus = 	DISABLE_FUNC_MENU;
-
-// prototypes
-eFuncMenu_Status FuncMenu_getStatus();
-void _setFuncMenuStatus(eFuncMenu_Status newStatus);
 
 /*
  *
@@ -36,7 +31,7 @@ eSystemState FuncMainMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 
-	_setFuncMenuStatus(ENABLE_FUNC_MAIN_MENU);
+	//_setFuncMenuStatus(ENABLE_FUNC_MAIN_MENU);
 
 	eNewEvent = evIdle;
 	return Func_Main_Menu_State;
@@ -74,11 +69,6 @@ eSystemState FuncMainMenuExitHandler()
 		printf("FuncMainMenuExitHandler Event captured\n");
 	#endif
 
-	_setFuncMenuStatus(DISABLE_FUNC_MENU);
-
-	// reset the encoder range
-	ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
-
 	DM_RefreshScreen();
 
 	#ifdef EVENT_MENU_DEBUG
@@ -106,8 +96,6 @@ eSystemState FuncSignalMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 	FuncO_ResetLastEncoderValue();
-
-	_setFuncMenuStatus(ENABLE_FUNC_SIGNAL_MENU);
 
 	ENCODER_TIMER->CNT = 32768;
 	ENCODER_TIMER->ARR = 65535;
@@ -167,9 +155,6 @@ eSystemState FuncSignalMenuExitHandler()
 		printf("FuncSignalMenuExitHandler Event captured\n");
 	#endif
 
-	// disable the menu
-	_setFuncMenuStatus(ENABLE_FUNC_MAIN_MENU);
-
 	DM_RefreshScreen();
 	SM_ResetFuncPwmDutyMode();
 	eNewEvent = evIdle;
@@ -193,8 +178,6 @@ eSystemState FuncAuxMenuEntryHandler(void)
 
 	DM_RefreshScreen();
 	FuncO_ResetLastEncoderValue();
-
-	_setFuncMenuStatus(ENABLE_FUNC_AUX_MENU);
 
 	ENCODER_TIMER->CNT = 32768;
 	ENCODER_TIMER->ARR = 65535;
@@ -222,8 +205,6 @@ eSystemState FuncAuxMenuInputHandler(void)
 	{
 		uint16_t enc_value = SM_GetEncoderValue(ENCODER_NORMAL);
 		PWM_AUX_OUT_TIM->CCR1 = (pow(enc_value, 2));
-		//BO_SetPwmSignalOffsetForDuty(BO_GetOutputBias() + SM_GetEncoderValue(ENCODER_NORMAL));
-
 	}
 	else
 	{
@@ -265,9 +246,6 @@ eSystemState FuncAuxMenuExitHandler()
 		printf("FuncAuxMenuExitHandler Event captured\n");
 	#endif
 
-	// disable the menu
-	_setFuncMenuStatus(ENABLE_FUNC_MAIN_MENU);
-
 	SM_ResetFuncPwmDutyMode();
 	DM_RefreshScreen();
 
@@ -275,29 +253,4 @@ eSystemState FuncAuxMenuExitHandler()
 	return Func_Main_Menu_State;
 }
 
-/*
- *
- *	@brief	FuncMenu_getStatus
- *
- *	@param None
- *	@retval eFuncMenu_Status enum for current menu state
- *
- */
-eFuncMenu_Status FuncMenu_getStatus()
-{
-	return eNextFuncMenuStatus;
-}
-
-/*
- *
- *	@brief	_setStatus
- *
- *	@param eFuncMenu_Status enum for next menu state
- *	@retval None
- *
- */
-void _setFuncMenuStatus(eFuncMenu_Status newStatus)
-{
-	eNextFuncMenuStatus = newStatus;
-}
 

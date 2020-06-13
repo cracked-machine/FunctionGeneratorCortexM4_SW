@@ -11,11 +11,6 @@
 #include "SignalManager.h"
 #include <stdio.h>
 
-eGainMenu_Status eNextGainMenuStatus = 	DISABLE_GAIN_MENU;
-
-eGainMenu_Status GainMenu_getStatus();
-void _setGainMenuStatus(eGainMenu_Status newStatus);
-
 /*
  *
  *	@brief
@@ -31,8 +26,6 @@ eSystemState GainMainMenuEntryHandler()
 	#endif
 
 	DM_RefreshScreen();
-
-	_setGainMenuStatus(ENABLE_GAIN_MAIN_MENU);
 
 	eNewEvent = evIdle;
 	return Gain_Main_Menu_State;
@@ -52,9 +45,6 @@ eSystemState GainMainMenuInputHandler()
 		printf("GainMainMenuInputHandler Event captured\n");
 	#endif
 
-	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_INVERSE));
-	//VPP_MapEncoderPositionToSignalOutput(SMGetEncoderValue(ENCODER_INVERSE));
-
 	eNewEvent = evYellowBtn;
 	return Gain_Main_Menu_State;
 }
@@ -72,8 +62,6 @@ eSystemState GainMainMenuExitHandler()
 	#ifdef EVENT_MENU_DEBUG
 		printf("GainMainMenuExitHandler Event captured\n");
 	#endif
-
-	_setGainMenuStatus(DISABLE_GAIN_MENU);
 
 	DM_RefreshScreen();
 
@@ -103,15 +91,10 @@ eSystemState GainSignalMenuEntryHandler()
 	GO_ResetLastEncoderValue();
 	VPP_ResetLastEncoderValue();
 
-	_setGainMenuStatus(ENABLE_GAIN_SIGNAL_MENU);
-
 	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(SIGNAL_CHANNEL)->amp_profile;
 
 	if(pTmpVppPreset)
 	{
-		//ENCODER_TIMER->CNT = pTmpVppPreset->epos;
-		//ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
-
 		// set to full range and mid starting position
 		ENCODER_TIMER->CNT = 32768;
 		ENCODER_TIMER->ARR = 65535;
@@ -180,9 +163,6 @@ eSystemState GainSignalMenuInputHandler(eSystemEvent pEvent)
 			break;
 	}
 
-	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_INVERSE));
-	//
-
 	eNewEvent = evIdle;
 	return Gain_Signal_Menu_State;
 }
@@ -200,8 +180,6 @@ eSystemState GainSignalMenuExitHandler()
 	#ifdef EVENT_MENU_DEBUG
 		printf("GainSignalMenuExitHandler Event captured\n");
 	#endif
-
-	_setGainMenuStatus(ENABLE_GAIN_MAIN_MENU);
 
 	DM_RefreshScreen();
 
@@ -227,15 +205,10 @@ eSystemState GainAuxMenuEntryHandler()
 	DM_RefreshScreen();
 	VPP_ResetLastEncoderValue();
 
-	_setGainMenuStatus(ENABLE_GAIN_Aux_MENU);
-
 	AmplitudeProfile_t* pTmpVppPreset = SM_GetOutputChannel(AUX_CHANNEL)->amp_profile;
 
 	if(pTmpVppPreset)
 	{
-		//ENCODER_TIMER->CNT = pTmpVppPreset->epos;
-		//ENCODER_TIMER->ARR = MAX_VPP_ENCODER_RANGE;
-
 		// set to full range and mid starting position
 		ENCODER_TIMER->CNT = 32768;
 		ENCODER_TIMER->ARR = 65535;
@@ -263,7 +236,6 @@ eSystemState GainAuxMenuInputHandler()
 		printf("GainAuxMenuInputHandler Event captured\n");
 	#endif
 
-	//GO_ModifyOutput(SMGetEncoderValue(ENCODER_INVERSE));
 	VPP_MapEncoderPositionToAuxOutput(SM_GetEncoderValue(ENCODER_NORMAL));
 
 	eNewEvent = evYellowBtn;
@@ -285,36 +257,9 @@ eSystemState GainAuxMenuExitHandler()
 		printf("GainAuxMenuExitHandler Event captured\n");
 	#endif
 
-	_setGainMenuStatus(ENABLE_GAIN_MAIN_MENU);
-
 	DM_RefreshScreen();
 
 	eNewEvent = evIdle;
 	return Gain_Main_Menu_State;
 }
 
-/*
- *
- *	@brief
- *
- *	@param None
- *	@retval None
- *
- */
-eGainMenu_Status GainMenu_getStatus()
-{
-	return eNextGainMenuStatus;
-}
-
-/*
- *
- *	@brief	_setStatus
- *
- *	@param eFuncMenu_Status enum for next menu state
- *	@retval None
- *
- */
-void _setGainMenuStatus(eGainMenu_Status newStatus)
-{
-	eNextGainMenuStatus = newStatus;
-}

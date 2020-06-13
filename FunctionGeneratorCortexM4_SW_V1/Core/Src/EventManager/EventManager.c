@@ -228,22 +228,22 @@ void _ProcessTopLevelOutputMenuStateEvents()
 	}
 	if(eNewEvent == evBlueBtn)
 	{
-		ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
+		//ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 		eNextState = FuncMainMenuEntryHandler();
 	}
 	if(eNewEvent == evGreenBtn)
 	{
-		ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
+		//ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 		eNextState = FreqMainMenuEntryHandler();
 	}
 	if(eNewEvent == evYellowBtn)
 	{
-		ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
+		//ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 		eNextState = GainMainMenuEntryHandler();
 	}
 	if(eNewEvent == evRedBtn)
 	{
-		ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
+		//ToplevelMenu_setStatus(DISABLE_TOPLEVEL_MENU);
 		eNextState = BiasMenuEntryHandler();
 	}
 }
@@ -383,7 +383,7 @@ void _ProcessGainMainMenuStateEvents()
 	if(eNewEvent == evEncoderPush)
 	{
 		eNextState = GainMainMenuExitHandler();
-		ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
+		//ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 	}
 	if(eNewEvent == evBlueBtn)
 	{
@@ -479,7 +479,7 @@ void _ProcessFreqMainMenuStateEvents()
 	if(eNewEvent == evEncoderPush)
 	{
 		eNextState = FreqMainMenuExitHandler();
-		ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
+		//ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 	}
 	if(eNewEvent == evBlueBtn)
 	{
@@ -638,7 +638,7 @@ void _ProcessBiasMainMenuEvents()
 	if(eNewEvent == evEncoderPush)
 	{
 		eNextState = BiasMenuExitHandler();
-		ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
+		//ToplevelMenu_setStatus(ENABLE_TOPLEVEL_OUTPUT_MENU);
 	}
 	if(eNewEvent == evBlueBtn)
 	{

@@ -11,7 +11,7 @@
 #include "FuncMenuStateHandler.h"
 #include "DisplayManager.h"
 
-void FuncMenu_DrawMenu(eFuncMenu_Status pMenu);
+void FuncMenu_DrawMenu(eSystemState pMenu);
 
 void FuncMenu_DrawMainMenu();
 void FuncMenu_DrawOutputMenu(eOutputChannel_t pOutChan);

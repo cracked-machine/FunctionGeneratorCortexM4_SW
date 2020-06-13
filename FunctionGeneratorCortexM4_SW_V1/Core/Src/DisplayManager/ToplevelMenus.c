@@ -20,21 +20,23 @@
  *
  *	@brief
  *
- *	@param None
+ *	@param 	Toplevel_Main_Menu_State,				// main display
+			Toplevel_Output_Menu_State,
+			Toplevel_Input_Menu_State,
  *	@retval None
  *
  */
-void ToplevelMenu_DrawMenu(eToplevelMenu_Status pMenu)
+void ToplevelMenu_DrawMenu(eSystemState pMenu)
 {
 	switch(pMenu)
 	{
-		case ENABLE_TOPLEVEL_MAIN_MENU:
+		case Toplevel_Main_Menu_State:
 			ToplevelMenu_DrawMainMenu();
 			break;
-		case ENABLE_TOPLEVEL_OUTPUT_MENU:
+		case Toplevel_Output_Menu_State:
 			ToplevelMenu_DrawOutputMenu();
 			break;
-		case ENABLE_TOPLEVEL_INPUT_MENU:
+		case Toplevel_Input_Menu_State:
 			ToplevelMenu_DrawInputMenu();
 			break;
 

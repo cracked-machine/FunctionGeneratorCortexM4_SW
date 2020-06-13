@@ -10,20 +10,6 @@
 
 #include "EventManager.h"
 
-
-
-/*
- * 	Used by DM_ShowBiasMenu()
- */
-typedef enum
-{
-	DISABLE_BIAS_MENU = 0x00U,
-	ENABLE_BIAS_MENU
-
-} eBiasMenu_Status;
-
-
-eBiasMenu_Status BiasMenu_getStatus();
 eSystemState BiasMenuEntryHandler();
 eSystemState BiasMenuInputHandler(eSystemEvent pEvent);
 eSystemState BiasMenuExitHandler();

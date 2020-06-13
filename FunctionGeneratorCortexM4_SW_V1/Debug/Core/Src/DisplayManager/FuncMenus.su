@@ -1,3 +1,3 @@
-FuncMenus.c:24:6:FuncMenu_DrawMenu	16	static
-FuncMenus.c:53:6:FuncMenu_DrawMainMenu	16	static
-FuncMenus.c:74:6:FuncMenu_DrawOutputMenu	48	static
+FuncMenus.c:26:6:FuncMenu_DrawMenu	16	static
+FuncMenus.c:55:6:FuncMenu_DrawMainMenu	16	static
+FuncMenus.c:76:6:FuncMenu_DrawOutputMenu	48	static
