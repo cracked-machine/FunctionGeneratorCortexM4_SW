@@ -174,7 +174,7 @@ void ToplevelMenu_DrawInputMenu()
 			ILI9341_Draw_Text("OFF", 	200, 90,  HIGHLIGHT_TEXT_FGCOLOUR, 2, HIGHLIGHT_TEXT_BGCOLOUR);
 		}
 
-		DM_DisplayInputTriggerTimerHertz(200, 17);
+
 	}
 	else if(IT_GetActiveTriggerMode() == INPUT_TIMER_COMP)
 	{
@@ -210,7 +210,7 @@ void ToplevelMenu_DrawInputMenu()
 		ILI9341_Draw_Text("    ",	173, 	222, BTN3_TEXT_FGCOLOUR, 2, BTN3_TEXT_BGCOLOUR);
 	}
 
-
+	DM_DisplayInputTriggerData(200, 17);
 
 /*
 	ILI9341_Draw_Text("SET", 	263, 	204, BTN4_TEXT_FGCOLOUR, 2, BTN4_TEXT_BGCOLOUR);

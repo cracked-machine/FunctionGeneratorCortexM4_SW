@@ -11,3 +11,4 @@ InputTrigger.c:385:19:IT_GetActiveTriggerMode	4	static
 InputTrigger.c:398:6:IT_SetActiveTriggerMode	16	static
 InputTrigger.c:411:15:IT_GetTriggerStatus	4	static
 InputTrigger.c:424:6:IT_SetTriggerStatus	16	static
+InputTrigger.c:437:7:IT_GetAvgAdcVoltage	4	static

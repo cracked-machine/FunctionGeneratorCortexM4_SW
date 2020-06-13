@@ -43,7 +43,7 @@ uint16_t btn_x_pos[4] = { 1, (BTN_WIDTH)+1, (BTN_WIDTH*2)+2, (BTN_WIDTH*3)+2 };
 void DM_RefreshScreen();
 int DM_AddDigitPadding(uint16_t num, char *buffer, uint16_t buflen);
 void _DisplayFormattedOutput();
-void DM_DisplayInputTriggerTimerHertz(uint16_t xpos, uint16_t ypos);
+void DM_DisplayInputTriggerData(uint16_t xpos, uint16_t ypos);
 void _DisplayOutputSignalHertz(uint16_t xpos, uint16_t ypos);
 void _DisplayOutputWaveformIcons(uint16_t main_xpos, uint16_t main_ypos, uint16_t aux_xpos, uint16_t aux_ypos);
 void _DisplayOutputSignalOffset(uint16_t xpos, uint16_t ypos);
@@ -179,7 +179,7 @@ void DM_DisplayFormattedOutput()
 	_DisplayOutputWaveformIcons(80, 160, 245, 160);
 
 	DM_DisplayInputTriggerStatus();
-	DM_DisplayInputTriggerTimerHertz(200, 17);
+	DM_DisplayInputTriggerData(200, 17);
 
 }
 
@@ -229,9 +229,9 @@ void DM_DisplayInputTriggerStatus()
  *	@retval None
  *
  */
-void DM_DisplayInputTriggerTimerHertz(uint16_t xpos, uint16_t ypos)
+void DM_DisplayInputTriggerData(uint16_t xpos, uint16_t ypos)
 {
-	if(IT_GetTriggerStatus())
+	if(  IT_GetTriggerStatus() && (IT_GetActiveTriggerMode() == INPUT_TIMER_TIM) )
 	{
 		char avg_freq_count_hertz[13] = {};
 
@@ -254,11 +254,24 @@ void DM_DisplayInputTriggerTimerHertz(uint16_t xpos, uint16_t ypos)
 
 		ILI9341_Draw_Text(avg_freq_count_hertz, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
 	}
+	else if(  IT_GetTriggerStatus() && (IT_GetActiveTriggerMode() == INPUT_TIMER_ADC) )
+	{
+		char adc_volt_string[13] = {};
+
+
+		snprintf(adc_volt_string, sizeof(adc_volt_string), "%6.1f V", IT_GetAvgAdcVoltage());
+
+
+		ILI9341_Draw_Text(adc_volt_string, xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
+	}
 	else
 	{
 		ILI9341_Draw_Text("                   ", xpos, ypos, NORMAL_TEXT_FGCOLOUR , text_size, NORMAL_TEXT_BGCOLOUR);
 	}
 }
+
+
+
 
 /*
  *

@@ -48,6 +48,8 @@ void 				IT_SetTriggerStatus(eTriggerInput newTriggerStatus);
 eTriggerInputMode 	IT_GetActiveTriggerMode();
 void 				IT_SetActiveTriggerMode(eTriggerInputMode newTriggerMode);
 
+float 				IT_GetAvgAdcVoltage();
+
 float IT_GetAverageFreqCountPeriod();
 float IT_GetAverageFreqCountHertz();
 

@@ -425,3 +425,17 @@ void IT_SetTriggerStatus(eTriggerInput newTriggerStatus)
 {
 	isTriggerInputEnabled = newTriggerStatus;
 }
+
+/*
+ *
+ *	@brief
+ *
+ *	@param None
+ *	@retval None
+ *
+ */
+float IT_GetAvgAdcVoltage()
+{
+	return avg_volt_measure;
+}
+
