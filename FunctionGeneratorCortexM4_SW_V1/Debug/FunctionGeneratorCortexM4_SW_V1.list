@@ -20418,9 +20418,9 @@ void HAL_TIM_Encoder_MspInit(TIM_HandleTypeDef* tim_encoderHandle)
     HAL_NVIC_EnableIRQ(TIM1_BRK_TIM15_IRQn);
  8008c84:	2018      	movs	r0, #24
  8008c86:	f002 fae6 	bl	800b256 <HAL_NVIC_EnableIRQ>
-    HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, 1, 0);
+    HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, 0, 0);
  8008c8a:	2200      	movs	r2, #0
- 8008c8c:	2101      	movs	r1, #1
+ 8008c8c:	2100      	movs	r1, #0
  8008c8e:	201a      	movs	r0, #26
  8008c90:	f002 fac7 	bl	800b222 <HAL_NVIC_SetPriority>
     HAL_NVIC_EnableIRQ(TIM1_TRG_COM_TIM17_IRQn);
@@ -20713,9 +20713,9 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
  8008e7a:	f403 2380 	and.w	r3, r3, #262144	; 0x40000
  8008e7e:	60fb      	str	r3, [r7, #12]
  8008e80:	68fb      	ldr	r3, [r7, #12]
-    HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, 1, 0);
+    HAL_NVIC_SetPriority(TIM1_TRG_COM_TIM17_IRQn, 0, 0);
  8008e82:	2200      	movs	r2, #0
- 8008e84:	2101      	movs	r1, #1
+ 8008e84:	2100      	movs	r1, #0
  8008e86:	201a      	movs	r0, #26
  8008e88:	f002 f9cb 	bl	800b222 <HAL_NVIC_SetPriority>
     HAL_NVIC_EnableIRQ(TIM1_TRG_COM_TIM17_IRQn);
