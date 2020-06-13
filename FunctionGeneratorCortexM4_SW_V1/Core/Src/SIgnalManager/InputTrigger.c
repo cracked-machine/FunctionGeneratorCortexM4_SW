@@ -112,6 +112,9 @@ void IT_ArbitrateInputTrigger()
 		IT_SetTriggerStatus(DISABLE_TRIGGER);
 
 		FuncO_ApplyProfileToSignal(eDefaultFuncPreset);
+
+
+
 	}
 	// enable the trigger input
 	else
