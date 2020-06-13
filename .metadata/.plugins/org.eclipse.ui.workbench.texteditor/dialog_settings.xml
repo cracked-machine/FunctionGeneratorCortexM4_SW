@@ -1,30 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="freq_count"/>
+		<item key="selection" value="&quot;&#x09;,&#x09;"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="&#x09;&quot;&#x09;,&#x09;"/>
+			<item value="&#x09;&#x09;{&#x09;&quot;&#x09;"/>
+			<item value="3"/>
+			<item value="volt_measure_store"/>
+			<item value="&#x09;&quot;"/>
+			<item value=" &quot;"/>
+			<item value="&quot;&#x09;"/>
+			<item value="freq_count_index"/>
+			<item value="freq_count_value"/>
+			<item value="eNextToplevelMenuStatus"/>
+			<item value="eNextGainMenuStatus"/>
+			<item value="eNextFreqMenuStatus"/>
 			<item value="recip_freq"/>
 			<item value="counter"/>
 			<item value="htim2"/>
-			<item value="OFFSET"/>
-			<item value="activeInputerTriggerMode"/>
-			<item value="freq_last_encoder_value"/>
-			<item value="SG2"/>
-			<item value="SG1"/>
-			<item value="SG0"/>
-			<item value="DCBIAS_INVERT"/>
-			<item value="FuncPresetEncoderRange"/>
-			<item value="active_sweep_mode"/>
-			<item value="tmpDT"/>
-			<item value="DT_GetRegisterByIndex"/>
-			<item value="typedef enum"/>
 		</list>
 		<list key="replacehistory">
+			<item value="&quot;&#x09;,&#x09;"/>
+			<item value="&#x09;&#x09;{&#x09;&quot;"/>
+			<item value="&#x09;&#x09;{&quot;&#x09;"/>
+			<item value="{&#x09;&quot;&#x09;C0&#x09;&quot;&#x09;,&#x09;0.08&#x09;,&#x09;16.35&#x09;,&#x09;42813&#x09;},&#x0A;{&#x09;&quot;&#x09;C#0&#x09;&quot;&#x09;,&#x09;0.17&#x09;,&#x09;17.32&#x09;,&#x09;40416&#x09;},&#x0A;{&#x09;&quot;&#x09;D0&#x09;&quot;&#x09;,&#x09;0.25&#x09;,&#x09;18.35&#x09;,&#x09;38147&#x09;},&#x0A;{&#x09;&quot;&#x09;D#0&#x09;&quot;&#x09;,&#x09;0.33&#x09;,&#x09;19.45&#x09;,&#x09;35990&#x09;},&#x0A;{&#x09;&quot;&#x09;E0&#x09;&quot;&#x09;,&#x09;0.42&#x09;,&#x09;20.60&#x09;,&#x09;33981&#x09;},&#x0A;{&#x09;&quot;&#x09;F0&#x09;&quot;&#x09;,&#x09;0.50&#x09;,&#x09;21.83&#x09;,&#x09;32066&#x09;},&#x0A;{&#x09;&quot;&#x09;F#0&#x09;&quot;&#x09;,&#x09;0.58&#x09;,&#x09;23.12&#x09;,&#x09;30277&#x09;},&#x0A;{&#x09;&quot;&#x09;G0&#x09;&quot;&#x09;,&#x09;0.67&#x09;,&#x09;24.50&#x09;,&#x09;28571&#x09;},&#x0A;{&#x09;&quot;&#x09;G#0&#x09;&quot;&#x09;,&#x09;0.75&#x09;,&#x09;25.96&#x09;,&#x09;26965&#x09;},&#x0A;{&#x09;&quot;&#x09;A0&#x09;&quot;&#x09;,&#x09;0.83&#x09;,&#x09;27.50&#x09;,&#x09;25455&#x09;},&#x0A;{&#x09;&quot;&#x09;A#0&#x09;&quot;&#x09;,&#x09;0.92&#x09;,&#x09;29.14&#x09;,&#x09;24022&#x09;},&#x0A;{&#x09;&quot;&#x09;B0&#x09;&quot;&#x09;,&#x09;1.00&#x09;,&#x09;30.87&#x09;,&#x09;22676&#x09;},&#x0A;{&#x09;&quot;&#x09;C1&#x09;&quot;&#x09;,&#x09;1.08&#x09;,&#x09;32.70&#x09;,&#x09;21407&#x09;},&#x0A;{&#x09;&quot;&#x09;C#1&#x09;&quot;&#x09;,&#x09;1.17&#x09;,&#x09;34.65&#x09;,&#x09;20202&#x09;},&#x0A;{&#x09;&quot;&#x09;D1&#x09;&quot;&#x09;,&#x09;1.25&#x09;,&#x09;36.71&#x09;,&#x09;19068&#x09;},&#x0A;{&#x09;&quot;&#x09;D#1&#x09;&quot;&#x09;,&#x09;1.33&#x09;,&#x09;38.89&#x09;,&#x09;17999&#x09;},&#x0A;{&#x09;&quot;&#x09;E1&#x09;&quot;&#x09;,&#x09;1.42&#x09;,&#x09;41.20&#x09;,&#x09;16990&#x09;},&#x0A;{&#x09;&quot;&#x09;F1&#x09;&quot;&#x09;,&#x09;1.50&#x09;,&#x09;43.65&#x09;,&#x09;16037&#x09;},&#x0A;{&#x09;&quot;&#x09;F#1&#x09;&quot;&#x09;,&#x09;1.58&#x09;,&#x09;46.25&#x09;,&#x09;15135&#x09;},&#x0A;{&#x09;&quot;&#x09;G1&#x09;&quot;&#x09;,&#x09;1.67&#x09;,&#x09;49.00&#x09;,&#x09;14286&#x09;},&#x0A;{&#x09;&quot;&#x09;G#1&#x09;&quot;&#x09;,&#x09;1.75&#x09;,&#x09;51.91&#x09;,&#x09;13485&#x09;},&#x0A;{&#x09;&quot;&#x09;A1&#x09;&quot;&#x09;,&#x09;1.83&#x09;,&#x09;55.00&#x09;,&#x09;12727&#x09;},&#x0A;{&#x09;&quot;&#x09;A#1&#x09;&quot;&#x09;,&#x09;1.92&#x09;,&#x09;58.27&#x09;,&#x09;12013&#x09;},&#x0A;{&#x09;&quot;&#x09;B1&#x09;&quot;&#x09;,&#x09;2.00&#x09;,&#x09;61.74&#x09;,&#x09;11338&#x09;},&#x0A;{&#x09;&quot;&#x09;C2&#x09;&quot;&#x09;,&#x09;2.08&#x09;,&#x09;65.41&#x09;,&#x09;10702&#x09;},&#x0A;{&#x09;&quot;&#x09;C#2&#x09;&quot;&#x09;,&#x09;2.17&#x09;,&#x09;69.30&#x09;,&#x09;10101&#x09;},&#x0A;{&#x09;&quot;&#x09;D2&#x09;&quot;&#x09;,&#x09;2.25&#x09;,&#x09;73.42&#x09;,&#x09;9534&#x09;},&#x0A;{&#x09;&quot;&#x09;D#2&#x09;&quot;&#x09;,&#x09;2.33&#x09;,&#x09;77.78&#x09;,&#x09;9000&#x09;},&#x0A;{&#x09;&quot;&#x09;E2&#x09;&quot;&#x09;,&#x09;2.42&#x09;,&#x09;82.41&#x09;,&#x09;8494&#x09;},&#x0A;{&#x09;&quot;&#x09;F2&#x09;&quot;&#x09;,&#x09;2.50&#x09;,&#x09;87.31&#x09;,&#x09;8017&#x09;},&#x0A;{&#x09;&quot;&#x09;F#2&#x09;&quot;&#x09;,&#x09;2.58&#x09;,&#x09;92.50&#x09;,&#x09;7568&#x09;},&#x0A;{&#x09;&quot;&#x09;G2&#x09;&quot;&#x09;,&#x09;2.67&#x09;,&#x09;98.00&#x09;,&#x09;7143&#x09;},&#x0A;{&#x09;&quot;&#x09;G#2&#x09;&quot;&#x09;,&#x09;2.75&#x09;,&#x09;103.83&#x09;,&#x09;6742&#x09;},&#x0A;{&#x09;&quot;&#x09;A2&#x09;&quot;&#x09;,&#x09;2.83&#x09;,&#x09;110.00&#x09;,&#x09;6364&#x09;},&#x0A;{&#x09;&quot;&#x09;A#2&#x09;&quot;&#x09;,&#x09;2.92&#x09;,&#x09;116.54&#x09;,&#x09;6007&#x09;},&#x0A;{&#x09;&quot;&#x09;B2&#x09;&quot;&#x09;,&#x09;3.00&#x09;,&#x09;123.47&#x09;,&#x09;5669&#x09;},&#x0A;{&#x09;&quot;&#x09;C3&#x09;&quot;&#x09;,&#x09;3.08&#x09;,&#x09;130.81&#x09;,&#x09;5351&#x09;},&#x0A;{&#x09;&quot;&#x09;C#3&#x09;&quot;&#x09;,&#x09;3.17&#x09;,&#x09;138.59&#x09;,&#x09;5051&#x09;},&#x0A;{&#x09;&quot;&#x09;D3&#x09;&quot;&#x09;,&#x09;3.25&#x09;,&#x09;146.83&#x09;,&#x09;4767&#x09;},&#x0A;{&#x09;&quot;&#x09;D#3&#x09;&quot;&#x09;,&#x09;3.33&#x09;,&#x09;155.56&#x09;,&#x09;4500&#x09;},"/>
+			<item value="adcsteps_measure_Store"/>
+			<item value="&quot;"/>
 			<item value="freq_count"/>
 			<item value="freq"/>
 			<item value="IT_GetActiveTriggerMode()"/>
@@ -34,12 +40,6 @@
 			<item value="OFFSET_ENABLE"/>
 			<item value="FreqO_GetProfileByIndex"/>
 			<item value="DAC2"/>
-			<item value="TIM_CHANNEL_1"/>
-			<item value="Pwm"/>
-			<item value="SM_"/>
-			<item value="SM"/>
-			<item value="ILI9341_Draw_Horizontal_Line"/>
-			<item value="ILI9341_Draw_Pixel"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

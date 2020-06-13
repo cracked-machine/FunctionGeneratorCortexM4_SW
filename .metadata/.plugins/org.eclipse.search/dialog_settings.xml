@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="ENCODER_DEBUG"/>
+			<item key="textPattern" value="trigger_input"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -44,7 +44,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="eEncoder_Direction"/>
+			<item key="textPattern" value="TRIGGER_DATA_SIZE"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -57,7 +57,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="ENCODER_REVERSE"/>
+			<item key="textPattern" value="INPUT_TRIGGER"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -70,11 +70,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="ENCODER_FORWARD"/>
+			<item key="textPattern" value="TIM2"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
-				<item value="*.h"/>
 				<item value="*.c"/>
+				<item value="*.h"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -83,7 +83,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FreqO_MapEncoderPositionToCoarse"/>
+			<item key="textPattern" value="ENCODER_DEBUG"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -96,11 +96,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FreqO_MapEncoderPositionToProfile"/>
+			<item key="textPattern" value="eEncoder_Direction"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
-				<item value="*.c"/>
 				<item value="*.h"/>
+				<item value="*.c"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -109,7 +109,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FreqO_MapEncoderPositionToBothOutput"/>
+			<item key="textPattern" value="ENCODER_REVERSE"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -122,7 +122,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="_setSweepModeDown"/>
+			<item key="textPattern" value="ENCODER_FORWARD"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -135,7 +135,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FreqO_InitProfiles"/>
+			<item key="textPattern" value="FreqO_MapEncoderPositionToCoarse"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -148,11 +148,11 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="DT_InitRegister"/>
+			<item key="textPattern" value="FreqO_MapEncoderPositionToProfile"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
-				<item value="*.h"/>
 				<item value="*.c"/>
+				<item value="*.h"/>
 			</list>
 			<list key="workingSets">
 			</list>
@@ -161,7 +161,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FreqO_ApplyPreset"/>
+			<item key="textPattern" value="FreqO_MapEncoderPositionToBothOutput"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -174,7 +174,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="false"/>
-			<item key="textPattern" value="FuncO_ApplyPresetToAux"/>
+			<item key="textPattern" value="_setSweepModeDown"/>
 			<item key="scope" value="3"/>
 			<list key="fileNamePatterns">
 				<item value="*.h"/>
@@ -205,13 +205,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="volt_measure_store"/>
+			<item value="MAX_VOLT_MEASURE_STORE"/>
+			<item value="INPUT_TIMER"/>
+			<item value="INPUT_TRIGGER"/>
 			<item value="eEncoder_Inversion"/>
 			<item value="ENCODER_INVERSE"/>
 			<item value="ENCODER_NORMAL"/>
-			<item value="FreqO_MapEncoderPositionCoarse"/>
-			<item value="FreqO_MapEncoderPositionToCoarse"/>
-			<item value="FreqO_MapEncoderPositionToProfile"/>
-			<item value="FS_SetSweepModeDown"/>
 		</list>
 	</section>
 	<section name="">

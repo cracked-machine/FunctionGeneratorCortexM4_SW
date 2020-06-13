@@ -142,8 +142,8 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
 		VPP_ApplyProfileToSignal(eTmpVppPreset);
 
 		// pause timer to reAux both outputs
-		OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
-		//HAL_TIM_Base_Stop(&htim8);
+		//OUTPUT_TIMER->CR1 &= ~(TIM_CR1_CEN);
+		HAL_TIM_Base_Stop(&htim8);
 
 		// restart the DAC with the new data
 		HAL_DAC_Stop_DMA(&hdac1, DAC1_CHANNEL_1);
@@ -154,8 +154,8 @@ void FuncO_ApplyProfileToSignal(eOutput_mode pPresetEnum)
 		HAL_DAC_Start_DMA(&hdac2, DAC1_CHANNEL_1, (uint32_t*)SM_GetOutputChannel(AUX_CHANNEL)->dsp_lut_data, SINE_DATA_SIZE, DAC_ALIGN_12B_R);
 
 		// resume timer to reAux both outputs
-		//HAL_TIM_Base_Start(&htim8);
-		OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
+		HAL_TIM_Base_Start(&htim8);
+		//OUTPUT_TIMER->CR1 |= (TIM_CR1_CEN);
 
 
 
