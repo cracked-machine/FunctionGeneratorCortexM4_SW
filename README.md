@@ -31,6 +31,8 @@ Sweep|12.5 sec per step (max)<br>0.59 nanosec per step (min)
 Input trigger range| See "Voltage Measurements" section
 Dimensions|Height:&nbsp;70mm<br>Width:&nbsp;170mm<br>Depth:&nbsp;170mm
 
+---
+
 ### STM32G474RE Pin Assignment
 
 Full STM32Cube report be found [here](readme_diagrams/FunctionGeneratorCortexM4_SW_V1.pdf).
@@ -40,7 +42,11 @@ Full STM32Cube report be found [here](readme_diagrams/FunctionGeneratorCortexM4_
 </center>
 </P>
 
+---
+
 ### Timer Functions
+
+List of timer peripherals and their system functions:
 
 Timer | Function | Notes
 --- | -------- |-----
@@ -53,14 +59,20 @@ TIM15 | Display Manager | Calls DM_UpdateDisplay()
 TIM16 | Button debounce
 TIM17 | Event Manager | Called EM_ProcessEvent()
 
+---
+
+
 ### Graphics Library
 
-This project contains a modified and optimised version of the [STM32-ILI9341](https://github.com/martnak/STM32-ILI9341) library.
-
+This project contains a modified and optimized ILI9341 Library: [Optimized_STM32_ILI9341](https://github.com/cracked-machine/Optimized_STM32_ILI9341)
 
 - Optimized to use direct-to-register SPI for single- and multi-byte transfers (MOSI only). This offers a noticeable performance boost over HAL API.
 - Draw functions were modified to use x,y,width,height parameters.
 - Additional draw functions from STMBasicGUI were included.
+
+The original version of the [STM32-ILI9341](https://github.com/martnak/STM32-ILI9341) library.
+
+---
 
 
 ### Event Manager
@@ -140,6 +152,9 @@ Business logic for Top level menu, Function menu, Frequency menu, Gain menu and 
 <center><img src="readme_diagrams/EventManagerOverview.svg" height="320" width="640"></center>
 
 
+---
+
+
 ### Display Manager
 
 DisplayManager.h defines a standard colour palette used by the graphics library.
@@ -149,6 +164,9 @@ The ILI9341 LCD driver IC  has a very low refresh rate. To avoid flicker, the ba
 The DisplayManager queries the active system state and determines which menu is to be enabled. The business logic of drawing the menus is delegated to seperate files. The system state variable is passed to the file for further sub-menu delegation.
 
 <center><img src="readme_diagrams/DisplayManagerOverview.svg" height="320" width="640"></center>
+
+---
+
 
 ### Output signal
 
@@ -175,6 +193,9 @@ The auxiliary output provides same signal functions plus a pulse width modulated
 The output frequency of all outputs are adjusted simulataneously by modifying the reload register of the trigger timer (TIM8).
 
 A frequency sweep feature is also implemented.
+
+---
+
 
 ### Input Trigger
 
