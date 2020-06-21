@@ -1,13 +1,35 @@
 
-### Graphics Library
+# Function Generator
+<P>
+<center>
+<img src="readme_diagrams/images/FunctionGeneratorPhoto1.jpg" width="500" height="300">
+</center>
+</P>
 
-This project contains a modified and optimised version of the [STM32-ILI9341](https://github.com/martnak/STM32-ILI9341) library.
+This STM32-based instrument has the following features:
 
+- Output signal with synchronized auxiliary output for re-triggering.
+- Input signal trigger using frequency or voltage.
+- User-modifiable output attributes including function, frequency, gain and DC offset.
+- Frequency Sweep mode.
+- RGB colour TFT LCD display.
+- Small form factor.
 
-- Optimized to use direct-to-register SPI for single- and multi-byte transfers (MOSI only). This offers a noticeable performance boost over HAL API.
-- Draw functions were modified to use x,y,width,height parameters.
-- Additional draw functions from STMBasicGUI were included.
+### Specification
 
+|Attribute|Limits|
+|---------|------|
+Power Supply|9 Volts<br>163 mA DC<br>Center-positive 2.1mm barrel jack<br>Reverse-polarity protected
+Input/Output connectors|BNC<br>400W TVS protection
+Function| Sine<br>Square<br>Ramp<br>Reverse Ramp<br>Triangle<br>Pulse<br>PWM (aux output only)
+Frequency|0.1Hz - 100KHz
+Gain|40 dbmV - 79.8 dbmV<BR>0.1 Vpp - 9 Vpp
+DC offset|+/- 9V
+Output Noise (100KHz)| -76  db (10KΩ)<br>-60 db (500Ω)<br>11 nV/√Hz
+Output Current|10 mA nominal<br>20 mA peak
+Sweep|12.5 sec per step (max)<br>0.59 nanosec per step (min)
+Input trigger range| See "Voltage Measurements" section
+Dimensions|Height:&nbsp;70mm<br>Width:&nbsp;170mm<br>Depth:&nbsp;170mm
 
 ### STM32G474RE Pin Assignment
 
@@ -30,6 +52,16 @@ TIM8  | DAC Trigger | Update Event. Preload Enabled
 TIM15 | Display Manager | Calls DM_UpdateDisplay()
 TIM16 | Button debounce
 TIM17 | Event Manager | Called EM_ProcessEvent()
+
+### Graphics Library
+
+This project contains a modified and optimised version of the [STM32-ILI9341](https://github.com/martnak/STM32-ILI9341) library.
+
+
+- Optimized to use direct-to-register SPI for single- and multi-byte transfers (MOSI only). This offers a noticeable performance boost over HAL API.
+- Draw functions were modified to use x,y,width,height parameters.
+- Additional draw functions from STMBasicGUI were included.
+
 
 ### Event Manager
 
@@ -105,7 +137,7 @@ The Event handler for the new event is called and *returns the next system state
 
 Business logic for Top level menu, Function menu, Frequency menu, Gain menu and Offset Bias menu are delegated to separate files.
 
-<center><img src="/readme_diagrams/EventManagerOverview.svg" height="320" width="640"></center>
+<center><img src="readme_diagrams/EventManagerOverview.svg" height="320" width="640"></center>
 
 
 ### Display Manager
@@ -116,7 +148,7 @@ The ILI9341 LCD driver IC  has a very low refresh rate. To avoid flicker, the ba
 
 The DisplayManager queries the active system state and determines which menu is to be enabled. The business logic of drawing the menus is delegated to seperate files. The system state variable is passed to the file for further sub-menu delegation.
 
-<center><img src="/readme_diagrams/DisplayManagerOverview.svg" height="320" width="640"></center>
+<center><img src="readme_diagrams/DisplayManagerOverview.svg" height="320" width="640"></center>
 
 ### Output signal
 
@@ -133,7 +165,7 @@ A PGA was included in the HW design to provide gain at the device output. Howeve
 
 <p>
 <center>
-<img src="/readme_diagrams/AmplitudeFlowchart.svg" height="620" width="480">
+<img src="readme_diagrams/AmplitudeFlowchart.svg" height="620" width="480">
 </center>
 </p>
 
@@ -173,7 +205,7 @@ In "Time Mode" the input signal frequency is measured using reciprocal counting 
 
 <p>
 <center>
-<img src=/images/TIM2InputTriggerCapture.png.svg width=960 height=720>
+<img src="readme_diagrams/images/TIM2InputTriggerCapture.png.svg" width=960 height=720>
 </center>
 </p>
 
