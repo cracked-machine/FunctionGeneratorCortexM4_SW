@@ -9,6 +9,15 @@ This project contains a modified and optimised version of the [STM32-ILI9341](ht
 - Additional draw functions from STMBasicGUI were included.
 
 
+### STM32G474RE Pin Assignment
+
+Full STM32Cube report be found [here](readme_diagrams/FunctionGeneratorCortexM4_SW_V1.pdf).
+<P>
+<center>
+<img src="readme_diagrams/STM32G474RE_PinAssignments.png" width="640" height="480">
+</center>
+</P>
+
 ### Timer Functions
 
 Timer | Function | Notes

@@ -2780,3 +2780,24 @@ arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf
   93308	   8336	   4600	 106244	  19f04	FunctionGeneratorCortexM4_SW_V1.elf
 Finished building: default.size.stdout
  
+22:52:02 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  93308	   8336	   4600	 106244	  19f04	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+22:52:40 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  93308	   8336	   4600	 106244	  19f04	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
+19:51:07 **** Incremental Build of configuration Debug for project FunctionGeneratorCortexM4_SW_V1 ****
+make -j4 all 
+arm-none-eabi-size   FunctionGeneratorCortexM4_SW_V1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  93308	   8336	   4600	 106244	  19f04	FunctionGeneratorCortexM4_SW_V1.elf
+Finished building: default.size.stdout
+ 
