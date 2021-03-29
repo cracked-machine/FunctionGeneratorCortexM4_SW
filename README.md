@@ -31,6 +31,8 @@ Sweep|12.5 sec per step (max)<br>0.59 nanosec per step (min)
 Input trigger range| See "Voltage Measurements" section
 Dimensions|Height:&nbsp;70mm<br>Width:&nbsp;170mm<br>Depth:&nbsp;170mm
 
+Project details for the hardware can be found [here](https://github.com/cracked-machine/FunctionGeneratorCortexM4_HW)
+
 ---
 
 ### STM32G474RE Pin Assignment
